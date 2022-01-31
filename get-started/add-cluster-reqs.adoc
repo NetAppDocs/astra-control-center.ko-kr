@@ -1,0 +1,275 @@
+---
+sidebar: sidebar 
+permalink: get-started/add-cluster-reqs.html 
+keywords: what are astra prerequisites, what is Astra Control, add kubernetes cluster, astra trident version 
+summary: elgiotility 검사를 실행하여 클러스터를 Astra Control Center에 추가할 준비가 되었는지 확인해야 합니다. 
+---
+= 클러스터 추가를 위한 사전 요구사항
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+클러스터를 추가하기 전에 사전 요구 조건이 충족되는지 확인해야 합니다. 또한 자격 검사를 실행하여 클러스터를 Astra Control Center에 추가할 준비가 되었는지 확인해야 합니다.
+
+
+
+== 클러스터를 추가하기 전에 필요한 사항
+
+* 다음 클러스터 유형 중 하나:
++
+** Astra Data Store 또는 ONTAP 9.5 이상이 지원하는 Astra Trident StorageClasses가 있는 OpenShift 4.6, 4.7 또는 4.8을 실행하는 클러스터
+** Rancher 2.5를 실행하는 클러스터
+** Kubernetes 1.19~1.21(1.21.x 포함)을 실행하는 클러스터
++
+클러스터에 원격 측정 서비스를 실행하는 데 사용할 수 있는 1GB 이상의 RAM이 있는 하나 이상의 작업자 노드가 있는지 확인합니다.
+
++
+
+NOTE: 관리되는 컴퓨팅 리소스로 두 번째 OpenShift 4.6, 4.7 또는 4.8 클러스터를 추가하려는 경우 Astra Trident Volume Snapshot 기능이 활성화되어 있는지 확인해야 합니다. 공식 Astra Trident를 참조하십시오 https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["지침"^] Astra Trident를 사용하여 볼륨 스냅샷을 활성화하고 테스트합니다.
+
+
+
+* Astra Control Center(ACC)를 사용하여 앱을 백업 및 복원하기 위해 백업 ONTAP 시스템에 설정된 고급 사용자 및 사용자 ID입니다. ONTAP 명령줄에서 'export-policy rule modify -vserver <storage virtual machine name> -policyname <policy name> -ruleindex 1 -superuser symm--anon 65534'를 실행하십시오
+* 관리자가 정의한 Astra Trident의 볼륨스냅샷 클래스 객체입니다. Astra Trident를 참조하십시오 https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["지침"^] Astra Trident를 사용하여 볼륨 스냅샷을 활성화하고 테스트합니다.
+
+
+
+
+== 자격 검사를 실행합니다
+
+다음 자격 검사를 실행하여 클러스터를 Astra Control Center에 추가할 준비가 되었는지 확인합니다.
+
+.단계
+. Trident 버전을 확인합니다.
++
+[listing]
+----
+kubectl get tridentversions -n trident
+----
++
+Trident가 있으면 다음과 유사한 출력이 표시됩니다.
+
++
+[listing]
+----
+NAME      VERSION
+trident   21.04.0
+----
++
+Trident가 없으면 다음과 유사한 출력이 표시됩니다.
+
++
+[listing]
+----
+error: the server doesn't have a resource type "tridentversions"
+----
++
+
+NOTE: Trident가 설치되지 않았거나 설치된 버전이 최신 버전이 아닌 경우 계속하기 전에 Trident의 최신 버전을 설치해야 합니다. 를 참조하십시오 https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Trident 문서"^] 를 참조하십시오.
+
+. 스토리지 클래스가 지원되는 Trident 드라이버를 사용하고 있는지 확인합니다. 공급자 이름은 csi.trident.netapp.io` 이어야 합니다. 다음 예를 참조하십시오.
++
+[listing]
+----
+kubectl get sc
+NAME                   PROVISIONER                    RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+ontap-gold (default)   csi.trident.netapp.io          Delete          Immediate           true                   5d23h
+thin                   kubernetes.io/vsphere-volume   Delete          Immediate           false                  6d
+----
+
+
+
+
+== 관리자 역할 kubecononfig를 생성합니다
+
+단계를 수행하기 전에 시스템에 다음 사항이 있는지 확인하십시오.
+
+* KUBectl V1.19 이상이 설치되었습니다
+* 활성 컨텍스트에 대한 클러스터 관리자 권한이 있는 활성 kubecononfig
+
+
+.단계
+. 다음과 같이 서비스 계정을 생성합니다.
++
+.. Astractrol-service-account.yaML이라는 서비스 계정 파일을 만듭니다.
++
+필요에 따라 이름 및 네임스페이스를 조정합니다. 여기에서 변경한 경우 다음 단계에서 동일한 변경 사항을 적용해야 합니다.
+
++
+[source, subs="specialcharacters,quotes"]
+----
+*astracontrol-service-account.yaml*
+----
++
+[listing]
+----
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: astracontrol-service-account
+  namespace: default
+----
+.. 서비스 계정 적용:
++
+[listing]
+----
+kubectl apply -f astracontrol-service-account.yaml
+----
+
+
+. 다음과 같이 클러스터 관리자 권한을 부여합니다.
++
+.. astracontrol-clusterrobinding.YAML이라는 ClusterRoleBinding 파일을 만듭니다.
++
+필요에 따라 서비스 계정을 생성할 때 수정된 모든 이름과 네임스페이스를 조정합니다.
+
++
+[source, subs="specialcharacters,quotes"]
+----
+*astracontrol-clusterrolebinding.yaml*
+----
++
+[listing]
+----
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: astracontrol-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: astracontrol-service-account
+  namespace: default
+----
+.. 클러스터 역할 바인딩을 적용합니다.
++
+[listing]
+----
+kubectl apply -f astracontrol-clusterrolebinding.yaml
+----
+
+
+. '<context>'을(를) 설치에 적합한 컨텍스트로 대체하여 서비스 계정 암호를 나열합니다.
++
+[listing]
+----
+kubectl get serviceaccount astracontrol-service-account --context <context> --namespace default -o json
+----
++
+출력의 끝은 다음과 유사합니다.
+
++
+[listing]
+----
+"secrets": [
+{ "name": "astracontrol-service-account-dockercfg-vhz87"},
+{ "name": "astracontrol-service-account-token-r59kr"}
+]
+----
++
+제탑 배열의 각 요소에 대한 지수는 0으로 시작합니다. 위의 예에서, astractrol-service-account-dockercfg-vhz87 인덱스는 0이고, astracontrol-service-account-token-r59kr의 인덱스는 1이 된다. 출력에서 "token"이라는 단어가 포함된 서비스 계정 이름의 인덱스를 기록해 둡니다.
+
+. 다음과 같이 kubecononfig를 생성합니다.
++
+.. create-kubecononfig.sh 파일을 만듭니다. 다음 스크립트 시작 부분의 token_index를 올바른 값으로 바꿉니다.
++
+[source, subs="specialcharacters,quotes"]
+----
+*create-kubeconfig.sh*
+----
++
+[listing]
+----
+# Update these to match your environment.
+# Replace TOKEN_INDEX with the correct value
+# from the output in the previous step. If you
+# didn't change anything else above, don't change
+# anything else here.
+
+SERVICE_ACCOUNT_NAME=astracontrol-service-account
+NAMESPACE=default
+NEW_CONTEXT=astracontrol
+KUBECONFIG_FILE='kubeconfig-sa'
+
+CONTEXT=$(kubectl config current-context)
+
+SECRET_NAME=$(kubectl get serviceaccount ${SERVICE_ACCOUNT_NAME} \
+  --context ${CONTEXT} \
+  --namespace ${NAMESPACE} \
+  -o jsonpath='{.secrets[TOKEN_INDEX].name}')
+TOKEN_DATA=$(kubectl get secret ${SECRET_NAME} \
+  --context ${CONTEXT} \
+  --namespace ${NAMESPACE} \
+  -o jsonpath='{.data.token}')
+
+TOKEN=$(echo ${TOKEN_DATA} | base64 -d)
+
+# Create dedicated kubeconfig
+# Create a full copy
+kubectl config view --raw > ${KUBECONFIG_FILE}.full.tmp
+
+# Switch working context to correct context
+kubectl --kubeconfig ${KUBECONFIG_FILE}.full.tmp config use-context ${CONTEXT}
+
+# Minify
+kubectl --kubeconfig ${KUBECONFIG_FILE}.full.tmp \
+  config view --flatten --minify > ${KUBECONFIG_FILE}.tmp
+
+# Rename context
+kubectl config --kubeconfig ${KUBECONFIG_FILE}.tmp \
+  rename-context ${CONTEXT} ${NEW_CONTEXT}
+
+# Create token user
+kubectl config --kubeconfig ${KUBECONFIG_FILE}.tmp \
+  set-credentials ${CONTEXT}-${NAMESPACE}-token-user \
+  --token ${TOKEN}
+
+# Set context to use token user
+kubectl config --kubeconfig ${KUBECONFIG_FILE}.tmp \
+  set-context ${NEW_CONTEXT} --user ${CONTEXT}-${NAMESPACE}-token-user
+
+# Set context to correct namespace
+kubectl config --kubeconfig ${KUBECONFIG_FILE}.tmp \
+  set-context ${NEW_CONTEXT} --namespace ${NAMESPACE}
+
+# Flatten/minify kubeconfig
+kubectl config --kubeconfig ${KUBECONFIG_FILE}.tmp \
+  view --flatten --minify > ${KUBECONFIG_FILE}
+
+# Remove tmp
+rm ${KUBECONFIG_FILE}.full.tmp
+rm ${KUBECONFIG_FILE}.tmp
+----
+.. Kubernetes 클러스터에 적용할 명령을 소스 하십시오.
++
+[listing]
+----
+source create-kubeconfig.sh
+----
+
+
+. (* 선택 사항 *) kubeconfig의 이름을 클러스터의 의미 있는 이름으로 바꿉니다. 클러스터 자격 증명을 보호합니다.
++
+[listing]
+----
+chmod 700 create-kubeconfig.sh
+mv kubeconfig-sa.txt YOUR_CLUSTER_NAME_kubeconfig
+----
+
+
+
+
+== 다음 단계
+
+이제 필수 구성 요소가 충족되었는지 확인했으므로 이제 수행할 준비가 되었습니다 link:setup_overview.html["클러스터를 추가합니다"^].
+
+[discrete]
+== 자세한 내용을 확인하십시오
+
+* https://docs.netapp.com/us-en/trident/index.html["Trident 문서"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 사용합니다"^]
+

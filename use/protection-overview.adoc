@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: use/protection-overview.html 
+keywords: backup, back up, backup apps, back up apps, snapshots, snapshot an app, take a snapshot, take a backup, view backups, view snapshots, set policy, set schedule, schedule backups, schedule snapshots 
+summary: Astra Control Center에서 사용 가능한 데이터 보호 유형과 이를 사용하여 앱을 보호하는 최선의 방법에 대해 알아보십시오. 
+---
+= 보호 개요
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+
+Astra Control Center를 사용하여 앱에 대한 백업, 클론, 스냅샷 및 보호 정책을 생성할 수 있습니다. 앱을 백업하면 서비스 및 관련 데이터를 가능한 한 사용할 수 있습니다. 재해 시나리오 중에 백업에서 복원하면 애플리케이션 및 관련 데이터를 중단 없이 완벽하게 복구할 수 있습니다. 백업, 클론, 스냅샷을 사용하면 랜섬웨어, 우발적인 데이터 손실 및 환경 재해와 같은 일반적인 위협으로부터 보호할 수 있습니다. link:../concepts/data-protection.html["Astra Control Center에서 사용 가능한 데이터 보호 유형과 사용 시기에 대해 알아보십시오"].
+
+
+
+== 애플리케이션 보호 워크플로우
+
+다음 예제 워크플로를 사용하여 앱 보호를 시작할 수 있습니다.
+
+
+
+==== 모든 앱을 백업합니다
+
+[role="quick-margin-para"]
+앱을 즉시 보호하려면 link:protect-apps.html#create-a-backup["모든 앱의 수동 백업을 생성합니다"].
+
+
+
+==== 각 앱에 대한 보호 정책을 구성합니다
+
+[role="quick-margin-para"]
+향후 백업 및 스냅샷 자동화 link:protect-apps.html#configure-a-protection-policy["각 앱에 대한 보호 정책을 구성합니다"]. 예를 들어 주별 백업과 일별 스냅샷으로 시작할 수 있으며 두 가지 모두에 대해 한 달 동안 보존할 수 있습니다. 수동 백업 및 스냅샷보다 보호 정책을 사용하여 백업 및 스냅샷을 자동화하는 것이 좋습니다.
+
+
+
+==== 선택 사항: 보호 정책을 조정합니다
+
+[role="quick-margin-para"]
+앱과 사용 패턴이 변경되면 최적의 보호 기능을 제공하기 위해 필요에 따라 보호 정책을 조정합니다.
+
+
+
+==== 재해가 발생할 경우 앱을 복원합니다
+
+[role="quick-margin-para"]
+데이터 손실이 발생하면 를 통해 복구할 수 있습니다 link:restore-apps.html["최신 백업을 복원하는 중입니다"] 각 앱에 대해 먼저 그런 다음 최신 스냅샷을 복구할 수 있습니다(사용 가능한 경우).

@@ -1,0 +1,14 @@
+---
+section: concepts
+title: 개념
+entries:
+- title: Astra Control 소개
+  url: "/concepts/intro.html"
+- title: 아키텍처 및 구성 요소
+  url: "/concepts/architecture.html"
+- title: 데이터 보호
+  url: "/concepts/data-protection.html"
+- title: 검증된 vs 표준 애플리케이션
+  url: "/concepts/validated-vs-standard.html"
+- title: 스토리지 클래스 및 PV 크기
+  url: "/concepts/choose-class-and-size.html"

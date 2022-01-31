@@ -1,0 +1,57 @@
+---
+section: use
+title: Astra를 사용하십시오
+entries:
+- title: 앱 관리
+  entries:
+  - title: 앱 관리를 시작합니다
+    url: "/use/manage-apps.html"
+  - title: 사용자 지정 앱을 정의합니다
+    url: "/use/define-custom-app.html"
+- title: 앱 보호
+  entries:
+  - title: 보호 개요
+    url: "/use/protection-overview.html"
+  - title: 앱 보호
+    url: "/use/protect-apps.html"
+  - title: 앱 복원
+    url: "/use/restore-apps.html"
+  - title: 애플리케이션 클론 복제 및 마이그레이션
+    url: "/use/clone-apps.html"
+  - title: 앱 실행 후크 관리
+    url: "/use/execution-hooks.html"
+    entries:
+    - title: 실행 후크 예
+      url: "/use/execution-hook-examples.html"
+- title: 앱 및 클러스터 상태 보기
+  entries:
+  - title: 대시보드 요약
+    url: "/use/view-dashboard.html"
+  - title: 클러스터 상태 및 세부 정보
+    url: "/use/view-clusters.html"
+  - title: 앱 상태 및 세부 정보
+    url: "/use/view-apps.html"
+- title: 계정을 관리합니다
+  entries:
+  - title: 사용자 관리
+    url: "/use/manage-users.html"
+  - title: 알림을 관리합니다
+    url: "/use/manage-notifications.html"
+  - title: 자격 증명 관리
+    url: "/use/manage-credentials.html"
+  - title: 기존 라이센스를 업데이트합니다
+    url: "/use/update-licenses.html"
+- title: 버킷을 관리합니다
+  url: "/use/manage-buckets.html"
+- title: 스토리지 백엔드를 관리합니다
+  url: "/use/manage-backend.html"
+- title: 인프라 모니터링 및 보호
+  url: "/use/monitor-protect.html"
+- title: 기존 라이센스를 업데이트합니다
+  url: "/use/update-licenses.html"
+- title: 앱 및 클러스터 관리를 취소합니다
+  url: "/use/unmanage.html"
+- title: Astra Control Center를 업그레이드합니다
+  url: "/use/upgrade-acc.html"
+- title: Astra Control Center를 제거합니다
+  url: "/use/uninstall_acc.html"

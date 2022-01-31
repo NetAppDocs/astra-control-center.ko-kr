@@ -1,0 +1,599 @@
+---
+sidebar: sidebar 
+permalink: use/upgrade-acc.html 
+keywords: astra upgrade, upgrade astra control center, how to upgrade astra control, update 
+summary: Astra Control Center를 업그레이드하려면 설명된 단계에 따라 번들을 다운로드하고 업그레이드합니다. 
+---
+= Astra Control Center를 업그레이드합니다
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+Astra Control Center를 업그레이드하려면 NetApp Support 사이트에서 설치 번들을 다운로드하고 해당 지침에 따라 Astra Control Center 구성 요소를 업그레이드하십시오. 이 절차를 사용하여 인터넷에 연결되거나 공기가 연결된 환경에서 Astra Control Center를 업그레이드할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* link:../get-started/requirements.html["업그레이드를 시작하기 전에 운영 환경이 Astra Control Center 배포에 대한 최소 요구 사항을 충족하는지 확인하십시오"].
+* 모든 클러스터 운영자가 양호한 상태이며 사용 가능한지 확인합니다.
++
+OpenShift 예:
+
++
+[listing]
+----
+oc get clusteroperators
+----
+* 모든 API 서비스가 정상 상태이며 사용 가능한지 확인합니다.
++
+OpenShift 예:
+
++
+[listing]
+----
+oc get apiservices
+----
+* Astra Control Center에서 로그아웃합니다.
+
+
+Astra Control Center 업그레이드 프로세스는 다음과 같은 고급 단계를 안내합니다.
+
+* <<Download the Astra Control Center bundle>>
+* <<Unpack the bundle and change directory>>
+* <<Add the images to your local registry>>
+* <<Install the updated Astra Control Center operator>>
+* <<Upgrade Astra Control Center>>
+* <<Upgrade third-party services>>
+* <<Verify system status>>
+
+
+
+IMPORTANT: Astra Control Center POD를 모두 삭제하지 않도록 업그레이드 프로세스 내내 다음 명령을 실행하지 마십시오: "kubctl delete -f Astra_control_center_operator_deploy.YAML
+
+
+TIP: 스케줄, 백업 및 스냅샷이 실행되고 있지 않은 경우 유지보수 창에서 업그레이드를 수행합니다.
+
+
+NOTE: Docker Engine 대신 Red Hat의 Podman 명령을 사용하는 경우 Docker 명령 대신 Podman 명령을 사용할 수 있습니다.
+
+
+
+== Astra Control Center 번들을 다운로드합니다
+
+. 에서 Astra Control Center 업그레이드 번들("Astra-control-center-[version].tar.gz")을 다운로드합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support 사이트"^].
+. (선택 사항) 다음 명령을 사용하여 번들의 서명을 확인합니다.
++
+[listing]
+----
+openssl dgst -sha256 -verify astra-control-center[version].pub -signature <astra-control-center[version].sig astra-control-center[version].tar.gz
+----
+
+
+
+
+== 번들의 포장을 풀고 디렉토리를 변경합니다
+
+. 이미지 추출:
++
+[listing]
+----
+tar -vxzf astra-control-center-[version].tar.gz
+----
+. Astra 디렉토리로 변경합니다.
++
+[listing]
+----
+cd astra-control-center-[version]
+----
+
+
+
+
+== 이미지를 로컬 레지스트리에 추가합니다
+
+. Astra Control Center 이미지 디렉토리의 파일을 로컬 레지스트리에 추가합니다.
++
+
+NOTE: 아래 이미지의 자동 로드에 대한 샘플 스크립트를 참조하십시오.
+
++
+.. Docker 레지스트리에 로그인합니다.
++
+[listing]
+----
+docker login [your_registry_path]
+----
+.. Docker에 이미지를 로드합니다.
+.. 이미지에 태그를 지정합니다.
+.. [[substep_image_local_registry_push]] 이미지를 로컬 레지스트리에 푸시합니다.
++
+[listing]
+----
+export REGISTRY=[your_registry_path]
+for astraImageFile in $(ls images/*.tar)
+  # Load to local cache. And store the name of the loaded image trimming the 'Loaded images: '
+  do astraImage=$(docker load --input ${astraImageFile} | sed 's/Loaded image: //')
+  astraImage=$(echo ${astraImage} | sed 's!localhost/!!')
+  # Tag with local image repo.
+  docker tag ${astraImage} ${REGISTRY}/${astraImage}
+  # Push to the local repo.
+  docker push ${REGISTRY}/${astraImage}
+done
+----
+
+
+
+
+
+
+== 업데이트된 Astra Control Center 운영자를 설치합니다
+
+. Astra Control Center 운영자 배포 YAML('Astra_control_center_operator_deploy.YAML')을 편집하여 현지 등록부와 비밀을 참조하십시오.
++
+[listing]
+----
+vim astra_control_center_operator_deploy.yaml
+----
++
+.. 인증이 필요한 레지스트리를 사용하는 경우 'imagePullSecrets:[]'의 기본 줄을 다음과 같이 바꿉니다.
++
+[listing]
+----
+imagePullSecrets:
+- name: <name_of_secret_with_creds_to_local_registry>
+----
+.. kuby-RBAC-proxy 이미지의 [your_registry_path]를 이미지를 에서 푸시한 레지스트리 경로로 변경합니다 <<substep_image_local_registry_push,이전 단계>>.
+.. "acc-operator-controller-manager" 이미지의 [your_registry_path]를 이미지를 에서 푸시한 레지스트리 경로로 변경합니다 <<substep_image_local_registry_push,이전 단계>>.
+
+
++
+[listing, subs="+quotes"]
+----
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    control-plane: controller-manager
+  name: acc-operator-controller-manager
+  namespace: netapp-acc-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      control-plane: controller-manager
+  template:
+    metadata:
+      labels:
+        control-plane: controller-manager
+    spec:
+      containers:
+      - args:
+        - --secure-listen-address=0.0.0.0:8443
+        - --upstream=http://127.0.0.1:8080/
+        - --logtostderr=true
+        - --v=10
+        *image: [your_registry_path]/kube-rbac-proxy:v4.8.0*
+        name: kube-rbac-proxy
+        ports:
+        - containerPort: 8443
+          name: https
+      - args:
+        - --health-probe-bind-address=:8081
+        - --metrics-bind-address=127.0.0.1:8080
+        - --leader-elect
+        command:
+        - /manager
+        env:
+        - name: ACCOP_LOG_LEVEL
+          value: "2"
+        *image: [your_registry_path]/acc-operator:[version x.y.z]*
+        imagePullPolicy: IfNotPresent
+      *imagePullSecrets: []*
+----
+. 업데이트된 Astra Control Center 운영자를 설치합니다.
++
+[listing]
+----
+kubectl apply -f astra_control_center_operator_deploy.yaml
+----
++
+샘플 반응:
+
++
+[listing]
+----
+namespace/netapp-acc-operator unchanged
+customresourcedefinition.apiextensions.k8s.io/astracontrolcenters.astra.netapp.io configured
+role.rbac.authorization.k8s.io/acc-operator-leader-election-role unchanged
+clusterrole.rbac.authorization.k8s.io/acc-operator-manager-role configured
+clusterrole.rbac.authorization.k8s.io/acc-operator-metrics-reader unchanged
+clusterrole.rbac.authorization.k8s.io/acc-operator-proxy-role unchanged
+rolebinding.rbac.authorization.k8s.io/acc-operator-leader-election-rolebinding unchanged
+clusterrolebinding.rbac.authorization.k8s.io/acc-operator-manager-rolebinding configured
+clusterrolebinding.rbac.authorization.k8s.io/acc-operator-proxy-rolebinding unchanged
+configmap/acc-operator-manager-config unchanged
+service/acc-operator-controller-manager-metrics-service unchanged
+deployment.apps/acc-operator-controller-manager configured
+----
+
+
+
+
+== Astra Control Center를 업그레이드합니다
+
+. Astra Control Center 사용자 정의 자원(CR)을 편집하여 Astra version('epec' 내부의 astraVersion) 번호를 최신 버전으로 변경합니다.
++
+[listing]
+----
+kubectl edit acc -n [netapp-acc or custom namespace]
+----
++
+
+NOTE: Astra Control Center 업그레이드를 위해서는 Astra 버전을 변경해야 합니다. 레지스트리 경로는 에서 이미지를 푸시한 레지스트리 경로와 일치해야 합니다 <<substep_image_local_registry_push,이전 단계>>.
+
+. 포드가 종료되고 다시 사용 가능한지 확인합니다.
++
+[listing]
+----
+watch kubectl get pods -n [netapp-acc or custom namespace]
+----
+. 모든 시스템 구성 요소가 성공적으로 업그레이드되었는지 확인합니다.
++
+[listing]
+----
+kubectl get pods -n [netapp-acc or custom namespace]
+----
++
+각 포드는 최근 러닝과 나이의 상태를 가져야 합니다. 시스템 포드를 구축하는 데 몇 분 정도 걸릴 수 있습니다.
+
++
+샘플 반응:
+
++
+[listing]
+----
+NAME                                         READY   STATUS    RESTARTS   AGE
+acc-helm-repo-5f75c5f564-bzqmt             1/1     Running   0          11m
+activity-6b8f7cccb9-mlrn4                  1/1     Running   0          9m2s
+api-token-authentication-6hznt             1/1     Running   0          8m50s
+api-token-authentication-qpfgb             1/1     Running   0          8m50s
+api-token-authentication-sqnb7             1/1     Running   0          8m50s
+asup-5578bbdd57-dxkbp                      1/1     Running   0          9m3s
+authentication-56bff4f95d-mspmq            1/1     Running   0          7m31s
+bucketservice-6f7968b95d-9rrrl             1/1     Running   0          8m36s
+cert-manager-5f6cf4bc4b-82khn              1/1     Running   0          6m19s
+cert-manager-cainjector-76cf976458-sdrbc   1/1     Running   0          6m19s
+cert-manager-webhook-5b7896bfd8-2n45j      1/1     Running   0          6m19s
+cloud-extension-749d9f684c-8bdhq           1/1     Running   0          9m6s
+cloud-insights-service-7d58687d9-h5tzw     1/1     Running   2          8m56s
+composite-compute-968c79cb5-nv7l4          1/1     Running   0          9m11s
+composite-volume-7687569985-jg9gg          1/1     Running   0          8m33s
+credentials-5c9b75f4d6-nx9cz               1/1     Running   0          8m42s
+entitlement-6c96fd8b78-zt7f8               1/1     Running   0          8m28s
+features-5f7bfc9f68-gsjnl                  1/1     Running   0          8m57s
+fluent-bit-ds-h88p7                        1/1     Running   0          7m22s
+fluent-bit-ds-krhnj                        1/1     Running   0          7m23s
+fluent-bit-ds-l5bjj                        1/1     Running   0          7m22s
+fluent-bit-ds-lrclb                        1/1     Running   0          7m23s
+fluent-bit-ds-s5t4n                        1/1     Running   0          7m23s
+fluent-bit-ds-zpr6v                        1/1     Running   0          7m22s
+graphql-server-5f5976f4bd-vbb4z            1/1     Running   0          7m13s
+identity-56f78b8f9f-8h9p9                  1/1     Running   0          8m29s
+influxdb2-0                                1/1     Running   0          11m
+krakend-6f8d995b4d-5khkl                   1/1     Running   0          7m7s
+license-5b5db87c97-jmxzc                   1/1     Running   0          9m
+login-ui-57b57c74b8-6xtv7                  1/1     Running   0          7m10s
+loki-0                                     1/1     Running   0          11m
+monitoring-operator-9dbc9c76d-8znck        2/2     Running   0          7m33s
+nats-0                                     1/1     Running   0          11m
+nats-1                                     1/1     Running   0          10m
+nats-2                                     1/1     Running   0          10m
+nautilus-6b9d88bc86-h8kfb                  1/1     Running   0          8m6s
+nautilus-6b9d88bc86-vn68r                  1/1     Running   0          8m35s
+openapi-b87d77dd8-5dz9h                    1/1     Running   0          9m7s
+polaris-consul-consul-5ljfb                1/1     Running   0          11m
+polaris-consul-consul-s5d5z                1/1     Running   0          11m
+polaris-consul-consul-server-0             1/1     Running   0          11m
+polaris-consul-consul-server-1             1/1     Running   0          11m
+polaris-consul-consul-server-2             1/1     Running   0          11m
+polaris-consul-consul-twmpq                1/1     Running   0          11m
+polaris-mongodb-0                          2/2     Running   0          11m
+polaris-mongodb-1                          2/2     Running   0          10m
+polaris-mongodb-2                          2/2     Running   0          10m
+polaris-ui-84dc87847f-zrg8w                1/1     Running   0          7m12s
+polaris-vault-0                            1/1     Running   0          11m
+polaris-vault-1                            1/1     Running   0          11m
+polaris-vault-2                            1/1     Running   0          11m
+public-metrics-657698b66f-67pgt            1/1     Running   0          8m47s
+storage-backend-metrics-6848b9fd87-w7x8r   1/1     Running   0          8m39s
+storage-provider-5ff5868cd5-r9hj7          1/1     Running   0          8m45s
+telegraf-ds-dw4hg                          1/1     Running   0          7m23s
+telegraf-ds-k92gn                          1/1     Running   0          7m23s
+telegraf-ds-mmxjl                          1/1     Running   0          7m23s
+telegraf-ds-nhs8s                          1/1     Running   0          7m23s
+telegraf-ds-rj7lw                          1/1     Running   0          7m23s
+telegraf-ds-tqrkb                          1/1     Running   0          7m23s
+telegraf-rs-9mwgj                          1/1     Running   0          7m23s
+telemetry-service-56c49d689b-ffrzx         1/1     Running   0          8m42s
+tenancy-767c77fb9d-g9ctv                   1/1     Running   0          8m52s
+traefik-5857d87f85-7pmx8                   1/1     Running   0          6m49s
+traefik-5857d87f85-cpxgv                   1/1     Running   0          5m34s
+traefik-5857d87f85-lvmlb                   1/1     Running   0          4m33s
+traefik-5857d87f85-t2xlk                   1/1     Running   0          4m33s
+traefik-5857d87f85-v9wpf                   1/1     Running   0          7m3s
+trident-svc-595f84dd78-zb8l6               1/1     Running   0          8m54s
+vault-controller-86c94fbf4f-krttq          1/1     Running   0          9m24s
+----
+. Astra 상태 조건에 업그레이드가 완료되었으며 준비가 되었음을 나타내는지 확인합니다.
++
+[listing]
+----
+kubectl get -o yaml -n [netapp-acc or custom namespace] astracontrolcenters.astra.netapp.io astra
+----
++
+응답:
+
++
+[listing]
+----
+conditions:
+  - lastTransitionTime: "2021-10-25T18:49:26Z"
+    message: Astra is deployed
+    reason: Complete
+    status: "True"
+    type: Ready
+  - lastTransitionTime: "2021-10-25T18:49:26Z"
+    message: Upgrading succeeded.
+    reason: Complete
+    status: "False"
+    type: Upgrading
+----
+
+
+
+
+== 타사 서비스를 업그레이드합니다
+
+타사 서비스 Traefik 및 Cert-manager는 이전 업그레이드 단계 중에 업그레이드되지 않습니다. 여기에 설명된 절차를 사용하여 필요에 따라 업그레이드하거나 시스템에 필요한 경우 기존 서비스 버전을 유지할 수 있습니다. 권장되는 Traefik 및 Certs-manager 업그레이드 순서는 다음과 같습니다.
+
+. <<Set up acc-helm-repo to upgrade Traefik and Cert-manager>>
+. <<Update Traefik service using acc-helm-repo>>
+. <<Update the Cert-manager service>>
+
+
+
+
+== Traefik 및 Cert-manager를 업그레이드하기 위해 acc-helm-repo를 설정합니다
+
+. 로컬 Docker 캐시에 로드된 'enterprise-helm-repo'를 찾습니다.
++
+[listing]
+----
+docker images enterprise-helm-repo
+----
++
+응답:
+
++
+[listing]
+----
+REPOSITORY             TAG         IMAGE ID       CREATED        SIZE
+enterprise-helm-repo   21.10.218   7a182d6b30f3   20 hours ago   464MB
+----
+. 이전 단계의 태그를 사용하여 컨테이너를 시작합니다.
++
+[listing]
+----
+docker run -dp 8082:8080 enterprise-helm-repo:21.10.218
+----
++
+응답:
+
++
+[listing]
+----
+940436e67fa86d2c4559ac4987b96bb35588313c2c9ddc9cec195651963f08d8
+----
+. 로컬 호스트 리포지토리에 Helm repo를 추가합니다.
++
+[listing]
+----
+helm repo add acc-helm-repo http://localhost:8082/
+----
++
+응답:
+
++
+[listing]
+----
+"acc-helm-repo" has been added to your repositories
+----
+. 다음 Python 스크립트를 파일로 저장합니다(예: 'et_previous_values.py').
++
+
+NOTE: 이 Python 스크립트는 Helm 값을 유지하기 위해 이후 업그레이드 단계에서 사용되는 두 개의 파일을 만듭니다.
+
++
+[listing]
+----
+#!/usr/bin/env python3
+import json
+import os
+
+NAMESPACE = "netapp-acc"
+
+os.system(f"helm get values traefik -n {NAMESPACE} -o json > traefik_values.json")
+os.system(f"helm get values cert-manager -n {NAMESPACE} -o json > cert_manager_values.json")
+
+# reformat traefik values
+f = open("traefik_values.json", "r")
+traefik_values = {'traefik': json.load(f)}
+f.close()
+
+with open('traefik_values.json', 'w') as output_file:
+    json.dump(traefik_values, output_file)
+
+# reformat cert-manager values
+f = open("cert_manager_values.json", "r")
+cm_values = {'cert-manager': json.load(f)}
+f.close()
+
+cm_values['global'] = cm_values['cert-manager']['global']
+del cm_values['cert-manager']['global']
+
+with open('cert_manager_values.json', 'w') as output_file:
+    json.dump(cm_values, output_file)
+
+print('Done')
+----
+. 스크립트를 실행합니다.
++
+[listing]
+----
+python3.7 ./set_previous_values.py
+----
+
+
+
+
+== acc-helm-repo를 사용하여 Traefik 서비스를 업데이트합니다
+
+
+NOTE: 이미 이(가) 있어야 합니다 <<Set up acc-helm-repo to upgrade Traefik and Cert-manager,acc-helm-repo 설정>> 다음 절차를 완료하기 전에
+
+. GNU wget과 같은 안전한 파일 전송 도구를 사용하여 Traefik 번들을 다운로드합니다.
++
+[listing]
+----
+wget http://localhost:8082/traefik-0.2.0.tgz
+----
+. 이미지 추출:
++
+[listing]
+----
+tar -vxzf traefik-0.2.0.tgz
+----
+. Traefik CRD 적용:
++
+[listing]
+----
+kubectl apply -f ./traefik/charts/traefik/crds/
+----
+. 업그레이드된 Traefik에 사용할 Helm 차트 버전을 찾습니다.
++
+[listing]
+----
+helm search repo acc-helm-repo/traefik
+----
++
+응답:
+
++
+[listing]
+----
+NAME                                    CHART VERSION   APP VERSION DESCRIPTION
+acc-helm-repo/traefik                 0.2.0           2.5.3       Helm chart for Traefik Ingress controller
+acc-helm-repo/traefik-ingressroutes   0.2.0           2.5.3       A Helm chart for Kubernetes
+----
+. 업그레이드용 traefik_values.json 파일 검증:
++
+.. traefik_values.json 파일을 엽니다.
+.. imagePullSecret 필드에 값이 있는지 확인합니다. 비어 있는 경우 파일에서 다음 텍스트를 제거합니다.
++
+[listing]
+----
+"imagePullSecrets": [{"name": ""}],
+----
+.. traefik 영상이 올바른 위치로 이동되고 올바른 이름이 지정되었는지 확인합니다.
++
+[listing]
+----
+image: [your_registry_path]/traefik
+----
+
+
+. Traefik 구성 업그레이드:
++
+[listing]
+----
+helm upgrade --version 0.2.0 --namespace netapp-acc -f traefik_values.json traefik acc-helm-repo/traefik
+----
++
+응답:
+
++
+[listing]
+----
+Release "traefik" has been upgraded. Happy Helming!
+NAME: traefik
+LAST DEPLOYED: Mon Oct 25 22:53:19 2021
+NAMESPACE: netapp-acc
+STATUS: deployed
+REVISION: 2
+TEST SUITE: None
+----
+
+
+
+
+== 인증서 관리자 서비스를 업데이트합니다
+
+
+NOTE: 을(를) 이미 완료해야 합니다 <<Update Traefik service using acc-helm-repo,Traefik 업데이트>> 및 <<Set up acc-helm-repo to upgrade Traefik and Cert-manager,Helm에 acc-helm-repo 추가>> 다음 절차를 완료하기 전에
+
+. 업그레이드된 인증서 관리자에 사용할 Helm Chart 버전을 찾습니다.
++
+[listing]
+----
+helm search repo acc-helm-repo/cert-manager
+----
++
+응답:
+
++
+[listing]
+----
+NAME CHART VERSION APP VERSION DESCRIPTION
+acc-helm-repo/cert-manager 0.3.0 v1.5.4 A Helm chart for cert-manager
+acc-helm-repo/cert-manager-certificates 0.1.0 1.16.0 A Helm chart for Kubernetes
+----
+. 업그레이드할 cert_manager_values.json 파일을 확인합니다.
++
+.. cert_manager_values.json 파일을 엽니다.
+.. imagePullSecret 필드에 값이 있는지 확인합니다. 비어 있는 경우 파일에서 다음 텍스트를 제거합니다.
++
+[listing]
+----
+"imagePullSecrets": [{"name": ""}],
+----
+.. 인증서 관리자 이미지 3개가 올바른 위치로 리디렉션되고 올바른 이름이 있는지 확인합니다.
+
+
+. Cert-Manager 구성 업그레이드:
++
+[listing]
+----
+helm upgrade --version 0.3.0 --namespace netapp-acc -f cert_manager_values.json cert-manager acc-helm-repo/cert-manager
+----
++
+응답:
+
++
+[listing]
+----
+Release "cert-manager" has been upgraded. Happy Helming!
+NAME: cert-manager
+LAST DEPLOYED: Tue Nov 23 11:20:05 2021
+NAMESPACE: netapp-acc
+STATUS: deployed
+REVISION: 2
+TEST SUITE: None
+----
+
+
+
+
+== 시스템 상태를 확인합니다
+
+. Astra Control Center에 로그인합니다.
+. 모든 관리되는 클러스터와 앱이 여전히 존재하고 보호되고 있는지 확인합니다.
+

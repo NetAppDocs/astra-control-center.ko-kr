@@ -1,0 +1,310 @@
+---
+sidebar: sidebar 
+permalink: release-notes/known-issues.html 
+keywords: astra, control center, bugs, known issues, problems 
+summary: 알려진 문제점은 이 제품 릴리스를 성공적으로 사용하지 못하게 만들 수 있는 문제를 식별합니다. 
+---
+= 알려진 문제
+:hardbreaks:
+:source-highlighter: highlight.js
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+알려진 문제점은 이 제품 릴리스를 성공적으로 사용하지 못하게 만들 수 있는 문제를 식별합니다.
+
+현재 릴리즈에는 다음과 같은 알려진 문제가 영향을 줍니다.
+
+* <<App with user-defined label goes into "removed" state>>
+* <<Unable to stop running app backup>>
+* <<During app restore from backup Trident creates a larger PV than the original PV>>
+* <<Clone performance impacted by large persistent volumes>>
+* <<App clones fail using a specific version of PostgreSQL>>
+* <<App clones fail when using Service Account level OCP Security Context Constraints (SCC)>>
+* <<Reusing buckets between instances of Astra Control Center causes failures>>
+* <<Selecting a bucket provider type with credentials for another type causes data protection failures>>
+* <<Backups and snapshots might not be retained during removal of an Astra Control Center instance>>
+* link:known-issues.html#clone-operation-cant-use-other-buckets-besides-the-default["클론 작업에서는 기본값 외에 다른 버킷을 사용할 수 없습니다"]
+* <<Managing a cluster with Astra Control Center fails when default kubeconfig file contains more than one context>>
+* <<500 internal service error when attempting Trident app data management>>
+* <<Custom app execution hook scripts time out and cause post-snapshot scripts not to execute>>
+* link:known-issues.html#cant-determine-asup-tar-bundle-status-in-scaled-environment["스케일된 환경에서 ASUP tar 번들 상태를 확인할 수 없습니다"]
+* <<Snapshots eventually begin to fail when using external-snapshotter version 4.2.0>>
+* <<Simultaneous app restore operations in the same namespace can fail>>
+* <<Upgrade fails if source version uses a container image registry that does not require authentication and target version uses a container image registry that requires authentication>>
+* <<Uninstall of Astra Control Center fails to clean up the monitoring-operator pod on the managed cluster>>
+* <<Uninstall of Astra Control Center fails to clean up Traefik CRDs>>
+
+
+
+
+== 사용자 정의 라벨이 있는 앱은 "제거됨" 상태로 전환됩니다
+
+k8s 레이블이 없는 앱을 정의하면 Astra Control Center에서 앱을 생성, 관리 및 즉시 제거합니다. 이를 방지하려면 Astra Control Center에서 앱을 관리하는 후 POD 및 리소스에 k8s 레이블을 추가합니다.
+
+
+
+== 앱 백업 실행을 중지할 수 없습니다
+
+실행 중인 백업을 중지할 방법은 없습니다. 백업을 삭제해야 하는 경우 백업이 완료될 때까지 기다린 다음 의 지침을 따르십시오 link:../use/protect-apps.html#delete-backups["백업을 삭제합니다"]. 실패한 백업을 삭제하려면 를 사용합니다 link:https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 참조하십시오"^].
+
+
+
+== 백업 Trident에서 앱을 복원하는 동안 원본 PV보다 더 큰 PV가 생성됩니다
+
+백업을 생성한 후 영구 볼륨의 크기를 조정한 다음 해당 백업에서 복원하는 경우 영구 볼륨 크기는 백업 크기를 사용하는 대신 PV의 새 크기와 일치합니다.
+
+
+
+== 대규모 영구 볼륨의 클론 성능에 영향을 줍니다
+
+오브젝트 저장소에 대한 클러스터 액세스에 따라 매우 크고 사용되는 영구 볼륨의 클론이 간헐적으로 느려질 수 있습니다. 클론이 멈추고 30분 이상 데이터가 복제되지 않은 경우 Astra Control이 클론 작업을 종료합니다.
+
+
+
+== 특정 버전의 PostgreSQL을 사용하여 앱 클론이 실패합니다
+
+동일한 클러스터 내의 앱 클론은 Bitnami PostgreSQL 11.5.0 차트와 함께 일관되게 실패합니다. 클론을 성공적으로 생성하려면 이전 또는 이후 버전의 차트를 사용하십시오.
+
+
+
+== 서비스 계정 수준 OCP SCC(Security Context Constraints)를 사용할 때 앱 클론이 실패함
+
+OCP 클러스터의 네임스페이스 내에서 서비스 계정 수준에서 원래 보안 컨텍스트 제약 조건이 구성된 경우 애플리케이션 클론이 실패할 수 있습니다. 애플리케이션 클론이 실패하면 Astra Control Center의 Managed Applications 영역에 상태가 "제거됨"으로 표시됩니다. 를 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/Application_clone_is_failing_for_an_application_in_Astra_Control_Center["기술 자료 문서를 참조하십시오"] 를 참조하십시오.
+
+
+
+== 애플리케이션 클론을 세트 스토리지 클래스로 구축한 후에는 애플리케이션 클론이 실패합니다
+
+애플리케이션이 명시적으로 설정된 스토리지 클래스(예: 'helm install...-set global.storageClass=NetApp-cvs-perf-extreme')로 구축된 후 애플리케이션을 복제하려는 이후에 타겟 클러스터에 원래 지정된 스토리지 클래스가 있어야 합니다. 명시적으로 설정된 스토리지 클래스를 가진 애플리케이션을 동일한 스토리지 클래스가 없는 클러스터로 클론 복제하면 실패합니다. 이 시나리오에서는 복구 단계가 없습니다.
+
+
+
+== Astra Control Center 인스턴스 간에 버킷을 재사용하면 오류가 발생합니다
+
+다른 설치 또는 이전에 Astra Control Center에서 사용한 버킷을 재사용하려는 경우 백업 및 복원 작업이 실패합니다. 다른 버킷을 사용하거나 이전에 사용한 버킷을 완전히 청소해야 합니다. Astra Control Center 인스턴스 간에는 버킷을 공유할 수 없습니다.
+
+
+
+== 다른 유형에 대한 자격 증명이 있는 버킷 공급자 유형을 선택하면 데이터 보호 장애가 발생합니다
+
+버킷을 추가할 때 올바른 버킷 공급자를 선택하고 해당 공급자에 대한 올바른 자격 증명을 입력합니다. 예를 들어, UI에서 NetApp ONTAP S3를 유형으로 받아들이고 StorageGRID 자격 증명을 받아들이지만, 이 버킷을 사용한 이후의 모든 애플리케이션 백업 및 복원이 실패합니다.
+
+
+
+== Astra Control Center 인스턴스를 제거하는 동안 백업 및 스냅샷이 보존되지 않을 수 있습니다
+
+평가 라이센스가 있는 경우 ASUP를 보내지 않을 경우 Astra Control Center에 장애가 발생할 경우 데이터 손실을 방지하기 위해 계정 ID를 저장해야 합니다.
+
+
+
+== 클론 작업은 기본값 외에 다른 버킷을 사용할 수 없습니다
+
+애플리케이션 백업 또는 애플리케이션 복구 중에 버킷 ID를 선택적으로 지정할 수 있습니다. 그러나 애플리케이션 클론 작업에서는 항상 정의된 기본 버킷을 사용합니다. 클론의 버킷을 변경할 수 있는 옵션은 없습니다. 어떤 버킷이 사용되는지 제어하려는 경우 이 두 가지 방법을 사용할 수 있습니다 link:../use/manage-buckets.html#edit-a-bucket["버킷 기본값을 변경합니다"] 또는 을 수행합니다  뒤에 가 있습니다  별도.
+
+
+
+== 기본 kubecononfig 파일에 컨텍스트가 두 개 이상 포함되어 있으면 Astra Control Center를 사용하여 클러스터를 관리할 수 없습니다
+
+2개 이상의 클러스터와 컨텍스트를 사용하여 kubeconfig를 사용할 수 없습니다. 를 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/Managing_cluster_with_Astra_Control_Center_may_fail_when_using_default_kubeconfig_file_contains_more_than_one_context["기술 자료 문서를 참조하십시오"] 를 참조하십시오.
+
+
+
+== Trident 앱 데이터 관리를 시도할 때 500 내부 서비스 오류가 발생했습니다
+
+앱 클러스터의 Trident가 오프라인 상태가 되고 다시 온라인 상태가 되고 앱 데이터 관리를 시도할 때 500개의 내부 서비스 오류가 발생하는 경우 앱 클러스터의 모든 Kubernetes 노드를 재시작하여 기능을 복원합니다.
+
+
+
+== 사용자 지정 앱 실행 후크 스크립트가 시간 초과되어 스냅샷 후 스크립트가 실행되지 않습니다
+
+실행 후크를 실행하는 데 25분 이상 걸리는 경우 후크에 장애가 발생하고 반환 코드가 "N/A"인 이벤트 로그 항목이 생성됩니다. 영향을 받는 모든 스냅샷은 시간 초과로 표시되며, 그 결과로 이벤트 로그 항목이 시간 초과로 표시됩니다.
+
+실행 후크는 실행 중인 응용 프로그램의 기능을 줄이거나 완전히 비활성화하기 때문에 사용자 지정 실행 후크가 실행되는 시간을 최소화해야 합니다.
+
+
+
+== 스케일된 환경에서 ASUP tar 번들 상태를 확인할 수 없습니다
+
+ASUP 수집 과정에서 UI의 묶음 상태는 수집 또는 삭제 중 하나로 보고된다. 대규모 환경에서는 수집 시간이 최대 1시간까지 걸릴 수 있습니다. ASUP 다운로드 중에 번들의 네트워크 파일 전송 속도가 충분하지 않을 수 있으며 UI에 아무 표시 없이 15분 후에 다운로드가 시간 초과될 수 있습니다. 다운로드 문제는 ASUP의 크기, 확장된 클러스터 크기에 따라 달라지며 수집 시간이 7일 제한을 초과하는지 여부에 따라 달라집니다.
+
+
+
+== 외부 스냅샷 버전 4.2.0 사용 시 결국 스냅숏이 실패하기 시작합니다
+
+Kubernetes 1.20 또는 1.21이 포함된 Kubernetes 스냅샷 컨트롤러(외부 스냅샷 샷터라고도 함) 버전 4.2.0 을 사용하면 스냅샷이 실패할 수 있습니다. 이를 방지하려면 다른 을 사용하십시오 https://kubernetes-csi.github.io/docs/snapshot-controller.html["지원되는 버전입니다"^] 4.2.1과 같은 외부 스냅샷 기능을 Kubernetes 버전 1.20 또는 1.21과 함께 사용할 수 있습니다.
+
+
+
+== 동일한 네임스페이스에서 앱 복원 작업을 동시에 수행하는 데 실패할 수 있습니다
+
+네임스페이스 내에서 개별적으로 관리되는 하나 이상의 앱을 동시에 복원하려고 하면 오랜 시간이 지난 후 복원 작업이 실패할 수 있습니다. 이 문제를 해결하려면 각 앱을 한 번에 하나씩 복원하십시오.
+
+
+
+== 소스 버전에서 인증이 필요하지 않은 컨테이너 이미지 레지스트리를 사용하고 대상 버전에서 인증이 필요한 컨테이너 이미지 레지스트리를 사용하는 경우 업그레이드가 실패합니다
+
+인증이 필요 없는 레지스트리를 사용하는 Astra Control Center 시스템을 인증이 필요한 레지스트리를 사용하는 최신 버전으로 업그레이드하면 업그레이드가 실패합니다. 이 문제를 해결하려면 다음 단계를 수행하십시오.
+
+. Astra Control Center 클러스터에 대한 네트워크 액세스 권한이 있는 호스트에 로그인합니다.
+. 호스트에 다음 구성이 있는지 확인합니다.
++
+** kubbtl 버전 1.19 이상이 설치되어 있습니다
+** KUBECONFIG 환경 변수는 Astra Control Center 클러스터에 대한 kubecononfig 파일로 설정됩니다
+
+
+. 다음 스크립트를 실행합니다.
++
+[source, shell]
+----
+
+namespace="<netapp-acc>"
+statefulsets=("polaris-vault" "polaris-mongodb" "influxdb2" "nats" "loki")
+for ss in ${statefulsets[@]}; do
+	existing=$(kubectl get -n ${namespace} statefulsets.apps ${ss} -o jsonpath='{.spec.template.spec.imagePullSecrets}')
+	if [ "${existing}" = "[{}]" ] || [ "${existing}" = "[{},{},{}]" ]; then
+		kubectl patch -n ${namespace} statefulsets.apps ${ss} --type merge --patch '{"spec": {"template": {"spec": {"imagePullSecrets": []}}}}'
+	else
+		echo "${ss} not patched"
+	fi
+done
+----
++
+다음과 유사한 출력이 표시됩니다.
+
++
+[listing]
+----
+statefulset.apps/polaris-vault patched
+statefulset.apps/polaris-mongodb patched
+statefulset.apps/influxdb2 patched
+statefulset.apps/nats patched
+statefulset.apps/loki patched
+----
+. 를 사용하여 업그레이드를 진행합니다 link:../use/upgrade-acc.html#add-the-images-to-your-local-registry["Astra Control Center 업그레이드 지침"].
+
+
+
+
+== Astra Control Center를 제거해도 관리 클러스터의 모니터링 운영자 포드가 정리되지 않습니다
+
+Astra Control Center를 제거하기 전에 클러스터를 관리하지 않았다면 NetApp 모니터링 네임스페이스 및 네임스페이스에서 Pod를 수동으로 삭제할 수 있습니다. 이러한 명령은 다음과 같습니다.
+
+.단계
+. 'acc-monitoring' 에이전트 삭제:
++
+[listing]
+----
+oc delete agents acc-monitoring -n netapp-monitoring
+----
++
+결과:
+
++
+[listing]
+----
+agent.monitoring.netapp.com "acc-monitoring" deleted
+----
+. 네임스페이스 삭제:
++
+[listing]
+----
+oc delete ns netapp-monitoring
+----
++
+결과:
+
++
+[listing]
+----
+namespace "netapp-monitoring" deleted
+----
+. 제거된 리소스 확인:
++
+[listing]
+----
+oc get pods -n netapp-monitoring
+----
++
+결과:
+
++
+[listing]
+----
+No resources found in netapp-monitoring namespace.
+----
+. 모니터링 에이전트 제거 확인:
++
+[listing]
+----
+oc get crd|grep agent
+----
++
+샘플 결과:
+
++
+[listing]
+----
+agents.monitoring.netapp.com                     2021-07-21T06:08:13Z
+----
+. 사용자 정의 리소스 정의(CRD) 정보 삭제:
++
+[listing]
+----
+oc delete crds agents.monitoring.netapp.com
+----
++
+결과:
+
++
+[listing]
+----
+customresourcedefinition.apiextensions.k8s.io "agents.monitoring.netapp.com" deleted
+----
+
+
+
+
+== Astra Control Center를 제거해도 Traefik CRD가 정리되지 않습니다
+
+Traefik CRD를 수동으로 삭제할 수 있습니다.
+
+.단계
+. 제거 프로세스에서 삭제되지 않은 CRD를 확인합니다.
++
+[listing]
+----
+kubectl get crds |grep -E 'traefik'
+----
++
+응답
+
++
+[listing]
+----
+ingressroutes.traefik.containo.us             2021-06-23T23:29:11Z
+ingressroutetcps.traefik.containo.us          2021-06-23T23:29:11Z
+ingressrouteudps.traefik.containo.us          2021-06-23T23:29:12Z
+middlewares.traefik.containo.us               2021-06-23T23:29:12Z
+middlewaretcps.traefik.containo.us            2021-06-23T23:29:12Z
+serverstransports.traefik.containo.us         2021-06-23T23:29:13Z
+tlsoptions.traefik.containo.us                2021-06-23T23:29:13Z
+tlsstores.traefik.containo.us                 2021-06-23T23:29:14Z
+traefikservices.traefik.containo.us           2021-06-23T23:29:15Z
+----
+. CRD 삭제:
++
+[listing]
+----
+kubectl delete crd ingressroutes.traefik.containo.us ingressroutetcps.traefik.containo.us ingressrouteudps.traefik.containo.us middlewares.traefik.containo.us serverstransports.traefik.containo.us tlsoptions.traefik.containo.us tlsstores.traefik.containo.us traefikservices.traefik.containo.us middlewaretcps.traefik.containo.us
+----
+
+
+
+
+== 자세한 내용을 확인하십시오
+
+* link:../release-notes/resolved-issues.html["해결된 문제"]
+* link:../release-notes/known-issues-ads.html["Astra Data Store prreview 및 이 Astra Control Center 릴리스와 관련된 알려진 문제입니다"]
+* link:../release-notes/known-limitations.html["알려진 제한 사항"]
+

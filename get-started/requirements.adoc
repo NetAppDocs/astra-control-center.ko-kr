@@ -1,0 +1,194 @@
+---
+sidebar: sidebar 
+permalink: get-started/requirements.html 
+keywords: what are astra kubernetes requirements, astra control requirements, astra supported versions, apps, supported apps, mariadb, mysql, postgres, kubernetes version, ubuntu, image type, networking 
+summary: Kubernetes 클러스터, 앱 및 웹 브라우저에 대한 지원을 확인하여 Astra Control Center를 시작하십시오. 
+---
+= Astra Control Center 요구 사항
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+Kubernetes 클러스터, 앱, 라이센스 및 웹 브라우저에 대한 지원을 확인하여 시작하십시오.
+
+
+
+== Kubernetes 클러스터 일반 요구사항
+
+Astra Control Center에는 다음 유형의 호스트 클러스터 중 하나가 필요합니다.
+
+* Red Hat OpenShift Container Platform 4.6.8, 4.7 또는 4.8
+* Rancher 2.5
+* Kubernetes 1.19 ~ 1.21(1.21.x 포함)
+
+
+Astra Control Center에서 클러스터를 검색하고 관리할 수 있도록 클러스터는 다음과 같은 일반 요구 사항을 충족해야 합니다.
+
+* 백엔드 ONTAP 스토리지 용량에 최소 300GB를 사용할 수 있습니다
+* 3개의 컨트롤러 노드에서 4개의 CPU 코어, 16GB RAM 및 120GB의 사용 가능한 스토리지
+* 최소 12개의 CPU 코어, 32GB RAM 및 50GB의 가용 스토리지를 갖춘 3개의 작업자 노드
+* OpenShift 클러스터의 서비스로 수신 트래픽을 보내는 데 사용할 수 있는 서비스 유형 "로드 밸런서"입니다
+* Astra Control Center의 FQDN을 부하 분산 IP 주소로 가리키는 방법
+* NetApp ONTAP 버전 9.5 이상을 스토리지 백엔드로 사용할 경우 Astra Trident 21.04 이상 설치 및 구성됩니다
+* Astra Trident 21.10.1 이상이 설치되어 있고 Astra Trident가 스토리지 백엔드로 사용될 경우 구성됩니다
+
+
+
+NOTE: 이러한 요구 사항은 Astra Control Center가 OpenShift 클러스터에서 실행되는 유일한 애플리케이션이라고 가정합니다. 클러스터에서 추가 애플리케이션이 실행 중인 경우 이러한 최소 요구사항을 적절히 조정합니다.
+
+* * 이미지 레지스트리 *: Astra Control Center 빌드 이미지를 푸시할 수 있는 기존 개인 Docker 이미지 레지스트리가 있어야 합니다. 이미지를 업로드할 이미지 레지스트리의 URL을 제공해야 합니다.
+* * Astra Trident/ONTAP 구성 *: Astra Control Center를 사용하려면 스토리지 클래스를 생성하고 기본 스토리지 클래스로 설정해야 합니다. Astra Control Center는 Astra Trident에서 제공하는 다음과 같은 ONTAP 드라이버를 지원합니다.
++
+** ONTAP - NAS
+** ONTAP-NAS-Flexgroup입니다
+** ONTAP-SAN
+** ONTAP-SAN - 경제성
+
+
+
+
+Astra Control Center에서 Kubernetes 클러스터를 관리하고 클러스터를 사용하여 Astra Control Center 설치를 호스트하려는 경우 클러스터에 다음과 같은 추가 요구사항이 있습니다.
+
+* Kubernetes의 최신 버전입니다 https://kubernetes-csi.github.io/docs/snapshot-controller.html["스냅샷 컨트롤러 구성 요소입니다"^] 이(가) 설치되었습니다
+* Astra Trident https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["볼륨스냅샷 클래스 개체"^] 관리자가 정의했습니다
+* 클러스터에 기본 Kubernetes 스토리지 클래스가 있습니다
+* Astra Trident를 사용하도록 스토리지 클래스를 하나 이상 구성했습니다
+* Astra Control Center의 FQDN을 Astra Control Center 서비스의 외부 IP 주소로 가리키는 방법
+
+
+[NOTE]
+====
+애플리케이션 복제 중에 Astra Control Center는 OpenShift가 볼륨을 마운트하고 필요한 경우 파일 소유권을 변경할 수 있도록 허용해야 합니다. 따라서 볼륨 작업이 성공적으로 완료되도록 ONTAP 볼륨 엑스포트 정책을 구성해야 합니다. 다음 명령을 사용하여 이 작업을 수행할 수 있습니다.
+
+'export-policy rule modify -vserver <storage virtual machine name> - policyname <policy name> - ruleindex 1 - superuser symm - -anon 65534'
+
+====
+
+NOTE: 두 번째 OpenShift 클러스터를 관리되는 컴퓨팅 리소스로 추가할 계획이라면 Astra Trident Volume Snapshot 기능이 활성화되어 있는지 확인해야 합니다. 공식 Astra Trident를 참조하십시오 https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["지침"^] Astra Trident를 사용하여 볼륨 스냅샷을 활성화하고 테스트합니다.
+
+
+
+== 설명합니다
+
+Astra Control에는 다음과 같은 앱 관리 요구 사항이 있습니다.
+
+* * 라이선스 *: Astra Control Center를 사용하여 앱을 관리하려면 Astra Control Center 라이센스가 필요합니다.
+* * Namespaces *: Astra Control은 앱이 단일 네임스페이스 이상의 범위를 포괄하지 않도록 하지만 네임스페이스에는 여러 개의 앱이 포함될 수 있습니다.
+* * StorageClass *: StorageClass가 명시적으로 설정된 앱을 설치하고 앱을 복제해야 하는 경우 클론 작업의 타겟 클러스터에 원래 지정된 StorageClass가 있어야 합니다. 명시적으로 StorageClass를 동일한 StorageClass가 없는 클러스터로 설정한 애플리케이션을 클론 복제하면 실패합니다.
+* * Kubernetes 리소스 *: Astra Control에서 수집하지 않은 Kubernetes 리소스를 사용하는 앱에는 전체 앱 데이터 관리 기능이 없을 수 있습니다. Astra Control은 다음과 같은 Kubernetes 리소스를 수집합니다.
++
+** 클러스터 역할
+** ClusterRoleBinding 을 참조하십시오
+** ConfigMap을 클릭합니다
+** 사용자 지정 리소스 정의
+** CustomResource 를 선택합니다
+** DemonSet
+** 구축
+** DeploymentConfig(배포 구성
+** 침투
+** 뮤atingWebhook
+** PersistentVolumeClaim
+** 포드
+** ReplicaSet입니다
+** RoleBinding 을 클릭합니다
+** 역할
+** 루트
+** 비밀
+** 서비스
+** 서비스 계정
+** StatefulSet 을 선택합니다
+** Webhook을 확인합니다
+
+
+
+
+
+
+=== 지원되는 앱 설치 방법
+
+Astra Control은 다음과 같은 응용 프로그램 설치 방법을 지원합니다.
+
+* * 매니페스트 파일 *: Astra Control은 kubctl을 사용하여 매니페스트 파일에서 설치된 앱을 지원합니다. 예를 들면 다음과 같습니다.
++
+[listing]
+----
+kubectl apply -f myapp.yaml
+----
+* * Helm 3 *: Helm을 사용하여 앱을 설치하는 경우 Astra Control에 Helm 버전 3이 필요합니다. Helm 3(또는 Helm 2에서 Helm 3으로 업그레이드)과 함께 설치된 앱의 관리 및 클론 생성이 완벽하게 지원됩니다. Helm 2가 설치된 앱 관리는 지원되지 않습니다.
+* * 운용자 구축 앱 *: Astra Control은 네임스페이스 범위 연산자와 함께 설치된 앱을 지원합니다. 다음은 이 설치 모델에 대해 검증된 몇 가지 응용 프로그램들입니다.
++
+** https://github.com/k8ssandra/cass-operator/tree/v1.7.1["아파치 K8ssandra"^]
+** https://github.com/jenkinsci/kubernetes-operator["젠킨스 CI"^]
+** https://github.com/percona/percona-xtradb-cluster-operator["Percona XtraDB 클러스터"^]
+
+
+
+
+
+NOTE: 운영자와 설치하는 앱은 동일한 네임스페이스를 사용해야 합니다. 운영자가 배포 .YAML 파일을 수정해야 할 수도 있습니다.
+
+
+
+== 인터넷 접속
+
+인터넷에 대한 외부 액세스 권한이 있는지 확인해야 합니다. 그렇지 않으면 NetApp Cloud Insights에서 모니터링 및 메트릭 데이터를 수신하거나 지원 번들을 보내는 등 일부 기능이 제한될 수 있습니다 https://mysupport.netapp.com/site/["NetApp Support 사이트"^].
+
+
+
+== 라이센스
+
+Astra Control Center의 모든 기능을 사용하려면 Astra Control Center 라이센스가 필요합니다. NetApp에서 평가판 라이센스 또는 전체 라이센스를 받으십시오. 라이센스가 없으면 다음을 수행할 수 없습니다.
+
+* 사용자 지정 앱 정의
+* 기존 앱의 스냅샷 또는 클론 생성
+* 데이터 보호 정책을 구성합니다
+
+
+Astra Control Center를 사용해 보고 싶다면 가능합니다 link:setup_overview.html#add-a-full-or-evaluation-license["90일 평가판 라이센스를 사용합니다"].
+
+
+
+== 온프레미스 Kubernetes 클러스터의 서비스 유형 "로드 밸런서
+
+Astra Control Center는 "loadbalancer"(Astra Control Center 네임스페이스의 svc/traefik) 유형의 서비스를 사용하며 액세스 가능한 외부 IP 주소를 할당해야 합니다. 부하 분산 장치가 사용자 환경에서 허용되고 아직 부하 분산 장치가 구성되어 있지 않은 경우 를 사용할 수 있습니다 https://docs.netapp.com/us-en/netapp-solutions/containers/rh-os-n_LB_MetalLB.html#installing-the-metallb-load-balancer["메탈리스"^] 외부 IP 주소를 서비스에 자동으로 할당합니다. 내부 DNS 서버 구성에서 Astra Control Center에 대해 선택한 DNS 이름을 부하 분산 IP 주소로 지정해야 합니다.
+
+
+NOTE: MetalLB 버전 0.11.0은 지원되지 않습니다.
+
+
+
+== 네트워킹 요구 사항
+
+Astra Control Center를 호스팅하는 클러스터는 다음 TCP 포트를 사용하여 통신합니다. 이러한 포트가 모든 방화벽을 통해 허용되는지 확인하고 Astra 네트워크에서 발생하는 HTTPS 송신 트래픽을 허용하도록 방화벽을 구성해야 합니다. 일부 포트에는 Astra Control Center를 호스팅하는 클러스터와 각 관리 클러스터(해당되는 경우) 간의 연결이 모두 필요합니다.
+
+|===
+| 제품 | 포트 | 프로토콜 | 방향 | 목적 
+
+
+| Astra 제어 센터 | 443 | HTTPS | 침투 | UI/API 액세스: 이 포트가 Astra Control Center를 호스팅하는 클러스터와 관리되는 각 클러스터 간에 양방향으로 열려 있는지 확인합니다 
+
+
+| Astra 제어 센터 | 9090 | HTTPS  a| 
+* 수신(Astra Control Center를 호스팅하는 클러스터에)
+* 송신(각 관리 클러스터의 각 작업자 노드의 노드 IP 주소에서 임의 포트)
+
+| 메트릭 데이터를 고객에게 전송: 각 관리 클러스터가 Astra Control Center를 호스팅하는 클러스터의 이 포트에 액세스할 수 있는지 확인합니다 
+
+
+| 아스트라 트리덴트 | 34571 | HTTPS | 침투 | 노드 POD 통신 
+
+
+| 아스트라 트리덴트 | 9220 | HTTP | 침투 | 메트릭 엔드포인트 
+|===
+
+
+== 지원되는 웹 브라우저
+
+Astra Control Center는 1280 x 720의 최소 해상도로 최신 버전의 Firefox, Safari 및 Chrome을 지원합니다.
+
+
+
+== 다음 단계
+
+를 봅니다 link:quick-start.html["빠른 시작"] 개요.

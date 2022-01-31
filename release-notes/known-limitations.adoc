@@ -1,0 +1,155 @@
+---
+sidebar: sidebar 
+permalink: release-notes/known-limitations.html 
+keywords: astra, control center, limitations, known limitations, interoperability 
+summary: 알려진 제한 사항은 이 제품 릴리스에서 지원하지 않거나 올바르게 상호 운용되지 않는 플랫폼, 장치 또는 기능을 식별합니다. 이러한 제한 사항을 주의 깊게 검토하십시오. 
+---
+= 알려진 제한 사항
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+알려진 제한 사항은 이 제품 릴리스에서 지원하지 않거나 올바르게 상호 운용되지 않는 플랫폼, 장치 또는 기능을 식별합니다. 이러한 제한 사항을 주의 깊게 검토하십시오.
+
+
+
+== 두 개의 Astra Control Center 인스턴스가 동일한 클러스터를 관리할 수 없습니다
+
+다른 Astra Control Center 인스턴스에서 클러스터를 관리하려면 먼저 다음을 수행해야 합니다 link:../use/unmanage.html#stop-managing-compute["클러스터 관리를 취소합니다"] 다른 인스턴스에서 관리하기 전에 관리되는 인스턴스에서 관리에서 클러스터를 제거한 후 다음 명령을 실행하여 클러스터가 관리되지 않는 상태인지 확인합니다.
+
+[listing]
+----
+oc get pods n -netapp-monitoring
+----
+해당 네임스페이스에서 실행 중인 포드가 없어야 합니다. 그렇지 않으면 네임스페이스가 존재하지 않아야 합니다. 둘 중 하나가 참인 경우 클러스터는 관리되지 않습니다.
+
+
+
+== Astra Control Center는 동일한 클라우드에서 동일하게 이름이 지정된 두 클러스터를 관리할 수 없습니다
+
+클라우드에 이미 있는 클러스터의 이름과 동일한 이름의 클러스터를 추가하려고 하면 작업이 실패합니다. 이 문제는 Kubernetes 구성 파일에서 클러스터 이름 기본값을 변경하지 않은 경우 표준 Kubernetes 환경에서 가장 자주 발생합니다.
+
+해결 방법으로 다음을 수행합니다.
+
+. kubeadm-config ConfigMap 편집:
++
+[listing]
+----
+kubectl edit configmaps -n kube-system kubeadm-config
+----
+. 'clusterName' 필드 값을 Kubernetes(Kubernetes 기본 이름)에서 고유한 사용자 정의 이름으로 변경합니다.
+. kubecononfig('.kubbe/config')를 편집합니다.
+. 클러스터 이름을 Kubernetes에서 고유한 사용자 지정 이름으로 업데이트합니다(아래 예에서는 xyz-cluster 사용). 다음 예와 같이 클러스터 및 컨텍스트 섹션에서 모두 업데이트합니다.
++
+[listing, subs="+quotes"]
+----
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: ExAmPLERb2tCcjZ5K3E2Njk4eQotLExAMpLEORCBDRVJUSUZJQ0FURS0txxxxXX==
+    server: https://x.x.x.x:6443
+  *name: xyz-cluster*
+contexts:
+- context:
+    *cluster: xyz-cluster*
+    namespace: default
+    user: kubernetes-admin
+  name: kubernetes-admin@kubernetes
+current-context: kubernetes-admin@kubernetes
+----
+
+
+
+
+== PASS by reference operator를 사용하여 설치된 앱의 클론이 실패할 수 있습니다
+
+Astra Control은 네임스페이스 범위 연산자와 함께 설치된 앱을 지원합니다. 이러한 연산자는 일반적으로 "pass-by-reference" 아키텍처가 아니라 "pass-by-value"로 설계되었습니다. 다음은 이러한 패턴을 따르는 일부 운영자 앱에 대한 설명입니다.
+
+* https://github.com/k8ssandra/cass-operator/tree/v1.7.1["아파치 K8ssandra"^]
+* https://github.com/jenkinsci/kubernetes-operator["젠킨스 CI"^]
+* https://github.com/percona/percona-xtradb-cluster-operator["Percona XtraDB 클러스터"^]
+
+
+Astra Control은 "pass-by-reference" 아키텍처(예: CockroachDB 운영자)로 설계된 운영자를 복제하지 못할 수 있습니다. 이러한 유형의 클론 복제 작업 중에 클론 복제 운영자는 클론 복제 프로세스의 일부로 고유한 새로운 암호가 있음에도 불구하고 소스 운영자의 Kubernetes 암호를 참조하려고 합니다. Astra Control이 소스 운영자의 Kubernetes 암호를 모르기 때문에 클론 작업이 실패할 수 있습니다.
+
+
+
+== 클러스터와 네트워크가 예상대로 작동하고 있지만 클러스터가 제거된 상태입니다
+
+클러스터가 "이동된" 상태에 있지만 클러스터 및 네트워크 연결이 양호한 것으로 나타나는 경우(Kubernetes API를 사용하여 클러스터에 액세스하려는 외부 시도가 성공한 경우), Astra Control에 제공한 kubeconfig는 더 이상 유효하지 않을 수 있습니다. 클러스터의 인증서 순환 또는 만료 때문일 수 있습니다. 이 문제를 해결하려면 을 사용하여 Astra Control의 클러스터와 연결된 자격 증명을 업데이트하십시오 link:https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 참조하십시오"]:
+
+. POST 호출을 실행하여 업데이트된 kubecononfig 파일을 '/credentials' 끝점에 추가하고 응답 본문에서 할당된 ID를 검색합니다.
+. 적절한 클러스터 ID를 사용하여 '/clusters' 끝점에서 PUT 통화를 실행하고 'credentialID'를 이전 단계의 'id' 값으로 설정합니다.
+
+
+이 단계를 완료하면 클러스터와 관련된 자격 증명이 업데이트되고 클러스터가 다시 연결되고 해당 상태를 "사용 가능"으로 업데이트해야 합니다.
+
+
+
+== OLM 지원 및 클러스터 범위 운영자로 배포된 앱은 지원되지 않습니다
+
+Astra Control Center는 OLM(Operator Lifecycle Manager) 지원 운영자 또는 클러스터 범위 연산자와 함께 배포된 앱을 지원하지 않습니다.
+
+
+
+== 애플리케이션 복제는 동일한 K8s 배포에서만 수행할 수 있습니다
+
+클러스터 간에 앱을 복제하는 경우 소스 및 타겟 클러스터는 Kubernetes의 동일한 배포여야 합니다. 예를 들어 OpenShift 4.7 클러스터에서 앱을 클론하는 경우 OpenShift 4.7인 대상 클러스터를 사용합니다.
+
+
+
+== Astra Control Center의 S3 버킷은 가용 용량을 보고하지 않습니다
+
+Astra Control Center에서 관리하는 앱을 백업 또는 클론 생성하기 전에 ONTAP 또는 StorageGRID 관리 시스템에서 버킷 정보를 확인하십시오.
+
+
+
+== MetalLB 0.11.0은 지원되지 않습니다
+
+MetalLB 0.11.0은 Astra Control Center에 대해 지원되는 로드 밸런서가 아닙니다. 지원되는 로드 밸런서에 대한 자세한 내용은 을 참조하십시오 link:../get-started/requirements.html#service-type-loadbalancer-for-on-premises-kubernetes-clusters["Astra Control Center 요구 사항"].
+
+
+
+== Helm 2와 함께 배포된 앱은 지원되지 않습니다
+
+Helm을 사용하여 앱을 배포하는 경우 Astra Control Center에 Helm 버전 3이 필요합니다. Helm 3으로 배포된 애플리케이션 관리 및 복제(또는 Helm 2에서 Helm 3으로 업그레이드)가 완벽하게 지원됩니다. 자세한 내용은 을 참조하십시오 link:../get-started/requirements.html["Astra Control Center 요구 사항"].
+
+
+
+== Astra Control Center는 프록시 서버에 대해 입력한 세부 정보를 확인하지 않습니다
+
+다음을 확인하십시오 link:../use/monitor-protect.html#add-a-proxy-server["올바른 값을 입력하십시오"] 연결 설정 시
+
+
+
+== 아직 앱을 사용할 수 없는 Astra Control Center의 데이터 보호
+
+이 릴리즈에서는 스냅샷, 백업 또는 복원 옵션을 사용하여 Astra를 앱으로 관리하는 기능을 지원하지 않습니다.
+
+
+
+== 비정상적인 Pod는 앱 관리에 영향을 줍니다
+
+관리 애플리케이션에 상태가 불량한 Pod가 있는 경우 Astra Control은 새 백업 및 클론을 생성할 수 없습니다.
+
+
+
+== Postgres POD에 대한 기존 연결로 인해 오류가 발생합니다
+
+Postgres Pod에서 작업을 수행할 때 psql 명령을 사용하기 위해 POD 내에서 직접 연결하면 안 됩니다. Astra Control은 데이터베이스를 고정 및 고정 해제할 수 있도록 psql 액세스 권한이 필요합니다. 기존 접속이 있는 경우 스냅샷, 백업 또는 클론이 실패합니다.
+
+
+
+== Trident가 클러스터에서 제거되지 않았습니다
+
+Astra Control Center에서 클러스터를 관리할 경우 Trident가 클러스터에서 자동으로 제거되지 않습니다. Trident를 제거하려면 가 필요합니다 https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Trident 문서의 다음 단계를 따릅니다"^].
+
+
+
+== 자세한 내용을 확인하십시오
+
+* link:../release-notes/resolved-issues.html["해결된 문제"]
+* link:../release-notes/known-issues.html["알려진 문제"]
+* link:../release-notes/known-issues-ads.html["Astra Data Store Preview 및 이 Astra Control Center 릴리스와 관련된 알려진 문제입니다"]
+

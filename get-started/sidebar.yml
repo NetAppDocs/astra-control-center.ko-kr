@@ -1,0 +1,24 @@
+---
+section: get-started
+title: 시작하십시오
+entries:
+- title: Astra Control Center 요구 사항
+  url: "/get-started/requirements.html"
+- title: Astra Control Center를 빠르게 시작합니다
+  url: "/get-started/quick-start.html"
+- title: 설치 개요
+  url: "/get-started/install_overview.html"
+  entries:
+  - title: Astra Control Center를 설치합니다
+    url: "/get-started/install_acc.html"
+  - title: OpenShift OperatorHub를 사용하여 Astra Control Center를 설치합니다
+    url: "/get-started/acc_operatorhub_install.html"
+- title: Astra Control Center를 설정합니다
+  url: "/get-started/setup_overview.html"
+  entries:
+  - title: 클러스터 추가를 위한 사전 요구사항
+    url: "/get-started/add-cluster-reqs.html"
+  - title: 사용자 지정 TLS 인증서를 추가합니다
+    url: "/get-started/add-custom-tls-certificate.html"
+- title: FAQ 를 참조하십시오
+  url: "/get-started/faq.html"

@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: use/view-clusters.html 
+keywords: view cluster, cluster storage, cluster overview 
+summary: Astra Control Center에 클러스터를 추가한 후에는 클러스터의 위치, 작업자 노드, 영구 볼륨 및 스토리지 클래스와 같은 클러스터에 대한 세부 정보를 볼 수 있습니다. 
+---
+= 클러스터의 상태 및 세부 정보를 봅니다
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Astra Control Center에서 관리할 클러스터를 추가한 후에는 클러스터의 위치, 작업자 노드, 영구 볼륨 및 스토리지 클래스 등의 클러스터에 대한 세부 정보를 볼 수 있습니다.
+
+.단계
+. Astra Control Center UI에서 * Clusters * 를 선택합니다.
+. 클러스터 * 페이지에서 세부 정보를 확인할 클러스터를 선택합니다.
+. Overview *, * Storage * 및 * Activity * 탭에서 원하는 정보를 확인할 수 있습니다.
++
+** * 개요 *: 해당 상태를 포함한 작업자 노드에 대한 세부 정보.
+** * 스토리지 *: 스토리지 클래스 및 상태를 비롯하여 컴퓨팅과 연관된 영구 볼륨입니다.
+** * Activity *: 클러스터와 관련된 활동을 표시합니다.
+
+
+
+
+
+NOTE: Astra Control Center * 대시보드 * 부터 클러스터 정보를 볼 수도 있습니다. 리소스 요약 * 의 * 클러스터 * 탭에서 * 클러스터 * 페이지로 이동하는 관리 클러스터를 선택할 수 있습니다. 클러스터 * 페이지로 이동한 후 위에 설명된 단계를 따릅니다.

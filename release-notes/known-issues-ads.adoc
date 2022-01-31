@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: release-notes/known-issues-ads.html 
+keywords: astra, control center, ads, data store, bugs, known issues, problems 
+summary: 알려진 문제점은 이 제품 릴리스를 성공적으로 사용하지 못하게 만들 수 있는 문제를 식별합니다. 
+---
+= Astra Data Store Preview 및 이 Astra Control Center 릴리스와 관련된 알려진 문제입니다
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+알려진 문제점은 이 제품 릴리스를 성공적으로 사용하지 못하게 만들 수 있는 문제를 식별합니다.
+
+현재 Astra Control Center가 출시되어 있는 Astra Data Store의 관리에는 다음과 같은 알려진 문제가 있습니다.
+
+
+
+== MongoDB Pod 활성 프로브 오류로 인해 Astra Control Center의 스토리지 클래스로 Astra Data Store 미리보기를 사용할 수 없습니다
+
+Astra Control Center 구축 중에 Astra Data Store 미리보기를 스토리지 클래스 구축 보기로 사용하려고 하면 MongoDB Pod 활성 프로브가 실패하여 구축이 완료되지 않습니다.
+
+이 문제를 해결하려면 을 완료할 때 표준 YAML 변경 사항 외에 다음과 같이 변경합니다 link:../get-started/install_acc.html#configure-astra-control-center["Astra Control Center 설치 프로세스"]:
+
+. 를 편집합니다 link:../get-started/install_acc.html#configure-the-astra-control-center-operator["Astra Control Center 운영자 배포 YAML(Astra_control_center_operator_deploy.YAML)"] 제어 설치 시간 초과를 변경하려면:
++
+[listing]
+----
+- name: ACCOP_HELM_INSTALLTIMEOUT
+  value: 20m
+----
+. 를 편집합니다 link:../get-started/install_acc.html#configure-astra-control-center["Astra Control Center 사용자 정의 리소스(CR) 파일(Astra_control_center_min YAML)"] 그리고 'pec' 아래에 강조 표시된 추가 값을 포함시키십시오.
++
+[listing, subs="+quotes"]
+----
+apiVersion: astra.netapp.io/v1
+kind: AstraControlCenter
+metadata:
+  name: astra
+*spec:*
+  accountName: "Example"
+  astraVersion: "ASTRA_VERSION"
+  astraAddress: "astra.example.com"
+  autoSupport:
+    enrolled: true
+  email: "[admin@example.com]"
+  firstName: "SRE"
+  lastName: "Admin"
+  imageRegistry:
+    name: "[your_registry_path]"
+    secret: "astra-registry-cred"
+  storageClass: "ontap-gold"
+  *additionalValues:*
+    *polaris-mongodb:*
+      *mongodb:*
+        *livenessProbe:*
+          *initialDelaySeconds: 400*
+      *metrics:*
+        *livenessProbe:*
+          *initialDelaySeconds: 400*
+----
+
+
+
+
+== Astra Control Center에 Astra Data Store preview storage backend in Unknown(알 수 없는 상태의 스토리지 백엔드 미리 보기) 이 표시됩니다
+
+Astra Control Center는 UI의 백엔드 페이지에서 Astra Data Store 미리 보기 스토리지 백엔드를 "알 수 없음" 상태로 표시합니다. 이 경우 스토리지 백엔드를 실제로 사용할 수 있으며 와 통신할 수 있습니다. 스토리지 백엔드 내의 구성 요소는 상태가 좋지 않을 수 있으므로 스토리지 백엔드가 "사용 가능"으로 표시되도록 정상 상태로 되돌려주어야 합니다.
+
+
+
+== 자세한 내용을 확인하십시오
+
+* link:../release-notes/resolved-issues.html["해결된 문제"]
+* link:../release-notes/known-issues.html["알려진 문제"]
+* link:../release-notes/known-limitations.html["알려진 제한 사항"]
+* https://docs.netapp.com/us-en/astra-data-store/index.html["Astra Data Store 문서"]
+

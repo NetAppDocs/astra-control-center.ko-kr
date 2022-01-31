@@ -1,0 +1,154 @@
+---
+sidebar: sidebar 
+permalink: get-started/add-custom-tls-certificate.html 
+keywords: login, Astra Control Center, web ui, tls, certificate 
+summary: '타사 CA(인증 기관)에서 서명한 TLS 인증서를 업로드 및 검증하여 자체 서명된 Astra Control Center 인증서를 대체할 수 있습니다.' 
+---
+= 사용자 지정 TLS 인증서를 추가합니다
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+기존의 자체 서명된 TLS 인증서를 제거하고 CA(인증 기관)에서 서명한 TLS 인증서로 바꿀 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* Astra Control Center가 설치된 Kubernetes 클러스터
+* 클러스터의 명령 셸에 대한 관리 액세스로 "kubbtl" 명령을 실행합니다
+* CA의 개인 키 및 인증서 파일
+
+
+.자체 서명된 인증서를 제거합니다
+. SSH를 사용하여 관리 사용자로 Astra Control Center를 호스팅하는 Kubernetes 클러스터에 로그인합니다.
+. '<ACC-deployment-namespace>'를 Astra Control Center 배포 네임스페이스로 대체하여 현재 인증서와 연결된 TLS 암호를 찾습니다.
++
+[listing]
+----
+kubectl get certificate -n <ACC-deployment-namespace>
+----
+. 다음 명령을 사용하여 현재 설치된 암호 및 인증서를 삭제합니다.
++
+[listing]
+----
+kubectl delete cert cert-manager-certificates -n <ACC-deployment-namespace>
+kubectl delete secret secure-testing-cert -n <ACC-deployment-namespace>
+----
+
+
+.새 인증서를 추가합니다
+. 다음 명령을 사용하여 CA의 개인 키 및 인증서 파일로 새 TLS 암호를 만들고 대괄호 <>의 인수를 적절한 정보로 바꿉니다.
++
+[listing]
+----
+kubectl create secret tls <secret-name> --key <private-key-filename> --cert <certificate-filename> -n <ACC-deployment-namespace>
+----
+. 다음 명령 및 예제를 사용하여 클러스터 CRD(Custom Resource Definition) 파일을 편집하고 'pec.selfSigned` 값을 'pec.ca.secretName` 으로 변경하여 앞에서 생성한 TLS 암호를 참조합니다.
++
+[listing]
+----
+kubectl edit clusterissuers.cert-manager.io/cert-manager-certificates -n <ACC-deployment-namespace>
+....
+
+#spec:
+#  selfSigned: {}
+
+spec:
+  ca:
+    secretName: <secret-name>
+----
+. 다음 명령 및 예제 출력을 사용하여 변경 사항이 올바르고 클러스터가 인증서를 검증할 준비가 되었는지 확인하고 "<ACC-deployment-namespace>"를 Astra Control Center 배포 네임스페이스로 대체합니다.
++
+[listing]
+----
+kubectl describe clusterissuers.cert-manager.io/cert-manager-certificates -n <ACC-deployment-namespace>
+....
+
+Status:
+  Conditions:
+    Last Transition Time:  2021-07-01T23:50:27Z
+    Message:               Signing CA verified
+    Reason:                KeyPairVerified
+    Status:                True
+    Type:                  Ready
+Events:                    <none>
+
+----
+. 다음 예를 사용하여 대괄호 <>의 자리 표시자 값을 적절한 정보로 대체하여 "certificate.yAML" 파일을 작성합니다.
++
+[listing]
+----
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: <certificate-name>
+  namespace: <ACC-deployment-namespace>
+spec:
+  secretName: <certificate-secret-name>
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  dnsNames:
+  - <astra.dnsname.example.com> #Replace with the correct Astra Control Center DNS address
+  issuerRef:
+    kind: ClusterIssuer
+    name: cert-manager-certificates
+----
+. 다음 명령을 사용하여 인증서를 생성합니다.
++
+[listing]
+----
+kubectl apply -f certificate.yaml
+----
+. 다음 명령 및 예제 출력을 사용하여 인증서가 올바르게 만들어졌는지, 그리고 생성 중에 지정한 인수(예: 이름, 기간, 갱신 기한 및 DNS 이름)를 사용하여 확인합니다.
++
+[listing]
+----
+kubectl describe certificate -n <ACC-deployment-namespace>
+....
+
+Spec:
+  Dns Names:
+    astra.example.com
+  Duration:  125h0m0s
+  Issuer Ref:
+    Kind:        ClusterIssuer
+    Name:        cert-manager-certificates
+  Renew Before:  61h0m0s
+  Secret Name:   <certificate-secret-name>
+Status:
+  Conditions:
+    Last Transition Time:  2021-07-02T00:45:41Z
+    Message:               Certificate is up to date and has not expired
+    Reason:                Ready
+    Status:                True
+    Type:                  Ready
+  Not After:               2021-07-07T05:45:41Z
+  Not Before:              2021-07-02T00:45:41Z
+  Renewal Time:            2021-07-04T16:45:41Z
+  Revision:                1
+Events:                    <none>
+----
+. 다음 명령 및 예제를 사용하여 새 인증서 암호를 가리키도록 수신 CRD TLS 옵션을 편집합니다. 대괄호 <>의 개체 틀 값을 적절한 정보로 바꿉니다.
++
+[listing]
+----
+kubectl edit ingressroutes.traefik.containo.us -n <ACC-deployment-namespace>
+....
+
+# tls:
+#    options:
+#      name: default
+#    secretName: secure-testing-cert
+#    store:
+#      name: default
+
+ tls:
+    options:
+      name: default
+    secretName: <certificate-secret-name>
+    store:
+      name: default
+----
+. 웹 브라우저를 사용하여 Astra Control Center의 배포 IP 주소로 이동합니다.
+. 인증서 세부 정보가 설치한 인증서의 세부 정보와 일치하는지 확인합니다.
+. 인증서를 내보내고 결과를 웹 브라우저의 인증서 관리자로 가져옵니다.
+

@@ -1,0 +1,248 @@
+---
+sidebar: sidebar 
+permalink: use/manage-apps.html 
+keywords: how to manage apps with astra control, discover app, how to manage kubernetes apps, astra control, astra 
+summary: 'Kubernetes 클러스터를 Astra Control에 추가한 후 해당 클러스터(Astra Control 외부)에 앱을 설치한 다음, Astra Control의 앱 페이지로 이동하여 앱 관리를 시작할 수 있습니다.' 
+---
+= 앱 관리를 시작합니다
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+
+먼저 해 link:../get-started/setup_overview.html#add-cluster["Astra Control 관리에 클러스터를 추가합니다"], 클러스터(Astra Control 외부)에 앱을 설치한 다음, Astra Control의 앱 페이지로 이동하여 앱과 리소스 관리를 시작할 수 있습니다.
+
+
+
+== 설명합니다
+
+Astra Control에는 다음과 같은 앱 관리 요구 사항이 있습니다.
+
+* * 라이선스 *: Astra Control Center를 사용하여 앱을 관리하려면 Astra Control Center 라이센스가 필요합니다.
+* * Namespaces *: Astra Control은 앱이 단일 네임스페이스 이상의 범위를 포괄하지 않도록 하지만 네임스페이스에는 여러 개의 앱이 포함될 수 있습니다.
+* * StorageClass *: StorageClass가 명시적으로 설정된 앱을 설치하고 앱을 복제해야 하는 경우 클론 작업의 타겟 클러스터에 원래 지정된 StorageClass가 있어야 합니다. 명시적으로 StorageClass를 동일한 StorageClass가 없는 클러스터로 설정한 애플리케이션을 클론 복제하면 실패합니다.
+* * Kubernetes 리소스 *: Astra Control에서 수집하지 않은 Kubernetes 리소스를 사용하는 앱에는 전체 앱 데이터 관리 기능이 없을 수 있습니다. Astra Control은 다음과 같은 Kubernetes 리소스를 수집합니다.
++
+** 클러스터 역할
+** ClusterRoleBinding 을 참조하십시오
+** ConfigMap을 클릭합니다
+** 사용자 지정 리소스 정의
+** CustomResource 를 선택합니다
+** DemonSet
+** 구축
+** DeploymentConfig(배포 구성
+** 침투
+** 뮤atingWebhook
+** PersistentVolumeClaim
+** 포드
+** ReplicaSet입니다
+** RoleBinding 을 클릭합니다
+** 역할
+** 루트
+** 비밀
+** 서비스
+** 서비스 계정
+** StatefulSet 을 선택합니다
+** Webhook을 확인합니다
+
+
+
+
+
+
+=== 지원되는 앱 설치 방법
+
+Astra Control은 다음과 같은 응용 프로그램 설치 방법을 지원합니다.
+
+* * 매니페스트 파일 *: Astra Control은 kubctl을 사용하여 매니페스트 파일에서 설치된 앱을 지원합니다. 예를 들면 다음과 같습니다.
++
+[listing]
+----
+kubectl apply -f myapp.yaml
+----
+* * Helm 3 *: Helm을 사용하여 앱을 설치하는 경우 Astra Control에 Helm 버전 3이 필요합니다. Helm 3(또는 Helm 2에서 Helm 3으로 업그레이드)과 함께 설치된 앱의 관리 및 클론 생성이 완벽하게 지원됩니다. Helm 2가 설치된 앱 관리는 지원되지 않습니다.
+* * 운용자 구축 앱 *: Astra Control은 네임스페이스 범위 연산자와 함께 설치된 앱을 지원합니다. 이러한 연산자는 일반적으로 "pass-by-reference" 아키텍처가 아니라 "pass-by-value"로 설계되었습니다. 다음은 이러한 패턴을 따르는 일부 운영자 앱에 대한 설명입니다.
++
+** https://github.com/k8ssandra/cass-operator/tree/v1.7.1["아파치 K8ssandra"^]
+** https://github.com/jenkinsci/kubernetes-operator["젠킨스 CI"^]
+** https://github.com/percona/percona-xtradb-cluster-operator["Percona XtraDB 클러스터"^]
+
+
+
+
+Astra Control은 "pass-by-reference" 아키텍처(예: CockroachDB 운영자)로 설계된 운영자를 복제하지 못할 수 있습니다. 이러한 유형의 클론 복제 작업 중에 클론 복제 운영자는 클론 복제 프로세스의 일부로 고유한 새로운 암호가 있음에도 불구하고 소스 운영자의 Kubernetes 암호를 참조하려고 합니다. Astra Control이 소스 운영자의 Kubernetes 암호를 모르기 때문에 클론 작업이 실패할 수 있습니다.
+
+
+NOTE: 운영자와 설치하는 앱은 동일한 네임스페이스를 사용해야 합니다. 운영자가 배포 .YAML 파일을 수정해야 할 수도 있습니다.
+
+
+
+== 클러스터에 앱을 설치합니다
+
+클러스터를 Astra Control에 추가했으므로 이제 클러스터에서 앱을 설치하거나 기존 앱을 관리할 수 있습니다. 네임스페이스로 범위가 지정된 모든 앱을 관리할 수 있습니다. Pod가 온라인 상태가 되면 Astra Control을 사용하여 앱을 관리할 수 있습니다.
+
+제어 차트에서 검증된 애플리케이션을 구축하는 데 도움이 필요한 경우 다음을 참조하십시오.
+
+* link:../solutions/mariadb-deploy-from-helm-chart.html["제어 차트에서 MariaDB를 배포합니다"]
+* link:../solutions/mysql-deploy-from-helm-chart.html["제어 차트에서 MySQL을 배포합니다"]
+* link:../solutions/postgres-deploy-from-helm-chart.html["제어 차트에서 Postgres를 배포합니다"]
+* link:../solutions/jenkins-deploy-from-helm-chart.html["제어 차트에서 Jenkins를 배포합니다"]
+
+
+
+
+== 앱 관리
+
+Astra Control을 사용하면 네임스페이스 수준 또는 Kubernetes 레이블로 앱을 관리할 수 있습니다.
+
+
+NOTE: Helm 2와 함께 설치된 앱은 지원되지 않습니다.
+
+다음 작업을 수행하여 앱을 관리할 수 있습니다.
+
+* 앱 관리
++
+** <<Manage apps by namespace>>
+** <<Manage apps by Kubernetes label>>
+
+
+* <<Ignore apps>>
+* <<Unmanage apps>>
+
+
+
+TIP: Astra Control 자체는 표준 앱이 아니며 "시스템 앱"입니다. Astra Control 자체를 관리하려고 해서는 안 됩니다. 관리 시 Astra Control 자체는 기본적으로 표시되지 않습니다. 시스템 앱을 보려면 “Show system apps(시스템 앱 표시)” 필터를 사용합니다.
+
+Astra Control API를 사용하여 앱을 관리하는 방법에 대한 지침은 를 참조하십시오 link:https://docs.netapp.com/us-en/astra-automation/["Astra 자동화 및 API 정보"^].
+
+
+NOTE: 데이터 보호 작업(클론, 백업, 복원)과 후속 영구 볼륨 크기 조정 후 UI에 새 볼륨 크기가 표시되기까지 최대 20분이 지연됩니다. 데이터 보호 작업이 몇 분 내에 성공적으로 완료되며 스토리지 백엔드에 관리 소프트웨어를 사용하여 볼륨 크기 변경을 확인할 수 있습니다.
+
+
+
+=== 네임스페이스로 앱 관리
+
+앱 페이지의 * 검색됨 * 섹션에는 네임스페이스와 해당 네임스페이스에서 Helm이 설치한 앱 또는 사용자 지정 레이블이 지정된 앱이 표시됩니다. 각 앱을 개별적으로 또는 네임스페이스 수준에서 관리하도록 선택할 수 있습니다. 데이터 보호 작업에 필요한 세분화 수준으로 세분화됩니다.
+
+예를 들어 주 단위 주기를 가진 "Maria"에 대한 백업 정책을 설정할 수 있지만, "MariaDB"(동일한 이름 공간에 있음)를 더 자주 백업해야 할 수 있습니다. 이러한 요구사항에 따라 단일 네임스페이스가 아닌 앱을 별도로 관리해야 합니다.
+
+Astra Control을 사용하면 계층 구조의 수준(네임스페이스 및 해당 네임스페이스의 앱)을 모두 개별적으로 관리할 수 있지만, 가장 좋은 방법은 하나 또는 다른 수준을 선택하는 것입니다. 작업이 네임스페이스 및 앱 수준에서 동시에 발생하면 Astra Control에서 수행하는 작업이 실패할 수 있습니다.
+
+.단계
+. 왼쪽 탐색 모음에서 * 응용 프로그램 * 을 선택합니다.
+. 검색된 * 를 선택합니다.
++
+image:acc_apps_discovered4.png["검색된 앱의 스크린샷"]
+
+. 검색된 네임스페이스 목록을 봅니다. 네임스페이스를 확장하여 앱 및 관련 리소스를 봅니다.
++
+Astra Control은 네임스페이스에서 Helm 앱 및 사용자 지정 레이블 앱을 보여 줍니다. Helm 레이블을 사용할 수 있는 경우 태그 아이콘으로 지정됩니다.
+
+. 응용 프로그램이 실행 중인 이름 공간(폴더 아이콘으로 지정됨)을 확인하려면 * Group * 열을 확인합니다.
+. 각 앱을 개별적으로 관리할지 아니면 네임스페이스 수준에서 관리할지 결정합니다.
+. 계층 구조에서 원하는 수준에서 원하는 앱을 찾고 작업 메뉴에서 * 관리 * 를 선택합니다.
+. 앱을 관리하지 않으려면 앱 옆의 작업 메뉴에서 * 무시 * 를 선택합니다.
++
+예를 들어 "Maria" 네임스페이스의 모든 앱을 함께 관리하여 동일한 스냅샷 및 백업 정책을 가지려면 네임스페이스를 관리하고 네임스페이스의 앱을 무시해야 합니다.
+
+. 관리되는 앱 목록을 보려면 디스플레이 필터로 * Managed * 를 선택합니다.
++
+image:acc_apps_managed3.png["관리되는 앱의 스크린샷"]
+
++
+방금 추가한 앱에는 Protected(보호) 열 아래에 백업 중이 아니며 아직 백업이 예약되지 않았음을 나타내는 경고 아이콘이 있습니다.
+
+. 특정 앱의 세부 정보를 보려면 앱 이름을 선택합니다.
+
+
+관리하기로 선택한 앱은 이제 * Managed * 탭에서 사용할 수 있습니다. 무시된 앱은 * ignored * 탭으로 이동합니다. 검색된 탭에 앱이 표시되지 않으므로 새 앱을 설치하면 찾아서 관리하기가 더 쉬워집니다.
+
+
+
+=== Kubernetes 레이블로 앱 관리
+
+Astra Control에는 응용 프로그램 페이지 상단에 * 사용자 정의 앱 정의 * 라는 작업이 포함되어 있습니다. 이 작업을 통해 Kubernetes 레이블로 식별된 앱을 관리할 수 있습니다. link:../use/define-custom-app.html["Kubernetes 레이블로 맞춤형 앱을 정의하는 방법에 대해 자세히 알아보십시오"].
+
+.단계
+. 왼쪽 탐색 모음에서 * 응용 프로그램 * 을 선택합니다.
+. 정의 * 를 선택합니다.
++
+image:acc_apps_custom_details3.png["사용자 정의 앱 스크린샷"]
+
+. 사용자 정의 응용 프로그램 정의 * 대화 상자에서 응용 프로그램을 관리하는 데 필요한 정보를 제공합니다.
++
+.. * 새 앱 *: 앱의 표시 이름을 입력합니다.
+.. * 클러스터 *: 앱이 있는 클러스터를 선택합니다.
+.. * 네임스페이스: * 앱의 네임스페이스를 선택합니다.
+.. * 레이블: * 레이블을 입력하거나 아래 리소스에서 레이블을 선택합니다.
+.. * 선택한 리소스 *: 보호하려는 선택한 Kubernetes 리소스(Pod, 기밀, 영구 볼륨 등)를 보고 관리합니다.
++
+*** 리소스를 확장하고 레이블 수를 선택하여 사용 가능한 레이블을 봅니다.
+*** 레이블 중 하나를 선택합니다.
++
+레이블을 선택하면 * Label * (레이블 *) 필드에 표시됩니다. 또한 Astra Control은 선택한 레이블과 일치하지 않는 리소스를 표시하도록 * 선택되지 않은 리소스 * 섹션을 업데이트합니다.
+
+
+
+.. 선택하지 않은 리소스 *: 보호하지 않을 앱 리소스를 확인합니다.
+
+
+. 사용자 정의 응용 프로그램 정의 * 를 선택합니다.
+
+
+Astra Control은 앱 관리를 지원합니다. 이제 * Managed * 탭에서 찾을 수 있습니다.
+
+
+
+== 앱을 무시합니다
+
+앱이 검색된 경우 검색된 목록에 표시됩니다. 이 경우 검색된 목록을 정리하여 새로 설치된 새 앱을 보다 쉽게 찾을 수 있습니다. 또는 관리하고 있는 앱이 있을 수 있으며 나중에 더 이상 앱을 관리하지 않기로 결정할 수 있습니다. 이러한 앱을 관리하지 않으려면 해당 앱을 무시해야 함을 나타낼 수 있습니다.
+
+또한 하나의 네임스페이스(네임스페이스 관리)에서 앱을 관리할 수도 있습니다. 네임스페이스에서 제외할 앱을 무시할 수 있습니다.
+
+.단계
+. 왼쪽 탐색 모음에서 * 응용 프로그램 * 을 선택합니다.
+. 검색됨 * 을 필터로 선택합니다.
+. 앱을 선택합니다.
+. 작업 메뉴에서 * 무시 * 를 선택합니다.
+. 무시 해제하려면 동작 메뉴에서 * 무시 해제 * 를 선택합니다.
+
+
+
+
+== 앱 관리 취소
+
+더 이상 앱을 백업, 스냅샷 또는 클론 복제하지 않으려는 경우 관리를 중지할 수 있습니다.
+
+
+NOTE: 앱 관리를 해제하면 이전에 생성된 모든 백업 또는 스냅샷이 손실됩니다.
+
+.단계
+. 왼쪽 탐색 모음에서 * 응용 프로그램 * 을 선택합니다.
+. 필터로 * Managed * 를 선택합니다.
+. 앱을 선택합니다.
+. Actions 메뉴에서 * Unmanage * 를 선택합니다.
+. 정보를 검토합니다.
+. "unmanage"를 입력하여 확인합니다.
+. 예, 응용 프로그램 관리 취소 * 를 선택합니다.
+
+
+
+
+== 시스템 앱은 어떻습니까?
+
+Astra Control은 Kubernetes 클러스터에서 실행 중인 시스템 앱을 검색합니다. 도구 모음의 클러스터 필터 아래에서 * 시스템 앱 표시 * 확인란을 선택하여 시스템 앱을 표시할 수 있습니다.
+
+image:acc_apps_system_apps3.png["앱 페이지에서 사용할 수 있는 시스템 앱 표시 옵션을 보여 주는 스크린샷"]
+
+이러한 시스템 앱은 기본적으로 표시되지 않습니다. 백업해야 하는 경우는 드뭅니다.
+
+
+TIP: Astra Control 자체는 표준 앱이 아니며 "시스템 앱"입니다. Astra Control 자체를 관리하려고 해서는 안 됩니다. 관리 시 Astra Control 자체는 기본적으로 표시되지 않습니다. 시스템 앱을 보려면 “Show system apps(시스템 앱 표시)” 필터를 사용합니다.
+
+
+
+== 자세한 내용을 확인하십시오
+
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 사용합니다"^]
+

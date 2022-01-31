@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: release-notes/whats-new.html 
+keywords: what's new, bugs, bug fixes, new features, enhancements 
+summary: NetApp은 새로운 기능, 개선 사항 및 버그 수정을 제공하기 위해 Astra Control Center를 정기적으로 업데이트합니다. 
+---
+= Astra Control Center의 이번 릴리스의 새로운 기능
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+Astra Control Center의 최신 21.12 릴리스를 발표하게 되어 기쁘게 생각합니다.
+
+
+
+== 2021년 12월 14일(21.12)
+
+Astra Control Center의 업데이트 릴리스.
+
+.새로운 기능 및 지원
+* link:../use/restore-apps.html["애플리케이션 복원"]
+* link:../use/execution-hooks.html["실행 후크"]
+* link:../get-started/requirements.html#supported-app-installation-methods["네임스페이스 범위 연산자로 배포된 응용 프로그램 지원"]
+* link:../get-started/requirements.html["업스트림 Kubernetes 및 Rancher에 대한 추가 지원"]
+* link:../get-started/setup_overview.html#add-a-storage-backend["Astra Data Store는 백엔드 관리 및 모니터링을 미리 봅니다"]
+* link:../use/upgrade-acc.html["Astra Control Center 업그레이드"]
+* link:../get-started/acc_operatorhub_install.html["설치용 Red Hat OperatorHub 옵션"]
+
+
+.해결된 문제
+* link:../release-notes/resolved-issues.html["이 릴리스의 문제를 해결했습니다"]
+
+
+.알려진 문제 및 제한 사항
+* link:../release-notes/known-issues.html["이 릴리스에 대해 알려진 문제입니다"]
+* link:../release-notes/known-issues-ads.html["Astra Data Store Preview 및 이 Astra Control Center 릴리스와 관련된 알려진 문제입니다"]
+* link:../release-notes/known-limitations.html["이 릴리스에 대해 알려진 제한 사항입니다"]
+
+
+
+
+== 2021년 8월 5일(21.08)
+
+Astra Control Center의 최초 릴리스.
+
+* link:../concepts/intro.html["그게 뭐죠"]
+* link:../concepts/architecture.html["아키텍처 및 구성 요소 이해"]
+* link:../get-started/requirements.html["시작하는 데 필요한 사항"]
+* link:../get-started/install_acc.html["설치합니다"] 및 
+* link:../use/manage-apps.html["관리"] 및  인프라
+* link:../use/manage-buckets.html["버킷을 관리합니다"] 및 
+* link:../use/manage-users.html["계정 관리"]
+* link:../rest-api/api-intro.html["API를 통한 자동화"]
+
+
+
+
+== 자세한 내용을 확인하십시오
+
+* link:../release-notes/known-issues.html["이 릴리스에 대해 알려진 문제입니다"]
+* link:../release-notes/known-limitations.html["이 릴리스에 대해 알려진 제한 사항입니다"]
+* https://docs.netapp.com/us-en/astra-data-store/index.html["Astra Data Store 문서"]
+* link:../acc-earlier-versions.html["이전 버전의 Astra Control Center 문서"]
+

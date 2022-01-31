@@ -1,0 +1,247 @@
+---
+sidebar: sidebar 
+permalink: get-started/setup_overview.html 
+keywords: set up astra control, setup astra control, setting up Astra Control Center, astra control license, add cluster, import storage, add bucket 
+summary: Astra Control Center를 설치하고, UI에 로그인하고, 암호를 변경하면 라이센스를 설정하고, 클러스터를 추가하고, 스토리지를 관리하고, 버킷을 추가할 수 있습니다. 
+---
+= Astra Control Center를 설정합니다
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+Astra Control Center는 스토리지 백엔드로 ONTAP 및 Astra 데이터 저장소를 지원 및 모니터링합니다. Astra Control Center를 설치하고, UI에 로그인하고, 암호를 변경하면 라이센스를 설정하고, 클러스터를 추가하고, 스토리지를 관리하고, 버킷을 추가할 수 있습니다.
+
+.작업
+* <<Add a license for Astra Control Center>>
+* <<Add cluster>>
+* <<Add a storage backend>>
+* <<Add a bucket>>
+
+
+
+
+== Astra Control Center에 대한 라이센스를 추가합니다
+
+UI 또는 를 사용하여 새 라이센스를 추가할 수 있습니다 https://docs.netapp.com/us-en/astra-automation/index.html["API를 참조하십시오"^] Astra Control Center의 모든 기능을 활용할 수 있습니다. 라이센스가 없으면 Astra Control Center의 사용은 사용자 관리 및 새 클러스터 추가로 제한됩니다.
+
+에서 Astra Control Center를 다운로드한 경우 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support 사이트"^]또한 NetApp 라이센스 파일(NLF)도 다운로드했습니다. 이 라이센스 파일에 대한 액세스 권한이 있는지 확인하십시오.
+
+
+NOTE: 기존 평가판 또는 전체 라이센스를 업데이트하려면 을 참조하십시오 link:../use/update-licenses.html["기존 라이센스를 업데이트합니다"].
+
+
+
+=== 전체 또는 평가 라이센스를 추가합니다
+
+Astra Control Center 라이센스는 Kubernetes CPU 장치를 사용하여 CPU 리소스를 측정합니다. 라이센스는 모든 관리되는 Kubernetes 클러스터의 작업자 노드에 할당된 CPU 리소스를 고려해야 합니다. 라이센스를 추가하기 전에 에서 라이센스 파일(NLF)을 얻어야 합니다 link:https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support 사이트"^].
+
+또한 평가판 라이센스가 있는 Astra Control Center를 사용하여 라이센스를 다운로드한 날짜로부터 90일 동안 Astra Control Center를 사용할 수 있습니다. 등록하면 무료 평가판을 사용할 수 있습니다 link:https://cloud.netapp.com/astra-register["여기"^].
+
+
+NOTE: 설치가 라이센스 CPU 유닛 수를 초과하여 증가할 경우, Astra Control Center를 통해 새 애플리케이션을 관리할 수 없습니다. 용량이 초과되면 경고가 표시됩니다.
+
+.단계
+. Astra Control Center UI에 로그인합니다.
+. 계정 * > * 라이센스 * 를 선택합니다.
+. 라이센스 추가 * 를 선택합니다.
+. 다운로드한 라이센스 파일(NLF)으로 이동합니다.
+. 라이센스 추가 * 를 선택합니다.
+
+
+계정 * > * 라이센스 * 페이지에는 라이센스 정보, 만료 날짜, 라이센스 일련 번호, 계정 ID 및 사용된 CPU 단위가 표시됩니다.
+
+
+NOTE: 평가 라이센스가 있는 경우 ASUP를 보내지 않을 경우 Astra Control Center에 장애가 발생할 경우 데이터 손실을 방지하기 위해 계정 ID를 저장해야 합니다.
+
+
+
+== 클러스터 추가
+
+앱 관리를 시작하려면 Kubernetes 클러스터를 추가하고 이를 컴퓨팅 리소스로 관리합니다. Kubernetes 애플리케이션을 검색하려면 Astra Control Center용 클러스터를 추가해야 합니다. Astra Data Store 미리 보기의 경우, Astra Data Store 미리 보기에서 프로비저닝된 볼륨을 사용하는 애플리케이션이 포함된 Kubernetes 앱 클러스터를 추가하려고 합니다.
+
+
+TIP: 관리를 위해 Astra Control Center에 다른 클러스터를 추가하기 전에 먼저 Astra Control Center에서 클러스터를 관리하는 것이 좋습니다. 메트릭 및 문제 해결을 위해 Kubemetrics 데이터 및 클러스터 관련 데이터를 전송하려면 관리 중인 초기 클러스터가 필요합니다. 클러스터 추가 * 기능을 사용하여 Astra Control Center로 클러스터를 관리할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+
+IMPORTANT: 클러스터를 추가하기 전에 필요한 를 검토 및 수행합니다 link:add-cluster-reqs.html["선행 작업"^].
+
+.단계
+. Astra Control Center UI의 * Dashboard * 에서 Clusters 섹션에서 * Add * 를 선택합니다.
+. Add Cluster * (클러스터 추가 *) 창이 열리면 kubecononfig.YAML 파일을 업로드하거나 kubecononfig.YAML 파일의 내용을 붙여 넣습니다.
++
+
+NOTE: "kubecononfig.yAML" 파일에는 하나의 클러스터에 대한 클러스터 자격 증명만 * 포함되어야 합니다.
+
++
+image:cluster-creds.png["클러스터에 kubecononfig.YAML을 업로드하는 화면을 보여줍니다."]
+
++
+
+IMPORTANT: 고유한 "kubecononfig" 파일을 만들 경우 해당 파일에 * 하나의 * 컨텍스트 요소만 정의해야 합니다. 을 참조하십시오 https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Kubernetes 문서"^] kubecononfig 파일을 만드는 방법에 대한 자세한 내용은
+
+. 자격 증명 이름을 제공하십시오. 기본적으로 자격 증명 이름은 클러스터 이름으로 자동 채워집니다.
+. 스토리지 구성 * 을 선택합니다.
+. 이 Kubernetes 클러스터에 사용할 스토리지 클래스를 선택하고 * Review * 를 선택하십시오.
++
+
+NOTE: ONTAP 스토리지 또는 Astra 데이터 저장소에서 지원하는 Trident 스토리지 클래스를 선택해야 합니다.
+
++
+image:cluster-storage.png["에는 클러스터에 사용할 스토리지 클래스가 나와 있습니다."]
+
+. 정보를 검토하고 모든 내용이 양호하면 * 클러스터 추가 * 를 선택합니다.
+
+
+클러스터가 * 검색 * 상태로 전환되고 * 실행 * 으로 변경됩니다. Kubernetes 클러스터를 성공적으로 추가했으며 현재 Astra Control Center에서 관리하고 있습니다.
+
+
+IMPORTANT: Astra Control Center에서 관리할 클러스터를 추가한 후 모니터링 연산자를 구축하는 데 몇 분이 걸릴 수 있습니다. 그 전까지는 알림 아이콘이 빨간색으로 바뀌고 * 모니터링 에이전트 상태 확인 실패 * 이벤트를 기록합니다. Astra Control Center가 올바른 상태를 획득하면 문제가 해결되므로 이 문제를 무시할 수 있습니다. 몇 분 이내에 문제가 해결되지 않으면 클러스터로 이동하여 "OC get Pod-n NetApp-monitoring"을 시작 지점으로 실행합니다. 문제를 디버깅하려면 모니터링 운영자 로그를 확인해야 합니다.
+
+
+
+== 스토리지 백엔드를 추가합니다
+
+Astra Control에서 리소스를 관리할 수 있도록 스토리지 백엔드를 추가할 수 있습니다. Astra Control에서 스토리지 클러스터를 스토리지 백엔드로 관리하면 PVS(영구적 볼륨)와 스토리지 백엔드 간의 연결 및 추가 스토리지 메트릭을 얻을 수 있습니다.
+
+대시보드 또는 백엔드 메뉴에서 프롬프트를 탐색하여 검색된 스토리지 백엔드를 추가할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* 있습니다 link:../get-started/setup_overview.html#add-cluster["클러스터가 추가되었습니다"] 그리고 Astra Control에서 관리합니다.
++
+
+NOTE: 관리되는 클러스터에는 Astra Control에서 검색할 수 있는 지원되는 백엔드가 연결되어 있습니다.
+
+* Astra Data Store 미리 보기 설치의 경우: Kubernetes 앱 클러스터를 추가했습니다.
++
+
+NOTE: Astra Data Store용 Kubernetes 앱 클러스터를 추가하면 검색된 백엔드 목록에 해당 클러스터가 '관리되지 않음'으로 표시됩니다. 다음으로 Astra Data Store가 포함된 컴퓨팅 클러스터를 추가하고 Kubernetes 애플리케이션 클러스터를 포함해야 합니다. UI의 * backends * 에서 이 작업을 수행할 수 있습니다. 클러스터의 Actions 메뉴를 선택하고, Manage를 선택하고, 를 선택합니다 link:../get-started/setup_overview.html#add-cluster["클러스터를 추가합니다"]. '관리되지 않는' 클러스터 상태가 Kubernetes 클러스터 이름으로 변경된 후 백엔드를 추가하는 작업을 계속 진행할 수 있습니다.
+
+
+
+.단계
+. 다음 중 하나를 수행합니다.
++
+** 대시보드 * 에서:
++
+... 대시보드 스토리지 백엔드 섹션에서 * 관리 * 를 선택합니다.
+... 대시보드 리소스 요약 > 스토리지 백엔드 섹션에서 * 추가 * 를 선택합니다.
+
+
+** 시작 * 백엔드 *:
++
+... 왼쪽 탐색 영역에서 * backends * 를 선택합니다.
+... 관리 * 를 선택합니다.
+
+
+
+
+. 백엔드 유형에 따라 다음 중 하나를 수행합니다.
++
+** * Astra 데이터 저장소 *:
++
+... Astra Data Store * 탭을 선택합니다.
+... 관리되는 컴퓨팅 클러스터를 선택하고 * Next * 를 선택합니다.
+... 백엔드 세부 정보를 확인하고 * Manage storage backend * 를 선택합니다.
+
+
+** * ONTAP *:
++
+... ONTAP 관리자 자격 증명을 입력하고 * 검토 * 를 선택합니다.
+... 백엔드 세부 정보를 확인하고 * 관리 * 를 선택합니다.
+
+
+
+
++
+백엔드는 요약 정보와 함께 목록의 "사용 가능" 상태로 나타납니다.
+
+
+
+
+NOTE: 백엔드가 표시되도록 페이지를 새로 고쳐야 할 수 있습니다.
+
+
+
+== 버킷을 추가합니다
+
+애플리케이션과 영구 스토리지를 백업하려는 경우나 클러스터 간에 애플리케이션을 클론 복제하려는 경우에는 오브젝트 저장소 버킷 공급자를 추가하는 것이 중요합니다. Astra Control은 이러한 백업 또는 클론을 정의한 오브젝트 저장소 버킷에 저장합니다.
+
+버킷을 추가하면 Astra Control은 하나의 버킷을 기본 버킷 표시기로 표시합니다. 사용자가 만든 첫 번째 버킷이 기본 버킷이 됩니다.
+
+애플리케이션 구성과 영구 스토리지를 동일한 클러스터에 클론 복제할 경우 버킷이 필요하지 않습니다.
+
+다음 버킷 유형 중 하나를 사용하십시오.
+
+* NetApp ONTAP S3
+* NetApp StorageGRID S3
+* 일반 S3
+
+
+
+NOTE: Astra Control Center는 Amazon S3를 일반 S3 버킷 공급자로 지원하지만, Astra Control Center는 Amazon의 S3 지원을 주장하는 모든 오브젝트 저장소 공급업체를 지원하지 않을 수 있습니다.
+
+Astra Control API를 사용하여 버킷을 추가하는 방법에 대한 지침은 를 참조하십시오 link:https://docs.netapp.com/us-en/astra-automation/["Astra 자동화 및 API 정보"^].
+
+.단계
+. 왼쪽 탐색 영역에서 * Bucket * 을 선택합니다.
++
+.. 추가 * 를 선택합니다.
+.. 버킷 유형을 선택합니다.
++
+
+NOTE: 버킷을 추가할 때 올바른 버킷 공급자를 선택하고 해당 공급자에 적합한 자격 증명을 제공합니다. 예를 들어, UI에서 NetApp ONTAP S3를 유형으로 받아들이고 StorageGRID 자격 증명을 받아들이지만, 이 버킷을 사용한 이후의 모든 애플리케이션 백업 및 복원이 실패합니다.
+
+.. 새 버킷 이름을 생성하거나 기존 버킷 이름과 선택적 설명을 입력합니다.
++
+
+TIP: 버킷 이름 및 설명은 백업을 생성할 때 나중에 선택할 수 있는 백업 위치로 나타납니다. 이 이름은 보호 정책 구성 중에도 표시됩니다.
+
+.. S3 엔드포인트의 이름 또는 IP 주소를 입력합니다.
+.. 이 버킷을 모든 백업의 기본 버킷으로 사용하려면 "이 버킷을 이 프라이빗 클라우드의 기본 버킷으로 설정" 옵션을 선택합니다.
++
+
+NOTE: 이 옵션은 사용자가 만든 첫 번째 버킷에는 나타나지 않습니다.
+
+.. 를 추가하여 계속합니다 <<Add S3 access credentials,자격 증명 정보>>.
+
+
+
+
+
+
+=== S3 액세스 자격 증명을 추가합니다
+
+언제든지 S3 액세스 자격 증명을 추가할 수 있습니다.
+
+.단계
+. Bucket 대화상자에서 * Add * 또는 * Use Existing * 탭을 선택합니다.
++
+.. Astra Control의 다른 자격 증명과 구별되는 자격 증명의 이름을 입력합니다.
+.. 클립보드의 내용을 붙여 넣어 액세스 ID와 비밀 키를 입력합니다.
+
+
+
+
+
+
+== 다음 단계
+
+Astra Control Center에 로그인하고 클러스터를 추가했으므로 이제 Astra Control Center의 애플리케이션 데이터 관리 기능을 사용할 준비가 되었습니다.
+
+* link:../use/manage-users.html["사용자 관리"]
+* link:../use/manage-apps.html["앱 관리를 시작합니다"]
+* link:../use/protect-apps.html["앱 보호"]
+* link:../use/clone-apps.html["앱 클론 복제"]
+* link:../use/manage-notifications.html["알림을 관리합니다"]
+* link:../use/monitor-protect.html#connect-to-cloud-insights["Cloud Insights에 연결합니다"]
+* link:../get-started/add-custom-tls-certificate.html["사용자 지정 TLS 인증서를 추가합니다"]
+
+
+[discrete]
+== 자세한 내용을 확인하십시오
+
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 사용합니다"^]
+* link:../release-notes/known-issues.html["알려진 문제"]
+
