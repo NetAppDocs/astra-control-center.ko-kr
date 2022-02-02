@@ -169,7 +169,7 @@ done
 
 == 인증 요구 사항이 있는 레지스트리에 대한 네임스페이스 및 암호를 설정합니다
 
-. (인증 요구 사항이 있는 레지스트리 전용) 인증이 필요한 레지스트리를 사용하는 경우 다음을 수행해야 합니다.
+. 인증이 필요한 레지스트리를 사용하는 경우 다음을 수행해야 합니다.
 +
 .. 'NetApp-acc-operator' 네임스페이스 생성:
 +
@@ -251,7 +251,7 @@ imagePullSecrets:
 ----
 .. kuby-RBAC-proxy 이미지의 [your_registry_path]를 이미지를 에서 푸시한 레지스트리 경로로 변경합니다 <<substep_image_local_registry_push,이전 단계>>.
 .. "acc-operator-controller-manager" 이미지의 [your_registry_path]를 이미지를 에서 푸시한 레지스트리 경로로 변경합니다 <<substep_image_local_registry_push,이전 단계>>.
-.. (Astra Data Store 미리 보기를 사용하여 설치하는 경우) 에 대해 알려진 문제를 참조하십시오 link:../release-notes/known-issues-ads.html#astra-data-store-cannot-be-used-as-a-storage-class-for-astra-control-center-due-to-mongodb-pod-liveness-probe-failure["추가 필수 변경 사항"] YAML에 대한 정보를 제공합니다.
+.. (Astra Data Store Preview를 사용하여 설치하는 경우) 와 관련된 알려진 문제를 참조하십시오 link:../release-notes/known-issues-ads.html#astra-data-store-cannot-be-used-as-a-storage-class-for-astra-control-center-due-to-mongodb-pod-liveness-probe-failure["스토리지 클래스 프로비저닝 및 YAML에 대한 추가 변경 사항"].
 +
 [listing, subs="+quotes"]
 ----
@@ -329,7 +329,7 @@ deployment.apps/acc-operator-controller-manager created
 
 == Astra Control Center를 구성합니다
 
-. Astra Control Center 사용자 정의 리소스(CR) 파일('Astra_control_center_min YAML') 편집:
+. Astra Control Center 사용자 정의 리소스(CR) 파일('Astra_control_center_min YAML')을 편집하여 계정, AutoSupport, 레지스트리 및 기타 필요한 구성을 만듭니다.
 +
 
 NOTE: 사용자 환경에 추가 사용자 정의가 필요한 경우 대체 CR로 Astra_control_center.yaML을 사용할 수 있습니다. Astra_control_center_min YAML은 기본 CR이며 대부분의 설치에 적합합니다.

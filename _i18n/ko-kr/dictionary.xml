@@ -1497,7 +1497,6 @@
   <block id="0d3c2b3775953963477be58a687ef396" category="list-text"><block ref="7f5260aec8ab352f0317ebd62c8ed1fa" category="inline-xref-macro-rx"></block></block>
   <block id="30639cc5d4879b6ab4636e1faec4ce6c" category="paragraph">를 수행하여 배포를 완료합니다 <block ref="c74ac040317626af0342a18a145cdbb7" category="inline-link-macro-rx"></block>.</block>
   <block id="f748f65c20601bd5ff808f54e4a932d1" category="section-title">인증 요구 사항이 있는 레지스트리에 대한 네임스페이스 및 암호를 설정합니다</block>
-  <block id="0847bd4ccdcd6882e6ff58df58030582" category="list-text">(인증 요구 사항이 있는 레지스트리 전용) 인증이 필요한 레지스트리를 사용하는 경우 다음을 수행해야 합니다.</block>
   <block id="4f1676fe8dda03f26994cd830c2d09a1" category="list-text">'NetApp-acc-operator' 네임스페이스 생성:</block>
   <block id="6991b18d1a4e22ab1157055468087de4" category="list-text">NetApp-acc-operator 네임스페이스에 대한 암호를 생성합니다. Docker 정보를 추가하고 다음 명령을 실행합니다.</block>
   <block id="d62c5849c83a783e51d9f960d482751c" category="list-text">"NetApp-acc"(또는 사용자 지정 이름) 네임스페이스를 생성합니다.</block>
@@ -1508,7 +1507,6 @@
   <block id="19dfa68f9af3ebcd8abb0bcfff39c5fd" category="list-text">(Astra Data Store 미리 보기를 사용하여 설치하는 경우) 에 대해 알려진 문제를 참조하십시오 <block ref="6511a1f600064236c7dbbb54dd879ccf" category="inline-link-macro-rx"></block> YAML에 대한 정보를 제공합니다.</block>
   <block id="dfa816f2277b6d07821b3fb152d086c3" category="list-text">Astra Control Center 운영자를 설치합니다.</block>
   <block id="8763b5c0837ac6cf7ff31e202742432c" category="section-title">Astra Control Center를 구성합니다</block>
-  <block id="25bc3690d011ed7eb8a9cb727a3de4a1" category="list-text">Astra Control Center 사용자 정의 리소스(CR) 파일('Astra_control_center_min YAML') 편집:</block>
   <block id="67c786024def27f9fe344173bf9e992c" category="admonition">사용자 환경에 추가 사용자 정의가 필요한 경우 대체 CR로 Astra_control_center.yaML을 사용할 수 있습니다. Astra_control_center_min YAML은 기본 CR이며 대부분의 설치에 적합합니다.</block>
   <block id="1b541447f46db215b4ac2a73f41115ca" category="admonition">CR에서 구성한 속성은 초기 Astra Control Center 배포 후에는 변경할 수 없습니다.</block>
   <block id="5f41634ced99810c0f400b7519177c04" category="admonition">인증이 필요 없는 레지스트리를 사용하는 경우 imageRegistry 내에서 '비밀' 줄을 삭제해야 합니다. 그렇지 않으면 설치가 실패합니다.</block>
@@ -1775,4 +1773,8 @@
   <block id="e462fefdff91aa001d8ce5bcc11f5f5f" category="sidebar">애플리케이션 구축</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">시작하십시오</block>
   <block id="1fe917b01f9a3f87fa2d7d3b7643fac1" category="sidebar">FAQ 를 참조하십시오</block>
+  <block id="863333fc6964aae7ff1cd85ff324bdad" category="list-text">인증이 필요한 레지스트리를 사용하는 경우 다음을 수행해야 합니다.</block>
+  <block id="9fb31bf48e490c8cc9100621633a4882" category="inline-link-macro">스토리지 클래스 프로비저닝 및 YAML에 대한 추가 변경 사항</block>
+  <block id="1ee30587538b0f2fb782cfd336e211af" category="list-text">(Astra Data Store Preview를 사용하여 설치하는 경우) 와 관련된 알려진 문제를 참조하십시오 <block ref="41115f9f1d35c2b8edc407cb676a515f" category="inline-link-macro-rx"></block>.</block>
+  <block id="e30ec2af9a8a15a002fcf184ac176f18" category="list-text">Astra Control Center 사용자 정의 리소스(CR) 파일('Astra_control_center_min YAML')을 편집하여 계정, AutoSupport, 레지스트리 및 기타 필요한 구성을 만듭니다.</block>
 </blocks>
