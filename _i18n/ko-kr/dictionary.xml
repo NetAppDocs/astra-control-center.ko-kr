@@ -81,15 +81,12 @@
   <block id="972dbc054c14df6a8a668ad2c71b9afa" category="paragraph">Astra Control Service는 NetApp에서 관리하는 클라우드 서비스로, 항상 최신 기능을 사용하여 업데이트 가능합니다. 이 솔루션은 여러 구성 요소를 활용하여 애플리케이션 데이터 수명 주기 관리를 지원합니다.</block>
   <block id="29346571353a36c4c8e378195149db77" category="paragraph">높은 수준에서 Astra Control Service는 다음과 같이 작동합니다.</block>
   <block id="5e44a260fc47d95ab78eb0e97efe4e7d" category="list-text">클라우드 공급자를 설정하고 Astra 계정에 등록하여 Astra Control Service를 시작할 수 있습니다.</block>
-  <block id="87bed9eb61a03aa8496ee681d63b56b9" category="list-text">GKE 클러스터의 경우 Astra Control Service가 사용합니다<block ref="33441d63a8e7ace6860eab2024320819" category="inline-link-rx"></block> 영구 볼륨의 스토리지 백엔드로 사용됩니다.</block>
-  <block id="719caf9a493ac60627a73d0b272c3657" category="list-text">AKS 클러스터의 경우 Astra Control Service가 사용합니다<block ref="16e1ab965c1d673c5cb3b5a28e77c1c1" category="inline-link-rx"></block> 영구 볼륨의 스토리지 백엔드로 사용됩니다.</block>
   <block id="1ae8e0ca715d9854cf1c69ead32e4931" category="list-text">첫 번째 Kubernetes 컴퓨팅을 Astra Control Service에 추가합니다. 그러면 Astra Control Service에서 다음을 수행합니다.</block>
   <block id="e99f973393b40d224e0166ec9b211177" category="list-text">클라우드 공급자 계정에 백업 복사본이 저장되는 개체 저장소를 만듭니다.</block>
   <block id="2fe87449d125b0daf20d2fc8de53081e" category="paragraph">Azure에서 Astra Control Service는 Blob 컨테이너용 리소스 그룹, 스토리지 계정 및 키도 생성합니다.</block>
   <block id="c2fd5ecb26eed8762bfa518199e6199f" category="list-text">클러스터에 새 관리 역할 및 Kubernetes 서비스 계정을 생성합니다.</block>
   <block id="086e6c16e3fe8e13c336612ef636aa02" category="inline-link">아스트라 트리덴트</block>
   <block id="51fbabc51080a419e6a5019a1c169ab4" category="list-text">에서는 새 관리자 역할을 사용하여 를 설치합니다<block ref="0ff0cd427dac64ddc62afadc9a52e9d0" category="inline-link-rx"></block> 를 클릭하여 하나 이상의 스토리지 클래스를 생성합니다.</block>
-  <block id="43dca1ad27491e19698527209ca74008" category="list-text">Astra Trident를 사용하여 앱에 영구 볼륨을 프로비저닝합니다.</block>
   <block id="a853ecb1e1044a3ae5762294407c0fda" category="list-text">이제 앱을 클러스터에 추가할 수 있습니다. 영구 볼륨은 새로운 기본 스토리지 클래스에 프로비저닝됩니다.</block>
   <block id="67d2a2db6f77778acc532b68658f63cc" category="list-text">그런 다음 Astra Control Service를 사용하여 이러한 애플리케이션을 관리하고 스냅샷, 백업 및 클론 생성을 시작합니다.</block>
   <block id="a7eb0ba32f9706a479c6037bea16e1ca" category="paragraph">Astra Control Service는 상태 변화를 위해 컴퓨팅 작업을 지속적으로 감시하기 때문에 새로 추가한 앱을 인식합니다.</block>
@@ -1777,4 +1774,7 @@
   <block id="9fb31bf48e490c8cc9100621633a4882" category="inline-link-macro">스토리지 클래스 프로비저닝 및 YAML에 대한 추가 변경 사항</block>
   <block id="1ee30587538b0f2fb782cfd336e211af" category="list-text">(Astra Data Store Preview를 사용하여 설치하는 경우) 와 관련된 알려진 문제를 참조하십시오 <block ref="41115f9f1d35c2b8edc407cb676a515f" category="inline-link-macro-rx"></block>.</block>
   <block id="e30ec2af9a8a15a002fcf184ac176f18" category="list-text">Astra Control Center 사용자 정의 리소스(CR) 파일('Astra_control_center_min YAML')을 편집하여 계정, AutoSupport, 레지스트리 및 기타 필요한 구성을 만듭니다.</block>
+  <block id="052766753c4902f7b4dda44f55923c85" category="list-text">GKE 클러스터의 경우 Astra Control Service가 사용합니다<block ref="33441d63a8e7ace6860eab2024320819" category="inline-link-rx"></block> 또는 Google 영구 디스크를 영구 볼륨의 스토리지 백엔드로 사용합니다.</block>
+  <block id="e6b1925e4e775a70bcb5b95deee417b9" category="list-text">AKS 클러스터의 경우 Astra Control Service가 사용합니다<block ref="16e1ab965c1d673c5cb3b5a28e77c1c1" category="inline-link-rx"></block> 또는 Azure Disk Storage를 영구 볼륨의 스토리지 백엔드로 사용합니다.</block>
+  <block id="53a30ad173bc821551d7bc21cfd2f4c8" category="list-text">Azure NetApp Files 또는 NetApp Cloud Volumes Service for Google Cloud를 스토리지 백엔드로 사용하는 경우, Astra Control Service는 Astra Trident를 사용하여 앱에 영구 볼륨을 프로비저닝합니다.</block>
 </blocks>
