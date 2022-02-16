@@ -992,7 +992,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-02 23:09:22 +0000">02/02/2022</time>
+    <time datetime="2022-02-16 17:21:00 +0000">02/16/2022</time>
     
   
 
@@ -1183,10 +1183,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>GKE 클러스터의 경우 Astra Control Service가 사용합니다 <a href="https://cloud.netapp.com/cloud-volumes-service-for-gcp" target="_blank" rel="noopener">"Google Cloud용 NetApp Cloud Volumes Service"</a> 영구 볼륨의 스토리지 백엔드로 사용됩니다.</p>
+<p>GKE 클러스터의 경우 Astra Control Service가 사용합니다 <a href="https://cloud.netapp.com/cloud-volumes-service-for-gcp" target="_blank" rel="noopener">"Google Cloud용 NetApp Cloud Volumes Service"</a> 또는 Google 영구 디스크를 영구 볼륨의 스토리지 백엔드로 사용합니다.</p>
 </li>
 <li>
-<p>AKS 클러스터의 경우 Astra Control Service가 사용합니다 <a href="https://cloud.netapp.com/azure-netapp-files" target="_blank" rel="noopener">"Azure NetApp Files"</a> 영구 볼륨의 스토리지 백엔드로 사용됩니다.</p>
+<p>AKS 클러스터의 경우 Astra Control Service가 사용합니다 <a href="https://cloud.netapp.com/azure-netapp-files" target="_blank" rel="noopener">"Azure NetApp Files"</a> 또는 Azure Disk Storage를 영구 볼륨의 스토리지 백엔드로 사용합니다.</p>
 </li>
 </ul>
 </div>
@@ -1208,7 +1208,7 @@
 <p>에서는 새 관리자 역할을 사용하여 를 설치합니다 <a href="https://docs.netapp.com/us-en/trident/index.html" target="_blank" rel="noopener">"아스트라 트리덴트"</a> 를 클릭하여 하나 이상의 스토리지 클래스를 생성합니다.</p>
 </li>
 <li>
-<p>Astra Trident를 사용하여 앱에 영구 볼륨을 프로비저닝합니다.</p>
+<p>Azure NetApp Files 또는 NetApp Cloud Volumes Service for Google Cloud를 스토리지 백엔드로 사용하는 경우, Astra Control Service는 Astra Trident를 사용하여 앱에 영구 볼륨을 프로비저닝합니다.</p>
 </li>
 </ul>
 </div>
