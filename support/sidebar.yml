@@ -2,5 +2,7 @@
 section: support
 title: 지식 및 지원
 entries:
+- title: 문제 해결
+  url: "/support/troubleshooting-acc.html"
 - title: 도움을 받으십시오
   url: "/support/get-help.html"
