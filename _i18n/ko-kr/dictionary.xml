@@ -1780,4 +1780,17 @@
   <block id="231cf4c70d866b616c21baddaeed0696" category="doc">문제 해결</block>
   <block id="36e2bd9e7950f46d3ea6d2bca4c50ba1" category="paragraph">발생할 수 있는 몇 가지 일반적인 문제를 해결하는 방법에 대해 알아봅니다.</block>
   <block id="79c5785e2761673e59d8eea6f1277fe2" category="paragraph"><block ref="79c5785e2761673e59d8eea6f1277fe2" category="inline-link-rx"></block></block>
+  <block id="c24664a07eb6e40162f3e96c142b0bdc" category="summary">Astra Control 계정의 활동에 대한 세부 정보를 볼 수 있습니다. 예를 들어, 새 사용자를 초대하거나, 클러스터를 추가하거나, 스냅샷을 생성할 때 사용할 수 있습니다. 계정 활동을 CSV 파일로 내보낼 수도 있습니다.</block>
+  <block id="d112e0a58a044eb2c083fe74be3c2923" category="doc">계정 활동을 모니터링합니다</block>
+  <block id="ab8e74263d81fdf9aa776a7d093168b7" category="list-title">Astra Control에서 모든 계정 활동을 봅니다</block>
+  <block id="249970c8d2d3e0d2742fe616014569b1" category="list-text">Activity * 를 선택합니다.</block>
+  <block id="da7c0d21607588079696a48048b93c4f" category="list-text">필터를 사용하여 활동 목록의 범위를 좁히거나 검색 상자를 사용하여 원하는 항목을 정확하게 찾을 수 있습니다.</block>
+  <block id="14cbedf07116abcddc1da499ecd3b826" category="list-text">CSV로 내보내기 * 를 선택하여 계정 활동을 CSV 파일로 다운로드합니다.</block>
+  <block id="1fe93cae1894af91bbbf239212b98d90" category="list-title">특정 앱의 계정 활동을 봅니다</block>
+  <block id="870305fca27f62b3e2f62ab8aadb0791" category="list-title">클러스터의 계정 활동을 봅니다</block>
+  <block id="957102c47a44d84e6d367c6810150ef5" category="list-text">클러스터 * 를 선택한 다음 클러스터 이름을 선택합니다.</block>
+  <block id="6d7a2b2e94a9d1f18f49ef7549e447d1" category="list-title">주의가 필요한 이벤트를 해결하기 위한 조치를 취하십시오</block>
+  <block id="91b0fccd50fc200b9aa9a40a0cc5a82d" category="list-text">주의가 필요한 이벤트를 선택합니다.</block>
+  <block id="e2900726473d9bdf15d18c496f0edc96" category="list-text">실행 * 드롭다운 옵션을 선택합니다.</block>
+  <block id="02251349687d4a85c56e4346486d3ad4" category="paragraph">이 목록에서 수행할 수 있는 수정 조치를 확인하고, 문제와 관련된 문서를 보고, 문제 해결을 위한 지원을 받을 수 있습니다.</block>
 </blocks>

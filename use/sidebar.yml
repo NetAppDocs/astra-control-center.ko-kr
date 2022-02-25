@@ -39,6 +39,8 @@ entries:
     url: "/use/manage-notifications.html"
   - title: 자격 증명 관리
     url: "/use/manage-credentials.html"
+  - title: 계정 활동을 모니터링합니다
+    url: "/use/view-account-activity.html"
   - title: 기존 라이센스를 업데이트합니다
     url: "/use/update-licenses.html"
 - title: 버킷을 관리합니다
