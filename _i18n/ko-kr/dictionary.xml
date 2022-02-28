@@ -1451,23 +1451,12 @@
   <block id="428324956bb1d934255acfcca9f5c85d" category="admonition">MetalLB 버전 0.11.0은 지원되지 않습니다.</block>
   <block id="9251700e586dc1a410f2e755a8643751" category="section-title">네트워킹 요구 사항</block>
   <block id="2feeeeaca31f7c9852665b6eca3013b1" category="paragraph">Astra Control Center를 호스팅하는 클러스터는 다음 TCP 포트를 사용하여 통신합니다. 이러한 포트가 모든 방화벽을 통해 허용되는지 확인하고 Astra 네트워크에서 발생하는 HTTPS 송신 트래픽을 허용하도록 방화벽을 구성해야 합니다. 일부 포트에는 Astra Control Center를 호스팅하는 클러스터와 각 관리 클러스터(해당되는 경우) 간의 연결이 모두 필요합니다.</block>
-  <block id="deb10517653c255364175796ace3553f" category="cell">제품</block>
   <block id="60aaf44d4b562252c04db7f98497e9aa" category="cell">포트</block>
   <block id="888a77f5ac0748b6c8001822417df8b6" category="cell">프로토콜</block>
-  <block id="02674a4ef33e11c879283629996c8ff8" category="cell">방향</block>
   <block id="261addf78c7b2c961032b3dd08ba0b1f" category="cell">목적</block>
   <block id="13f3cf8c531952d72e5847c4183e6910" category="cell">443</block>
   <block id="0e8433f9a404f1f3ba601c14b026d321" category="cell">HTTPS</block>
-  <block id="839b06ddc239e153e77ac327418547b2" category="cell">UI/API 액세스: 이 포트가 Astra Control Center를 호스팅하는 클러스터와 관리되는 각 클러스터 간에 양방향으로 열려 있는지 확인합니다</block>
   <block id="38f629170ac3ab74b9d6d2cc411c2f3c" category="cell">9090</block>
-  <block id="1abc2c64b76ede54340671c0f6b2120e" category="list-text">수신(Astra Control Center를 호스팅하는 클러스터에)</block>
-  <block id="acbc6de2a74557699e812a14b82cd337" category="list-text">송신(각 관리 클러스터의 각 작업자 노드의 노드 IP 주소에서 임의 포트)</block>
-  <block id="35831b917e420073b8cb2c0749c38b29" category="cell">메트릭 데이터를 고객에게 전송: 각 관리 클러스터가 Astra Control Center를 호스팅하는 클러스터의 이 포트에 액세스할 수 있는지 확인합니다</block>
-  <block id="c621a118ac90861aad62088a5a4ef5e3" category="cell">34571</block>
-  <block id="1195bea8018d2ab41320845d5d6fc163" category="cell">노드 POD 통신</block>
-  <block id="e4d09d3f57c2c971c8b2bf8efb416a0a" category="cell">9220</block>
-  <block id="293c9ea246ff9985dc6f62a650f78986" category="cell">HTTP</block>
-  <block id="5d7fba152c80f5fa7ccc3386b01488f7" category="cell">메트릭 엔드포인트</block>
   <block id="f370975993dbb1e7c1e24af01ed7986c" category="section-title">지원되는 웹 브라우저</block>
   <block id="5ee52824555f7e54b800612663b9f098" category="paragraph">Astra Control Center는 1280 x 720의 최소 해상도로 최신 버전의 Firefox, Safari 및 Chrome을 지원합니다.</block>
   <block id="159b2efa467f3d1f53e7c16668353bf5" category="inline-link-macro">빠른 시작</block>
@@ -1793,4 +1782,17 @@
   <block id="91b0fccd50fc200b9aa9a40a0cc5a82d" category="list-text">주의가 필요한 이벤트를 선택합니다.</block>
   <block id="e2900726473d9bdf15d18c496f0edc96" category="list-text">실행 * 드롭다운 옵션을 선택합니다.</block>
   <block id="02251349687d4a85c56e4346486d3ad4" category="paragraph">이 목록에서 수행할 수 있는 수정 조치를 확인하고, 문제와 관련된 문서를 보고, 문제 해결을 위한 지원을 받을 수 있습니다.</block>
+  <block id="f31bbdd1b3e85bccd652680e16935819" category="cell">출처</block>
+  <block id="12007e1d59f4d09c87dbe2c438256244" category="cell">목적지</block>
+  <block id="8304923f61b35eb89581fa0086ed14f5" category="cell">클라이언트 PC</block>
+  <block id="2d9fec261b12bd71da19f847d4e58d8d" category="cell">UI/API 액세스 - Astra Control Center를 호스팅하는 클러스터와 관리되는 각 클러스터 간에 이 포트가 열려 있는지 확인합니다</block>
+  <block id="24efa4ba853cd9af293a840b0bf27678" category="cell">소비자 평가 기준</block>
+  <block id="c2b9f54ff75ba870e024a0704429b5a7" category="cell">Astra Control Center 작업자 노드</block>
+  <block id="8c5a91ebed7886a0bcc83fc5b014b1db" category="cell">메트릭 데이터 통신 - 각 관리 클러스터가 Astra Control Center를 호스팅하는 클러스터의 이 포트에 액세스할 수 있는지 확인합니다 (양방향 통신 필요)</block>
+  <block id="58b33906aae097af4ed4563136d482f3" category="cell">Hosted Cloud Insights 서비스 <block ref="eff4620b8100f76d481110a8ee67faf9" category="inline-link-rx"></block></block>
+  <block id="641aa484b65c0e7fde013bc2c73c8773" category="cell">Cloud Insights 통신</block>
+  <block id="dca17a8eb713c4979ff90034336d90db" category="cell">Amazon S3 스토리지 버킷 공급자 <block ref="4e90f284db65fc9cd863090aa8767e3c" category="inline-link-rx"></block></block>
+  <block id="30e3526a27f1ee2a9a8203d224600891" category="cell">Amazon S3 스토리지 통신</block>
+  <block id="814db317c49c42a57e9b5fe4d5943fa8" category="cell">NetApp ActiveIQ <block ref="9e45a0209dd868ae736875db61b96d9d" category="inline-link-rx"></block></block>
+  <block id="5dbf9f76b95952a36b5c81bedd95e1c8" category="cell">NetApp ActiveIQ 커뮤니케이션</block>
 </blocks>

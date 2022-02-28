@@ -163,23 +163,22 @@ NOTE: MetalLB 버전 0.11.0은 지원되지 않습니다.
 Astra Control Center를 호스팅하는 클러스터는 다음 TCP 포트를 사용하여 통신합니다. 이러한 포트가 모든 방화벽을 통해 허용되는지 확인하고 Astra 네트워크에서 발생하는 HTTPS 송신 트래픽을 허용하도록 방화벽을 구성해야 합니다. 일부 포트에는 Astra Control Center를 호스팅하는 클러스터와 각 관리 클러스터(해당되는 경우) 간의 연결이 모두 필요합니다.
 
 |===
-| 제품 | 포트 | 프로토콜 | 방향 | 목적 
+| 출처 | 목적지 | 포트 | 프로토콜 | 목적 
 
 
-| Astra 제어 센터 | 443 | HTTPS | 침투 | UI/API 액세스: 이 포트가 Astra Control Center를 호스팅하는 클러스터와 관리되는 각 클러스터 간에 양방향으로 열려 있는지 확인합니다 
+| 클라이언트 PC | Astra 제어 센터 | 443 | HTTPS | UI/API 액세스 - Astra Control Center를 호스팅하는 클러스터와 관리되는 각 클러스터 간에 이 포트가 열려 있는지 확인합니다 
 
 
-| Astra 제어 센터 | 9090 | HTTPS  a| 
-* 수신(Astra Control Center를 호스팅하는 클러스터에)
-* 송신(각 관리 클러스터의 각 작업자 노드의 노드 IP 주소에서 임의 포트)
-
-| 메트릭 데이터를 고객에게 전송: 각 관리 클러스터가 Astra Control Center를 호스팅하는 클러스터의 이 포트에 액세스할 수 있는지 확인합니다 
+| 소비자 평가 기준 | Astra Control Center 작업자 노드 | 9090 | HTTPS | 메트릭 데이터 통신 - 각 관리 클러스터가 Astra Control Center를 호스팅하는 클러스터의 이 포트에 액세스할 수 있는지 확인합니다 (양방향 통신 필요) 
 
 
-| 아스트라 트리덴트 | 34571 | HTTPS | 침투 | 노드 POD 통신 
+| Astra 제어 센터 | Hosted Cloud Insights 서비스 (https://cloudinsights.netapp.com)[] | 443 | HTTPS | Cloud Insights 통신 
 
 
-| 아스트라 트리덴트 | 9220 | HTTP | 침투 | 메트릭 엔드포인트 
+| Astra 제어 센터 | Amazon S3 스토리지 버킷 공급자 (https://my-bucket.s3.us-west-2.amazonaws.com/)[] | 443 | HTTPS | Amazon S3 스토리지 통신 
+
+
+| Astra 제어 센터 | NetApp ActiveIQ (https://activeiq.solidfire.com)[] | 443 | HTTPS | NetApp ActiveIQ 커뮤니케이션 
 |===
 
 
