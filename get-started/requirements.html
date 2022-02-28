@@ -1000,7 +1000,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-25 21:13:48 +0000">02/25/2022</time>
+    <time datetime="2022-02-28 18:02:41 +0000">02/28/2022</time>
     
   
 
@@ -1380,50 +1380,48 @@ MetalLB 버전 0.11.0은 지원되지 않습니다.
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">제품</th>
+<th class="tableblock halign-left valign-top">출처</th>
+<th class="tableblock halign-left valign-top">목적지</th>
 <th class="tableblock halign-left valign-top">포트</th>
 <th class="tableblock halign-left valign-top">프로토콜</th>
-<th class="tableblock halign-left valign-top">방향</th>
 <th class="tableblock halign-left valign-top">목적</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">클라이언트 PC</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Astra 제어 센터</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">침투</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UI/API 액세스: 이 포트가 Astra Control Center를 호스팅하는 클러스터와 관리되는 각 클러스터 간에 양방향으로 열려 있는지 확인합니다</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UI/API 액세스 - Astra Control Center를 호스팅하는 클러스터와 관리되는 각 클러스터 간에 이 포트가 열려 있는지 확인합니다</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">소비자 평가 기준</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Astra Control Center 작업자 노드</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9090</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">메트릭 데이터 통신 - 각 관리 클러스터가 Astra Control Center를 호스팅하는 클러스터의 이 포트에 액세스할 수 있는지 확인합니다 (양방향 통신 필요)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Astra 제어 센터</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9090</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hosted Cloud Insights 서비스 (<a href="https://cloudinsights.netapp.com)" class="bare">https://cloudinsights.netapp.com)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>수신(Astra Control Center를 호스팅하는 클러스터에)</p>
-</li>
-<li>
-<p>송신(각 관리 클러스터의 각 작업자 노드의 노드 IP 주소에서 임의 포트)</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">메트릭 데이터를 고객에게 전송: 각 관리 클러스터가 Astra Control Center를 호스팅하는 클러스터의 이 포트에 액세스할 수 있는지 확인합니다</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Insights 통신</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">아스트라 트리덴트</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">34571</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Astra 제어 센터</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon S3 스토리지 버킷 공급자 (<a href="https://my-bucket.s3.us-west-2.amazonaws.com/)" class="bare">https://my-bucket.s3.us-west-2.amazonaws.com/)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">침투</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">노드 POD 통신</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon S3 스토리지 통신</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">아스트라 트리덴트</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9220</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">침투</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">메트릭 엔드포인트</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Astra 제어 센터</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetApp ActiveIQ (<a href="https://activeiq.solidfire.com)" class="bare">https://activeiq.solidfire.com)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetApp ActiveIQ 커뮤니케이션</p></td>
 </tr>
 </tbody>
 </table>
