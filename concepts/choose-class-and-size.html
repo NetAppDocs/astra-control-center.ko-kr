@@ -16,20 +16,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/>
-  
-  <meta name="description" content="Astra Control Center는 ONTAP 스토리지 또는 Astra Data Store 스토리지 클래스에서 지원하는 Trident 스토리지 클래스를 지원합니다. 또한, 스토리지 클래스와 영구 볼륨 크기가 성능 목표를 달성하는 데 어떤 도움이 되는지 이해해야 합니다.">
-  <meta name="keywords" content=" service level, storage class, storage classes, pv size, persistent volume size, volume size, bandwidth, performance, persistent, volume, kubernetes, containers">
-  
-  
-
-  <!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Astra Control Center는 ONTAP 스토리지 또는 Astra Data Store 스토리지 클래스에서 지원하는 Trident 스토리지 클래스를 지원합니다. 또한, 스토리지 클래스와 영구 볼륨 크기가 성능 목표를 달성하는 데 어떤 도움이 되는지 이해해야 합니다.">
+  <meta name="keywords" content=" service level, storage class, storage classes, pv size, persistent volume size, volume size, bandwidth, performance, persistent, volume, kubernetes, containers"><!-- Icons -->
   <link rel="icon" href="/ko-kr/astra-control-center/images/favicon.ico" type="image/x-icon">
 
-  <!-- RSS Feed -->
-  
-
-  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
 
   <!-- Elastic Search -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
@@ -59,27 +50,11 @@
   
   <link rel="stylesheet" href="/ko-kr/astra-control-center/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/ko-kr/astra-control-center/css/tabbed-blocks.css" type="text/css">
-  <link rel="stylesheet" href='/ko-kr/astra-control-center/css/product-family.css' type="text/css">
-  
-
-  
-  <link rel='stylesheet' href='/ko-kr/astra-control-center/css/na-feature.css' type='text/css'>
-  
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <link rel='stylesheet' href='/ko-kr/astra-control-center/css/na-feature.css' type='text/css'><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-  <!-- Used to import Promise for IE. Required for SearchKit -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
-  
-    <script src='/ko-kr/astra-control-center/js/na-search.js'></script>
-  
 
-  
-  <script src='/ko-kr/astra-control-center/js/na-pagenav.js'></script>
-  
-
-  <link rel='stylesheet' href='/ko-kr/astra-control-center/css/prism.css' type='text/css'>
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/ko-kr/astra-control-center/js/na-search.js'></script><script src='/ko-kr/astra-control-center/js/na-pagenav.js'></script><link rel='stylesheet' href='/ko-kr/astra-control-center/css/prism.css' type='text/css'>
   <link rel='stylesheet' href='/ko-kr/astra-control-center/css/prism-netapp.css' type='text/css'>
 
 
@@ -97,9 +72,7 @@
   <script src='/ko-kr/astra-control-center/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src='/ko-kr/astra-control-center/js/toc.js'></script>
-  <script src='/ko-kr/astra-control-center/js/customscripts.js'></script>
-
-  <script>
+  <script src='/ko-kr/astra-control-center/js/customscripts.js'></script><script>
       $(document).ready(function() {
           
           var collapseOnInit = true;
@@ -158,7 +131,6 @@
   }
   </script>
   <script src='/ko-kr/astra-control-center/js/version-dropdown.js'></script>
-  <script src='/ko-kr/astra-control-center/js/product-family.js'></script>
   <script src='/ko-kr/astra-control-center/js/FileSaver.min.js'></script>
   <script src='/ko-kr/astra-control-center/js/jszip-utils.min.js'></script>
   <script src='/ko-kr/astra-control-center/js/jszip.min.js'></script>
@@ -171,6 +143,25 @@
       <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
       <div class="n-off-canvas-menu__content-wrap">
         <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  <div class="page-nav-toolbar">
+    <div id="version-dropdown"></div>
+    <div class="page-nav-contribute"  >
+      <a target="_blank" href="https://github.com/NetAppDocs/astra-control-center/issues/new?body=Page%3A%20[스토리지 클래스 및 영구 볼륨 크기](https://docs.netapp.com/ko-kr/astra-control-center/concepts/choose-class-and-size.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-control-center/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/astra-control-center/blob/main/concepts/choose-class-and-size.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-control-center/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a>
+      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/astra-control-center/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a>
+    </div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">이 페이지의 내용</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
   <!-- Start top_hat -->
   <div class="n-top-hat">
     <div class="n-container">
@@ -952,26 +943,22 @@
   
 
   <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
-    <!-- Begin of page container -->
-    <article class="page-content">
+    <!-- Begin of page container --><article class="page-content">
       <div class="ie-utility">
   <div class="ie-menu">
     <div class="n-breadcrumb">
       <ul class="n-breadcrumb__list">
         <li class="n-breadcrumb__list-item">
-          <a href="https://www.netapp.com">홈</a>
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
         </li>
-        <li class="n-breadcrumb__list-item">
-          <a href="https://docs.netapp.com">설명서</a>
-        </li>
+        
+
         
 
         <li class="n-breadcrumb__list-item">
           <a href="/ko-kr/astra-control-center/">Astra&nbsp;Control&nbsp;Center</a>
         </li>
-        <li class="n-breadcrumb__list-item">
-          스토리지 클래스 및 영구 볼륨 크기
-        </li>
+
       </ul>
     </div>
     <div style="clear: both"></div><!-- Main needs to have height -->
@@ -1000,7 +987,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-03-01 23:09:04 +0000">03/01/2022</time>
+    <time datetime="2022-03-15 21:48:36 +0000">03/15/2022</time>
     
   
 
@@ -1033,7 +1020,6 @@
 
 
 </p>
-
 
 <div id="preamble">
 <div class="sectionbody">
@@ -1079,7 +1065,7 @@ Trident 스토리지 클래스는 Astra Control Center 외부에서 사전 구�
 <h2 id="스토리지-클래스">스토리지 클래스</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra Control Center에 클러스터를 추가하면 해당 클러스터에서 이전에 구성된 스토리지 클래스 중 하나를 기본 스토리지 클래스로 선택하라는 메시지가 표시됩니다. 이 스토리지 클래스는 영구 볼륨 클레임(PVC)에 지정된 저장소 클래스가 없을 때 사용됩니다. 기본 스토리지 클래스는 Astra Control Center 내에서 언제든지 변경할 수 있으며, PVC 또는 H제어 차트 내에서 스토리지 클래스의 이름을 지정하여 언제든지 모든 스토리지 클래스를 사용할 수 있습니다.</p>
+<p>Astra Control Center에 클러스터를 추가하면 해당 클러스터에서 이전에 구성된 스토리지 클래스 중 하나를 기본 스토리지 클래스로 선택하라는 메시지가 표시됩니다. 이 스토리지 클래스는 영구 볼륨 클레임(PVC)에 지정된 저장소 클래스가 없을 때 사용됩니다. 기본 스토리지 클래스는 Astra Control Center 내에서 언제든지 변경할 수 있으며, PVC 또는 H제어 차트 내에서 스토리지 클래스의 이름을 지정하여 언제든지 모든 스토리지 클래스를 사용할 수 있습니다. Kubernetes 클러스터에 대해 단일 기본 스토리지 클래스만 정의되어 있는지 확인하십시오.</p>
 </div>
 <div class="paragraph">
 <p>Astra Data Store 스토리지 백엔드와 통합된 Astra Control Center를 사용하는 경우 설치 후 스토리지 클래스가 정의되지 않습니다. Trident 기본 스토리지 클래스를 생성하여 스토리지 백엔드에 적용해야 합니다. 을 참조하십시오 <a href="https://docs.netapp.com/us-en/astra-data-store/get-started/setup-ads.html#set-up-astra-data-store-as-storage-backend">"Astra Data Store를 시작하는 중입니다"</a> 기본 Astra Data Store 스토리지 클래스를 생성합니다.</p>
@@ -1103,27 +1089,7 @@ Trident 스토리지 클래스는 Astra Control Center 외부에서 사전 구�
     <!-- Page Container -->
   </div>
 
-  
-  <!-- Start Page Toolbar -->
-  <div class="page-nav-toolbar">
-    <div id="version-dropdown"></div>
-    <div class="page-nav-contribute"  >
-      <a target="_blank" href="https://github.com/NetAppDocs/astra-control-center/issues/new?body=Page%3A%20[스토리지 클래스 및 영구 볼륨 크기](https://docs.netapp.com/ko-kr/astra-control-center/concepts/choose-class-and-size.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-control-center/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a>
-      <a target="_blank" href="https://github.com/NetAppDocs/astra-control-center/blob/main/concepts/choose-class-and-size.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-control-center/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a>
-      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/astra-control-center/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a>
-    </div>
-    <div class="page-nav-container">
-      <nav class="page-nav-fixed">
-        <div class="page-nav-title">이 페이지의 내용</div>
-        <div class="page-nav-links">
-          <ul class="page-nav-inner" id="page-menu"></ul>
-        </div>
-      </nav>
-    </div>
-  </div>
-  
-  <div style="clear: both"></div><!-- Main needs to have height -->
-</div>
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
 
         </main>
 
@@ -1225,9 +1191,7 @@ Trident 스토리지 클래스는 Astra Control Center 외부에서 사전 구�
 </div>
 </footer>
 
-      </div>
-
-      <!-- Elasticsearch JS -->
+      </div><!-- Elasticsearch JS -->
       <script type="text/javascript" src='/ko-kr/astra-control-center/js/bundle.js'></script>
 
       <!-- Syntax Highlighting -->
@@ -1242,7 +1206,4 @@ Trident 스토리지 클래스는 Astra Control Center 외부에서 사전 구�
     </script>
     <script src='/ko-kr/astra-control-center/js/www-ntap.js'></script>
     <script src='/ko-kr/astra-control-center/js/tabbed-blocks.js'></script>
-  </body>
-
-  
-</html>
+  </body></html>
