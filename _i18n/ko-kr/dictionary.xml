@@ -347,8 +347,6 @@
   <block id="e9af48b4b5ee8bcfadf7ef62dd4a4bfe" category="paragraph">샘플 결과:</block>
   <block id="4ff75587096ba2120a2bfc670ec2ac17" category="list-text">사용자 정의 리소스 정의(CRD) 정보 삭제:</block>
   <block id="fb65ba277fbc37590f65160abd06ff8b" category="section-title">Astra Control Center를 제거해도 Traefik CRD가 정리되지 않습니다</block>
-  <block id="f95aab161e19ad7bea228b05dbbfd055" category="paragraph">Traefik CRD를 수동으로 삭제할 수 있습니다.</block>
-  <block id="b6b043c391721cf06571cdc68769e638" category="list-text">제거 프로세스에서 삭제되지 않은 CRD를 확인합니다.</block>
   <block id="d64ed3e9c10229648e069f56e32f4c8e" category="paragraph">응답</block>
   <block id="1aa64d23efd8fbdb9b2de01b1ad03883" category="list-text">CRD 삭제:</block>
   <block id="8e33d0035ce9088a5bcc4cff0c38cf36" category="inline-link-macro">해결된 문제</block>
@@ -1798,4 +1796,6 @@
   <block id="11937632e52ddd422c6068df5f4a8641" category="list-text">Astra Control 관리에서 클러스터를 제거하고 다른 기본 StorageClass를 선택하여 다시 추가합니다</block>
   <block id="81ffc06cbec6fd6654f00db161751c15" category="paragraph">Astra Control Center에 클러스터를 추가하면 해당 클러스터에서 이전에 구성된 스토리지 클래스 중 하나를 기본 스토리지 클래스로 선택하라는 메시지가 표시됩니다. 이 스토리지 클래스는 영구 볼륨 클레임(PVC)에 지정된 저장소 클래스가 없을 때 사용됩니다. 기본 스토리지 클래스는 Astra Control Center 내에서 언제든지 변경할 수 있으며, PVC 또는 H제어 차트 내에서 스토리지 클래스의 이름을 지정하여 언제든지 모든 스토리지 클래스를 사용할 수 있습니다. Kubernetes 클러스터에 대해 단일 기본 스토리지 클래스만 정의되어 있는지 확인하십시오.</block>
   <block id="1de4eda534b81a776926b71c5d509a3c" category="list-text">Kubernetes 클러스터에 대해 단일 기본 스토리지 클래스만 정의되어 있는지 확인하십시오.</block>
+  <block id="a514c0ae3c82c51ee5b4cd862c3c6ae5" category="paragraph">Traefik CRD를 수동으로 삭제할 수 있습니다. CRD는 글로벌 리소스이며 CRD를 삭제하면 클러스터의 다른 애플리케이션에 영향을 줄 수 있습니다.</block>
+  <block id="30e9f9c381fe23f7ce3650c2587f95e5" category="list-text">클러스터에 설치된 Traefik CRD 나열:</block>
 </blocks>
