@@ -1405,7 +1405,6 @@
   <block id="b0dd8997eb75bb5389338a7e9cd03f9d" category="list-text">OpenShift 클러스터의 서비스로 수신 트래픽을 보내는 데 사용할 수 있는 서비스 유형 "로드 밸런서"입니다</block>
   <block id="388d11680799d7c6a6a659aa88d96d5f" category="list-text">Astra Control Center의 FQDN을 부하 분산 IP 주소로 가리키는 방법</block>
   <block id="985b6adb919aeef8919d4fde98114277" category="list-text">NetApp ONTAP 버전 9.5 이상을 스토리지 백엔드로 사용할 경우 Astra Trident 21.04 이상 설치 및 구성됩니다</block>
-  <block id="0225f25459706cc4ae111fa1fcf6e6a4" category="list-text">Astra Trident 21.10.1 이상이 설치되어 있고 Astra Trident가 스토리지 백엔드로 사용될 경우 구성됩니다</block>
   <block id="18c2119e330cd6c8461f3a3e1a0f0e81" category="admonition">이러한 요구 사항은 Astra Control Center가 OpenShift 클러스터에서 실행되는 유일한 애플리케이션이라고 가정합니다. 클러스터에서 추가 애플리케이션이 실행 중인 경우 이러한 최소 요구사항을 적절히 조정합니다.</block>
   <block id="4d40a8e178faea46fe31329801bc6573" category="list-text">* 이미지 레지스트리 *: Astra Control Center 빌드 이미지를 푸시할 수 있는 기존 개인 Docker 이미지 레지스트리가 있어야 합니다. 이미지를 업로드할 이미지 레지스트리의 URL을 제공해야 합니다.</block>
   <block id="df819717a2baf5b48925d2b4cdaf4745" category="list-text">* Astra Trident/ONTAP 구성 *: Astra Control Center를 사용하려면 스토리지 클래스를 생성하고 기본 스토리지 클래스로 설정해야 합니다. Astra Control Center는 Astra Trident에서 제공하는 다음과 같은 ONTAP 드라이버를 지원합니다.</block>
@@ -1798,4 +1797,5 @@
   <block id="1de4eda534b81a776926b71c5d509a3c" category="list-text">Kubernetes 클러스터에 대해 단일 기본 스토리지 클래스만 정의되어 있는지 확인하십시오.</block>
   <block id="a514c0ae3c82c51ee5b4cd862c3c6ae5" category="paragraph">Traefik CRD를 수동으로 삭제할 수 있습니다. CRD는 글로벌 리소스이며 CRD를 삭제하면 클러스터의 다른 애플리케이션에 영향을 줄 수 있습니다.</block>
   <block id="30e9f9c381fe23f7ce3650c2587f95e5" category="list-text">클러스터에 설치된 Traefik CRD 나열:</block>
+  <block id="a533261ecbd74405d561fc2ee31235f5" category="list-text">Astra Trident 21.10.1 이상 설치 및 구성 - Astra Data Store 미리보기를 스토리지 백엔드로 사용할 경우</block>
 </blocks>
