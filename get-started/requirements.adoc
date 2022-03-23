@@ -6,6 +6,7 @@ summary: Kubernetes 클러스터, 앱 및 웹 브라우저에 대한 지원을 �
 ---
 = Astra Control Center 요구 사항
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

@@ -1,4 +1,5 @@
 = Astra Control 구성 요소
+:allow-uri-read: 
 
 
 이 슬라이드에는 Astra Control 환경의 다양한 구성 요소에 대한 개요가 나와 있습니다.
@@ -13,7 +14,7 @@ image:astra-ads-architecture-diagram-v3.png["Astra Control 아키텍처 다이�
 * * Astra Trident *: NetApp에서 관리하며 완벽한 지원을 제공하는 오픈 소스 스토리지 공급자 및 오케스트레이터로서, Trident는 Docker 및 Kubernetes에서 관리하는 컨테이너식 애플리케이션용 스토리지 볼륨을 생성할 수 있도록 지원합니다. Astra Control Center와 함께 구축한 경우, Trident는 구성된 ONTAP 스토리지 백엔드를 포함하며 Astra 데이터 저장소를 스토리지 백엔드로 지원합니다.
 * * 스토리지 백엔드 *:
 +
-** Astra Control Service가 사용합니다 https://www.netapp.com/cloud-services/cloud-volumes-service-for-google-cloud/["Google Cloud용 NetApp Cloud Volumes Service"^] GKE 클러스터 및 용 스토리지 백엔드로 사용됩니다 AKS 클러스터의 스토리지 백엔드로 사용됩니다.
+** Astra Control Service가 사용합니다 https://www.netapp.com/cloud-services/cloud-volumes-service-for-google-cloud/["Google Cloud용 NetApp Cloud Volumes Service"^] GKE 클러스터 및 용 스토리지 백엔드로 사용됩니다 https://www.netapp.com/cloud-services/azure-netapp-files/["Azure NetApp Files"^] AKS 클러스터의 스토리지 백엔드로 사용됩니다.
 ** Astra Control Center는 다음과 같은 스토리지 백엔드를 사용합니다.
 +
 *** Astra Data Store 스토리지 백엔드

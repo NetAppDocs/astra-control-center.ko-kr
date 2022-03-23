@@ -6,6 +6,7 @@ summary: Astra Control Center 시스템에 사용자를 추가하고 더 이상 
 ---
 = 사용자 관리
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

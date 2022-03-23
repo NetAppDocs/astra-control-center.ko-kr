@@ -6,6 +6,7 @@ summary: 'Kubernetes 클러스터를 Astra Control에 추가한 후 해당 클�
 ---
 = 앱 관리를 시작합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

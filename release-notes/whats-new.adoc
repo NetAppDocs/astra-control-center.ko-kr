@@ -6,6 +6,7 @@ summary: NetApp은 새로운 기능, 개선 사항 및 버그 수정을 제공�
 ---
 = Astra Control Center의 이번 릴리스의 새로운 기능
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/release-notes/
 
@@ -47,9 +48,9 @@ Astra Control Center의 최초 릴리스.
 * link:../concepts/intro.html["그게 뭐죠"]
 * link:../concepts/architecture.html["아키텍처 및 구성 요소 이해"]
 * link:../get-started/requirements.html["시작하는 데 필요한 사항"]
-* link:../get-started/install_acc.html["설치합니다"] 및 
-* link:../use/manage-apps.html["관리"] 및  인프라
-* link:../use/manage-buckets.html["버킷을 관리합니다"] 및 
+* link:../get-started/install_acc.html["설치합니다"] 및 link:../get-started/setup_overview.html["설정"]
+* link:../use/manage-apps.html["관리"] 및 link:../use/protect-apps.html["보호"] 인프라
+* link:../use/manage-buckets.html["버킷을 관리합니다"] 및 link:../use/manage-backend.html["스토리지 백엔드"]
 * link:../use/manage-users.html["계정 관리"]
 * link:../rest-api/api-intro.html["API를 통한 자동화"]
 

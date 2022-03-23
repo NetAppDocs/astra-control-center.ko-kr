@@ -6,6 +6,7 @@ summary: 온프레미스 Kubernetes 애플리케이션용 스토리지를 추가
 ---
 = 스토리지 백엔드를 관리합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

@@ -6,6 +6,7 @@ summary: Bitnami Helm 차트에서 MySQL을 배포하는 방법을 알아보십�
 ---
 = 제어 차트에서 MySQL을 배포합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

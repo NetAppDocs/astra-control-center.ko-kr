@@ -6,6 +6,7 @@ summary: 몇 가지 환경 요구 사항을 설명한 후 Astra Control Center�
 ---
 = 표준 프로세스를 사용하여 Astra Control Center를 설치합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

@@ -6,6 +6,7 @@ summary: Astra Control, Validated 및 Standard에는 두 가지 유형의 애플
 ---
 = 검증된 vs 표준 애플리케이션
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

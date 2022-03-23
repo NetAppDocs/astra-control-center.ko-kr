@@ -6,6 +6,7 @@ summary: Astra Control Center 및 Astra Control Center 운영자를 제거하는
 ---
 = Astra Control Center를 제거합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

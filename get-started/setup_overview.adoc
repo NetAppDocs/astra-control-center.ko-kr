@@ -6,6 +6,7 @@ summary: Astra Control Center를 설치하고, UI에 로그인하고, 암호를 
 ---
 = Astra Control Center를 설정합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

@@ -6,6 +6,7 @@ summary: 클러스터 간에 애플리케이션을 복제하려는 경우 애플
 ---
 = 버킷을 관리합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

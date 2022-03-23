@@ -6,6 +6,7 @@ summary: 대시보드를 선택하여 앱, 컴퓨팅 및 상태에 대한 상위
 ---
 = 앱 및 클러스터 상태 요약 보기
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

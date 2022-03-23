@@ -6,6 +6,7 @@ summary: '타사 CA(인증 기관)에서 서명한 TLS 인증서를 업로드 �
 ---
 = 사용자 지정 TLS 인증서를 추가합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

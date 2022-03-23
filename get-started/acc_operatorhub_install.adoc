@@ -6,6 +6,7 @@ summary: Red Hat OpenShift를 사용하는 경우 운영자를 사용하여 Astr
 ---
 = OpenShift OperatorHub를 사용하여 Astra Control Center를 설치합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 
@@ -217,4 +218,4 @@ NOTE: 수동 승인 전략을 선택한 경우 이 운영자에 대한 수동 �
 
 == 다음 단계
 
-Astra Control Center가 성공적으로 설치되었는지 확인하고 를 완료합니다 link:../get-started/install_acc.html#verify-system-status["나머지 단계"] 를 눌러 로그인합니다. 또한 를 수행하여 배포를 완료합니다 .
+Astra Control Center가 성공적으로 설치되었는지 확인하고 를 완료합니다 link:../get-started/install_acc.html#verify-system-status["나머지 단계"] 를 눌러 로그인합니다. 또한 를 수행하여 배포를 완료합니다 link:setup_overview.html["설정 작업"].

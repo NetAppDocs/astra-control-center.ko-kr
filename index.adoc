@@ -7,6 +7,7 @@ summary: Astra Control Center 소프트웨어는 사내 환경에서 Kubernetes 
 ---
 = Astra Control Center 문서
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

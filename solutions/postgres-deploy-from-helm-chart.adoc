@@ -6,6 +6,7 @@ summary: 제어 차트에서 Postgres를 배포하는 방법에 대해 알아봅
 ---
 = 제어 차트에서 Postgres를 배포합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

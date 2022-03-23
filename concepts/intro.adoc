@@ -6,6 +6,7 @@ summary: Astra는 상태 저장 애플리케이션의 운영을 단순화하는 
 ---
 = Astra Control 소개
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

@@ -6,6 +6,7 @@ summary: Astra Control Center는 ONTAP 스토리지 또는 Astra Data Store 스�
 ---
 = 스토리지 클래스 및 영구 볼륨 크기
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

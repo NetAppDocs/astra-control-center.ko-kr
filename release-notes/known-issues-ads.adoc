@@ -6,6 +6,7 @@ summary: 알려진 문제점은 이 제품 릴리스를 성공적으로 사용�
 ---
 = Astra Data Store Preview 및 이 Astra Control Center 릴리스와 관련된 알려진 문제입니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/release-notes/
 

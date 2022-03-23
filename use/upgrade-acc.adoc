@@ -6,6 +6,7 @@ summary: Astra Control Center를 업그레이드하려면 설명된 단계에 �
 ---
 = Astra Control Center를 업그레이드합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

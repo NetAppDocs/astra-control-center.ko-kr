@@ -6,6 +6,7 @@ summary: 평가판 라이센스를 전체 라이센스로 변환하거나 기존
 ---
 = 기존 라이센스를 업데이트합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

@@ -6,6 +6,7 @@ summary: Astra Control Center 환경을 향상시키기 위해 몇 가지 선택
 ---
 = 인프라 모니터링 및 보호
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

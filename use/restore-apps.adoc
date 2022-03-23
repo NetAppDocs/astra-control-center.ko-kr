@@ -6,6 +6,7 @@ summary: Astra는 스냅샷 또는 백업에서 애플리케이션 구성과 영
 ---
 = 앱 복원
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 
