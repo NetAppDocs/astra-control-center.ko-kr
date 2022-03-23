@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: get-started/requirements.html 
-keywords: what are astra kubernetes requirements, astra control requirements, astra supported versions, apps, supported apps, mariadb, mysql, postgres, kubernetes version, ubuntu, image type, networking 
+keywords: what are astra kubernetes requirements, astra control requirements, astra supported versions, apps, supported apps, mariadb, mysql, postgres, kubernetes version, ubuntu, image type, networking, environment, operational, operational environment, hosting, host, cluster, clusters 
 summary: Kubernetes 클러스터, 앱 및 웹 브라우저에 대한 지원을 확인하여 Astra Control Center를 시작하십시오. 
 ---
 = Astra Control Center 요구 사항
@@ -10,32 +10,45 @@ summary: Kubernetes 클러스터, 앱 및 웹 브라우저에 대한 지원을 �
 :imagesdir: ../media/get-started/
 
 
-Kubernetes 클러스터, 앱, 라이센스 및 웹 브라우저에 대한 지원을 확인하여 시작하십시오.
+먼저 운영 환경, 애플리케이션 클러스터, 애플리케이션, 라이센스 및 웹 브라우저의 준비 상태를 확인하십시오.
 
 
 
-== Kubernetes 클러스터 일반 요구사항
+== 구현할 수 있습니다
 
-Astra Control Center에는 다음 유형의 호스트 클러스터 중 하나가 필요합니다.
+Astra Control Center에는 다음 유형의 운영 환경 중 하나가 필요합니다.
 
 * Red Hat OpenShift Container Platform 4.6.8, 4.7 또는 4.8
 * Rancher 2.5
 * Kubernetes 1.19 ~ 1.21(1.21.x 포함)
 
 
-Astra Control Center에서 클러스터를 검색하고 관리할 수 있도록 클러스터는 다음과 같은 일반 요구 사항을 충족해야 합니다.
+Astra Control Center를 호스팅하기 위해 선택한 운영 환경이 환경 공식 문서에 설명된 기본 리소스 요구 사항을 충족하는지 확인합니다. Astra Control Center에는 환경의 리소스 요구 사항 외에 다음과 같은 리소스가 필요합니다.
 
-* 백엔드 ONTAP 스토리지 용량에 최소 300GB를 사용할 수 있습니다
-* 3개의 컨트롤러 노드에서 4개의 CPU 코어, 16GB RAM 및 120GB의 사용 가능한 스토리지
-* 최소 12개의 CPU 코어, 32GB RAM 및 50GB의 가용 스토리지를 갖춘 3개의 작업자 노드
-* OpenShift 클러스터의 서비스로 수신 트래픽을 보내는 데 사용할 수 있는 서비스 유형 "로드 밸런서"입니다
-* Astra Control Center의 FQDN을 부하 분산 IP 주소로 가리키는 방법
+|===
+| 구성 요소 | 요구 사항 
+
+
+| 백엔드 ONTAP 스토리지 용량입니다 | 최소 300GB가 사용 가능합니다 
+
+
+| 작업자 노드 | 최소 3개의 작업자 노드, 각각 4개의 CPU 코어, 12GB RAM 
+
+
+| 로드 밸런서 | 수신 트래픽을 운영 환경 클러스터의 서비스로 전송할 수 있도록 서비스 유형 "로드 밸런서"를 사용할 수 있습니다 
+
+
+| FQDN 확인 | Astra Control Center의 FQDN을 부하 분산 IP 주소로 가리키는 방법 
+
+
+| 아스트라 트리덴트  a| 
 * NetApp ONTAP 버전 9.5 이상을 스토리지 백엔드로 사용할 경우 Astra Trident 21.04 이상 설치 및 구성됩니다
 * Astra Trident 21.10.1 이상 설치 및 구성 - Astra Data Store 미리보기를 스토리지 백엔드로 사용할 경우
 
 
+|===
 
-NOTE: 이러한 요구 사항은 Astra Control Center가 OpenShift 클러스터에서 실행되는 유일한 애플리케이션이라고 가정합니다. 클러스터에서 추가 애플리케이션이 실행 중인 경우 이러한 최소 요구사항을 적절히 조정합니다.
+NOTE: 이러한 요구 사항에서는 Astra Control Center가 운영 환경에서 실행되는 유일한 애플리케이션이라고 가정합니다. 환경에서 추가 애플리케이션이 실행 중인 경우 이러한 최소 요구 사항을 적절히 조정합니다.
 
 * * 이미지 레지스트리 *: Astra Control Center 빌드 이미지를 푸시할 수 있는 기존 개인 Docker 이미지 레지스트리가 있어야 합니다. 이미지를 업로드할 이미지 레지스트리의 URL을 제공해야 합니다.
 * * Astra Trident/ONTAP 구성 *: Astra Control Center를 사용하려면 스토리지 클래스를 생성하고 기본 스토리지 클래스로 설정해야 합니다. Astra Control Center는 Astra Trident에서 제공하는 다음과 같은 ONTAP 드라이버를 지원합니다.
@@ -48,35 +61,46 @@ NOTE: 이러한 요구 사항은 Astra Control Center가 OpenShift 클러스터�
 
 
 
-Astra Control Center에서 Kubernetes 클러스터를 관리하고 클러스터를 사용하여 Astra Control Center 설치를 호스트하려는 경우 클러스터에 다음과 같은 추가 요구사항이 있습니다.
+[NOTE]
+====
+OpenShift 환경에서 앱을 복제하는 동안, Astra Control Center는 OpenShift가 볼륨을 마운트하고 파일 소유권을 변경할 수 있도록 허용해야 합니다. 따라서 이러한 작업을 허용하려면 ONTAP 볼륨 내보내기 정책을 구성해야 합니다. 다음 명령을 사용하여 이 작업을 수행할 수 있습니다.
+
+. 'export-policy rule modify -vserver <storage virtual machine name> - policyname <policy name> - ruleindex 1 - superuser sys'
+. 'export-policy rule modify -vserver <storage virtual machine name> - policyname <policy name> - ruleindex 1 - anon 65534'
+
+
+====
+
+NOTE: 두 번째 OpenShift 운영 환경을 관리되는 컴퓨팅 리소스로 추가할 계획이라면 Astra Trident Volume Snapshot 기능이 활성화되어 있는지 확인해야 합니다. Astra Trident를 사용하여 볼륨 스냅샷을 활성화하고 테스트하려면 https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["공식 Astra Trident 지침을 참조하십시오"^].
+
+
+
+== 애플리케이션 클러스터 요구사항
+
+Astra Control Center에는 Astra Control Center에서 관리하려는 클러스터에 대한 다음과 같은 요구 사항이 있습니다. 이러한 요구 사항은 관리하려는 클러스터가 Astra Control Center를 호스팅하는 운영 환경 클러스터인 경우에도 적용됩니다.
 
 * Kubernetes의 최신 버전입니다 https://kubernetes-csi.github.io/docs/snapshot-controller.html["스냅샷 컨트롤러 구성 요소입니다"^] 이(가) 설치되었습니다
 * Astra Trident https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["볼륨스냅샷 클래스 개체"^] 관리자가 정의했습니다
 * 클러스터에 기본 Kubernetes 스토리지 클래스가 있습니다
 * Astra Trident를 사용하도록 스토리지 클래스를 하나 이상 구성했습니다
-* Astra Control Center의 FQDN을 Astra Control Center 서비스의 외부 IP 주소로 가리키는 방법
 
 
-[NOTE]
-====
-애플리케이션 복제 중에 Astra Control Center는 OpenShift가 볼륨을 마운트하고 필요한 경우 파일 소유권을 변경할 수 있도록 허용해야 합니다. 따라서 볼륨 작업이 성공적으로 완료되도록 ONTAP 볼륨 엑스포트 정책을 구성해야 합니다. 다음 명령을 사용하여 이 작업을 수행할 수 있습니다.
 
-'export-policy rule modify -vserver <storage virtual machine name> - policyname <policy name> - ruleindex 1 - superuser symm - -anon 65534'
+NOTE: 응용 프로그램 클러스터에는 _CONTEXT_ELEMENT만 정의하는 "kubecononfig.YAML" 파일이 있어야 합니다. 에 대한 Kubernetes 설명서를 참조하십시오 https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["kubecononfig 파일 생성에 대한 정보입니다"^].
 
-====
 
-NOTE: 두 번째 OpenShift 클러스터를 관리되는 컴퓨팅 리소스로 추가할 계획이라면 Astra Trident Volume Snapshot 기능이 활성화되어 있는지 확인해야 합니다. 공식 Astra Trident를 참조하십시오 https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["지침"^] Astra Trident를 사용하여 볼륨 스냅샷을 활성화하고 테스트합니다.
+NOTE: Rancher 환경에서 애플리케이션 클러스터를 관리할 때는 Rancher가 제공하는 kubeconfig 파일에서 애플리케이션 클러스터의 기본 컨텍스트를 수정하여 Rancher API 서버 컨텍스트 대신 컨트롤 플레인 컨텍스트를 사용합니다. 따라서 Rancher API 서버의 부하가 줄어들고 성능이 향상됩니다.
 
 
 
 == 설명합니다
 
-Astra Control에는 다음과 같은 앱 관리 요구 사항이 있습니다.
+Astra Control에는 다음과 같은 애플리케이션 관리 요구 사항이 있습니다.
 
-* * 라이선스 *: Astra Control Center를 사용하여 앱을 관리하려면 Astra Control Center 라이센스가 필요합니다.
+* * 라이선스 *: Astra Control Center를 사용하여 애플리케이션을 관리하려면 Astra Control Center 라이센스가 필요합니다.
 * * Namespaces *: Astra Control은 앱이 단일 네임스페이스 이상의 범위를 포괄하지 않도록 하지만 네임스페이스에는 여러 개의 앱이 포함될 수 있습니다.
-* * StorageClass *: StorageClass가 명시적으로 설정된 앱을 설치하고 앱을 복제해야 하는 경우 클론 작업의 타겟 클러스터에 원래 지정된 StorageClass가 있어야 합니다. 명시적으로 StorageClass를 동일한 StorageClass가 없는 클러스터로 설정한 애플리케이션을 클론 복제하면 실패합니다.
-* * Kubernetes 리소스 *: Astra Control에서 수집하지 않은 Kubernetes 리소스를 사용하는 앱에는 전체 앱 데이터 관리 기능이 없을 수 있습니다. Astra Control은 다음과 같은 Kubernetes 리소스를 수집합니다.
+* * StorageClass *: StorageClass가 명시적으로 설정된 애플리케이션을 설치하고 앱을 복제해야 하는 경우 클론 작업의 타겟 클러스터에 원래 지정된 StorageClass가 있어야 합니다. 명시적으로 StorageClass를 동일한 StorageClass가 없는 클러스터로 설정한 애플리케이션을 클론 복제하면 실패합니다.
+* * Kubernetes 리소스 *: Astra Control에서 수집하지 않은 Kubernetes 리소스를 사용하는 애플리케이션에는 전체 앱 데이터 관리 기능이 없을 수 있습니다. Astra Control은 다음과 같은 Kubernetes 리소스를 수집합니다.
 +
 ** 클러스터 역할
 ** ClusterRoleBinding 을 참조하십시오
@@ -105,7 +129,7 @@ Astra Control에는 다음과 같은 앱 관리 요구 사항이 있습니다.
 
 
 
-=== 지원되는 앱 설치 방법
+=== 지원되는 응용 프로그램 설치 방법
 
 Astra Control은 다음과 같은 응용 프로그램 설치 방법을 지원합니다.
 
@@ -154,13 +178,10 @@ Astra Control Center를 사용해 보고 싶다면 가능합니다 link:setup_ov
 Astra Control Center는 "loadbalancer"(Astra Control Center 네임스페이스의 svc/traefik) 유형의 서비스를 사용하며 액세스 가능한 외부 IP 주소를 할당해야 합니다. 부하 분산 장치가 사용자 환경에서 허용되고 아직 부하 분산 장치가 구성되어 있지 않은 경우 를 사용할 수 있습니다 https://docs.netapp.com/us-en/netapp-solutions/containers/rh-os-n_LB_MetalLB.html#installing-the-metallb-load-balancer["메탈리스"^] 외부 IP 주소를 서비스에 자동으로 할당합니다. 내부 DNS 서버 구성에서 Astra Control Center에 대해 선택한 DNS 이름을 부하 분산 IP 주소로 지정해야 합니다.
 
 
-NOTE: MetalLB 버전 0.11.0은 지원되지 않습니다.
-
-
 
 == 네트워킹 요구 사항
 
-Astra Control Center를 호스팅하는 클러스터는 다음 TCP 포트를 사용하여 통신합니다. 이러한 포트가 모든 방화벽을 통해 허용되는지 확인하고 Astra 네트워크에서 발생하는 HTTPS 송신 트래픽을 허용하도록 방화벽을 구성해야 합니다. 일부 포트에는 Astra Control Center를 호스팅하는 클러스터와 각 관리 클러스터(해당되는 경우) 간의 연결이 모두 필요합니다.
+Astra Control Center를 호스팅하는 운영 환경은 다음 TCP 포트를 사용하여 통신합니다. 이러한 포트가 모든 방화벽을 통해 허용되는지 확인하고 Astra 네트워크에서 발생하는 HTTPS 송신 트래픽을 허용하도록 방화벽을 구성해야 합니다. 일부 포트에는 Astra Control Center를 호스팅하는 환경과 각 관리 클러스터(해당되는 경우) 간의 연결이 모두 필요합니다.
 
 |===
 | 출처 | 목적지 | 포트 | 프로토콜 | 목적 

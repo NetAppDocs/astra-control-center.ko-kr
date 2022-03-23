@@ -72,7 +72,7 @@ Astra Control Center를 설치하려면 다음 단계를 수행하십시오.
 == Astra Control Center 번들을 다운로드합니다
 
 . 에서 Astra Control Center 번들('Astra-control-center-[version].tar.gz')을 다운로드합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support 사이트"^].
-. Astra Control Center 인증서 및 키의 지퍼를 에서 다운로드하십시오 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support 사이트"^].
+. 에서 Astra Control Center 인증서 및 키의 지퍼를 다운로드합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support 사이트"^].
 . (선택 사항) 다음 명령을 사용하여 번들의 서명을 확인합니다.
 +
 [listing]
@@ -354,7 +354,7 @@ IMPORTANT: 인증이 필요 없는 레지스트리를 사용하는 경우 imageR
 .. e-메일 문자열을 기본 초기 관리자 주소로 변경합니다. 에서 사용할 이 이메일 주소를 복사합니다 <<Log in to the Astra Control Center UI,나중에>>.
 .. 인터넷 연결이 없는 사이트의 경우 AutoSupport에 등록된 사이트를 거짓으로 변경하거나 연결된 사이트의 경우 "참"으로 변경합니다.
 .. (선택 사항) 계정과 연결된 사용자의 이름 "FirstName"과 성 "LastName"을 추가합니다. UI 내에서 이 단계를 지금 또는 나중에 수행할 수 있습니다.
-.. (선택 사항) 설치에 필요한 경우 'torageClass' 값을 다른 Trident storageClass 리소스로 변경합니다.
+.. (선택 사항) 설치에 필요한 경우 'torageClass' 값을 다른 Astra Trident StorageClass 리소스로 변경하십시오.
 .. (Astra Data Store 미리 보기를 사용하여 설치하는 경우) 에 대해 알려진 문제를 참조하십시오 link:../release-notes/known-issues-ads.html#astra-data-store-cannot-be-used-as-a-storage-class-for-astra-control-center-due-to-mongodb-pod-liveness-probe-failure["추가 필수 변경 사항"] YAML에 대한 정보를 제공합니다.
 
 
@@ -437,7 +437,7 @@ kubectl get pods -n [netapp-acc or custom namespace]
 +
 [listing]
 ----
-NAME                                         READY   STATUS    RESTARTS   AGE
+NAME                                       READY   STATUS    RESTARTS   AGE
 acc-helm-repo-5f75c5f564-bzqmt             1/1     Running   0          11m
 activity-6b8f7cccb9-mlrn4                  1/1     Running   0          9m2s
 api-token-authentication-6hznt             1/1     Running   0          8m50s
@@ -515,7 +515,7 @@ vault-controller-86c94fbf4f-krttq          1/1     Running   0          9m24s
 ----
 kubectl logs deploy/acc-operator-controller-manager -n netapp-acc-operator -c manager -f
 ----
-. 모든 Pod가 실행 중인 경우 Astra Control Center Operator가 설치한 AstraControlCenter 인스턴스를 검색하여 설치 성공 여부를 확인합니다.
+. 모든 Pod가 실행 중인 경우, Astra Control Center Operator가 설치한 AstraControlCenter 인스턴스를 검색하여 설치 성공 여부를 확인한다.
 +
 [listing]
 ----

@@ -18,7 +18,12 @@ summary: '타사 CA(인증 기관)에서 서명한 TLS 인증서를 업로드 �
 * CA의 개인 키 및 인증서 파일
 
 
-.자체 서명된 인증서를 제거합니다
+
+
+== 자체 서명된 인증서를 제거합니다
+
+기존의 자체 서명된 TLS 인증서를 제거합니다.
+
 . SSH를 사용하여 관리 사용자로 Astra Control Center를 호스팅하는 Kubernetes 클러스터에 로그인합니다.
 . '<ACC-deployment-namespace>'를 Astra Control Center 배포 네임스페이스로 대체하여 현재 인증서와 연결된 TLS 암호를 찾습니다.
 +
@@ -35,7 +40,12 @@ kubectl delete secret secure-testing-cert -n <ACC-deployment-namespace>
 ----
 
 
-.새 인증서를 추가합니다
+
+
+== 새 인증서를 추가합니다
+
+CA에서 서명한 새 TLS 인증서를 추가합니다.
+
 . 다음 명령을 사용하여 CA의 개인 키 및 인증서 파일로 새 TLS 암호를 만들고 대괄호 <>의 인수를 적절한 정보로 바꿉니다.
 +
 [listing]
