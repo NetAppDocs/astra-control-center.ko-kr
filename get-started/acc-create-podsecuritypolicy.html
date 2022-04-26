@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head class="at-element-marker">
-  <title>도움을 받으십시오</title>
+  <title>사용자 지정 POD 보안 정책을 생성합니다</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="도움을 받으십시오" />
+  <meta property="og:title" content="사용자 지정 POD 보안 정책을 생성합니다" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/ko-kr/astra-control-center/support/get-help.html" />
-	<meta property="og:description" content="NetApp은 다양한 방법으로 Astra Control을 지원합니다. 기술 자료(KB) 기사 및 Slack 채널과 같은 광범위한 무료 셀프 지원 옵션을 24x7 이용할 수 있습니다. Astra Control 계정에는 웹 발권 서비스를 통한 원격 기술 지원이 포함되어 있습니다." />
+	<meta property="og:url" content="https://docs.netapp.com/ko-kr/astra-control-center/get-started/acc-create-podsecuritypolicy.html" />
+	<meta property="og:description" content="Astra Control에서 관리되는 클러스터에 POD를 생성 및 업데이트할 수 있도록 덜 제한적인 POD 보안 정책을 만들어야 합니다." />
   <meta property="og:image" content="https://docs.netapp.com/ko-kr/astra-control-center/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="NetApp은 다양한 방법으로 Astra Control을 지원합니다. 기술 자료(KB) 기사 및 Slack 채널과 같은 광범위한 무료 셀프 지원 옵션을 24x7 이용할 수 있습니다. Astra Control 계정에는 웹 발권 서비스를 통한 원격 기술 지원이 포함되어 있습니다.">
-  <meta name="keywords" content=" how to get help with astra control, how to get support with astra control, astra control knowledgebase, netapp technical support, slack, phone, web, ticket, contact support, support ticket, support bundle"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Astra Control에서 관리되는 클러스터에 POD를 생성 및 업데이트할 수 있도록 덜 제한적인 POD 보안 정책을 만들어야 합니다.">
+  <meta name="keywords" content=" Create podsecurity policy, pod, security, policy, Astra Control, kubernetes"><!-- Icons -->
   <link rel="icon" href="/ko-kr/astra-control-center/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-control-center/issues/new?body=Page%3A%20[도움을 받으십시오](https://docs.netapp.com/ko-kr/astra-control-center/support/get-help.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-control-center/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/astra-control-center/blob/main/support/get-help.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-control-center/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/astra-control-center/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-control-center/issues/new?body=Page%3A%20[사용자 지정 POD 보안 정책을 생성합니다](https://docs.netapp.com/ko-kr/astra-control-center/get-started/acc-create-podsecuritypolicy.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-control-center/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/astra-control-center/blob/main/get-started/acc-create-podsecuritypolicy.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-control-center/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/astra-control-center/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">이 페이지의 내용</div>
@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-control-center/support/get-help.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/astra-control-center/get-started/acc-create-podsecuritypolicy.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-control-center/support/get-help.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/astra-control-center/get-started/acc-create-podsecuritypolicy.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-control-center/support/get-help.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/astra-control-center/get-started/acc-create-podsecuritypolicy.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-control-center/support/get-help.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/astra-control-center/get-started/acc-create-podsecuritypolicy.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -526,6 +526,15 @@
 
 
 
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/ko-kr/astra-control-center/pdfs/pages/get-started/acc-create-podsecuritypolicy.pdf" >
+    <img src="/ko-kr/astra-control-center/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
 
 
 
@@ -820,15 +829,6 @@
           
 
 
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/ko-kr/astra-control-center/pdfs/pages/support/get-help.pdf" >
-    <img src="/ko-kr/astra-control-center/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
-  
 
 
 
@@ -935,7 +935,7 @@
         클러스터 추가를 위한 사전 요구사항
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/get-started/add-custom-tls-certificate.html">
         사용자 지정 TLS 인증서를 추가합니다
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/get-started/acc-create-podsecuritypolicy.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/get-started/acc-create-podsecuritypolicy.html">
         사용자 지정 POD 보안 정책을 생성합니다
       </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/get-started/faq.html">
         FAQ 를 참조하십시오
@@ -1022,7 +1022,7 @@
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/support/troubleshooting-acc.html">
         문제 해결
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/support/get-help.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/support/get-help.html">
         도움을 받으십시오
       </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/acc-earlier-versions.html">
         이전 버전
@@ -1082,7 +1082,7 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">도움을 받으십시오</h1>
+  <h1 class="n-doc__component-detail-heading">사용자 지정 POD 보안 정책을 생성합니다</h1>
 </div>
 
 
@@ -1096,205 +1096,68 @@
 
 </p>
 
-<div id="preamble">
-<div class="sectionbody">
 <div class="paragraph">
-<p>NetApp은 다양한 방법으로 Astra Control을 지원합니다. 기술 자료(KB) 기사 및 Slack 채널과 같은 광범위한 무료 셀프 지원 옵션을 24x7 이용할 수 있습니다. Astra Control 계정에는 웹 발권 서비스를 통한 원격 기술 지원이 포함되어 있습니다.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-control-center/images/important.svg" alt="중요">
-</td>
-<td class="content">
-Astra Control Center에 대한 평가판 라이센스가 있는 경우 기술 지원을 받을 수 있습니다. 그러나 NSS(NetApp Support Site)를 통한 케이스 생성은 사용할 수 없습니다. 피드백 옵션을 통해 지원 팀에 문의하거나 Slack 채널을 사용하여 셀프 서비스를 받을 수 있습니다.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>먼저 해야 합니다 <a href="../get-started/setup_overview.html">"NetApp 일련 번호에 대한 지원을 활성화합니다"</a> 이러한 비 셀프 서비스 지원 옵션을 사용하려면 NetApp NSS(Support Site) SSO 계정은 케이스 관리와 함께 채팅 및 웹 티켓팅에 필요합니다.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="자체-지원-옵션">자체 지원 옵션</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>기본 메뉴에서 * 지원 * 탭을 선택하면 Astra Control Center UI에서 지원 옵션에 액세스할 수 있습니다.</p>
-</div>
-<div class="paragraph">
-<p>이러한 옵션은 24x7 무료로 제공됩니다.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra" target="_blank" rel="noopener">"* 기술 자료 * (로그인 필요)"</a>Astra Control과 관련된 문서, FAQ 또는 고장 수리 정보를 검색합니다.</p>
-</li>
-<li>
-<p>* 문서 센터 *: 현재 보고 있는 문서 사이트입니다.</p>
-</li>
-<li>
-<p><a href="https://netapppub.slack.com/#astra" target="_blank" rel="noopener">"Slack * 을 통해 도움을 받으십시오"</a>: 동료 및 전문가와 연결하려면 thePub 작업 공간의 컨테이너 채널로 이동하십시오.</p>
-</li>
-<li>
-<p>* 지원 케이스 생성 *: 문제 해결을 위해 NetApp 지원에 제공할 지원 번들을 생성합니다.</p>
-</li>
-<li>
-<p>* Astra Control에 대한 피드백 제공 *: <a href="mailto:astra.feedback@netapp.com">astra.feedback@netapp.com</a> 으로 이메일을 보내 귀하의 생각, 아이디어 또는 우려 사항을 알려 주십시오.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="netapp-support에-매일-예약된-지원-번들-업로드를-활성화합니다">NetApp Support에 매일 예약된 지원 번들 업로드를 활성화합니다</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Astra Control Center 설치 시 Astra Control Center Custom Resource Definition(CRD) 파일('Astra_control_center_min YAML')에 AutoSupport에 대해 'ACTED:TRUE&#8217;를 지정하면 일일 지원 번들이 자동으로 에 업로드됩니다 <a href="https://mysupport.netapp.com/site/" target="_blank" rel="noopener">"NetApp Support 사이트"</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="netapp-지원에-제공할-지원-번들을-생성합니다">NetApp 지원에 제공할 지원 번들을 생성합니다</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Astra Control Center를 사용하면 관리자가 NetApp 지원에 유용한 정보, 로그, Astra 구축의 모든 구성 요소에 대한 이벤트, 메트릭, 관리 중인 클러스터와 앱에 대한 토폴로지 정보 등 번들을 생성할 수 있습니다. 인터넷에 연결되어 있는 경우 Astra Control Center UI에서 직접 NSS(NetApp Support Site)에 지원 번들을 업로드할 수 있습니다.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-control-center/images/note.svg" alt="참고">
-</td>
-<td class="content">
-Astra Control Center에서 번들을 생성하는 데 걸리는 시간은 Astra Control Center 설치 크기와 요청된 지원 번들의 매개 변수에 따라 다릅니다. 지원 번들을 요청할 때 지정한 기간은 번들을 생성하는 데 걸리는 시간을 나타냅니다(예: 기간이 짧을수록 번들 생성 속도가 빠름).
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>NSS에 번들을 업로드하는 데 프록시 연결이 필요한지 여부를 확인합니다. 프록시 연결이 필요한 경우 Astra Control Center가 프록시 서버를 사용하도록 구성되어 있는지 확인합니다.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>계정 * &gt; * 연결 * 을 선택합니다.</p>
-</li>
-<li>
-<p>연결 설정 * 에서 프록시 설정을 확인하십시오.</p>
-</li>
-</ol>
+<p>Astra Control은 관리하는 클러스터에서 Kubernetes Pod를 생성 및 관리해야 합니다. 클러스터에서 권한이 있는 POD 생성을 허용하지 않거나 POD 컨테이너 내의 프로세스가 루트 사용자로 실행되도록 허용하는 제한적인 POD 보안 정책을 사용하는 경우, Astra Control에서 이러한 POD를 생성 및 관리할 수 있도록 덜 제한적인 POD 보안 정책을 만들어야 합니다.</p>
 </div>
 <div class="olist arabic">
 <div class="title">단계</div>
 <ol class="arabic">
 <li>
-<p>Astra Control Center UI의 * 지원 * 페이지에 나열된 라이센스 일련 번호를 사용하여 NSS 포털에서 케이스를 생성합니다.</p>
-</li>
-<li>
-<p>Astra Control Center UI를 사용하여 지원 번들을 생성하려면 다음 단계를 수행하십시오.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>지원 * 페이지의 지원 번들 타일에서 * 생성 * 을 선택합니다.</p>
-</li>
-<li>
-<p>지원 번들 생성 * 창에서 기간을 선택합니다.</p>
-<div class="paragraph">
-<p>빠른 시간 또는 사용자 지정 시간 계획 중에서 선택할 수 있습니다.</p>
+<p>기본값보다 덜 제한적인 클러스터에 대한 POD 보안 정책을 생성하여 파일에 저장합니다. 예를 들면 다음과 같습니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: astracontrol
+  annotations:
+    seccomp.security.alpha.kubernetes.io/allowedProfileNames: '*'
+spec:
+  privileged: true
+  allowPrivilegeEscalation: true
+  allowedCapabilities:
+  - '*'
+  volumes:
+  - '*'
+  hostNetwork: true
+  hostPorts:
+  - min: 0
+    max: 65535
+  hostIPC: true
+  hostPID: true
+  runAsUser:
+    rule: 'RunAsAny'
+  seLinux:
+    rule: 'RunAsAny'
+  supplementalGroups:
+    rule: 'RunAsAny'
+  fsGroup:
+    rule: 'RunAsAny'</code></pre>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-control-center/images/note.svg" alt="참고">
-</td>
-<td class="content">
-사용자 지정 날짜 범위를 선택하고 날짜 범위 동안 사용자 지정 기간을 지정할 수 있습니다.
-</td>
-</tr>
-</table>
 </div>
 </li>
 <li>
-<p>선택한 후 * Confirm * (확인 *)을 선택합니다.</p>
+<p>POD 보안 정책에 대한 새 역할을 생성합니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sh" data-lang="sh">kubectl-admin create role psp:astracontrol \
+    --verb=use \
+    --resource=podsecuritypolicy \
+    --resource-name=astracontrol</code></pre>
+</div>
+</div>
 </li>
 <li>
-<p>생성 시 NetApp Support 사이트에 번들 업로드 * 확인란을 선택합니다.</p>
-</li>
-<li>
-<p>Generate Bundle * 를 선택합니다.</p>
-<div class="paragraph">
-<p>지원 번들이 준비되면 알림 영역의 * 계정 * &gt; * 알림 * 페이지, * 활동 * 페이지 및 알림 목록(UI 오른쪽 상단에 있는 아이콘을 선택하여 액세스 가능)에 알림이 표시됩니다.</p>
+<p>새 역할을 서비스 계정에 바인딩합니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sh" data-lang="sh">kubectl-admin create rolebinding default:psp:astracontrol \
+    --role=psp:astracontrol \
+    --serviceaccount=astracontrol-service-account:default</code></pre>
+</div>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>생성에 실패하면 Generate Bundle(번들 생성) 페이지에 아이콘이 나타납니다. 메시지를 보려면 아이콘을 선택합니다.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-control-center/images/tip.svg" alt="팁">
-</td>
-<td class="content">
-UI 오른쪽 위에 있는 알림 아이콘은 지원 번들과 관련된 이벤트(예: 번들이 성공적으로 생성된 경우, 번들 생성에 실패한 경우, 번들을 업로드할 수 없는 경우, 번들을 다운로드할 수 없는 경우 등)에 대한 정보를 제공합니다.
-</td>
-</tr>
-</table>
-</div>
-<div class="sect2">
-<h3 id="공기-박기-설치가-있는-경우">공기 박기 설치가 있는 경우</h3>
-<div class="paragraph">
-<p>공기 교환 설치가 있는 경우 지원 번들을 생성한 후 다음 단계를 수행하십시오. 번들을 다운로드할 수 있는 경우 * Support * 페이지의 * Support Bundles * 섹션에서 * Generate * 옆에 다운로드 아이콘이 나타납니다.</p>
-</div>
-<div class="olist arabic">
-<div class="title">단계</div>
-<ol class="arabic">
-<li>
-<p>번들을 로컬로 다운로드하려면 다운로드 아이콘을 선택합니다.</p>
-</li>
-<li>
-<p>NSS에 번들을 수동으로 업로드합니다.</p>
-<div class="paragraph">
-<p>다음 방법 중 하나를 사용하여 이 작업을 수행할 수 있습니다.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>사용 <a href="https://upload.netapp.com/sg" target="_blank" rel="noopener">"NetApp 인증된 파일 업로드(로그인 필요)"</a>.</p>
-</li>
-<li>
-<p>NSS에서 케이스에 번들을 직접 부착합니다.</p>
-</li>
-<li>
-<p>NetApp Active IQ 사용</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-<h2 id="자세한-내용을-확인하십시오" class="discrete">자세한 내용을 확인하십시오</h2>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp" target="_blank" rel="noopener">"NetApp에 파일을 업로드하는 방법(로그인 필요)"</a></p>
-</li>
-<li>
-<p><a href="https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_manually_upload_AutoSupport_messages_to_NetApp_in_ONTAP_9" target="_blank" rel="noopener">"파일을 NetApp에 수동으로 업로드하는 방법(로그인 필요)"</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
 </div>
 
     </article>

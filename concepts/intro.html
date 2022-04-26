@@ -17,7 +17,7 @@
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Astra는 상태 저장 애플리케이션의 운영을 단순화하는 Kubernetes 애플리케이션 데이터 라이프사이클 관리 서비스입니다. Kubernetes 워크로드를 손쉽게 보호, 백업, 마이그레이션하고 정상 작동하는 애플리케이션 클론을 즉시 생성할 수 있습니다.">
-  <meta name="keywords" content=" how astra control works, what is astra, kubernetes clusters, what is astra control service, what is astra control center"><!-- Icons -->
+  <meta name="keywords" content=" how astra control works, what is astra, kubernetes cluster, cloud volumes ontap, what is astra control service, what is astra control center"><!-- Icons -->
   <link rel="icon" href="/ko-kr/astra-control-center/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -292,11 +292,11 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-control-center/concepts/intro.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/astra-control-center/concepts/intro.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ja-jp/astra-control-center/concepts/intro.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ko-kr/astra-control-center/concepts/intro.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/zh-cn/astra-control-center/concepts/intro.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
@@ -379,9 +379,30 @@
 
 
 
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ko-kr/astra-control-center/pdfs/sidebar/알려진_문제.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-control-center/images/pdf.png" width="16" height="16"/>
+            알려진 문제
+          </a>
+          
 
 
 
+          
+        </li>
+      </ul>
+    
+
+  
 
 
 
@@ -420,6 +441,10 @@
 
 </ul>
   
+
+
+
+
 
 
 
@@ -480,6 +505,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -504,6 +531,8 @@
             Astra Control Center를 설정합니다
           </a>
           
+
+
 
 
 
@@ -691,14 +720,14 @@
 
 
 
+
+
           
         </li>
       </ul>
     
 
   
-
-
 
 
 
@@ -859,13 +888,12 @@
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/release-notes/whats-new.html">
         Astra Control Center의 이번 릴리스의 새로운 기능
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/release-notes/resolved-issues.html">
-        해결된 문제
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/release-notes/known-issues-ads.html">
+      </a></li><li class="subfolders "><a href="/ko-kr/astra-control-center/release-notes/known-issues.html">
+        <div class="na-navbar-padding"> 알려진 문제</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/release-notes/known-issues-ads.html">
         Astra Data Store Preview 및 이 Astra Control Center 릴리스와 관련된 알려진 문제입니다
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/release-notes/known-issues.html">
-        알려진 문제
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/release-notes/known-limitations.html">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/release-notes/known-limitations.html">
         알려진 제한 사항
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 개념</div>
@@ -876,10 +904,14 @@
         아키텍처 및 구성 요소
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/concepts/data-protection.html">
         데이터 보호
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/concepts/licensing.html">
+        라이센싱
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/concepts/validated-vs-standard.html">
         검증된 vs 표준 애플리케이션
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/concepts/choose-class-and-size.html">
         스토리지 클래스 및 PV 크기
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/concepts/user-roles-namespaces.html">
+        사용자 역할 및 네임스페이스
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 시작하십시오</div>
       </a>
@@ -894,6 +926,8 @@
         Astra Control Center를 설치합니다
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/get-started/acc_operatorhub_install.html">
         OpenShift OperatorHub를 사용하여 Astra Control Center를 설치합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/get-started/install_acc-cvo.html">
+        Cloud Volumes ONTAP 스토리지 백엔드를 사용하여 Astra Control Center를 설치합니다
       </a></li></ul></li><li class="subfolders "><a href="/ko-kr/astra-control-center/get-started/setup_overview.html">
         <div class="na-navbar-padding"> Astra Control Center를 설정합니다</div>
       </a>
@@ -901,6 +935,8 @@
         클러스터 추가를 위한 사전 요구사항
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/get-started/add-custom-tls-certificate.html">
         사용자 지정 TLS 인증서를 추가합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/get-started/acc-create-podsecuritypolicy.html">
+        사용자 지정 POD 보안 정책을 생성합니다
       </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/get-started/faq.html">
         FAQ 를 참조하십시오
       </a></li></ul></li><li class="subfolders "><a href="#">
@@ -943,6 +979,8 @@
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/use/manage-users.html">
         사용자 관리
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/use/manage-roles.html">
+        역할을 관리합니다
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/use/manage-notifications.html">
         알림을 관리합니다
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/use/manage-credentials.html">
@@ -957,8 +995,6 @@
         스토리지 백엔드를 관리합니다
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/use/monitor-protect.html">
         인프라 모니터링 및 보호
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/use/update-licenses.html">
-        기존 라이센스를 업데이트합니다
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/use/unmanage.html">
         앱 및 클러스터 관리를 취소합니다
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-control-center/use/upgrade-acc.html">
@@ -1053,7 +1089,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-13 06:45:19 +0000">04/13/2022</time>
+    <time datetime="2022-04-26 16:34:05 +0000">04/26/2022</time>
     
   
 
@@ -1172,6 +1208,9 @@
 <li>
 <p>스토리지 백엔드로 Astra Data Store를 사용합니다</p>
 </li>
+<li>
+<p>Cloud Volumes ONTAP 스토리지 백엔드</p>
+</li>
 </ul>
 </div></div></td>
 </tr>
@@ -1285,7 +1324,7 @@
 <p>클라우드 연결 환경에서 Astra Control Center는 Cloud Insights를 사용하여 고급 모니터링 및 원격 측정 기능을 제공합니다. Cloud Insights 연결이 없을 경우 Astra Control Center에서 제한된(7일 메트릭) 모니터링 및 원격 측정 기능을 사용할 수 있으며, 개방형 메트릭 엔드 포인트를 통해 Kubernetes 기본 모니터링 툴(예: Prometheus 및 Grafana)으로 내보낼 수 있습니다.</p>
 </div>
 <div class="paragraph">
-<p>Astra Control Center는 AutoSupport 및 Active IQ 에코시스템에 완전히 통합되어 사용자와 NetApp 지원 팀에 문제 해결 및 사용 정보를 제공합니다.</p>
+<p>Astra Control Center는 AutoSupport 및 Active IQ 에코시스템에 완전히 통합되어 사용자와 NetApp 지원에 문제 해결 및 사용 정보를 제공합니다.</p>
 </div>
 <div class="paragraph">
 <p>90일 평가판 라이센스를 사용하여 Astra Control Center를 사용해 볼 수 있습니다. 평가 버전은 이메일 및 커뮤니티(Slack 채널) 옵션을 통해 지원됩니다. 또한 제품 내 지원 대시보드에서 Knowledgebase 문서 및 문서에 액세스할 수 있습니다.</p>
