@@ -24,3 +24,10 @@ summary: 평가판 라이센스를 전체 라이센스로 변환하거나 기존
 
 
 Account * > * Licenses * 페이지에는 라이센스 정보, 만료 날짜, 라이센스 일련 번호, 계정 ID 및 사용된 CPU 단위가 표시됩니다.
+
+
+
+== 를 참조하십시오
+
+* link:../concepts/licensing.html["Astra Control Center 라이센스"]
+

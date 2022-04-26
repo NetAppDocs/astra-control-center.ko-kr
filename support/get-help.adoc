@@ -18,33 +18,19 @@ IMPORTANT: Astra Control Center에 대한 평가판 라이센스가 있는 경�
 
 먼저 해야 합니다 link:../get-started/setup_overview.html["NetApp 일련 번호에 대한 지원을 활성화합니다"] 이러한 비 셀프 서비스 지원 옵션을 사용하려면 NetApp NSS(Support Site) SSO 계정은 케이스 관리와 함께 채팅 및 웹 티켓팅에 필요합니다.
 
-기본 메뉴에서 * 지원 * 탭을 선택하면 Astra Control Center UI에서 지원 옵션에 액세스할 수 있습니다.
-
-image:astracc-support.png["Astra Control Center 지원 페이지를 표시합니다."]
-
 
 
 == 자체 지원 옵션
 
+기본 메뉴에서 * 지원 * 탭을 선택하면 Astra Control Center UI에서 지원 옵션에 액세스할 수 있습니다.
+
 이러한 옵션은 24x7 무료로 제공됩니다.
 
-* https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra["기술 자료(로그인 필요)"^]
-+
-Astra Control과 관련된 문서, FAQ 또는 고장 수리 정보를 검색합니다.
-
-* 문서화
-+
-현재 보고 있는 문서 사이트입니다.
-
-* https://netapppub.slack.com/#astra["슬랙"^]
-+
-Pub 작업 공간의 컨테이너 채널로 이동하여 동료 및 전문가와 교류하십시오.
-
-* 문제 해결을 위해 NetApp 지원에 제공할 지원 번들을 생성합니다
-* 피드백 이메일
-+
-귀하의 생각, 아이디어 또는 우려 사항을 당사에 알릴 수 있도록 astra.feedback@netapp.com 으로 이메일을 보내주십시오.
-
+* https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra["* 기술 자료 * (로그인 필요)"^]Astra Control과 관련된 문서, FAQ 또는 고장 수리 정보를 검색합니다.
+* * 문서 센터 *: 현재 보고 있는 문서 사이트입니다.
+* https://netapppub.slack.com/#astra["Slack * 을 통해 도움을 받으십시오"^]: 동료 및 전문가와 연결하려면 thePub 작업 공간의 컨테이너 채널로 이동하십시오.
+* * 지원 케이스 생성 *: 문제 해결을 위해 NetApp 지원에 제공할 지원 번들을 생성합니다.
+* * Astra Control에 대한 피드백 제공 *: astra.feedback@netapp.com 으로 이메일을 보내 귀하의 생각, 아이디어 또는 우려 사항을 알려 주십시오.
 
 
 
@@ -62,7 +48,7 @@ Astra Control Center를 사용하면 관리자가 NetApp 지원에 유용한 정
 
 NOTE: Astra Control Center에서 번들을 생성하는 데 걸리는 시간은 Astra Control Center 설치 크기와 요청된 지원 번들의 매개 변수에 따라 다릅니다. 지원 번들을 요청할 때 지정한 기간은 번들을 생성하는 데 걸리는 시간을 나타냅니다(예: 기간이 짧을수록 번들 생성 속도가 빠름).
 
-시작하기 전에 NSS에 번들을 업로드하기 위해 프록시 연결이 필요한지 확인합니다. 프록시 연결이 필요한 경우 Astra Control Center가 프록시 서버를 사용하도록 구성되어 있는지 확인합니다.
+NSS에 번들을 업로드하는 데 프록시 연결이 필요한지 여부를 확인합니다. 프록시 연결이 필요한 경우 Astra Control Center가 프록시 서버를 사용하도록 구성되어 있는지 확인합니다.
 
 . 계정 * > * 연결 * 을 선택합니다.
 . 연결 설정 * 에서 프록시 설정을 확인하십시오.
@@ -82,10 +68,7 @@ NOTE: Astra Control Center에서 번들을 생성하는 데 걸리는 시간은 
 NOTE: 사용자 지정 날짜 범위를 선택하고 날짜 범위 동안 사용자 지정 기간을 지정할 수 있습니다.
 
 .. 선택한 후 * Confirm * (확인 *)을 선택합니다.
-.. 생성 시 NetApp Support 사이트에 번들 * 업로드 * 를 확인하십시오.
-+
-image:upload-bundle.png["NSS에 지원 번들 업로드 확인란을 표시합니다."]
-
+.. 생성 시 NetApp Support 사이트에 번들 업로드 * 확인란을 선택합니다.
 .. Generate Bundle * 를 선택합니다.
 +
 지원 번들이 준비되면 알림 영역의 * 계정 * > * 알림 * 페이지, * 활동 * 페이지 및 알림 목록(UI 오른쪽 상단에 있는 아이콘을 선택하여 액세스 가능)에 알림이 표시됩니다.
@@ -104,11 +87,10 @@ TIP: UI 오른쪽 위에 있는 알림 아이콘은 지원 번들과 관련된 �
 
 === 공기 박기 설치가 있는 경우
 
-공기 교환 설치가 있는 경우 지원 번들을 생성한 후 다음 단계를 수행하십시오. 번들을 다운로드할 수 있으면 아래와 같이 * Support * 페이지의 * Support Bundles * 섹션에서 * Generated * 옆에 표시됩니다.
+공기 교환 설치가 있는 경우 지원 번들을 생성한 후 다음 단계를 수행하십시오. 번들을 다운로드할 수 있는 경우 * Support * 페이지의 * Support Bundles * 섹션에서 * Generate * 옆에 다운로드 아이콘이 나타납니다.
 
-image:support-bundle.png["에는 생성 및 다운로드 준비가 완료된 지원 번들이 나와 있습니다."]
-
-. 번들을 로컬로 다운로드하려면 * 다운로드 * 아이콘을 선택합니다.
+.단계
+. 번들을 로컬로 다운로드하려면 다운로드 아이콘을 선택합니다.
 . NSS에 번들을 수동으로 업로드합니다.
 +
 다음 방법 중 하나를 사용하여 이 작업을 수행할 수 있습니다.
@@ -116,7 +98,7 @@ image:support-bundle.png["에는 생성 및 다운로드 준비가 완료된 지
 +
 ** 사용 https://upload.netapp.com/sg["NetApp 인증된 파일 업로드(로그인 필요)"^].
 ** NSS에서 케이스에 번들을 직접 부착합니다.
-** NetApp AIQ를 사용합니다.
+** NetApp Active IQ 사용
 
 
 

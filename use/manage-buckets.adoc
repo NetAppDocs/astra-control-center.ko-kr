@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: use/manage-buckets.html 
 keywords: how to set up object storage in astra, how to set up astra buckets, s3, astra, setting up astra control, how to set up astra control center, kubernetes 
-summary: 클러스터 간에 애플리케이션을 복제하려는 경우 애플리케이션 및 영구 스토리지를 백업하려는 경우 오브젝트 저장소 버킷 공급자를 추가하는 것이 중요합니다. 
+summary: 애플리케이션과 영구 스토리지를 백업하려는 경우나 클러스터 간에 애플리케이션을 클론 복제하려는 경우에는 오브젝트 저장소 버킷 공급자를 추가하는 것이 중요합니다. 
 ---
 = 버킷을 관리합니다
 :hardbreaks:
@@ -15,17 +15,16 @@ summary: 클러스터 간에 애플리케이션을 복제하려는 경우 애플
 
 애플리케이션 구성과 영구 스토리지를 동일한 클러스터에 클론 복제할 경우 버킷이 필요하지 않습니다.
 
-다음 버킷 공급자 중 하나를 사용하십시오.
+다음 Amazon S3(Simple Storage Service) 버킷 공급자 중 하나를 사용하십시오.
 
 * NetApp ONTAP S3
 * NetApp StorageGRID S3
 * 일반 S3
+* Microsoft Azure를 참조하십시오
 
 
 
 NOTE: Astra Control Center는 Amazon S3를 일반 S3 버킷 공급자로 지원하지만, Astra Control Center는 Amazon의 S3 지원을 주장하는 모든 오브젝트 저장소 공급업체를 지원하지 않을 수 있습니다.
-
-버킷은 삭제할 수 없지만 편집할 수는 있습니다.
 
 버킷은 다음 상태 중 하나일 수 있습니다.
 
@@ -40,6 +39,7 @@ Astra Control API를 사용하여 버킷을 관리하는 방법에 대한 지침
 
 * link:../get-started/setup_overview.html#add-a-bucket["버킷을 추가합니다"]
 * <<Edit a bucket>>
+* <<Remove a bucket>>
 
 
 
@@ -67,13 +67,40 @@ NOTE: 버킷을 추가할 때 올바른 버킷 공급자를 선택하고 해당 
 
 .단계
 . 왼쪽 탐색에서 * Bucket * 을 선택합니다.
-. 작업 메뉴에서 * 편집 * 을 선택합니다.
+. Actions * 열의 Options 메뉴에서 * Edit * 를 선택합니다.
 . 버킷 유형 이외의 모든 정보를 변경합니다.
 +
 
 TIP: 버킷 유형을 수정할 수 없습니다.
 
 . Update * 를 선택합니다.
+
+
+
+
+== 버킷을 탈거하십시오
+
+더 이상 사용하지 않거나 상태가 불량한 버킷을 제거할 수 있습니다. 오브젝트 저장소 구성을 단순하고 최신 상태로 유지하기 위해 이 작업을 수행할 수 있습니다.
+
+
+NOTE: 기본 버킷을 제거할 수 없습니다. 해당 버킷을 제거하려면 먼저 다른 버킷을 기본값으로 선택하십시오.
+
+.무엇을 &#8217;필요로 할거야
+* 시작하기 전에 이 버킷에 대해 실행 중이거나 완료된 백업이 없는지 확인해야 합니다.
+* 버킷이 활성 보호 정책에서 사용되고 있지 않은지 확인해야 합니다.
+
+
+있는 경우 계속할 수 없습니다.
+
+.단계
+. 왼쪽 탐색에서 * Bucket * 을 선택합니다.
+. Actions * 메뉴에서 * Remove * 를 선택합니다.
++
+
+NOTE: Astra Control은 먼저 버킷에 백업을 사용하는 스케줄 정책이 없고 제거할 버킷에 활성 백업이 없음을 보장합니다.
+
+. 작업을 확인하려면 "remove"를 입력합니다.
+. 예, 버킷 제거 * 를 선택합니다.
 
 
 

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: get-started/requirements.html 
-keywords: what are astra kubernetes requirements, astra control requirements, astra supported versions, apps, supported apps, mariadb, mysql, postgres, kubernetes version, ubuntu, image type, networking, environment, operational, operational environment, hosting, host, cluster, clusters 
+keywords: what are astra kubernetes requirements, astra control requirements, astra supported versions, apps, supported apps, mariadb, mysql, postgres, kubernetes version, ubuntu, image type, networking, environment, operational, operational environment, hosting, host, cluster, clusters, tanzu, tkg, tkgi, grid, kubernetes, k8s 
 summary: Kubernetes 클러스터, 앱 및 웹 브라우저에 대한 지원을 확인하여 Astra Control Center를 시작하십시오. 
 ---
 = Astra Control Center 요구 사항
@@ -19,9 +19,11 @@ summary: Kubernetes 클러스터, 앱 및 웹 브라우저에 대한 지원을 �
 
 Astra Control Center에는 다음 유형의 운영 환경 중 하나가 필요합니다.
 
-* Red Hat OpenShift Container Platform 4.6.8, 4.7 또는 4.8
-* Rancher 2.5
-* Kubernetes 1.19 ~ 1.21(1.21.x 포함)
+* Kubernetes 1.20 ~ 1.23
+* RKE1을 사용한 Rancher 2.5.8, 2.5.9 또는 2.6
+* Red Hat OpenShift Container Platform 4.6.8, 4.7, 4.8 또는 4.9
+* VMware Tanzu Kubernetes Grid 1.4
+* VMware Tanzu Kubernetes Grid Integrated Edition 1.12.2
 
 
 Astra Control Center를 호스팅하기 위해 선택한 운영 환경이 환경 공식 문서에 설명된 기본 리소스 요구 사항을 충족하는지 확인합니다. Astra Control Center에는 환경의 리소스 요구 사항 외에 다음과 같은 리소스가 필요합니다.
@@ -30,20 +32,17 @@ Astra Control Center를 호스팅하기 위해 선택한 운영 환경이 환경
 | 구성 요소 | 요구 사항 
 
 
-| 백엔드 ONTAP 스토리지 용량입니다 | 최소 300GB가 사용 가능합니다 
+| ONTAP 백엔드 스토리지 용량입니다 | 최소 300GB가 사용 가능합니다 
 
 
 | 작업자 노드 | 최소 3개의 작업자 노드, 각각 4개의 CPU 코어, 12GB RAM 
 
 
-| 로드 밸런서 | 수신 트래픽을 운영 환경 클러스터의 서비스로 전송할 수 있도록 서비스 유형 "로드 밸런서"를 사용할 수 있습니다 
-
-
-| FQDN 확인 | Astra Control Center의 FQDN을 부하 분산 IP 주소로 가리키는 방법 
+| FQDN 주소입니다 | Astra Control Center의 FQDN 주소입니다 
 
 
 | 아스트라 트리덴트  a| 
-* NetApp ONTAP 버전 9.5 이상을 스토리지 백엔드로 사용할 경우 Astra Trident 21.04 이상 설치 및 구성됩니다
+* Astra Trident 21.04 이상 설치 및 구성
 * Astra Trident 21.10.1 이상 설치 및 구성 - Astra Data Store 미리보기를 스토리지 백엔드로 사용할 경우
 
 
@@ -76,6 +75,37 @@ NOTE: 두 번째 OpenShift 운영 환경을 관리되는 컴퓨팅 리소스로 
 
 
 
+=== VMware Tanzu Kubernetes Grid 클러스터 요구 사항
+
+VMware Tanzu Kubernetes Grid(TKG) 또는 Tanzu Kubernetes Grid Integrated Edition(TKGi) 클러스터에서 Astra Control Center를 호스팅하는 경우 다음 사항을 고려하십시오.
+
+* Astra Control에서 관리하려는 모든 애플리케이션 클러스터에서 TKG 또는 TKGi 기본 스토리지 클래스 적용을 비활성화합니다. 네임스페이스 클러스터에서 '탄자쿠스컨테이너 클러스터' 리소스를 편집하여 이 작업을 수행할 수 있습니다.
+* Astra Control Center에서 클러스터 내에 POD를 생성할 수 있도록 하는 보안 정책을 생성해야 합니다. 이 작업은 다음 명령을 사용하여 수행할 수 있습니다.
++
+[listing]
+----
+kubectl config use-context <context-of-workload-cluster>
+kubectl create clusterrolebinding default-tkg-admin-privileged-binding --clusterrole=psp:vmware-system-privileged --group=system:authenticated
+----
+* TKG 또는 TKGi 환경에 Astra Control Center를 구축하는 경우 Astra Trident에 대한 특정 요구 사항을 숙지하십시오. 자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#other-known-configuration-options["Astra Trident 문서"^].
+
+
+
+NOTE: 기본 VMware TKG 및 TKGi 구성 파일 토큰은 구축 후 10시간 후에 만료됩니다. Tanzu 포트폴리오 제품을 사용하는 경우, Astra Control Center와 관리되는 애플리케이션 클러스터 간의 연결 문제를 방지하기 위해 만료되지 않는 토큰이 포함된 Tanzu Kubernetes Cluster 구성 파일을 생성해야 합니다. 자세한 내용은 를 참조하십시오 https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.2/nsx-application-platform/GUID-52A52C0B-9575-43B6-ADE2-E8640E22C29F.html["VMware NSX-T 데이터 센터 제품 설명서"]
+
+
+
+== 지원되는 스토리지 백엔드
+
+Astra Control Center는 다음과 같은 스토리지 백엔드를 지원합니다.
+
+* Astra 데이터 저장소
+* NetApp ONTAP 9.5 이상 AFF 및 FAS 시스템
+* NetApp Cloud Volumes ONTAP를 참조하십시오
+
+
+
+
 == 애플리케이션 클러스터 요구사항
 
 Astra Control Center에는 Astra Control Center에서 관리하려는 클러스터에 대한 다음과 같은 요구 사항이 있습니다. 이러한 요구 사항은 관리하려는 클러스터가 Astra Control Center를 호스팅하는 운영 환경 클러스터인 경우에도 적용됩니다.
@@ -103,29 +133,36 @@ Astra Control에는 다음과 같은 애플리케이션 관리 요구 사항이 
 * * StorageClass *: StorageClass가 명시적으로 설정된 애플리케이션을 설치하고 앱을 복제해야 하는 경우 클론 작업의 타겟 클러스터에 원래 지정된 StorageClass가 있어야 합니다. 명시적으로 StorageClass를 동일한 StorageClass가 없는 클러스터로 설정한 애플리케이션을 클론 복제하면 실패합니다.
 * * Kubernetes 리소스 *: Astra Control에서 수집하지 않은 Kubernetes 리소스를 사용하는 애플리케이션에는 전체 앱 데이터 관리 기능이 없을 수 있습니다. Astra Control은 다음과 같은 Kubernetes 리소스를 수집합니다.
 +
-** 클러스터 역할
-** ClusterRoleBinding 을 참조하십시오
-** ConfigMap을 클릭합니다
-** 사용자 지정 리소스 정의
-** CustomResource 를 선택합니다
-** DemonSet
-** 구축
-** DeploymentConfig(배포 구성
-** 침투
-** 뮤atingWebhook
-** PersistentVolumeClaim
-** 포드
-** ReplicaSet입니다
-** RoleBinding 을 클릭합니다
-** 역할
-** 루트
-** 비밀
-** 서비스
-** 서비스 계정
-** StatefulSet 을 선택합니다
-** Webhook을 확인합니다
+[cols="1,1,1"]
+|===
 
 
+| 클러스터 역할 | ClusterRoleBinding 을 참조하십시오 | ConfigMap을 클릭합니다 
+
+
+| 사용자 지정 리소스 정의 | CustomResource 를 선택합니다 | 경작업 
+
+
+| DemonSet | HorizontalPodAutoscaler | 침투 
+
+
+| DeploymentConfig(배포 구성 | 뮤atingWebhook | PersistentVolumeClaim 
+
+
+| 포드 | 팟캐스트 예산 | 팟캐스트 템플릿 
+
+
+| 네트워크 정책 | ReplicaSet입니다 | 역할 
+
+
+| RoleBinding 을 클릭합니다 | 루트 | 비밀 
+
+
+| 서비스 | 서비스 계정 | StatefulSet 을 선택합니다 
+
+
+| Webhook을 확인합니다 |  |  
+|===
 
 
 
@@ -172,17 +209,25 @@ Astra Control Center의 모든 기능을 사용하려면 Astra Control Center �
 
 Astra Control Center를 사용해 보고 싶다면 가능합니다 link:setup_overview.html#add-a-full-or-evaluation-license["90일 평가판 라이센스를 사용합니다"].
 
+라이센스 작동 방법에 대한 자세한 내용은 을 참조하십시오 link:../concepts/licensing.html["라이센싱"].
 
 
-== 온프레미스 Kubernetes 클러스터의 서비스 유형 "로드 밸런서
 
-Astra Control Center는 "loadbalancer"(Astra Control Center 네임스페이스의 svc/traefik) 유형의 서비스를 사용하며 액세스 가능한 외부 IP 주소를 할당해야 합니다. 부하 분산 장치가 사용자 환경에서 허용되고 아직 부하 분산 장치가 구성되어 있지 않은 경우 를 사용할 수 있습니다 https://docs.netapp.com/us-en/netapp-solutions/containers/rh-os-n_LB_MetalLB.html#installing-the-metallb-load-balancer["메탈리스"^] 외부 IP 주소를 서비스에 자동으로 할당합니다. 내부 DNS 서버 구성에서 Astra Control Center에 대해 선택한 DNS 이름을 부하 분산 IP 주소로 지정해야 합니다.
+== 온프레미스 Kubernetes 클러스터의 수신
+
+네트워크 수신 Astra Control Center 사용 유형을 선택할 수 있습니다. 기본적으로 Astra Control Center는 클러스터 차원의 리소스로 Astra Control Center 게이트웨이(서비스/traefik)를 배포합니다. 또한 Astra Control Center는 서비스 로드 밸런서가 사용자 환경에서 허용되는 경우 이를 사용할 수 있도록 지원합니다. 서비스 로드 밸런서를 사용하고 아직 서비스 로드 밸런서가 구성되어 있지 않은 경우 MetalLB 로드 밸런서를 사용하여 외부 IP 주소를 서비스에 자동으로 할당할 수 있습니다. 내부 DNS 서버 구성에서 Astra Control Center에 대해 선택한 DNS 이름을 부하 분산 IP 주소로 지정해야 합니다.
+
+
+NOTE: Tanzu Kubernetes Grid 클러스터에서 Astra Control Center를 호스팅하는 경우 "kubbtl get nsxlbmonitor -a" 명령을 사용하여 수신 트래픽을 허용하도록 구성된 서비스 모니터가 있는지 확인하십시오. 기존 서비스 모니터가 새 로드 밸런서 구성을 무시하므로 MetalLB를 설치하면 안 됩니다.
 
 
 
 == 네트워킹 요구 사항
 
 Astra Control Center를 호스팅하는 운영 환경은 다음 TCP 포트를 사용하여 통신합니다. 이러한 포트가 모든 방화벽을 통해 허용되는지 확인하고 Astra 네트워크에서 발생하는 HTTPS 송신 트래픽을 허용하도록 방화벽을 구성해야 합니다. 일부 포트에는 Astra Control Center를 호스팅하는 환경과 각 관리 클러스터(해당되는 경우) 간의 연결이 모두 필요합니다.
+
+
+NOTE: Astra Control Center를 이중 스택 Kubernetes 클러스터에 구축할 수 있으며, Astra Control Center는 이중 스택 작업을 위해 구성된 애플리케이션 및 스토리지 백엔드를 관리할 수 있습니다. 이중 스택 클러스터 요구사항에 대한 자세한 내용은 를 참조하십시오 https://kubernetes.io/docs/concepts/services-networking/dual-stack/["Kubernetes 문서"^].
 
 |===
 | 출처 | 목적지 | 포트 | 프로토콜 | 목적 
@@ -200,7 +245,7 @@ Astra Control Center를 호스팅하는 운영 환경은 다음 TCP 포트를 �
 | Astra 제어 센터 | Amazon S3 스토리지 버킷 공급자 (https://my-bucket.s3.us-west-2.amazonaws.com/)[] | 443 | HTTPS | Amazon S3 스토리지 통신 
 
 
-| Astra 제어 센터 | NetApp ActiveIQ (https://activeiq.solidfire.com)[] | 443 | HTTPS | NetApp ActiveIQ 커뮤니케이션 
+| Astra 제어 센터 | NetApp AutoSupport를 참조하십시오 (https://support.netapp.com)[] | 443 | HTTPS | NetApp AutoSupport 커뮤니케이션 
 |===
 
 

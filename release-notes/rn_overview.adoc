@@ -11,10 +11,9 @@ summary: NetApp은 새로운 기능, 개선 사항 및 버그 수정을 제공�
 :imagesdir: ../media/release-notes/
 
 
-Astra Control Center의 21.12 릴리스를 발표하게 되어 기쁘게 생각합니다.
+Astra Control Center의 22.04.0 릴리스를 발표하게 되어 기쁘게 생각합니다.
 
 * link:../release-notes/whats-new.html["Astra Control Center의 이번 릴리즈에는 어떤 내용이 포함되어 있는지"]
-* link:../release-notes/resolved-issues.html["해결된 문제"]
 * link:../release-notes/known-issues.html["알려진 문제"]
 * link:../release-notes/known-issues-ads.html["Astra Data Store Preview 및 이 Astra Control Center 릴리스와 관련된 알려진 문제입니다"]
 * link:../release-notes/known-limitations.html["알려진 제한 사항"]

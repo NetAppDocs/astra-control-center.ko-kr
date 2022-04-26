@@ -104,7 +104,7 @@ thin                   kubernetes.io/vsphere-volume   Delete          Immediate 
 *astracontrol-service-account.yaml*
 ----
 +
-[listing]
+[source, yaml]
 ----
 apiVersion: v1
 kind: ServiceAccount
@@ -120,6 +120,7 @@ kubectl apply -f astracontrol-service-account.yaml
 ----
 
 
+. (선택 사항) 클러스터에서 권한이 있는 POD 생성을 허용하지 않거나 POD 컨테이너 내의 프로세스가 루트 사용자로 실행되도록 허용하지 않는 제한적인 POD 보안 정책을 사용하는 경우 Astra Control에서 POD를 생성 및 관리할 수 있도록 클러스터에 대한 사용자 지정 POD 보안 정책을 생성합니다. 자세한 내용은 을 참조하십시오 link:acc-create-podsecuritypolicy.html["사용자 지정 POD 보안 정책을 생성합니다"].
 . 다음과 같이 클러스터 관리자 권한을 부여합니다.
 +
 .. astracontrol-clusterrobinding.YAML이라는 ClusterRoleBinding 파일을 만듭니다.
@@ -132,7 +133,7 @@ kubectl apply -f astracontrol-service-account.yaml
 *astracontrol-clusterrolebinding.yaml*
 ----
 +
-[listing]
+[source, yaml]
 ----
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -184,7 +185,7 @@ kubectl get serviceaccount astracontrol-service-account --context <context> --na
 *create-kubeconfig.sh*
 ----
 +
-[listing]
+[source, sh]
 ----
 # Update these to match your environment.
 # Replace TOKEN_INDEX with the correct value

@@ -35,6 +35,8 @@ entries:
   entries:
   - title: 사용자 관리
     url: "/use/manage-users.html"
+  - title: 역할을 관리합니다
+    url: "/use/manage-roles.html"
   - title: 알림을 관리합니다
     url: "/use/manage-notifications.html"
   - title: 자격 증명 관리
@@ -49,8 +51,6 @@ entries:
   url: "/use/manage-backend.html"
 - title: 인프라 모니터링 및 보호
   url: "/use/monitor-protect.html"
-- title: 기존 라이센스를 업데이트합니다
-  url: "/use/update-licenses.html"
 - title: 앱 및 클러스터 관리를 취소합니다
   url: "/use/unmanage.html"
 - title: Astra Control Center를 업그레이드합니다

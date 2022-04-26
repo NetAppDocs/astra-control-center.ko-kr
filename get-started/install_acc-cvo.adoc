@@ -1,0 +1,447 @@
+---
+sidebar: sidebar 
+permalink: get-started/install_acc-cvo.html 
+keywords: astra installation, install astra control center, cloud volumes ontap, amazon web services, aws, azure, how to install astra control, deploy, download from netapp support 
+summary: 몇 가지 환경 요구 사항을 설명한 후 Astra Control Center를 설치하려면 번들을 다운로드하여 설명된 단계에 따라 설치합니다. 
+---
+= Cloud Volumes ONTAP 스토리지 백엔드를 사용하여 Astra Control Center를 설치합니다
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+Astra Control Center를 사용하면 자체 관리되는 Kubernetes 클러스터 및 Cloud Volumes ONTAP 인스턴스가 있는 하이브리드 클라우드 환경에서 앱을 관리할 수 있습니다. 온프레미스 Kubernetes 클러스터 또는 클라우드 환경의 자가 관리 Kubernetes 클러스터 중 하나에 Astra Control Center를 구축할 수 있습니다.
+
+이러한 구축 중 하나를 통해 Cloud Volumes ONTAP를 스토리지 백엔드로 사용하여 애플리케이션 데이터 관리 작업을 수행할 수 있습니다. S3 버킷을 백업 타겟으로 구성할 수도 있습니다.
+
+AWS(Amazon Web Services) 및 Microsoft Azure에 Cloud Volumes ONTAP 스토리지 백엔드를 사용하여 Astra Control Center를 설치하려면 클라우드 환경에 따라 다음 단계를 수행하십시오.
+
+* <<Deploy Astra Control Center in Amazon Web Services>>
+* <<Deploy Astra Control Center in Microsoft Azure>>
+
+
+
+
+== Amazon Web Services에 Astra Control Center를 구축합니다
+
+AWS(Amazon Web Services) 퍼블릭 클라우드에서 호스팅되는 자가 관리형 Kubernetes 클러스터에 Astra Control Center를 구축할 수 있습니다.
+
+Astra Control Center 배포에는 자가 관리형 OCP(OpenShift Container Platform) 클러스터만 지원됩니다.
+
+
+
+=== AWS에 필요한 기능
+
+AWS에 Astra Control Center를 구축하기 전에 다음 항목이 필요합니다.
+
+* Astra Control Center 라이센스. 을 참조하십시오 link:../get-started/requirements.html["Astra Control Center 라이센스 요구 사항"].
+* link:../get-started/requirements.html["Astra Control Center 요구 사항을 충족합니다"].
+* NetApp Cloud Central 계정
+* Red Hat OpenShift Container Platform(OCP) 권한(네임스페이스 수준에서 POD 생성)
+* 버킷 및 커넥터를 생성할 수 있는 권한이 있는 AWS 자격 증명, 액세스 ID 및 비밀 키
+* AWS 계정 ECR(Elastic Container Registry) 액세스 및 로그인
+* Astra Control UI에 액세스하려면 AWS 호스팅 영역 및 Route 53 항목이 필요합니다
+
+
+
+
+=== AWS의 운영 환경 요구사항
+
+Astra Control Center에는 AWS를 위한 다음과 같은 운영 환경이 필요합니다.
+
+* Red Hat OpenShift Container Platform 4.8
+
+
+
+NOTE: Astra Control Center를 호스팅하기 위해 선택한 운영 환경이 환경 공식 문서에 설명된 기본 리소스 요구 사항을 충족하는지 확인합니다.
+
+Astra Control Center에는 환경의 리소스 요구 사항 외에 다음과 같은 리소스가 필요합니다.
+
+[cols="1h,2a"]
+|===
+| 구성 요소 | 요구 사항 
+
+
+| 백엔드 NetApp Cloud Volumes ONTAP 스토리지 용량입니다  a| 
+최소 300GB가 사용 가능합니다
+
+
+
+| 작업자 노드(AWS EC2 요구사항)  a| 
+총 3개 이상의 작업자 노드, vCPU 코어 4개, 12GB RAM
+
+
+
+| 로드 밸런서  a| 
+수신 트래픽을 운영 환경 클러스터의 서비스로 전송할 수 있도록 서비스 유형 "로드 밸런서"를 사용할 수 있습니다
+
+
+
+| FQDN  a| 
+Astra Control Center의 FQDN을 부하 분산 IP 주소로 가리키는 방법
+
+
+
+| Astra Trident(NetApp Cloud Manager에서 Kubernetes 클러스터 검색의 일부로 설치됨)  a| 
+Astra Trident 21.04 이상 설치 및 구성, NetApp ONTAP 버전 9.5 이상 버전을 스토리지 백엔드로 사용합니다
+
+
+
+| 이미지 레지스트리  a| 
+Astra Control Center 빌드 이미지를 푸시할 수 있는 AWS Elastic Container Registry와 같은 기존 개인 레지스트리가 있어야 합니다. 이미지를 업로드할 이미지 레지스트리의 URL을 제공해야 합니다.
+
+
+NOTE: Astra Control Center에서 호스팅되는 클러스터와 관리 클러스터는 Resetic 기반 이미지를 사용하여 앱을 백업 및 복원할 수 있도록 동일한 이미지 레지스트리에 액세스할 수 있어야 합니다.
+
+
+
+| Astra Trident/ONTAP 구성  a| 
+Astra Control Center에서는 스토리지 클래스를 생성하고 기본 스토리지 클래스로 설정해야 합니다. Astra Control Center는 Kubernetes 클러스터를 NetApp Cloud Manager로 가져올 때 생성되는 다음과 같은 ONTAP Kubernetes 스토리지 클래스를 지원합니다. Astra Trident에서 제공합니다.
+
+* ``vsaworkingenvironment-<>-ha-nas csi.trident.netapp.io`
+* ``saworkingenvironment-<>-ha-san csi.trident.netapp.io`
+* ``vsaworkingenvironment-<>-single-nas csi.trident.netapp.io`
+* ``saworkingenvironment-<>-single-san csi.trident.netapp.io`
+
+
+|===
+
+NOTE: 이러한 요구 사항에서는 Astra Control Center가 운영 환경에서 실행되는 유일한 애플리케이션이라고 가정합니다. 환경에서 추가 애플리케이션이 실행 중인 경우 이러한 최소 요구 사항을 적절히 조정합니다.
+
+
+NOTE: AWS 레지스트리 토큰은 12시간 후에 만료되며, 그 후에는 Docker 이미지 레지스트리 암호를 갱신해야 합니다.
+
+
+
+=== AWS 구축 개요
+
+Cloud Volumes ONTAP를 스토리지 백엔드로 사용하여 Astra Control Center for AWS를 설치하는 프로세스를 간략하게 소개합니다.
+
+이러한 각 단계는 아래에 자세히 설명되어 있습니다.
+
+. <<Ensure that you have sufficient IAM permissions>>.
+. <<Install a RedHat OpenShift cluster on AWS>>.
+. <<Configure AWS>>.
+. <<Configure NetApp Cloud Manager>>.
+. <<Install Astra Control Center>>.
+
+
+
+
+=== IAM 권한이 충분한지 확인하십시오
+
+RedHat OpenShift 클러스터와 NetApp Cloud Volumes ONTAP 커넥터를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.
+
+을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html#initial-aws-credentials["초기 AWS 자격 증명"^].
+
+
+
+=== AWS에 RedHat OpenShift 클러스터를 설치합니다
+
+AWS에 RedHat OpenShift Container Platform 클러스터를 설치합니다.
+
+설치 지침은 를 참조하십시오 https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-aws-default.html["OpenShift Container Platform에서 AWS에 클러스터 설치"^].
+
+
+
+=== AWS 구성
+
+그런 다음 AWS를 구성하여 가상 프라이빗 클라우드를 생성하고, EC2 컴퓨팅 인스턴스를 설정하고, AWS S3 버킷을 생성하고, ECR(Elastic Container Register)을 생성하여 Astra Control Center 이미지를 호스팅하고, 이미지를 이 레지스트리로 푸시합니다.
+
+AWS 설명서에 따라 다음 단계를 완료하십시오. 을 참조하십시오 https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-aws-default.html["AWS 설치 설명서"^].
+
+. AWS 가상 프라이빗 클라우드를 구축합니다.
+. EC2 컴퓨팅 인스턴스를 검토합니다. 이는 AWS의 베어 메탈 서버 또는 VM이 될 수 있습니다.
+. 인스턴스 유형이 마스터 및 작업자 노드에 대한 Astra 최소 리소스 요구 사항과 일치하지 않으면 AWS의 인스턴스 유형을 Astra 요구 사항에 맞게 변경합니다. 을 참조하십시오 link:../requirements.html["Astra Control Center 요구 사항"].
+. 백업을 저장할 AWS S3 버킷을 하나 이상 생성합니다.
+. AWS ECR(Elastic Container Registry)을 생성하여 모든 ACC 이미지를 호스팅합니다.
++
+
+NOTE: ECR을 생성하지 않는 경우, Astra Control Center는 AWS 백엔드가 있는 CVO가 포함된 클러스터에서 모니터링 데이터에 액세스할 수 없습니다. 이 문제는 Astra Control Center를 사용하여 검색 및 관리하려는 클러스터에 AWS ECR 액세스 권한이 없을 때 발생합니다.
+
+. ACC 이미지를 정의된 레지스트리로 푸시합니다.
+
+
+
+NOTE: AWS ECR(Elastic Container Registry) 토큰이 12시간 후에 만료되어 클러스터 간 클론 작업이 실패합니다. 이 문제는 AWS용으로 구성된 CVO(Cloud Volumes ONTAP)에서 스토리지 백엔드를 관리할 때 발생합니다. 이 문제를 해결하려면 ECR을 다시 인증하고 클론 작업이 성공적으로 재개되도록 새로운 암호를 생성하십시오.
+
+다음은 AWS 구축의 예입니다.
+
+image:acc-cvo-aws2.png["Astra Control Center 및 Cloud Volumes ONTAP 배포 사례"]
+
+
+
+=== NetApp Cloud Manager 구성
+
+Cloud Manager를 사용하여 작업 공간을 생성하고, AWS에 커넥터를 추가하고, 작업 환경을 생성하고, 클러스터를 가져옵니다.
+
+Cloud Manager 설명서에 따라 다음 단계를 완료하십시오. 다음을 참조하십시오.
+
+* https://docs.netapp.com/us-en/occm/task_getting_started_aws.html["AWS에서 Cloud Volumes ONTAP 시작하기"^].
+* https://docs.netapp.com/us-en/occm/task_creating_connectors_aws.html#create-a-connector["Cloud Manager를 사용하여 AWS에서 커넥터를 생성합니다"^]
+
+
+.단계
+. Cloud Manager에 자격 증명을 추가합니다.
+. 작업 영역을 만듭니다.
+. AWS용 커넥터를 추가합니다. AWS를 공급자로 선택합니다.
+. 클라우드 환경을 위한 작업 환경을 구축합니다.
++
+.. 위치: "AWS(Amazon Web Services)"
+.. 유형: "Cloud Volumes ONTAP HA"
+
+
+. OpenShift 클러스터를 가져옵니다. 클러스터가 방금 생성한 작업 환경에 연결됩니다.
++
+.. NetApp 클러스터 세부 정보를 보려면 * K8s * > * 클러스터 목록 * > * 클러스터 세부 정보 * 를 선택합니다.
+.. 오른쪽 위 모서리에서 Trident 버전을 확인합니다.
+.. NetApp을 공급자 로 보여주는 Cloud Volumes ONTAP 클러스터 스토리지 클래스를 참조하십시오.
++
+그러면 Red Hat OpenShift 클러스터가 가져와 기본 스토리지 클래스가 할당됩니다. 스토리지 클래스를 선택합니다. Trident는 가져오기 및 검색 프로세스의 일부로 자동으로 설치됩니다.
+
+
+
+. 이 CVO 배포에서 모든 영구 볼륨 및 볼륨을 기록해 둡니다.
+
+
+
+TIP: Cloud Volumes ONTAP는 단일 노드 또는 고가용성으로 작동할 수 있습니다. HA가 활성화된 경우 AWS에서 실행 중인 HA 상태와 노드 구축 상태를 확인하십시오.
+
+
+
+=== Astra Control Center를 설치합니다
+
+표준을 따릅니다 link:../get-started/install_acc.html["Astra Control Center 설치 지침"].
+
+
+
+== Microsoft Azure에 Astra Control Center를 구축합니다
+
+Microsoft Azure 퍼블릭 클라우드에서 호스팅되는 자가 관리형 Kubernetes 클러스터에 Astra Control Center를 구축할 수 있습니다.
+
+
+
+=== Azure에 필요한 기능
+
+Azure에 Astra Control Center를 배포하기 전에 다음 항목이 필요합니다.
+
+* Astra Control Center 라이센스. 을 참조하십시오 link:../get-started/requirements.html["Astra Control Center 라이센스 요구 사항"].
+* link:../get-started/requirements.html["Astra Control Center 요구 사항을 충족합니다"].
+* NetApp Cloud Central 계정
+* Red Hat OpenShift Container Platform(OCP) 4.8
+* Red Hat OpenShift Container Platform(OCP) 권한(네임스페이스 수준에서 POD 생성)
+* 버킷 및 커넥터를 생성할 수 있는 권한이 있는 Azure 자격 증명
+
+
+
+
+=== Azure의 운영 환경 요구사항
+
+Astra Control Center를 호스팅하기 위해 선택한 운영 환경이 환경 공식 문서에 설명된 기본 리소스 요구 사항을 충족하는지 확인합니다.
+
+Astra Control Center에는 환경의 리소스 요구 사항 외에 다음과 같은 리소스가 필요합니다.
+
+을 참조하십시오 link:../get-started/requirements.html#operational-environment-requirements["Astra Control Center 운영 환경 요구 사항"].
+
+[cols="1h,2a"]
+|===
+| 구성 요소 | 요구 사항 
+
+
+| 백엔드 NetApp Cloud Volumes ONTAP 스토리지 용량입니다  a| 
+최소 300GB가 사용 가능합니다
+
+
+
+| 작업자 노드(Azure 컴퓨팅 요구 사항)  a| 
+총 3개 이상의 작업자 노드, vCPU 코어 4개, 12GB RAM
+
+
+
+| 로드 밸런서  a| 
+수신 트래픽을 운영 환경 클러스터의 서비스로 전송할 수 있도록 서비스 유형 "로드 밸런서"를 사용할 수 있습니다
+
+
+
+| FQDN(Azure DNS 영역)  a| 
+Astra Control Center의 FQDN을 부하 분산 IP 주소로 가리키는 방법
+
+
+
+| Astra Trident(NetApp Cloud Manager에서 Kubernetes 클러스터 검색의 일부로 설치됨)  a| 
+설치 및 구성된 Astra Trident 21.04 이상 및 NetApp ONTAP 버전 9.5 이상이 스토리지 백엔드로 사용됩니다
+
+
+
+| 이미지 레지스트리  a| 
+Astra Control Center 빌드 이미지를 푸시할 수 있는 Azure 컨테이너 레지스트리(ACR)와 같은 기존 개인 레지스트리가 있어야 합니다. 이미지를 업로드할 이미지 레지스트리의 URL을 제공해야 합니다.
+
+
+NOTE: 백업을 위해 Restic 이미지를 풀려면 익명 액세스를 설정해야 합니다.
+
+
+
+| Astra Trident/ONTAP 구성  a| 
+Astra Control Center에서는 스토리지 클래스를 생성하고 기본 스토리지 클래스로 설정해야 합니다. Astra Control Center는 Kubernetes 클러스터를 NetApp Cloud Manager로 가져올 때 생성되는 다음과 같은 ONTAP Kubernetes 스토리지 클래스를 지원합니다. Astra Trident에서 제공합니다.
+
+* ``vsaworkingenvironment-<>-ha-nas csi.trident.netapp.io`
+* ``saworkingenvironment-<>-ha-san csi.trident.netapp.io`
+* ``vsaworkingenvironment-<>-single-nas csi.trident.netapp.io`
+* ``saworkingenvironment-<>-single-san csi.trident.netapp.io`
+
+
+|===
+
+NOTE: 이러한 요구 사항에서는 Astra Control Center가 운영 환경에서 실행되는 유일한 애플리케이션이라고 가정합니다. 환경에서 추가 애플리케이션이 실행 중인 경우 이러한 최소 요구 사항을 적절히 조정합니다.
+
+
+
+=== Azure 구축 개요
+
+다음은 Azure용 Astra Control Center를 설치하는 프로세스의 개요입니다.
+
+이러한 각 단계는 아래에 자세히 설명되어 있습니다.
+
+. <<Install a RedHat OpenShift cluster on Azure>>.
+. <<Create Azure resource groups>>.
+. <<Ensure that you have sufficient IAM permissions>>.
+. <<Configure Azure>>.
+. <<Configure NetApp Cloud Manager>>.
+. <<Install and configure Astra Control Center>>.
+
+
+
+
+=== Azure에 RedHat OpenShift 클러스터를 설치합니다
+
+첫 번째 단계는 Azure에 RedHat OpenShift 클러스터를 설치하는 것입니다.
+
+설치 지침은 다음을 참조하십시오.
+
+* https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-azure-default.html["Azure에 OpenShift 클러스터 설치"^].
+* https://docs.openshift.com/container-platform/4.8/installing/installing_azure/installing-azure-account.html#installing-azure-account["Azure 계정을 설치하는 중입니다"^].
+
+
+
+
+=== Azure 리소스 그룹을 생성합니다
+
+Azure 리소스 그룹을 하나 이상 생성합니다.
+
+
+NOTE: OpenShift는 자체 리소스 그룹을 생성할 수 있습니다. 또한 Azure 리소스 그룹을 정의해야 합니다. OpenShift 설명서를 참조하십시오.
+
+플랫폼 클러스터 리소스 그룹과 대상 애플리케이션 OpenShift 클러스터 리소스 그룹을 생성할 수 있습니다.
+
+
+
+=== IAM 권한이 충분한지 확인하십시오
+
+RedHat OpenShift 클러스터와 NetApp Cloud Volumes ONTAP 커넥터를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.
+
+을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html["Azure 자격 증명 및 권한"^].
+
+
+
+=== Azure를 구성합니다
+
+그런 다음 가상 프라이빗 클라우드를 생성하고, 컴퓨팅 인스턴스를 설정하고, Azure Blob S3 버킷을 생성하고, Astra Control Center 이미지를 호스팅하기 위해 ACR(Azure Container Register)을 생성하고, 이 레지스트리에 이미지를 푸시하도록 Azure를 구성합니다.
+
+Azure 설명서에 따라 다음 단계를 완료합니다. 을 참조하십시오 https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-azure-default.html["Azure에 OpenShift 클러스터 설치"^].
+
+. Azure 가상 프라이빗 클라우드를 생성합니다.
+. 컴퓨팅 인스턴스를 검토합니다. Azure의 베어 메탈 서버 또는 VM이 될 수 있습니다.
+. 인스턴스 유형이 마스터 및 작업자 노드에 대한 Astra 최소 리소스 요구 사항과 일치하지 않으면 Azure의 인스턴스 유형을 Astra 요구 사항에 맞게 변경합니다. 을 참조하십시오 link:../get-started/requirements.html["Astra Control Center 요구 사항"].
+. 백업을 저장할 Azure Blob S3 버킷을 하나 이상 생성합니다.
+. 저장소 계정을 생성합니다. Astra Control Center에서 버킷으로 사용할 컨테이너를 생성하려면 저장소 계정이 필요합니다.
+. 버킷 액세스에 필요한 암호를 생성합니다.
+. Azure Container Registry(ACR)를 생성하여 모든 Astra Control Center 이미지를 호스트합니다.
+. Docker에 대한 ACR 액세스를 설정하여 모든 Astra Control Center 이미지를 푸시/풀합니다.
+. 다음 스크립트를 입력하여 ACC 이미지를 이 레지스트리에 푸시합니다.
++
+[listing]
+----
+az acr login -n <AZ ACR URL/Location>
+This script requires ACC manifest file and your Azure ACR location.
+----
++
+* 예 *:
+
++
+[listing]
+----
+manifestfile=astra-control-center-<version>.manifest
+AZ_ACR_REGISTRY=<target image repository>
+ASTRA_REGISTRY=<source ACC image repository>
+
+while IFS= read -r image; do
+    echo "image: $ASTRA_REGISTRY/$image $AZ_ACR_REGISTRY/$image"
+    root_image=${image%:*}
+    echo $root_image
+    docker pull $ASTRA_REGISTRY/$image
+    docker tag $ASTRA_REGISTRY/$image $AZ_ACR_REGISTRYY/$image
+    docker push $AZ_ACR_REGISTRY/$image
+done < astra-control-center-22.04.41.manifest
+----
+. DNS 존 설정
+
+
+
+
+=== NetApp Cloud Manager 구성
+
+Cloud Manager를 사용하여 작업 영역을 만들고, Azure에 커넥터를 추가하고, 작업 환경을 생성하고, 클러스터를 가져옵니다.
+
+Cloud Manager 설명서에 따라 다음 단계를 완료하십시오. 을 참조하십시오 https://docs.netapp.com/us-en/occm/task_getting_started_azure.html["Azure에서 Cloud Manager 시작하기"^].
+
+필요한 IAM 권한 및 역할을 사용하여 Azure 계정에 액세스합니다
+
+.단계
+. Cloud Manager에 자격 증명을 추가합니다.
+. Azure용 커넥터를 추가합니다. 을 참조하십시오 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 정책"^].
++
+.. 공급자로 * Azure * 를 선택합니다.
+.. 애플리케이션 ID, 클라이언트 암호 및 디렉토리(테넌트) ID를 비롯한 Azure 자격 증명을 입력합니다.
++
+을 참조하십시오 https://docs.netapp.com/us-en/occm/task_creating_connectors_azure.html["Cloud Manager에서 Azure에 커넥터 만들기"^].
+
+
+
+. 커넥터가 실행 중인지 확인하고 해당 커넥터로 전환합니다.
++
+image:acc-cvo-azure-connectors.png["Cloud Manager의 커넥터 전환"]
+
+. 클라우드 환경을 위한 작업 환경을 구축합니다.
++
+.. 위치: "Microsoft Azure".
+.. "Cloud Volumes ONTAP HA"를 입력합니다.
+
+
++
+image:acc-cvo-azure-working-environment.png["Cloud Manager에서 작업 환경 생성"]
+
+. OpenShift 클러스터를 가져옵니다. 클러스터가 방금 생성한 작업 환경에 연결됩니다.
++
+.. NetApp 클러스터 세부 정보를 보려면 * K8s * > * 클러스터 목록 * > * 클러스터 세부 정보 * 를 선택합니다.
++
+image:acc-cvo-azure-connected.png["Cloud Manager에서 클러스터를 가져왔습니다"]
+
+.. 오른쪽 위 모서리에서 Trident 버전을 확인합니다.
+.. NetApp을 공급자 로 보여주는 CVO 클러스터 스토리지 클래스를 참조하십시오.
+
+
++
+이렇게 하면 Red Hat OpenShift 클러스터를 가져오고 기본 스토리지 클래스를 할당합니다. 스토리지 클래스를 선택합니다. Trident는 가져오기 및 검색 프로세스의 일부로 자동으로 설치됩니다.
+
+. 이 CVO 배포에서 모든 영구 볼륨 및 볼륨을 기록해 둡니다.
+. Cloud Volumes ONTAP는 단일 노드 또는 고가용성으로 작동할 수 있습니다. HA가 활성화된 경우 Azure에서 실행 중인 HA 상태와 노드 배포 상태를 확인하십시오.
+
+
+
+
+=== Astra Control Center를 설치하고 구성합니다
+
+Astra Control Center를 표준으로 설치합니다 link:../get-started/install_acc.html["설치 지침"].
+
+Astra Control Center를 사용하여 Azure 버킷을 추가합니다. 을 참조하십시오 link:../get-started/setup_overview.html["Astra Control Center를 설정하고 버킷을 추가합니다"].

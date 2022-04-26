@@ -12,7 +12,7 @@ summary: Astra Control Center는 ONTAP 스토리지 또는 Astra Data Store 스�
 
 
 [role="lead"]
-Astra Control Center는 스토리지 백엔드로 ONTAP 또는 Astra Data Store를 지원합니다. 스토리지 클래스 및 영구 볼륨(PV) 크기가 성과 목표를 달성하는 데 어떤 도움이 되는지 이해해야 합니다.
+Astra Control Center는 스토리지 백엔드로 ONTAP 또는 Astra Data Store를 지원합니다.
 
 
 
