@@ -1089,7 +1089,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-26 16:34:05 +0000">04/26/2022</time>
+    <time datetime="2022-05-02 15:13:09 +0000">05/02/2022</time>
     
   
 
@@ -1113,13 +1113,19 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Astra Data Store 또는 ONTAP 9.5 이상이 지원하는 Astra Trident StorageClasses가 있는 OpenShift 4.6, 4.7 또는 4.8을 실행하는 클러스터</p>
+<p>OpenShift 4.6.8, 4.7, 4.8 또는 4.9를 실행하는 클러스터</p>
 </li>
 <li>
-<p>Rancher 2.5를 실행하는 클러스터</p>
+<p>RKE1을 사용하여 Rancher 2.5.8, 2.5.9 또는 2.6을 실행하는 클러스터</p>
 </li>
 <li>
-<p>Kubernetes 1.19~1.21(1.21.x 포함)을 실행하는 클러스터</p>
+<p>Kubernetes 1.20 ~ 1.23을 실행하는 클러스터</p>
+</li>
+<li>
+<p>VMware Tanzu Kubernetes Grid 1.4를 실행하는 클러스터</p>
+</li>
+<li>
+<p>VMware Tanzu Kubernetes Grid Integrated Edition 1.12.2를 실행하는 클러스터</p>
 <div class="paragraph">
 <p>클러스터에 원격 측정 서비스를 실행하는 데 사용할 수 있는 1GB 이상의 RAM이 있는 하나 이상의 작업자 노드가 있는지 확인합니다.</p>
 </div>
@@ -1138,6 +1144,9 @@
 </tr>
 </table>
 </div>
+</li>
+<li>
+<p>A로 구성된 Astra Trident StorageClasses <a href="requirements.html#supported-storage-backends">"지원되는 스토리지 백엔드"</a> (모든 유형의 클러스터에 필요)</p>
 </li>
 <li>
 <p>Astra Control Center를 사용하여 앱을 백업 및 복원하기 위해 백업 ONTAP 시스템에 설정된 고급 사용자 및 사용자 ID입니다. ONTAP 명령줄에서 'export-policy rule modify -vserver &lt;storage virtual machine name&gt; -policyname &lt;policy name&gt; -ruleindex 1 -superuser symm&#8212;&#8203;anon 65534&#8217;를 실행하십시오</p>
