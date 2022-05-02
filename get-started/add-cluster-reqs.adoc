@@ -19,9 +19,11 @@ summary: elgiotility 검사를 실행하여 클러스터를 Astra Control Center
 
 * 다음 클러스터 유형 중 하나:
 +
-** Astra Data Store 또는 ONTAP 9.5 이상이 지원하는 Astra Trident StorageClasses가 있는 OpenShift 4.6, 4.7 또는 4.8을 실행하는 클러스터
-** Rancher 2.5를 실행하는 클러스터
-** Kubernetes 1.19~1.21(1.21.x 포함)을 실행하는 클러스터
+** OpenShift 4.6.8, 4.7, 4.8 또는 4.9를 실행하는 클러스터
+** RKE1을 사용하여 Rancher 2.5.8, 2.5.9 또는 2.6을 실행하는 클러스터
+** Kubernetes 1.20 ~ 1.23을 실행하는 클러스터
+** VMware Tanzu Kubernetes Grid 1.4를 실행하는 클러스터
+** VMware Tanzu Kubernetes Grid Integrated Edition 1.12.2를 실행하는 클러스터
 +
 클러스터에 원격 측정 서비스를 실행하는 데 사용할 수 있는 1GB 이상의 RAM이 있는 하나 이상의 작업자 노드가 있는지 확인합니다.
 
@@ -31,6 +33,7 @@ NOTE: 관리되는 컴퓨팅 리소스로 두 번째 OpenShift 4.6, 4.7 또는 4
 
 
 
+* A로 구성된 Astra Trident StorageClasses link:requirements.html#supported-storage-backends["지원되는 스토리지 백엔드"] (모든 유형의 클러스터에 필요)
 * Astra Control Center를 사용하여 앱을 백업 및 복원하기 위해 백업 ONTAP 시스템에 설정된 고급 사용자 및 사용자 ID입니다. ONTAP 명령줄에서 'export-policy rule modify -vserver <storage virtual machine name> -policyname <policy name> -ruleindex 1 -superuser symm--anon 65534'를 실행하십시오
 * 관리자가 정의한 Astra Trident의 볼륨스냅샷 클래스 객체입니다. Astra Trident를 참조하십시오 https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["지침"^] Astra Trident를 사용하여 볼륨 스냅샷을 활성화하고 테스트합니다.
 * Kubernetes 클러스터에 대해 단일 기본 스토리지 클래스만 정의되어 있는지 확인하십시오.

@@ -1256,9 +1256,6 @@
   <block id="84fccda9e18ab736ae1e33ef33ff8543" category="paragraph">클러스터를 추가하기 전에 사전 요구 조건이 충족되는지 확인해야 합니다. 또한 자격 검사를 실행하여 클러스터를 Astra Control Center에 추가할 준비가 되었는지 확인해야 합니다.</block>
   <block id="32ce911ba9da44dfbcba79bbe607d8f0" category="section-title">클러스터를 추가하기 전에 필요한 사항</block>
   <block id="46071ecf3cc6ea1619ad76021e951cc6" category="list-text">다음 클러스터 유형 중 하나:</block>
-  <block id="a4a555ce407a7c7e6c4672e426b35f6d" category="list-text">Astra Data Store 또는 ONTAP 9.5 이상이 지원하는 Astra Trident StorageClasses가 있는 OpenShift 4.6, 4.7 또는 4.8을 실행하는 클러스터</block>
-  <block id="651cf0b7f84c677320f45d5d6816398a" category="list-text">Rancher 2.5를 실행하는 클러스터</block>
-  <block id="22de8d4f47d2a55f106f2f70f3e8353f" category="list-text">Kubernetes 1.19~1.21(1.21.x 포함)을 실행하는 클러스터</block>
   <block id="0fe8e21b3c54341023df7a85185c9f37" category="paragraph">클러스터에 원격 측정 서비스를 실행하는 데 사용할 수 있는 1GB 이상의 RAM이 있는 하나 이상의 작업자 노드가 있는지 확인합니다.</block>
   <block id="b5a54438cd4ef372398ebc0939def4bb" category="admonition">관리되는 컴퓨팅 리소스로 두 번째 OpenShift 4.6, 4.7 또는 4.8 클러스터를 추가하려는 경우 Astra Trident Volume Snapshot 기능이 활성화되어 있는지 확인해야 합니다. 공식 Astra Trident를 참조하십시오<block ref="8b7ff4f9e99396172438cb6668056409" category="inline-link-rx"></block> Astra Trident를 사용하여 볼륨 스냅샷을 활성화하고 테스트합니다.</block>
   <block id="105932ea4fe1c5240d2bf6bced56c8fc" category="list-text">관리자가 정의한 Astra Trident의 볼륨스냅샷 클래스 객체입니다. Astra Trident를 참조하십시오<block ref="556b3c0c56aa97a1bc2ad282c2c6ac73" category="inline-link-rx"></block> Astra Trident를 사용하여 볼륨 스냅샷을 활성화하고 테스트합니다.</block>
@@ -2120,4 +2117,11 @@
   <block id="da1ad815b5ce4f824168d73638363d30" category="list-text"><block ref="da1ad815b5ce4f824168d73638363d30" category="inline-link-rx"></block></block>
   <block id="be626d1089f32a72dd9f0fb107f44f16" category="list-text"><block ref="be626d1089f32a72dd9f0fb107f44f16" category="inline-link-rx"></block></block>
   <block id="81a948049e34f0b0478cdb4d7fee5cb1" category="list-text">네임스페이스 이름/ID 또는 네임스페이스 레이블에 의해 네임스페이스 제한이 있는 구성원 사용자는 동일한 클러스터 또는 조직 계정의 다른 클러스터에 있는 새 네임스페이스에 앱을 클론 복제하거나 복원할 수 있습니다. 그러나 동일한 사용자가 새 네임스페이스에서 복제되거나 복원된 앱에 액세스할 수 없습니다. 클론 또는 복원 작업을 통해 새 네임스페이스를 생성한 후 계정 관리자/소유자는 구성원 사용자 계정을 편집하고 영향을 받는 사용자의 역할 제약 조건을 업데이트하여 새 네임스페이스에 대한 액세스 권한을 부여할 수 있습니다.</block>
+  <block id="04836771e0f63e9503643a0ab68fa3c1" category="list-text">OpenShift 4.6.8, 4.7, 4.8 또는 4.9를 실행하는 클러스터</block>
+  <block id="3a2b605b2443215a0b7ae1bc41decc01" category="list-text">RKE1을 사용하여 Rancher 2.5.8, 2.5.9 또는 2.6을 실행하는 클러스터</block>
+  <block id="4a3db371a2a9c3a3366a01b03634fa7b" category="list-text">Kubernetes 1.20 ~ 1.23을 실행하는 클러스터</block>
+  <block id="1289603112f9c3615bcae4123ffe8b19" category="list-text">VMware Tanzu Kubernetes Grid 1.4를 실행하는 클러스터</block>
+  <block id="ad0fc95c44aeed3ac73310973f16f935" category="list-text">VMware Tanzu Kubernetes Grid Integrated Edition 1.12.2를 실행하는 클러스터</block>
+  <block id="1a18d97aba49d472b746ce28ae926d7b" category="inline-link-macro">지원되는 스토리지 백엔드</block>
+  <block id="070ad46046dde9383841affeae8d1582" category="list-text">A로 구성된 Astra Trident StorageClasses <block ref="fd11461319251c08cd1706087c3f4e9f" category="inline-link-macro-rx"></block> (모든 유형의 클러스터에 필요)</block>
 </blocks>
