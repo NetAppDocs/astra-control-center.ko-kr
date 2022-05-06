@@ -980,9 +980,6 @@
   <block id="b2e5388a257b4977b3f119a349e21dc1" category="inline-link-macro">버킷을 추가합니다</block>
   <block id="aaeab87cf32cd2289539c7af6e475ce1" category="list-text"><block ref="aaeab87cf32cd2289539c7af6e475ce1" category="inline-link-macro-rx"></block></block>
   <block id="7c5cb0e87ebe5449ca36f64ae91fde0a" category="list-text"><block ref="9626f8adb1f38ad7cdef194df83d0efd" category="inline-xref-macro-rx"></block></block>
-  <block id="7fd958404cfe6c99754c9b6ad7e79388" category="paragraph">Astra Control API를 사용하여 언제든지 계정에서 S3 자격 증명을 제거합니다.</block>
-  <block id="3cfc334c5742393528efbb5edb4bd342" category="paragraph">자세한 내용은 을 참조하십시오<block ref="250d1ede6e0e1ee198c7b3999a8bf472" category="inline-link-rx"></block>.</block>
-  <block id="6840b2dcd5fa86614a2f630dbc882356" category="admonition">Astra Control에 추가하는 첫 번째 자격 증명 세트는 항상 사용 중입니다. Astra Control은 자격 증명을 사용하여 백업 버킷을 인증하기 때문입니다. 이러한 자격 증명을 제거하지 않는 것이 좋습니다.</block>
   <block id="00d6e8bbad1611d4dccac7fead48f1ec" category="section-title">버킷을 편집합니다</block>
   <block id="049863f89bf64849544e3290929262b3" category="paragraph">버킷의 액세스 자격 증명 정보를 변경하고 선택한 버킷이 기본 버킷인지 여부를 변경할 수 있습니다.</block>
   <block id="5dd03e8d039863e563e049be198c3fd3" category="inline-link-macro">릴리즈 노트</block>
@@ -2124,4 +2121,18 @@
   <block id="ad0fc95c44aeed3ac73310973f16f935" category="list-text">VMware Tanzu Kubernetes Grid Integrated Edition 1.12.2를 실행하는 클러스터</block>
   <block id="1a18d97aba49d472b746ce28ae926d7b" category="inline-link-macro">지원되는 스토리지 백엔드</block>
   <block id="070ad46046dde9383841affeae8d1582" category="list-text">A로 구성된 Astra Trident StorageClasses <block ref="fd11461319251c08cd1706087c3f4e9f" category="inline-link-macro-rx"></block> (모든 유형의 클러스터에 필요)</block>
+  <block id="a7005fe73a9d0b102ef822a8c238ff3e" category="list-text"><block ref="ce6e8874f71f155db57217591704ee92" category="inline-xref-macro-rx"></block></block>
+  <block id="9c20c9fb8510a54316336dea236e5317" category="list-text">왼쪽 탐색 창에서 * Bucket * 을 선택합니다.</block>
+  <block id="c490fcd935532957062b15de00f098d2" category="section-title">버킷 자격 증명을 회전하거나 제거합니다</block>
+  <block id="6fb37c38c3f8fd3e2b4871387533a1cb" category="paragraph">Astra Control은 버킷 자격 증명을 사용하여 액세스 권한을 얻고 S3 버킷에 대한 비밀 키를 제공하여 Astra Control Center가 버킷과 통신할 수 있도록 합니다.</block>
+  <block id="9ce05956e996e07335bb13681ff7025b" category="section-title">버킷 자격 증명을 회전합니다</block>
+  <block id="4eafaf881b3ab224c0b26282ac4f8514" category="paragraph">자격 증명을 회전하는 경우 백업이 진행 중인 상태(예약 또는 필요 시)가 없을 때 유지 관리 창에서 자격 증명을 회전합니다.</block>
+  <block id="02007100629a6c88678f302f0918ab86" category="list-title">자격 증명을 편집하고 회전하는 단계입니다</block>
+  <block id="08972981c30d730f81d00e7d6e7709cb" category="list-text">새 자격 증명을 생성합니다.</block>
+  <block id="f8be12e25cfcab7e808ca98f80a56433" category="section-title">버킷 자격 증명을 제거합니다</block>
+  <block id="47b2c3588cbae505ee9eeaf0ad395f38" category="paragraph">새 자격 증명이 버킷에 적용된 경우 또는 버킷이 더 이상 사용되지 않는 경우에만 버킷 자격 증명을 제거해야 합니다.</block>
+  <block id="a31d0ea55a51bfbd5a603a8f5fa7a37a" category="admonition">Astra Control에 추가하는 첫 번째 자격 증명 세트는 항상 사용 중입니다. Astra Control은 자격 증명을 사용하여 백업 버킷을 인증하기 때문입니다. 버킷이 사용 중인 경우 이러한 자격 증명을 제거하지 마십시오. 이 경우 백업 실패 및 백업 가용성 손실이 발생할 수 있습니다.</block>
+  <block id="b2b8741126a8674edc86e6286a85c804" category="inline-link">버킷 자격 증명 제거 문제 해결</block>
+  <block id="983be0b26fa308ee99003c55cac37fb5" category="admonition">활성 버킷 자격 증명을 제거하는 경우 를 참조하십시오<block ref="939cc867881057c221247142d6425e0a" category="inline-link-rx"></block>.</block>
+  <block id="576924ceb67cb5e87c15acdcb112c47d" category="paragraph">Astra Control API를 사용하여 S3 자격 증명을 제거하는 방법에 대한 지침은 을 참조하십시오 <block ref="ef5b26cd6e9ab40377842cc20d2b4ebf" category="inline-link-macro-rx"></block>.</block>
 </blocks>

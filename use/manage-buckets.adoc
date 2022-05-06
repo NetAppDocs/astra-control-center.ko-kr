@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: use/manage-buckets.html 
-keywords: how to set up object storage in astra, how to set up astra buckets, s3, astra, setting up astra control, how to set up astra control center, kubernetes 
+keywords: how to set up object storage in astra, how to set up astra buckets, s3, astra, setting up astra control, astra control center, kubernetes 
 summary: 애플리케이션과 영구 스토리지를 백업하려는 경우나 클러스터 간에 애플리케이션을 클론 복제하려는 경우에는 오브젝트 저장소 버킷 공급자를 추가하는 것이 중요합니다. 
 ---
 = 버킷을 관리합니다
@@ -39,22 +39,12 @@ Astra Control API를 사용하여 버킷을 관리하는 방법에 대한 지침
 
 * link:../get-started/setup_overview.html#add-a-bucket["버킷을 추가합니다"]
 * <<Edit a bucket>>
+* <<Rotate or remove bucket credentials>>
 * <<Remove a bucket>>
 
 
 
 NOTE: Astra Control Center의 S3 버킷은 가용 용량을 보고하지 않습니다. Astra Control Center에서 관리하는 앱을 백업 또는 클론 생성하기 전에 ONTAP 또는 StorageGRID 관리 시스템에서 버킷 정보를 확인하십시오.
-
-
-
-== 자격 증명을 제거합니다
-
-Astra Control API를 사용하여 언제든지 계정에서 S3 자격 증명을 제거합니다.
-
-자세한 내용은 을 참조하십시오 https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 사용합니다"^].
-
-
-TIP: Astra Control에 추가하는 첫 번째 자격 증명 세트는 항상 사용 중입니다. Astra Control은 자격 증명을 사용하여 백업 버킷을 인증하기 때문입니다. 이러한 자격 증명을 제거하지 않는 것이 좋습니다.
 
 
 
@@ -66,7 +56,7 @@ TIP: Astra Control에 추가하는 첫 번째 자격 증명 세트는 항상 사
 NOTE: 버킷을 추가할 때 올바른 버킷 공급자를 선택하고 해당 공급자에 적합한 자격 증명을 제공합니다. 예를 들어, UI에서 NetApp ONTAP S3를 유형으로 받아들이고 StorageGRID 자격 증명을 받아들이지만, 이 버킷을 사용한 이후의 모든 애플리케이션 백업 및 복원이 실패합니다. 를 참조하십시오 link:../release-notes/known-issues.html#selecting-a-bucket-provider-type-with-credentials-for-another-type-causes-data-protection-failures["릴리즈 노트"].
 
 .단계
-. 왼쪽 탐색에서 * Bucket * 을 선택합니다.
+. 왼쪽 탐색 창에서 * Bucket * 을 선택합니다.
 . Actions * 열의 Options 메뉴에서 * Edit * 를 선택합니다.
 . 버킷 유형 이외의 모든 정보를 변경합니다.
 +
@@ -75,6 +65,39 @@ TIP: 버킷 유형을 수정할 수 없습니다.
 
 . Update * 를 선택합니다.
 
+
+
+
+== 버킷 자격 증명을 회전하거나 제거합니다
+
+Astra Control은 버킷 자격 증명을 사용하여 액세스 권한을 얻고 S3 버킷에 대한 비밀 키를 제공하여 Astra Control Center가 버킷과 통신할 수 있도록 합니다.
+
+
+
+=== 버킷 자격 증명을 회전합니다
+
+자격 증명을 회전하는 경우 백업이 진행 중인 상태(예약 또는 필요 시)가 없을 때 유지 관리 창에서 자격 증명을 회전합니다.
+
+.자격 증명을 편집하고 회전하는 단계입니다
+. 왼쪽 탐색 창에서 * Bucket * 을 선택합니다.
+. Actions * 열의 Options 메뉴에서 * Edit * 를 선택합니다.
+. 새 자격 증명을 생성합니다.
+. Update * 를 선택합니다.
+
+
+
+
+=== 버킷 자격 증명을 제거합니다
+
+새 자격 증명이 버킷에 적용된 경우 또는 버킷이 더 이상 사용되지 않는 경우에만 버킷 자격 증명을 제거해야 합니다.
+
+
+TIP: Astra Control에 추가하는 첫 번째 자격 증명 세트는 항상 사용 중입니다. Astra Control은 자격 증명을 사용하여 백업 버킷을 인증하기 때문입니다. 버킷이 사용 중인 경우 이러한 자격 증명을 제거하지 마십시오. 이 경우 백업 실패 및 백업 가용성 손실이 발생할 수 있습니다.
+
+
+NOTE: 활성 버킷 자격 증명을 제거하는 경우 를 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/Deleting_active_S3_bucket_credentials_leads_to_spurious_500_errors_reported_in_the_UI["버킷 자격 증명 제거 문제 해결"].
+
+Astra Control API를 사용하여 S3 자격 증명을 제거하는 방법에 대한 지침은 을 참조하십시오 link:https://docs.netapp.com/us-en/astra-automation/["Astra 자동화 및 API 정보"^].
 
 
 
