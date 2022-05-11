@@ -131,7 +131,7 @@ Cloud Volumes ONTAP를 스토리지 백엔드로 사용하여 Astra Control Cent
 
 === IAM 권한이 충분한지 확인하십시오
 
-RedHat OpenShift 클러스터와 NetApp Cloud Volumes ONTAP 커넥터를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.
+RedHat OpenShift 클러스터와 NetApp Cloud Manager Connector를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.
 
 을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html#initial-aws-credentials["초기 AWS 자격 증명"^].
 
@@ -147,24 +147,24 @@ AWS에 RedHat OpenShift Container Platform 클러스터를 설치합니다.
 
 === AWS 구성
 
-그런 다음 AWS를 구성하여 가상 프라이빗 클라우드를 생성하고, EC2 컴퓨팅 인스턴스를 설정하고, AWS S3 버킷을 생성하고, ECR(Elastic Container Register)을 생성하여 Astra Control Center 이미지를 호스팅하고, 이미지를 이 레지스트리로 푸시합니다.
+그런 다음 AWS를 구성하여 가상 네트워크를 생성하고, EC2 컴퓨팅 인스턴스를 설정하고, AWS S3 버킷을 생성하고, ECR(Elastic Container Register)을 생성하여 Astra Control Center 이미지를 호스팅하고, 이 레지스트리로 이미지를 푸시합니다.
 
 AWS 설명서에 따라 다음 단계를 완료하십시오. 을 참조하십시오 https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-aws-default.html["AWS 설치 설명서"^].
 
-. AWS 가상 프라이빗 클라우드를 구축합니다.
+. AWS 가상 네트워크를 생성합니다.
 . EC2 컴퓨팅 인스턴스를 검토합니다. 이는 AWS의 베어 메탈 서버 또는 VM이 될 수 있습니다.
 . 인스턴스 유형이 마스터 및 작업자 노드에 대한 Astra 최소 리소스 요구 사항과 일치하지 않으면 AWS의 인스턴스 유형을 Astra 요구 사항에 맞게 변경합니다. 을 참조하십시오 link:../requirements.html["Astra Control Center 요구 사항"].
 . 백업을 저장할 AWS S3 버킷을 하나 이상 생성합니다.
 . AWS ECR(Elastic Container Registry)을 생성하여 모든 ACC 이미지를 호스팅합니다.
 +
 
-NOTE: ECR을 생성하지 않는 경우, Astra Control Center는 AWS 백엔드가 있는 CVO가 포함된 클러스터에서 모니터링 데이터에 액세스할 수 없습니다. 이 문제는 Astra Control Center를 사용하여 검색 및 관리하려는 클러스터에 AWS ECR 액세스 권한이 없을 때 발생합니다.
+NOTE: ECR을 생성하지 않으면 Astra Control Center는 AWS 백엔드가 있는 Cloud Volumes ONTAP가 포함된 클러스터에서 모니터링 데이터에 액세스할 수 없습니다. 이 문제는 Astra Control Center를 사용하여 검색 및 관리하려는 클러스터에 AWS ECR 액세스 권한이 없을 때 발생합니다.
 
 . ACC 이미지를 정의된 레지스트리로 푸시합니다.
 
 
 
-NOTE: AWS ECR(Elastic Container Registry) 토큰이 12시간 후에 만료되어 클러스터 간 클론 작업이 실패합니다. 이 문제는 AWS용으로 구성된 CVO(Cloud Volumes ONTAP)에서 스토리지 백엔드를 관리할 때 발생합니다. 이 문제를 해결하려면 ECR을 다시 인증하고 클론 작업이 성공적으로 재개되도록 새로운 암호를 생성하십시오.
+NOTE: AWS ECR(Elastic Container Registry) 토큰이 12시간 후에 만료되어 클러스터 간 클론 작업이 실패합니다. 이 문제는 AWS용으로 구성된 Cloud Volumes ONTAP에서 스토리지 백엔드를 관리할 때 발생합니다. 이 문제를 해결하려면 ECR을 다시 인증하고 클론 작업이 성공적으로 재개되도록 새로운 암호를 생성하십시오.
 
 다음은 AWS 구축의 예입니다.
 
@@ -202,7 +202,7 @@ Cloud Manager 설명서에 따라 다음 단계를 완료하십시오. 다음을
 
 
 
-. 이 CVO 배포에서 모든 영구 볼륨 및 볼륨을 기록해 둡니다.
+. 이 Cloud Volumes ONTAP 배포에서 모든 영구 볼륨 및 볼륨을 기록해 둡니다.
 
 
 
@@ -338,7 +338,7 @@ NOTE: OpenShift는 자체 리소스 그룹을 생성할 수 있습니다. 또한
 
 === IAM 권한이 충분한지 확인하십시오
 
-RedHat OpenShift 클러스터와 NetApp Cloud Volumes ONTAP 커넥터를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.
+RedHat OpenShift 클러스터와 NetApp Cloud Manager Connector를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.
 
 을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html["Azure 자격 증명 및 권한"^].
 
@@ -346,14 +346,14 @@ RedHat OpenShift 클러스터와 NetApp Cloud Volumes ONTAP 커넥터를 설치�
 
 === Azure를 구성합니다
 
-그런 다음 가상 프라이빗 클라우드를 생성하고, 컴퓨팅 인스턴스를 설정하고, Azure Blob S3 버킷을 생성하고, Astra Control Center 이미지를 호스팅하기 위해 ACR(Azure Container Register)을 생성하고, 이 레지스트리에 이미지를 푸시하도록 Azure를 구성합니다.
+그런 다음 가상 네트워크를 만들고, 컴퓨팅 인스턴스를 설정하고, Azure Blob 컨테이너를 만들고, Astra Control Center 이미지를 호스팅하기 위해 ACR(Azure Container Register)을 만들고, 이 레지스트리로 이미지를 푸시하도록 Azure를 구성합니다.
 
 Azure 설명서에 따라 다음 단계를 완료합니다. 을 참조하십시오 https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-azure-default.html["Azure에 OpenShift 클러스터 설치"^].
 
-. Azure 가상 프라이빗 클라우드를 생성합니다.
+. Azure 가상 네트워크를 생성합니다.
 . 컴퓨팅 인스턴스를 검토합니다. Azure의 베어 메탈 서버 또는 VM이 될 수 있습니다.
 . 인스턴스 유형이 마스터 및 작업자 노드에 대한 Astra 최소 리소스 요구 사항과 일치하지 않으면 Azure의 인스턴스 유형을 Astra 요구 사항에 맞게 변경합니다. 을 참조하십시오 link:../get-started/requirements.html["Astra Control Center 요구 사항"].
-. 백업을 저장할 Azure Blob S3 버킷을 하나 이상 생성합니다.
+. 백업을 저장할 Azure Blob 컨테이너를 하나 이상 생성합니다.
 . 저장소 계정을 생성합니다. Astra Control Center에서 버킷으로 사용할 컨테이너를 생성하려면 저장소 계정이 필요합니다.
 . 버킷 액세스에 필요한 암호를 생성합니다.
 . Azure Container Registry(ACR)를 생성하여 모든 Astra Control Center 이미지를 호스트합니다.
@@ -428,13 +428,13 @@ image:acc-cvo-azure-working-environment.png["Cloud Manager에서 작업 환경 �
 image:acc-cvo-azure-connected.png["Cloud Manager에서 클러스터를 가져왔습니다"]
 
 .. 오른쪽 위 모서리에서 Trident 버전을 확인합니다.
-.. NetApp을 공급자 로 보여주는 CVO 클러스터 스토리지 클래스를 참조하십시오.
+.. NetApp을 공급자 로 보여주는 Cloud Volumes ONTAP 클러스터 스토리지 클래스를 참조하십시오.
 
 
 +
 이렇게 하면 Red Hat OpenShift 클러스터를 가져오고 기본 스토리지 클래스를 할당합니다. 스토리지 클래스를 선택합니다. Trident는 가져오기 및 검색 프로세스의 일부로 자동으로 설치됩니다.
 
-. 이 CVO 배포에서 모든 영구 볼륨 및 볼륨을 기록해 둡니다.
+. 이 Cloud Volumes ONTAP 배포에서 모든 영구 볼륨 및 볼륨을 기록해 둡니다.
 . Cloud Volumes ONTAP는 단일 노드 또는 고가용성으로 작동할 수 있습니다. HA가 활성화된 경우 Azure에서 실행 중인 HA 상태와 노드 배포 상태를 확인하십시오.
 
 

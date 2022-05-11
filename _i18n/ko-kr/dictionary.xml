@@ -1834,7 +1834,6 @@
   <block id="11531d35bffa3200921e5a8ee5950b84" category="list-text"><block ref="c4954d5a433a0b3badc3311583a31b34" category="inline-xref-macro-rx"></block>.</block>
   <block id="aa212b05ee6b0b78026790241fbde05d" category="list-text"><block ref="27fe6aaf425c0f95213ec6c507a97d2d" category="inline-xref-macro-rx"></block>.</block>
   <block id="e8e336c6539723454a54092c15b17831" category="section-title">IAM 권한이 충분한지 확인하십시오</block>
-  <block id="4cccd232c18c48f403e1b0ca88018111" category="paragraph">RedHat OpenShift 클러스터와 NetApp Cloud Volumes ONTAP 커넥터를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.</block>
   <block id="9ef43b020d41cab5808d78fdf855c429" category="inline-link">초기 AWS 자격 증명</block>
   <block id="8bf9b9f442874d498c38dc3f714a9739" category="paragraph">을 참조하십시오<block ref="1a5e66975901600375e1b84abc3d58bd" category="inline-link-rx"></block>.</block>
   <block id="ed759a399e3faa755d36418e610d10fb" category="section-title">AWS에 RedHat OpenShift 클러스터를 설치합니다</block>
@@ -1842,17 +1841,13 @@
   <block id="fe44234b66d63db4cd81036ae75cf378" category="inline-link">OpenShift Container Platform에서 AWS에 클러스터 설치</block>
   <block id="09c5cce6c0b81c5a122141133cc096d8" category="paragraph">설치 지침은 를 참조하십시오<block ref="02dece0ad7d56c8ca4c0002821b8ba8e" category="inline-link-rx"></block>.</block>
   <block id="431d662f081880135f580544e6ebca68" category="section-title">AWS 구성</block>
-  <block id="cccaf966d7360e27e6fae03ddd583733" category="paragraph">그런 다음 AWS를 구성하여 가상 프라이빗 클라우드를 생성하고, EC2 컴퓨팅 인스턴스를 설정하고, AWS S3 버킷을 생성하고, ECR(Elastic Container Register)을 생성하여 Astra Control Center 이미지를 호스팅하고, 이미지를 이 레지스트리로 푸시합니다.</block>
   <block id="455960d50b151ff6ed28fa01f3d6356f" category="inline-link">AWS 설치 설명서</block>
   <block id="e874bd0f330d9513016dc844dfd62e6f" category="paragraph">AWS 설명서에 따라 다음 단계를 완료하십시오. 을 참조하십시오<block ref="b5a7979c22035fe192b9eb8d0cab1e4a" category="inline-link-rx"></block>.</block>
-  <block id="799fec05d94fec2c59fc527e8f91c4c6" category="list-text">AWS 가상 프라이빗 클라우드를 구축합니다.</block>
   <block id="92d9212a67ec9da982a091cf92cb4347" category="list-text">EC2 컴퓨팅 인스턴스를 검토합니다. 이는 AWS의 베어 메탈 서버 또는 VM이 될 수 있습니다.</block>
   <block id="b881f78be517f5315cfb2d556f3448f7" category="list-text">인스턴스 유형이 마스터 및 작업자 노드에 대한 Astra 최소 리소스 요구 사항과 일치하지 않으면 AWS의 인스턴스 유형을 Astra 요구 사항에 맞게 변경합니다. 을 참조하십시오 <block ref="32be9c8362ea42075ea0b5d43bb3b5d0" category="inline-link-macro-rx"></block>.</block>
   <block id="b109e192f966bb3bb3e8cd30e1a59bfa" category="list-text">백업을 저장할 AWS S3 버킷을 하나 이상 생성합니다.</block>
   <block id="e5c5351f3ea6206a7f110205b4155acc" category="list-text">AWS ECR(Elastic Container Registry)을 생성하여 모든 ACC 이미지를 호스팅합니다.</block>
-  <block id="b6e02cb40f51ac7c03a21989247074b0" category="admonition">ECR을 생성하지 않는 경우, Astra Control Center는 AWS 백엔드가 있는 CVO가 포함된 클러스터에서 모니터링 데이터에 액세스할 수 없습니다. 이 문제는 Astra Control Center를 사용하여 검색 및 관리하려는 클러스터에 AWS ECR 액세스 권한이 없을 때 발생합니다.</block>
   <block id="6da6782dc02c8e2ffb3f2eeb0c8f4f10" category="list-text">ACC 이미지를 정의된 레지스트리로 푸시합니다.</block>
-  <block id="0aa9d7a142af7c23c39b44a27f0dcc8f" category="admonition">AWS ECR(Elastic Container Registry) 토큰이 12시간 후에 만료되어 클러스터 간 클론 작업이 실패합니다. 이 문제는 AWS용으로 구성된 CVO(Cloud Volumes ONTAP)에서 스토리지 백엔드를 관리할 때 발생합니다. 이 문제를 해결하려면 ECR을 다시 인증하고 클론 작업이 성공적으로 재개되도록 새로운 암호를 생성하십시오.</block>
   <block id="d0d3a0a6bbae566c1e61c2fc0d0377ad" category="paragraph">다음은 AWS 구축의 예입니다.</block>
   <block id="00e2fab6bb1c1ddf5a08853aa2b05595" category="inline-image-macro">Astra Control Center 및 Cloud Volumes ONTAP 배포 사례</block>
   <block id="a5f9219af3aa469c4909489aee2c2362" category="paragraph"><block ref="a5f9219af3aa469c4909489aee2c2362" category="inline-image-macro-rx" type="image"></block></block>
@@ -1874,7 +1869,6 @@
   <block id="e1001cf6163456f78888de73e0dd8241" category="list-text">오른쪽 위 모서리에서 Trident 버전을 확인합니다.</block>
   <block id="879166e5d3ed3d9886dcb671dee52d57" category="list-text">NetApp을 공급자 로 보여주는 Cloud Volumes ONTAP 클러스터 스토리지 클래스를 참조하십시오.</block>
   <block id="6f132ecc107812f9bd274ba758fce276" category="paragraph">그러면 Red Hat OpenShift 클러스터가 가져와 기본 스토리지 클래스가 할당됩니다. 스토리지 클래스를 선택합니다. Trident는 가져오기 및 검색 프로세스의 일부로 자동으로 설치됩니다.</block>
-  <block id="3cc9e3bbc9dd541f4db8ebbb5b141c8c" category="list-text">이 CVO 배포에서 모든 영구 볼륨 및 볼륨을 기록해 둡니다.</block>
   <block id="022f3cb861d350bac16e19b15e4f1f9c" category="admonition">Cloud Volumes ONTAP는 단일 노드 또는 고가용성으로 작동할 수 있습니다. HA가 활성화된 경우 AWS에서 실행 중인 HA 상태와 노드 구축 상태를 확인하십시오.</block>
   <block id="d35cd0582def6a18a65ff02ce2d5ff77" category="inline-link-macro">Astra Control Center 설치 지침</block>
   <block id="1cb58fa5a8f36029f128e85d88276810" category="paragraph">표준을 따릅니다 <block ref="ef8e47848fa28ef11d8d85ade3f221ee" category="inline-link-macro-rx"></block>.</block>
@@ -1912,13 +1906,10 @@
   <block id="1ab5193f89cf79df51fd4138318923ac" category="inline-link">Azure 자격 증명 및 권한</block>
   <block id="ac5af645cec8d25669a5a9893f571bcc" category="paragraph">을 참조하십시오<block ref="47e48c38bbba09ad0234959e4f70e6b5" category="inline-link-rx"></block>.</block>
   <block id="ffe7dbf60b2fbe9ee35b02eca9bedb83" category="section-title">Azure를 구성합니다</block>
-  <block id="def08885f6fc7373c0b5463ba8cfcf9b" category="paragraph">그런 다음 가상 프라이빗 클라우드를 생성하고, 컴퓨팅 인스턴스를 설정하고, Azure Blob S3 버킷을 생성하고, Astra Control Center 이미지를 호스팅하기 위해 ACR(Azure Container Register)을 생성하고, 이 레지스트리에 이미지를 푸시하도록 Azure를 구성합니다.</block>
   <block id="310c2720a5523c6a1f55532ee951393c" category="paragraph">Azure 설명서에 따라 다음 단계를 완료합니다. 을 참조하십시오<block ref="604df1e02f9d2d76a67db6e61299339e" category="inline-link-rx"></block>.</block>
-  <block id="1f5c184a439ca64495bef0e301c34bb1" category="list-text">Azure 가상 프라이빗 클라우드를 생성합니다.</block>
   <block id="d03589157dd63e1aaf5497955f5058f5" category="list-text">컴퓨팅 인스턴스를 검토합니다. Azure의 베어 메탈 서버 또는 VM이 될 수 있습니다.</block>
   <block id="b82f3e0352c4295f8db3114c4d861a92" category="inline-link-macro">Astra Control Center 요구 사항</block>
   <block id="8a803e817d15e18f4c26de7531681f8c" category="list-text">인스턴스 유형이 마스터 및 작업자 노드에 대한 Astra 최소 리소스 요구 사항과 일치하지 않으면 Azure의 인스턴스 유형을 Astra 요구 사항에 맞게 변경합니다. 을 참조하십시오 <block ref="69ebc365ae107089b5acea91d6e6ce3d" category="inline-link-macro-rx"></block>.</block>
-  <block id="ece21a337138f7f8683bac6e6615e56e" category="list-text">백업을 저장할 Azure Blob S3 버킷을 하나 이상 생성합니다.</block>
   <block id="307374e80fc7db1b05d765029543d9c8" category="list-text">저장소 계정을 생성합니다. Astra Control Center에서 버킷으로 사용할 컨테이너를 생성하려면 저장소 계정이 필요합니다.</block>
   <block id="a9d92f56cc3dae134fc1ee53e8136378" category="list-text">버킷 액세스에 필요한 암호를 생성합니다.</block>
   <block id="7d8431378165cbd970da3a000187a79e" category="list-text">Azure Container Registry(ACR)를 생성하여 모든 Astra Control Center 이미지를 호스트합니다.</block>
@@ -1945,7 +1936,6 @@
   <block id="889cbe9961ca696a510e412a4b30232a" category="paragraph"><block ref="889cbe9961ca696a510e412a4b30232a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e94546b01b99a1eb48dc2aa847bd1bc9" category="inline-image-macro">Cloud Manager에서 클러스터를 가져왔습니다</block>
   <block id="a340fe93d59bc226299f8720ea322256" category="paragraph"><block ref="a340fe93d59bc226299f8720ea322256" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="d9ea115977abd9d7e16409cba9fd16f6" category="list-text">NetApp을 공급자 로 보여주는 CVO 클러스터 스토리지 클래스를 참조하십시오.</block>
   <block id="5acebafc0c752497041f5a0d80fe30bb" category="paragraph">이렇게 하면 Red Hat OpenShift 클러스터를 가져오고 기본 스토리지 클래스를 할당합니다. 스토리지 클래스를 선택합니다. Trident는 가져오기 및 검색 프로세스의 일부로 자동으로 설치됩니다.</block>
   <block id="a4f1bc6952ef35fa4b362d48d0bae5cf" category="list-text">Cloud Volumes ONTAP는 단일 노드 또는 고가용성으로 작동할 수 있습니다. HA가 활성화된 경우 Azure에서 실행 중인 HA 상태와 노드 배포 상태를 확인하십시오.</block>
   <block id="ed5ef8c204e33b0e0f057dc70e0b4867" category="section-title">Astra Control Center를 설치하고 구성합니다</block>
@@ -2031,8 +2021,6 @@
   <block id="636d6f4332398bd5b282d3ece2b35c37" category="section-title">2022년 4월 26일(22.04.0)</block>
   <block id="0097e428776046ceb8cd1fcde6d6fa2e" category="inline-link-macro">네임스페이스 역할 기반 액세스 제어(RBAC)</block>
   <block id="64bad51f74b4f1807a7d2af0cf87257c" category="list-text"><block ref="64bad51f74b4f1807a7d2af0cf87257c" category="inline-link-macro-rx"></block></block>
-  <block id="6d1f817d433aa2ed5357833d205f7ecc" category="inline-link-macro">CVO(Cloud Volumes ONTAP) 지원</block>
-  <block id="a0d0deee3c5c466bfed70fd7382479c3" category="list-text"><block ref="a0d0deee3c5c466bfed70fd7382479c3" category="inline-link-macro-rx"></block></block>
   <block id="b2c30cdbb458ef4f85645f614f9a044c" category="inline-link-macro">Astra Control Center에 대한 일반 수신 지원</block>
   <block id="7488f95bd73a954d45792854208eec9a" category="list-text"><block ref="7488f95bd73a954d45792854208eec9a" category="inline-link-macro-rx"></block></block>
   <block id="ec4f18f5d437fda081d810a9841b26d4" category="inline-link-macro">Astra Control에서 버킷 제거</block>
@@ -2135,4 +2123,15 @@
   <block id="b2b8741126a8674edc86e6286a85c804" category="inline-link">버킷 자격 증명 제거 문제 해결</block>
   <block id="983be0b26fa308ee99003c55cac37fb5" category="admonition">활성 버킷 자격 증명을 제거하는 경우 를 참조하십시오<block ref="939cc867881057c221247142d6425e0a" category="inline-link-rx"></block>.</block>
   <block id="576924ceb67cb5e87c15acdcb112c47d" category="paragraph">Astra Control API를 사용하여 S3 자격 증명을 제거하는 방법에 대한 지침은 을 참조하십시오 <block ref="ef5b26cd6e9ab40377842cc20d2b4ebf" category="inline-link-macro-rx"></block>.</block>
+  <block id="aa702244278ce9224bdf493dbd836fcf" category="inline-link-macro">Cloud Volumes ONTAP 지원</block>
+  <block id="4de20b7239bb26359da9a0232e6d739e" category="list-text"><block ref="4de20b7239bb26359da9a0232e6d739e" category="inline-link-macro-rx"></block></block>
+  <block id="eb835db53d5442a3408fb4a797dd33d9" category="paragraph">RedHat OpenShift 클러스터와 NetApp Cloud Manager Connector를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.</block>
+  <block id="8752cd76f7db37e4826aaa5b11f2a007" category="paragraph">그런 다음 AWS를 구성하여 가상 네트워크를 생성하고, EC2 컴퓨팅 인스턴스를 설정하고, AWS S3 버킷을 생성하고, ECR(Elastic Container Register)을 생성하여 Astra Control Center 이미지를 호스팅하고, 이 레지스트리로 이미지를 푸시합니다.</block>
+  <block id="9c7a256a23d947f541662b1e88bac33d" category="list-text">AWS 가상 네트워크를 생성합니다.</block>
+  <block id="9d58e473a9f64a9efe76c63ca0a30602" category="admonition">ECR을 생성하지 않으면 Astra Control Center는 AWS 백엔드가 있는 Cloud Volumes ONTAP가 포함된 클러스터에서 모니터링 데이터에 액세스할 수 없습니다. 이 문제는 Astra Control Center를 사용하여 검색 및 관리하려는 클러스터에 AWS ECR 액세스 권한이 없을 때 발생합니다.</block>
+  <block id="1768a4b0762c934953673bc18b18890a" category="admonition">AWS ECR(Elastic Container Registry) 토큰이 12시간 후에 만료되어 클러스터 간 클론 작업이 실패합니다. 이 문제는 AWS용으로 구성된 Cloud Volumes ONTAP에서 스토리지 백엔드를 관리할 때 발생합니다. 이 문제를 해결하려면 ECR을 다시 인증하고 클론 작업이 성공적으로 재개되도록 새로운 암호를 생성하십시오.</block>
+  <block id="b68aeba87c67e932282eec3bb99d6309" category="list-text">이 Cloud Volumes ONTAP 배포에서 모든 영구 볼륨 및 볼륨을 기록해 둡니다.</block>
+  <block id="daee2a4caddb0f1fced149c9b185ab3e" category="paragraph">그런 다음 가상 네트워크를 만들고, 컴퓨팅 인스턴스를 설정하고, Azure Blob 컨테이너를 만들고, Astra Control Center 이미지를 호스팅하기 위해 ACR(Azure Container Register)을 만들고, 이 레지스트리로 이미지를 푸시하도록 Azure를 구성합니다.</block>
+  <block id="52393bb21023d79ef4e0fa374e54b83d" category="list-text">Azure 가상 네트워크를 생성합니다.</block>
+  <block id="5df56ab7fcd23252a7ac4c7a21742e57" category="list-text">백업을 저장할 Azure Blob 컨테이너를 하나 이상 생성합니다.</block>
 </blocks>

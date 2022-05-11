@@ -19,7 +19,7 @@ Astra Control Center의 최신 22.04.0 릴리스를 발표하게 되어 기쁘�
 
 .새로운 기능 및 지원
 * link:../concepts/user-roles-namespaces.html["네임스페이스 역할 기반 액세스 제어(RBAC)"]
-* link:../get-started/install_acc-cvo.html["CVO(Cloud Volumes ONTAP) 지원"]
+* link:../get-started/install_acc-cvo.html["Cloud Volumes ONTAP 지원"]
 * link:../get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["Astra Control Center에 대한 일반 수신 지원"]
 * link:../use/manage-buckets.html#remove-a-bucket["Astra Control에서 버킷 제거"]
 * link:../get-started/requirements.html#tanzu-kubernetes-grid-cluster-requirements["VMware Tanzu 포트폴리오 지원"]
