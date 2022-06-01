@@ -16,7 +16,7 @@ summary: 몇 단계만 거치하면 Astra Control을 시작할 수 있습니다.
 사용해 보세요! Astra Control Center를 사용해 보고 싶은 경우 90일 평가판 라이센스를 사용할 수 있습니다. 을 참조하십시오 link:../get-started/setup_overview.html#add-a-license-for-astra-control-center["라이센스 정보"] 를 참조하십시오.
 
 .span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt="One"></span> Kubernetes 클러스터 요구 사항을 검토합니다
-* Astra는 Trident 구성 ONTAP 스토리지 백엔드 또는 Astra 데이터 저장소 미리 보기 스토리지 백엔드를 통해 Kubernetes 클러스터와 함께 작동합니다.
+* Astra는 Trident에서 구성한 ONTAP 스토리지 백엔드 또는 Astra Data Store 스토리지 백엔드를 통해 Kubernetes 클러스터와 함께 작동합니다.
 * 클러스터는 정상 상태에서 실행되어야 하며 3개 이상의 온라인 작업자 노드가 있어야 합니다.
 * 클러스터가 Kubernetes를 실행 중이어야 합니다.
 
@@ -38,7 +38,7 @@ link:../get-started/install_overview.html["Astra Control Center 설치에 대해
 .span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png"[] Alt="3"></span>일부 초기 설정 작업을 완료합니다
 * 라이센스를 추가합니다.
 * Kubernetes 클러스터 추가 및 Astra Control Center에서 세부 정보를 검색합니다.
-* ONTAP 또는 를 추가합니다 https://docs.netapp.com/us-en/astra-data-store/index.html["Astra 데이터 저장소 미리 보기"] 스토리지 백엔드.
+* ONTAP 또는 를 추가합니다 https://docs.netapp.com/us-en/astra-data-store/index.html["Astra 데이터 저장소"] 스토리지 백엔드.
 * 필요에 따라 앱 백업을 저장할 오브젝트 저장소 버킷을 추가합니다.
 
 

@@ -381,7 +381,6 @@ NOTE: "로드 밸런서" 및 수신 서비스 유형에 대한 자세한 내용�
 
 
 
-.. (Astra Data Store 미리 보기를 사용하여 설치하는 경우) 에 대해 알려진 문제를 참조하십시오 link:../release-notes/known-issues-ads.html#astra-data-store-cannot-be-used-as-a-storage-class-for-astra-control-center-due-to-mongodb-pod-liveness-probe-failure["추가 필수 변경 사항"] YAML에 대한 정보를 제공합니다.
 
 
 +

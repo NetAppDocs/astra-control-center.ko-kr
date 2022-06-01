@@ -45,6 +45,10 @@ entries:
     url: "/use/view-account-activity.html"
   - title: 기존 라이센스를 업데이트합니다
     url: "/use/update-licenses.html"
+  - title: 리포지토리 연결을 관리합니다
+    url: "/use/manage-connections.html"
+  - title: 소프트웨어 패키지를 관리합니다
+    url: "/use/manage-packages-acc.html"
 - title: 버킷을 관리합니다
   url: "/use/manage-buckets.html"
 - title: 스토리지 백엔드를 관리합니다

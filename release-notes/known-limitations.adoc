@@ -168,5 +168,5 @@ Postgres Pod에서 작업을 수행할 때 psql 명령을 사용하기 위해 PO
 == 자세한 내용을 확인하십시오
 
 * link:../release-notes/known-issues.html["알려진 문제"]
-* link:../release-notes/known-issues-ads.html["Astra Data Store Preview 및 이 Astra Control Center 릴리스와 관련된 알려진 문제입니다"]
+* link:../release-notes/known-issues-ads.html["Astra Data Store 및 이 Astra Control Center 릴리스와 관련된 알려진 문제입니다"]
 

@@ -43,7 +43,7 @@ Astra Control Center를 호스팅하기 위해 선택한 운영 환경이 환경
 
 | 아스트라 트리덴트  a| 
 * Astra Trident 21.04 이상 설치 및 구성
-* Astra Trident 21.10.1 이상 설치 및 구성 - Astra Data Store 미리보기를 스토리지 백엔드로 사용할 경우
+* Astra Trident 21.10.1 이상 설치 및 구성 - Astra Data Store를 스토리지 백엔드로 사용할 경우
 
 
 |===

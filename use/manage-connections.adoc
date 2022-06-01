@@ -1,0 +1,94 @@
+---
+sidebar: sidebar 
+permalink: use/manage-connections.html 
+keywords: manage package, packages, install 
+summary: Astra Control Center에 패키지를 업로드하고 설치할 수 있습니다. 
+---
+= 리포지토리 연결을 관리합니다
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+저장소를 Astra Control에 연결하여 소프트웨어 패키지 설치 이미지 및 아티팩트에 대한 참조로 사용할 수 있습니다. 소프트웨어 패키지를 가져올 때 Astra Control은 이미지 리포지토리의 설치 이미지 및 바이너리 및 기타 아티팩트의 아티팩트를 참조합니다.
+
+.무엇을 &#8217;필요로 할거야
+* Astra Control Center가 설치된 Kubernetes 클러스터
+* 액세스할 수 있는 실행 중인 Docker 리포지토리입니다
+* 액세스할 수 있는 실행 아티팩트 저장소(예: Artifactory)
+
+
+
+
+== Docker 이미지 저장소를 연결합니다
+
+Docker 이미지 저장소를 연결하여 Astra Data Store와 같은 패키지 설치 이미지를 보관할 수 있습니다. 패키지를 설치할 때 Astra Control은 이미지 저장소에서 패키지 이미지 파일을 가져옵니다.
+
+.단계
+. 계정 관리 * 탐색 영역에서 * 계정 * 을 선택합니다.
+. 연결 * 탭을 선택합니다.
+. Docker Image Repository * 섹션에서 오른쪽 상단의 메뉴를 선택합니다.
+. Connect * 를 선택합니다.
+. 리포지토리의 URL 및 포트를 추가합니다.
+. 인증이 필요한 경우 * Use authentication *(인증 사용 *) 확인란을 선택하고 리포지토리의 자격 증명을 입력합니다.
+. Connect * 를 선택합니다.
+
+
+리포지토리가 연결되었습니다. Docker Image Repository * 섹션에서 리포지토리가 연결됨 상태를 표시해야 합니다.
+
+
+
+== Docker 이미지 리포지토리 연결을 끊습니다
+
+더 이상 필요하지 않은 경우 Docker 이미지 저장소에 대한 연결을 제거할 수 있습니다.
+
+.단계
+. 계정 관리 * 탐색 영역에서 * 계정 * 을 선택합니다.
+. 연결 * 탭을 선택합니다.
+. Docker Image Repository * 섹션에서 오른쪽 상단의 메뉴를 선택합니다.
+. Disconnect * 를 선택합니다.
+. 예, Docker 이미지 리포지토리 * 를 연결 해제합니다.
+
+
+리포지토리의 연결이 끊겼습니다. Docker Image Repository * 섹션에서 리포지토리의 연결 끊김 상태가 표시되어야 합니다.
+
+
+
+== 아티팩트 리포지토리를 연결합니다
+
+아티팩트 리포지토리를 소프트웨어 패키지 바이너리와 같은 호스트 아티팩트에 연결할 수 있습니다. 패키지를 설치할 때 Astra Control은 이미지 저장소에서 소프트웨어 패키지에 대한 아티팩트를 가져옵니다.
+
+.단계
+. 계정 관리 * 탐색 영역에서 * 계정 * 을 선택합니다.
+. 연결 * 탭을 선택합니다.
+. Artifact Repository * 섹션에서 오른쪽 상단의 메뉴를 선택합니다.
+. Connect * 를 선택합니다.
+. 리포지토리의 URL 및 포트를 추가합니다.
+. 인증이 필요한 경우 * Use authentication *(인증 사용 *) 확인란을 선택하고 리포지토리의 자격 증명을 입력합니다.
+. Connect * 를 선택합니다.
+
+
+리포지토리가 연결되었습니다. Artifact Repository * 섹션에서 리포지토리는 연결된 상태를 표시해야 합니다.
+
+
+
+== 아티팩트 저장소의 연결을 해제합니다
+
+더 이상 필요하지 않은 경우 아티팩트 리포지토리에 대한 연결을 제거할 수 있습니다.
+
+.단계
+. 계정 관리 * 탐색 영역에서 * 계정 * 을 선택합니다.
+. 연결 * 탭을 선택합니다.
+. Artifact Repository * 섹션에서 오른쪽 상단의 메뉴를 선택합니다.
+. Disconnect * 를 선택합니다.
+. Yes, disconnect artifact repository * 를 선택합니다.
+
+
+리포지토리의 연결이 끊겼습니다. Artifact Repository * 섹션에서 리포지토리는 연결된 상태를 표시해야 합니다.
+
+[discrete]
+== 자세한 내용을 확인하십시오
+
+* link:manage-packages-acc.html["소프트웨어 패키지를 관리합니다"]
+

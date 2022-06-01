@@ -48,7 +48,7 @@ https://www.netapp.com/us/legal/privacypolicy/index.aspx[]
 통지 파일은 NetApp 소프트웨어에 사용된 타사의 저작권 및 라이센스에 대한 정보를 제공합니다.
 
 * link:NOTICE_AstraControlCenter_22.04.0.pdf["Astra Control Center에 대한 고지 사항"^]
-* link:NOTICE_AstraDataStore_Preview_21.12.pdf["Astra 데이터 저장소 미리 보기를 확인합니다"]
+* link:NOTICE_AstraDataStore.pdf["Astra Data Store에 대한 고지 사항"]
 
 
 

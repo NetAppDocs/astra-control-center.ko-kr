@@ -62,13 +62,13 @@ homepage:
       url: https://docs.netapp.com/us-en/astra/release-notes/whats-new.html
     - title: Astra Control Service를 빠르게 시작합니다
       url: https://docs.netapp.com/us-en/astra/get-started/quick-start.html
-  - title: Astra Data Store 미리 보기를 사용합니다
+  - title: Astra Data Store를 사용하십시오
     links:
     - title: Astra Data Store 소개
       url: https://docs.netapp.com/us-en/astra-data-store/concepts/intro.html
     - title: Astra Data Store 이번 릴리즈에는 어떤 내용이 포함되어 있는지
       url: https://docs.netapp.com/us-en/astra-data-store/release-notes/whats-new.html
-    - title: Astra 데이터 저장소 미리 보기를 빠르게 시작합니다
+    - title: Astra Data Store를 빠르게 시작합니다
       url: https://docs.netapp.com/us-en/astra-data-store/get-started/quick-start.html
   - title: 솔루션 개요
     links:
