@@ -257,13 +257,13 @@ additionalValues:
 +
 [listing]
 ----
-ingressType:AccTraefik
+ingressType: AccTraefik
 ----
 .. 기본 Astra Control Center 일반 수신 배포로 전환하려면 자체 IngressController/Ingress 설정(TLS 종료 등)을 제공하고 Astra Control Center로 가는 경로를 연 다음 "ingressType"을 "Generic"로 설정합니다.
 +
 [listing]
 ----
-ingressType:Generic
+ingressType: Generic
 ----
 +
 
