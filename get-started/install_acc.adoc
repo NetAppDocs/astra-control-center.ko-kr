@@ -48,10 +48,13 @@ Astra Control Center 설치 프로세스는 다음을 수행합니다.
 
 
 
-NOTE: Docker Engine 대신 Red Hat의 Podman 명령을 사용하는 경우 Docker 명령 대신 Podman 명령을 사용할 수 있습니다.
+IMPORTANT: (Astra Data Store Early Access Program(EAP) 릴리즈에만 적용) Astra Control Center를 사용하여 Astra Data Store를 관리하고 VMware 워크플로우를 사용하려는 경우 이 절차의 단계에 설명된 "NetApp-acc" 네임스페이스 또는 사용자 지정 네임스페이스가 아닌 "pcloud" 네임스페이스에만 Astra Control Center를 구현합니다.
 
 
 IMPORTANT: 모든 Astra Control Center POD를 삭제하지 않도록 설치 과정 내내 다음 명령을 실행하지 마십시오: "kubctl delete -f Astra_control_center_operator_deploy.YAML
+
+
+NOTE: Docker Engine 대신 Red Hat의 Podman 명령을 사용하는 경우 Docker 명령 대신 Podman 명령을 사용할 수 있습니다.
 
 Astra Control Center를 설치하려면 다음 단계를 수행하십시오.
 
