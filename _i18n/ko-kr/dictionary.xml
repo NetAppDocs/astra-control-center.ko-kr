@@ -2187,15 +2187,10 @@
   <block id="c236eea9ef9081e645ecb4497a3c05ce" category="list-text">소프트웨어 패키지 이미지를 보관할 연결된 Docker 이미지 리포지토리입니다. 자세한 내용은 을 참조하십시오 <block ref="70e5c10b1699fd43bcc41dd27e493e57" category="inline-link-macro-rx"></block>.</block>
   <block id="e403b6f2306f02333fd7ef7221f85040" category="list-text">소프트웨어 패키지 바이너리 및 아티팩트를 보관하는 연결된 아티팩트 리포지토리입니다. 자세한 내용은 을 참조하십시오 <block ref="70e5c10b1699fd43bcc41dd27e493e57" category="inline-link-macro-rx"></block>.</block>
   <block id="3aa4078371fb9b0c4a3e6c177942f01d" category="list-text">NetApp Support 사이트의 소프트웨어 패키지입니다</block>
-  <block id="821446301df86887f14a587de1046311" category="section-title">저장소에 소프트웨어 패키지를 업로드합니다</block>
   <block id="1861208871c49f3fafbdd2b1baedad6a" category="paragraph">Astra Control Center는 연결된 저장소의 패키지 이미지 및 아티팩트를 참조합니다. CLI를 사용하여 이미지 및 아티팩트를 리포지토리에 업로드할 수 있습니다.</block>
   <block id="8a0c00d15eb4f3a9a8a6c659a1d7c576" category="list-text">NetApp Support 사이트에서 소프트웨어 패키지를 다운로드한 다음 kubbctl 유틸리티가 설치된 시스템에 저장합니다.</block>
   <block id="a5d15ab770cd44d363e7f95fd16d0a4b" category="list-text">압축된 패키지 파일의 압축을 풀고 디렉토리를 Astra Control 번들 파일 위치로 변경합니다(예: acc.manifest.bundle.YAML).</block>
-  <block id="af2248b7281e83a45508e2ec7c9356ea" category="list-text">패키지 이미지를 Docker 저장소로 푸시합니다. 다음 대체 작업을 수행합니다.</block>
   <block id="109f9842fb9259a1de20c1577339c28c" category="list-text">Bundle_file을 Astra Control 번들 파일의 이름으로 바꿉니다.</block>
-  <block id="48c5334862569a4217279192a534b20a" category="list-text">my_registry를 Docker 리포지토리의 URL로 바꿉니다.</block>
-  <block id="da5ff2a96a29f48c8c4ffcf756aada4e" category="list-text">my_registry_user와 my_registry_password를 리포지터리의 자격 증명으로 교체합니다.</block>
-  <block id="873e5b0189688b130064268c0c68de0b" category="list-text">패키지 아티팩트를 아티팩트 저장소에 복사합니다. bundle_file을 Astra Control 번들 파일의 이름으로 바꾸고 network_location을 네트워크 위치로 교체하여 다음 위치에 아티팩트 파일을 복사합니다.</block>
   <block id="82a16926420b6ee2d26a80442a3db7ae" category="section-title">소프트웨어 패키지를 추가합니다</block>
   <block id="5801238264a16600dd0ab813e21d2cd9" category="paragraph">Astra Control Center 번들 파일을 사용하여 소프트웨어 패키지를 가져올 수 있습니다. 이렇게 하면 패키지가 설치되고 Astra Control Center에서 소프트웨어를 사용할 수 있습니다.</block>
   <block id="ab1a0888acffbae43d2539e8dbc89a9d" category="section-title">Astra Control 웹 UI를 사용하여 소프트웨어 패키지를 추가합니다</block>
@@ -2247,4 +2242,6 @@
   <block id="a57d95e33fbdffe3b4bd71d5b0be74cd" category="list-text">스토리지 클래스 * 범주를 선택합니다.</block>
   <block id="b76660fac98aeb4fc46b77e989e6d8b0" category="list-text">기본값으로 설정할 스토리지 클래스에 대해 * Actions * 메뉴를 선택합니다.</block>
   <block id="b4789b0ec041cd5e51f32c2f901a0951" category="list-text">Set as default * 를 선택합니다.</block>
+  <block id="6a76517aff3e7c512c0367b12342145c" category="section-title">소프트웨어 패키지 이미지를 리포지토리에 업로드합니다</block>
+  <block id="e098894ec3d131e5a95bb73b789f7ab5" category="list-text">다음 스크립트를 실행하여 패키지 이미지를 Docker 저장소로 푸시합니다. REGISTRY 변수의 값을 사용자 레지스트리의 URL로 바꿉니다.</block>
 </blocks>
