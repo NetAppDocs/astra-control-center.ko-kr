@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: solutions/mariadb-deploy-from-helm-chart.html 
-keywords: how to deploy mariadb from helm chart, how to set up maria db with astra, mariadb helm chart, deploy mariadb, helm chart, bitnami, astra, astra control, kubernetes 
+keywords: how to deploy mariadb from helm chart, how to set up maria db with astra, mariadb helm chart, deploy mariadb, helm chart, bitnami, astra control, kubernetes 
 summary: Bitnami Helm 차트에서 MariaDB를 배포하는 방법을 알아보십시오. 클러스터에 MariaDB를 배포한 후 Astra Control을 사용하여 애플리케이션을 관리할 수 있습니다. 
 ---
 = 제어 차트에서 MariaDB를 배포합니다
@@ -57,7 +57,7 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 +
 [listing]
 ----
-Helm install <name> --namespace <namespace> --create-namespace -–set persistence.storageClass=<storage_class>
+helm install <name> bitnami/MariaDB –namespace <namespace> --create-namespace –set global.storageClass=<storage_class_name>
 ----
 +
 
