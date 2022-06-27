@@ -29,44 +29,26 @@ Astra Control Center는 연결된 저장소의 패키지 이미지 및 아티팩
 .단계
 . NetApp Support 사이트에서 소프트웨어 패키지를 다운로드한 다음 kubbctl 유틸리티가 설치된 시스템에 저장합니다.
 . 압축된 패키지 파일의 압축을 풀고 디렉토리를 Astra Control 번들 파일 위치로 변경합니다(예: acc.manifest.bundle.YAML).
-. 다음 스크립트를 실행하여 패키지 이미지를 Docker 저장소로 푸시합니다. REGISTRY 변수의 값을 사용자 레지스트리의 URL로 바꿉니다.
-
-
+. 패키지 이미지를 Docker 저장소로 푸시합니다. 다음 대체 작업을 수행합니다.
++
+** Bundle_file을 Astra Control 번들 파일의 이름으로 바꿉니다.
+** my_registry를 Docker 리포지토리의 URL로 바꿉니다.
+** my_registry_user와 my_registry_password를 리포지터리의 자격 증명으로 교체합니다.
++
 [listing]
 ----
-# Replace the registry value:
-export REGISTRY=registry.url.com
-
-export PACKAGENAME=astrads
-export PACKAGEVERSION=22.5.0-6371157
-export DIRECTORYNAME=astrads
-
-for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
-  # Load to local cache
-  astraImage=$(docker load --input ${astraImageFile} | sed 's/Loaded image: //')
-  # Remove path and keep imageName
-  astraImageNoPath=$(echo ${astraImage} | sed 's:.*/::')
-  # Tag with local image repo.
-  docker tag ${astraImage} ${REGISTRY}/netapp/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
-  # Push to the local repo.
-  docker push ${REGISTRY}/netapp/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
-done
-
-export PACKAGENAME=vasa-provider
-export PACKAGEVERSION=2022.5.0
-export DIRECTORYNAME=vasa
-
-for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
-  # Load to local cache
-  astraImage=$(docker load --input ${astraImageFile} | sed 's/Loaded image: //')
-  # Remove path and keep imageName
-  astraImageNoPath=$(echo ${astraImage} | sed 's:.*/::')
-  # Tag with local image repo.
-  docker tag ${astraImage} ${REGISTRY}/netapp/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
-  # Push to the local repo.
-  docker push ${REGISTRY}/netapp/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
-done
+kubectl astra packages push-images -m BUNDLE_FILE -r MY_REGISTRY -u MY_REGISTRY_USER -p MY_REGISTRY_PASSWORD
 ----
+
+
+. 패키지에 아티팩트가 있는 경우 아티팩트를 아티팩트 저장소로 복사합니다. bundle_file을 Astra Control 번들 파일의 이름으로 바꾸고 network_location을 네트워크 위치로 교체하여 다음 위치에 아티팩트 파일을 복사합니다.
++
+[listing]
+----
+kubectl astra packages copy-artifacts -m BUNDLE_FILE -n NETWORK_LOCATION
+----
+
+
 
 
 == 소프트웨어 패키지를 추가합니다

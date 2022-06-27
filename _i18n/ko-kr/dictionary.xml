@@ -2242,7 +2242,6 @@
   <block id="b76660fac98aeb4fc46b77e989e6d8b0" category="list-text">기본값으로 설정할 스토리지 클래스에 대해 * Actions * 메뉴를 선택합니다.</block>
   <block id="b4789b0ec041cd5e51f32c2f901a0951" category="list-text">Set as default * 를 선택합니다.</block>
   <block id="6a76517aff3e7c512c0367b12342145c" category="section-title">소프트웨어 패키지 이미지를 리포지토리에 업로드합니다</block>
-  <block id="e098894ec3d131e5a95bb73b789f7ab5" category="list-text">다음 스크립트를 실행하여 패키지 이미지를 Docker 저장소로 푸시합니다. REGISTRY 변수의 값을 사용자 레지스트리의 URL로 바꿉니다.</block>
   <block id="f667e2a184f6b549b4a1c647af94d494" category="list-text">응용 프로그램을 복원하기 전에 응용 프로그램의 스냅샷을 생성하거나 백업하는 것이 좋습니다. 이렇게 하면 복구에 실패한 경우 스냅샷 또는 백업에서 클론을 생성할 수 있습니다.</block>
   <block id="f2ab44c105acc97c54a227f6c52ad099" category="admonition">이전에 삭제된 네임스페이스에 복원하는 경우 복원 프로세스의 일부로 동일한 이름의 새 네임스페이스가 만들어집니다. 이전에 삭제된 네임스페이스에서 앱을 관리할 권한이 있는 사용자는 새로 다시 생성된 네임스페이스에 대한 권한을 수동으로 복원해야 합니다.</block>
   <block id="cc35f1f52bd3c3e89d57573e14a02129" category="admonition">데이터 보호 작업(클론, 백업, 복원)과 후속 영구 볼륨 크기 조정 후 웹 UI에 새 볼륨 크기가 표시되기까지 최대 20분이 지연됩니다. 데이터 보호 작업이 몇 분 내에 성공적으로 완료되며 스토리지 백엔드에 관리 소프트웨어를 사용하여 볼륨 크기 변경을 확인할 수 있습니다.</block>
@@ -2252,4 +2251,8 @@
   <block id="ae274f1935af41c79ad83156bda69b1b" category="list-text">사용된 용량과 총 용량 비교</block>
   <block id="573d8b0d75f409856fcb9ceab6adfe45" category="list-text">각 Astra Data Store 클러스터 볼륨에 대해</block>
   <block id="0b85467ebafa7ca3c47e82dc38184484" category="list-text">처리량</block>
+  <block id="af2248b7281e83a45508e2ec7c9356ea" category="list-text">패키지 이미지를 Docker 저장소로 푸시합니다. 다음 대체 작업을 수행합니다.</block>
+  <block id="48c5334862569a4217279192a534b20a" category="list-text">my_registry를 Docker 리포지토리의 URL로 바꿉니다.</block>
+  <block id="da5ff2a96a29f48c8c4ffcf756aada4e" category="list-text">my_registry_user와 my_registry_password를 리포지터리의 자격 증명으로 교체합니다.</block>
+  <block id="25d79c61a8c2cf8672fbd0f32f9bfc13" category="list-text">패키지에 아티팩트가 있는 경우 아티팩트를 아티팩트 저장소로 복사합니다. bundle_file을 Astra Control 번들 파일의 이름으로 바꾸고 network_location을 네트워크 위치로 교체하여 다음 위치에 아티팩트 파일을 복사합니다.</block>
 </blocks>
