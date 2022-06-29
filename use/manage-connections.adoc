@@ -31,7 +31,7 @@ Docker 이미지 저장소를 연결하여 Astra Data Store와 같은 패키지 
 . Docker Image Repository * 섹션에서 오른쪽 상단의 메뉴를 선택합니다.
 . Connect * 를 선택합니다.
 . 리포지토리의 URL 및 포트를 추가합니다.
-. 인증이 필요한 경우 * Use authentication *(인증 사용 *) 확인란을 선택하고 리포지토리의 자격 증명을 입력합니다.
+. 리포지토리의 자격 증명을 입력합니다.
 . Connect * 를 선택합니다.
 
 

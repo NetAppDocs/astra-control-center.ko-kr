@@ -2255,4 +2255,5 @@
   <block id="48c5334862569a4217279192a534b20a" category="list-text">my_registry를 Docker 리포지토리의 URL로 바꿉니다.</block>
   <block id="da5ff2a96a29f48c8c4ffcf756aada4e" category="list-text">my_registry_user와 my_registry_password를 리포지터리의 자격 증명으로 교체합니다.</block>
   <block id="25d79c61a8c2cf8672fbd0f32f9bfc13" category="list-text">패키지에 아티팩트가 있는 경우 아티팩트를 아티팩트 저장소로 복사합니다. bundle_file을 Astra Control 번들 파일의 이름으로 바꾸고 network_location을 네트워크 위치로 교체하여 다음 위치에 아티팩트 파일을 복사합니다.</block>
+  <block id="2707211a1bc867b58edced6b3def5b35" category="list-text">리포지토리의 자격 증명을 입력합니다.</block>
 </blocks>
