@@ -1057,7 +1057,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-13 06:45:19 +0000">04/13/2022</time>
+    <time datetime="2022-06-29 17:12:01 +0000">06/29/2022</time>
     
   
 
@@ -1106,10 +1106,10 @@
 <div class="title">단계</div>
 <ul>
 <li>
-<p><a href="#Download the Astra Control Center bundle">[Download the Astra Control Center bundle]</a></p>
+<p><a href="#Download and unpack the Astra Control Center bundle">[Download and unpack the Astra Control Center bundle]</a></p>
 </li>
 <li>
-<p><a href="#Unpack the bundle and change directory">[Unpack the bundle and change directory]</a></p>
+<p><a href="#Install the NetApp Astra kubectl plugin">[Install the NetApp Astra kubectl plugin]</a></p>
 </li>
 <li>
 <p><a href="#Add the images to your local registry">[Add the images to your local registry]</a></p>
@@ -1128,7 +1128,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="astra-control-center-번들을-다운로드합니다">Astra Control Center 번들을 다운로드합니다</h2>
+<h2 id="astra-control-center-번들을-다운로드하고-포장을-풉니다">Astra Control Center 번들을 다운로드하고 포장을 풉니다</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -1136,7 +1136,7 @@
 <p>에서 Astra Control Center 번들('Astra-control-center-[version].tar.gz')을 다운로드합니다 <a href="https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab" target="_blank" rel="noopener">"NetApp Support 사이트"</a>.</p>
 </li>
 <li>
-<p>Astra Control Center 인증서 및 키의 지퍼를 에서 다운로드하십시오 <a href="https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab" target="_blank" rel="noopener">"NetApp Support 사이트"</a>.</p>
+<p>에서 Astra Control Center 인증서 및 키의 지퍼를 다운로드합니다 <a href="https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab" target="_blank" rel="noopener">"NetApp Support 사이트"</a>.</p>
 </li>
 <li>
 <p>(선택 사항) 다음 명령을 사용하여 번들의 서명을 확인합니다.</p>
@@ -1146,15 +1146,6 @@
 </div>
 </div>
 </li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="번들의-포장을-풀고-디렉토리를-변경합니다">번들의 포장을 풀고 디렉토리를 변경합니다</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
 <li>
 <p>이미지 추출:</p>
 <div class="listingblock">
@@ -1163,11 +1154,35 @@
 </div>
 </div>
 </li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="netapp-astra-kubtl-플러그인을-설치합니다">NetApp Astra kubtl 플러그인을 설치합니다</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>NetApp Astra 'kubtl' 명령줄 플러그인은 Astra Control Center 배포 및 업그레이드와 관련된 일반적인 작업을 수행할 때 시간을 절약해 줍니다.</p>
+</div>
+<div class="paragraph">
+<p>NetApp은 다양한 CPU 아키텍처 및 운영 체제용 플러그인의 바이너리를 제공합니다. 이 작업을 수행하기 전에 사용 중인 CPU 및 운영 체제를 알아야 합니다. Linux 및 Mac 운영 체제에서는 uname-a 명령을 사용하여 이 정보를 수집할 수 있습니다.</p>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
 <li>
-<p>Astra 디렉토리로 변경합니다.</p>
+<p>사용 가능한 NetApp Astra "kubeck" 플러그인 바이너리를 나열하고 운영 체제 및 CPU 아키텍처에 필요한 파일 이름을 적어 주십시오.</p>
 <div class="listingblock">
 <div class="content">
-<pre>cd astra-control-center-[version]</pre>
+<pre>ls kubectl-astra/</pre>
+</div>
+</div>
+</li>
+<li>
+<p>표준 kubbeck 유틸리티와 같은 위치에 파일을 복사합니다. 이 예에서는 kubeck 유틸리티가 /usr/local/bin 디렉토리에 있습니다. '&lt;binary-name&gt;'을(를) 필요한 파일 이름으로 바꿉니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre>cp kubectl-astra/&lt;binary-name&gt; /usr/local/bin/kubectl-astra</pre>
 </div>
 </div>
 </li>
@@ -1180,6 +1195,14 @@
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
+<li>
+<p>Astra 디렉토리로 이동합니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre>cd acc</pre>
+</div>
+</div>
+</li>
 <li>
 <p>Astra Control Center 이미지 디렉토리의 파일을 로컬 레지스트리에 추가합니다.</p>
 <div class="admonitionblock note">
