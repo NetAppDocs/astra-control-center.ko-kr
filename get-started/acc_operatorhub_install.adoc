@@ -34,8 +34,8 @@ oc get apiservices
 
 
 .단계
-* <<Download the Astra Control Center bundle>>
-* <<Unpack the bundle and change directory>>
+* <<Download and unpack the Astra Control Center bundle>>
+* <<Install the NetApp Astra kubectl plugin>>
 * <<Add the images to your local registry>>
 * <<Find the operator install page>>
 * <<Install the operator>>
@@ -44,33 +44,44 @@ oc get apiservices
 
 
 
-== Astra Control Center 번들을 다운로드합니다
+== Astra Control Center 번들을 다운로드하고 포장을 풉니다
 
 . 에서 Astra Control Center 번들('Astra-control-center-[version].tar.gz')을 다운로드합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support 사이트"^].
-. Astra Control Center 인증서 및 키의 지퍼를 에서 다운로드하십시오 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support 사이트"^].
+. 에서 Astra Control Center 인증서 및 키의 지퍼를 다운로드합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support 사이트"^].
 . (선택 사항) 다음 명령을 사용하여 번들의 서명을 확인합니다.
 +
 [listing]
 ----
 openssl dgst -sha256 -verify astra-control-center[version].pub -signature <astra-control-center[version].sig astra-control-center[version].tar.gz
 ----
-
-
-
-
-== 번들의 포장을 풀고 디렉토리를 변경합니다
-
 . 이미지 추출:
 +
 [listing]
 ----
 tar -vxzf astra-control-center-[version].tar.gz
 ----
-. Astra 디렉토리로 변경합니다.
+
+
+
+
+== NetApp Astra kubtl 플러그인을 설치합니다
+
+NetApp Astra 'kubtl' 명령줄 플러그인은 Astra Control Center 배포 및 업그레이드와 관련된 일반적인 작업을 수행할 때 시간을 절약해 줍니다.
+
+NetApp은 다양한 CPU 아키텍처 및 운영 체제용 플러그인의 바이너리를 제공합니다. 이 작업을 수행하기 전에 사용 중인 CPU 및 운영 체제를 알아야 합니다. Linux 및 Mac 운영 체제에서는 uname-a 명령을 사용하여 이 정보를 수집할 수 있습니다.
+
+.단계
+. 사용 가능한 NetApp Astra "kubeck" 플러그인 바이너리를 나열하고 운영 체제 및 CPU 아키텍처에 필요한 파일 이름을 적어 주십시오.
 +
 [listing]
 ----
-cd astra-control-center-[version]
+ls kubectl-astra/
+----
+. 표준 kubbeck 유틸리티와 같은 위치에 파일을 복사합니다. 이 예에서는 kubeck 유틸리티가 /usr/local/bin 디렉토리에 있습니다. '<binary-name>'을(를) 필요한 파일 이름으로 바꿉니다.
++
+[listing]
+----
+cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 ----
 
 
@@ -78,6 +89,12 @@ cd astra-control-center-[version]
 
 == 이미지를 로컬 레지스트리에 추가합니다
 
+. Astra 디렉토리로 이동합니다.
++
+[listing]
+----
+cd acc
+----
 . Astra Control Center 이미지 디렉토리의 파일을 로컬 레지스트리에 추가합니다.
 +
 

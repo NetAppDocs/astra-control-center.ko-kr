@@ -1030,7 +1030,6 @@
   <block id="bcd2064257ec8fce1f11d1eab34e50a1" category="list-text"><block ref="d1f909bce77ae129ee64cf4c211e47c3" category="inline-xref-macro-rx"></block></block>
   <block id="3cc546d35377f25093968cba1e8c0fc6" category="list-text"><block ref="27fe6aaf425c0f95213ec6c507a97d2d" category="inline-xref-macro-rx"></block></block>
   <block id="37b9c0fe975f84a28c93ed400bbf96df" category="list-text">에서 Astra Control Center 번들('Astra-control-center-[version].tar.gz')을 다운로드합니다<block ref="4e4882d47509d388d52971aaee9abe33" category="inline-link-rx"></block>.</block>
-  <block id="b27a38bf3a2f1598cf85f6edd595c1f2" category="list-text">Astra Control Center 인증서 및 키의 지퍼를 에서 다운로드하십시오<block ref="4e4882d47509d388d52971aaee9abe33" category="inline-link-rx"></block>.</block>
   <block id="8a610f3ea380fe1789ef14712ba6b1f0" category="admonition">아래 이미지의 자동 로드에 대한 샘플 스크립트를 참조하십시오.</block>
   <block id="e8c44728c041065d90e7029dec2e142c" category="list-text">레지스트리에 로그인합니다.</block>
   <block id="ea0a75505b0b24811b92c3214821dcac" category="paragraph">Docker:</block>
@@ -2256,4 +2255,13 @@
   <block id="da5ff2a96a29f48c8c4ffcf756aada4e" category="list-text">my_registry_user와 my_registry_password를 리포지터리의 자격 증명으로 교체합니다.</block>
   <block id="25d79c61a8c2cf8672fbd0f32f9bfc13" category="list-text">패키지에 아티팩트가 있는 경우 아티팩트를 아티팩트 저장소로 복사합니다. bundle_file을 Astra Control 번들 파일의 이름으로 바꾸고 network_location을 네트워크 위치로 교체하여 다음 위치에 아티팩트 파일을 복사합니다.</block>
   <block id="2707211a1bc867b58edced6b3def5b35" category="list-text">리포지토리의 자격 증명을 입력합니다.</block>
+  <block id="4e7bc0f2f576e3a2e7b9bd624d2da7d3" category="list-text"><block ref="f9a9477fa54fe91dbfcc4b4adc8c5a84" category="inline-xref-macro-rx"></block></block>
+  <block id="f27876af7f41dd88d732712643f9e8ab" category="list-text"><block ref="edd1a66c7657e8422b18455f2fcc01fd" category="inline-xref-macro-rx"></block></block>
+  <block id="bb550e726ecd8419a94f47dd80d637fc" category="section-title">Astra Control Center 번들을 다운로드하고 포장을 풉니다</block>
+  <block id="72b3b17d23e094f72641c4ffa8928d85" category="section-title">NetApp Astra kubtl 플러그인을 설치합니다</block>
+  <block id="c1f2a81be0634c59dcf176e57cdd246f" category="paragraph">NetApp Astra 'kubtl' 명령줄 플러그인은 Astra Control Center 배포 및 업그레이드와 관련된 일반적인 작업을 수행할 때 시간을 절약해 줍니다.</block>
+  <block id="9f0fcc78c5a2532a64740d954442b2ed" category="paragraph">NetApp은 다양한 CPU 아키텍처 및 운영 체제용 플러그인의 바이너리를 제공합니다. 이 작업을 수행하기 전에 사용 중인 CPU 및 운영 체제를 알아야 합니다. Linux 및 Mac 운영 체제에서는 uname-a 명령을 사용하여 이 정보를 수집할 수 있습니다.</block>
+  <block id="9e4429c7ff20df6dc3259e988d743184" category="list-text">사용 가능한 NetApp Astra "kubeck" 플러그인 바이너리를 나열하고 운영 체제 및 CPU 아키텍처에 필요한 파일 이름을 적어 주십시오.</block>
+  <block id="514d62046ae8a4ae1c0e43a7e2dbd83c" category="list-text">표준 kubbeck 유틸리티와 같은 위치에 파일을 복사합니다. 이 예에서는 kubeck 유틸리티가 /usr/local/bin 디렉토리에 있습니다. '&lt;binary-name&gt;'을(를) 필요한 파일 이름으로 바꿉니다.</block>
+  <block id="acffa2c7e97237434bf90fa326b9759f" category="list-text">Astra 디렉토리로 이동합니다.</block>
 </blocks>
