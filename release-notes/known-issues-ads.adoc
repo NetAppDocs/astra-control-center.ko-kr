@@ -13,8 +13,76 @@ summary: 알려진 문제점은 이 제품 릴리스를 성공적으로 사용�
 
 알려진 문제점은 이 제품 릴리스를 성공적으로 사용하지 못하게 만들 수 있는 문제를 식별합니다.
 
-https://docs.netapp.com/us-en/astra-data-store/release-notes/known-issues.html["이러한 알려진 문제를 참조하십시오"] 이 문제는 Astra Control Center의 현재 릴리즈와 함께 Astra Data Store의 관리에 영향을 미칠 수 있습니다.
+https://docs.netapp.com/us-en/astra-data-store/release-notes/known-issues.html["이 추가 Astra Data Store 알려진 문제를 확인하십시오"^] 이 문제는 Astra Control Center의 현재 릴리즈와 함께 Astra Data Store의 관리에 영향을 미칠 수 있습니다.
 
+
+
+== Astra Data Store 볼륨 세부 정보는 Astra Control Center UI의 스토리지 백엔드 페이지에 나타나지 않습니다
+
+용량 및 처리량 같은 세부 정보는 UI에 표시되지 않습니다. 이 문제가 발생하면 스토리지 백엔드의 관리를 해제하고 다시 추가합니다.
+
+
+
+== Astra Data Store로 클러스터를 관리하려면 먼저 관리되는 시스템 앱을 제거해야 합니다
+
+Astra Data Store가 포함된 클러스터를 Astra Control Center 클러스터에 추가하면 기본적으로 Astrads-system 앱이 숨겨진 애플리케이션으로 관리됩니다. 클러스터를 관리하려면 먼저 Astrads-system 앱을 관리 해제해야 합니다. Astra Control Center UI를 사용하여 이러한 유형의 앱을 관리할 수 없습니다. 대신 Astra Control API 요청을 사용하여 앱을 수동으로 제거합니다.
+
+.세부 정보
+====
+.단계
+. 이 API를 사용하여 관리되는 클러스터의 ID를 가져옵니다.
++
+[listing]
+----
+/accounts/{account_id}/topology/v1/managedClusters
+----
++
+응답:
+
++
+[listing, subs="+quotes"]
+----
+{
+"items": [
+{
+"type": "application/astra-managedCluster",
+"version": "1.1",
+*"id": "123ab987-0bc0-00d0-a00a-1234567abd8d",*
+"name": "astrads-cluster-1234567",
+...
+----
+. 관리되는 Astrads 가져오기 - 시스템 앱 ID:
++
+[listing]
+----
+/accounts/{account_id}/topology/v2/managedClusters/{managedCluster_id}/apps
+----
++
+응답:
+
++
+[listing, subs="+quotes"]
+----
+{
+  "items": [
+    [
+      *"1b011d11-bb88-40c7-a1a1-ab1234c123d3",*
+      "astrads-system",
+      "ready"
+    ]
+  ],
+  "metadata": {}
+}
+----
+. 이전 단계에서 획득한 앱 ID('1b011d11-b88-40c7-a1a1-ab1234c123d3')를 사용하여 Astads-system app을 삭제한다.
++
+[listing]
+----
+/accounts/{account_id}/k8s/v2/apps/{astrads-system_app_id}
+----
+
+
+====
 
 
 == 자세한 내용을 확인하십시오

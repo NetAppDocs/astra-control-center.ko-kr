@@ -31,7 +31,7 @@ Astra Control Center는 연결된 저장소의 패키지 이미지 및 아티팩
 . 압축된 패키지 파일의 압축을 풀고 디렉토리를 Astra Control 번들 파일 위치로 변경합니다(예: acc.manifest.bundle.YAML).
 . 패키지 이미지를 Docker 저장소로 푸시합니다. 다음 대체 작업을 수행합니다.
 +
-** Bundle_file을 Astra Control 번들 파일의 이름으로 바꿉니다.
+** bundle_file을 Astra Control 번들 파일 이름으로 바꿉니다(예: acc.manifest.bundle.YAML).
 ** my_registry를 Docker 리포지토리의 URL로 바꿉니다.
 ** my_registry_user와 my_registry_password를 리포지터리의 자격 증명으로 교체합니다.
 +

@@ -11,19 +11,23 @@ summary: NetApp은 새로운 기능, 개선 사항 및 버그 수정을 제공�
 :imagesdir: ../media/release-notes/
 
 
-Astra Control Center의 최신 22.04.0 릴리스를 발표하게 되어 기쁘게 생각합니다.
+Astra Control Center의 최신 릴리스를 발표하게 되어 기쁘게 생각합니다.
 
 
 
-== 2022년 4월 26일(22.04.0)
+== 2022년 8월 10일(22.08.0)
 
 .새로운 기능 및 지원
-* link:../get-started/setup_overview.html#add-a-storage-backend["Astra Control Center에서 Astra Data Store 배포"]
-* link:../concepts/user-roles-namespaces.html["네임스페이스 역할 기반 액세스 제어(RBAC)"]
-* link:../get-started/install_acc-cvo.html["Cloud Volumes ONTAP 지원"]
-* link:../get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["Astra Control Center에 대한 일반 수신 지원"]
-* link:../use/manage-buckets.html#remove-a-bucket["Astra Control에서 버킷 제거"]
-* link:../get-started/requirements.html#tanzu-kubernetes-grid-cluster-requirements["VMware Tanzu 포트폴리오 지원"]
+* link:../use/replication.html["NetApp SnapMirror 기술을 사용하여 애플리케이션을 복제합니다"]
+* link:../use/manage-apps.html#manage-apps["앱 관리 워크플로 개선"]
+* link:../use/execution-hooks.html["자체 실행 후크 기능이 향상되었습니다"]
++
+
+NOTE: NetApp에서 제공한 특정 애플리케이션에 대한 기본 사전/사후 스냅샷 실행 후크가 이 릴리즈에서 제거되었습니다. 이 릴리즈로 업그레이드해도 스냅샷에 대한 실행 후크를 제공하지 않으면 Astra Control은 충돌 시에도 정합성이 보장되는 스냅샷만 생성합니다. 를 방문하십시오 https://github.com/NetApp/Verda["NetApp 버다"] 사용자 환경에 맞게 수정할 수 있는 샘플 실행 후크 스크립트의 GitHub 리포지토리
+
+* link:../get-started/requirements.html["VMware Tanzu Kubernetes Grid Integrated Edition(TKGI) 지원"]
+* link:../get-started/requirements.html#operational-environment-requirements["Google Anthos 지원"]
+* https://docs.netapp.com/us-en/astra-automation/workflows_infra/ldap_prepare.html["LDAP 구성(Astra Control API 사용)"^]
 
 
 .알려진 문제 및 제한 사항
@@ -34,8 +38,32 @@ Astra Control Center의 최신 22.04.0 릴리스를 발표하게 되어 기쁘�
 
 
 
+== 2022년 4월 26일(22.04.0)
+
+.세부 정보
+====
+.새로운 기능 및 지원
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/setup_overview.html#add-a-storage-backend["Astra Control Center에서 Astra Data Store 배포"]
+* https://docs.netapp.com/us-en/astra-control-center-2204/concepts/user-roles-namespaces.html["네임스페이스 역할 기반 액세스 제어(RBAC)"]
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/install_acc-cvo.html["Cloud Volumes ONTAP 지원"]
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["Astra Control Center에 대한 일반 수신 지원"]
+* https://docs.netapp.com/us-en/astra-control-center-2204/use/manage-buckets.html#remove-a-bucket["Astra Control에서 버킷 제거"]
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/requirements.html#tanzu-kubernetes-grid-cluster-requirements["VMware Tanzu 포트폴리오 지원"]
+
+
+.알려진 문제 및 제한 사항
+* https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-issues.html["이 릴리스에 대해 알려진 문제입니다"]
+* https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-issues-ads.html["Astra Data Store 및 이 Astra Control Center 릴리스와 관련된 알려진 문제입니다"]
+* https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-limitations.html["이 릴리스에 대해 알려진 제한 사항입니다"]
+
+
+====
+
+
 == 2021년 12월 14일(21.12)
 
+.세부 정보
+====
 .새로운 기능 및 지원
 * https://docs.netapp.com/us-en/astra-control-center-2112/use/restore-apps.html["애플리케이션 복원"^]
 * https://docs.netapp.com/us-en/astra-control-center-2112/use/execution-hooks.html["실행 후크"^]
@@ -56,10 +84,13 @@ Astra Control Center의 최신 22.04.0 릴리스를 발표하게 되어 기쁘�
 * https://docs.netapp.com/us-en/astra-control-center-2112/release-notes/known-limitations.html["이 릴리스에 대해 알려진 제한 사항입니다"^]
 
 
+====
 
 
 == 2021년 8월 5일(21.08)
 
+.세부 정보
+====
 Astra Control Center의 최초 릴리스.
 
 * https://docs.netapp.com/us-en/astra-control-center-2108/concepts/intro.html["그게 뭐죠"^]
@@ -72,6 +103,7 @@ Astra Control Center의 최초 릴리스.
 * https://docs.netapp.com/us-en/astra-control-center-2108/rest-api/api-intro.html["API를 통한 자동화"^]
 
 
+====
 
 
 == 자세한 내용을 확인하십시오

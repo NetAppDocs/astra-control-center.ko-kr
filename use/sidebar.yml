@@ -2,12 +2,8 @@
 section: use
 title: Astra를 사용하십시오
 entries:
-- title: 앱 관리
-  entries:
-  - title: 앱 관리를 시작합니다
-    url: "/use/manage-apps.html"
-  - title: 사용자 지정 앱을 정의합니다
-    url: "/use/define-custom-app.html"
+- title: 앱 관리를 시작합니다
+  url: "/use/manage-apps.html"
 - title: 앱 보호
   entries:
   - title: 보호 개요
@@ -16,6 +12,8 @@ entries:
     url: "/use/protect-apps.html"
   - title: 앱 복원
     url: "/use/restore-apps.html"
+  - title: 원격 시스템에 앱을 복제합니다
+    url: "/use/replication.html"
   - title: 애플리케이션 클론 복제 및 마이그레이션
     url: "/use/clone-apps.html"
   - title: 앱 실행 후크 관리
@@ -23,7 +21,7 @@ entries:
     entries:
     - title: 실행 후크 예
       url: "/use/execution-hook-examples.html"
-- title: 앱 및 클러스터 상태 보기
+- title: 앱 및 클러스터 상태를 모니터링합니다
   entries:
   - title: 대시보드 요약
     url: "/use/view-dashboard.html"
@@ -53,7 +51,7 @@ entries:
   url: "/use/manage-buckets.html"
 - title: 스토리지 백엔드를 관리합니다
   url: "/use/manage-backend.html"
-- title: 인프라 모니터링 및 보호
+- title: Cloud Insights 및 Fluentd로 인프라 모니터링
   url: "/use/monitor-protect.html"
 - title: 앱 및 클러스터 관리를 취소합니다
   url: "/use/unmanage.html"

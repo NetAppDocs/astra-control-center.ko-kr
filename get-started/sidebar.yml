@@ -11,6 +11,13 @@ entries:
   entries:
   - title: Astra Control Center를 설치합니다
     url: "/get-started/install_acc.html"
+    entries:
+    - title: Astra Control Center 클러스터 CR 옵션을 이해합니다
+      url: "/get-started/acc_cluster_cr_options.html"
+    - title: POD 보안 정책 제한 사항 이해
+      url: "/get-started/understand-psp-restrictions.html"
+    - title: 외부 인증서 관리자를 구성합니다
+      url: "/get-started/cert-manager-prereqs.html"
   - title: OpenShift OperatorHub를 사용하여 Astra Control Center를 설치합니다
     url: "/get-started/acc_operatorhub_install.html"
   - title: Cloud Volumes ONTAP 스토리지 백엔드를 사용하여 Astra Control Center를 설치합니다

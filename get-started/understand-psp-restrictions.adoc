@@ -1,0 +1,200 @@
+---
+sidebar: sidebar 
+permalink: get-started/understand-psp-restrictions.html 
+keywords: login, Astra Control Center, web ui, tls, certificate 
+summary: Astra Control Center를 설치하기 전에 POD 보안 정책의 작동 방식을 이해해야 합니다. 
+---
+= POD 보안 정책 제한 사항 이해
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+Astra Control Center는 POD 보안 정책(PSP)을 통해 권한 제한을 지원합니다. POD 보안 정책을 사용하면 컨테이너를 실행할 수 있는 사용자 또는 그룹과 해당 컨테이너에 사용할 수 있는 권한을 제한할 수 있습니다.
+
+RKE2와 같은 일부 Kubernetes 배포에는 기본 POD 보안 정책이 너무 제한적이며 Astra Control Center 설치 시 문제가 발생합니다.
+
+여기에 포함된 정보와 예제를 사용하여 Astra Control Center가 생성하는 POD 보안 정책을 이해하고, Astra Control Center 기능을 방해하지 않으면서 필요한 보호 기능을 제공하는 POD 보안 정책을 구성할 수 있습니다.
+
+
+
+== Astra Control Center에서 설치한 PSP
+
+Astra Control Center는 설치 중에 몇 가지 POD 보안 정책을 생성합니다. 이 중 일부는 영구적이며 일부 작업은 특정 작업 중에 생성되며 작업이 완료되면 제거됩니다.
+
+
+
+=== 설치 중에 PSP가 생성되었습니다
+
+Astra Control Center를 설치하는 동안 Astra Control Center 운영자는 사용자 지정 POD 보안 정책, 역할 개체 및 RoleBinding 개체를 설치하여 Astra Control Center 네임스페이스에 Astra Control Center 서비스를 배포할 수 있도록 합니다.
+
+새 정책 및 객체에는 다음과 같은 특성이 있습니다.
+
+[source, sh]
+----
+$ kubectl get psp
+NAME                           PRIV    CAPS          SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
+avp-psp                        false                 RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
+netapp-astra-deployment-psp    false                 RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
+
+$ kubectl get role
+NAME                                     CREATED AT
+netapp-astra-deployment-role             2022-06-27T19:34:58Z
+
+$ kubectl get rolebinding
+NAME                                     ROLE                                          AGE
+netapp-astra-deployment-rb               Role/netapp-astra-deployment-role             32m
+----
+
+
+=== 백업 작업 중에 PSP가 생성되었습니다
+
+백업 작업 중에 Astra Control Center는 동적 POD 보안 정책, ClusterRole 개체 및 RoleBinding 개체를 만듭니다. 이러한 백업 프로세스는 별도의 네임스페이스에서 수행됩니다.
+
+새 정책 및 객체에는 다음과 같은 특성이 있습니다.
+
+[source, sh]
+----
+$ kubectl get psp
+NAME                           PRIV    CAPS                            SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
+netapp-astra-backup            false   DAC_READ_SEARCH                 RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
+
+$ kubectl get role
+NAME                  CREATED AT
+netapp-astra-backup   2022-07-21T00:00:00Z
+
+$ kubectl get rolebinding
+NAME                  ROLE                       AGE
+netapp-astra-backup   Role/netapp-astra-backup   62s
+----
+
+
+=== 클러스터 관리 중에 생성된 PSP입니다
+
+클러스터를 관리할 때 Astra Control Center는 NetApp 모니터링 연산자를 관리형 클러스터에 설치합니다. 이 연산자는 POD 보안 정책, ClusterRole 개체 및 RoleBinding 개체를 만들어 Astra Control Center 네임스페이스에 원격 측정 서비스를 배포합니다.
+
+새 정책 및 객체에는 다음과 같은 특성이 있습니다.
+
+[source, sh]
+----
+$ kubectl get psp
+NAME                           PRIV    CAPS                            SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
+netapp-monitoring-psp-nkmo     true    AUDIT_WRITE,NET_ADMIN,NET_RAW   RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
+
+$ kubectl get role
+NAME                                           CREATED AT
+netapp-monitoring-role-privileged              2022-07-21T00:00:00Z
+
+$ kubectl get rolebinding
+NAME                                                  ROLE                                                AGE
+netapp-monitoring-role-binding-privileged             Role/netapp-monitoring-role-privileged              2m5s
+----
+
+
+== 네임스페이스 간 네트워크 통신을 활성화합니다
+
+일부 환경에서는 NetworkPolicy 구문을 사용하여 네임스페이스 간 트래픽을 제한합니다. Astra Control Center 운영자, Astra Control Center 및 VMware vSphere용 Astra Plugin은 모두 서로 다른 네임스페이스에 있습니다. 서로 다른 네임스페이스에 있는 서비스는 서로 통신할 수 있어야 합니다. 이 통신을 활성화하려면 다음 단계를 수행하십시오.
+
+.단계
+. Astra Control Center 네임스페이스에 있는 NetworkPolicy 리소스를 삭제합니다.
++
+[source, sh]
+----
+$kubectl get networkpolicy -n netapp-acc
+----
+. 앞의 명령으로 반환된 각 NetworkPolicy 개체에 대해 다음 명령을 사용하여 개체를 삭제합니다. object_name>을(를) 반환된 개체의 이름으로 바꿉니다.
++
+[source, sh]
+----
+$kubectl delete networkpolicy <OBJECT_NAME> -n netapp-acc
+----
+. Astra Plugin for VMware vSphere 서비스가 Astra Control Center 서비스에 요청을 할 수 있도록 acc-AVP-network-policy 객체를 구성하려면 다음 리소스 파일을 적용하십시오. 괄호 <>의 정보를 사용자 환경의 정보로 바꿉니다.
++
+[source, yaml]
+----
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: acc-avp-network-policy
+  namespace: <ACC_NAMESPACE_NAME> # REPLACE THIS WITH THE ASTRA CONTROL CENTER NAMESPACE NAME
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: <PLUGIN_NAMESPACE_NAME> # REPLACE THIS WITH THE ASTRA PLUGIN FOR VMWARE VSPHERE NAMESPACE NAME
+----
+. 다음 리소스 파일을 적용하여 Astra Control Center 운영자가 Astra Control Center 서비스와 통신할 수 있도록 acc-operator-network-policy 객체를 구성합니다. 괄호 <>의 정보를 사용자 환경의 정보로 바꿉니다.
++
+[source, yaml]
+----
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: acc-operator-network-policy
+  namespace: <ACC_NAMESPACE_NAME> # REPLACE THIS WITH THE ASTRA CONTROL CENTER NAMESPACE NAME
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: <NETAPP-ACC-OPERATOR> # REPLACE THIS WITH THE OPERATOR NAMESPACE NAME
+----
+
+
+
+
+== 리소스 제한을 제거합니다
+
+일부 환경에서는 ResourceQuotas 및 LimitRanges 개체를 사용하여 네임스페이스의 리소스가 클러스터에서 사용 가능한 모든 CPU 및 메모리를 사용하지 못하도록 합니다. Astra Control Center는 최대 제한을 설정하지 않으므로 해당 리소스를 준수하지 않습니다. Astra Control Center를 설치할 네임스페이스에서 제거해야 합니다.
+
+다음 단계를 사용하여 할당량 및 제한을 검색하고 제거할 수 있습니다. 이 예제에서 명령 출력은 명령 직후에 표시됩니다.
+
+.단계
+. NetApp-acc 네임스페이스에서 리소스 할당량 확인:
++
+[source, sh]
+----
+$ kubectl get quota -n netapp-acc
+
+NAME          AGE   REQUEST                                        LIMIT
+pods-high     16s   requests.cpu: 0/20, requests.memory: 0/100Gi   limits.cpu: 0/200, limits.memory: 0/1000Gi
+pods-low      15s   requests.cpu: 0/1, requests.memory: 0/1Gi      limits.cpu: 0/2, limits.memory: 0/2Gi
+pods-medium   16s   requests.cpu: 0/10, requests.memory: 0/20Gi    limits.cpu: 0/20, limits.memory: 0/200Gi
+----
+. 이름으로 모든 리소스 할당량 삭제:
++
+[source, sh]
+----
+$ kubectl delete resourcequota  pods-high -n netapp-acc
+resourcequota "pods-high" deleted
+
+$ kubectl delete resourcequota  pods-low -n netapp-acc
+resourcequota "pods-low" deleted
+
+$ kubectl delete resourcequota  pods-medium -n netapp-acc
+resourcequota "pods-medium" deleted
+----
+. NetApp-acc 네임스페이스의 제한 범위를 가져옵니다.
++
+[source, sh]
+----
+$ kubectl get limits -n netapp-acc
+
+NAME              CREATED AT
+cpu-limit-range   2022-06-27T19:01:23Z
+----
+. 이름별로 제한 범위를 삭제합니다.
++
+[source, sh]
+----
+$kubectl delete limitrange cpu-limit-range -n netapp-acc
+----
+

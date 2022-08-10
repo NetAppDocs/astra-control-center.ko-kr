@@ -16,7 +16,6 @@ sidebar:
   - section: get-started
   - section: use
   - section: rest-api
-  - section: solutions
   - section: support
   - title: 이전 버전
     url: "/acc-earlier-versions.html"
@@ -46,6 +45,8 @@ homepage:
       url: "/use/protect-apps.html"
     - title: 애플리케이션 클론 복제 및 마이그레이션
       url: "/use/clone-apps.html"
+    - title: 원격 시스템에 앱을 복제합니다
+      url: "/use/replication.html"
   - title: Astra Control API를 사용합니다
     links:
     - title: Astra Control API를 시작하십시오
@@ -56,17 +57,17 @@ homepage:
       url: https://docs.netapp.com/us-en/astra-automation/workflows/workflows_before.html
   - title: Astra Control Service를 사용합니다
     links:
-    - title: Astra Control Service 소개
+    - title: Astra Control Service에 대해 알아보십시오
       url: https://docs.netapp.com/us-en/astra/get-started/intro.html
-    - title: 새로운 소식
+    - title: Astra Control Service의 새로운 기능
       url: https://docs.netapp.com/us-en/astra/release-notes/whats-new.html
     - title: Astra Control Service를 빠르게 시작합니다
       url: https://docs.netapp.com/us-en/astra/get-started/quick-start.html
   - title: Astra Data Store를 사용하십시오
     links:
-    - title: Astra Data Store 소개
+    - title: Astra Data Store에 대해 자세히 알아보십시오
       url: https://docs.netapp.com/us-en/astra-data-store/concepts/intro.html
-    - title: Astra Data Store 이번 릴리즈에는 어떤 내용이 포함되어 있는지
+    - title: Astra Data Store의 새로운 기능
       url: https://docs.netapp.com/us-en/astra-data-store/release-notes/whats-new.html
     - title: Astra Data Store를 빠르게 시작합니다
       url: https://docs.netapp.com/us-en/astra-data-store/get-started/quick-start.html
@@ -78,16 +79,6 @@ homepage:
       url: https://cloud.netapp.com/hubfs/SB-4110-0221-MySQL-Astra%20(2).pdf
     - title: Jenkins 라이프사이클 관리 단순화
       url: https://cloud.netapp.com/hubfs/SB-4100-Jenkins%20(2).pdf
-  - title: 데모 자습서
-    links:
-    - title: Jenkins를 배포합니다
-      url: "/solutions/jenkins-deploy-from-helm-chart.html"
-    - title: MariaDB 배포
-      url: "/solutions/mariadb-deploy-from-helm-chart.html"
-    - title: MySQL 배포
-      url: "/solutions/mysql-deploy-from-helm-chart.html"
-    - title: Postgres를 배포합니다
-      url: "/solutions/postgres-deploy-from-helm-chart.html"
   - title: 블로그 커뮤니티
     links:
     - title: 슬랙 채널

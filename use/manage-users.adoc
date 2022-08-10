@@ -13,6 +13,14 @@ summary: Astra Control Center 시스템에 사용자를 추가하고 더 이상 
 
 Astra Control Center 설치 사용자를 Astra Control UI를 사용하여 초대, 추가, 제거 및 편집할 수 있습니다. Astra Control UI 또는 를 사용할 수 있습니다 https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^] 를 눌러 사용자를 관리합니다.
 
+LDAP를 사용하여 선택한 사용자에 대한 인증을 수행할 수도 있습니다.
+
+
+
+== LDAP를 사용합니다
+
+LDAP는 분산된 디렉터리 정보에 액세스하기 위한 업계 표준 프로토콜이며 엔터프라이즈 인증에 널리 사용되는 프로토콜입니다. Astra Control Center를 LDAP 서버에 연결하여 선택한 Astra 사용자에 대한 인증을 수행할 수 있습니다. 이 구성에는 Astra와 LDAP를 통합하고 LDAP 정의에 해당하는 Astra 사용자 및 그룹을 정의하는 작업이 포함됩니다. 을 참조하십시오 https://docs.netapp.com/us-en/astra-automation/workflows_infra/ldap_prepare.html["LDAP 인증"^] 를 참조하십시오.
+
 
 
 == 사용자를 초대합니다
