@@ -13,48 +13,7 @@ summary: 'Kubernetes 클러스터를 Astra Control에 추가한 후 해당 클�
 
 먼저 해 link:../get-started/setup_overview.html#add-cluster["Astra Control 관리에 클러스터를 추가합니다"], 클러스터(Astra Control 외부)에 앱을 설치한 다음 Astra Control의 애플리케이션 페이지로 이동하여 앱과 리소스 관리를 시작할 수 있습니다.
 
-
-
-== 설명합니다
-
-Astra Control에는 다음과 같은 앱 관리 요구 사항이 있습니다.
-
-* * 라이선스 *: Astra Control Center를 사용하여 앱을 관리하려면 Astra Control Center 라이센스가 필요합니다.
-* * Namespaces *: Astra Control은 앱이 단일 네임스페이스 이상의 범위를 포괄하지 않도록 하지만 네임스페이스에는 여러 개의 앱이 포함될 수 있습니다.
-* * StorageClass *: StorageClass가 명시적으로 설정된 앱을 설치하고 앱을 복제해야 하는 경우 클론 작업의 타겟 클러스터에 원래 지정된 StorageClass가 있어야 합니다. 명시적으로 StorageClass를 동일한 StorageClass가 없는 클러스터로 설정한 애플리케이션을 클론 복제하면 실패합니다.
-* * Kubernetes 리소스 *: Astra Control에서 수집하지 않은 Kubernetes 리소스를 사용하는 앱에는 전체 앱 데이터 관리 기능이 없을 수 있습니다. Astra Control은 다음과 같은 Kubernetes 리소스를 수집합니다.
-+
-[cols="1,1,1"]
-|===
-
-
-| 클러스터 역할 | ClusterRoleBinding 을 참조하십시오 | ConfigMap을 클릭합니다 
-
-
-| 사용자 지정 리소스 정의 | CustomResource 를 선택합니다 | 경작업 
-
-
-| DemonSet | HorizontalPodAutoscaler | 침투 
-
-
-| DeploymentConfig(배포 구성 | 뮤atingWebhook | PersistentVolumeClaim 
-
-
-| 포드 | 팟캐스트 예산 | 팟캐스트 템플릿 
-
-
-| 네트워크 정책 | ReplicaSet입니다 | 역할 
-
-
-| RoleBinding 을 클릭합니다 | 루트 | 비밀 
-
-
-| 서비스 | 서비스 계정 | StatefulSet 을 선택합니다 
-
-
-| Webhook을 확인합니다 |  |  
-|===
-
+자세한 내용은 을 참조하십시오 link:../get-started/requirements.html#application-management-requirements["설명합니다"].
 
 
 

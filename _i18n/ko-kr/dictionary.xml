@@ -405,11 +405,7 @@
   <block id="32139554c6b5c9a48dcfdd0ff983a9eb" category="doc">앱 관리를 시작합니다</block>
   <block id="1cf97dd1e6f6c8888d8fa6dcede7fac9" category="inline-link-macro">Astra Control 관리에 클러스터를 추가합니다</block>
   <block id="7b7f260c982647b3aee51c681be792ef" category="section-title">설명합니다</block>
-  <block id="07eb1eefb9996b52d1fdfe23101a2b03" category="paragraph">Astra Control에는 다음과 같은 앱 관리 요구 사항이 있습니다.</block>
-  <block id="040814594415b3be75eca728578ba39d" category="list-text">* 라이선스 *: Astra Control Center를 사용하여 앱을 관리하려면 Astra Control Center 라이센스가 필요합니다.</block>
   <block id="9ddfdbe42c83c42ff3e215c90be2d274" category="list-text">* Namespaces *: Astra Control은 앱이 단일 네임스페이스 이상의 범위를 포괄하지 않도록 하지만 네임스페이스에는 여러 개의 앱이 포함될 수 있습니다.</block>
-  <block id="a23e8e619b2ffd1ec1e37fd1f16eee74" category="list-text">* StorageClass *: StorageClass가 명시적으로 설정된 앱을 설치하고 앱을 복제해야 하는 경우 클론 작업의 타겟 클러스터에 원래 지정된 StorageClass가 있어야 합니다. 명시적으로 StorageClass를 동일한 StorageClass가 없는 클러스터로 설정한 애플리케이션을 클론 복제하면 실패합니다.</block>
-  <block id="7a9f49c6cd6dca3bc35b755523c76570" category="list-text">* Kubernetes 리소스 *: Astra Control에서 수집하지 않은 Kubernetes 리소스를 사용하는 앱에는 전체 앱 데이터 관리 기능이 없을 수 있습니다. Astra Control은 다음과 같은 Kubernetes 리소스를 수집합니다.</block>
   <block id="d7d354d0f9d0780e168c895c92a32c24" category="list-text">클러스터 역할</block>
   <block id="e866afd8290d5c73cda6260e04e6eef0" category="list-text">ClusterRoleBinding 을 참조하십시오</block>
   <block id="a941f8adb5ae079ebc739cb59407fd30" category="list-text">ConfigMap을 클릭합니다</block>
@@ -2635,4 +2631,5 @@
   <block id="f37ba65ac5d8b8df530d2009f9539d5d" category="sidebar">Astra Data Store의 새로운 기능</block>
   <block id="9c55cf3bb8c415c1b4cf797d9fae1d67" category="sidebar">앱 및 클러스터 상태를 모니터링합니다</block>
   <block id="0adc618a9ad28f57db9328d47cf45165" category="sidebar">Cloud Insights 및 Fluentd로 인프라 모니터링</block>
+  <block id="d1736d27c7efe09a7fdb5f5e3b18e8dc" category="paragraph">자세한 내용은 을 참조하십시오 <block ref="f6d2e41142da7ccda158b71b34630966" category="inline-link-macro-rx"></block>.</block>
 </blocks>
