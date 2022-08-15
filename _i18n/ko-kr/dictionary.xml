@@ -2235,7 +2235,6 @@
   <block id="37accdd90658899d1dec0f0f1a91d1fe" category="list-text">Red Hat OpenShift Container Platform 4.8, 4.9 또는 4.10</block>
   <block id="8c19cded473a1f250d655fce0b3d1417" category="list-text">VMware Tanzu Kubernetes Grid 1.4 또는 1.5</block>
   <block id="392295e1bbc9dd503d6376cf6e270a01" category="list-text">VMware Tanzu Kubernetes Grid Integrated Edition 1.12.2 또는 1.13</block>
-  <block id="2571f75e7d242243ae1f0f65ed7f6278" category="cell">최소 3개의 작업자 노드, 각각 12개의 CPU 코어 및 16GB RAM</block>
   <block id="022edc3637cfb3843cebdfdd464d0b9d" category="paragraph">Astra Trident 21.10.1 이상 SnapMirror 기반 애플리케이션 복제를 위해 Astra Trident 22.04 이상 설치 및 구성되었습니다</block>
   <block id="3e3162b6d17401fa39d86c5e6f2f8052" category="list-text">Astra Control Center 설치의 일부로 POD 보안 정책(PSP) 제한 환경에서 다음 리소스가 생성됩니다.</block>
   <block id="2eec382fbdd640ff6611d08393c4826a" category="list-text">POD 보안 정책</block>
@@ -2632,4 +2631,5 @@
   <block id="9c55cf3bb8c415c1b4cf797d9fae1d67" category="sidebar">앱 및 클러스터 상태를 모니터링합니다</block>
   <block id="0adc618a9ad28f57db9328d47cf45165" category="sidebar">Cloud Insights 및 Fluentd로 인프라 모니터링</block>
   <block id="d1736d27c7efe09a7fdb5f5e3b18e8dc" category="paragraph">자세한 내용은 을 참조하십시오 <block ref="f6d2e41142da7ccda158b71b34630966" category="inline-link-macro-rx"></block>.</block>
+  <block id="3dc2f4e20c545bc208864c2f1c9ce93c" category="cell">최소 3개의 작업자 노드, 각각 4개의 CPU 코어, 12GB RAM</block>
 </blocks>

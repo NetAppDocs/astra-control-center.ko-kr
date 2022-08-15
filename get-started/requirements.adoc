@@ -53,7 +53,7 @@ Astra Control Center를 호스팅하기 위해 선택한 운영 환경이 환경
 | 스토리지 백엔드 용량입니다 | 최소 500GB가 제공됩니다 
 
 
-| 작업자 노드 | 최소 3개의 작업자 노드, 각각 12개의 CPU 코어 및 16GB RAM 
+| 작업자 노드 | 최소 3개의 작업자 노드, 각각 4개의 CPU 코어, 12GB RAM 
 
 
 | FQDN 주소입니다 | Astra Control Center의 FQDN 주소입니다 
