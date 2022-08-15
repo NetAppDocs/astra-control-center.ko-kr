@@ -164,19 +164,19 @@ Astra Control에는 다음과 같은 애플리케이션 관리 요구 사항이 
 | 클러스터 역할 | ClusterRoleBinding 을 참조하십시오 | ConfigMap을 클릭합니다 
 
 
-| 사용자 지정 리소스 정의 | CustomResource 를 선택합니다 | 경작업 
+| 경작업 | 사용자 지정 리소스 정의 | CustomResource 를 선택합니다 
 
 
-| DemonSet | HorizontalPodAutoscaler | 침투 
+| DemonSet | DeploymentConfig(배포 구성 | HorizontalPodAutoscaler 
 
 
-| DeploymentConfig(배포 구성 | 뮤atingWebhook | PersistentVolumeClaim 
+| 침투 | 뮤atingWebhook | 네트워크 정책 
 
 
-| 포드 | 팟캐스트 예산 | 팟캐스트 템플릿 
+| PersistentVolumeClaim | 포드 | 팟캐스트 예산 
 
 
-| 네트워크 정책 | ReplicaSet입니다 | 역할 
+| 팟캐스트 템플릿 | ReplicaSet입니다 | 역할 
 
 
 | RoleBinding 을 클릭합니다 | 루트 | 비밀 
