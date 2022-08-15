@@ -2630,12 +2630,6 @@
   <block id="d1736d27c7efe09a7fdb5f5e3b18e8dc" category="paragraph">자세한 내용은 을 참조하십시오 <block ref="f6d2e41142da7ccda158b71b34630966" category="inline-link-macro-rx"></block>.</block>
   <block id="3dc2f4e20c545bc208864c2f1c9ce93c" category="cell">최소 3개의 작업자 노드, 각각 4개의 CPU 코어, 12GB RAM</block>
   <block id="7710790456945bed9a23fff9f934b8fd" category="paragraph">Astra Control Center는 전체 앱 데이터 관리 기능을 사용하려면 라이센스를 설치해야 합니다. 라이센스 없이 Astra Control Center를 배포하는 경우, 시스템 기능이 제한된다는 경고 메시지가 웹 UI에 표시됩니다.</block>
-  <block id="eee7185d57747c6b57ad38a0e1864f92" category="list-text">ONTAP * 를 선택하고 * Next * 를 선택합니다.</block>
-  <block id="27fa550ebd74698993e3dcb9ba7e2945" category="list-text">ONTAP 클러스터 관리 IP 주소 및 관리 자격 증명을 입력합니다.</block>
-  <block id="8e9fceaaf84bd1591dc11726965a5b35" category="inline-link">사용자 계정 관리</block>
-  <block id="b6b734f5600f81536bcbb3b4bbdc32bc" category="admonition">여기에 자격 증명을 입력한 사용자는 ONTAP 클러스터의 ONTAP 시스템 관리자 내에 "ontapi" 사용자 로그인 액세스 방법이 활성화되어 있어야 합니다. SnapMirror 복제를 사용할 계획이라면 두 ONTAP 클러스터 모두에서 사용자에 대한 액세스 메서드(ontapi)와 http를 사용하도록 설정하십시오. 을 참조하십시오<block ref="f6ed2b7e6315ca84a258679db888068b" category="inline-link-rx"></block> 를 참조하십시오.</block>
-  <block id="a698e4170358adf4ae12dde1db5e4df4" category="list-text">Astra Trident 백엔드 구성 파일에는 다음 행이 포함되어야 합니다.</block>
-  <block id="87dc0337d3ded2211d9b01c32e22d90d" category="inline-link">백엔드 구성</block>
-  <block id="10455fcfd55eff76710d4945e30e3c6f" category="paragraph">을 참조하십시오<block ref="f296f2024998b4c76709035f49bba3d4" category="inline-link-rx"></block> 를 참조하십시오.</block>
-  <block id="57e07386eb22ab2bcc329ab181a33fdf" category="list-text">Astra Control Center에 ONTAP 스토리지 백엔드를 추가할 때, Astra Control Center와 스토리지 백엔드 간의 통신을 활성화하는 데 사용하는 자격 증명을 가진 사용자는 두 ONTAP 클러스터의 ONTAP System Manager 내에서 사용자 로그인 액세스 방법 "http"와 "ontapi"가 활성화되어 있어야 합니다. 을 참조하십시오<block ref="f6ed2b7e6315ca84a258679db888068b" category="inline-link-rx"></block> 를 참조하십시오.</block>
+  <block id="3a8637e581240d33340d3e6f8927a52d" category="list-text">ONTAP * 를 선택합니다.</block>
+  <block id="bf2393bb3f17f3d2b4ff6979c3c20036" category="list-text">ONTAP 관리자 자격 증명을 입력하고 * 검토 * 를 선택합니다.</block>
 </blocks>
