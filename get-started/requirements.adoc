@@ -201,6 +201,16 @@ Astra Control 애플리케이션 복제를 시작하려면 먼저 다음과 같�
 * 타겟 클러스터의 Trident에서 페어링된 원격 SVM을 사용할 수 있어야 합니다.
 * Trident 버전 22.04 이상이 소스 및 대상 ONTAP 클러스터 모두에 있어야 합니다.
 * 소스 및 대상 ONTAP 클러스터 모두에서 데이터 보호 번들을 사용하는 ONTAP SnapMirror 비동기식 라이센스를 설정해야 합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["ONTAP의 SnapMirror 라이센스 개요"^].
+* Astra Trident 백엔드 구성 파일에는 다음 행이 포함되어야 합니다.
++
+[listing]
+----
+"replicationPolicy": "MirrorAllSnapshots"
+----
++
+을 참조하십시오 https://docs.netapp.com/us-en/trident/trident-use/backends.html["백엔드 구성"^] 를 참조하십시오.
+
+* Astra Control Center에 ONTAP 스토리지 백엔드를 추가할 때, Astra Control Center와 스토리지 백엔드 간의 통신을 활성화하는 데 사용하는 자격 증명을 가진 사용자는 두 ONTAP 클러스터의 ONTAP System Manager 내에서 사용자 로그인 액세스 방법 "http"와 "ontapi"가 활성화되어 있어야 합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["사용자 계정 관리"^] 를 참조하십시오.
 * 소스 및 대상 Kubernetes 클러스터와 ONTAP 클러스터는 Astra Control에서 관리해야 합니다.
 +
 
@@ -264,6 +274,8 @@ Astra Control Center를 사용해 보고 싶다면 가능합니다 link:setup_ov
 
 
 NOTE: Tanzu Kubernetes Grid 클러스터에서 Astra Control Center를 호스팅하는 경우 "kubbtl get nsxlbmonitor -a" 명령을 사용하여 수신 트래픽을 허용하도록 구성된 서비스 모니터가 있는지 확인하십시오. 기존 서비스 모니터가 새 로드 밸런서 구성을 무시하므로 MetalLB를 설치하면 안 됩니다.
+
+자세한 내용은 을 참조하십시오 link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["부하 분산을 위한 수신 설정"].
 
 
 
