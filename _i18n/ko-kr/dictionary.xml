@@ -105,7 +105,6 @@
   <block id="9318b0c96f2eb8cb846f9939d293ee5c" category="summary">Astra Control Center 소프트웨어는 사내 환경에서 Kubernetes 클러스터의 애플리케이션 인식 데이터 관리를 제공합니다. Kubernetes 앱을 손쉽게 백업하고, 데이터를 다른 클러스터로 마이그레이션하고, 작동하는 애플리케이션 클론을 즉시 생성할 수 있습니다. 퍼블릭 클라우드에서 실행 중인 Kubernetes 애플리케이션을 관리해야 하는 경우에는 Astra Control Service용 문서 를 참조하십시오.</block>
   <block id="5bc8792f4d0618bc7421137123233c68" category="summary">NetApp은 다양한 방법으로 Astra Control을 지원합니다. 기술 자료(KB) 기사 및 Slack 채널과 같은 광범위한 무료 셀프 지원 옵션을 24x7 이용할 수 있습니다. Astra Control 계정에는 웹 발권 서비스를 통한 원격 기술 지원이 포함되어 있습니다.</block>
   <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="doc">도움을 받으십시오</block>
-  <block id="a6e1f493785653671f0660b3a3ccc2e2" category="admonition">Astra Control Center에 대한 평가판 라이센스가 있는 경우 기술 지원을 받을 수 있습니다. 그러나 NSS(NetApp Support Site)를 통한 케이스 생성은 사용할 수 없습니다. 피드백 옵션을 통해 지원 팀에 문의하거나 Slack 채널을 사용하여 셀프 서비스를 받을 수 있습니다.</block>
   <block id="9f1a9252fa8e7cccfce329f81193d946" category="inline-link-macro">NetApp 일련 번호에 대한 지원을 활성화합니다</block>
   <block id="9580bedb9d61fe3a06c2c0a84428340b" category="paragraph">먼저 해야 합니다 <block ref="0da2bd51927b2e0d6e9f34a462b8052f" category="inline-link-macro-rx"></block> 이러한 비 셀프 서비스 지원 옵션을 사용하려면 NetApp NSS(Support Site) SSO 계정은 케이스 관리와 함께 채팅 및 웹 티켓팅에 필요합니다.</block>
   <block id="e9f9b053971e4cd8cce3a402331a125b" category="paragraph">기본 메뉴에서 * 지원 * 탭을 선택하면 Astra Control Center UI에서 지원 옵션에 액세스할 수 있습니다.</block>
@@ -1185,7 +1184,6 @@
   <block id="b1cb177a36a717434db632021b6d91bc" category="sidebar">Astra Control이 포함된 MySQL DBaaS</block>
   <block id="332153f6f1b31602ac3418cdf4d18170" category="sidebar">Jenkins 라이프사이클 관리 단순화</block>
   <block id="813011e2103649bb71f124adedcc10ea" category="sidebar">블로그 커뮤니티</block>
-  <block id="0c2a2a6a4c35696b309713d6db0f8404" category="sidebar">슬랙 채널</block>
   <block id="36910a95584c53fdc9ed97782ef3965c" category="sidebar">Astra Control 블로그</block>
   <block id="dd490b81914dd945601e442a41cb4222" category="sidebar">NetApp 커뮤니티</block>
   <block id="874d8a5301794a9ca2aba132ac2460f3" category="sidebar">쿠버네티스 허브</block>
@@ -1752,8 +1750,6 @@
   <block id="68f269105158a82f8e06dd324631610e" category="inline-link">* 기술 자료 * (로그인 필요)</block>
   <block id="3ce7820e1a8dcaf1b20e89638e9eb65c" category="list-text"><block ref="c21c91b055ef6d38b9e7473e1602e44f" category="inline-link-rx"></block>Astra Control과 관련된 문서, FAQ 또는 고장 수리 정보를 검색합니다.</block>
   <block id="54fb836d65dfa963fa159aa13bf9fe60" category="list-text">* 문서 센터 *: 현재 보고 있는 문서 사이트입니다.</block>
-  <block id="8fcc40b57fd2544f263ddca555e1a42f" category="inline-link">Slack * 을 통해 도움을 받으십시오</block>
-  <block id="f3bd3849c5621364cd7faf04bda271ca" category="list-text"><block ref="f235ba35538949dfe124c04907cdfa51" category="inline-link-rx"></block>: 동료 및 전문가와 연결하려면 thePub 작업 공간의 컨테이너 채널로 이동하십시오.</block>
   <block id="2d1cdbb35250ece1f1e88fdafee9d683" category="list-text">* 지원 케이스 생성 *: 문제 해결을 위해 NetApp 지원에 제공할 지원 번들을 생성합니다.</block>
   <block id="5a7e155bd663e7d6145fbd05e0908d7e" category="list-text">* Astra Control에 대한 피드백 제공 *: astra.feedback@netapp.com 으로 이메일을 보내 귀하의 생각, 아이디어 또는 우려 사항을 알려 주십시오.</block>
   <block id="8c32a73fa8e487b617354c9f67eced24" category="paragraph">NSS에 번들을 업로드하는 데 프록시 연결이 필요한지 여부를 확인합니다. 프록시 연결이 필요한 경우 Astra Control Center가 프록시 서버를 사용하도록 구성되어 있는지 확인합니다.</block>
@@ -2645,4 +2641,9 @@
   <block id="e8c44728c041065d90e7029dec2e142c" category="list-text">레지스트리에 로그인합니다.</block>
   <block id="c330f6e98afeb2bb5f8da986c24088ee" category="list-text">설명에 명시된 대로 &lt;your_registry&gt; 대체를 만들어 다음 스크립트를 실행합니다.</block>
   <block id="b5a8988ef4b9c7e25ec15b79d93a02d4" category="admonition">자리 표시자 'your_registry_path'는 이전에 업로드한 이미지의 위치와 일치해야 합니다(예: "[Registry_URL]/NetApp/Astra/astrc/aacc/22.08.0-20").</block>
+  <block id="1c90591655cdfe7d885b02ed72ae2509" category="summary">NetApp은 다양한 방법으로 Astra Control을 지원합니다. 기술 자료(KB) 기사 및 불화 채널 같은 광범위한 무료 셀프 지원 옵션이 24x7 제공됩니다. Astra Control 계정에는 웹 발권 서비스를 통한 원격 기술 지원이 포함되어 있습니다.</block>
+  <block id="e63bdfa6fe9dccaf39b5d028f12a4a15" category="admonition">Astra Control Center에 대한 평가판 라이센스가 있는 경우 기술 지원을 받을 수 있습니다. 그러나 NSS(NetApp Support Site)를 통한 케이스 생성은 사용할 수 없습니다. 피드백 옵션을 통해 지원을 받거나 불협화음을 셀프 서비스로 사용할 수 있습니다.</block>
+  <block id="35cdc0acd4828a4d409d79a5f18ee353" category="inline-link">* 불화를 통한 도움 받기*</block>
+  <block id="5782a764d5148bc0a62fa0db213a073b" category="list-text"><block ref="f560054dea7b7d17ab98f97d9a55b6ac" category="inline-link-rx"></block>: Pub 카테고리의 Astra로 이동하여 동료 및 전문가와 교류하십시오.</block>
+  <block id="a7cfd917113a9ee9c1e789887d1d809f" category="sidebar">불화 채널</block>
 </blocks>
