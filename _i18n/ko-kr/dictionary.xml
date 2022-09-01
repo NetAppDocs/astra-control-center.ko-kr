@@ -661,7 +661,6 @@
   <block id="7ccab09493cf97c9665c6c2126741ee5" category="list-text">(선택 사항) 다음 명령을 사용하여 번들의 서명을 확인합니다.</block>
   <block id="55dd7c8d274890e1cb45bb29840ae107" category="section-title">번들의 포장을 풀고 디렉토리를 변경합니다</block>
   <block id="ae32a002cf3df8354380980ceb442a90" category="list-text">이미지 추출:</block>
-  <block id="f649b0ca3deae5a7d2e60dabf74a0ab4" category="list-text">Astra 디렉토리로 변경합니다.</block>
   <block id="22a59db7b4ba20ac09e829d51d726828" category="section-title">이미지를 로컬 레지스트리에 추가합니다</block>
   <block id="9d37e8b16bca7866e9db4f98f5080a5a" category="section-title">업데이트된 Astra Control Center 운영자를 설치합니다</block>
   <block id="4dfe1039695653a07d27cb2151fbe633" category="list-text">Astra Control Center 운영자 배포 YAML('Astra_control_center_operator_deploy.YAML')을 편집하여 현지 등록부와 비밀을 참조하십시오.</block>
@@ -1249,7 +1248,6 @@
   <block id="1cee46fe31fb6be4325d72afeb43c038" category="paragraph">CA에서 서명한 새 TLS 인증서를 추가합니다.</block>
   <block id="38073e52be4dfccbbd24b3272a244562" category="list-text">에서 Astra Control Center 인증서 및 키의 지퍼를 다운로드합니다<block ref="4e4882d47509d388d52971aaee9abe33" category="inline-link-rx"></block>.</block>
   <block id="817e1aba6882bae4837bd1f640be671a" category="list-text">인터넷 연결이 없는 사이트의 경우 AutoSupport에 등록된 사이트를 거짓으로 변경하거나 연결된 사이트의 경우 "참"으로 변경합니다.</block>
-  <block id="2a0a2b464d2715b6fb4ea6d68ae8f9c4" category="list-text">모든 Pod가 실행 중인 경우, Astra Control Center Operator가 설치한 AstraControlCenter 인스턴스를 검색하여 설치 성공 여부를 확인한다.</block>
   <block id="7267bf4022ef959138b9f6b053eb4b37" category="paragraph">먼저 운영 환경, 애플리케이션 클러스터, 애플리케이션, 라이센스 및 웹 브라우저의 준비 상태를 확인하십시오.</block>
   <block id="14c3520c1ca6993e39c544e92a538f0b" category="section-title">구현할 수 있습니다</block>
   <block id="540bf6f549a34a85e07e4a8510890f43" category="paragraph">Astra Control Center를 호스팅하기 위해 선택한 운영 환경이 환경 공식 문서에 설명된 기본 리소스 요구 사항을 충족하는지 확인합니다. Astra Control Center에는 환경의 리소스 요구 사항 외에 다음과 같은 리소스가 필요합니다.</block>
@@ -1668,9 +1666,6 @@
   <block id="77e0de8ecc5568c2d3a063c7dc7001ec" category="admonition">"로드 밸런서" 및 수신 서비스 유형에 대한 자세한 내용은 을 참조하십시오 <block ref="ec43fa96d69fa714ee8406758839eaf7" category="inline-link-macro-rx"></block>.</block>
   <block id="ee0526590c13af447ef6f7015055f42a" category="inline-link-macro">를 클릭합니다</block>
   <block id="7273584d0fdded6be7a9a6e1cc3f03b4" category="admonition">"accHost" 클러스터 등록은 마지막 작업 중 하나이며, 실패하면 배포가 실패하지 않습니다. 로그에 클러스터 등록 실패가 표시되는 경우 클러스터 추가 워크플로우를 통해 등록을 다시 시도할 수 있습니다 <block ref="b470e1e769f57d21f243dd7007dff492" category="inline-link-macro-rx"></block> API를 사용합니다.</block>
-  <block id="ac7bb8980fbb62357b278b4b6c7c9338" category="list-text">YAML에서 '구축' 가치에 대한 응답으로 'tatus.deploymentState`' 필드를 확인합니다. 배포에 실패한 경우 대신 오류 메시지가 나타납니다.</block>
-  <block id="28bbf0acdd3b39e5c8c561287bc93cb0" category="list-text">Astra Control Center에 로그인할 때 사용할 1회 암호를 얻으려면 'Status.uuid' 값을 복사합니다. 암호는 ACC-, UUID 값( ACC-[UUID]), 이 예에서는 ACC-9aa5faaaaaaaud-4214-4cb7-9976-5d8b4c0ce27f)입니다.</block>
-  <block id="9b1d9a579e35c7ae0c56196f2ec084e1" category="example-title">YAML 세부 정보 샘플</block>
   <block id="d6cdb892fe9623e9782bae6db8d7dcd7" category="paragraph">클러스터의 로드 밸런싱과 같은 서비스에 대한 외부 액세스를 관리하는 Kubernetes 수신 컨트롤러를 설정할 수 있습니다.</block>
   <block id="0d1c106f5017462d9de6e4f8a82e074c" category="paragraph">이 절차에서는 수신 컨트롤러('ingressType:Generic')를 설정하는 방법에 대해 설명합니다. 이것은 Astra Control Center의 기본 동작입니다. Astra Control Center를 배포한 후 URL을 사용하여 Astra Control Center를 노출하도록 수신 컨트롤러를 구성해야 합니다.</block>
   <block id="4bed96e1b3536d83eb37a83daf2c99fe" category="admonition">수신 컨트롤러를 설정하지 않으려면 'ingressType:AccTraefik)'를 설정할 수 있습니다. Astra Control Center는 "loadbalancer"(Astra Control Center 네임스페이스의 'VC/traefik') 유형의 서비스를 사용하며 액세스 가능한 외부 IP 주소를 할당해야 합니다. 로드 밸런서가 사용자 환경에서 허용되고 아직 로드 밸런서가 구성되어 있지 않은 경우 MetalLB 또는 다른 외부 서비스 로드 밸런서를 사용하여 외부 IP 주소를 서비스에 할당할 수 있습니다. 내부 DNS 서버 구성에서 Astra Control Center에 대해 선택한 DNS 이름을 부하 분산 IP 주소로 지정해야 합니다. "로드 밸런서" 및 수신 서비스 유형에 대한 자세한 내용은 을 참조하십시오 <block ref="ec43fa96d69fa714ee8406758839eaf7" category="inline-link-macro-rx"></block>.</block>
@@ -1896,7 +1891,6 @@
   <block id="3aa4078371fb9b0c4a3e6c177942f01d" category="list-text">NetApp Support 사이트의 소프트웨어 패키지입니다</block>
   <block id="1861208871c49f3fafbdd2b1baedad6a" category="paragraph">Astra Control Center는 연결된 저장소의 패키지 이미지 및 아티팩트를 참조합니다. CLI를 사용하여 이미지 및 아티팩트를 리포지토리에 업로드할 수 있습니다.</block>
   <block id="8a0c00d15eb4f3a9a8a6c659a1d7c576" category="list-text">NetApp Support 사이트에서 소프트웨어 패키지를 다운로드한 다음 kubbctl 유틸리티가 설치된 시스템에 저장합니다.</block>
-  <block id="a5d15ab770cd44d363e7f95fd16d0a4b" category="list-text">압축된 패키지 파일의 압축을 풀고 디렉토리를 Astra Control 번들 파일 위치로 변경합니다(예: acc.manifest.bundle.YAML).</block>
   <block id="109f9842fb9259a1de20c1577339c28c" category="list-text">Bundle_file을 Astra Control 번들 파일의 이름으로 바꿉니다.</block>
   <block id="82a16926420b6ee2d26a80442a3db7ae" category="section-title">소프트웨어 패키지를 추가합니다</block>
   <block id="5801238264a16600dd0ab813e21d2cd9" category="paragraph">Astra Control Center 번들 파일을 사용하여 소프트웨어 패키지를 가져올 수 있습니다. 이렇게 하면 패키지가 설치되고 Astra Control Center에서 소프트웨어를 사용할 수 있습니다.</block>
@@ -1958,7 +1952,6 @@
   <block id="0b85467ebafa7ca3c47e82dc38184484" category="list-text">처리량</block>
   <block id="af2248b7281e83a45508e2ec7c9356ea" category="list-text">패키지 이미지를 Docker 저장소로 푸시합니다. 다음 대체 작업을 수행합니다.</block>
   <block id="48c5334862569a4217279192a534b20a" category="list-text">my_registry를 Docker 리포지토리의 URL로 바꿉니다.</block>
-  <block id="da5ff2a96a29f48c8c4ffcf756aada4e" category="list-text">my_registry_user와 my_registry_password를 리포지터리의 자격 증명으로 교체합니다.</block>
   <block id="25d79c61a8c2cf8672fbd0f32f9bfc13" category="list-text">패키지에 아티팩트가 있는 경우 아티팩트를 아티팩트 저장소로 복사합니다. bundle_file을 Astra Control 번들 파일의 이름으로 바꾸고 network_location을 네트워크 위치로 교체하여 다음 위치에 아티팩트 파일을 복사합니다.</block>
   <block id="2707211a1bc867b58edced6b3def5b35" category="list-text">리포지토리의 자격 증명을 입력합니다.</block>
   <block id="4e7bc0f2f576e3a2e7b9bd624d2da7d3" category="list-text"><block ref="f9a9477fa54fe91dbfcc4b4adc8c5a84" category="inline-xref-macro-rx"></block></block>
@@ -2064,8 +2057,6 @@
   <block id="817ff31e06696b2ddfbd20628237efec" category="list-text">필요한 사용 권한을 얻고 Red Hat OpenShift Container Platform에 액세스하여 설명된 설치 단계를 수행합니다.</block>
   <block id="6b711ca63f3156860c2b2918a106b882" category="inline-link-macro">필수 단계</block>
   <block id="6f3f4e3c6db4311eee9b8e4f3d7cf320" category="list-text">클러스터에 인증서 관리자가 이미 있는 경우 일부를 수행해야 합니다 <block ref="1787bdbf8a8938a728c4bed68c77105f" category="inline-link-macro-rx"></block> 따라서 Astra Control Center는 자체 인증 관리자를 설치하지 않습니다.</block>
-  <block id="c7556264a1988a2b92f66e12713a407c" category="list-text">Astra Control Center 이미지 디렉토리의 패키지 이미지를 로컬 레지스트리에 밀어 넣습니다. 명령을 실행하기 전에 다음 대체 작업을 수행합니다.</block>
-  <block id="b3b0a5bd71a112bf9bb26c32b1d97c02" category="list-text">bundle_file을 Astra Control 번들 파일 이름으로 바꿉니다(예: acc.manifest.bundle.YAML).</block>
   <block id="ab25aff32a32d9ce9e224b3e4c8d5eaa" category="paragraph">Red Hat OpenShift 환경에서는 을 사용할 수 있습니다 <block ref="3070b96c53dc6268c37367db253e962f" category="inline-link-macro-rx"></block> OpenShift OperatorHub를 사용하여 Astra Control Center를 설치하려면 다음을 수행합니다.</block>
   <block id="e13d4a668fc56237f39878bf668e8d7b" category="inline-link-macro">POD 보안 정책 제한 사항 이해</block>
   <block id="edc827c257229b5297b0a885b6edd0a4" category="list-text">사용자 환경에서 POD 보안 정책을 구성했거나 구성하려는 경우 POD 보안 정책 및 해당 정책이 Astra Control Center 설치에 어떤 영향을 미치는지 숙지하십시오. 을 참조하십시오 <block ref="90eb15ded1d67bf22279d5e261d434f2" category="inline-link-macro-rx"></block>.</block>
@@ -2646,4 +2637,14 @@
   <block id="35cdc0acd4828a4d409d79a5f18ee353" category="inline-link">* 불화를 통한 도움 받기*</block>
   <block id="5782a764d5148bc0a62fa0db213a073b" category="list-text"><block ref="f560054dea7b7d17ab98f97d9a55b6ac" category="inline-link-rx"></block>: Pub 카테고리의 Astra로 이동하여 동료 및 전문가와 교류하십시오.</block>
   <block id="a7cfd917113a9ee9c1e789887d1d809f" category="sidebar">불화 채널</block>
+  <block id="90062dfdb5439267ea2ea3670efc5200" category="list-text">압축된 패키지 파일의 압축을 풀고 디렉토리를 Astra Control 번들 파일의 위치로 변경합니다(예: acc.manifest.YAML).</block>
+  <block id="81730a436a6662ae645289e52e592f39" category="list-text">bundle_file을 Astra Control 번들 파일 이름으로 바꿉니다(예: acc.manifest.YAML).</block>
+  <block id="f7fd97c3e77b1bf62b2ea426c794d07a" category="list-text">my_registry_user를 사용자 이름으로 바꿉니다.</block>
+  <block id="cfb00d559ebab724c9dc29059831ddb8" category="list-text">my_registry_token을 레지스트리에 대한 인증된 토큰으로 바꿉니다.</block>
+  <block id="bb6d95ff16fd3c7abf9daa650b5357c5" category="list-text">디렉토리를 변경합니다.</block>
+  <block id="3287973c50b09462bde24fe82b06c59b" category="list-text">Pod가 실행 중인지 확인합니다.</block>
+  <block id="4350127c708b74b4f04ca10d2c10b10d" category="list-text">Astra Control Center 호스트 클러스터에 대한 KUBECONFIG를 내보냅니다.</block>
+  <block id="ee757186f5199677f301e66433ce62a8" category="admonition">암호를 생성한 후 네임스페이스를 삭제하는 경우 네임스페이스를 다시 만든 후 네임스페이스에 대한 암호를 다시 생성해야 합니다.</block>
+  <block id="706e80be7b24b81c7ab49d441d7d88f8" category="list-text">모든 Pod가 실행 중일 때 설치가 성공했는지(RAD는 True) 확인하고 Astra Control Center에 로그인할 때 사용할 1회 암호를 받습니다.</block>
+  <block id="85573d5352311b01ff7319a4b0e9bf34" category="admonition">UUID 값을 복사합니다. 암호는 ACC-, UUID 값( ACC-[UUID]), 이 예에서는 ACC-9aa5faaaaaaaud-4214-4cb7-9976-5d8b4c0ce27f)입니다.</block>
 </blocks>

@@ -128,13 +128,14 @@ cd acc
 ----
 . [[substep_image_local_registry_push]] Astra Control Center 이미지 디렉토리에 있는 패키지 이미지를 로컬 레지스트리로 푸시합니다. 명령을 실행하기 전에 다음 대체 작업을 수행합니다.
 +
-** bundle_file을 Astra Control 번들 파일 이름으로 바꿉니다(예: acc.manifest.bundle.YAML).
+** bundle_file을 Astra Control 번들 파일 이름으로 바꿉니다(예: acc.manifest.YAML).
 ** my_registry를 Docker 리포지토리의 URL로 바꿉니다.
-** my_registry_user와 my_registry_password를 리포지터리의 자격 증명으로 교체합니다.
+** my_registry_user를 사용자 이름으로 바꿉니다.
+** my_registry_token을 레지스트리에 대한 인증된 토큰으로 바꿉니다.
 +
 [source, sh]
 ----
-kubectl astra packages push-images -m BUNDLE_FILE -r MY_REGISTRY -u MY_REGISTRY_USER -p MY_REGISTRY_PASSWORD
+kubectl astra packages push-images -m BUNDLE_FILE -r MY_REGISTRY -u MY_REGISTRY_USER -p MY_REGISTRY_TOKEN
 ----
 
 
@@ -155,7 +156,7 @@ podman login [your_registry_path]
 ----
 # You need to be at the root of the tarball.
 # You should see these files to confirm correct location:
-#   acc.manifest.bundle.yaml
+#   acc.manifest.yaml
 #   acc/
 
 # Replace <YOUR_REGISTRY> with your own registry (e.g registry.customer.com or registry.customer.com/testing, etc..)
@@ -185,6 +186,12 @@ done
 
 == 인증 요구 사항이 있는 레지스트리에 대한 네임스페이스 및 암호를 설정합니다
 
+. Astra Control Center 호스트 클러스터에 대한 KUBECONFIG를 내보냅니다.
++
+[listing]
+----
+export KUBECONFIG=[file path]
+----
 . 인증이 필요한 레지스트리를 사용하는 경우 다음을 수행해야 합니다.
 +
 .. 'NetApp-acc-operator' 네임스페이스 생성:
@@ -219,6 +226,10 @@ kubectl create secret docker-registry astra-registry-cred -n netapp-acc-operator
 ----
 secret/astra-registry-cred created
 ----
++
+
+NOTE: 암호를 생성한 후 네임스페이스를 삭제하는 경우 네임스페이스를 다시 만든 후 네임스페이스에 대한 암호를 다시 생성해야 합니다.
+
 .. "NetApp-acc"(또는 사용자 지정 이름) 네임스페이스를 생성합니다.
 +
 [listing]
@@ -261,6 +272,12 @@ kubectl create secret generic [acc-kubeconfig-cred or custom secret name] --from
 
 == Astra Control Center 운영자를 설치합니다
 
+. 디렉토리를 변경합니다.
++
+[listing]
+----
+cd manifests
+----
 . Astra Control Center 운영자 배포 YAML('Astra_control_center_operator_deploy.YAML')을 편집하여 현지 등록부와 비밀을 참조하십시오.
 +
 [listing]
@@ -277,7 +294,7 @@ NOTE: YAML 주석이 붙은 샘플은 다음 단계를 따릅니다.
 [listing]
 ----
 imagePullSecrets:
-- name: <name_of_secret_with_creds_to_local_registry>
+- name: <astra-registry-cred>
 ----
 .. kuby-RBAC-proxy 이미지의 [your_registry_path]를 이미지를 에서 푸시한 레지스트리 경로로 변경합니다 <<substep_image_local_registry_push,이전 단계>>.
 .. "acc-operator-controller-manager" 이미지의 [your_registry_path]를 이미지를 에서 푸시한 레지스트리 경로로 변경합니다 <<substep_image_local_registry_push,이전 단계>>.
@@ -352,6 +369,12 @@ clusterrolebinding.rbac.authorization.k8s.io/acc-operator-proxy-rolebinding crea
 configmap/acc-operator-manager-config created
 service/acc-operator-controller-manager-metrics-service created
 deployment.apps/acc-operator-controller-manager created
+----
+. Pod가 실행 중인지 확인합니다.
++
+[listing]
+----
+kubectl get pods -n netapp-acc-operator
 ----
 
 
@@ -570,287 +593,27 @@ kubectl logs deploy/acc-operator-controller-manager -n netapp-acc-operator -c ma
 
 NOTE: "accHost" 클러스터 등록은 마지막 작업 중 하나이며, 실패하면 배포가 실패하지 않습니다. 로그에 클러스터 등록 실패가 표시되는 경우 클러스터 추가 워크플로우를 통해 등록을 다시 시도할 수 있습니다 link:../get-started/setup_overview.html#add-cluster["를 클릭합니다"] API를 사용합니다.
 
-. 모든 Pod가 실행 중인 경우, Astra Control Center Operator가 설치한 AstraControlCenter 인스턴스를 검색하여 설치 성공 여부를 확인한다.
+. 모든 Pod가 실행 중일 때 설치가 성공했는지(RAD는 True) 확인하고 Astra Control Center에 로그인할 때 사용할 1회 암호를 받습니다.
 +
 [listing]
 ----
-kubectl get acc -o yaml -n [netapp-acc or custom namespace]
+kubectl get AstraControlCenter -n netapp-acc
 ----
-. YAML에서 '구축' 가치에 대한 응답으로 'tatus.deploymentState`' 필드를 확인합니다. 배포에 실패한 경우 대신 오류 메시지가 나타납니다.
-. Astra Control Center에 로그인할 때 사용할 1회 암호를 얻으려면 'Status.uuid' 값을 복사합니다. 암호는 ACC-, UUID 값( ACC-[UUID]), 이 예에서는 ACC-9aa5faaaaaaaud-4214-4cb7-9976-5d8b4c0ce27f)입니다.
++
+응답:
+
++
+[listing]
+----
+NAME    UUID                                      VERSION     ADDRESS         READY
+astra   ACC-9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f  22.08.0-20  10.111.111.111  True
+----
++
+
+IMPORTANT: UUID 값을 복사합니다. 암호는 ACC-, UUID 값( ACC-[UUID]), 이 예에서는 ACC-9aa5faaaaaaaud-4214-4cb7-9976-5d8b4c0ce27f)입니다.
 
 
-.YAML 세부 정보 샘플
-====
-[listing, subs="+quotes"]
-----
-   name: astra
-   namespace: netapp-acc
-   resourceVersion: "104424560"
-   uid: 9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f
- spec:
-   accountName: Example
-   additionalValues: {}
-   astraAddress: astra.example.com
-   astraKubeConfigSecret: ""
-   astraResourcesScaler: "Off"
-   astraVersion: 22.08.0-18
-   autoSupport:
-     enrolled: true
-     url: https://support.netapp.com/asupprod/post/1.0/postAsup
-   avpDeploy: false
-   crds: {}
-   email: admin@example.com
-   firstName: SRE
-   imageRegistry:
-     name: registry_name/astra
-   ingressType: AccTraefik
-   lastName: Admin
-   mtls:
-     certDuration: 2140h0m0s
-     enabled: true
- status:
-   accConditionHistory:
-     items:
-     - astraVersion: 22.08.0-18
-       condition:
-         lastTransitionTime: "2022-08-05T18:03:46Z"
-         message: Deploying is currently in progress.
-         reason: InProgress
-         status: "False"
-         type: Ready
-       generation: 2
-       observedSpec:
-         accountName: Example
-         additionalValues: {}
-         astraAddress: astra.example.com
-         astraKubeConfigSecret: ""
-         astraResourcesScaler: "Off"
-         astraVersion: 22.08.0-18
-         autoSupport:
-           enrolled: true
-           url: https://support.netapp.com/asupprod/post/1.0/postAsup
-         crds: {}
-         email: admin@example.com
-         firstName: SRE
-         imageRegistry:
-           name: registry_name/astra
-         lastName: Admin
-         mtls:
-          certDuration: 2140h0m0s
-          enabled: true
-       timestamp: "2022-08-05T18:03:46Z"
-     - astraVersion: 22.08.0-18
-       condition:
-         lastTransitionTime: "2022-08-05T18:03:46Z"
-         message: Deploying is currently in progress.
-         reason: InProgress
-         status: "True"
-         type: Deploying
-       generation: 2
-       observedSpec:
-         accountName: Example
-         additionalValues: {}
-         astraAddress: astra.example.com
-         astraKubeConfigSecret: ""
-         astraResourcesScaler: "Off"
-         astraVersion: 22.08.0-18
-         autoSupport:
-           enrolled: true
-           url: https://support.netapp.com/asupprod/post/1.0/postAsup
-         avpDeploy: false
-         crds: {}
-         email: admin@example.com
-         firstName: SRE
-         imageRegistry:
-           name: registry_name/astra
-         lastName: Admin
-         mtls:
-           certDuration: 2140h0m0s
-           enabled: true
-       timestamp: "2022-08-05T18:03:46Z"
-     - astraVersion: 22.08.0-18
-       condition:
-         lastTransitionTime: "2022-08-05T18:16:50Z"
-         message: Post Install was successful
-         observedGeneration: 2
-         reason: Complete
-         status: "True"
-         type: PostInstallComplete
-       generation: 2
-       observedSpec:
-         accountName: Example
-         additionalValues: {}
-         astraAddress: astra.example.com
-         astraKubeConfigSecret: ""
-         astraResourcesScaler: "Off"
-         astraVersion: 22.08.0-18
-         autoSupport:
-           enrolled: true
-           url: https://support.netapp.com/asupprod/post/1.0/postAsup
-         avpDeploy: false
-         crds: {}
-         email: admin@example.com
-         firstName: SRE
-         imageRegistry:
-           name: registry_name/astra
-         ingressType: AccTraefik
-         lastName: Admin
-         mtls:
-           certDuration: 2140h0m0s
-           enabled: true
-       timestamp: "2022-08-05T18:16:50Z"
-     - astraVersion: 22.08.0-18
-       condition:
-         lastTransitionTime: "2022-08-05T18:03:46Z"
-         message: Deploying succeeded.
-         reason: Complete
-         status: "False"
-         type: Deploying
-       generation: 2
-       observedSpec:
-         accountName: Example
-         additionalValues: {}
-         astraAddress: astra.example.com
-         astraKubeConfigSecret: ""
-         astraResourcesScaler: "Off"
-         astraVersion: 22.08.0-18
-         autoSupport:
-           enrolled: true
-           url: https://support.netapp.com/asupprod/post/1.0/postAsup
-         avpDeploy: false
-         crds: {}
-         email: admin@example.com
-         firstName: SRE
-         imageRegistry:
-           name: registry_name/astra
-         ingressType: AccTraefik
-         lastName: Admin
-         mtls:
-           certDuration: 2140h0m0s
-           enabled: true
-       timestamp: "2022-08-05T18:16:50Z"
-     - astraVersion: 22.08.0-18
-       condition:
-         lastTransitionTime: "2022-08-05T18:03:46Z"
-         message: Astra is deployed
-         reason: Complete
-         status: "True"
-         type: Deployed
-       generation: 2
-       observedSpec:
-         accountName: Example
-         additionalValues: {}
-         astraAddress: astra.example.com
-         astraKubeConfigSecret: ""
-         astraResourcesScaler: "Off"
-         astraVersion: 22.08.0-18
-         autoSupport:
-           enrolled: true
-           url: https://support.netapp.com/asupprod/post/1.0/postAsup
-         avpDeploy: false
-         crds: {}
-         email: admin@example.com
-         firstName: SRE
-         imageRegistry:
-           name: registry_name/astra
-         ingressType: AccTraefik
-         lastName: Admin
-         mtls:
-           certDuration: 2140h0m0s
-           enabled: true
-       timestamp: "2022-08-05T18:16:50Z"
-     - astraVersion: 22.08.0-18
-       condition:
-         lastTransitionTime: "2022-08-05T18:16:50Z"
-         message: Astra is deployed
-         reason: Complete
-         status: "True"
-         type: Ready
-       generation: 2
-       observedSpec:
-         accountName: Example
-         additionalValues: {}
-         astraAddress: astra.example.com
-         astraKubeConfigSecret: ""
-         astraResourcesScaler: "Off"
-         astraVersion: 22.08.0-18
-         autoSupport:
-           enrolled: true
-           url: https://support.netapp.com/asupprod/post/1.0/postAsup
-         avpDeploy: false
-         crds: {}
-         email: admin@example.com
-         firstName: SRE
-         imageRegistry:
-           name: registry_name/astra
-         ingressType: AccTraefik
-         lastName: Admin
-         mtls:
-           certDuration: 2140h0m0s
-           enabled: true
-       timestamp: "2022-08-05T18:16:50Z"
-   certManager: deploy
-   cluster:
-     type: OCP
-     vendorVersion: 4.9.29
-     version: v1.22.5+a36406b
-   conditions:
-   - lastTransitionTime: "2022-08-05T18:23:41Z"
-     message: Astra is deployed
-     reason: Complete
-     status: "True"
-     type: Ready
-   - lastTransitionTime: "2022-08-05T18:23:41Z"
-     message: Deploying succeeded.
-     reason: Complete
-     status: "False"
-     type: Deploying
-   - lastTransitionTime: "2022-08-05T18:23:41Z"
-     message: Post Install was successful
-     observedGeneration: 2
-     reason: Complete
-     status: "True"
-     type: PostInstallComplete
-   *- lastTransitionTime: "2022-08-05T18:23:41Z"*
-     *message: Astra is deployed*
-     *reason: Complete*
-     *status: "True"*
-     *type: Deployed*
-   *deploymentState: Deployed*
-   observedGeneration: 2
-   observedSpec:
-     accountName: Example
-     additionalValues: {}
-     astraAddress: astra.example.com
-     astraKubeConfigSecret: ""
-     astraResourcesScaler: "Off"
-     astraVersion: 22.08.0-18
-     autoSupport:
-       enrolled: true
-       url: https://support.netapp.com/asupprod/post/1.0/postAsup
-     avpDeploy: false
-     crds: {}
-     email: admin@example.com
-     firstName: SRE
-     imageRegistry:
-       name: registry_name/astra
-     ingressType: AccTraefik
-     lastName: Admin
-     mtls:
-       certDuration: 2140h0m0s
-       enabled: true
-   observedVersion: 22.08.0-18
-   postInstall: Complete
-   serviceMesh:
-     type: None
-   *uuid: 9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f*
-kind: List
-metadata:
- resourceVersion: ""
- selfLink: ""
-----
-====
+
 
 
 == 부하 분산을 위한 수신 설정
@@ -1008,7 +771,7 @@ ingress istio astra.example.com 172.16.103.248  80, 443 1h 
 [listing]
 ----
 apiVersion: extensions/v1beta1
-kind: Ingress
+Kind: IngressClass
 metadata:
   name: ingress-acc
   namespace: [netapp-acc or custom namespace]
