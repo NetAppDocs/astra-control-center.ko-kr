@@ -47,7 +47,7 @@ Astra Control Center를 사용하여 앱에 대한 백업, 클론, 스냅샷 및
 === 앱을 원격 클러스터로 복제합니다
 
 [role="quick-margin-para"]
-link:replication.html["애플리케이션 복제"] NetApp SnapMirror 기술을 사용하여 원격 클러스터로 Astra Control은 스냅샷을 원격 클러스터에 복제하여 비동기식 재해 복구 기능을 제공합니다.
+link:replicate_snapmirror.html["애플리케이션 복제"] NetApp SnapMirror 기술을 사용하여 원격 클러스터로 Astra Control은 스냅샷을 원격 클러스터에 복제하여 비동기식 재해 복구 기능을 제공합니다.
 
 
 

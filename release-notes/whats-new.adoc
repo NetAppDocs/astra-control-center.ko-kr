@@ -18,7 +18,7 @@ Astra Control Center의 최신 릴리스를 발표하게 되어 기쁘게 생각
 == 2022년 8월 10일(22.08.0)
 
 .새로운 기능 및 지원
-* link:../use/replication.html["NetApp SnapMirror 기술을 사용하여 애플리케이션을 복제합니다"]
+* link:../use/replicate_snapmirror.html["NetApp SnapMirror 기술을 사용하여 애플리케이션을 복제합니다"]
 * link:../use/manage-apps.html#manage-apps["앱 관리 워크플로 개선"]
 * link:../use/execution-hooks.html["자체 실행 후크 기능이 향상되었습니다"]
 +

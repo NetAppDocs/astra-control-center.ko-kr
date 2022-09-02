@@ -2000,7 +2000,6 @@
   <block id="d822994c8eeb864206aa022481872893" category="list-text">* 앱 복제 *: Astra Control을 사용하려면 NetApp SnapMirror를 지원하도록 구성된 각 ONTAP 스토리지 백엔드를 통해 소스 및 대상 Kubernetes 클러스터를 사용하고 관리해야 합니다. Astra Control은 정책 기반 애플리케이션 스냅샷을 생성하여 원격 클러스터에 복제합니다. NetApp SnapMirror 기술은 영구 볼륨 데이터를 복제하는 데 사용됩니다. Astra Control은 페일오버하기 위해 대상 Kubernetes 클러스터의 앱 객체를 대상 ONTAP 클러스터의 복제된 볼륨으로 재생성하여 복제된 앱을 온라인으로 전환할 수 있습니다. 대상 ONTAP 클러스터에 영구 볼륨 데이터가 이미 있으므로 Astra Control은 페일오버에 대한 빠른 복구 시간을 제공할 수 있습니다.</block>
   <block id="46f7c1ba8a4fd8b1f55723b061d38c1d" category="list-text">* 애플리케이션 백업 및 복원 *: 애플리케이션을 백업할 때 Astra Control은 애플리케이션 데이터의 스냅샷을 생성하고 이를 오브젝트 스토리지 버킷에 저장합니다. 복원이 필요한 경우 버킷 내의 데이터를 ONTAP 클러스터의 영구 볼륨에 복사해야 합니다. 백업/복원 작업에서는 보조 Kubernetes/ONTAP 클러스터를 사용하고 관리할 필요가 없지만, 추가 데이터 복사본을 사용할 경우 복원 시간이 길어질 수 있습니다.</block>
   <block id="229c7c759f13c80c6aa16940d599fb67" category="inline-link-macro">SnapMirror 기술을 사용하여 원격 시스템에 애플리케이션을 복제합니다</block>
-  <block id="317260303a03ec46fcba8a310dc6a463" category="paragraph">앱을 복제하는 방법에 대한 자세한 내용은 을 참조하십시오 <block ref="5b509d981d6206aae3d3ed45ff0fd262" category="inline-link-macro-rx"></block>.</block>
   <block id="2e67b4ffa9856ed714ace3c83ce69b11" category="paragraph">다음 이미지는 복제 프로세스와 비교하여 예약된 백업 및 복원 프로세스를 보여 줍니다.</block>
   <block id="0684163543dd8c63ba059f860287849a" category="paragraph">백업 프로세스는 데이터를 S3 버킷으로 복사하고 S3 버킷에서 복원:</block>
   <block id="81cddeedfe823c0b5ecc3077e6dafc47" category="inline-image-macro">예약된 백업 및 복원 이미지</block>
@@ -2031,7 +2030,6 @@
   <block id="d5aedbc082e54ed66f533aea75c374f6" category="paragraph">Astra Control은 "pass-by-reference" 아키텍처(예: CockroachDB 운영자)로 설계된 운영자를 복제하지 못할 수 있습니다. 이러한 유형의 클론 복제 작업 중에 클론 복제 운영자는 클론 복제 프로세스의 일부로 고유한 새로운 암호가 있음에도 불구하고 소스 운영자의 Kubernetes 암호를 참조하려고 합니다. Astra Control이 소스 운영자의 Kubernetes 암호를 모르기 때문에 클론 작업이 실패할 수 있습니다.</block>
   <block id="8903edbd1d0463471f5590d10a85b600" category="section-title">2022년 8월 10일(22.08.0)</block>
   <block id="cf730d1df7f3b98c75cd949f7b3155ec" category="inline-link-macro">NetApp SnapMirror 기술을 사용하여 애플리케이션을 복제합니다</block>
-  <block id="72c6d36c2615563abe62774a0cc12db3" category="list-text"><block ref="72c6d36c2615563abe62774a0cc12db3" category="inline-link-macro-rx"></block></block>
   <block id="43a321aa397f8593d184ea33759d7e38" category="inline-link-macro">앱 관리 워크플로 개선</block>
   <block id="698d9d3cfbd3ea1d9902191a82b88d3e" category="list-text"><block ref="698d9d3cfbd3ea1d9902191a82b88d3e" category="inline-link-macro-rx"></block></block>
   <block id="ced3580ec3e1b083304a574bccfdc820" category="inline-link-macro">자체 실행 후크 기능이 향상되었습니다</block>
@@ -2239,7 +2237,6 @@
   <block id="665cb0fd449119a5f020701a7e4d37aa" category="list-text">소스 및 대상 Kubernetes 클러스터와 ONTAP 클러스터는 Astra Control에서 관리해야 합니다.</block>
   <block id="12656d1c4d74b517feee96e4c4eda095" category="admonition">다른 클러스터 또는 사이트에서 실행 중인 다른 앱을 반대 방향으로 동시에 복제할 수 있습니다. 예를 들어, 애플리케이션 A, B, C를 데이터 센터 1에서 데이터 센터 2로 복제하고 애플리케이션 X, Y, Z를 데이터 센터 2에서 데이터 센터 1로 복제할 수 있습니다.</block>
   <block id="b74602b149e39af1209754432fd537e3" category="inline-link-macro">SnapMirror 기술을 사용하여 원격 시스템에 애플리케이션을 복제합니다</block>
-  <block id="66c524f14574de53906b92bf06297447" category="paragraph">자세한 내용을 알아보십시오 <block ref="4661ce5eb4f3d4f6821de12edff361d7" category="inline-link-macro-rx"></block>.</block>
   <block id="dd065d032958db1fedcce03e51dcef9e" category="paragraph">Astra Control Center의 모든 기능을 사용하려면 Astra Control Center 라이센스가 필요합니다. NetApp에서 평가판 라이센스 또는 전체 라이센스를 받으십시오. 라이센스가 없으면 다음 중 하나를 수행할 수 없습니다.</block>
   <block id="4eba5ba43cc624385f276658a22c51a8" category="list-text">앱 정의</block>
   <block id="ce54d221292e1505e5b1a6ed4c74dac7" category="summary">Astra Control Center를 설치하기 전에 POD 보안 정책의 작동 방식을 이해해야 합니다.</block>
@@ -2361,7 +2358,6 @@
   <block id="44c76d6a0a4f1bde94eb2cd76b8d4eae" category="section-title">보호 정책을 조정합니다</block>
   <block id="e0a9a1ca749b026f1191e8980cfd9475" category="section-title">앱을 원격 클러스터로 복제합니다</block>
   <block id="87c77d08f8cc9ba015bc277bf63171ec" category="inline-link-macro">애플리케이션 복제</block>
-  <block id="02210d3f5ab3b22ced0c30fadc0b6c36" category="paragraph"><block ref="dc8666aecf0cf92219eb818c68a8e765" category="inline-link-macro-rx"></block> NetApp SnapMirror 기술을 사용하여 원격 클러스터로 Astra Control은 스냅샷을 원격 클러스터에 복제하여 비동기식 재해 복구 기능을 제공합니다.</block>
   <block id="c4491e86699f3e74488527dd9f36c879" category="section-title">재해가 발생할 경우 최신 백업 또는 복제를 사용하여 원격 시스템으로 앱을 복구합니다</block>
   <block id="e11f531afbfddcb2e626779912560475" category="paragraph">데이터 손실이 발생하면 를 통해 복구할 수 있습니다 <block ref="550aec8aa1d184571b143fbb368e4c54" category="inline-link-macro-rx"></block> 각 앱에 대해 먼저 그런 다음 최신 스냅샷을 복구할 수 있습니다(사용 가능한 경우). 또는 원격 시스템에 복제를 사용할 수 있습니다.</block>
   <block id="d77a72056cdc02124a845066bec0d946" category="paragraph">실행 후크는 관리되는 앱의 데이터 보호 작업과 함께 실행되도록 구성할 수 있는 사용자 지정 작업입니다. 예를 들어 데이터베이스 앱이 있는 경우 실행 후크를 사용하여 스냅샷 전에 모든 데이터베이스 트랜잭션을 일시 중지하고 스냅샷이 완료된 후 트랜잭션을 다시 시작할 수 있습니다. 따라서 애플리케이션 정합성이 보장되는 스냅샷이 보장됩니다.</block>
@@ -2647,4 +2643,8 @@
   <block id="ee757186f5199677f301e66433ce62a8" category="admonition">암호를 생성한 후 네임스페이스를 삭제하는 경우 네임스페이스를 다시 만든 후 네임스페이스에 대한 암호를 다시 생성해야 합니다.</block>
   <block id="706e80be7b24b81c7ab49d441d7d88f8" category="list-text">모든 Pod가 실행 중일 때 설치가 성공했는지(RAD는 True) 확인하고 Astra Control Center에 로그인할 때 사용할 1회 암호를 받습니다.</block>
   <block id="85573d5352311b01ff7319a4b0e9bf34" category="admonition">UUID 값을 복사합니다. 암호는 ACC-, UUID 값( ACC-[UUID]), 이 예에서는 ACC-9aa5faaaaaaaud-4214-4cb7-9976-5d8b4c0ce27f)입니다.</block>
+  <block id="d212abf709fef8fefcdce84a69830236" category="paragraph">앱을 복제하는 방법에 대한 자세한 내용은 을 참조하십시오 <block ref="f775ff169c13e4056fe6b95c5da23416" category="inline-link-macro-rx"></block>.</block>
+  <block id="4ac4f3b37f65d59e010bc2f6ddd50ea2" category="list-text"><block ref="4ac4f3b37f65d59e010bc2f6ddd50ea2" category="inline-link-macro-rx"></block></block>
+  <block id="ed78458df917d6da9f19cca23d8468cd" category="paragraph"><block ref="c229e392652cddf73148e5c65f706c6d" category="inline-link-macro-rx"></block> NetApp SnapMirror 기술을 사용하여 원격 클러스터로 Astra Control은 스냅샷을 원격 클러스터에 복제하여 비동기식 재해 복구 기능을 제공합니다.</block>
+  <block id="6ec03beb7c5c0fd46afad879591343a9" category="paragraph">자세한 내용을 알아보십시오 <block ref="6f4a779492bc5e3eca7c765cfa3ccb84" category="inline-link-macro-rx"></block>.</block>
 </blocks>
