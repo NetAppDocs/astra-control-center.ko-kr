@@ -13,7 +13,7 @@ summary: 이 슬라이드에는 Astra Control 환경의 다양한 구성 요소�
 
 이 슬라이드에는 Astra Control 환경의 다양한 구성 요소에 대한 개요가 나와 있습니다.
 
-image:astra-ads-architecture-diagram-v3.png["Astra Control 아키텍처 다이어그램 및 구성 요소"]
+image:astra-ads-architecture-diagram-v4.png["Astra Control 아키텍처 다이어그램 및 구성 요소"]
 
 
 
