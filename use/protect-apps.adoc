@@ -21,13 +21,13 @@ OC new-project WordPress OC adm policy add-SCC-to-group anyuid system:serviceacc
 
 앱 데이터 보호와 관련된 다음 작업을 수행할 수 있습니다.
 
-* <<Configure a protection policy>>
-* <<Create a snapshot>>
-* <<Create a backup>>
-* <<View snapshots and backups>>
-* <<Delete snapshots>>
-* <<Cancel backups>>
-* <<Delete backups>>
+*  a protection policy
+*  a snapshot
+*  a backup
+*  snapshots and backups
+*  snapshots
+*  backups
+*  backups
 
 
 
@@ -96,7 +96,7 @@ Astra Control Center는 앱 백업을 생성합니다.
 NOTE: 네트워크에 정전이 발생했거나 비정상적으로 느린 경우 백업 작업이 시간 초과될 수 있습니다. 이로 인해 백업이 실패합니다.
 
 
-NOTE: 실행 중인 백업을 중지할 방법은 없습니다. 백업을 삭제해야 하는 경우 백업이 완료될 때까지 기다린 다음 의 지침을 따르십시오 <<Delete backups>>. 실패한 백업을 삭제하려면 https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 사용합니다"^].
+NOTE: 실행 중인 백업을 중지할 방법은 없습니다. 백업을 삭제해야 하는 경우 백업이 완료될 때까지 기다린 다음 의 지침을 따르십시오  backups. 실패한 백업을 삭제하려면 https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 사용합니다"^].
 
 
 NOTE: 데이터 보호 작업(클론, 백업, 복원)과 후속 영구 볼륨 크기 조정 후 UI에 새 볼륨 크기가 표시되기까지 최대 20분이 지연됩니다. 데이터 보호 작업이 몇 분 내에 성공적으로 완료되며 스토리지 백엔드에 관리 소프트웨어를 사용하여 볼륨 크기 변경을 확인할 수 있습니다.

@@ -41,13 +41,13 @@ summary: 배포 중 사용자 지정 구성에 대한 Astra Control Center 클�
 | 볼륨 리클레이임정책 | 정의되지 않음 | 선택 사항 | 유지 | 영구 볼륨에 대해 설정할 재확보 정책입니다. 
 
 
-| astraResourcaresaTM | 문자열 | 필수 요소입니다 | 기본값 | AstraControlCenter 리소스 제한에 대한 확장 옵션 을 참조하십시오 <<Configuration combinations and incompatibilities,복잡성 설정>> 이 설정이 다른 설정에 미치는 영향을 이해합니다. 
+| astraResourcaresaTM | 문자열 | 필수 요소입니다 | 기본값 | AstraControlCenter 리소스 제한에 대한 확장 옵션 을 참조하십시오  combinations and incompatibilities,복잡성 설정 이 설정이 다른 설정에 미치는 영향을 이해합니다. 
 
 
 | 아스트라쿠베ConfigSecret | 문자열 | 필수 요소입니다 | ACC-쿠베토네그림-크레드 | 이 값이 있고 암호가 있는 경우 운영자는 해당 KubeConfig를 추가하여 첫 번째 관리되는 클러스터가 되도록 시도합니다. 
 
 
-| 응력 유형 | 문자열 | 선택 사항 | 일반(기본값) | 수신 Astra 제어 센터의 유형은 로 구성해야 합니다. 유효한 값은 Generic과 AccTraefik입니다. 을 참조하십시오 <<Configuration combinations and incompatibilities,복잡성 설정>> 이 설정이 다른 설정에 미치는 영향을 이해합니다. 
+| 응력 유형 | 문자열 | 선택 사항 | 일반(기본값) | 수신 Astra 제어 센터의 유형은 로 구성해야 합니다. 유효한 값은 Generic과 AccTraefik입니다. 을 참조하십시오  combinations and incompatibilities,복잡성 설정 이 설정이 다른 설정에 미치는 영향을 이해합니다. 
 
 
 | avpDeploy를 선택합니다 | 부울 | 선택 사항 | True(기본값) | VMware vSphere 운영자용 Astra Plugin 구축을 비활성화할 수 있는 옵션입니다. 
@@ -83,7 +83,7 @@ summary: 배포 중 사용자 지정 구성에 대한 Astra Control Center 클�
 | CRD.shouldUpgrade 를 클릭합니다 | 부울 | 선택 사항 | 정의되지 않음 | Astra Control Center를 업그레이드할 때 CRD를 업그레이드해야 할지 여부를 결정합니다. 
 
 
-| MTL |  |  |  | Astra Control Center에서 클러스터의 MTL 서비스를 구현하는 방법에 대한 옵션입니다. 을 참조하십시오 <<Configuration combinations and incompatibilities,복잡성 설정>> 이 설정이 다른 설정에 미치는 영향을 이해합니다 
+| MTL |  |  |  | Astra Control Center에서 클러스터의 MTL 서비스를 구현하는 방법에 대한 옵션입니다. 을 참조하십시오  combinations and incompatibilities,복잡성 설정 이 설정이 다른 설정에 미치는 영향을 이해합니다 
 
 
 | MTL이 활성화되었습니다 | 부울 | 선택 사항 | True(기본값) | 기본적으로 Astra Control Center는 MTL을 서비스 간 통신에 사용합니다. 서비스 메시를 사용하여 서비스 간 통신을 암호화하는 경우 이 옵션을 비활성화해야 합니다. 

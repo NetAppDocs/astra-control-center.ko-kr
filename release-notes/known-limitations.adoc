@@ -14,27 +14,27 @@ summary: 알려진 제한 사항은 이 제품 릴리스에서 지원하지 않�
 알려진 제한 사항은 이 제품 릴리스에서 지원하지 않거나 올바르게 상호 운용되지 않는 플랫폼, 장치 또는 기능을 식별합니다. 이러한 제한 사항을 주의 깊게 검토하십시오.
 
 .클러스터 관리 제한
-* <<The same cluster cannot be managed by two Astra Control Center instances>>
-* <<Astra Control Center cannot manage two identically named clusters>>
+*  same cluster cannot be managed by two Astra Control Center instances
+*  Control Center cannot manage two identically named clusters
 
 
 .역할 기반 액세스 제어(RBAC) 제한 사항
-* <<A user with namespace RBAC constraints can add and unmanage a cluster>>
-* <<A member with namespace constraints cannot access the cloned or restored apps until admin adds the namespace to the constraint>>
+*  user with namespace RBAC constraints can add and unmanage a cluster
+*  member with namespace constraints cannot access the cloned or restored apps until admin adds the namespace to the constraint
 
 
 .앱 관리 제한 사항
-* <<Clones of apps installed using pass-by-reference operators can fail>>
-* <<In-place restore operations of apps that use a certificate manager are not supported>>
-* <<OLM-enabled and cluster-scoped operator deployed apps not supported>>
-* <<Apps deployed with Helm 2 are not supported>>
+*  of apps installed using pass-by-reference operators can fail
+*  restore operations of apps that use a certificate manager are not supported
+*  and cluster-scoped operator deployed apps not supported
+*  deployed with Helm 2 are not supported
 
 
 .일반 제한 사항
-* <<S3 buckets in Astra Control Center do not report available capacity>>
-* <<Astra Control Center does not validate the details you enter for your proxy server>>
-* <<Existing connections to a Postgres pod causes failures>>
-* <<Backups and snapshots might not be retained during removal of an Astra Control Center instance>>
+*  buckets in Astra Control Center do not report available capacity
+*  Control Center does not validate the details you enter for your proxy server
+*  connections to a Postgres pod causes failures
+*  and snapshots might not be retained during removal of an Astra Control Center instance
 
 
 

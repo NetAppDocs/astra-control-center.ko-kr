@@ -17,20 +17,20 @@ summary: 알려진 문제점은 이 제품 릴리스를 성공적으로 사용�
 현재 릴리즈에는 다음과 같은 알려진 문제가 영향을 줍니다.
 
 .인프라
-* <<Restore of an app results in PV size larger than original PV>>
-* <<App clones fail using a specific version of PostgreSQL>>
-* <<App clones fail when using Service Account level OCP Security Context Constraints (SCC)>>
-* <<App clones fail after an application is deployed with a set storage class>>
-* <<App backups and snapshots fail if the volumesnapshotclass is added after a cluster is managed>>
+*  of an app results in PV size larger than original PV
+*  clones fail using a specific version of PostgreSQL
+*  clones fail when using Service Account level OCP Security Context Constraints (SCC)
+*  clones fail after an application is deployed with a set storage class
+*  backups and snapshots fail if the volumesnapshotclass is added after a cluster is managed
 
 
 .클러스터
-* <<Managing a cluster with Astra Control Center fails when default kubeconfig file contains more than one context>>
+*  a cluster with Astra Control Center fails when default kubeconfig file contains more than one context
 
 
 .기타 문제
-* <<App data management operations fail with Internal Service Error (500) when Astra Trident is offline>>
-* <<Snapshots might fail with snapshot controller version 4.2.0>>
+*  data management operations fail with Internal Service Error (500) when Astra Trident is offline
+*  might fail with snapshot controller version 4.2.0
 
 
 

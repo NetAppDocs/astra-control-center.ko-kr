@@ -32,14 +32,14 @@ kubectl get apiservices
 
 Astra Control Center 업그레이드 프로세스는 다음과 같은 고급 단계를 안내합니다.
 
-* <<Download the Astra Control Center bundle>>
-* <<Unpack the bundle and change directory>>
-* <<Add the images to your local registry>>
-* <<Install the updated Astra Control Center operator>>
-* <<Upgrade Astra Control Center>>
-* <<Upgrade third-party services (Optional)>>
-* <<Verify system status>>
-* <<Set up ingress for load balancing>>
+*  the Astra Control Center bundle
+*  the bundle and change directory
+*  the images to your local registry
+*  the updated Astra Control Center operator
+*  Astra Control Center
+*  third-party services (Optional)
+*  system status
+*  up ingress for load balancing
 
 
 
@@ -173,8 +173,8 @@ vim astra_control_center_operator_deploy.yaml
 imagePullSecrets:
 - name: <name_of_secret_with_creds_to_local_registry>
 ----
-.. kuby-RBAC-proxy 이미지의 [your_registry_path]를 이미지를 에서 푸시한 레지스트리 경로로 변경합니다 <<substep_image_local_registry_push,이전 단계>>.
-.. "acc-operator-controller-manager" 이미지의 [your_registry_path]를 이미지를 에서 푸시한 레지스트리 경로로 변경합니다 <<substep_image_local_registry_push,이전 단계>>.
+.. kuby-RBAC-proxy 이미지의 [your_registry_path]를 이미지를 에서 푸시한 레지스트리 경로로 변경합니다 ,이전 단계.
+.. "acc-operator-controller-manager" 이미지의 [your_registry_path]를 이미지를 에서 푸시한 레지스트리 경로로 변경합니다 ,이전 단계.
 .. 다음 값을 'env' 섹션에 추가합니다.
 +
 [listing]
@@ -275,7 +275,7 @@ kubectl edit acc -n [netapp-acc or custom namespace]
 ----
 +
 
-NOTE: 레지스트리 경로는 에서 이미지를 푸시한 레지스트리 경로와 일치해야 합니다 <<substep_image_local_registry_push,이전 단계>>.
+NOTE: 레지스트리 경로는 에서 이미지를 푸시한 레지스트리 경로와 일치해야 합니다 ,이전 단계.
 
 . Astra Control Center CR의 '서펙' 안에 있는 additionalValues에 다음 줄을 추가합니다.
 +
