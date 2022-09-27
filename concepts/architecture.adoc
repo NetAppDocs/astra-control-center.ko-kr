@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concepts/architecture.html 
-keywords: what is astra, astra control, astra control architecture, astra control center, kubernetes, netapp, clusters, trident 
+keywords: what is astra, astra control, astra control architecture, astra control center, astra control service, kubernetes, netapp, clusters, trident 
 summary: 이 슬라이드에는 Astra Control 환경의 다양한 구성 요소에 대한 개요가 나와 있습니다. 
 ---
 = 아키텍처 및 구성 요소
@@ -13,14 +13,14 @@ summary: 이 슬라이드에는 Astra Control 환경의 다양한 구성 요소�
 
 이 슬라이드에는 Astra Control 환경의 다양한 구성 요소에 대한 개요가 나와 있습니다.
 
-image:astra-ads-architecture-diagram-v4.png["Astra Control 아키텍처 다이어그램 및 구성 요소"]
+image:astra-architecture-diagram-v4.png["Astra Control 아키텍처 다이어그램 및 구성 요소"]
 
 
 
 == Astra Control 구성 요소
 
 * * Kubernetes 클러스터 *: Kubernetes는 컨테이너식 워크로드 및 서비스를 관리할 수 있는 확장 가능한 휴대용 오픈 소스 플랫폼으로, 선언적 구성과 자동화를 모두 지원합니다. Astra는 Kubernetes 클러스터에서 호스팅되는 애플리케이션에 관리 서비스를 제공합니다.
-* * Astra Trident *: NetApp에서 관리하며 완벽한 지원을 제공하는 오픈 소스 스토리지 공급자 및 오케스트레이터로서, Trident는 Docker 및 Kubernetes에서 관리하는 컨테이너식 애플리케이션용 스토리지 볼륨을 생성할 수 있도록 지원합니다. Astra Control Center와 함께 구축한 경우, Trident는 구성된 ONTAP 스토리지 백엔드를 포함하며 Astra 데이터 저장소를 스토리지 백엔드로 지원합니다.
+* * Astra Trident *: NetApp에서 관리하며 완벽한 지원을 제공하는 오픈 소스 스토리지 공급자 및 오케스트레이터로서, Trident는 Docker 및 Kubernetes에서 관리하는 컨테이너식 애플리케이션용 스토리지 볼륨을 생성할 수 있도록 지원합니다. Astra Control Center와 함께 구축한 경우, Trident는 구성된 ONTAP 스토리지 백엔드를 포함합니다.
 * * 스토리지 백엔드 *:
 +
 ** Astra Control Service는 다음과 같은 스토리지 백엔드를 사용합니다.
@@ -32,7 +32,6 @@ image:astra-ads-architecture-diagram-v4.png["Astra Control 아키텍처 다이�
 
 ** Astra Control Center는 다음과 같은 스토리지 백엔드를 사용합니다.
 +
-*** Astra 데이터 저장소
 *** ONTAP AFF and FAS를 참조하십시오. 스토리지 소프트웨어 및 하드웨어 플랫폼인 ONTAP는 핵심 스토리지 서비스, 다중 스토리지 액세스 프로토콜 지원 및 스냅샷, 미러링과 같은 스토리지 관리 기능을 제공합니다.
 *** Cloud Volumes ONTAP
 
