@@ -19,13 +19,13 @@ Red Hat OpenShift를 사용하는 경우 Red Hat 공인 운영자를 사용하�
 * link:requirements.html["설치를 시작하기 전에 Astra Control Center 구축을 위한 환경을 준비합니다"].
 * OpenShift 클러스터에서 모든 클러스터 운영자가 정상 상태인지 확인합니다('사용 가능'은 '참'임).
 +
-[listing]
+[source, sh]
 ----
 oc get clusteroperators
 ----
 * OpenShift 클러스터에서 모든 API 서비스가 정상 상태인지 확인합니다('사용 가능'은 '참'임).
 +
-[listing]
+[source, sh]
 ----
 oc get apiservices
 ----
@@ -51,13 +51,13 @@ oc get apiservices
 . 에서 Astra Control Center 인증서 및 키의 지퍼를 다운로드합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support 사이트"^].
 . (선택 사항) 다음 명령을 사용하여 번들의 서명을 확인합니다.
 +
-[listing]
+[source, sh]
 ----
 openssl dgst -sha256 -verify AstraControlCenter-public.pub -signature astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
 ----
 . 이미지 추출:
 +
-[listing]
+[source, sh]
 ----
 tar -vxzf astra-control-center-[version].tar.gz
 ----
@@ -74,13 +74,13 @@ NetApp은 다양한 CPU 아키텍처 및 운영 체제용 플러그인의 바이
 .단계
 . 사용 가능한 NetApp Astra "kubeck" 플러그인 바이너리를 나열하고 운영 체제 및 CPU 아키텍처에 필요한 파일 이름을 적어 주십시오.
 +
-[listing]
+[source, sh]
 ----
 ls kubectl-astra/
 ----
 . 표준 kubbeck 유틸리티와 같은 위치에 파일을 복사합니다. 이 예에서는 kubeck 유틸리티가 /usr/local/bin 디렉토리에 있습니다. '<binary-name>'을(를) 필요한 파일 이름으로 바꿉니다.
 +
-[listing]
+[source, sh]
 ----
 cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 ----
