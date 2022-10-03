@@ -186,19 +186,19 @@ pods-medium   16s   requests.cpu: 0/10, requests.memory: 0/20Gi    limits.cpu: 0
 ----
 . 이름으로 모든 리소스 할당량 삭제:
 +
-[listing]
+[source, sh]
 ----
 kubectl delete resourcequota  pods-high -n netapp-acc
-
-resourcequota "pods-high" deleted
-
+----
++
+[source, sh]
+----
 kubectl delete resourcequota  pods-low -n netapp-acc
-
-resourcequota "pods-low" deleted
-
+----
++
+[source, sh]
+----
 kubectl delete resourcequota  pods-medium -n netapp-acc
-
-resourcequota "pods-medium" deleted
 ----
 . NetApp-acc 네임스페이스의 제한 범위를 가져옵니다.
 +

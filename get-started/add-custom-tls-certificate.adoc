@@ -28,13 +28,13 @@ summary: '타사 CA(인증 기관)에서 서명한 TLS 인증서를 업로드 �
 . SSH를 사용하여 관리 사용자로 Astra Control Center를 호스팅하는 Kubernetes 클러스터에 로그인합니다.
 . '<ACC-deployment-namespace>'를 Astra Control Center 배포 네임스페이스로 대체하여 현재 인증서와 연결된 TLS 암호를 찾습니다.
 +
-[listing]
+[source, sh]
 ----
 kubectl get certificate -n <ACC-deployment-namespace>
 ----
 . 다음 명령을 사용하여 현재 설치된 암호 및 인증서를 삭제합니다.
 +
-[listing]
+[source, sh]
 ----
 kubectl delete cert cert-manager-certificates -n <ACC-deployment-namespace>
 kubectl delete secret secure-testing-cert -n <ACC-deployment-namespace>
@@ -49,7 +49,7 @@ CA에서 서명한 새 TLS 인증서를 추가합니다.
 
 . 다음 명령을 사용하여 CA의 개인 키 및 인증서 파일로 새 TLS 암호를 만들고 대괄호 <>의 인수를 적절한 정보로 바꿉니다.
 +
-[listing]
+[source, sh]
 ----
 kubectl create secret tls <secret-name> --key <private-key-filename> --cert <certificate-filename> -n <ACC-deployment-namespace>
 ----
@@ -86,7 +86,7 @@ Events:                    <none>
 ----
 . 다음 예를 사용하여 대괄호 <>의 자리 표시자 값을 적절한 정보로 대체하여 "certificate.yAML" 파일을 작성합니다.
 +
-[listing]
+[source, yaml]
 ----
 apiVersion: cert-manager.io/v1
 kind: Certificate
@@ -105,7 +105,7 @@ spec:
 ----
 . 다음 명령을 사용하여 인증서를 생성합니다.
 +
-[listing]
+[source, sh]
 ----
 kubectl apply -f certificate.yaml
 ----

@@ -32,7 +32,7 @@ cert-manager   essential-cert-manager-webhook-56b76db9cc-fjqrq      1/1     Runn
 ----
 . astraAddress FQDN에 대한 인증서/키 쌍을 생성합니다.
 +
-[listing]
+[source, sh]
 ----
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt
 ----
