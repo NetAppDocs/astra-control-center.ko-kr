@@ -1996,10 +1996,8 @@
   <block id="2e67b4ffa9856ed714ace3c83ce69b11" category="paragraph">다음 이미지는 복제 프로세스와 비교하여 예약된 백업 및 복원 프로세스를 보여 줍니다.</block>
   <block id="0684163543dd8c63ba059f860287849a" category="paragraph">백업 프로세스는 데이터를 S3 버킷으로 복사하고 S3 버킷에서 복원:</block>
   <block id="81cddeedfe823c0b5ecc3077e6dafc47" category="inline-image-macro">예약된 백업 및 복원 이미지</block>
-  <block id="a51afd505b35be60ffcb038c02aa8b40" category="paragraph"><block ref="a51afd505b35be60ffcb038c02aa8b40" category="inline-image-macro-rx" type="image"></block></block>
   <block id="af71b68b2a3d17f7141855dcd02a56ca" category="paragraph">반면, 복제는 ONTAP로 복제하여 수행하지만 페일오버로 Kubernetes 리소스를 생성합니다.</block>
   <block id="a5f8603aae16ddbbbcfc6f63de01008d" category="inline-image-macro">복제 및 페일오버 이미지</block>
-  <block id="1c8a227232844301e08547c77bb3901d" category="paragraph"><block ref="1c8a227232844301e08547c77bb3901d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="74456513b7ca75af96c4b1316688791f" category="inline-link">Astra Control Center 22.04 문서</block>
   <block id="d67f74fb6e72ced888adb1c93e92fead" category="list-text"><block ref="d67f74fb6e72ced888adb1c93e92fead" category="inline-link-rx"></block></block>
   <block id="69aadb837d20f17231803d0c850b4c61" category="inline-link">이 추가 Astra Data Store 알려진 문제를 확인하십시오</block>
@@ -2704,4 +2702,6 @@
   <block id="3b21110a90480d802de559fc751fede8" category="paragraph"><block ref="3b21110a90480d802de559fc751fede8" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c2c28b59e21cbd4b3d6c78dbdf1db70f" category="list-text">* Astra Trident *: NetApp에서 관리하며 완벽한 지원을 제공하는 오픈 소스 스토리지 공급자 및 오케스트레이터로서, Trident는 Docker 및 Kubernetes에서 관리하는 컨테이너식 애플리케이션용 스토리지 볼륨을 생성할 수 있도록 지원합니다. Astra Control Center와 함께 구축한 경우, Trident는 구성된 ONTAP 스토리지 백엔드를 포함합니다.</block>
   <block id="4ab759267d2877902a521921e10f5f5b" category="list-text">astractrol-service-account.yaML이라는 서비스 계정 파일을 만듭니다.</block>
+  <block id="85d4813220dc61b1558025981ecb0a0c" category="paragraph"><block ref="85d4813220dc61b1558025981ecb0a0c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="de57d5c9dad5ff2e5621f7541a798fe9" category="paragraph"><block ref="de57d5c9dad5ff2e5621f7541a798fe9" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>
