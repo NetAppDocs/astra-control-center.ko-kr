@@ -14,29 +14,23 @@ summary: Astra Control Center를 사용하여 수행할 수 있는 작업은 라
 [role="lead"]
 Astra Control Center는 전체 앱 데이터 관리 기능을 사용하려면 라이센스를 설치해야 합니다. 라이센스 없이 Astra Control Center를 배포하는 경우, 시스템 기능이 제한된다는 경고 메시지가 웹 UI에 표시됩니다.
 
-다음 작업을 수행하려면 유효한 라이센스가 필요합니다.
+애플리케이션과 데이터를 보호하려면 라이센스가 필요합니다. Astra Control Center를 참조하십시오 link:../concepts/intro.html["피처"] 를 참조하십시오.
 
-* 새로운 애플리케이션 관리
-* 스냅샷 또는 백업을 생성하는 중입니다
-* 스냅숏 또는 백업을 예약하도록 보호 정책 구성
-* 스냅샷 또는 백업에서 복구
-* 스냅샷 또는 현재 상태에서 클론 생성
-* 원격 시스템에 애플리케이션 복제
+ After you purchase the product, you receive a serial number and license. You can generate the NetApp license file (NLF) from the https://mysupport.netapp.com[NetApp Support Site^].
+또한 평가판 라이센스가 있는 Astra Control Center를 사용하여 라이센스를 다운로드한 날짜로부터 90일 동안 Astra Control Center를 사용할 수 있습니다. 자세한 내용은 을 참조하십시오 link:../get-started/requirements.html["요구 사항"].
+
+ONTAP 스토리지 백엔드에 필요한 라이센스에 대한 자세한 내용은 을 참조하십시오 link:../get-started/requirements.html["지원되는 스토리지 백엔드"].
 
 
-
-NOTE: 라이센스 없이 클러스터를 추가하고, 버킷을 추가하고, Astra Data Store 스토리지 백엔드를 관리할 수 있습니다. 그러나 Astra Data Store를 스토리지 백엔드로 사용하여 앱을 관리하려면 유효한 Astra Control Center 라이센스가 필요합니다.
+NOTE: 라이센스 없이 클러스터를 추가하고, 버킷을 추가하고, 스토리지 백엔드를 관리할 수 있습니다.
 
 
 
 == 라이선스 소비량의 계산 방법
 
-Astra Control Center에 새 클러스터를 추가하면 클러스터에서 실행 중인 하나 이상의 애플리케이션이 Astra Control Center에 의해 관리되기 전에는 사용된 라이센스에 포함되지 않습니다. 또한 Astra Control Center에 Astra Data Store 스토리지 백엔드를 추가하면 라이센스 소비에 영향을 주지 않습니다. 따라서 라이센스가 없는 Astra Control Center 시스템에서 Astra Data Store 백엔드를 관리할 수 있습니다.
+Astra Control Center에 새 클러스터를 추가하면 클러스터에서 실행 중인 하나 이상의 애플리케이션이 Astra Control Center에 의해 관리되기 전에는 사용된 라이센스에 포함되지 않습니다.
 
-클러스터에서 응용 프로그램 관리를 시작하면 해당 클러스터의 모든 CPU 장치가 Astra Control Center 라이센스 소모에 포함됩니다. 클러스터에 Astra Data Store의 라이센스 배포가 있는 경우 해당 CPU 유닛은 Astra Control Center 라이센스 소비 계산에서 제외됩니다.
-
-
-NOTE: Astra Data Store의 평가 구축 시 CPU 장치는 Astra Control Center 라이센스 사용량에서 제외되지 않습니다.
+클러스터에서 응용 프로그램 관리를 시작하면 해당 클러스터의 모든 CPU 장치가 Astra Control Center 라이센스 소모에 포함됩니다.
 
 
 

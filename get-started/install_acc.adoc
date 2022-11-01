@@ -770,7 +770,7 @@ ingress istio astra.example.com 172.16.103.248  80, 443 1h
 
 
 .Nginx 수신 컨트롤러 단계
-. 형식의 암호를 만듭니다 http://kubernetes.io/tls["쿠버네티스 IO/TLS"] 에 설명된 대로 "NetApp-acc"(또는 사용자 지정 이름) 네임스페이스의 TLS 개인 키 및 인증서 https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets["TLS 비밀"].
+. 형식의 암호를 만듭니다 http://kubernetes.io/tls["8a637503539b25b68130b6e8003579d9"] 에 설명된 대로 "NetApp-acc"(또는 사용자 지정 이름) 네임스페이스의 TLS 개인 키 및 인증서 https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets["TLS 비밀"].
 . 사용되지 않거나 새로운 스키마에 대해 'v1beta1'(Kubernetes 버전 1.22 이하) 또는 'v1' 리소스 유형을 사용하여 'NetApp-acc'(또는 사용자 지정 이름) 네임스페이스에 수신 리소스 구축:
 +
 .. 사용되지 않는 "v1beta1"의 스키마에 대해서는 다음 샘플을 따르십시오.
