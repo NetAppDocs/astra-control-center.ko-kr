@@ -257,7 +257,7 @@ NOTE: 운영자와 설치하는 앱은 동일한 네임스페이스를 사용해
 
 Astra Control Center의 모든 기능을 사용하려면 Astra Control Center 라이센스가 필요합니다. NetApp에서 평가판 라이센스 또는 전체 라이센스를 받으십시오. 애플리케이션과 데이터를 보호하려면 라이센스가 필요합니다. 을 참조하십시오 link:../concepts/intro.html["Astra Control Center의 특징"] 를 참조하십시오.
 
-또한 평가판 라이센스가 있는 Astra Control Center를 사용하여 라이센스를 다운로드한 날짜로부터 90일 동안 Astra Control Center를 사용할 수 있습니다. 등록하면 무료 평가판을 사용할 수 있습니다 link:https://cloud.netapp.com/astra-register["여기"^].
+Astra Control Center에 평가판 라이센스를 사용하면 라이센스를 다운로드한 날짜로부터 90일 동안 Astra Control Center를 사용할 수 있습니다. 등록하면 무료 평가판을 사용할 수 있습니다 link:https://cloud.netapp.com/astra-register["여기"^].
 
 ONTAP 스토리지 백엔드에 필요한 라이센스에 대한 자세한 내용은 을 참조하십시오 link:../get-started/requirements.html["지원되는 스토리지 백엔드"].
 

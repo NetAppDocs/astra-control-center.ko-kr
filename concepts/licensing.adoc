@@ -16,7 +16,8 @@ Astra Control Center는 전체 앱 데이터 관리 기능을 사용하려면 �
 
 애플리케이션과 데이터를 보호하려면 라이센스가 필요합니다. Astra Control Center를 참조하십시오 link:../concepts/intro.html["피처"] 를 참조하십시오.
 
- After you purchase the product, you receive a serial number and license. You can generate the NetApp license file (NLF) from the https://mysupport.netapp.com[NetApp Support Site^].
+제품 구입 후 제품 번호와 라이센스가 제공됩니다. 에서 NetApp 라이센스 파일(NLF)을 생성할 수 있습니다 https://mysupport.netapp.com["NetApp Support 사이트"^].
+
 또한 평가판 라이센스가 있는 Astra Control Center를 사용하여 라이센스를 다운로드한 날짜로부터 90일 동안 Astra Control Center를 사용할 수 있습니다. 자세한 내용은 을 참조하십시오 link:../get-started/requirements.html["요구 사항"].
 
 ONTAP 스토리지 백엔드에 필요한 라이센스에 대한 자세한 내용은 을 참조하십시오 link:../get-started/requirements.html["지원되는 스토리지 백엔드"].

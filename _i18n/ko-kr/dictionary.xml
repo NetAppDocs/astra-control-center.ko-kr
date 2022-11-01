@@ -2706,4 +2706,6 @@
   <block id="766c3edeaca88ba89208ae8b5e83479e" category="list-text">계정 관리(사용자, 역할, 사용자 인증을 위한 LDAP, 자격 증명, 리포지토리 연결 등) 에 대해 자세히 알아보십시오 <block ref="b1dea768305cd8aacf8d500d63953651" category="inline-link-macro-rx"></block>.</block>
   <block id="84d5805c780bde43dccfe3666e3283da" category="inline-link-macro">Cloud Insights에 연결 중입니다</block>
   <block id="cfbe784ada75bca24be2b83ad0a64339" category="list-text">필요한 경우 NetApp Cloud Insights에 연결하여 Astra Control Center UI 내에서 시스템 상태, 용량 및 처리량에 대한 메트릭을 표시할 수 있습니다. 에 대해 자세히 알아보십시오 <block ref="76c9595f49defd96fd8c9e749ca851ae" category="inline-link-macro-rx"></block>.</block>
+  <block id="f06853bf12dc9a7737fb9921535d6e83" category="paragraph">제품 구입 후 제품 번호와 라이센스가 제공됩니다. 에서 NetApp 라이센스 파일(NLF)을 생성할 수 있습니다<block ref="fcc52edac3ce57829c48ee35d97a295d" category="inline-link-rx"></block>.</block>
+  <block id="34c08446234edc37b22fa4ed2230f6fe" category="paragraph">Astra Control Center에 평가판 라이센스를 사용하면 라이센스를 다운로드한 날짜로부터 90일 동안 Astra Control Center를 사용할 수 있습니다. 등록하면 무료 평가판을 사용할 수 있습니다 <block ref="94c4952ff767dc7f2318bf778dfb79d4" category="inline-link-macro-rx"></block>.</block>
 </blocks>
