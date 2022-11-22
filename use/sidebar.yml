@@ -1,6 +1,6 @@
 ---
 section: use
-title: Astra를 사용하십시오
+title: Astra Control Center를 사용합니다
 entries:
 - title: 앱 관리를 시작합니다
   url: "/use/manage-apps.html"
@@ -31,10 +31,12 @@ entries:
     url: "/use/view-apps.html"
 - title: 계정을 관리합니다
   entries:
-  - title: 사용자 관리
-    url: "/use/manage-users.html"
-  - title: 역할을 관리합니다
-    url: "/use/manage-roles.html"
+  - title: 로컬 사용자 및 역할 관리
+    url: "/use/manage-local-users-and-roles.html"
+  - title: 원격 인증을 관리합니다
+    url: "/use/manage-remote-authentication.html"
+  - title: 원격 사용자 및 그룹 관리
+    url: "/use/manage-remote-users-groups.html"
   - title: 알림을 관리합니다
     url: "/use/manage-notifications.html"
   - title: 자격 증명 관리
@@ -43,14 +45,12 @@ entries:
     url: "/use/view-account-activity.html"
   - title: 기존 라이센스를 업데이트합니다
     url: "/use/update-licenses.html"
-  - title: 리포지토리 연결을 관리합니다
-    url: "/use/manage-connections.html"
-  - title: 소프트웨어 패키지를 관리합니다
-    url: "/use/manage-packages-acc.html"
 - title: 버킷을 관리합니다
   url: "/use/manage-buckets.html"
 - title: 스토리지 백엔드를 관리합니다
   url: "/use/manage-backend.html"
+- title: 실행 중인 작업을 모니터링합니다
+  url: "/use/monitor-running-tasks.html"
 - title: Cloud Insights 및 Fluentd로 인프라 모니터링
   url: "/use/monitor-protect.html"
 - title: 앱 및 클러스터 관리를 취소합니다

@@ -11,18 +11,19 @@ summary: Kubernetes 클러스터, 앱 및 웹 브라우저에 대한 지원을 �
 :imagesdir: ../media/get-started/
 
 
+[role="lead"]
 먼저 운영 환경, 애플리케이션 클러스터, 애플리케이션, 라이센스 및 웹 브라우저의 준비 상태를 확인하십시오.
 
 *  environment requirements
 *  storage backends
-*  cluster requirements
-*  management requirements
-*  prerequisites
 *  to the internet
 * 
 *  for on-premises Kubernetes clusters
 *  requirements
 *  web browsers
+*  requirements for application clusters
+*  Anthos cluster requirements
+*  Tanzu Kubernetes Grid cluster requirements
 
 
 
@@ -31,17 +32,24 @@ summary: Kubernetes 클러스터, 앱 및 웹 브라우저에 대한 지원을 �
 
 Astra Control Center는 다음과 같은 유형의 운영 환경에서 검증되었습니다.
 
-* Google Anthos 1.10 또는 1.11
-* Kubernetes 1.22 ~ 1.24
+* Kubernetes 1.22를 사용하는 Cisco IKS
+* Google Anthos 1.11 또는 1.12(참조  Anthos cluster requirements)
+* 업스트림 Kubernetes 1.23 ~ 1.25(Kubernetes 1.25에 Astra Trident 22.10 이상 필요)
 * RKE(Rancher Kubernetes Engine):
 +
-** RKE 1.2.16 w/Rancher 2.5.12 및 RKE 1.3.3 w/2.6.3
-** RKE 2 (v1.23.6 + rke2r2), Rancher 2.6.3
+** RKE 1.3.12(Rancher 2.6.5 및 2.6.6 포함)
+** RKE 1.3.13, Rancher 2.6.8 포함
+** RKE 2 (v1.23.6 + rke2r1), Rancher 2.6.5 및 2.6.6 포함
+** RKE 2 (v1.24.x) 및 Rancher 2.6.8
 
 
-* Red Hat OpenShift Container Platform 4.8, 4.9 또는 4.10
-* VMware Tanzu Kubernetes Grid 1.4 또는 1.5
-* VMware Tanzu Kubernetes Grid Integrated Edition 1.12.2 또는 1.13
+* Red Hat OpenShift Container Platform 4.8 ~ 4.11
+* VMware Tanzu Kubernetes Grid: (참조  Tanzu Kubernetes Grid cluster requirements)
++
+** VMware Tanzu Kubernetes Grid 1.5
+** VMware Tanzu Kubernetes Grid Integrated Edition 1.13 및 1.14
+
+
 
 
 Astra Control Center를 호스팅하기 위해 선택한 운영 환경이 환경 공식 문서에 설명된 기본 리소스 요구 사항을 충족하는지 확인합니다. Astra Control Center에는 환경의 리소스 요구 사항 외에 다음과 같은 리소스가 필요합니다.
@@ -50,17 +58,22 @@ Astra Control Center를 호스팅하기 위해 선택한 운영 환경이 환경
 | 구성 요소 | 요구 사항 
 
 
+| CPU 확장 | 호스팅 환경의 모든 노드에 있는 CPU에는 AVX 확장이 활성화되어 있어야 합니다. 
+
+
 | 스토리지 백엔드 용량입니다 | 최소 500GB가 제공됩니다 
 
 
-| 작업자 노드 | 최소 3개의 작업자 노드, 각각 4개의 CPU 코어, 12GB RAM 
+| 작업자 노드  a| 
+최소 3개의 작업자 노드, 각각 4개의 CPU 코어, 12GB RAM
+
 
 
 | FQDN 주소입니다 | Astra Control Center의 FQDN 주소입니다 
 
 
 | 아스트라 트리덴트  a| 
-Astra Trident 21.10.1 이상 SnapMirror 기반 애플리케이션 복제를 위해 Astra Trident 22.07 이상 설치 및 구성되었습니다
+Astra Trident 22.01 이상 설치 및 구성 Astra Trident 22.07 이상 SnapMirror 기반 애플리케이션 복제 Astra Trident 22.10 이상 Kubernetes 1.25 클러스터용으로 설치됨(Kubernetes 1.25로 업그레이드하기 전에 Astra Trident 22.10으로 업그레이드해야 함)
 
 |===
 
@@ -72,50 +85,10 @@ NOTE: 이러한 요구 사항에서는 Astra Control Center가 운영 환경에�
 ** ONTAP - NAS
 ** ONTAP-NAS-Flexgroup입니다
 ** ONTAP-SAN
-** ONTAP-SAN - 경제성
+** ONTAP-SAN - 이코노미(앱 복제 지원 안 함)
 
 
 
-
-[NOTE]
-====
-OpenShift 환경에서 앱을 복제하는 동안, Astra Control Center는 OpenShift가 볼륨을 마운트하고 파일 소유권을 변경할 수 있도록 허용해야 합니다. 따라서 이러한 작업을 허용하려면 ONTAP 볼륨 내보내기 정책을 구성해야 합니다. 다음 명령을 사용하여 이 작업을 수행할 수 있습니다.
-
-. 'export-policy rule modify -vserver <storage virtual machine name> - policyname <policy name> - ruleindex 1 - superuser sys'
-. 'export-policy rule modify -vserver <storage virtual machine name> - policyname <policy name> - ruleindex 1 - anon 65534'
-
-
-====
-
-NOTE: 두 번째 OpenShift 운영 환경을 관리되는 컴퓨팅 리소스로 추가할 계획이라면 Astra Trident Volume Snapshot 기능이 활성화되어 있는지 확인해야 합니다. Astra Trident를 사용하여 볼륨 스냅샷을 활성화하고 테스트하려면 https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["공식 Astra Trident 지침을 참조하십시오"^].
-
-
-
-=== VMware Tanzu Kubernetes Grid 클러스터 요구 사항
-
-VMware Tanzu Kubernetes Grid(TKG) 또는 Tanzu Kubernetes Grid Integrated Edition(TKGi) 클러스터에서 Astra Control Center를 호스팅하는 경우 다음 사항을 고려하십시오.
-
-* Astra Control에서 관리하려는 모든 애플리케이션 클러스터에서 TKG 또는 TKGi 기본 스토리지 클래스 적용을 비활성화합니다. 네임스페이스 클러스터에서 '탄자쿠스컨테이너 클러스터' 리소스를 편집하여 이 작업을 수행할 수 있습니다.
-* Astra Control Center 설치의 일부로 POD 보안 정책(PSP) 제한 환경에서 다음 리소스가 생성됩니다.
-+
-** POD 보안 정책
-** RBAC 역할
-** RBAC RoleBinding RBAC 역할 및 RoleBinding 리소스는 "NetApp-acc" 네임스페이스에 생성됩니다.
-
-
-
-
-* TKG 또는 TKGi 환경에 Astra Control Center를 구축하는 경우 Astra Trident에 대한 특정 요구 사항을 숙지하십시오. 자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#other-known-configuration-options["Astra Trident 문서"^].
-
-
-
-NOTE: 기본 VMware TKG 및 TKGi 구성 파일 토큰은 구축 후 10시간 후에 만료됩니다. Tanzu 포트폴리오 제품을 사용하는 경우, Astra Control Center와 관리되는 애플리케이션 클러스터 간의 연결 문제를 방지하기 위해 만료되지 않는 토큰이 포함된 Tanzu Kubernetes Cluster 구성 파일을 생성해야 합니다. 자세한 내용은 를 참조하십시오 https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.2/nsx-application-platform/GUID-52A52C0B-9575-43B6-ADE2-E8640E22C29F.html["VMware NSX-T 데이터 센터 제품 설명서"]
-
-
-
-=== Google Anthos 클러스터 요구 사항
-
-Google Anthos 클러스터에서 Astra Control Center를 호스팅할 때 Google Anthos에는 기본적으로 MetalLB 로드 밸런서와 Istio 수신 게이트웨이 서비스가 포함되어 있으므로 설치 중에 Astra Control Center의 일반적인 수신 기능을 사용할 수 있습니다. 을 참조하십시오 link:install_acc.html#configure-astra-control-center["Astra Control Center를 구성합니다"] 를 참조하십시오.
 
 
 
@@ -135,115 +108,7 @@ Astra Control Center를 사용하려면 수행해야 할 작업에 따라 다음
 * S3 라이센스: 선택 사항. ONTAP S3 버킷에만 필요
 
 
-ONTAP 시스템에 필요한 라이센스가 있는지 확인할 수 있습니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["ONTAP 라이센스 관리"^].
-
-
-
-== 애플리케이션 클러스터 요구사항
-
-Astra Control Center에는 Astra Control Center에서 관리하려는 클러스터에 대한 다음과 같은 요구 사항이 있습니다. 이러한 요구 사항은 관리하려는 클러스터가 Astra Control Center를 호스팅하는 운영 환경 클러스터인 경우에도 적용됩니다.
-
-* Kubernetes의 최신 버전입니다 https://kubernetes-csi.github.io/docs/snapshot-controller.html["스냅샷 컨트롤러 구성 요소입니다"^] 이(가) 설치되었습니다
-* Astra Trident https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["볼륨스냅샷 클래스 개체"^] 관리자가 정의했습니다
-* 클러스터에 기본 Kubernetes 스토리지 클래스가 있습니다
-* Astra Trident를 사용하도록 스토리지 클래스를 하나 이상 구성했습니다
-
-
-
-NOTE: 응용 프로그램 클러스터에는 _CONTEXT_ELEMENT만 정의하는 "kubecononfig.YAML" 파일이 있어야 합니다. 에 대한 Kubernetes 설명서를 참조하십시오 https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["kubecononfig 파일 생성에 대한 정보입니다"^].
-
-
-NOTE: Rancher 환경에서 애플리케이션 클러스터를 관리할 때는 Rancher가 제공하는 kubeconfig 파일에서 애플리케이션 클러스터의 기본 컨텍스트를 수정하여 Rancher API 서버 컨텍스트 대신 컨트롤 플레인 컨텍스트를 사용합니다. 따라서 Rancher API 서버의 부하가 줄어들고 성능이 향상됩니다.
-
-
-
-== 설명합니다
-
-Astra Control에는 다음과 같은 애플리케이션 관리 요구 사항이 있습니다.
-
-* * 라이선스 *: Astra Control Center를 사용하여 애플리케이션을 관리하려면 Astra Control Center 라이센스가 필요합니다.
-* * Namespaces *: Astra Control은 앱이 단일 네임스페이스 이상의 범위를 포괄하지 않도록 하지만 네임스페이스에는 여러 개의 앱이 포함될 수 있습니다.
-* * StorageClass *: StorageClass가 명시적으로 설정된 애플리케이션을 설치하고 앱을 복제해야 하는 경우 클론 작업의 타겟 클러스터에 원래 지정된 StorageClass가 있어야 합니다. 명시적으로 StorageClass를 동일한 StorageClass가 없는 클러스터로 설정한 애플리케이션을 클론 복제하면 실패합니다.
-* * Kubernetes 리소스 *: Astra Control에서 수집하지 않은 Kubernetes 리소스를 사용하는 애플리케이션에는 전체 앱 데이터 관리 기능이 없을 수 있습니다. Astra Control은 다음과 같은 Kubernetes 리소스를 수집합니다.
-+
-[cols="1,1,1"]
-|===
-
-
-| 클러스터 역할 | ClusterRoleBinding 을 참조하십시오 | ConfigMap을 클릭합니다 
-
-
-| 경작업 | 사용자 지정 리소스 정의 | CustomResource 를 선택합니다 
-
-
-| DemonSet | DeploymentConfig(배포 구성 | HorizontalPodAutoscaler 
-
-
-| 침투 | 뮤atingWebhook | 네트워크 정책 
-
-
-| PersistentVolumeClaim | 포드 | 팟캐스트 예산 
-
-
-| 팟캐스트 템플릿 | ReplicaSet입니다 | 역할 
-
-
-| RoleBinding 을 클릭합니다 | 루트 | 비밀 
-
-
-| 서비스 | 서비스 계정 | StatefulSet 을 선택합니다 
-
-
-| Webhook을 확인합니다 |  |  
-|===
-
-
-
-
-== 복제 사전 요구 사항
-
-Astra Control 애플리케이션 복제를 시작하려면 먼저 다음과 같은 사전 요구 사항을 충족해야 합니다.
-
-* 원활한 재해 복구를 위해 세 번째 장애 도메인 또는 보조 사이트에 Astra Control Center를 배포하는 것이 좋습니다.
-* 앱의 호스트 Kubernetes 클러스터 및 대상 Kubernetes 클러스터를 사용할 수 있고 서로 다른 장애 도메인 또는 사이트에서 이상적인 두 ONTAP 클러스터에 연결할 수 있어야 합니다.
-* ONTAP 클러스터와 호스트 SVM이 페어링되어야 합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링 개요"^].
-* 타겟 클러스터의 Trident에서 페어링된 원격 SVM을 사용할 수 있어야 합니다.
-* Trident 버전 22.07 이상이 소스 및 대상 ONTAP 클러스터 모두에 있어야 합니다.
-* 소스 및 대상 ONTAP 클러스터 모두에서 데이터 보호 번들을 사용하는 ONTAP SnapMirror 비동기식 라이센스를 설정해야 합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["ONTAP의 SnapMirror 라이센스 개요"^].
-* ONTAP 스토리지 백엔드를 Astra Control Center에 추가할 때 두 ONTAP 클러스터에서 액세스 메서드 "http" 및 "ontapi"가 활성화된 "admin" 역할을 사용하여 사용자 자격 증명을 적용합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["사용자 계정 관리"^] 를 참조하십시오.
-* 소스 및 대상 Kubernetes 클러스터와 ONTAP 클러스터는 Astra Control에서 관리해야 합니다.
-+
-
-NOTE: 다른 클러스터 또는 사이트에서 실행 중인 다른 앱을 반대 방향으로 동시에 복제할 수 있습니다. 예를 들어, 애플리케이션 A, B, C를 데이터 센터 1에서 데이터 센터 2로 복제하고 애플리케이션 X, Y, Z를 데이터 센터 2에서 데이터 센터 1로 복제할 수 있습니다.
-
-
-
-자세한 내용을 알아보십시오 link:../use/replicate_snapmirror.html["SnapMirror 기술을 사용하여 원격 시스템에 애플리케이션을 복제합니다"].
-
-
-
-== 지원되는 응용 프로그램 설치 방법
-
-Astra Control은 다음과 같은 응용 프로그램 설치 방법을 지원합니다.
-
-* * 매니페스트 파일 *: Astra Control은 kubctl을 사용하여 매니페스트 파일에서 설치된 앱을 지원합니다. 예를 들면 다음과 같습니다.
-+
-[listing]
-----
-kubectl apply -f myapp.yaml
-----
-* * Helm 3 *: Helm을 사용하여 앱을 설치하는 경우 Astra Control에 Helm 버전 3이 필요합니다. Helm 3(또는 Helm 2에서 Helm 3으로 업그레이드)과 함께 설치된 앱의 관리 및 클론 생성이 완벽하게 지원됩니다. Helm 2가 설치된 앱 관리는 지원되지 않습니다.
-* * 운용자 구축 앱 *: Astra Control은 네임스페이스 범위 연산자와 함께 설치된 앱을 지원합니다. 다음은 이 설치 모델에 대해 검증된 몇 가지 응용 프로그램들입니다.
-+
-** https://github.com/k8ssandra/cass-operator/tree/v1.7.1["아파치 K8ssandra"^]
-** https://github.com/jenkinsci/kubernetes-operator["젠킨스 CI"^]
-** https://github.com/percona/percona-xtradb-cluster-operator["Percona XtraDB 클러스터"^]
-
-
-
-
-
-NOTE: 운영자와 설치하는 앱은 동일한 네임스페이스를 사용해야 합니다. 운영자가 배포 .YAML 파일을 수정해야 할 수도 있습니다.
+ONTAP 시스템에 필요한 라이센스가 있는지 확인하려면 을 참조하십시오 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["ONTAP 라이센스 관리"^].
 
 
 
@@ -259,9 +124,11 @@ Astra Control Center의 모든 기능을 사용하려면 Astra Control Center �
 
 Astra Control Center에 평가판 라이센스를 사용하면 라이센스를 다운로드한 날짜로부터 90일 동안 Astra Control Center를 사용할 수 있습니다. 등록하면 무료 평가판을 사용할 수 있습니다 link:https://cloud.netapp.com/astra-register["여기"^].
 
-ONTAP 스토리지 백엔드에 필요한 라이센스에 대한 자세한 내용은 을 참조하십시오 link:../get-started/requirements.html["지원되는 스토리지 백엔드"].
+라이센스를 설정하려면 을 참조하십시오 link:setup_overview.html["90일 평가판 라이센스를 사용합니다"^].
 
-라이센스 작동 방법에 대한 자세한 내용은 을 참조하십시오 link:../concepts/licensing.html["라이센싱"].
+라이센스 작동 방법에 대한 자세한 내용은 을 참조하십시오 link:../concepts/licensing.html["라이센싱"^].
+
+ONTAP 스토리지 백엔드에 필요한 라이센스에 대한 자세한 내용은 을 참조하십시오 link:../get-started/requirements.html["지원되는 스토리지 백엔드"].
 
 
 
@@ -270,9 +137,12 @@ ONTAP 스토리지 백엔드에 필요한 라이센스에 대한 자세한 내�
 네트워크 수신 Astra Control Center 사용 유형을 선택할 수 있습니다. 기본적으로 Astra Control Center는 클러스터 차원의 리소스로 Astra Control Center 게이트웨이(서비스/traefik)를 배포합니다. 또한 Astra Control Center는 서비스 로드 밸런서가 사용자 환경에서 허용되는 경우 이를 사용할 수 있도록 지원합니다. 서비스 로드 밸런서를 사용하고 아직 서비스 로드 밸런서가 구성되어 있지 않은 경우 MetalLB 로드 밸런서를 사용하여 외부 IP 주소를 서비스에 자동으로 할당할 수 있습니다. 내부 DNS 서버 구성에서 Astra Control Center에 대해 선택한 DNS 이름을 부하 분산 IP 주소로 지정해야 합니다.
 
 
+NOTE: 로드 밸런서는 Astra Control Center 작업자 노드 IP 주소와 동일한 서브넷에 있는 IP 주소를 사용해야 합니다.
+
+
 NOTE: Tanzu Kubernetes Grid 클러스터에서 Astra Control Center를 호스팅하는 경우 "kubbtl get nsxlbmonitor -a" 명령을 사용하여 수신 트래픽을 허용하도록 구성된 서비스 모니터가 있는지 확인하십시오. 기존 서비스 모니터가 새 로드 밸런서 구성을 무시하므로 MetalLB를 설치하면 안 됩니다.
 
-자세한 내용은 을 참조하십시오 link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["부하 분산을 위한 수신 설정"].
+자세한 내용은 을 참조하십시오 link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["부하 분산을 위한 수신 설정"^].
 
 
 
@@ -293,10 +163,10 @@ NOTE: Astra Control Center를 이중 스택 Kubernetes 클러스터에 구축할
 | 소비자 평가 기준 | Astra Control Center 작업자 노드 | 9090 | HTTPS | 메트릭 데이터 통신 - 각 관리 클러스터가 Astra Control Center를 호스팅하는 클러스터의 이 포트에 액세스할 수 있는지 확인합니다 (양방향 통신 필요) 
 
 
-| Astra 제어 센터 | Hosted Cloud Insights 서비스 (https://cloudinsights.netapp.com)[] | 443 | HTTPS | Cloud Insights 통신 
+| Astra 제어 센터 | Hosted Cloud Insights 서비스 (https://www.netapp.com/cloud-services/cloud-insights/)[] | 443 | HTTPS | Cloud Insights 통신 
 
 
-| Astra 제어 센터 | Amazon S3 스토리지 버킷 공급자 (https://my-bucket.s3.us-west-2.amazonaws.com/)[] | 443 | HTTPS | Amazon S3 스토리지 통신 
+| Astra 제어 센터 | Amazon S3 스토리지 버킷 공급자 | 443 | HTTPS | Amazon S3 스토리지 통신 
 
 
 | Astra 제어 센터 | NetApp AutoSupport를 참조하십시오 (https://support.netapp.com)[] | 443 | HTTPS | NetApp AutoSupport 커뮤니케이션 
@@ -309,6 +179,39 @@ Astra Control Center는 1280 x 720의 최소 해상도로 최신 버전의 Firef
 
 
 
+== 애플리케이션 클러스터에 대한 추가 요구사항
+
+Astra Control Center 기능을 사용하려는 경우 다음 요구 사항을 염두에 두십시오.
+
+* * 애플리케이션 클러스터 요구 사항 *: link:../get-started/setup_overview.html#prepare-your-environment-for-cluster-management-using-astra-control["클러스터 관리 요구 사항"^]
++
+** * 관리되는 애플리케이션 요구 사항 *: link:../use/manage-apps.html#application-management-requirements["설명합니다"^]
+** * 앱 복제에 대한 추가 요구 사항 *: link:../use/replicate_snapmirror.html#replication-prerequisites["복제 사전 요구 사항"^]
+
+
+
+
+
+
+== Google Anthos 클러스터 요구 사항
+
+Google Anthos 클러스터에서 Astra Control Center를 호스팅할 때 Google Anthos에는 기본적으로 MetalLB 로드 밸런서와 Istio 수신 게이트웨이 서비스가 포함되어 있으므로 설치 중에 Astra Control Center의 일반적인 수신 기능을 사용할 수 있습니다. 을 참조하십시오 link:install_acc.html#configure-astra-control-center["Astra Control Center를 구성합니다"^] 를 참조하십시오.
+
+
+
+== VMware Tanzu Kubernetes Grid 클러스터 요구 사항
+
+VMware Tanzu Kubernetes Grid(TKG) 또는 Tanzu Kubernetes Grid Integrated Edition(TKGi) 클러스터에서 Astra Control Center를 호스팅하는 경우 다음 사항을 고려하십시오.
+
+* Astra Control에서 관리하려는 모든 애플리케이션 클러스터에서 TKG 또는 TKGi 기본 스토리지 클래스 적용을 비활성화합니다. 네임스페이스 클러스터에서 '탄자쿠스컨테이너 클러스터' 리소스를 편집하여 이 작업을 수행할 수 있습니다.
+* TKG 또는 TKGi 환경에 Astra Control Center를 구축하는 경우 Astra Trident에 대한 특정 요구 사항을 숙지하십시오. 자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#other-known-configuration-options["Astra Trident 문서"^].
+
+
+
+NOTE: 기본 VMware TKG 및 TKGi 구성 파일 토큰은 구축 후 10시간 후에 만료됩니다. Tanzu 포트폴리오 제품을 사용하는 경우, Astra Control Center와 관리되는 애플리케이션 클러스터 간의 연결 문제를 방지하기 위해 만료되지 않는 토큰이 포함된 Tanzu Kubernetes Cluster 구성 파일을 생성해야 합니다. 자세한 내용은 를 참조하십시오 https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.2/nsx-application-platform/GUID-52A52C0B-9575-43B6-ADE2-E8640E22C29F.html["VMware NSX-T 데이터 센터 제품 설명서"^]
+
+
+
 == 다음 단계
 
-를 봅니다 link:quick-start.html["빠른 시작"] 개요.
+를 봅니다 link:quick-start.html["빠른 시작"^] 개요.

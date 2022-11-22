@@ -11,6 +11,7 @@ summary: 몇 가지 환경 요구 사항을 설명한 후 Astra Control Center�
 :imagesdir: ../media/get-started/
 
 
+[role="lead"]
 Astra Control Center를 사용하면 자체 관리되는 Kubernetes 클러스터 및 Cloud Volumes ONTAP 인스턴스가 있는 하이브리드 클라우드 환경에서 앱을 관리할 수 있습니다. 온프레미스 Kubernetes 클러스터 또는 클라우드 환경의 자가 관리 Kubernetes 클러스터 중 하나에 Astra Control Center를 구축할 수 있습니다.
 
 이러한 구축 중 하나를 통해 Cloud Volumes ONTAP를 스토리지 백엔드로 사용하여 애플리케이션 데이터 관리 작업을 수행할 수 있습니다. S3 버킷을 백업 타겟으로 구성할 수도 있습니다.
@@ -84,7 +85,7 @@ Astra Control Center의 FQDN을 부하 분산 IP 주소로 가리키는 방법
 
 
 
-| Astra Trident(NetApp Cloud Manager에서 Kubernetes 클러스터 검색의 일부로 설치됨)  a| 
+| Astra Trident(NetApp BlueXP, 이전의 Cloud Manager에서 Kubernetes 클러스터 검색의 일부로 설치됨)  a| 
 Astra Trident 21.04 이상 설치 및 구성, NetApp ONTAP 버전 9.5 이상 버전을 스토리지 백엔드로 사용합니다
 
 
@@ -98,7 +99,7 @@ NOTE: Astra Control Center에서 호스팅되는 클러스터와 관리 클러�
 
 
 | Astra Trident/ONTAP 구성  a| 
-Astra Control Center에서는 스토리지 클래스를 생성하고 기본 스토리지 클래스로 설정해야 합니다. Astra Control Center는 Kubernetes 클러스터를 NetApp Cloud Manager로 가져올 때 생성되는 다음과 같은 ONTAP Kubernetes 스토리지 클래스를 지원합니다. Astra Trident에서 제공합니다.
+Astra Control Center에서는 스토리지 클래스를 생성하고 기본 스토리지 클래스로 설정해야 합니다. Astra Control Center는 Kubernetes 클러스터를 NetApp BlueXP(이전의 Cloud Manager)로 가져올 때 생성되는 다음과 같은 ONTAP Kubernetes 스토리지 클래스를 지원합니다. Astra Trident에서 제공합니다.
 
 * ``vsaworkingenvironment-<>-ha-nas csi.trident.netapp.io`
 * ``saworkingenvironment-<>-ha-san csi.trident.netapp.io`
@@ -124,15 +125,15 @@ Cloud Volumes ONTAP를 스토리지 백엔드로 사용하여 Astra Control Cent
 .  that you have sufficient IAM permissions.
 .  a RedHat OpenShift cluster on AWS.
 .  AWS.
-.  NetApp Cloud Manager.
-.  Astra Control Center.
+.  NetApp BlueXP for AWS.
+.  Astra Control Center for AWS.
 
 
 
 
 === IAM 권한이 충분한지 확인하십시오
 
-RedHat OpenShift 클러스터와 NetApp Cloud Manager Connector를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.
+RedHat OpenShift 클러스터와 NetApp BlueXP(이전의 Cloud Manager) 커넥터를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.
 
 을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html#initial-aws-credentials["초기 AWS 자격 증명"^].
 
@@ -173,18 +174,18 @@ image:acc-cvo-aws2.png["Astra Control Center 및 Cloud Volumes ONTAP 배포 사�
 
 
 
-=== NetApp Cloud Manager 구성
+=== AWS용 NetApp BlueXP를 구성합니다
 
-Cloud Manager를 사용하여 작업 공간을 생성하고, AWS에 커넥터를 추가하고, 작업 환경을 생성하고, 클러스터를 가져옵니다.
+NetApp BlueXP(이전의 Cloud Manager)를 사용하여 작업 공간을 생성하고, AWS에 커넥터를 추가하고, 작업 환경을 생성하고, 클러스터를 가져옵니다.
 
-Cloud Manager 설명서에 따라 다음 단계를 완료하십시오. 다음을 참조하십시오.
+BlueXP 설명서를 참조하여 다음 단계를 완료합니다. 다음을 참조하십시오.
 
 * https://docs.netapp.com/us-en/occm/task_getting_started_aws.html["AWS에서 Cloud Volumes ONTAP 시작하기"^].
-* https://docs.netapp.com/us-en/occm/task_creating_connectors_aws.html#create-a-connector["Cloud Manager를 사용하여 AWS에서 커넥터를 생성합니다"^]
+* https://docs.netapp.com/us-en/occm/task_creating_connectors_aws.html#create-a-connector["BlueXP를 사용하여 AWS에서 커넥터를 생성합니다"^]
 
 
 .단계
-. Cloud Manager에 자격 증명을 추가합니다.
+. BlueXP에 자격 증명을 추가합니다.
 . 작업 영역을 만듭니다.
 . AWS용 커넥터를 추가합니다. AWS를 공급자로 선택합니다.
 . 클라우드 환경을 위한 작업 환경을 구축합니다.
@@ -211,7 +212,7 @@ TIP: Cloud Volumes ONTAP는 단일 노드 또는 고가용성으로 작동할 �
 
 
 
-=== Astra Control Center를 설치합니다
+=== AWS용 Astra Control Center를 설치합니다
 
 표준을 따릅니다 link:../get-started/install_acc.html["Astra Control Center 설치 지침"].
 
@@ -272,7 +273,7 @@ Astra Control Center의 FQDN을 부하 분산 IP 주소로 가리키는 방법
 
 
 
-| Astra Trident(NetApp Cloud Manager에서 Kubernetes 클러스터 검색의 일부로 설치됨)  a| 
+| Astra Trident(NetApp BlueXP, 이전의 Cloud Manager에서 Kubernetes 클러스터 검색의 일부로 설치됨)  a| 
 Astra Trident 21.04 이상 설치 및 구성, NetApp ONTAP 버전 9.5 이상 버전을 스토리지 백엔드로 사용합니다
 
 
@@ -286,7 +287,7 @@ NOTE: 백업을 위해 Restic 이미지를 풀려면 익명 액세스를 설정�
 
 
 | Astra Trident/ONTAP 구성  a| 
-Astra Control Center에서는 스토리지 클래스를 생성하고 기본 스토리지 클래스로 설정해야 합니다. Astra Control Center는 Kubernetes 클러스터를 NetApp Cloud Manager로 가져올 때 생성되는 다음과 같은 ONTAP Kubernetes 스토리지 클래스를 지원합니다. Astra Trident에서 제공합니다.
+Astra Control Center에서는 스토리지 클래스를 생성하고 기본 스토리지 클래스로 설정해야 합니다. Astra Control Center는 Kubernetes 클러스터를 NetApp BlueXP로 가져올 때 생성되는 다음과 같은 ONTAP Kubernetes 스토리지 클래스를 지원합니다. Astra Trident에서 제공합니다.
 
 * ``vsaworkingenvironment-<>-ha-nas csi.trident.netapp.io`
 * ``saworkingenvironment-<>-ha-san csi.trident.netapp.io`
@@ -310,8 +311,8 @@ NOTE: 이러한 요구 사항에서는 Astra Control Center가 운영 환경에�
 .  a GCP Project and Virtual Private Cloud.
 .  that you have sufficient IAM permissions.
 .  GCP.
-.  NetApp Cloud Manager.
-.  and configure Astra Control Center.
+.  NetApp BlueXP for GCP.
+.  Astra Control Center for GCP.
 
 
 
@@ -341,7 +342,7 @@ NOTE: OpenShift는 자체 리소스 그룹을 생성할 수 있습니다. 또한
 
 === IAM 권한이 충분한지 확인하십시오
 
-RedHat OpenShift 클러스터와 NetApp Cloud Manager Connector를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.
+RedHat OpenShift 클러스터와 NetApp BlueXP(이전의 Cloud Manager) 커넥터를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.
 
 을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html#setting-up-permissions["초기 GCP 자격 증명 및 권한"^].
 
@@ -396,22 +397,22 @@ done < astra-control-center-22.04.41.manifest
 
 
 
-=== NetApp Cloud Manager 구성
+=== NetApp BlueXP for GCP를 구성합니다
 
-Cloud Manager를 사용하여 작업 공간을 생성하고, GCP에 커넥터를 추가하고, 작업 환경을 생성하고, 클러스터를 가져옵니다.
+NetApp BlueXP(이전의 Cloud Manager)를 사용하여 작업 공간을 만들고, GCP에 커넥터를 추가하고, 작업 환경을 생성하고, 클러스터를 가져옵니다.
 
-Cloud Manager 설명서에 따라 다음 단계를 완료하십시오. 을 참조하십시오 https://docs.netapp.com/us-en/occm/task_getting_started_gcp.html["GCP에서 Cloud Volumes ONTAP 시작하기"^].
+BlueXP 설명서를 참조하여 다음 단계를 완료합니다. 을 참조하십시오 https://docs.netapp.com/us-en/occm/task_getting_started_gcp.html["GCP에서 Cloud Volumes ONTAP 시작하기"^].
 
 .무엇을 &#8217;필요로 할거야
 * 필요한 IAM 권한 및 역할을 사용하여 GCP 서비스 계정에 액세스합니다
 
 
 .단계
-. Cloud Manager에 자격 증명을 추가합니다. 을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-gcp-accounts.html["GCP 계정 추가"^].
+. BlueXP에 자격 증명을 추가합니다. 을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-gcp-accounts.html["GCP 계정 추가"^].
 . GCP용 커넥터를 추가합니다.
 +
 .. 공급자로 "GCP"를 선택합니다.
-.. GCP 자격 증명을 입력합니다. 을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["Cloud Manager에서 GCP에 커넥터 생성"^].
+.. GCP 자격 증명을 입력합니다. 을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["BlueXP에서 GCP에 커넥터 생성"^].
 .. 커넥터가 실행 중인지 확인하고 해당 커넥터로 전환합니다.
 
 
@@ -439,7 +440,7 @@ TIP: Cloud Volumes ONTAP는 단일 노드 또는 고가용성(HA)으로 작동�
 
 
 
-=== Astra Control Center를 설치합니다
+=== Astra Control Center for GCP를 설치합니다
 
 표준을 따릅니다 link:../get-started/install_acc.html["Astra Control Center 설치 지침"].
 
@@ -450,11 +451,7 @@ NOTE: GCP는 일반 S3 버킷 유형을 사용합니다.
 +
 [listing]
 ----
-kubectl create secret docker-registry <secret name>
---docker-server=<Registry location>
---docker-username=_json_key
---docker-password="$(cat <GCP Service Account JSON file>)"
---namespace=pcloud
+kubectl create secret docker-registry <secret name> --docker-server=<Registry location> --docker-username=_json_key --docker-password="$(cat <GCP Service Account JSON file>)" --namespace=pcloud
 ----
 
 
@@ -513,7 +510,7 @@ Astra Control Center의 FQDN을 부하 분산 IP 주소로 가리키는 방법
 
 
 
-| Astra Trident(NetApp Cloud Manager에서 Kubernetes 클러스터 검색의 일부로 설치됨)  a| 
+| Astra Trident(NetApp BlueXP에서 Kubernetes 클러스터 검색의 일부로 설치됨)  a| 
 설치 및 구성된 Astra Trident 21.04 이상 및 NetApp ONTAP 버전 9.5 이상이 스토리지 백엔드로 사용됩니다
 
 
@@ -527,7 +524,7 @@ NOTE: 백업을 위해 Restic 이미지를 풀려면 익명 액세스를 설정�
 
 
 | Astra Trident/ONTAP 구성  a| 
-Astra Control Center에서는 스토리지 클래스를 생성하고 기본 스토리지 클래스로 설정해야 합니다. Astra Control Center는 Kubernetes 클러스터를 NetApp Cloud Manager로 가져올 때 생성되는 다음과 같은 ONTAP Kubernetes 스토리지 클래스를 지원합니다. Astra Trident에서 제공합니다.
+Astra Control Center에서는 스토리지 클래스를 생성하고 기본 스토리지 클래스로 설정해야 합니다. Astra Control Center는 Kubernetes 클러스터를 NetApp BlueXP로 가져올 때 생성되는 다음과 같은 ONTAP Kubernetes 스토리지 클래스를 지원합니다. Astra Trident에서 제공합니다.
 
 * ``vsaworkingenvironment-<>-ha-nas csi.trident.netapp.io`
 * ``saworkingenvironment-<>-ha-san csi.trident.netapp.io`
@@ -551,8 +548,8 @@ NOTE: 이러한 요구 사항에서는 Astra Control Center가 운영 환경에�
 .  Azure resource groups.
 .  that you have sufficient IAM permissions.
 .  Azure.
-.  NetApp Cloud Manager.
-.  and configure Astra Control Center.
+.  NetApp BlueXP (formerly Cloud Manager) for Azure.
+.  and configure Astra Control Center for Azure.
 
 
 
@@ -563,7 +560,7 @@ NOTE: 이러한 요구 사항에서는 Astra Control Center가 운영 환경에�
 
 설치 지침은 다음을 참조하십시오.
 
-* https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-azure-default.html["Azure에 OpenShift 클러스터 설치"^].
+* https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html["Azure에 OpenShift 클러스터 설치"^].
 * https://docs.openshift.com/container-platform/4.8/installing/installing_azure/installing-azure-account.html#installing-azure-account["Azure 계정을 설치하는 중입니다"^].
 
 
@@ -582,7 +579,7 @@ NOTE: OpenShift는 자체 리소스 그룹을 생성할 수 있습니다. 또한
 
 === IAM 권한이 충분한지 확인하십시오
 
-RedHat OpenShift 클러스터와 NetApp Cloud Manager Connector를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.
+RedHat OpenShift 클러스터와 NetApp BlueXP Connector를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.
 
 을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html["Azure 자격 증명 및 권한"^].
 
@@ -592,7 +589,7 @@ RedHat OpenShift 클러스터와 NetApp Cloud Manager Connector를 설치할 수
 
 그런 다음 가상 네트워크를 만들고, 컴퓨팅 인스턴스를 설정하고, Azure Blob 컨테이너를 만들고, Astra Control Center 이미지를 호스팅하기 위해 ACR(Azure Container Register)을 만들고, 이 레지스트리로 이미지를 푸시하도록 Azure를 구성합니다.
 
-Azure 설명서에 따라 다음 단계를 완료합니다. 을 참조하십시오 https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-azure-default.html["Azure에 OpenShift 클러스터 설치"^].
+Azure 설명서에 따라 다음 단계를 완료합니다. 을 참조하십시오 https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html["Azure에 OpenShift 클러스터 설치"^].
 
 . Azure 가상 네트워크를 생성합니다.
 . 컴퓨팅 인스턴스를 검토합니다. Azure의 베어 메탈 서버 또는 VM이 될 수 있습니다.
@@ -633,28 +630,28 @@ done < astra-control-center-22.04.41.manifest
 
 
 
-=== NetApp Cloud Manager 구성
+=== Azure용 NetApp BlueXP(이전의 Cloud Manager)를 구성합니다
 
-Cloud Manager를 사용하여 작업 영역을 만들고, Azure에 커넥터를 추가하고, 작업 환경을 생성하고, 클러스터를 가져옵니다.
+BlueXP(이전의 Cloud Manager)를 사용하여 작업 영역을 만들고, Azure에 커넥터를 추가하고, 작업 환경을 생성하고, 클러스터를 가져옵니다.
 
-Cloud Manager 설명서에 따라 다음 단계를 완료하십시오. 을 참조하십시오 https://docs.netapp.com/us-en/occm/task_getting_started_azure.html["Azure에서 Cloud Manager 시작하기"^].
+BlueXP 설명서를 참조하여 다음 단계를 완료합니다. 을 참조하십시오 https://docs.netapp.com/us-en/occm/task_getting_started_azure.html["Azure에서 BlueXP를 시작합니다"^].
 
 필요한 IAM 권한 및 역할을 사용하여 Azure 계정에 액세스합니다
 
 .단계
-. Cloud Manager에 자격 증명을 추가합니다.
-. Azure용 커넥터를 추가합니다. 을 참조하십시오 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 정책"^].
+. BlueXP에 자격 증명을 추가합니다.
+. Azure용 커넥터를 추가합니다. 을 참조하십시오 https://mysupport.netapp.com/site/info/cloud-manager-policies["BlueXP 정책"^].
 +
 .. 공급자로 * Azure * 를 선택합니다.
 .. 애플리케이션 ID, 클라이언트 암호 및 디렉토리(테넌트) ID를 비롯한 Azure 자격 증명을 입력합니다.
 +
-을 참조하십시오 https://docs.netapp.com/us-en/occm/task_creating_connectors_azure.html["Cloud Manager에서 Azure에 커넥터 만들기"^].
+을 참조하십시오 https://docs.netapp.com/us-en/occm/task_creating_connectors_azure.html["BlueXPr에서 커넥터 만들기"^].
 
 
 
 . 커넥터가 실행 중인지 확인하고 해당 커넥터로 전환합니다.
 +
-image:acc-cvo-azure-connectors.png["Cloud Manager의 커넥터 전환"]
+image:acc-cvo-azure-connectors.png["BlueXP의 커넥터 전환"]
 
 . 클라우드 환경을 위한 작업 환경을 구축합니다.
 +
@@ -663,13 +660,13 @@ image:acc-cvo-azure-connectors.png["Cloud Manager의 커넥터 전환"]
 
 
 +
-image:acc-cvo-azure-working-environment.png["Cloud Manager에서 작업 환경 생성"]
+image:acc-cvo-azure-working-environment.png["BlueXP에서 작업 환경 생성"]
 
 . OpenShift 클러스터를 가져옵니다. 클러스터가 방금 생성한 작업 환경에 연결됩니다.
 +
 .. NetApp 클러스터 세부 정보를 보려면 * K8s * > * 클러스터 목록 * > * 클러스터 세부 정보 * 를 선택합니다.
 +
-image:acc-cvo-azure-connected.png["Cloud Manager에서 클러스터를 가져왔습니다"]
+image:acc-cvo-azure-connected.png["BlueXP에서 가져온 클러스터"]
 
 .. 오른쪽 위 모서리에서 Trident 버전을 확인합니다.
 .. NetApp을 공급자 로 보여주는 Cloud Volumes ONTAP 클러스터 스토리지 클래스를 참조하십시오.
@@ -684,7 +681,7 @@ image:acc-cvo-azure-connected.png["Cloud Manager에서 클러스터를 가져왔
 
 
 
-=== Astra Control Center를 설치하고 구성합니다
+=== Azure용 Astra Control Center를 설치 및 구성합니다
 
 Astra Control Center를 표준으로 설치합니다 link:../get-started/install_acc.html["설치 지침"].
 

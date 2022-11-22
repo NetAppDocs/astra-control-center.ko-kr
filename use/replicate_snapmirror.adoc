@@ -43,7 +43,30 @@ Astra Control을 사용하면 애플리케이션 복제와 관련된 다음 작�
 
 == 복제 사전 요구 사항
 
-를 참조하십시오 link:../get-started/requirements.html#replication-prerequisites["복제 사전 요구 사항"] 시작하기 전에.
+Astra Control 애플리케이션 복제를 시작하려면 먼저 다음과 같은 사전 요구 사항을 충족해야 합니다.
+
+* 원활한 재해 복구를 위해 세 번째 장애 도메인 또는 보조 사이트에 Astra Control Center를 배포하는 것이 좋습니다.
+* 앱의 호스트 Kubernetes 클러스터 및 대상 Kubernetes 클러스터를 ONTAP 클러스터와 함께 관리해야 하며, 이상적으로는 다른 장애 도메인 또는 사이트에서 관리할 수 있어야 합니다.
+* ONTAP 클러스터와 호스트 SVM이 페어링되어야 합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링 개요"^].
+* 대상 클러스터의 Astra Trident에서 페어링된 원격 SVM을 사용할 수 있어야 합니다.
+* Astra Trident 버전 22.07 이상이 소스 및 대상 ONTAP 클러스터 모두에 있어야 합니다.
+* 소스 및 대상 ONTAP 클러스터 모두에서 데이터 보호 번들을 사용하는 ONTAP SnapMirror 비동기식 라이센스를 설정해야 합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["ONTAP의 SnapMirror 라이센스 개요"^].
+* ONTAP 스토리지 백엔드를 Astra 제어 센터에 추가할 때 액세스 방법이 있는 "admin" 역할을 사용하여 사용자 자격 증명을 적용합니다 `http` 및 `ontapi` ONTAP 소스 클러스터와 대상 클러스터 모두에서 사용하도록 설정되었습니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ONTAP 설명서에서 사용자 계정을 관리합니다"^] 를 참조하십시오.
+* 소스 및 대상 Kubernetes 클러스터와 ONTAP 클러스터는 Astra Control에서 관리해야 합니다.
++
+
+NOTE: 다른 클러스터 또는 사이트에서 실행 중인 다른 앱을 반대 방향으로 동시에 복제할 수 있습니다. 예를 들어, 애플리케이션 A, B, C를 데이터 센터 1에서 데이터 센터 2로 복제하고 애플리케이션 X, Y, Z를 데이터 센터 2에서 데이터 센터 1로 복제할 수 있습니다.
+
+* * Astra Trident/ONTAP 구성 *: Astra Control Center를 사용하려면 스토리지 클래스를 생성하고 기본 스토리지 클래스로 설정해야 합니다. Astra Control Center는 복제를 위해 Astra Trident에서 제공하는 다음과 같은 ONTAP 드라이버를 지원합니다.
++
+** ONTAP - NAS
+** ONTAP-NAS-Flexgroup입니다
+** ONTAP-SAN
+
+
+
+
+자세한 내용을 알아보십시오 link:../use/replicate_snapmirror.html["SnapMirror 기술을 사용하여 원격 시스템에 애플리케이션을 복제합니다"^].
 
 
 
@@ -62,14 +85,11 @@ Astra Control을 사용하면 애플리케이션 복제와 관련된 다음 작�
 . 데이터 보호 > 복제 탭에서 * 복제 정책 구성 * 을 선택합니다. 또는 애플리케이션 보호 상자에서 작업 옵션을 선택하고 * 복제 정책 구성 * 을 선택합니다.
 . 다음 정보를 입력하거나 선택합니다.
 +
-** 타겟 클러스터
+** * 대상 클러스터 *: 소스와 다른 대상 클러스터를 입력합니다.
 ** * 대상 스토리지 클래스 *: 대상 ONTAP 클러스터에서 쌍을 이루는 SVM을 사용하는 스토리지 클래스를 선택하거나 입력합니다.
 ** * 복제 유형 *: "비동기"는 현재 사용 가능한 유일한 복제 유형입니다. 
 ** * 대상 네임스페이스 *: 대상 클러스터에 대한 새 또는 기존 대상 네임스페이스를 입력합니다.
-+
-
-NOTE: 선택한 네임스페이스의 충돌하는 모든 리소스를 덮어씁니다. 
-
+** (선택 사항) * 네임스페이스 추가 * 를 선택하고 드롭다운 목록에서 네임스페이스를 선택하여 네임스페이스를 추가합니다.
 ** * 복제 빈도 *: Astra Control이 스냅샷을 생성하여 대상에 복제할 빈도를 설정합니다.
 ** * 오프셋 *: Astra Control에서 스냅샷을 생성할 시간(분)을 설정합니다. 다른 예약된 작업과 일치하지 않도록 오프셋을 사용할 수 있습니다. 예를 들어 10:02부터 5분마다 스냅샷을 만들려는 경우 오프셋 분으로 "02"를 입력합니다. 결과는 10:02, 10:07, 10:12 등이 될 것입니다
 
@@ -102,7 +122,7 @@ Astra Control은 관계를 수립함으로써 다음과 같은 조치를 수행�
 
 예: Normal | 설정합니다
 
-아래에서 복제 상태 및 상태에 대해 자세히 알아보십시오.
+이 항목의 끝에 있는 복제 상태 및 상태에 대해 자세히 알아보십시오.
 
 
 

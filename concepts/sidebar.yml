@@ -2,8 +2,6 @@
 section: concepts
 title: 개념
 entries:
-- title: Astra Control에 대해 알아보십시오
-  url: "/concepts/intro.html"
 - title: 아키텍처 및 구성 요소
   url: "/concepts/architecture.html"
 - title: 데이터 보호
@@ -16,3 +14,5 @@ entries:
   url: "/concepts/choose-class-and-size.html"
 - title: 사용자 역할 및 네임스페이스
   url: "/concepts/user-roles-namespaces.html"
+- title: POD 보안
+  url: "/concepts/understand-pod-security.html"

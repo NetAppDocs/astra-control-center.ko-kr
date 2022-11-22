@@ -2,8 +2,6 @@
 :allow-uri-read: 
 
 
-Astra Control은 Kubernetes 애플리케이션 데이터 라이프사이클 관리 솔루션으로, 상태 저장 애플리케이션의 운영을 단순화합니다. Kubernetes 워크로드를 손쉽게 보호, 백업, 복제, 마이그레이션하고 정상 작동하는 애플리케이션 클론을 즉시 생성할 수 있습니다.
-
 
 
 == 피처
@@ -26,7 +24,7 @@ Astra Control은 Kubernetes 애플리케이션 데이터 라이프사이클 관�
 
 Astra Control은 두 가지 배포 모델로 제공됩니다.
 
-* * Astra Control Service *: GKE(Google Kubernetes Engine) 및 AKS(Azure Kubernetes Service)에서 Kubernetes 클러스터의 애플리케이션 인식 데이터 관리를 제공하는 NetApp 관리 서비스입니다.
+* * Astra Control Service *: 여러 클라우드 공급자 환경에서 Kubernetes 클러스터의 애플리케이션 인식 데이터 관리를 제공하는 NetApp 관리 서비스입니다.
 * * Astra Control Center *: 사내 환경에서 실행되는 Kubernetes 클러스터의 애플리케이션 인식 데이터 관리를 제공하는 자체 관리 소프트웨어입니다.
 
 
@@ -57,7 +55,6 @@ Astra Control은 두 가지 배포 모델로 제공됩니다.
 
 | 스토리지 백엔드 지원이란 무엇입니까? | NetApp 클라우드 서비스 오퍼링  a| 
 * NetApp ONTAP AFF 및 FAS 시스템
-* 스토리지 백엔드로 Astra Data Store를 사용합니다
 * Cloud Volumes ONTAP 스토리지 백엔드
 
 
@@ -73,7 +70,7 @@ Astra Control Service는 NetApp에서 관리하는 클라우드 서비스로, �
 * 클라우드 공급자를 설정하고 Astra 계정에 등록하여 Astra Control Service를 시작할 수 있습니다.
 +
 ** GKE 클러스터의 경우 Astra Control Service가 사용합니다 https://cloud.netapp.com/cloud-volumes-service-for-gcp["Google Cloud용 NetApp Cloud Volumes Service"^] 또는 Google 영구 디스크를 영구 볼륨의 스토리지 백엔드로 사용합니다.
-** AKS 클러스터의 경우 Astra Control Service가 사용합니다 https://cloud.netapp.com/azure-netapp-files["Azure NetApp Files"^] 또는 Azure Disk Storage를 영구 볼륨의 스토리지 백엔드로 사용합니다.
+** AKS 클러스터의 경우 Astra Control Service가 사용합니다 https://cloud.netapp.com/azure-netapp-files["Azure NetApp Files"^] 또는 Azure 관리 디스크를 영구 볼륨의 스토리지 백엔드로 사용합니다.
 ** Amazon EKS 클러스터의 경우 Astra Control Service가 사용합니다 https://docs.aws.amazon.com/ebs/["Amazon Elastic Block Store를 클릭합니다"^] 또는 https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html["NetApp ONTAP용 Amazon FSx"^] 영구 볼륨의 스토리지 백엔드로 사용됩니다.
 
 
@@ -92,7 +89,7 @@ Azure에서 Astra Control Service는 Blob 컨테이너용 리소스 그룹, 스�
 * 그런 다음 Astra Control Service를 사용하여 이러한 애플리케이션을 관리하고 스냅샷, 백업 및 클론 생성을 시작합니다.
 
 
-Astra Control의 무료 플랜을 사용하면 최대 10개의 앱을 계정에서 관리할 수 있습니다. 10개 이상의 앱을 관리하려면 무료 요금에서 프리미엄 요금제로 업그레이드하여 청구서를 설정해야 합니다.
+Astra Control의 무료 플랜을 사용하면 최대 10개의 네임스페이스를 계정에서 관리할 수 있습니다. 10개 이상의 항목을 관리하려는 경우 무료 요금에서 프리미엄 요금제로 업그레이드하여 청구서를 설정해야 합니다.
 
 
 
@@ -100,17 +97,13 @@ Astra Control의 무료 플랜을 사용하면 최대 10개의 앱을 계정에�
 
 Astra Control Center는 프라이빗 클라우드에서 로컬로 실행됩니다.
 
-Astra Control Center는 다음과 같은 기능을 통해 Kubernetes 클러스터를 지원합니다.
-
-* ONTAP 9.5 이상의 Trident 스토리지 백엔드
-* Astra Data Store 스토리지 백엔드
-
+Astra Control Center는 ONTAP 9.5 이상의 스토리지 백엔드를 포함하는 Trident 기반 스토리지 클래스를 사용하여 Kubernetes 클러스터를 지원합니다.
 
 클라우드 연결 환경에서 Astra Control Center는 Cloud Insights를 사용하여 고급 모니터링 및 원격 측정 기능을 제공합니다. Cloud Insights 연결이 없을 경우 Astra Control Center에서 제한된(7일 메트릭) 모니터링 및 원격 측정 기능을 사용할 수 있으며, 개방형 메트릭 엔드 포인트를 통해 Kubernetes 기본 모니터링 툴(예: Prometheus 및 Grafana)으로 내보낼 수 있습니다.
 
 Astra Control Center는 AutoSupport 및 Active IQ 에코시스템에 완전히 통합되어 사용자와 NetApp 지원에 문제 해결 및 사용 정보를 제공합니다.
 
-90일 평가판 라이센스를 사용하여 Astra Control Center를 사용해 볼 수 있습니다. 평가 버전은 이메일 및 커뮤니티(Slack 채널) 옵션을 통해 지원됩니다. 또한 제품 내 지원 대시보드에서 Knowledgebase 문서 및 문서에 액세스할 수 있습니다.
+90일 평가판 라이센스를 사용하여 Astra Control Center를 사용해 볼 수 있습니다. 평가판 버전은 전자 메일 및 커뮤니티 옵션을 통해 지원됩니다. 또한 제품 내 지원 대시보드에서 Knowledgebase 문서 및 문서에 액세스할 수 있습니다.
 
 Astra Control Center를 설치하고 사용하려면 반드시 충족해야 합니다 https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html["요구 사항"].
 
@@ -129,12 +122,6 @@ Astra Control Center는 다음과 같이 높은 수준에서 작동합니다.
 
 에 대해 자세히 알아보십시오 https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html["Astra Control Center를 설정합니다"].
 
-Astra Control Center는 다음과 같은 작업을 수행합니다.
-
-* 네임스페이스를 비롯하여 클러스터에 대한 세부 정보를 검색하고 앱을 정의 및 보호할 수 있습니다.
-* 관리하려는 클러스터에서 Astra Trident 또는 Astra Data Store 구성을 검색하고 스토리지 백엔드를 모니터링할 수 있습니다.
-
-
 앱을 클러스터에 추가할 수 있습니다. 클러스터에 이미 관리 중인 앱이 있으면 Astra Control Center를 사용하여 관리할 수 있습니다. 그런 다음 Astra Control Center를 사용하여 스냅샷, 백업, 클론 및 복제 관계를 생성합니다.
 
 
@@ -143,7 +130,6 @@ Astra Control Center는 다음과 같은 작업을 수행합니다.
 
 * https://docs.netapp.com/us-en/astra/index.html["Astra Control Service 문서"^]
 * https://docs.netapp.com/us-en/astra-control-center/index.html["Astra Control Center 문서"^]
-* https://docs.netapp.com/us-en/astra-data-store/index.html["Astra Data Store 문서"]
 * https://docs.netapp.com/us-en/trident/index.html["Astra Trident 문서"^]
 * https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 사용합니다"^]
 * https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights 설명서"^]

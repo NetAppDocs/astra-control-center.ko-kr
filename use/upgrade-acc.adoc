@@ -11,11 +11,32 @@ summary: Astra Control Center를 업그레이드하려면 설명된 단계에 �
 :imagesdir: ../media/get-started/
 
 
-Astra Control Center를 업그레이드하려면 NetApp Support 사이트에서 설치 번들을 다운로드하고 해당 지침에 따라 Astra Control Center 구성 요소를 업그레이드하십시오. 이 절차를 사용하여 인터넷에 연결되거나 공기가 연결된 환경에서 Astra Control Center를 업그레이드할 수 있습니다.
+[role="lead"]
+Astra Control Center를 업그레이드하려면 NetApp Support 사이트에서 설치 번들을 다운로드하고 다음 지침을 완료하십시오. 이 절차를 사용하여 인터넷에 연결되거나 공기가 연결된 환경에서 Astra Control Center를 업그레이드할 수 있습니다.
 
 .무엇을 &#8217;필요로 할거야
-* link:../get-started/requirements.html["업그레이드를 시작하기 전에 운영 환경이 Astra Control Center 배포에 대한 최소 요구 사항을 충족하는지 확인하십시오"].
-* 모든 클러스터 운영자가 양호한 상태이며 사용 가능한지 확인합니다.
+* 업그레이드하기 전에 을 참조하십시오 link:../get-started/requirements.html#operational-environment-requirements["구현할 수 있습니다"^] 사용자 환경이 Astra Control Center 배포에 대한 최소 요구 사항을 충족하는지 확인합니다. 환경에 다음이 있어야 합니다.
++
+** 지원되는 Astra Trident 버전 실행 중인 버전을 확인하려면 기존 Astra Control Center에 대해 다음 명령을 실행합니다.
++
+[listing]
+----
+../../trident-installer/tridentctl -n trident version
+----
++
+을 참조하십시오 https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html#determine-the-version-to-upgrade-to["Astra Trident 문서"] 이전 버전에서 업그레이드하는 경우.
+
++
+
+WARNING: Kubernetes 1.25로 업그레이드하기 전에 * Astra Trident 22.10 * 으로 업그레이드해야 합니다.
+
+** 지원되는 Kubernetes 배포 실행 중인 버전을 확인하려면 기존 Astra Control Center에 대해 다음 명령을 실행합니다. `kubectl get nodes -o wide`
+** 클러스터 리소스를 확인하는 데 충분한 클러스터 리소스가 있습니다. 기존 Astra Control Center 클러스터에서 다음 명령을 실행합니다. `kubectl describe node <node name>`
+** Astra Control Center 이미지를 푸시 및 업로드하는 데 사용할 수 있는 레지스트리입니다
+** 기본 스토리지 클래스 기본 스토리지 클래스를 확인하려면 기존 Astra Control Center에 대해 다음 명령을 실행합니다. `kubectl get storageclass`
+
+
+* (OpenShift에만 해당) 모든 클러스터 운영자가 양호한 상태이며 사용 가능한지 확인합니다.
 +
 [listing]
 ----
@@ -27,36 +48,31 @@ kubectl get clusteroperators
 ----
 kubectl get apiservices
 ----
-* Astra Control Center에서 로그아웃합니다.
+* 업그레이드를 시작하기 전에 Astra Control Center UI에서 로그아웃하십시오.
 
 
 Astra Control Center 업그레이드 프로세스는 다음과 같은 고급 단계를 안내합니다.
 
 *  the Astra Control Center bundle
-*  the bundle and change directory
+*  the bundle
 *  the images to your local registry
 *  the updated Astra Control Center operator
 *  Astra Control Center
-*  third-party services (Optional)
 *  system status
-*  up ingress for load balancing
 
 
 
-IMPORTANT: Astra Control Center POD를 모두 삭제하지 않도록 업그레이드 프로세스 내내 다음 명령을 실행하지 마십시오: "kubctl delete -f Astra_control_center_operator_deploy.YAML
+IMPORTANT: Astra Control Center 운영자를 삭제하지 마십시오(예: `kubectl delete -f astra_control_center_operator_deploy.yaml`) 포드가 삭제되지 않도록 Astra Control Center 업그레이드 또는 작업 중 언제든지.
 
 
 TIP: 스케줄, 백업 및 스냅샷이 실행되고 있지 않은 경우 유지보수 창에서 업그레이드를 수행합니다.
 
 
-NOTE: Docker Engine 대신 Red Hat의 Podman 명령을 사용하는 경우 Docker 명령 대신 Podman 명령을 사용할 수 있습니다.
-
-
 
 == Astra Control Center 번들을 다운로드합니다
 
-. https:mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab[NetApp 지원 사이트^]에서 Astra Control Center 업그레이드 번들("Astra-control-center-[version].tar.gz")을 다운로드하십시오.
-. (선택 사항) 다음 명령을 사용하여 번들의 서명을 확인합니다.
+. 에서 Astra Control Center 번들을 다운로드합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support 사이트"^]. 파일 이름은 다음과 비슷합니다. `astra-control-center-[version].tar.gz`.
+. (선택 사항) 번들의 서명을 확인합니다.
 +
 [listing]
 ----
@@ -66,7 +82,7 @@ openssl dgst -sha256 -verify AstraControlCenter-public.pub -signature astra-cont
 
 
 
-== 번들의 포장을 풀고 디렉토리를 변경합니다
+== 번들의 포장을 풉니다
 
 . 이미지 추출:
 +
@@ -75,6 +91,22 @@ openssl dgst -sha256 -verify AstraControlCenter-public.pub -signature astra-cont
 tar -vxzf astra-control-center-[version].tar.gz
 ----
 
+
+
+
+== NetApp Astra kubectl 플러그인이 설치되어 있는지 확인합니다
+
+NetApp Astra kubtl 명령줄 플러그인은 Astra Control Center 배포 및 업그레이드와 관련된 일반적인 작업을 수행할 때 시간을 절약해 줍니다.
+
+. 다음 명령을 사용하여 플러그인이 설치되어 있는지 확인합니다.
++
+[listing]
+----
+kubectl astra
+----
+
+
+이 명령은 kubbeck 플러그인 도움말을 제공합니다. 명령이 오류를 반환하면 이를 사용하여 플러그인을 설치합니다 link:../get-started/install_acc.html#install-the-netapp-astra-kubectl-plugin["지침"].
 
 
 
@@ -87,22 +119,26 @@ tar -vxzf astra-control-center-[version].tar.gz
 ====
 .Docker 를 참조하십시오
 --
-. Astra 디렉토리로 이동합니다.
+. 로 변경합니다 `acc` tar 번들에서 추출된 디렉토리:
 +
-[source, sh]
+예:
+
+
+
+[listing]
 ----
-cd acc
+cd ../acc
 ----
-. [[substep_image_local_registry_push]] Astra Control Center 이미지 디렉토리에 있는 패키지 이미지를 로컬 레지스트리로 푸시합니다. 명령을 실행하기 전에 다음 대체 작업을 수행합니다.
+. Astra Control Center 이미지 디렉토리의 패키지 이미지를 로컬 레지스트리에 밀어 넣습니다. 명령을 실행하기 전에 다음 대체 작업을 수행합니다.
 +
-** bundle_file을 Astra Control 번들 파일 이름으로 바꿉니다(예: acc.manifest.YAML).
-** my_registry를 Docker 리포지토리의 URL로 바꿉니다.
-** my_registry_user를 사용자 이름으로 바꿉니다.
-** my_registry_token을 레지스트리에 대한 인증된 토큰으로 바꿉니다.
+** <BUNDLE_FILE>를 Astra Control 번들 파일의 이름으로 바꿉니다 (`acc.manifest.yaml`)를 클릭합니다.
+** <MY_FULL_REGISTRY_PATH>를 Docker 저장소의 URL로 바꿉니다. 예를 들어, https://exampledownloads.jfrog.io/docker-astra-control/v1/[].
+** <MY_REGISTRY_USER>를 사용자 이름으로 바꿉니다.
+** <MY_REGISTRY_TOKEN>를 레지스트리에 대한 인증된 토큰으로 바꿉니다.
 +
-[source, sh]
+[source, console]
 ----
-kubectl astra packages push-images -m BUNDLE_FILE -r MY_REGISTRY -u MY_REGISTRY_USER -p MY_REGISTRY_TOKEN
+kubectl astra packages push-images -m <BUNDLE_FILE> -r <MY_FULL_REGISTRY_PATH> -u <MY_REGISTRY_USER> -p <MY_REGISTRY_TOKEN>
 ----
 
 
@@ -113,13 +149,13 @@ kubectl astra packages push-images -m BUNDLE_FILE -r MY_REGISTRY -u MY_REGISTRY_
 --
 . 레지스트리에 로그인합니다.
 +
-[source, sh]
+[source, console]
 ----
-podman login [your_registry_path]
+podman login <MY_FULL_REGISTRY_PATH>
 ----
 . 설명에 명시된 대로 <your_registry> 대체를 만들어 다음 스크립트를 실행합니다.
 +
-[source, sh]
+[source, console]
 ----
 # You need to be at the root of the tarball.
 # You should see these files to confirm correct location:
@@ -129,7 +165,7 @@ podman login [your_registry_path]
 # Replace <YOUR_REGISTRY> with your own registry (e.g registry.customer.com or registry.customer.com/testing, etc..)
 export REGISTRY=<YOUR_REGISTRY>
 export PACKAGENAME=acc
-export PACKAGEVERSION=22.08.1-26
+export PACKAGEVERSION=22.11.0-82
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
   # Load to local cache
@@ -166,15 +202,15 @@ cd manifests
 vim astra_control_center_operator_deploy.yaml
 ----
 +
-.. 인증이 필요한 레지스트리를 사용하는 경우 'imagePullSecrets:[]'의 기본 줄을 다음과 같이 바꿉니다.
+.. 인증이 필요한 레지스트리를 사용하는 경우 의 기본 줄을 바꾸거나 편집합니다 `imagePullSecrets: []` 다음 포함:
 +
 [listing]
 ----
 imagePullSecrets:
-- name: <name_of_secret_with_creds_to_local_registry>
+- name: <astra-registry-cred_or_custom_name_of_secret>
 ----
-.. kuby-RBAC-proxy 이미지의 [your_registry_path]를 이미지를 에서 푸시한 레지스트리 경로로 변경합니다 ,이전 단계.
-.. "acc-operator-controller-manager" 이미지의 [your_registry_path]를 이미지를 에서 푸시한 레지스트리 경로로 변경합니다 ,이전 단계.
+.. 변경 `[your_registry_path]` 의 경우 `kube-rbac-proxy` 이미지를 에서 푸시한 레지스트리 경로로 이미지  the images to your local registry,이전 단계.
+.. 변경 `[your_registry_path]` 의 경우 `acc-operator` 이미지를 에서 푸시한 레지스트리 경로로 이미지  the images to your local registry,이전 단계.
 .. 다음 값을 'env' 섹션에 추가합니다.
 +
 [listing]
@@ -197,6 +233,8 @@ spec:
   selector:
     matchLabels:
       control-plane: controller-manager
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
@@ -217,8 +255,6 @@ spec:
         - --health-probe-bind-address=:8081
         - --metrics-bind-address=127.0.0.1:8080
         - --leader-elect
-        command:
-        - /manager
         env:
         - name: ACCOP_LOG_LEVEL
           value: "2"
@@ -226,7 +262,32 @@ spec:
           *value: 300m*
         *image: [your_registry_path]/acc-operator:[version x.y.z]*
         imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8081
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        name: manager
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8081
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        resources:
+          limits:
+            cpu: 300m
+            memory: 750Mi
+          requests:
+            cpu: 100m
+            memory: 75Mi
+        securityContext:
+          allowPrivilegeEscalation: false
       *imagePullSecrets: []*
+      securityContext:
+        runAsUser: 65532
+      terminationGracePeriodSeconds: 10
 ----
 
 
@@ -267,16 +328,34 @@ kubectl get pods -n netapp-acc-operator
 
 == Astra Control Center를 업그레이드합니다
 
-. Astra Control Center Custom Resource(CR)('Astra_control_center_min YAML')를 편집하여 Astra version('sepec' 내부의 astraVersion) 번호를 최신 버전으로 변경합니다.
+. Astra Control Center 사용자 지정 리소스(CR) 편집:
 +
 [listing]
 ----
-kubectl edit acc -n [netapp-acc or custom namespace]
+kubectl edit AstraControlCenter -n [netapp-acc or custom namespace]
 ----
+. Astra 버전 번호를 변경합니다 (`astraVersion` 의 내부 `Spec`)를 업그레이드할 버전:
 +
-
-NOTE: 레지스트리 경로는 에서 이미지를 푸시한 레지스트리 경로와 일치해야 합니다 ,이전 단계.
-
+[listing, subs="+quotes"]
+----
+spec:
+  accountName: "Example"
+  *astraVersion: "[Version number]"*
+----
+. 이미지 레지스트리 경로가 에서 이미지를 푸시한 레지스트리 경로와 일치하는지 확인합니다  the images to your local registry,이전 단계. 업데이트 `imageRegistry` 의 내부 `Spec` 마지막 설치 이후 레지스트리가 변경된 경우
++
+[listing]
+----
+  imageRegistry:
+    name: "[your_registry_path]"
+----
+. 에 다음을 추가합니다 `CRDs` 의 내부 구성 `Spec`:
++
+[listing]
+----
+crds:
+  shouldUpgrade: true
+----
 . Astra Control Center CR의 '서펙' 안에 있는 additionalValues에 다음 줄을 추가합니다.
 +
 [listing]
@@ -287,37 +366,20 @@ additionalValues:
         periodSeconds: 30
         failureThreshold: 600
 ----
-. 다음 중 하나를 수행합니다.
 +
-.. 자신의 IngessController 또는 Ingress가 없고 Traefik 게이트웨이와 함께 Astra Control Center를 로드 밸런서 유형 서비스로 사용하고 있으며 이 설정을 계속하려면 다른 필드 'ingressType'을 지정하고(아직 없는 경우) AccTraefik으로 설정합니다.
-+
-[listing]
-----
-ingressType: AccTraefik
-----
-.. 기본 Astra Control Center 일반 수신 배포로 전환하려면 자체 IngressController/Ingress 설정(TLS 종료 등)을 제공하고 Astra Control Center로 가는 경로를 연 다음 "ingressType"을 "Generic"로 설정합니다.
-+
-[listing]
-----
-ingressType: Generic
-----
-+
-
-TIP: 필드를 생략하면 프로세스가 일반 배포가 됩니다. 일반 배포를 원하지 않는 경우 필드를 추가해야 합니다.
-
-
+파일 편집기를 저장하고 종료하면 변경 사항이 적용되고 업그레이드가 시작됩니다.
 
 . (선택 사항) Pod가 종료되어 다시 사용할 수 있는지 확인합니다.
 +
 [listing]
 ----
-watch kubectl get po -n [netapp-acc or custom namespace]
+watch kubectl get pods -n [netapp-acc or custom namespace]
 ----
-. Astra 상태 조건이 업그레이드가 완료되어 준비되었음을 나타낼 때까지 기다립니다.
+. Astra 상태 조건이 업그레이드가 완료되어 준비되었음을 나타낼 때까지 기다립니다 (`True`):
 +
 [listing]
 ----
-kubectl get -o yaml -n [netapp-acc or custom namespace] astracontrolcenters.astra.netapp.io astra
+kubectl get AstraControlCenter -n [netapp-acc or custom namespace]
 ----
 +
 응답:
@@ -325,57 +387,18 @@ kubectl get -o yaml -n [netapp-acc or custom namespace] astracontrolcenters.astr
 +
 [listing]
 ----
-conditions:
-  - lastTransitionTime: "2021-10-25T18:49:26Z"
-    message: Astra is deployed
-    reason: Complete
-    status: "True"
-    type: Ready
-  - lastTransitionTime: "2021-10-25T18:49:26Z"
-    message: Upgrading succeeded.
-    reason: Complete
-    status: "False"
-    type: Upgrading
+NAME    UUID                                      VERSION     ADDRESS         READY
+astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f  22.11.0-24  10.111.111.111  True
 ----
-. 다시 로그인하여 관리되는 모든 클러스터와 앱이 여전히 존재하고 보호되고 있는지 확인합니다.
-. 운영자가 Cert-manager를 업데이트하지 않은 경우, 다음으로 타사 서비스를 업그레이드하십시오.
-
-
-
-
-== 타사 서비스 업그레이드(선택 사항)
-
-타사 서비스 Traefik 및 Cert-manager는 이전 업그레이드 단계 중에 업그레이드되지 않습니다. 여기에 설명된 절차를 사용하여 필요에 따라 업그레이드하거나 시스템에 필요한 경우 기존 서비스 버전을 유지할 수 있습니다.
-
-* * Traefik *: 기본적으로 Astra Control Center는 Traefik 배포의 수명 주기를 관리합니다. externalTraefik을 false로 설정(기본값)하면 시스템에 외부 Traefik이 존재하지 않고 Astra Control Center에서 Traefik을 설치 및 관리하고 있음을 나타냅니다. 이 경우 외부트래피크는 거짓으로 설정됩니다.
 +
-반면 Traefik을 직접 구축한 경우에는 externalTraefik을 true로 설정합니다. 이 경우 구축을 유지하고 있는 Astra Control Center는 'houldUpgrade'가 'true'로 설정되어 있지 않으면 CRD를 업그레이드하지 않습니다.
 
-* * Cert-manager * : 기본적으로, 'externalCertManager'를 'true'로 설정하지 않으면 Astra Control Center가 인증서 관리자(및 CRD)를 설치합니다. Astra Control Center가 CRD를 업그레이드하도록 "houldUpgrade"를 "true"로 설정합니다.
+NOTE: 작업 중에 업그레이드 상태를 모니터링하려면 다음 명령을 실행합니다. `kubectl get AstraControlCenter -o yaml -n [netapp-acc or custom namespace]`
 
-
-다음 조건 중 하나라도 충족되면 Traefik이 업그레이드됩니다.
-
-* 외부트래이픽: 거짓
-* externalTraefik: true 및 shouldUpgrade: true입니다.
-
-
-.단계
-. "acc" CR 편집:
 +
-[listing]
-----
-kubectl edit acc -n [netapp-acc or custom namespace]
-----
-. 필요에 따라 'externalTraefik' 필드와 'houldUpgrade' 필드를 'true' 또는 'false'로 변경합니다.
-+
-[listing]
-----
-crds:
-    externalTraefik: false
-    externalCertManager: false
-    shouldUpgrade: false
-----
+
+NOTE: Astra Control Center 운영자 로그를 검사하려면 다음 명령을 실행하십시오.
+`kubectl logs deploy/acc-operator-controller-manager -n netapp-acc-operator -c manager -f`
+
 
 
 
@@ -383,134 +406,6 @@ crds:
 == 시스템 상태를 확인합니다
 
 . Astra Control Center에 로그인합니다.
+. 버전이 업그레이드되었는지 확인합니다. UI의 * 지원 * 페이지를 참조하십시오.
 . 모든 관리되는 클러스터와 앱이 여전히 존재하고 보호되고 있는지 확인합니다.
-
-
-
-
-== 부하 분산을 위한 수신 설정
-
-클러스터의 로드 밸런싱과 같은 서비스에 대한 외부 액세스를 관리하는 Kubernetes 수신 객체를 설정할 수 있습니다.
-
-* 기본 업그레이드는 일반적인 수신 배포를 사용합니다. 이 경우 수신 컨트롤러 또는 수신 리소스를 설정해야 합니다.
-* 수신 컨트롤러를 원하지 않고 기존 컨트롤러를 유지하려면 ingressType을 AccTraefik으로 설정합니다.
-
-
-
-NOTE: "로드 밸런서" 및 수신 서비스 유형에 대한 자세한 내용은 을 참조하십시오 link:../get-started/requirements.html["요구 사항"].
-
-단계는 사용하는 수신 컨트롤러의 유형에 따라 다릅니다.
-
-* Nginx 수신 컨트롤러
-* OpenShift 수신 컨트롤러
-
-
-.무엇을 &#8217;필요로 할거야
-* CR 사양에서
-+
-** CRD.externalTraefik가 있으면 FALSE 또는 로 설정해야 합니다
-** 만약 CRD.externalTraefik가 TRUE이면 CRD.shouldUpgrade도 TRUE가 되어야 합니다.
-
-
-* 필수 요소입니다 https://kubernetes.io/docs/concepts/services-networking/ingress-controllers["수신 컨트롤러"] 이미 배포되어 있어야 합니다.
-* 를 클릭합니다 https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class["수신 클래스"] 수신 컨트롤러에 해당하는 컨트롤러가 이미 생성되어야 합니다.
-* V1.19 및 v1.21 등의 Kubernetes 버전을 사용하고 있습니다.
-
-
-.Nginx 수신 컨트롤러 단계
-. 기존 비밀의 'Secure-testing-cert'를 사용하거나 비밀로 만든다 http://kubernetes.io/tls["8a637503539b25b68130b6e8003579d9"] 에 설명된 대로 "NetApp-acc"(또는 사용자 지정 이름) 네임스페이스의 TLS 개인 키 및 인증서 https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets["TLS 비밀"].
-. 더 이상 사용되지 않거나 새로운 스키마를 위해 'NetApp-acc'(또는 사용자 지정 이름) 네임스페이스에 ingress 리소스를 배포합니다.
-+
-.. 더 이상 사용되지 않는 스키마의 경우 다음 샘플을 따르십시오.
-+
-[listing]
-----
-apiVersion: extensions/v1beta1
-kind: IngressClass
-metadata:
-  name: ingress-acc
-  namespace: [netapp-acc or custom namespace]
-  annotations:
-    kubernetes.io/ingress.class: nginx
-spec:
-  tls:
-  - hosts:
-    - <ACC address>
-    secretName: [tls secret name]
-  rules:
-  - host: [ACC address]
-    http:
-      paths:
-      - backend:
-        serviceName: traefik
-        servicePort: 80
-        pathType: ImplementationSpecific
-----
-.. 새 스키마의 경우 다음 예제를 따르십시오.
-
-
-+
-[listing]
-----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: netapp-acc-ingress
-  namespace: [netapp-acc or custom namespace]
-spec:
-  ingressClassName: [class name for nginx controller]
-  tls:
-  - hosts:
-    - <ACC address>
-    secretName: [tls secret name]
-  rules:
-  - host: <ACC address>
-    http:
-      paths:
-        - path:
-          backend:
-            service:
-              name: traefik
-              port:
-                number: 80
-          pathType: ImplementationSpecific
-----
-
-
-.OpenShift Ingress 컨트롤러를 위한 단계
-. 인증서를 구입하고 OpenShift 라우트에서 사용할 수 있도록 준비된 키, 인증서 및 CA 파일을 가져옵니다.
-. OpenShift 경로를 생성합니다.
-+
-[listing]
-----
-oc create route edge --service=traefik
---port=web -n [netapp-acc or custom namespace]
---insecure-policy=Redirect --hostname=<ACC address>
---cert=cert.pem --key=key.pem
-----
-
-
-
-
-=== 수신 설정을 확인합니다
-
-계속하기 전에 수신 설정을 확인할 수 있습니다.
-
-. Traefik이 loadbalancer에서 'clusterIP'로 변경되었는지 확인합니다.
-+
-[listing]
-----
-kubectl get service traefik -n [netapp-acc or custom namespace]
-----
-. Traefik에서 경로 확인:
-+
-[listing]
-----
-Kubectl get ingressroute ingressroutetls -n [netapp-acc or custom namespace]
--o yaml | grep "Host("
-----
-+
-
-NOTE: 결과는 비어 있어야 합니다.
-
 

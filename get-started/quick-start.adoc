@@ -11,14 +11,14 @@ summary: 몇 단계만 거치하면 Astra Control을 시작할 수 있습니다.
 :imagesdir: ../media/get-started/
 
 
+[role="lead"]
 이 페이지에서는 Astra Control Center를 시작하는 데 필요한 단계에 대해 개괄적으로 설명합니다. 각 단계의 링크를 클릭하면 자세한 내용을 제공하는 페이지로 이동합니다.
 
 사용해 보세요! Astra Control Center를 사용해 보고 싶은 경우 90일 평가판 라이센스를 사용할 수 있습니다. 을 참조하십시오 link:../get-started/setup_overview.html#add-a-license-for-astra-control-center["라이센스 정보"] 를 참조하십시오.
 
 .span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt="One"></span> Kubernetes 클러스터 요구 사항을 검토합니다
-* Astra는 Trident에서 구성한 ONTAP 스토리지 백엔드 또는 Astra Data Store 스토리지 백엔드를 통해 Kubernetes 클러스터와 함께 작동합니다.
+* Astra는 ONTAP 스토리지 백엔드와 함께 Trident 기반 스토리지 클래스를 사용하여 Kubernetes 클러스터와 함께 작동합니다.
 * 클러스터는 정상 상태에서 실행되어야 하며 3개 이상의 온라인 작업자 노드가 있어야 합니다.
-* 클러스터가 Kubernetes를 실행 중이어야 합니다.
 
 
 [role="quick-margin-para"]
@@ -28,19 +28,14 @@ summary: 몇 단계만 거치하면 Astra Control을 시작할 수 있습니다.
 * 에서 Astra Control Center를 다운로드합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support 사이트 Astra Control Center 다운로드 페이지"^].
 * 현지 환경에 Astra Control Center를 설치합니다.
 +
-필요한 경우 Red Hat OperatorHub를 사용하여 Astra Control Center를 설치합니다.
+필요한 경우 Red Hat OperatorHub를 사용하여 Astra Control Center를 설치합니다. Cloud Volumes ONTAP 스토리지 백엔드와 같이 지원되는 퍼블릭 클라우드 플랫폼에 Astra Control Center를 설치할 수도 있습니다.
 
-+
-필요한 경우 Cloud Volumes ONTAP 스토리지 백엔드를 사용하여 Astra Control Center를 설치합니다.
+* 필요에 따라 환경에 따라 추가 작업을 수행합니다 link:configure-after-install.html["구성 단계"]. 에 대해 자세히 알아보십시오 link:../get-started/install_overview.html["Astra Control Center 설치"].
 
-
-
-[role="quick-margin-para"]
-에 대해 자세히 알아보십시오 link:../get-started/install_overview.html["Astra Control Center 설치"].
 
 .span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png"[] Alt="3"></span>일부 초기 설정 작업을 완료합니다
 * Astra Control 라이센스와 지원 ONTAP 라이센스를 추가합니다.
-* Kubernetes 클러스터 추가 및 Astra Control Center에서 세부 정보를 검색합니다.
+* Kubernetes 클러스터 추가
 * ONTAP 스토리지 백엔드를 추가합니다.
 * 필요에 따라 앱 백업을 저장할 오브젝트 저장소 버킷을 추가합니다.
 
@@ -51,10 +46,10 @@ summary: 몇 단계만 거치하면 Astra Control을 시작할 수 있습니다.
 [role="quick-margin-list"]
 Astra Control Center 설정을 마치면 다음 단계를 수행하십시오.
 
-* 앱을 관리합니다. 에 대해 자세히 알아보십시오 link:../use/manage-apps.html["앱 관리"].
-* 앱에 대한 보호 정책을 구성하고, 앱을 원격 시스템으로 복제하고, 앱을 복제 및 마이그레이션하여 앱을 보호합니다. 에 대해 자세히 알아보십시오 link:../use/protection-overview.html["앱 보호"].
-* 계정 관리(사용자, 역할, 사용자 인증을 위한 LDAP, 자격 증명, 리포지토리 연결 등) 에 대해 자세히 알아보십시오 link:../use/manage-users.html["사용자 관리"].
-* 필요한 경우 NetApp Cloud Insights에 연결하여 Astra Control Center UI 내에서 시스템 상태, 용량 및 처리량에 대한 메트릭을 표시할 수 있습니다. 에 대해 자세히 알아보십시오 link:../use/monitor-protect.html["Cloud Insights에 연결 중입니다"].
+* 앱을 관리합니다. 에 대해 자세히 알아보십시오 link:../use/manage-apps.html["앱 관리 방법"].
+* 앱에 대한 보호 정책을 구성하고, 앱을 원격 시스템에 복제하고, 앱을 복제하고, 앱을 마이그레이션함으로써 앱을 보호합니다. 에 대해 자세히 알아보십시오 link:../use/protection-overview.html["애플리케이션 보호 방법"].
+* 계정 관리(사용자, 역할, 사용자 인증을 위한 LDAP, 자격 증명 등) 에 대해 자세히 알아보십시오 link:../use/manage-local-users-and-roles.html["로컬 사용자, 역할 및 LDAP 관리 방법"].
+* 필요한 경우 NetApp Cloud Insights에 연결하여 Astra Control Center UI 내에서 시스템 상태, 용량 및 처리량에 대한 메트릭을 표시할 수 있습니다. 에 대해 자세히 알아보십시오 link:../use/monitor-protect.html["Cloud Insights 연결 방법"].
 
 
 [role="quick-margin-para"]

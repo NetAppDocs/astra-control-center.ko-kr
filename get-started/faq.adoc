@@ -11,6 +11,7 @@ summary: 이 FAQ는 질문에 대한 간단한 답변을 찾는 경우에 도움
 :imagesdir: ../media/
 
 
+[role="lead"]
 이 FAQ는 질문에 대한 간단한 답변을 찾는 경우에 도움이 될 수 있습니다.
 
 
@@ -27,7 +28,7 @@ summary: 이 FAQ는 질문에 대한 간단한 답변을 찾는 경우에 도움
 
 Astra Control Center는 로컬 인증과 각 환경에 고유한 URL을 사용합니다.
 
-URL의 경우 브라우저에서 Astra_control_center_min YAML 사용자 정의 리소스 정의(CRD) 파일(Astra Control Center 설치 시)의 spec.astraAddress 필드에 설정한 FQDN(정규화된 도메인 이름)을 입력합니다. 이메일은 Astra_control_center_min YAML CRD의 spec.email 필드에 설정한 값입니다.
+URL의 경우 브라우저에서 Astra_control_center.YAML 사용자 지정 리소스(CR) 파일을 설치할 때 spec.astraAddress 필드에 설정한 FQDN(정규화된 도메인 이름)을 입력합니다. 이메일은 Astra_control_center.YAML CR의 spec.email 필드에 설정한 값입니다.
 
 
 
@@ -39,9 +40,9 @@ NetApp 라이센스 파일(NLF)을 받아 전체 라이센스로 쉽게 변경�
 
 * 단계 *
 
-* 왼쪽 탐색 창에서 * 계정 * > * 라이센스 * 를 선택합니다.
-* 라이선스 추가 * 를 선택합니다.
-* 다운로드한 라이센스 파일을 찾아 * 추가 * 를 선택합니다.
+. 왼쪽 탐색 창에서 * 계정 * > * 라이센스 * 를 선택합니다.
+. 라이선스 추가 * 를 선택합니다.
+. 다운로드한 라이센스 파일을 찾아 * 추가 * 를 선택합니다.
 
 
 * 평가판 라이센스를 사용하고 있습니다. 앱을 관리할 수 있습니까? *
@@ -95,11 +96,7 @@ Astra Control은 애플리케이션을 배포하지 않습니다. 응용 프로�
 
 == 데이터 관리 작업
 
-* 내 계정에 생성하지 않은 스냅샷이 있습니다. 어디에서 왔습니까? *
-
-일부 상황에서는 Astra Control이 백업, 클론 또는 복원 프로세스의 일부로 스냅샷을 자동으로 생성합니다.
-
-* My Application은 여러 PVS를 사용합니다. Astra Control이 이러한 모든 PVC의 스냅샷 및 백업을 수행할까요? *
+* My Application은 여러 PVS를 사용합니다. Astra Control은 이러한 PVS의 스냅샷과 백업을 수행합니까? *
 
 예. Astra Control의 애플리케이션에 대한 스냅샷 작업에는 애플리케이션의 PVC에 바인딩된 모든 PVS의 스냅샷이 포함됩니다.
 

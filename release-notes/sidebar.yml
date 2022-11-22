@@ -7,8 +7,5 @@ entries:
   url: "/release-notes/whats-new.html"
 - title: 알려진 문제
   url: "/release-notes/known-issues.html"
-  entries:
-  - title: Astra Data Store 및 이 Astra Control Center 릴리스와 관련된 알려진 문제입니다
-    url: "/release-notes/known-issues-ads.html"
 - title: 알려진 제한 사항
   url: "/release-notes/known-limitations.html"

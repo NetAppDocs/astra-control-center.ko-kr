@@ -31,7 +31,7 @@ NOTE: 라이센스 없이 클러스터를 추가하고, 버킷을 추가하고, 
 
 Astra Control Center에 새 클러스터를 추가하면 클러스터에서 실행 중인 하나 이상의 애플리케이션이 Astra Control Center에 의해 관리되기 전에는 사용된 라이센스에 포함되지 않습니다.
 
-클러스터에서 응용 프로그램 관리를 시작하면 해당 클러스터의 모든 CPU 장치가 Astra Control Center 라이센스 소모에 포함됩니다.
+클러스터에서 응용 프로그램 관리를 시작하면 해당 클러스터의 모든 CPU 유닛이 Astra Control Center 라이센스 소모에 포함됩니다.
 
 
 

@@ -11,12 +11,13 @@ summary: 인증 관리자가 클러스터에 이미 있는 경우 Astra Control 
 :imagesdir: ../media/get-started/
 
 
+[role="lead"]
 Cert-Manager가 이미 Kubernetes 클러스터에 있는 경우, Astra Control Center가 자체 인증서 관리자를 설치하지 않도록 몇 가지 필수 단계를 수행해야 합니다.
 
 .단계
 . 인증서 관리자가 설치되었는지 확인합니다.
 +
-[source, sh]
+[source, console]
 ----
 kubectl get pods -A | grep 'cert-manager'
 ----
@@ -32,7 +33,7 @@ cert-manager   essential-cert-manager-webhook-56b76db9cc-fjqrq      1/1     Runn
 ----
 . astraAddress FQDN에 대한 인증서/키 쌍을 생성합니다.
 +
-[source, sh]
+[source, console]
 ----
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt
 ----
@@ -49,7 +50,7 @@ writing new private key to 'tls.key'
 ----
 . 이전에 생성된 파일을 사용하여 암호 생성:
 +
-[source, sh]
+[source, console]
 ----
 kubectl create secret tls selfsigned-tls --key tls.key --cert tls.crt -n <cert-manager-namespace>
 ----
@@ -75,7 +76,7 @@ spec:
     secretName: selfsigned-tls
 ----
 +
-[source, sh]
+[source, console]
 ----
 kubectl apply -f ClusterIssuer.yaml
 ----
@@ -89,7 +90,7 @@ clusterissuer.cert-manager.io/astra-ca-clusterissuer created
 ----
 . 클러스터 발급자가 올바르게 설정되었는지 확인합니다. "준비"는 "참"이어야 계속할 수 있습니다.
 +
-[source, sh]
+[source, console]
 ----
 kubectl get ClusterIssuer
 ----

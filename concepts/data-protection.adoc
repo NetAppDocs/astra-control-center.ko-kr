@@ -11,6 +11,7 @@ summary: Astra Control Center에서 사용 가능한 데이터 보호 유형과 
 :imagesdir: ../media/concepts/
 
 
+[role="lead"]
 Astra Control Center에서 사용 가능한 데이터 보호 유형과 이를 사용하여 앱을 보호하는 최선의 방법에 대해 알아보십시오.
 
 

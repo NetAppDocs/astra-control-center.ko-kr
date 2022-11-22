@@ -11,6 +11,7 @@ summary: 'NetApp은 다양한 방법으로 Astra Control을 지원합니다. 기
 :imagesdir: ../media/support/
 
 
+[role="lead"]
 NetApp은 다양한 방법으로 Astra Control을 지원합니다. 기술 자료(KB) 기사 및 불화 채널 같은 광범위한 무료 셀프 지원 옵션이 24x7 제공됩니다. Astra Control 계정에는 웹 발권 서비스를 통한 원격 기술 지원이 포함되어 있습니다.
 
 
@@ -37,7 +38,7 @@ IMPORTANT: Astra Control Center에 대한 평가판 라이센스가 있는 경�
 
 == NetApp Support에 매일 예약된 지원 번들 업로드를 활성화합니다
 
-Astra Control Center 설치 시 Astra Control Center Custom Resource Definition(CRD) 파일('Astra_control_center_min YAML')에 AutoSupport에 대해 'ACTED:TRUE'를 지정하면 일일 지원 번들이 자동으로 에 업로드됩니다 https://mysupport.netapp.com/site/["NetApp Support 사이트"^].
+Astra Control Center를 설치하는 동안(지정된 경우 `enrolled: true` 용 `autoSupport` Astra Control Center CR(사용자 지정 리소스) 파일 (`astra_control_center.yaml`), 일별 지원 번들은 에 자동으로 업로드됩니다 https://mysupport.netapp.com/site/["NetApp Support 사이트"^].
 
 
 
