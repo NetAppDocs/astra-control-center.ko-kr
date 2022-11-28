@@ -4,7 +4,7 @@ permalink: concepts/app-management.html
 keywords: app, labels, kubernetes labels, kubernetes resources, pods, define app 
 summary: Astra Control의 관리되는 앱 유형을 설명합니다. 
 ---
-= 앱 관리 이해
+= 애플리케이션 관리
 :hardbreaks:
 :allow-uri-read: 
 :icons: font

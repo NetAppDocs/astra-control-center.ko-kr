@@ -8,8 +8,8 @@ entries:
   url: "/concepts/data-protection.html"
 - title: 라이센싱
   url: "/concepts/licensing.html"
-- title: 앱 관리 이해
-  url: "/learn/app-management.html"
+- title: 애플리케이션 관리
+  url: "/concepts/app-management.html"
 - title: 스토리지 클래스 및 PV 크기
   url: "/concepts/choose-class-and-size.html"
 - title: 사용자 역할 및 네임스페이스
