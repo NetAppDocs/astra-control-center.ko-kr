@@ -21,7 +21,7 @@ Astra Control Center를 업그레이드하려면 NetApp Support 사이트에서 
 +
 [listing]
 ----
-../../trident-installer/tridentctl -n trident version
+kubectl get tridentversion -n trident
 ----
 +
 을 참조하십시오 https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html#determine-the-version-to-upgrade-to["Astra Trident 문서"] 이전 버전에서 업그레이드하는 경우.
