@@ -38,7 +38,7 @@ Kubernetes 1.23 또는 1.24에 Astra Control Center를 설치할 경우 설치 �
 
 === 설치 중에 PSP가 생성되었습니다
 
-Astra Control Center를 설치하는 동안 Astra Control Center 운영자는 사용자 지정 POD 보안 정책, 역할 개체 및 RoleBinding 개체를 설치하여 Astra Control Center 네임스페이스에 Astra Control Center 서비스를 배포할 수 있도록 합니다.
+Astra Control Center를 설치하는 동안, Astra Control Center 운영자는 사용자 정의 POD 보안 정책(a)을 설치합니다 `Role` 개체, 및 `RoleBinding` Astra Control Center 네임스페이스에서 Astra Control Center 서비스 배포를 지원하는 개체입니다.
 
 새 정책 및 객체에는 다음과 같은 특성이 있습니다.
 
@@ -63,7 +63,7 @@ netapp-astra-deployment-rb               Role/netapp-astra-deployment-role      
 
 === 백업 작업 중에 PSP가 생성되었습니다
 
-백업 작업 중에 Astra Control Center는 동적 POD 보안 정책, ClusterRole 개체 및 RoleBinding 개체를 만듭니다. 이러한 백업 프로세스는 별도의 네임스페이스에서 수행됩니다.
+백업 작업 중에 Astra Control Center는 동적 POD 보안 정책인 을 생성합니다 `ClusterRole` 개체, 및 `RoleBinding` 오브젝트. 이러한 백업 프로세스는 별도의 네임스페이스에서 수행됩니다.
 
 새 정책 및 객체에는 다음과 같은 특성이 있습니다.
 
@@ -88,7 +88,7 @@ netapp-astra-backup   Role/netapp-astra-backup   62s
 
 === 클러스터 관리 중에 생성된 PSP입니다
 
-클러스터를 관리할 때 Astra Control Center는 NetApp 모니터링 연산자를 관리형 클러스터에 설치합니다. 이 연산자는 POD 보안 정책, ClusterRole 개체 및 RoleBinding 개체를 만들어 Astra Control Center 네임스페이스에 원격 측정 서비스를 배포합니다.
+클러스터를 관리할 때 Astra Control Center는 NetApp 모니터링 연산자를 관리형 클러스터에 설치합니다. 이 운영자는 POD 보안 정책인 을 생성합니다 `ClusterRole` 개체, 및 `RoleBinding` Astra Control Center 네임스페이스에 원격 측정 서비스를 구축하는 객체
 
 새 정책 및 객체에는 다음과 같은 특성이 있습니다.
 

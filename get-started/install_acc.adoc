@@ -15,6 +15,7 @@ summary: 몇 가지 환경 요구 사항을 설명한 후 Astra Control Center�
 Astra Control Center를 설치하려면 NetApp Support 사이트에서 설치 번들을 다운로드하고 다음 단계를 수행하십시오. 이 절차를 사용하여 인터넷에 연결되었거나 공기가 연결된 환경에 Astra Control Center를 설치할 수 있습니다.
 
 .기타 설치 절차
+[%collapsible]
 ====
 * RedHat OpenShift OperatorHub * 로 설치: 이 옵션을 사용합니다 link:../get-started/acc_operatorhub_install.html["대체 절차"] OperatorHub를 사용하여 OpenShift에 Astra Control Center를 설치합니다.
 * * Cloud Volumes ONTAP 백엔드를 사용하여 퍼블릭 클라우드에 설치 *: 사용 link:../get-started/install_acc-cvo.html["수행할 수 있습니다"] AWS(Amazon Web Services), GCP(Google Cloud Platform) 또는 Cloud Volumes ONTAP 스토리지 백엔드가 있는 Microsoft Azure에 Astra Control Center를 설치하려면 다음을 수행합니다.
@@ -550,6 +551,7 @@ kubectl get pods -n [netapp-acc or custom namespace]
 
 +
 .샘플 응답
+[%collapsible]
 ====
 [listing, subs="+quotes"]
 ----

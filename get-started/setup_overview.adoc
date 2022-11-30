@@ -163,6 +163,7 @@ NOTE: 이 절차를 수행하려면 Astra Control Center를 실행 중인 클러
 
 
 .단계
+[%collapsible]
 ====
 . 서비스 계정 생성:
 +

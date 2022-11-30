@@ -42,6 +42,7 @@ Astra Control Center(22.08.0)용 패치 릴리스(22.08.1)는 NetApp SnapMirror�
 == 2022년 8월 10일(22.08.0)
 
 .세부 정보
+[%collapsible]
 ====
 .새로운 기능 및 지원
 * link:../use/replicate_snapmirror.html["NetApp SnapMirror 기술을 사용하여 애플리케이션을 복제합니다"]
@@ -67,6 +68,7 @@ NOTE: NetApp에서 제공한 특정 애플리케이션에 대한 기본 사전/�
 == 2022년 4월 26일(22.04.0)
 
 .세부 정보
+[%collapsible]
 ====
 .새로운 기능 및 지원
 * https://docs.netapp.com/us-en/astra-control-center-2204/concepts/user-roles-namespaces.html["네임스페이스 역할 기반 액세스 제어(RBAC)"]
@@ -87,6 +89,7 @@ NOTE: NetApp에서 제공한 특정 애플리케이션에 대한 기본 사전/�
 == 2021년 12월 14일(21.12)
 
 .세부 정보
+[%collapsible]
 ====
 .새로운 기능 및 지원
 * https://docs.netapp.com/us-en/astra-control-center-2112/use/restore-apps.html["애플리케이션 복원"^]
@@ -112,6 +115,7 @@ NOTE: NetApp에서 제공한 특정 애플리케이션에 대한 기본 사전/�
 == 2021년 8월 5일(21.08)
 
 .세부 정보
+[%collapsible]
 ====
 Astra Control Center의 최초 릴리스.
 

@@ -34,7 +34,6 @@ Astra Control Center는 다음과 같은 유형의 운영 환경에서 검증되
 
 * Kubernetes 1.22를 사용하는 Cisco IKS
 * Google Anthos 1.11 또는 1.12(참조  Anthos cluster requirements)
-* 업스트림 Kubernetes 1.23 ~ 1.25(Kubernetes 1.25에 Astra Trident 22.10 이상 필요)
 * RKE(Rancher Kubernetes Engine):
 +
 ** RKE 1.3.12(Rancher 2.6.5 및 2.6.6 포함)
@@ -44,6 +43,7 @@ Astra Control Center는 다음과 같은 유형의 운영 환경에서 검증되
 
 
 * Red Hat OpenShift Container Platform 4.8 ~ 4.11
+* 업스트림 Kubernetes 1.23 ~ 1.25(Kubernetes 1.25에 Astra Trident 22.10 이상 필요)
 * VMware Tanzu Kubernetes Grid: (참조  Tanzu Kubernetes Grid cluster requirements)
 +
 ** VMware Tanzu Kubernetes Grid 1.5
