@@ -14,7 +14,7 @@ summary: Astra Control Center를 업그레이드하려면 설명된 단계에 �
 [role="lead"]
 Astra Control Center를 업그레이드하려면 NetApp Support 사이트에서 설치 번들을 다운로드하고 다음 지침을 완료하십시오. 이 절차를 사용하여 인터넷에 연결되거나 공기가 연결된 환경에서 Astra Control Center를 업그레이드할 수 있습니다.
 
-.무엇을 &#8217;필요로 할거야
+.필요한 것
 * 업그레이드하기 전에 을 참조하십시오 link:../get-started/requirements.html#operational-environment-requirements["구현할 수 있습니다"^] 사용자 환경이 Astra Control Center 배포에 대한 최소 요구 사항을 충족하는지 확인합니다. 환경에 다음이 있어야 합니다.
 +
 ** 지원되는 Astra Trident 버전 실행 중인 버전을 확인하려면 기존 Astra Control Center에 대해 다음 명령을 실행합니다.
@@ -51,14 +51,15 @@ kubectl get apiservices
 * 업그레이드를 시작하기 전에 Astra Control Center UI에서 로그아웃하십시오.
 
 
+.이 작업에 대해
 Astra Control Center 업그레이드 프로세스는 다음과 같은 고급 단계를 안내합니다.
 
-*  the Astra Control Center bundle
-*  the bundle
-*  the images to your local registry
-*  the updated Astra Control Center operator
-*  Astra Control Center
-*  system status
+* <<Astra Control Center 번들을 다운로드합니다>>
+* <<번들의 포장을 풉니다>>
+* <<이미지를 로컬 레지스트리에 추가합니다>>
+* <<업데이트된 Astra Control Center 운영자를 설치합니다>>
+* <<Astra Control Center를 업그레이드합니다>>
+* <<시스템 상태를 확인합니다>>
 
 
 
@@ -106,7 +107,7 @@ kubectl astra
 ----
 
 
-이 명령은 kubbeck 플러그인 도움말을 제공합니다. 명령이 오류를 반환하면 이를 사용하여 플러그인을 설치합니다 link:../get-started/install_acc.html#install-the-netapp-astra-kubectl-plugin["지침"].
+이 명령은 kubbeck 플러그인 도움말을 제공합니다. 명령이 오류를 반환하면 이를 사용하여 플러그인을 설치합니다 link:../get-started/install_acc.html#install-the-netapp-astra-kubectl-plugin["지침"^].
 
 
 
@@ -119,19 +120,14 @@ kubectl astra
 ====
 .Docker 를 참조하십시오
 --
-. 로 변경합니다 `acc` tar 번들에서 추출된 디렉토리:
+. 타볼의 루트 디렉토리로 변경합니다. 이 파일과 디렉토리가 표시됩니다.
 +
-예:
+`acc.manifest.bundle.yaml`
+`acc/`
 
-
-
-[listing]
-----
-cd ../acc
-----
-. Astra Control Center 이미지 디렉토리의 패키지 이미지를 로컬 레지스트리에 밀어 넣습니다. 명령을 실행하기 전에 다음 대체 작업을 수행합니다.
+. Astra Control Center 이미지 디렉토리의 패키지 이미지를 로컬 레지스트리에 밀어 넣습니다. 를 실행하기 전에 다음 대체 작업을 수행합니다 `push-images` 명령:
 +
-** <BUNDLE_FILE>를 Astra Control 번들 파일의 이름으로 바꿉니다 (`acc.manifest.yaml`)를 클릭합니다.
+** <BUNDLE_FILE>를 Astra Control 번들 파일의 이름으로 바꿉니다 (`acc.manifest.bundle.yaml`)를 클릭합니다.
 ** <MY_FULL_REGISTRY_PATH>를 Docker 저장소의 URL로 바꿉니다. 예를 들어, https://exampledownloads.jfrog.io/docker-astra-control/v1/[].
 ** <MY_REGISTRY_USER>를 사용자 이름으로 바꿉니다.
 ** <MY_REGISTRY_TOKEN>를 레지스트리에 대한 인증된 토큰으로 바꿉니다.
@@ -147,6 +143,11 @@ kubectl astra packages push-images -m <BUNDLE_FILE> -r <MY_FULL_REGISTRY_PATH> -
 --
 .팟맨
 --
+. 타볼의 루트 디렉토리로 변경합니다. 이 파일과 디렉토리가 표시됩니다.
++
+`acc.manifest.bundle.yaml`
+`acc/`
+
 . 레지스트리에 로그인합니다.
 +
 [source, console]
@@ -157,12 +158,6 @@ podman login <MY_FULL_REGISTRY_PATH>
 +
 [source, console]
 ----
-# You need to be at the root of the tarball.
-# You should see these files to confirm correct location:
-#   acc.manifest.yaml
-#   acc/
-
-# Replace <YOUR_REGISTRY> with your own registry (e.g registry.customer.com or registry.customer.com/testing, etc..)
 export REGISTRY=<YOUR_REGISTRY>
 export PACKAGENAME=acc
 export PACKAGEVERSION=22.11.0-82
@@ -209,8 +204,8 @@ vim astra_control_center_operator_deploy.yaml
 imagePullSecrets:
 - name: <astra-registry-cred_or_custom_name_of_secret>
 ----
-.. 변경 `[your_registry_path]` 의 경우 `kube-rbac-proxy` 이미지를 에서 푸시한 레지스트리 경로로 이미지  the images to your local registry,이전 단계.
-.. 변경 `[your_registry_path]` 의 경우 `acc-operator` 이미지를 에서 푸시한 레지스트리 경로로 이미지  the images to your local registry,이전 단계.
+.. 변경 `[your_registry_path]` 의 경우 `kube-rbac-proxy` 이미지를 에서 푸시한 레지스트리 경로로 이미지 <<이미지를 로컬 레지스트리에 추가합니다,이전 단계>>.
+.. 변경 `[your_registry_path]` 의 경우 `acc-operator` 이미지를 에서 푸시한 레지스트리 경로로 이미지 <<이미지를 로컬 레지스트리에 추가합니다,이전 단계>>.
 .. 다음 값을 'env' 섹션에 추가합니다.
 +
 [listing]
@@ -342,7 +337,7 @@ spec:
   accountName: "Example"
   *astraVersion: "[Version number]"*
 ----
-. 이미지 레지스트리 경로가 에서 이미지를 푸시한 레지스트리 경로와 일치하는지 확인합니다  the images to your local registry,이전 단계. 업데이트 `imageRegistry` 의 내부 `Spec` 마지막 설치 이후 레지스트리가 변경된 경우
+. 이미지 레지스트리 경로가 에서 이미지를 푸시한 레지스트리 경로와 일치하는지 확인합니다 <<이미지를 로컬 레지스트리에 추가합니다,이전 단계>>. 업데이트 `imageRegistry` 의 내부 `Spec` 마지막 설치 이후 레지스트리가 변경된 경우
 +
 [listing]
 ----

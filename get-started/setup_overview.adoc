@@ -15,11 +15,11 @@ summary: Astra Control Center를 설치하고, UI에 로그인하고, 암호를 
 Astra Control Center를 설치하고, UI에 로그인하고, 암호를 변경하면 라이센스를 설정하고, 클러스터를 추가하고, 스토리지를 관리하고, 버킷을 추가할 수 있습니다.
 
 .작업
-*  a license for Astra Control Center
-*  your environment for cluster management using Astra Control
-*  cluster
-*  a storage backend
-*  a bucket
+* <<Astra Control Center에 대한 라이센스를 추가합니다>>
+* <<Astra Control을 사용하여 클러스터 관리를 위한 환경을 준비합니다>>
+* <<클러스터 추가>>
+* <<스토리지 백엔드를 추가합니다>>
+* <<버킷을 추가합니다>>
 
 
 
@@ -36,7 +36,7 @@ NOTE: 설치가 라이센스 CPU 유닛 수를 초과하여 증가할 경우, As
 
 NOTE: 기존 평가판 또는 전체 라이센스를 업데이트하려면 을 참조하십시오 link:../use/update-licenses.html["기존 라이센스를 업데이트합니다"^].
 
-.무엇을 &#8217;필요로 할거야
+.필요한 것
 * 새로 설치된 Astra Control Center 인스턴스에 액세스합니다.
 * 관리자 역할 권한.
 * A link:../concepts/licensing.html["NetApp 라이센스 파일"^] (NLF)
@@ -61,7 +61,7 @@ NOTE: 평가판 라이센스가 있고 데이터를 AutoSupport로 전송하지 
 
 클러스터를 추가하기 전에 다음 전제 조건이 충족되어야 합니다. 또한 자격 검사를 실행하여 클러스터를 Astra Control Center에 추가할 준비가 되었는지 확인하고 클러스터 관리를 위한 역할을 생성해야 합니다.
 
-.무엇을 &#8217;필요로 할거야
+.필요한 것
 * 귀사의 환경은 을(를) 충족합니다 link:../get-started/requirements.html#operational-environment-requirements["구현할 수 있습니다"^] Astra Trident 및 Astra Control Center용.
 * Astra Trident의 한 버전입니다 link:../get-started/requirements.html#operational-environment-requirements["Astra Control Center에서 지원합니다"^] 설치됨:
 +
@@ -151,6 +151,7 @@ ontap-gold (default)  csi.trident.netapp.io  Delete         Immediate          t
 
 필요한 경우 Astra Control Center에 대해 제한된 관리자 역할을 생성할 수 있습니다. 이것은 Astra Control Center 설정에 필요한 절차가 아닙니다. 이 절차는 관리하는 클러스터에 대한 Astra Control 권한을 제한하는 별도의 kubecononfig를 생성하는 데 도움이 됩니다.
 
+.필요한 것
 절차 단계를 완료하기 전에 관리하려는 클러스터에 대해 다음 사항을 확인해야 합니다.
 
 * kubbtl v1.23 이상이 설치되었습니다
@@ -460,7 +461,7 @@ mv kubeconfig-sa YOUR_CLUSTER_NAME_kubeconfig
 
 === 다음 단계
 
-이제 필수 구성 요소가 충족되었는지 확인했으므로 이제 수행할 준비가 되었습니다  cluster,클러스터를 추가합니다.
+이제 필수 구성 요소가 충족되었는지 확인했으므로 이제 수행할 준비가 되었습니다 <<클러스터 추가,클러스터를 추가합니다>>.
 
 
 
@@ -471,8 +472,8 @@ mv kubeconfig-sa YOUR_CLUSTER_NAME_kubeconfig
 
 TIP: 관리를 위해 Astra Control Center에 다른 클러스터를 추가하기 전에 먼저 Astra Control Center에서 클러스터를 관리하는 것이 좋습니다. 메트릭 및 문제 해결을 위해 Kubemetrics 데이터 및 클러스터 관련 데이터를 전송하려면 관리 중인 초기 클러스터가 필요합니다.
 
-.무엇을 &#8217;필요로 할거야
-* 클러스터를 추가하기 전에 필요한 를 검토 및 수행합니다  your environment for cluster management using Astra Control,선행 작업.
+.필요한 것
+* 클러스터를 추가하기 전에 필요한 를 검토 및 수행합니다 <<Astra Control을 사용하여 클러스터 관리를 위한 환경을 준비합니다,선행 작업>>.
 
 
 .단계
@@ -489,7 +490,7 @@ NOTE: "kubecononfig.yAML" 파일에는 하나의 클러스터에 대한 클러�
 
 +
 
-IMPORTANT: 직접 만드는 경우 `kubeconfig` 파일에서 * 하나의 * 컨텍스트 요소만 정의해야 합니다. 을 참조하십시오 https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Kubernetes 문서"^] 을 참조하십시오 `kubeconfig` 파일. 을 사용하여 제한된 클러스터 역할에 대해 kubecon무화과를 생성한 경우  a limited cluster role kubeconfig,위의 프로세스이 단계에서는 과베토화과를 업로드하거나 붙여 넣으십시오.
+IMPORTANT: 직접 만드는 경우 `kubeconfig` 파일에서 * 하나의 * 컨텍스트 요소만 정의해야 합니다. 을 참조하십시오 https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Kubernetes 문서"^] 을 참조하십시오 `kubeconfig` 파일. 을 사용하여 제한된 클러스터 역할에 대해 kubecon무화과를 생성한 경우 <<제한된 클러스터 역할인 kubecononfig를 생성합니다,위의 프로세스>>이 단계에서는 과베토화과를 업로드하거나 붙여 넣으십시오.
 
 . 자격 증명 이름을 제공하십시오. 기본적으로 자격 증명 이름은 클러스터 이름으로 자동 채워집니다.
 . 다음 * 을 선택합니다.
@@ -501,6 +502,7 @@ NOTE: ONTAP 스토리지가 지원하는 Trident 스토리지 클래스를 선�
 . 정보를 검토하고 모든 것이 정상적으로 나타나면 * 추가 * 를 선택합니다.
 
 
+.결과
 클러스터가 * 검색 * 상태로 전환되고 * 정상 * 으로 변경됩니다. 이제 Astra Control Center로 클러스터를 관리하고 있습니다.
 
 
@@ -531,6 +533,7 @@ NOTE: 여기에 자격 증명을 입력한 사용자에게는 가 있어야 합�
 . 백엔드 세부 정보를 확인하고 * 관리 * 를 선택합니다.
 
 
+.결과
 백엔드가 에 나타납니다 `Healthy` 목록의 상태로 요약 정보를 표시합니다.
 
 
@@ -544,7 +547,7 @@ Astra Control UI 또는 를 사용하여 버킷을 추가할 수 있습니다 ht
 
 애플리케이션 구성과 영구 스토리지를 동일한 클러스터에 클론 복제하려는 경우 Astra Control에 버킷이 필요하지 않습니다. 애플리케이션 스냅샷 기능에는 버킷이 필요하지 않습니다.
 
-.무엇을 &#8217;필요로 할거야
+.필요한 것
 * Astra Control Center에서 관리하는 클러스터에서 연결할 수 있는 버킷입니다.
 * 버킷에 대한 자격 증명.
 * 다음 유형의 버킷:

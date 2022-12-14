@@ -15,30 +15,30 @@ summary: 알려진 제한 사항은 이 제품 릴리스에서 지원하지 않�
 알려진 제한 사항은 이 제품 릴리스에서 지원하지 않거나 올바르게 상호 운용되지 않는 플랫폼, 장치 또는 기능을 식별합니다. 이러한 제한 사항을 주의 깊게 검토하십시오.
 
 .클러스터 관리 제한
-*  same cluster cannot be managed by two Astra Control Center instances
-*  Control Center cannot manage two identically named clusters
+* <<두 개의 Astra Control Center 인스턴스가 동일한 클러스터를 관리할 수 없습니다>>
+* <<Astra Control Center는 동일하게 이름이 지정된 두 클러스터를 관리할 수 없습니다>>
 
 
 .역할 기반 액세스 제어(RBAC) 제한 사항
-*  user with namespace RBAC constraints can add and unmanage a cluster
-*  member with namespace constraints cannot access the cloned or restored apps until admin adds the namespace to the constraint
+* <<네임스페이스 RBAC 제약 조건이 있는 사용자는 클러스터를 추가 및 관리할 수 있습니다>>
+* <<네임스페이스 제약 조건이 있는 구성원은 관리자가 제약 조건에 네임스페이스를 추가할 때까지 복제되거나 복원된 앱에 액세스할 수 없습니다>>
 
 
 .앱 관리 제한 사항
-*  applications in a single namespace cannot be restored collectively to a different namespace
-*  Control does not automatically assign default buckets for cloud instances
-*  of apps installed using pass-by-reference operators can fail
-*  restore operations of apps that use a certificate manager are not supported
-*  and cluster-scoped operator deployed apps not supported
-*  deployed with Helm 2 are not supported
+* <<단일 네임스페이스의 여러 응용 프로그램을 다른 네임스페이스로 집합적으로 복원할 수 없습니다>>
+* <<Astra Control은 클라우드 인스턴스에 대해 기본 버킷을 자동으로 할당하지 않습니다>>
+* <<pass-by-reference 연산자를 사용하여 설치된 앱의 클론이 실패할 수 있습니다>>
+* <<인증서 관리자를 사용하는 앱의 데이터 이동 없는 복원 작업은 지원되지 않습니다>>
+* <<OLM 지원 및 클러스터 범위 운영자로 배포된 앱은 지원되지 않습니다>>
+* <<Helm 2와 함께 배포된 앱은 지원되지 않습니다>>
 
 
 .일반 제한 사항
-*  buckets in Astra Control Center do not report available capacity
-*  Control Center does not validate the details you enter for your proxy server
-*  connections to a Postgres pod causes failures
-*  and snapshots might not be retained during removal of an Astra Control Center instance
-*  user and group limitations
+* <<Astra Control Center의 S3 버킷은 가용 용량을 보고하지 않습니다>>
+* <<Astra Control Center는 프록시 서버에 대해 입력한 세부 정보를 확인하지 않습니다>>
+* <<Postgres POD에 대한 기존 연결로 인해 오류가 발생합니다>>
+* <<Astra Control Center 인스턴스를 제거하는 동안 백업 및 스냅샷이 보존되지 않을 수 있습니다>>
+* <<LDAP 사용자 및 그룹 제한>>
 
 
 

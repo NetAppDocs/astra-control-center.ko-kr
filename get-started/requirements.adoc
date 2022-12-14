@@ -14,16 +14,16 @@ summary: Kubernetes 클러스터, 앱 및 웹 브라우저에 대한 지원을 �
 [role="lead"]
 먼저 운영 환경, 애플리케이션 클러스터, 애플리케이션, 라이센스 및 웹 브라우저의 준비 상태를 확인하십시오.
 
-*  environment requirements
-*  storage backends
-*  to the internet
-* 
-*  for on-premises Kubernetes clusters
-*  requirements
-*  web browsers
-*  requirements for application clusters
-*  Anthos cluster requirements
-*  Tanzu Kubernetes Grid cluster requirements
+* <<구현할 수 있습니다>>
+* <<지원되는 스토리지 백엔드>>
+* <<인터넷 접속>>
+* <<라이센스>>
+* <<온프레미스 Kubernetes 클러스터의 수신>>
+* <<네트워킹 요구 사항>>
+* <<지원되는 웹 브라우저>>
+* <<애플리케이션 클러스터에 대한 추가 요구사항>>
+* <<Google Anthos 클러스터 요구 사항>>
+* <<VMware Tanzu Kubernetes Grid 클러스터 요구 사항>>
 
 
 
@@ -33,7 +33,7 @@ summary: Kubernetes 클러스터, 앱 및 웹 브라우저에 대한 지원을 �
 Astra Control Center는 다음과 같은 유형의 운영 환경에서 검증되었습니다.
 
 * Kubernetes 1.22를 사용하는 Cisco IKS
-* Google Anthos 1.11 또는 1.12(참조  Anthos cluster requirements)
+* Google Anthos 1.11 또는 1.12(참조 <<Google Anthos 클러스터 요구 사항>>)
 * RKE(Rancher Kubernetes Engine):
 +
 ** RKE 1.3.12(Rancher 2.6.5 및 2.6.6 포함)
@@ -44,7 +44,7 @@ Astra Control Center는 다음과 같은 유형의 운영 환경에서 검증되
 
 * Red Hat OpenShift Container Platform 4.8 ~ 4.11
 * 업스트림 Kubernetes 1.23 ~ 1.25(Kubernetes 1.25에 Astra Trident 22.10 이상 필요)
-* VMware Tanzu Kubernetes Grid: (참조  Tanzu Kubernetes Grid cluster requirements)
+* VMware Tanzu Kubernetes Grid: (참조 <<VMware Tanzu Kubernetes Grid 클러스터 요구 사항>>)
 +
 ** VMware Tanzu Kubernetes Grid 1.5
 ** VMware Tanzu Kubernetes Grid Integrated Edition 1.13 및 1.14

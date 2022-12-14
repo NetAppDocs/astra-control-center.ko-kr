@@ -18,9 +18,6 @@ entries:
     url: "/use/clone-apps.html"
   - title: 앱 실행 후크 관리
     url: "/use/execution-hooks.html"
-    entries:
-    - title: 실행 후크 예
-      url: "/use/execution-hook-examples.html"
 - title: 앱 및 클러스터 상태를 모니터링합니다
   entries:
   - title: 대시보드 요약

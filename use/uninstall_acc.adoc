@@ -14,9 +14,9 @@ summary: Astra Control Center 및 Astra Control Center 운영자를 제거하는
 [role="lead"]
 평가판을 정식 버전으로 업그레이드하는 경우 Astra Control Center 구성 요소를 제거해야 할 수 있습니다. Astra Control Center 및 Astra Control Center 운영자를 제거하려면 이 절차에 설명된 명령을 순서대로 실행하십시오.
 
-설치 제거에 문제가 있는 경우 를 참조하십시오  uninstall issues.
+설치 제거에 문제가 있는 경우 를 참조하십시오 <<제거 문제 해결>>.
 
-.무엇을 &#8217;필요로 할거야
+.필요한 것
 * Astra Control Center UI를 사용하여 모두 관리합니다 link:../use/unmanage.html#stop-managing-compute["클러스터"].
 
 
