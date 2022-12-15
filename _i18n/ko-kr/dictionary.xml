@@ -960,7 +960,6 @@
   <block id="c9bcb1e1ffd0a3c4060e93553536017d" category="admonition">Cloud Insights를 처음 사용하는 경우 기능과 특징을 잘 익히십시오. 을 참조하십시오 <block ref="c0165bf1c80302323bce293718326d03" category="inline-link-macro-rx"></block>.</block>
   <block id="0f21509577569fcfd44247652db09da1" category="list-text">Cloud Insights에서 * 관리자 * &gt; * API 액세스 * 를 클릭하여 * 읽기/쓰기 * 와 * 읽기 전용 * API 액세스 토큰을 모두 생성합니다.</block>
   <block id="7a3ef7b3d20368f22318e140ed0c8bf5" category="list-text">읽기 전용 * 키를 복사합니다. Cloud Insights 연결을 활성화하려면 Astra Control Center 창에 붙여 넣어야 합니다. Read API Access Token 키 권한에 대해 Assets, Alerts, Acquisition Unit 및 Data Collection을 선택합니다.</block>
-  <block id="3471dafa540ad99cab68490eddb48830" category="list-text">읽기/쓰기 * 키를 복사합니다. Astra Control Center * Connect Cloud Insights * 창에 붙여 넣어야 합니다. 읽기/쓰기 API 액세스 토큰 키 권한에 대해 자산, 데이터 수집, 로그 수집, 획득 단위, 및 데이터 수집 을 참조하십시오.</block>
   <block id="a514c0ae3c82c51ee5b4cd862c3c6ae5" category="paragraph">Traefik CRD를 수동으로 삭제할 수 있습니다. CRD는 글로벌 리소스이며 CRD를 삭제하면 클러스터의 다른 애플리케이션에 영향을 줄 수 있습니다.</block>
   <block id="30e9f9c381fe23f7ce3650c2587f95e5" category="list-text">클러스터에 설치된 Traefik CRD 나열:</block>
   <block id="61f5bc231326b2369e71b3e4d9f8c986" category="paragraph">기존의 자체 서명된 TLS 인증서를 제거합니다.</block>
@@ -2619,4 +2618,5 @@
   <block id="d1141e4fbef627d770ba551621d0f9ba" category="list-text">Istio 서비스 메시에 참여하는 응용 프로그램의 실행 후크를 만드는 경우 후크가 서비스 메시 컨테이너가 아닌 원래 응용 프로그램 컨테이너에 대해 실행되는지 확인합니다. Istio 서비스 메시를 사용하는 응용 프로그램에 대해 실행되는 모든 실행 후크에 필터 regex를 적용하여 Istio 서비스 메시 컨테이너를 제외할 수 있습니다.</block>
   <block id="6f0d5941d5a6edfad3a1597fae5c8340" category="list-text">실행 후크는 실행 중인 응용 프로그램의 기능을 줄이거나 완전히 비활성화하기 때문에 사용자 지정 실행 후크가 실행되는 시간을 최소화해야 합니다.</block>
   <block id="678c0d401fe58fc5c33f7d717ff8c970" category="list-text">연결된 실행 후크와 함께 백업 또는 스냅샷 작업을 시작한 다음 취소하면 백업 또는 스냅샷 작업이 이미 시작된 경우에도 후크를 실행할 수 있습니다. 즉, 백업 후 실행 후크는 백업이 완료된 것으로 가정할 수 없습니다.</block>
+  <block id="f83cc958d14f90620b7ffdf9923fe440" category="list-text">읽기/쓰기 * 키를 복사합니다. Astra Control Center * Connect Cloud Insights * 창에 붙여 넣어야 합니다. 읽기/쓰기 API 액세스 토큰 키 권한에 대해 데이터 수집, 로그 수집, 획득 장치 및 데이터 수집 을 선택합니다.</block>
 </blocks>
