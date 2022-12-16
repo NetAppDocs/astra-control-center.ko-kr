@@ -2283,7 +2283,6 @@
   <block id="f1cf4d02378fa61bb8bd57679ffc6235" category="list-text">* H제어 응용 프로그램 배포 *: Helm 3으로 배포된 응용 프로그램 클로닝(또는 Helm 2에서 Helm 3으로 업그레이드)이 완벽하게 지원됩니다. Helm 2와 함께 배포된 앱은 지원되지 않습니다.</block>
   <block id="8d7c216bc17d281838efafaa3704677b" category="list-text">복원 유형 선택:</block>
   <block id="90d21d98503ddae05ddf0a1a34b7d790" category="list-text">* 원래 네임스페이스로 복원 *: 이 절차를 사용하여 원래 클러스터로 응용 프로그램을 원래 상태로 복원할 수 있습니다.</block>
-  <block id="d6163245aff1d495d4414480b1d33f38" category="admonition">다른 앱과 리소스를 공유하는 앱에서 데이터 이동 없이 복원 작업을 수행하면 의도하지 않은 결과가 발생할 수 있습니다.</block>
   <block id="eb543a53c7bc9830323c1e31b5a68dc4" category="list-text">앱을 원래 상태로 복원하는 데 사용할 스냅샷을 선택합니다. 그러면 앱이 이전 버전으로 되돌아갑니다.</block>
   <block id="3b015c7e8b671c5a6b88a902ad59e853" category="list-text">복원 작업에 대한 세부 정보를 검토하고 "restore"를 입력한 다음 * Restore * 를 선택합니다.</block>
   <block id="440c25a54f1d6be365d93551da3bc3f9" category="list-text">* 새 네임스페이스로 복원 *: 이 절차를 사용하여 응용 프로그램을 다른 클러스터나 소스의 다른 네임스페이스로 복원할 수 있습니다.</block>
@@ -2642,4 +2641,10 @@
   <block id="d562c4dd354cbcb5a399ecd947d57a28" category="list-text"><block ref="d562c4dd354cbcb5a399ecd947d57a28" category="inline-link-macro-rx"></block></block>
   <block id="749c18da581d94e0dd92db056f0ede8d" category="inline-link-macro">Astra Control에 대한 도움을 받으십시오</block>
   <block id="8a06e7781d9c301da6075deb2bbbe145" category="list-text"><block ref="8a06e7781d9c301da6075deb2bbbe145" category="inline-link-macro-rx"></block></block>
+  <block id="4ca05a6d3d72f01a88f8a67a5c8cfac4" category="paragraph">다른 앱과 리소스를 공유하는 앱에서 데이터 이동 없이 복원 작업을 수행하면 의도하지 않은 결과가 발생할 수 있습니다. 앱 간에 공유되는 모든 리소스는 앱 중 하나에서 데이터 이동 없이 복원이 수행될 때 교체됩니다. 예를 들어, 다음 시나리오에서는 NetApp SnapMirror 복제를 사용할 때 바람직하지 않은 상황이 발생합니다.</block>
+  <block id="4b93bc85a66000cfca0c6e537323e417" category="list-text">애플리케이션을 정의합니다<block ref="f92ea1839dc16d7396db358365da7066" prefix=" " category="inline-code"></block> 네임스페이스 사용<block ref="bfed25f845e5220adacaaf3b86228910" prefix=" " category="inline-code"></block>.</block>
+  <block id="86b8799dbebc7080c1d4f349601f66d1" category="list-text">에 대한 복제 관계를 구성합니다<block ref="f92ea1839dc16d7396db358365da7066" prefix=" " category="inline-code"></block>.</block>
+  <block id="2aabf9d19e05830c03047e81303050b7" category="list-text">애플리케이션을 정의합니다<block ref="ec8d838607528268a4e435628ea9f709" prefix=" " category="inline-code"></block> 네임스페이스 사용<block ref="bfed25f845e5220adacaaf3b86228910" prefix=" " category="inline-code"></block> 및<block ref="7b3f4e5e8a4b234605eb5c242254ab09" prefix=" " category="inline-code"></block>.</block>
+  <block id="baf10238a72efe4a1aab077cb3c4d82e" category="list-text">에 대한 복제 관계를 구성합니다<block ref="ec8d838607528268a4e435628ea9f709" prefix=" " category="inline-code"></block>.</block>
+  <block id="34a13245622ec7d6c1a19ea86462ba96" category="list-text">에 대한 역방향 복제를 수행합니다<block ref="ec8d838607528268a4e435628ea9f709" prefix=" " category="inline-code"></block>. 이렇게 하면 가 발생합니다<block ref="f92ea1839dc16d7396db358365da7066" prefix=" " category="inline-code"></block> 비활성화할 소스 클러스터의 앱.</block>
 </blocks>
