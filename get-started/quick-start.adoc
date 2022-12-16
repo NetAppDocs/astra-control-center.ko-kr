@@ -73,5 +73,6 @@ Astra Control Center 설정을 마친 후 다음 단계로 진행할 수 있습�
 == 를 참조하십시오
 
 * https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 참조하십시오"^]
-* https://review.docs.netapp.com/us-en/astra-control-center_acc-pi7-review/use/upgrade-acc.html["Astra Control Center를 업그레이드합니다"^]
+* link:../use/upgrade-acc.html["Astra Control Center를 업그레이드합니다"^]
+* link:../support/get-help.html["Astra Control에 대한 도움을 받으십시오"^]
 
