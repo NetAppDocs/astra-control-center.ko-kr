@@ -849,8 +849,6 @@
   <block id="fc114aea788191ed2996fd8985c43178" category="inline-link-macro">클러스터를 추가합니다</block>
   <block id="d61a39ecf1d91497b3661f1969243d18" category="summary">몇 단계만 거치하면 Astra Control을 시작할 수 있습니다.</block>
   <block id="a87da1b8e8afc29470ac85cf788e125c" category="doc">Astra Control Center를 빠르게 시작합니다</block>
-  <block id="15dd8f83e9a999edc6eae56c5aec726e" category="paragraph">이 페이지에서는 Astra Control Center를 시작하는 데 필요한 단계에 대해 개괄적으로 설명합니다. 각 단계의 링크를 클릭하면 자세한 내용을 제공하는 페이지로 이동합니다.</block>
-  <block id="b777e6ba4555d404b00c2436d03ae649" category="inline-link-macro">라이센스 정보</block>
   <block id="46921a75e8534ad7d1c379a9e3aec033" category="doc">설치 개요</block>
   <block id="2835a37ac89f56f462499928fa4f5630" category="paragraph">다음 Astra Control Center 설치 절차 중 하나를 선택하여 완료합니다.</block>
   <block id="8810f3085242ca927538791ec7fc8110" category="list-text"><block ref="8810f3085242ca927538791ec7fc8110" category="inline-link-macro-rx"></block></block>
@@ -1907,9 +1905,6 @@
   <block id="4ab759267d2877902a521921e10f5f5b" category="list-text">astractrol-service-account.yaML이라는 서비스 계정 파일을 만듭니다.</block>
   <block id="85d4813220dc61b1558025981ecb0a0c" category="paragraph"><block ref="85d4813220dc61b1558025981ecb0a0c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="de57d5c9dad5ff2e5621f7541a798fe9" category="paragraph"><block ref="de57d5c9dad5ff2e5621f7541a798fe9" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="9f034b63948763d489f944319c2eb3de" category="inline-link-macro">피처</block>
-  <block id="67de198544887d5fd6bd366f67305ff4" category="paragraph">애플리케이션과 데이터를 보호하려면 라이센스가 필요합니다. Astra Control Center를 참조하십시오 <block ref="9c6ba53976c6f467204fe6057d6ccf7a" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
-  <block id="166a298c42736e336f80574cf9433db7" category="paragraph">또한 평가판 라이센스가 있는 Astra Control Center를 사용하여 라이센스를 다운로드한 날짜로부터 90일 동안 Astra Control Center를 사용할 수 있습니다. 자세한 내용은 을 참조하십시오 <block ref="ec43fa96d69fa714ee8406758839eaf7" category="inline-link-macro-rx"></block>.</block>
   <block id="40c5eb63f5dc254aeb1e6c3a7b34d15d" category="inline-link-macro">지원되는 스토리지 백엔드</block>
   <block id="3e55b813dfc77f5a692ec8411b86bba6" category="paragraph">ONTAP 스토리지 백엔드에 필요한 라이센스에 대한 자세한 내용은 을 참조하십시오 <block ref="dff615b80497dbcbaf9794a9900b6f10" category="inline-link-macro-rx"></block>.</block>
   <block id="a26876e2ece0b6007cf03e315d57d9d2" category="admonition">라이센스 없이 클러스터를 추가하고, 버킷을 추가하고, 스토리지 백엔드를 관리할 수 있습니다.</block>
@@ -1923,7 +1918,6 @@
   <block id="f79830bec9b778f1cf3c950471bafb95" category="inline-link-macro">Astra Control Center의 특징</block>
   <block id="ae49257ca8c170cdd9b892d435d60a14" category="paragraph">Astra Control Center의 모든 기능을 사용하려면 Astra Control Center 라이센스가 필요합니다. NetApp에서 평가판 라이센스 또는 전체 라이센스를 받으십시오. 애플리케이션과 데이터를 보호하려면 라이센스가 필요합니다. 을 참조하십시오 <block ref="7fcc59b1843f920708fc18c7727f8745" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
   <block id="32c2e315eb3384a5835e26a647684aec" category="paragraph">ONTAP 스토리지 백엔드에 필요한 라이센스에 대한 자세한 내용은 을 참조하십시오 <block ref="8e7dadcc6edcd7a6649fd7bd3abadd5f" category="inline-link-macro-rx"></block>.</block>
-  <block id="f06853bf12dc9a7737fb9921535d6e83" category="paragraph">제품 구입 후 제품 번호와 라이센스가 제공됩니다. 에서 NetApp 라이센스 파일(NLF)을 생성할 수 있습니다<block ref="fcc52edac3ce57829c48ee35d97a295d" category="inline-link-rx"></block>.</block>
   <block id="34c08446234edc37b22fa4ed2230f6fe" category="paragraph">Astra Control Center에 평가판 라이센스를 사용하면 라이센스를 다운로드한 날짜로부터 90일 동안 Astra Control Center를 사용할 수 있습니다. 등록하면 무료 평가판을 사용할 수 있습니다 <block ref="94c4952ff767dc7f2318bf778dfb79d4" category="inline-link-macro-rx"></block>.</block>
   <block id="6db4db93a9c2608b2abfc46bb675e283" category="paragraph">Kubernetes 앱을 설정 및 관리하려면 Astra Control Center UI 또는 Astra Control API를 사용할 수 있습니다.</block>
   <block id="c39526014b70f5854cf3c59ceb0b89d3" category="list-text"><block ref="c39526014b70f5854cf3c59ceb0b89d3" category="inline-link-macro-rx"></block></block>
@@ -2591,7 +2585,6 @@
   <block id="6f0d5941d5a6edfad3a1597fae5c8340" category="list-text">실행 후크는 실행 중인 응용 프로그램의 기능을 줄이거나 완전히 비활성화하기 때문에 사용자 지정 실행 후크가 실행되는 시간을 최소화해야 합니다.</block>
   <block id="678c0d401fe58fc5c33f7d717ff8c970" category="list-text">연결된 실행 후크와 함께 백업 또는 스냅샷 작업을 시작한 다음 취소하면 백업 또는 스냅샷 작업이 이미 시작된 경우에도 후크를 실행할 수 있습니다. 즉, 백업 후 실행 후크는 백업이 완료된 것으로 가정할 수 없습니다.</block>
   <block id="f83cc958d14f90620b7ffdf9923fe440" category="list-text">읽기/쓰기 * 키를 복사합니다. Astra Control Center * Connect Cloud Insights * 창에 붙여 넣어야 합니다. 읽기/쓰기 API 액세스 토큰 키 권한에 대해 데이터 수집, 로그 수집, 획득 장치 및 데이터 수집 을 선택합니다.</block>
-  <block id="50eac7a8226d30ab336bd2f68c81d5d7" category="paragraph">사용해 보세요! Astra Control Center를 사용해 보고 싶은 경우 90일 평가판 라이센스를 사용할 수 있습니다. 을 참조하십시오 <block ref="63bc3e673bda1b27140b6b5b88199732" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
   <block id="a8a5da0c5d62ec5f7225e0ce27261da7" category="paragraph">환경이 이러한 요구 사항을 충족하는지 확인합니다.</block>
   <block id="b5233b1e8c04e10566734b9cecfc92b1" category="paragraph">* Kubernetes 클러스터 *</block>
   <block id="b3617c5929e3cf6406a5cdcd1eea0a9c" category="inline-link-macro">운영 환경 요구 사항을 충족하는 환경을 보장합니다</block>
@@ -2607,8 +2600,6 @@
   <block id="8f233a56a0bbc57a073461b666b439e1" category="list-text"><block ref="8f233a56a0bbc57a073461b666b439e1" category="inline-link-rx"></block></block>
   <block id="2d2c9a29bb271a0bf15559829b91147a" category="inline-link">Astra Trident 볼륨 스냅샷 컨트롤러 및 스냅샷 클래스를 설치합니다</block>
   <block id="6c4528e739169720eefd2bff769e1da1" category="list-text"><block ref="6c4528e739169720eefd2bff769e1da1" category="inline-link-rx"></block></block>
-  <block id="527fdd132db746b3b10c377fcc937a6b" category="inline-link">Astra Trident 스토리지 볼륨 스냅샷 컨트롤러 및 스냅샷 클래스를 구성합니다</block>
-  <block id="d0b095d6aa400765f2fd9213267791a8" category="list-text"><block ref="d0b095d6aa400765f2fd9213267791a8" category="inline-link-rx"></block></block>
   <block id="ae0a6f81e3ab19bb5bb4cc16ba804b6d" category="paragraph">* ONTAP 자격 증명 *</block>
   <block id="cff9e873ecc35abb358c9f43ad1d3dcf" category="inline-link-macro">ONTAP 자격 증명을 구성합니다</block>
   <block id="27912e4366edb4ee86aa373395b590f5" category="list-text"><block ref="27912e4366edb4ee86aa373395b590f5" category="inline-link-macro-rx"></block></block>
@@ -2647,4 +2638,14 @@
   <block id="2aabf9d19e05830c03047e81303050b7" category="list-text">애플리케이션을 정의합니다<block ref="ec8d838607528268a4e435628ea9f709" prefix=" " category="inline-code"></block> 네임스페이스 사용<block ref="bfed25f845e5220adacaaf3b86228910" prefix=" " category="inline-code"></block> 및<block ref="7b3f4e5e8a4b234605eb5c242254ab09" prefix=" " category="inline-code"></block>.</block>
   <block id="baf10238a72efe4a1aab077cb3c4d82e" category="list-text">에 대한 복제 관계를 구성합니다<block ref="ec8d838607528268a4e435628ea9f709" prefix=" " category="inline-code"></block>.</block>
   <block id="34a13245622ec7d6c1a19ea86462ba96" category="list-text">에 대한 역방향 복제를 수행합니다<block ref="ec8d838607528268a4e435628ea9f709" prefix=" " category="inline-code"></block>. 이렇게 하면 가 발생합니다<block ref="f92ea1839dc16d7396db358365da7066" prefix=" " category="inline-code"></block> 비활성화할 소스 클러스터의 앱.</block>
+  <block id="c05d7f375daa05c9c20834d303b00fd0" category="paragraph">Astra Control Center를 시작하는 데 필요한 단계를 간략하게 소개합니다. 각 단계의 링크를 클릭하면 자세한 내용을 제공하는 페이지로 이동합니다.</block>
+  <block id="7df63225a687cdbb0704d94ef53a4983" category="inline-link">볼륨 스냅샷 클래스를 생성합니다</block>
+  <block id="dd131b9996426baf36db91cd0e7d6281" category="list-text"><block ref="dd131b9996426baf36db91cd0e7d6281" category="inline-link-rx"></block></block>
+  <block id="c4002b4ebee895edc6f5898ff73a5ad8" category="list-text">NetApp 라이센스 파일을 얻습니다.</block>
+  <block id="e1d57bb99f6ac53ae4d1e4ead1d86a3c" category="paragraph">다음 방법 중 하나를 사용하여 라이센스를 얻습니다.</block>
+  <block id="6004daa4ba0df7760d75bccaccd9cdeb" category="list-text"><block ref="1ac362ab549aa84c347d7d5271314ad6" category="inline-link-macro-rx"></block>. 평가판 라이센스를 사용하면 라이센스를 다운로드한 날짜로부터 90일 동안 Astra Control Center를 사용할 수 있습니다.</block>
+  <block id="b5172acff46c1ccd4ef355f7c403ba48" category="inline-link-macro">Astra Control Center를 이미 구입한 경우 NetApp 라이센스 파일(NLF)을 생성합니다.</block>
+  <block id="5e83d0e22710b5fb10a24a55f0464eab" category="list-text"><block ref="be01b2f45d5e5a31b2acb026a0c1fc3d" category="inline-link-macro-rx"></block> NetApp Support 사이트에서. 제품을 구입한 후에는 지원 사이트에서 사용하는 일련 번호와 라이센스가 제공됩니다.</block>
+  <block id="89eae3d9e27253b30e1b76d62008b32d" category="inline-link-macro">Astra Control Center를 처음 설정할 때 라이센스를 추가합니다</block>
+  <block id="117e62f8841c871dc009220d6b7e5401" category="list-text"><block ref="117e62f8841c871dc009220d6b7e5401" category="inline-link-macro-rx"></block></block>
 </blocks>
