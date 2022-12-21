@@ -551,14 +551,11 @@
   <block id="e3ebf55f76dc38e964104d304e65e99f" category="doc">Astra Control Center를 업그레이드합니다</block>
   <block id="9cc7b6d57e2a51242322baa80ba76e7d" category="list-text">모든 API 서비스가 정상 상태이며 사용 가능한지 확인합니다.</block>
   <block id="acd4353523a542de5b311529e048a8e8" category="paragraph">Astra Control Center 업그레이드 프로세스는 다음과 같은 고급 단계를 안내합니다.</block>
-  <block id="545c199a2f9ae71f3bff75a2efc1785a" category="list-text"><block ref="8f1bc9f78e55e970421f771e463483a1" category="inline-xref-macro-rx"></block></block>
   <block id="14905c130cb21eb99b32fda77b5847e3" category="list-text"><block ref="8f05616ca07e5e0f0a406924d57cac8c" category="inline-xref-macro-rx"></block></block>
   <block id="279afcccd954d47b442a29a6bd38e688" category="list-text"><block ref="75ed4647183314a63168429062f35c29" category="inline-xref-macro-rx"></block></block>
   <block id="41df3de87c6ea858ea2bb342ad613900" category="list-text"><block ref="4185a8362c964abfe734b0dc16083199" category="inline-xref-macro-rx"></block></block>
   <block id="df0df2649277c823afc938e5fde361c3" category="list-text"><block ref="501c3f749f8486b64153aadd98c7492d" category="inline-xref-macro-rx"></block></block>
   <block id="64ab6dee28636075579961e17cb0df5f" category="admonition">스케줄, 백업 및 스냅샷이 실행되고 있지 않은 경우 유지보수 창에서 업그레이드를 수행합니다.</block>
-  <block id="bf6391de5876b6e51397f39ae8289eec" category="section-title">Astra Control Center 번들을 다운로드합니다</block>
-  <block id="ae32a002cf3df8354380980ceb442a90" category="list-text">이미지 추출:</block>
   <block id="22a59db7b4ba20ac09e829d51d726828" category="section-title">이미지를 로컬 레지스트리에 추가합니다</block>
   <block id="9d37e8b16bca7866e9db4f98f5080a5a" category="section-title">업데이트된 Astra Control Center 운영자를 설치합니다</block>
   <block id="4dfe1039695653a07d27cb2151fbe633" category="list-text">Astra Control Center 운영자 배포 YAML('Astra_control_center_operator_deploy.YAML')을 편집하여 현지 등록부와 비밀을 참조하십시오.</block>
@@ -691,7 +688,6 @@
   <block id="9b7b5553b7f9a88388ff63538315f288" category="list-text"><block ref="d671e7cdeaa98f3485173f8d5a620d81" category="inline-xref-macro-rx"></block></block>
   <block id="bcd2064257ec8fce1f11d1eab34e50a1" category="list-text"><block ref="d1f909bce77ae129ee64cf4c211e47c3" category="inline-xref-macro-rx"></block></block>
   <block id="3cc546d35377f25093968cba1e8c0fc6" category="list-text"><block ref="27fe6aaf425c0f95213ec6c507a97d2d" category="inline-xref-macro-rx"></block></block>
-  <block id="37b9c0fe975f84a28c93ed400bbf96df" category="list-text">에서 Astra Control Center 번들('Astra-control-center-[version].tar.gz')을 다운로드합니다<block ref="4e4882d47509d388d52971aaee9abe33" category="inline-link-rx"></block>.</block>
   <block id="55c6b9fd6efcd18e0f53c34459084a3f" category="section-title">운영자 설치 페이지를 찾으십시오</block>
   <block id="396cd1df886b31da3577b40fa6f7cf0f" category="list-text">운영자 설치 페이지에 액세스하려면 다음 절차 중 하나를 완료하십시오.</block>
   <block id="fd8cbefedde3fbeeb2817b2484ff0e38" category="inline-image-macro">Astra Control Center 설치 페이지</block>
@@ -956,7 +952,6 @@
   <block id="30e9f9c381fe23f7ce3650c2587f95e5" category="list-text">클러스터에 설치된 Traefik CRD 나열:</block>
   <block id="61f5bc231326b2369e71b3e4d9f8c986" category="paragraph">기존의 자체 서명된 TLS 인증서를 제거합니다.</block>
   <block id="1cee46fe31fb6be4325d72afeb43c038" category="paragraph">CA에서 서명한 새 TLS 인증서를 추가합니다.</block>
-  <block id="38073e52be4dfccbbd24b3272a244562" category="list-text">에서 Astra Control Center 인증서 및 키의 지퍼를 다운로드합니다<block ref="4e4882d47509d388d52971aaee9abe33" category="inline-link-rx"></block>.</block>
   <block id="7267bf4022ef959138b9f6b053eb4b37" category="paragraph">먼저 운영 환경, 애플리케이션 클러스터, 애플리케이션, 라이센스 및 웹 브라우저의 준비 상태를 확인하십시오.</block>
   <block id="14c3520c1ca6993e39c544e92a538f0b" category="section-title">구현할 수 있습니다</block>
   <block id="540bf6f549a34a85e07e4a8510890f43" category="paragraph">Astra Control Center를 호스팅하기 위해 선택한 운영 환경이 환경 공식 문서에 설명된 기본 리소스 요구 사항을 충족하는지 확인합니다. Astra Control Center에는 환경의 리소스 요구 사항 외에 다음과 같은 리소스가 필요합니다.</block>
@@ -1341,9 +1336,7 @@
   <block id="b76660fac98aeb4fc46b77e989e6d8b0" category="list-text">기본값으로 설정할 스토리지 클래스에 대해 * Actions * 메뉴를 선택합니다.</block>
   <block id="b4789b0ec041cd5e51f32c2f901a0951" category="list-text">Set as default * 를 선택합니다.</block>
   <block id="f2ab44c105acc97c54a227f6c52ad099" category="admonition">이전에 삭제된 네임스페이스에 복원하는 경우 복원 프로세스의 일부로 동일한 이름의 새 네임스페이스가 만들어집니다. 이전에 삭제된 네임스페이스에서 앱을 관리할 권한이 있는 사용자는 새로 다시 생성된 네임스페이스에 대한 권한을 수동으로 복원해야 합니다.</block>
-  <block id="4e7bc0f2f576e3a2e7b9bd624d2da7d3" category="list-text"><block ref="f9a9477fa54fe91dbfcc4b4adc8c5a84" category="inline-xref-macro-rx"></block></block>
   <block id="f27876af7f41dd88d732712643f9e8ab" category="list-text"><block ref="edd1a66c7657e8422b18455f2fcc01fd" category="inline-xref-macro-rx"></block></block>
-  <block id="bb550e726ecd8419a94f47dd80d637fc" category="section-title">Astra Control Center 번들을 다운로드하고 포장을 풉니다</block>
   <block id="72b3b17d23e094f72641c4ffa8928d85" category="section-title">NetApp Astra kubtl 플러그인을 설치합니다</block>
   <block id="ade277501852b5468b0c3b865cb7e40f" category="paragraph">Astra Control은 Kubernetes 애플리케이션 데이터 라이프사이클 관리 솔루션으로, 상태 저장 애플리케이션의 운영을 단순화합니다. Kubernetes 워크로드를 손쉽게 보호, 백업, 복제, 마이그레이션하고 정상 작동하는 애플리케이션 클론을 즉시 생성할 수 있습니다.</block>
   <block id="50f9f66165bfd78e72eb71c73f5252c0" category="list-text">NetApp SnapMirror 기술을 사용하여 애플리케이션을 원격 시스템에 복제합니다</block>
@@ -1974,7 +1967,6 @@
   <block id="0a95083609256f37336e12a9bcf2e463" category="list-text">모든 Astra Control Center Pod가 실행되고 있는지 확인합니다.</block>
   <block id="b9c8db9ede8046f6b37500c8dbd6bff3" category="list-text">Astra Control Center UI를 설치합니다.</block>
   <block id="d73f4cd3ed09d80212f766964fd60d2b" category="admonition">Astra Control Center 운영자를 삭제하지 마십시오(예:<block ref="dfe54be7b1dbab0ff279802517dca055" prefix=" " category="inline-code"></block>) 포드가 삭제되지 않도록 Astra Control Center 설치 또는 작동 중에 언제든지.</block>
-  <block id="17ed07ff15b5d43d3eca288ae4a093bd" category="list-text">(선택 사항) 번들의 서명을 확인합니다.</block>
   <block id="1bde686a3d07054e85d48421d9a23fe0" category="paragraph">NetApp Astra kubtl 명령줄 플러그인은 Astra Control Center 배포 및 업그레이드와 관련된 일반적인 작업을 수행할 때 시간을 절약해 줍니다.</block>
   <block id="23a38036ff7df90ffe338fd68ee89bb1" category="paragraph">NetApp은 다양한 CPU 아키텍처 및 운영 체제에 대한 플러그인 바이너리를 제공합니다. 이 작업을 수행하기 전에 사용 중인 CPU 및 운영 체제를 알아야 합니다.</block>
   <block id="18f40e403e21c47db1d640c681eb60c1" category="list-text">사용 가능한 NetApp Astra kubectl 플러그인 바이너리를 나열하고 운영 체제 및 CPU 아키텍처에 필요한 파일 이름을 적어 주십시오.</block>
@@ -2245,10 +2237,7 @@
   <block id="fc6ccc2ccd83dc8264cd34d7b982f76c" category="list-text">기본 스토리지 클래스 기본 스토리지 클래스를 확인하려면 기존 Astra Control Center에 대해 다음 명령을 실행합니다.<block ref="6c8dbf2986e91118b19341b89fa1a31d" prefix=" " category="inline-code"></block></block>
   <block id="f84aae8dfc7421a333e4e7e836c130c7" category="list-text">(OpenShift에만 해당) 모든 클러스터 운영자가 양호한 상태이며 사용 가능한지 확인합니다.</block>
   <block id="825d372ea32aac53c3ee57e9a6a5bbc6" category="list-text">업그레이드를 시작하기 전에 Astra Control Center UI에서 로그아웃하십시오.</block>
-  <block id="2706061cc7b67d10cbb2fd9207c73066" category="list-text"><block ref="c923275db650d69735b78d7ae2ff9702" category="inline-xref-macro-rx"></block></block>
   <block id="a7cd7e89d9e646b3bc6c32ee6ac752b0" category="admonition">Astra Control Center 운영자를 삭제하지 마십시오(예:<block ref="dfe54be7b1dbab0ff279802517dca055" prefix=" " category="inline-code"></block>) 포드가 삭제되지 않도록 Astra Control Center 업그레이드 또는 작업 중 언제든지.</block>
-  <block id="74653d2b98b664476dac80c4d327b6fd" category="list-text">에서 Astra Control Center 번들을 다운로드합니다<block ref="4e4882d47509d388d52971aaee9abe33" category="inline-link-rx"></block>. 파일 이름은 다음과 비슷합니다.<block ref="f38ca01b4c2fe15aa06076beb2ee98ff" prefix=" " category="inline-code"></block>.</block>
-  <block id="bc73322c3d32428ecdf621fe0171026e" category="section-title">번들의 포장을 풉니다</block>
   <block id="4fa6fdd44c10c16a714b8f15d294dafa" category="section-title">NetApp Astra kubectl 플러그인이 설치되어 있는지 확인합니다</block>
   <block id="22752d0c5fc41c072184ec1bf10292a7" category="list-text">다음 명령을 사용하여 플러그인이 설치되어 있는지 확인합니다.</block>
   <block id="9cdaf3a6ae59eb2faabcb002cfc1bd4b" category="list-text">인증이 필요한 레지스트리를 사용하는 경우 의 기본 줄을 바꾸거나 편집합니다<block ref="e90e0b4a41dde5f038023d33ee45ad34" prefix=" " category="inline-code"></block> 다음 포함:</block>
@@ -2604,8 +2593,6 @@
   <block id="cff9e873ecc35abb358c9f43ad1d3dcf" category="inline-link-macro">ONTAP 자격 증명을 구성합니다</block>
   <block id="27912e4366edb4ee86aa373395b590f5" category="list-text"><block ref="27912e4366edb4ee86aa373395b590f5" category="inline-link-macro-rx"></block></block>
   <block id="7ae94f3e29fb1789e466d68ff3b7719d" category="paragraph">다음 설치 작업을 완료합니다.</block>
-  <block id="be63ab5309fd82ceb3e549496baad39a" category="inline-link">NetApp Support 사이트 다운로드 페이지에서 Astra Control Center를 다운로드합니다</block>
-  <block id="5aa98cd838ea9dade91877a36ab694a8" category="list-text"><block ref="5aa98cd838ea9dade91877a36ab694a8" category="inline-link-rx"></block></block>
   <block id="81d47d4dec7b1222070eae27bb4310ee" category="inline-link-macro">Astra Control Center를 평가 중인 경우 평가판 라이센스 파일을 다운로드하십시오</block>
   <block id="1ac362ab549aa84c347d7d5271314ad6" category="list-text"><block ref="1ac362ab549aa84c347d7d5271314ad6" category="inline-link-macro-rx"></block></block>
   <block id="fbc059a4c4dca73352b8c2d2b522c031" category="inline-link-macro">이미 Astra Control Center를 구입한 경우 라이센스 파일을 생성합니다</block>
@@ -2648,4 +2635,16 @@
   <block id="5e83d0e22710b5fb10a24a55f0464eab" category="list-text"><block ref="be01b2f45d5e5a31b2acb026a0c1fc3d" category="inline-link-macro-rx"></block> NetApp Support 사이트에서. 제품을 구입한 후에는 지원 사이트에서 사용하는 일련 번호와 라이센스가 제공됩니다.</block>
   <block id="89eae3d9e27253b30e1b76d62008b32d" category="inline-link-macro">Astra Control Center를 처음 설정할 때 라이센스를 추가합니다</block>
   <block id="117e62f8841c871dc009220d6b7e5401" category="list-text"><block ref="117e62f8841c871dc009220d6b7e5401" category="inline-link-macro-rx"></block></block>
+  <block id="2f8cadf95c6d0e5ffc19921fb6fd5cca" category="doc">Astra Control Center를 다운로드하고 압축을 풉니다</block>
+  <block id="a63179888ca7fc528404e8b4f6bab69a" category="inline-link">Astra Control Center 평가판 다운로드 페이지</block>
+  <block id="e7ba0480f7b95b8e2dba97abcd8511d1" category="list-text">로 이동합니다<block ref="7d0bcaecb4c3439d264a801b59ac8770" category="inline-link-rx"></block> 를 방문하십시오.</block>
+  <block id="7bf65886a6daf176486ecc32f5736b33" category="list-text">Astra Control Center가 포함된 번들을 다운로드합니다 <block ref="f38ca01b4c2fe15aa06076beb2ee98ff" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
+  <block id="a5633748c6774da7b883a9fcf799a73e" category="list-text">(권장되지만 선택 사항) Astra Control Center용 인증서 및 서명 번들을 다운로드합니다 <block ref="7a63467f08b4d3ec454a0b66e2353d54" prefix="(" category="inline-code"></block>)를 클릭하여 번들 서명을 확인합니다.</block>
+  <block id="79204d6da69fa9c1924fe4edc28bd8c4" category="paragraph">출력이 표시됩니다<block ref="33a9cc0739a5a17f65e28cf0b260007f" prefix=" " category="inline-code"></block> 확인 성공 후.</block>
+  <block id="e05ea496750d85fb7d63c1d2952dc33e" category="list-text">Astra Control Center 번들에서 이미지를 추출합니다.</block>
+  <block id="78fef5e4370c46736bde008c50f1c5ce" category="inline-link">NetApp Support 사이트 평가 다운로드 페이지에서 Astra Control Center를 다운로드합니다</block>
+  <block id="781315777416a8ea4df0544c1a15fab7" category="list-text"><block ref="781315777416a8ea4df0544c1a15fab7" category="inline-link-rx"></block></block>
+  <block id="47fc3325fabe9d0cade728b90fbe622a" category="list-text"><block ref="182b6f14d78206b412277e5e36bb924f" category="inline-xref-macro-rx"></block></block>
+  <block id="a73afd2c31b746ac34e3fec7590e3cfa" category="inline-link">Astra Control Center 제품 다운로드 페이지</block>
+  <block id="779308b02cace7345409bae24871be63" category="list-text">로 이동합니다<block ref="463a64da5039ffbaa330e14a245ba287" category="inline-link-rx"></block> 를 방문하십시오. 드롭다운 메뉴에서 최신 버전 또는 원하는 다른 버전을 선택할 수 있습니다.</block>
 </blocks>

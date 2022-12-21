@@ -51,7 +51,7 @@ IMPORTANT: Astra Control Center 운영자를 삭제하지 마십시오(예: `kub
 .단계
 Astra Control Center를 설치하려면 다음 단계를 수행하십시오.
 
-* <<Astra Control Center 번들을 다운로드하고 포장을 풉니다>>
+* <<Astra Control Center를 다운로드하고 압축을 풉니다>>
 * <<NetApp Astra kubtl 플러그인을 설치합니다>>
 * <<이미지를 로컬 레지스트리에 추가합니다>>
 * <<인증 요구 사항이 있는 레지스트리에 대한 네임스페이스 및 암호를 설정합니다>>
@@ -65,17 +65,21 @@ Astra Control Center를 설치하려면 다음 단계를 수행하십시오.
 
 
 
-== Astra Control Center 번들을 다운로드하고 포장을 풉니다
+== Astra Control Center를 다운로드하고 압축을 풉니다
 
-. 에서 Astra Control Center 번들('Astra-control-center-[version].tar.gz')을 다운로드합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support 사이트"^].
-. 에서 Astra Control Center 인증서 및 키의 지퍼를 다운로드합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support 사이트"^].
-. (선택 사항) 번들의 서명을 확인합니다.
+. 로 이동합니다 https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Astra Control Center 평가판 다운로드 페이지"^] 를 방문하십시오.
+. Astra Control Center가 포함된 번들을 다운로드합니다 (`astra-control-center-[version].tar.gz`)를 클릭합니다.
+. (권장되지만 선택 사항) Astra Control Center용 인증서 및 서명 번들을 다운로드합니다 (`astra-control-center-certs-[version].tar.gz`)를 클릭하여 번들 서명을 확인합니다.
 +
 [source, console]
 ----
-openssl dgst -sha256 -verify AstraControlCenter-public.pub -signature astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
+tar -vxzf astra-control-center-certs-[version].tar.gz
+openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature certs/astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
 ----
-. 이미지 추출:
++
+출력이 표시됩니다 `Verified OK` 확인 성공 후.
+
+. Astra Control Center 번들에서 이미지를 추출합니다.
 +
 [source, console]
 ----

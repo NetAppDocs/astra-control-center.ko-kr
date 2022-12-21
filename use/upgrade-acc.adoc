@@ -54,8 +54,7 @@ kubectl get apiservices
 .이 작업에 대해
 Astra Control Center 업그레이드 프로세스는 다음과 같은 고급 단계를 안내합니다.
 
-* <<Astra Control Center 번들을 다운로드합니다>>
-* <<번들의 포장을 풉니다>>
+* <<Astra Control Center를 다운로드하고 압축을 풉니다>>
 * <<이미지를 로컬 레지스트리에 추가합니다>>
 * <<업데이트된 Astra Control Center 운영자를 설치합니다>>
 * <<Astra Control Center를 업그레이드합니다>>
@@ -70,24 +69,23 @@ TIP: 스케줄, 백업 및 스냅샷이 실행되고 있지 않은 경우 유지
 
 
 
-== Astra Control Center 번들을 다운로드합니다
+== Astra Control Center를 다운로드하고 압축을 풉니다
 
-. 에서 Astra Control Center 번들을 다운로드합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support 사이트"^]. 파일 이름은 다음과 비슷합니다. `astra-control-center-[version].tar.gz`.
-. (선택 사항) 번들의 서명을 확인합니다.
+. 로 이동합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Center 제품 다운로드 페이지"^] 를 방문하십시오. 드롭다운 메뉴에서 최신 버전 또는 원하는 다른 버전을 선택할 수 있습니다.
+. Astra Control Center가 포함된 번들을 다운로드합니다 (`astra-control-center-[version].tar.gz`)를 클릭합니다.
+. (권장되지만 선택 사항) Astra Control Center용 인증서 및 서명 번들을 다운로드합니다 (`astra-control-center-certs-[version].tar.gz`)를 클릭하여 번들 서명을 확인합니다.
 +
-[listing]
+[source, console]
 ----
-openssl dgst -sha256 -verify AstraControlCenter-public.pub -signature astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
+tar -vxzf astra-control-center-certs-[version].tar.gz
+openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature certs/astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
 ----
-
-
-
-
-== 번들의 포장을 풉니다
-
-. 이미지 추출:
 +
-[listing]
+출력이 표시됩니다 `Verified OK` 확인 성공 후.
+
+. Astra Control Center 번들에서 이미지를 추출합니다.
++
+[source, console]
 ----
 tar -vxzf astra-control-center-[version].tar.gz
 ----

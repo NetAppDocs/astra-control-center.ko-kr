@@ -1,0 +1,27 @@
+= Astra Control Center를 다운로드하고 압축을 풉니다
+:allow-uri-read: 
+
+
+
+
+== Astra Control Center를 다운로드하고 압축을 풉니다
+
+. 로 이동합니다 https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Astra Control Center 평가판 다운로드 페이지"^] 를 방문하십시오.
+. Astra Control Center가 포함된 번들을 다운로드합니다 (`astra-control-center-[version].tar.gz`)를 클릭합니다.
+. (권장되지만 선택 사항) Astra Control Center용 인증서 및 서명 번들을 다운로드합니다 (`astra-control-center-certs-[version].tar.gz`)를 클릭하여 번들 서명을 확인합니다.
++
+[source, console]
+----
+tar -vxzf astra-control-center-certs-[version].tar.gz
+openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature certs/astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
+----
++
+출력이 표시됩니다 `Verified OK` 확인 성공 후.
+
+. Astra Control Center 번들에서 이미지를 추출합니다.
++
+[source, console]
+----
+tar -vxzf astra-control-center-[version].tar.gz
+----
+
