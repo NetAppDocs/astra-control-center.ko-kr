@@ -55,6 +55,7 @@ kubectl get apiservices
 Astra Control Center 업그레이드 프로세스는 다음과 같은 고급 단계를 안내합니다.
 
 * <<Astra Control Center를 다운로드하고 압축을 풉니다>>
+* <<NetApp Astra kubtl 플러그인을 제거하고 다시 설치합니다>>
 * <<이미지를 로컬 레지스트리에 추가합니다>>
 * <<업데이트된 Astra Control Center 운영자를 설치합니다>>
 * <<Astra Control Center를 업그레이드합니다>>
@@ -97,19 +98,43 @@ tar -vxzf astra-control-center-[version].tar.gz
 
 
 
-== NetApp Astra kubectl 플러그인이 설치되어 있는지 확인합니다
+== NetApp Astra kubtl 플러그인을 제거하고 다시 설치합니다
 
 NetApp Astra kubtl 명령줄 플러그인은 Astra Control Center 배포 및 업그레이드와 관련된 일반적인 작업을 수행할 때 시간을 절약해 줍니다.
 
-. 다음 명령을 사용하여 플러그인이 설치되어 있는지 확인합니다.
+. 플러그인이 설치되어 있는지 확인합니다.
 +
 [listing]
 ----
 kubectl astra
 ----
+. 다음 작업 중 하나를 수행합니다.
++
+** 플러그인이 설치된 경우 kubeck 플러그인 도움말을 반환해야 합니다. kubbeck-Astra의 기존 버전을 제거하려면 다음 명령을 실행합니다. `delete /usr/local/bin/kubectl-astra`.
+** 명령이 오류를 반환하면 플러그인이 설치되지 않은 것이므로 다음 단계를 수행하여 설치할 수 있습니다.
 
 
-이 명령은 kubbeck 플러그인 도움말을 제공합니다. 명령이 오류를 반환하면 이를 사용하여 플러그인을 설치합니다 link:../get-started/install_acc.html#install-the-netapp-astra-kubectl-plugin["지침"^].
+. 플러그인 설치:
++
+.. 사용 가능한 NetApp Astra kubectl 플러그인 바이너리를 나열하고 운영 체제 및 CPU 아키텍처에 필요한 파일 이름을 적어 주십시오.
++
+
+NOTE: kubbeck 플러그인 라이브러리는 tar 번들의 일부이며 폴더에 압축이 풀립니다 `kubectl-astra`.
+
++
+[source, console]
+----
+ls kubectl-astra/
+----
+.. 올바른 바이너리를 현재 경로로 이동하고 이름을 로 변경합니다 `kubectl-astra`:
++
+[source, console]
+----
+cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
+----
+
+
+
 
 
 
@@ -130,7 +155,7 @@ kubectl astra
 . Astra Control Center 이미지 디렉토리의 패키지 이미지를 로컬 레지스트리에 밀어 넣습니다. 를 실행하기 전에 다음 대체 작업을 수행합니다 `push-images` 명령:
 +
 ** <BUNDLE_FILE>를 Astra Control 번들 파일의 이름으로 바꿉니다 (`acc.manifest.bundle.yaml`)를 클릭합니다.
-** <MY_FULL_REGISTRY_PATH>를 Docker 저장소의 URL로 바꿉니다. 예를 들어, https://exampledownloads.jfrog.io/docker-astra-control/v1/[].
+** <MY_FULL_REGISTRY_PATH>를 Docker 저장소의 URL로 바꿉니다. 예를 들어, "https://<docker-registry>"[].
 ** <MY_REGISTRY_USER>를 사용자 이름으로 바꿉니다.
 ** <MY_REGISTRY_TOKEN>를 레지스트리에 대한 인증된 토큰으로 바꿉니다.
 +
@@ -154,30 +179,51 @@ kubectl astra packages push-images -m <BUNDLE_FILE> -r <MY_FULL_REGISTRY_PATH> -
 +
 [source, console]
 ----
-podman login <MY_FULL_REGISTRY_PATH>
+podman login <YOUR_REGISTRY>
 ----
-. 설명에 명시된 대로 <your_registry> 대체를 만들어 다음 스크립트를 실행합니다.
+. 사용하는 Podman 버전에 맞게 사용자 지정된 다음 스크립트 중 하나를 준비하고 실행합니다. <MY_FULL_REGISTRY_PATH>를 모든 하위 디렉토리가 포함된 리포지토리의 URL로 대체합니다.
++
+[source, subs="specialcharacters,quotes"]
+----
+*Podman 4*
+----
 +
 [source, console]
 ----
-export REGISTRY=<YOUR_REGISTRY>
+export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
 export PACKAGEVERSION=22.11.0-82
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
-  # Load to local cache
-  astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image(s): //')
-
-  # Remove path and keep imageName.
-  astraImageNoPath=$(echo ${astraImage} | sed 's:.*/::')
-
-  # Tag with local image repo.
-  podman tag ${astraImage} ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
-
-  # Push to the local repo.
-  podman push ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
+astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
+astraImageNoPath=$(echo ${astraImage} | sed 's:.*/::')
+podman tag ${astraImage} ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
+podman push ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
 done
 ----
++
+[source, subs="specialcharacters,quotes"]
+----
+*Podman 3*
+----
++
+[source, console]
+----
+export REGISTRY=<MY_FULL_REGISTRY_PATH>
+export PACKAGENAME=acc
+export PACKAGEVERSION=22.11.0-82
+export DIRECTORYNAME=acc
+for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
+astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image(s): //')
+astraImageNoPath=$(echo ${astraImage} | sed 's:.*/::')
+podman tag ${astraImage} ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
+podman push ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
+done
+----
++
+
+NOTE: 레지스트리 구성에 따라 스크립트가 만드는 이미지 경로는 다음과 같아야 합니다. `https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/22.11.0-82/image:version`
+
 
 
 --

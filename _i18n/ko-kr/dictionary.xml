@@ -774,7 +774,6 @@
   <block id="8321592ce24c8a122ecf26a63cfca407" category="list-text">ONTAP - NAS</block>
   <block id="844e84da8e822b4a33c4d8188da97937" category="list-text">ONTAP-NAS-Flexgroup입니다</block>
   <block id="73a3350a1b91aeb6e2836fdf5975672c" category="list-text">ONTAP-SAN</block>
-  <block id="cbde2df6a7c89370edc449dc5705d30c" category="inline-link">지침</block>
   <block id="c62e13b3973df086f7d17eeaf006b535" category="section-title">인터넷 접속</block>
   <block id="46cce64fca5b60351328e94ed2b72255" category="paragraph">인터넷에 대한 외부 액세스 권한이 있는지 확인해야 합니다. 그렇지 않으면 NetApp Cloud Insights에서 모니터링 및 메트릭 데이터를 수신하거나 지원 번들을 보내는 등 일부 기능이 제한될 수 있습니다<block ref="3725c06f412bedb14ffd610de312875d" category="inline-link-rx"></block>.</block>
   <block id="794df3791a8c800841516007427a2aa3" category="section-title">라이센스</block>
@@ -1822,7 +1821,6 @@
   <block id="c5fd214cdd0d2b3b4272e73b022ba5c2" category="open-title">Docker 를 참조하십시오</block>
   <block id="455cbd59356abfa16dcf7666d4ae6c2b" category="open-title">팟맨</block>
   <block id="e8c44728c041065d90e7029dec2e142c" category="list-text">레지스트리에 로그인합니다.</block>
-  <block id="c330f6e98afeb2bb5f8da986c24088ee" category="list-text">설명에 명시된 대로 &lt;your_registry&gt; 대체를 만들어 다음 스크립트를 실행합니다.</block>
   <block id="1c90591655cdfe7d885b02ed72ae2509" category="summary">NetApp은 다양한 방법으로 Astra Control을 지원합니다. 기술 자료(KB) 기사 및 불화 채널 같은 광범위한 무료 셀프 지원 옵션이 24x7 제공됩니다. Astra Control 계정에는 웹 발권 서비스를 통한 원격 기술 지원이 포함되어 있습니다.</block>
   <block id="e63bdfa6fe9dccaf39b5d028f12a4a15" category="admonition">Astra Control Center에 대한 평가판 라이센스가 있는 경우 기술 지원을 받을 수 있습니다. 그러나 NSS(NetApp Support Site)를 통한 케이스 생성은 사용할 수 없습니다. 피드백 옵션을 통해 지원을 받거나 불협화음을 셀프 서비스로 사용할 수 있습니다.</block>
   <block id="35cdc0acd4828a4d409d79a5f18ee353" category="inline-link">* 불화를 통한 도움 받기*</block>
@@ -1972,7 +1970,6 @@
   <block id="18f40e403e21c47db1d640c681eb60c1" category="list-text">사용 가능한 NetApp Astra kubectl 플러그인 바이너리를 나열하고 운영 체제 및 CPU 아키텍처에 필요한 파일 이름을 적어 주십시오.</block>
   <block id="04663e125a4b7af87fb04b1c90f3981c" category="admonition">kubbeck 플러그인 라이브러리는 tar 번들의 일부이며 폴더에 압축이 풀립니다<block ref="90432a9da14d46e4d20c4b841576b1ee" prefix=" " category="inline-code"></block>.</block>
   <block id="70c1282aae344c7012022e40f12892d7" category="list-text">올바른 바이너리를 현재 경로로 이동하고 이름을 로 변경합니다<block ref="90432a9da14d46e4d20c4b841576b1ee" prefix=" " category="inline-code"></block>:</block>
-  <block id="1fc880ef4f8b3cc45475542399bd1928" category="list-text">&lt;MY_FULL_REGISTRY_PATH&gt;를 Docker 저장소의 URL로 바꿉니다. 예를 들어,<block ref="2f83a38130745792f380ff2448ba7723" category="inline-link-rx"></block>.</block>
   <block id="f65f53e091cb29cf07faf1ce22c7b7af" category="list-text">&lt;MY_REGISTRY_USER&gt;를 사용자 이름으로 바꿉니다.</block>
   <block id="942beacf5a707600cdbf9c51118da46f" category="list-text">&lt;MY_REGISTRY_TOKEN&gt;를 레지스트리에 대한 인증된 토큰으로 바꿉니다.</block>
   <block id="739ad756d2571ec4c01ae0e2a5a259ff" category="admonition">설치를 완료하기 전에 KUBECONFIG가 Astra Control Center를 설치할 클러스터를 가리키고 있는지 확인하십시오. KUBECONFIG는 하나의 컨텍스트만 포함할 수 있습니다.</block>
@@ -2238,8 +2235,6 @@
   <block id="f84aae8dfc7421a333e4e7e836c130c7" category="list-text">(OpenShift에만 해당) 모든 클러스터 운영자가 양호한 상태이며 사용 가능한지 확인합니다.</block>
   <block id="825d372ea32aac53c3ee57e9a6a5bbc6" category="list-text">업그레이드를 시작하기 전에 Astra Control Center UI에서 로그아웃하십시오.</block>
   <block id="a7cd7e89d9e646b3bc6c32ee6ac752b0" category="admonition">Astra Control Center 운영자를 삭제하지 마십시오(예:<block ref="dfe54be7b1dbab0ff279802517dca055" prefix=" " category="inline-code"></block>) 포드가 삭제되지 않도록 Astra Control Center 업그레이드 또는 작업 중 언제든지.</block>
-  <block id="4fa6fdd44c10c16a714b8f15d294dafa" category="section-title">NetApp Astra kubectl 플러그인이 설치되어 있는지 확인합니다</block>
-  <block id="22752d0c5fc41c072184ec1bf10292a7" category="list-text">다음 명령을 사용하여 플러그인이 설치되어 있는지 확인합니다.</block>
   <block id="9cdaf3a6ae59eb2faabcb002cfc1bd4b" category="list-text">인증이 필요한 레지스트리를 사용하는 경우 의 기본 줄을 바꾸거나 편집합니다<block ref="e90e0b4a41dde5f038023d33ee45ad34" prefix=" " category="inline-code"></block> 다음 포함:</block>
   <block id="ddfa64b94159cbde6c02f2aa3ae5598c" category="list-text">변경<block ref="a3d1b23e7abf0f3b3ca5fcf7e61860cd" prefix=" " category="inline-code"></block> 의 경우<block ref="4b559e0a1b6f68f62c5edecea8c35c7e" prefix=" " category="inline-code"></block> 이미지를 에서 푸시한 레지스트리 경로로 이미지 <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>.</block>
   <block id="49442a4bf304a6a24081fc054a06ba5e" category="list-text">Astra Control Center 사용자 지정 리소스(CR) 편집:</block>
@@ -2523,7 +2518,6 @@
   <block id="060534066f9a22cabf451772f0daf58b" category="list-text">연산자 네임스페이스 만들기:</block>
   <block id="8f70adb2eebdea2e00d5d57216cd59b5" category="inline-link-macro">설정을 완료합니다</block>
   <block id="83a21b4b84bec79fb67f25c973cb89d3" category="list-text"><block ref="485506977df8782eb9acff027cc95cf9" category="inline-link-macro-rx"></block> 수신 컨트롤러 유형에 적합합니다.</block>
-  <block id="e10b9da8362fecb065da69f3ade6cf7c" category="list-text">[[substep_image_local_registry_push]] Astra Control Center 이미지 디렉토리에 있는 패키지 이미지를 로컬 레지스트리로 푸시합니다. 를 실행하기 전에 다음 대체 작업을 수행합니다<block ref="2957bfd514a0f16d8946142cd37400fd" prefix=" " category="inline-code"></block> 명령:</block>
   <block id="70f82fe210d70d79ae84c8e57b5baf7f" category="list-text">Red Hat OpenShift 웹 콘솔:</block>
   <block id="eb5ffd4ef5a8aa98e9c36b2c79cea4ed" category="list-text">NetApp Astra Control Center 운영자를 검색하여 선택합니다.</block>
   <block id="aa29e3cb75d2e7e5a7c9020ff806205e" category="paragraph"><block ref="aa29e3cb75d2e7e5a7c9020ff806205e" category="inline-image-macro-rx" type="image"></block></block>
@@ -2559,7 +2553,6 @@
   <block id="e20f9875b736f5d534a7c14be355eb06" category="paragraph">를 완료합니다 <block ref="9908a5e65371462fab8de29e0e8be055" category="inline-link-macro-rx"></block> Astra Control Center가 성공적으로 설치되었는지 확인하려면 수신 컨트롤러(옵션)를 설정하고 UI에 로그인합니다. 또한 를 수행해야 합니다 <block ref="76156c33c6c1487a578aad8446a04b02" category="inline-link-macro-rx"></block> 설치 완료 후.</block>
   <block id="cfe9e43a4e29105f9f24bd0ed639721b" category="paragraph-title">일반(기본값)</block>
   <block id="135b308ed83c53f1516b7c754566d1c4" category="paragraph-title">시작하기 전에</block>
-  <block id="52c456ead6bc96bfe1643dfd233cbf2c" category="paragraph">이 명령은 kubbeck 플러그인 도움말을 제공합니다. 명령이 오류를 반환하면 이를 사용하여 플러그인을 설치합니다 <block ref="fbbc714d1fb27025d6c64aea6ddcaf11" category="inline-link-macro-rx"></block>.</block>
   <block id="d94e29dda4626ec2be6ac4f06224f6cf" category="section-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> 모든 앱을 보호합니다</block>
   <block id="596a8ca466f62d03c2dfc376a65cac71" category="section-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> 각 앱에 대한 보호 정책을 구성합니다</block>
   <block id="db0ae7eb707500904a523f5186eb92f0" category="section-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> 보호 정책을 조정합니다</block>
@@ -2647,4 +2640,14 @@
   <block id="779308b02cace7345409bae24871be63" category="list-text">로 이동합니다<block ref="463a64da5039ffbaa330e14a245ba287" category="inline-link-rx"></block> 를 방문하십시오. 드롭다운 메뉴에서 최신 버전 또는 원하는 다른 버전을 선택할 수 있습니다.</block>
   <block id="e4a1005c9b913ef4e65af805a3797f79" category="inline-link">Astra Trident 볼륨 스냅샷 컨트롤러를 설치합니다</block>
   <block id="93dcbf6be32efef5eec53e28c4ff8075" category="list-text"><block ref="93dcbf6be32efef5eec53e28c4ff8075" category="inline-link-rx"></block></block>
+  <block id="93ad66a46b85e39a2b044839f8f2aa91" category="list-text">&lt;MY_FULL_REGISTRY_PATH&gt;를 Docker 저장소의 URL로 바꿉니다. 예를 들어, <block ref="d7fe5bd4ab1ec72dd633a9f2fec43513" category="inline-link-rx"></block>.</block>
+  <block id="cf2e3395153844dc4e8c51bf180f6521" category="list-text">사용하는 Podman 버전에 맞게 사용자 지정된 다음 스크립트 중 하나를 준비하고 실행합니다. &lt;MY_FULL_REGISTRY_PATH&gt;를 모든 하위 디렉토리가 포함된 리포지토리의 URL로 대체합니다.</block>
+  <block id="1c1c5c039da9639f08735d40aaf63a64" category="admonition">레지스트리 구성에 따라 스크립트가 만드는 이미지 경로는 다음과 같아야 합니다.<block ref="8929bffa043dcda91696884d35eb8d51" prefix=" " category="inline-code"></block></block>
+  <block id="638283958f0ae559c161db72d114108e" category="list-text"><block ref="2a51122d7bd0346abfa8c6be52c45cf7" category="inline-xref-macro-rx"></block></block>
+  <block id="aedff9adaa71ff103bfa455b6a0fe7f0" category="section-title">NetApp Astra kubtl 플러그인을 제거하고 다시 설치합니다</block>
+  <block id="cc1f46f2f9e4a1afbedacc4d8ce3c2e3" category="list-text">플러그인이 설치되어 있는지 확인합니다.</block>
+  <block id="c8395a903c51ee6b771d7f06ac987978" category="list-text">다음 작업 중 하나를 수행합니다.</block>
+  <block id="d0ff3cbf62dac1b7f8447b852cfe9c4c" category="list-text">플러그인이 설치된 경우 kubeck 플러그인 도움말을 반환해야 합니다. kubbeck-Astra의 기존 버전을 제거하려면 다음 명령을 실행합니다.<block ref="53504093e13f5f1ec1d1d91d3e1dd05b" prefix=" " category="inline-code"></block>.</block>
+  <block id="1b6605c6bf28deef0dc2970f3179c395" category="list-text">명령이 오류를 반환하면 플러그인이 설치되지 않은 것이므로 다음 단계를 수행하여 설치할 수 있습니다.</block>
+  <block id="dab1a9c7ecb95d287fc412736d955975" category="list-text">플러그인 설치:</block>
 </blocks>
