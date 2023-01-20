@@ -770,7 +770,6 @@
   <block id="994e9e207b5ca34793cc2495e51460bc" category="summary">Kubernetes 클러스터, 앱 및 웹 브라우저에 대한 지원을 확인하여 Astra Control Center를 시작하십시오.</block>
   <block id="388d11680799d7c6a6a659aa88d96d5f" category="list-text">Astra Control Center의 FQDN을 부하 분산 IP 주소로 가리키는 방법</block>
   <block id="4d40a8e178faea46fe31329801bc6573" category="list-text">* 이미지 레지스트리 *: Astra Control Center 빌드 이미지를 푸시할 수 있는 기존 개인 Docker 이미지 레지스트리가 있어야 합니다. 이미지를 업로드할 이미지 레지스트리의 URL을 제공해야 합니다.</block>
-  <block id="df819717a2baf5b48925d2b4cdaf4745" category="list-text">* Astra Trident/ONTAP 구성 *: Astra Control Center를 사용하려면 스토리지 클래스를 생성하고 기본 스토리지 클래스로 설정해야 합니다. Astra Control Center는 Astra Trident에서 제공하는 다음과 같은 ONTAP 드라이버를 지원합니다.</block>
   <block id="8321592ce24c8a122ecf26a63cfca407" category="list-text">ONTAP - NAS</block>
   <block id="844e84da8e822b4a33c4d8188da97937" category="list-text">ONTAP-NAS-Flexgroup입니다</block>
   <block id="73a3350a1b91aeb6e2836fdf5975672c" category="list-text">ONTAP-SAN</block>
@@ -2651,4 +2650,9 @@
   <block id="dab1a9c7ecb95d287fc412736d955975" category="list-text">플러그인 설치:</block>
   <block id="51867b2a71ff7c3e5393cf8bb442defc" category="admonition">동일한 이메일 주소를 가진 로컬 사용자가 이미 시스템에 있는 경우 원격 사용자를 추가할 수 없습니다. 사용자를 원격 사용자로 추가하려면 먼저 시스템에서 로컬 사용자를 삭제합니다.</block>
   <block id="e6bc00cd8c52affb4292616facc440da" category="admonition">Astra Control Center는 LDAP "mail" 속성의 이메일 주소를 사용하여 원격 사용자를 검색하고 추적합니다. 이 속성은 디렉터리의 선택적 필드이거나 빈 필드일 수 있습니다. Astra Control Center에 표시하고자 하는 원격 사용자의 경우 이 필드에 이메일 주소가 있어야 합니다. 이 이메일 주소는 인증을 위해 Astra Control Center의 사용자 이름으로 사용됩니다.</block>
+  <block id="a2c7a68a6d213a38c0c96fe34df9fe2e" category="list-text">* Astra Trident/ONTAP 구성 *:</block>
+  <block id="abcbb80528af555f9a3f5981771386f8" category="list-text">Astra Control Center에서는 스토리지 클래스를 생성하고 기본 스토리지 클래스로 설정해야 합니다.</block>
+  <block id="2a09fd1da71158929da8e53a8b3b41b7" category="list-text">Pod가 백엔드 스토리지와 상호 작용할 수 있도록 클러스터의 작업자 노드에 적절한 스토리지 드라이버가 구성되어 있는지 확인합니다. Astra Control Center는 Astra Trident에서 제공하는 다음과 같은 ONTAP 드라이버를 지원합니다.</block>
+  <block id="d7dde07915bbe8056e6854c2b5e50480" category="inline-link">작업자 노드를 준비합니다</block>
+  <block id="2facff43cb177de168322dab6df7d48c" category="list-text"><block ref="2facff43cb177de168322dab6df7d48c" category="inline-link-rx"></block></block>
 </blocks>
