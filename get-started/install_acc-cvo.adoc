@@ -170,7 +170,7 @@ NOTE: AWS ECR(Elastic Container Registry) 토큰이 12시간 후에 만료되어
 
 다음은 AWS 구축의 예입니다.
 
-image:acc-cvo-aws2.png["Astra Control Center 및 Cloud Volumes ONTAP 배포 사례"]
+image:acc-cvo-aws2.png["이 이미지는 Cloud Volumes ONTAP가 구축된 Astra Control Center의 예를 보여줍니다"]
 
 
 
@@ -652,7 +652,7 @@ BlueXP 설명서를 참조하여 다음 단계를 완료합니다. 을 참조하
 
 . 커넥터가 실행 중인지 확인하고 해당 커넥터로 전환합니다.
 +
-image:acc-cvo-azure-connectors.png["BlueXP의 커넥터 전환"]
+image:acc-cvo-azure-connectors.png["이 이미지는 BlueXP의 커넥터를 보여줍니다"]
 
 . 클라우드 환경을 위한 작업 환경을 구축합니다.
 +
@@ -661,13 +661,13 @@ image:acc-cvo-azure-connectors.png["BlueXP의 커넥터 전환"]
 
 
 +
-image:acc-cvo-azure-working-environment.png["BlueXP에서 작업 환경 생성"]
+image:acc-cvo-azure-working-environment.png["이 이미지는 BlueXP의 작업 환경 위치를 보여줍니다"]
 
 . OpenShift 클러스터를 가져옵니다. 클러스터가 방금 생성한 작업 환경에 연결됩니다.
 +
 .. NetApp 클러스터 세부 정보를 보려면 * K8s * > * 클러스터 목록 * > * 클러스터 세부 정보 * 를 선택합니다.
 +
-image:acc-cvo-azure-connected.png["BlueXP에서 가져온 클러스터"]
+image:acc-cvo-azure-connected.png["이 이미지는 BlueXP에서 가져온 클러스터를 보여줍니다"]
 
 .. 오른쪽 위 모서리에서 Trident 버전을 확인합니다.
 .. NetApp을 공급자 로 보여주는 Cloud Volumes ONTAP 클러스터 스토리지 클래스를 참조하십시오.

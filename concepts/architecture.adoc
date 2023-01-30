@@ -14,7 +14,7 @@ summary: 이 슬라이드에는 Astra Control 환경의 다양한 구성 요소�
 [role="lead"]
 이 슬라이드에는 Astra Control 환경의 다양한 구성 요소에 대한 개요가 나와 있습니다.
 
-image:astra-architecture-diagram-v5.png["Astra Control 아키텍처 다이어그램 및 구성 요소"]
+image:astra-architecture-diagram-v5.png["Astra Control 아키텍처 및 해당 구성 요소를 설명하는 개념적 이미지입니다"]
 
 
 
