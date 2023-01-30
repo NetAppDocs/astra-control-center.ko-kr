@@ -14,8 +14,6 @@ entries:
   - title: Astra Control Center를 설치합니다
     url: "/get-started/install_acc.html"
     entries:
-    - title: Astra Control Center 클러스터 사용자 지정 리소스 옵션입니다
-      url: "/get-started/acc_cluster_cr_options.html"
     - title: 외부 인증서 관리자를 구성합니다
       url: "/get-started/cert-manager-prereqs.html"
   - title: OpenShift OperatorHub를 사용하여 Astra Control Center를 설치합니다
