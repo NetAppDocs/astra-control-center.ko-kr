@@ -36,28 +36,19 @@
   <block id="0a5245490d6d6f511bbdb3db35acfe54" category="list-text">애플리케이션 인식 필요 시 스냅샷과 백업을 생성합니다</block>
   <block id="f107a6e34d3d0df36d460bc5b3a5fe8b" category="list-text">정책 기반 스냅샷 및 백업 작업 자동화</block>
   <block id="ae3099cc177fc161f80c6965fe89a71a" category="list-text">Kubernetes 클러스터 간에 애플리케이션 및 데이터를 마이그레이션합니다</block>
-  <block id="053d6e036cc8c9d7a8c57234d6bfc574" category="list-text">운영 환경에서 스테이징으로 애플리케이션을 손쉽게 클론 복제할 수 있습니다</block>
   <block id="1c26e7db082840fcbfcd87527c92e1aa" category="list-text">애플리케이션 상태 및 보호 상태를 시각화합니다</block>
-  <block id="3e09a55ad40337db37927865855151a9" category="list-text">사용자 인터페이스 또는 API를 사용하여 백업 및 마이그레이션 워크플로우를 구현합니다</block>
   <block id="6762973af9b127d271f0d2b2aea0bc96" category="section-title">구축 모델</block>
   <block id="db1905d057dd6fde6f8b7bd6afe60e41" category="paragraph">Astra Control은 두 가지 배포 모델로 제공됩니다.</block>
-  <block id="ddbf9f0ee6e908772df862b9cb9312d3" category="list-text">* Astra Control Center *: 사내 환경에서 실행되는 Kubernetes 클러스터의 애플리케이션 인식 데이터 관리를 제공하는 자체 관리 소프트웨어입니다.</block>
   <block id="d41d8cd98f00b204e9800998ecf8427e" category="cell"></block>
   <block id="35b46e301702b6fcb16192f9f4cf4533" category="cell">Astra 제어 서비스</block>
   <block id="9c634046a90a62883b122e76b9afcef2" category="cell">Astra 제어 센터</block>
   <block id="72fa0b165b80dd423c3cca71e56e6e85" category="cell">어떻게 제공됩니까?</block>
   <block id="f7b1d494056b7a9289f329a721d9f318" category="cell">NetApp에서 제공하는 완전 관리형 클라우드 서비스</block>
-  <block id="aff53210beade5ba79414ae13eb6b73d" category="paragraph">소프트웨어를 다운로드, 설치 및 관리할 수 있습니다</block>
   <block id="7cae1429bdc4131db46365e8fc893a77" category="cell">어디에 호스팅됩니까?</block>
   <block id="7ab48d8d90e46b91aa73c1832b7681f9" category="cell">NetApp에서 제공하는 다양한 퍼블릭 클라우드 지원</block>
-  <block id="6cc0042ffe94d2cdea2bf7b80705f4ef" category="paragraph">에 제공한 Kubernetes 클러스터</block>
   <block id="a564f860d9dd9df279c4ea80b08d026a" category="cell">어떻게 업데이트됩니까?</block>
   <block id="b2929741e98ca2c366d8d7dfda36e2b9" category="cell">NetApp에서 관리합니다</block>
   <block id="091f846d60c1037c90ba7580f37ef9fa" category="paragraph">모든 업데이트를 관리합니다</block>
-  <block id="cef5c6ab0b7d20ab7cd426689afb9fa5" category="cell">애플리케이션 데이터 관리 기능은 무엇입니까?</block>
-  <block id="1598aaab2cb9865732925d064c6978c2" category="cell">스토리지 백엔드 또는 외부 서비스를 제외한 두 플랫폼에서 동일한 기능을 사용할 수 있습니다</block>
-  <block id="c1d5f7fc5daa2ea9189ee2df5ca15da2" category="cell">스토리지 백엔드 지원이란 무엇입니까?</block>
-  <block id="d1c86529e5adfef0855455a2e0bd54bd" category="cell">NetApp 클라우드 서비스 오퍼링</block>
   <block id="d6fc0eb1930e7e56affc953c237c5514" category="list-text">NetApp ONTAP AFF 및 FAS 시스템</block>
   <block id="5f4b9e6660ba4e73dc9c6aa214e60cde" category="section-title">Astra Control Service의 작동 방식</block>
   <block id="972dbc054c14df6a8a668ad2c71b9afa" category="paragraph">Astra Control Service는 NetApp에서 관리하는 클라우드 서비스로, 항상 최신 기능을 사용하여 업데이트 가능합니다. 이 솔루션은 여러 구성 요소를 활용하여 애플리케이션 데이터 수명 주기 관리를 지원합니다.</block>
@@ -894,7 +885,6 @@
   <block id="1fe917b01f9a3f87fa2d7d3b7643fac1" category="sidebar">FAQ 를 참조하십시오</block>
   <block id="863333fc6964aae7ff1cd85ff324bdad" category="list-text">인증이 필요한 레지스트리를 사용하는 경우 다음을 수행해야 합니다.</block>
   <block id="052766753c4902f7b4dda44f55923c85" category="list-text">GKE 클러스터의 경우 Astra Control Service가 사용합니다<block ref="33441d63a8e7ace6860eab2024320819" category="inline-link-rx"></block> 또는 Google 영구 디스크를 영구 볼륨의 스토리지 백엔드로 사용합니다.</block>
-  <block id="53a30ad173bc821551d7bc21cfd2f4c8" category="list-text">Azure NetApp Files 또는 NetApp Cloud Volumes Service for Google Cloud를 스토리지 백엔드로 사용하는 경우, Astra Control Service는 Astra Trident를 사용하여 앱에 영구 볼륨을 프로비저닝합니다.</block>
   <block id="231cf4c70d866b616c21baddaeed0696" category="doc">문제 해결</block>
   <block id="36e2bd9e7950f46d3ea6d2bca4c50ba1" category="paragraph">발생할 수 있는 몇 가지 일반적인 문제를 해결하는 방법에 대해 알아봅니다.</block>
   <block id="c24664a07eb6e40162f3e96c142b0bdc" category="summary">Astra Control 계정의 활동에 대한 세부 정보를 볼 수 있습니다. 예를 들어, 새 사용자를 초대하거나, 클러스터를 추가하거나, 스냅샷을 생성할 때 사용할 수 있습니다. 계정 활동을 CSV 파일로 내보낼 수도 있습니다.</block>
@@ -946,7 +936,6 @@
   <block id="5d9c523a0997c65517bdf38e2f85aecd" category="list-text">* StorageClass *: StorageClass가 명시적으로 설정된 애플리케이션을 설치하고 앱을 복제해야 하는 경우 클론 작업의 타겟 클러스터에 원래 지정된 StorageClass가 있어야 합니다. 명시적으로 StorageClass를 동일한 StorageClass가 없는 클러스터로 설정한 애플리케이션을 클론 복제하면 실패합니다.</block>
   <block id="508704b5a40f45083050ce024bcadbd2" category="list-text">* Kubernetes 리소스 *: Astra Control에서 수집하지 않은 Kubernetes 리소스를 사용하는 애플리케이션에는 전체 앱 데이터 관리 기능이 없을 수 있습니다. Astra Control은 다음과 같은 Kubernetes 리소스를 수집합니다.</block>
   <block id="8385440fe17d036a98c18fc4c23e2a74" category="paragraph">Astra Control Center를 호스팅하는 운영 환경은 다음 TCP 포트를 사용하여 통신합니다. 이러한 포트가 모든 방화벽을 통해 허용되는지 확인하고 Astra 네트워크에서 발생하는 HTTPS 송신 트래픽을 허용하도록 방화벽을 구성해야 합니다. 일부 포트에는 Astra Control Center를 호스팅하는 환경과 각 관리 클러스터(해당되는 경우) 간의 연결이 모두 필요합니다.</block>
-  <block id="570fa99ce4fbf8deb198b97a6931d63a" category="list-text">Cloud Volumes ONTAP 스토리지 백엔드</block>
   <block id="ea2708b459fc0cad6936ec216bd9405e" category="paragraph">Astra Control Center는 AutoSupport 및 Active IQ 에코시스템에 완전히 통합되어 사용자와 NetApp 지원에 문제 해결 및 사용 정보를 제공합니다.</block>
   <block id="9b73abdb19845a598990585584e1f1d0" category="list-text"><block ref="fc1a41947de37bff42a791f65840061b" category="inline-xref-macro-rx"></block></block>
   <block id="675b47686d83e0cfe62b904d27803024" category="list-text">왼쪽 탐색에서 * backends * 를 선택합니다.</block>
@@ -2067,7 +2056,6 @@
   <block id="36c884b69a5d1e5a404eca027f6ca471" category="paragraph">환경에 따라 Astra Control Center를 설치한 후 추가 구성이 필요할 수 있습니다.</block>
   <block id="747bf8100668838f9a411ea795df98d2" category="list-text"><block ref="747bf8100668838f9a411ea795df98d2" category="inline-link-macro-rx"></block></block>
   <block id="c4d3bd82a4066f0e523ba618e438bc51" category="summary">Astra Control은 Kubernetes 애플리케이션 데이터 라이프사이클 관리 서비스로, 상태 저장 애플리케이션의 운영을 단순화합니다. Kubernetes 워크로드를 손쉽게 보호, 백업, 마이그레이션하고 정상 작동하는 애플리케이션 클론을 즉시 생성할 수 있습니다.</block>
-  <block id="26816f4f023579253517240a64829a70" category="list-text">* Astra Control Service *: 여러 클라우드 공급자 환경에서 Kubernetes 클러스터의 애플리케이션 인식 데이터 관리를 제공하는 NetApp 관리 서비스입니다.</block>
   <block id="450dcc356e2c75be5bfea7bc913558bb" category="list-text">AKS 클러스터의 경우 Astra Control Service가 사용합니다<block ref="16e1ab965c1d673c5cb3b5a28e77c1c1" category="inline-link-rx"></block> 또는 Azure 관리 디스크를 영구 볼륨의 스토리지 백엔드로 사용합니다.</block>
   <block id="181e1260b62d0667dd25d8e26eba83f5" category="paragraph">Astra Control의 무료 플랜을 사용하면 최대 10개의 네임스페이스를 계정에서 관리할 수 있습니다. 10개 이상의 항목을 관리하려는 경우 무료 요금에서 프리미엄 요금제로 업그레이드하여 청구서를 설정해야 합니다.</block>
   <block id="9fec972e16132554b3f6d7a367b20c12" category="paragraph">Astra Control Center는 ONTAP 9.5 이상의 스토리지 백엔드를 포함하는 Trident 기반 스토리지 클래스를 사용하여 Kubernetes 클러스터를 지원합니다.</block>
@@ -2617,4 +2605,25 @@
   <block id="15158f2541ef87a6d0bffe5a0141e4ca" category="cell">외부 인증서 관리자를 사용하는 경우 를 변경합니다<block ref="277c0561d457e7aad53dcd2e4ba8051d" prefix=" " category="inline-code"></block> 를 선택합니다<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>. 기본값입니다<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block> 설치 중에 Astra Control Center가 자체 인증서 관리자 CRD를 설치합니다. CRD는 클러스터 전체 오브젝트이며 이를 설치하면 클러스터의 다른 부분에 영향을 줄 수 있습니다. 이 플래그를 사용하여 Astra Control Center에 이러한 CRD가 Astra Control Center 외부의 클러스터 관리자에 의해 설치 및 관리된다는 신호를 보낼 수 있습니다.</block>
   <block id="241f958366d57581f03932e9f7c77a76" category="cell">False(이 값은 기본값)</block>
   <block id="c227fa0621e3f1f87571da78dd03ca6f" category="cell">기본적으로 Astra Control Center는 필요한 Traefik CRD를 설치합니다. CRD는 클러스터 전체 오브젝트이며 이를 설치하면 클러스터의 다른 부분에 영향을 줄 수 있습니다. 이 플래그를 사용하여 Astra Control Center에 이러한 CRD가 Astra Control Center 외부의 클러스터 관리자에 의해 설치 및 관리된다는 신호를 보낼 수 있습니다.</block>
+  <block id="4f508b1a632fa280de99843b2fe48176" category="list-text">스테이징에서 운영 환경으로 애플리케이션을 손쉽게 클론 복제할 수 있습니다</block>
+  <block id="6c4ff7542dcef16bc12bbbab0c160e9a" category="list-text">웹 UI 또는 API를 사용하여 백업 및 마이그레이션 워크플로우를 구현합니다</block>
+  <block id="662f909cd182f2c19a1b5da86174d75f" category="list-text">* Astra Control Service *: 여러 클라우드 공급자 환경의 Kubernetes 클러스터에 대한 애플리케이션 인식 데이터 관리 기능과 자가 관리 Kubernetes 클러스터를 제공하는 NetApp 관리 서비스입니다.</block>
+  <block id="a301d7b978ad27dd47b48aac714d81ef" category="list-text">* Astra Control Center *: 사내 환경에서 실행되는 Kubernetes 클러스터의 애플리케이션 인식 데이터 관리를 제공하는 자체 관리 소프트웨어입니다. 또한 NetApp Cloud Volumes ONTAP 스토리지 백엔드를 통해 여러 클라우드 공급자 환경에 Astra Control Center를 설치할 수 있습니다.</block>
+  <block id="8b9e0c5eab1aafdd0008e7d94a979a00" category="paragraph">소프트웨어를 다운로드, 설치 및 관리할 수 있습니다</block>
+  <block id="384c577b472799aa8cd781ce64f2bb34" category="paragraph">고유한 Kubernetes 클러스터</block>
+  <block id="a3060d8563d84f399ad045a8f074e953" category="cell">지원되는 스토리지 백엔드는 무엇입니까?</block>
+  <block id="7c8ee67c5d264bc13cdb41c37af356c8" category="list-text">Amazon 웹 서비스:</block>
+  <block id="516729a7c0562425406a22cfe6a2c163" category="list-text">Amazon EBS</block>
+  <block id="26ee644c2b0c0d7a061dc960838350a3" category="list-text">Google 클라우드:</block>
+  <block id="4ea21227490cfda88113ac9e09c3d896" category="list-text">Google 영구 디스크</block>
+  <block id="1a4c7c9b6e3157ccd0101fd0836c0bfc" category="list-text">NetApp Cloud Volumes Service를 참조하십시오</block>
+  <block id="38e3b2d02a57ef89462103f8dcf36ab0" category="list-text"><block ref="38e3b2d02a57ef89462103f8dcf36ab0" category="inline-link-rx"></block></block>
+  <block id="4bce0cadbd95655804d72e0df4ac6d7b" category="list-text">Microsoft Azure:</block>
+  <block id="79c9c43a409053927cc323915dbf1c06" category="list-text">Azure 관리 디스크</block>
+  <block id="ab819072ff4cb02cb39723b20e2ec373" category="list-text"><block ref="ab819072ff4cb02cb39723b20e2ec373" category="inline-link-rx"></block></block>
+  <block id="55b6146ebe43b01a290a7aad48a66943" category="list-text">자가 관리 클러스터:</block>
+  <block id="ec2e9418f579c84a41733c6bb0adb789" category="list-text"><block ref="ec2e9418f579c84a41733c6bb0adb789" category="inline-link-rx"></block></block>
+  <block id="d55b05877d0dd6743f47d3442323323e" category="inline-link-macro">Amazon Web Services를 설정합니다</block>
+  <block id="87716101cfca255da11056a624dbce47" category="inline-link-macro">Azure 관리 디스크를 사용하여 Microsoft Azure를 설정합니다</block>
+  <block id="55a5776613a7a49b0fb7fc4800c3065f" category="list-text">NetApp 클라우드 서비스 스토리지 오퍼링을 스토리지 백엔드로 사용하는 경우, Astra Control Service는 Astra Trident를 사용하여 앱에 영구 볼륨을 프로비저닝합니다. Amazon EBS 또는 Azure 관리 디스크를 스토리지 백엔드로 사용하는 경우 공급자별 CSI 드라이버를 설치해야 합니다. 설치 지침은 에 나와 있습니다 <block ref="ebf2a7f1b6295b0b8e4d97b888cb809e" category="inline-link-macro-rx"></block> 및 <block ref="1938f6af50a8259a0bb98bac4f34eeeb" category="inline-link-macro-rx"></block>.</block>
 </blocks>
