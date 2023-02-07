@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: get-started/cert-manager-prereqs.html 
-keywords: astra control center, prereq, requirement, cert-manager, install 
+keywords: astra control center, prereq, requirement, cert manager, install 
 summary: 인증 관리자가 클러스터에 이미 있는 경우 Astra Control Center가 자체 인증서 관리자를 설치하지 않도록 몇 가지 필수 단계를 수행해야 합니다. 
 ---
 = 외부 인증서 관리자를 구성합니다
@@ -12,7 +12,7 @@ summary: 인증 관리자가 클러스터에 이미 있는 경우 Astra Control 
 
 
 [role="lead"]
-Cert-Manager가 이미 Kubernetes 클러스터에 있는 경우, Astra Control Center가 자체 인증서 관리자를 설치하지 않도록 몇 가지 필수 단계를 수행해야 합니다.
+Kubernetes 클러스터에 이미 인증 관리자가 있는 경우, Astra Control Center에서 자체 인증 관리자를 설치하지 않도록 몇 가지 필수 단계를 수행해야 합니다.
 
 .단계
 . 인증서 관리자가 설치되었는지 확인합니다.
@@ -31,7 +31,7 @@ cert-manager   essential-cert-manager-84446f49d5-sf2zd              1/1     Runn
 cert-manager   essential-cert-manager-cainjector-66dc99cc56-9ldmt   1/1     Running    0     6d5h
 cert-manager   essential-cert-manager-webhook-56b76db9cc-fjqrq      1/1     Running    0     6d5h
 ----
-. astraAddress FQDN에 대한 인증서/키 쌍을 생성합니다.
+. 에 대한 인증서/키 쌍을 생성합니다 `astraAddress` FQDN:
 +
 [source, console]
 ----
@@ -62,7 +62,7 @@ kubectl create secret tls selfsigned-tls --key tls.key --cert tls.crt -n <cert-m
 ----
 secret/selfsigned-tls created
 ----
-. 다음과 같은 * 정확히 * 인 Cluster발급사 파일을 생성합니다. 단, cert-manager Pod가 설치된 네임스페이스 위치가 포함됩니다.
+. 을 생성합니다 `ClusterIssuer` 정확히 * 인 파일 다음은 같지만 가 있는 네임스페이스 위치가 포함되어 있습니다 `cert-manager` Pod가 설치된 경우:
 +
 [source, yaml]
 ----
@@ -88,7 +88,7 @@ kubectl apply -f ClusterIssuer.yaml
 ----
 clusterissuer.cert-manager.io/astra-ca-clusterissuer created
 ----
-. 클러스터 발급자가 올바르게 설정되었는지 확인합니다. "준비"는 "참"이어야 계속할 수 있습니다.
+. 를 확인합니다 `ClusterIssuer` 이(가) 올바르게 나타납니다. `Ready` 은(는) 이어야 합니다 `True` 계속 진행하려면:
 +
 [source, console]
 ----
@@ -103,5 +103,5 @@ kubectl get ClusterIssuer
 NAME                     READY   AGE
 astra-ca-clusterissuer   True    9s
 ----
-. 를 완료합니다 link:../get-started/install_acc.html["Astra Control Center 설치 프로세스"]. A가 있습니다 link:../get-started/install_acc.html#configure-astra-control-center["Astra Control Center 클러스터 YAML에 필요한 구성 단계"] CRD 값을 변경하여 CERT-manager가 외부에 설치되어 있음을 나타냅니다. Astra Control Center가 외부 인증서 관리자를 인식하도록 설치 중에 이 단계를 완료해야 합니다.
+. 를 완료합니다 link:../get-started/install_acc.html["Astra Control Center 설치 프로세스"]. A가 있습니다 link:../get-started/install_acc.html#configure-astra-control-center["Astra Control Center 클러스터 YAML에 필요한 구성 단계"] 인증서 관리자가 외부에 설치되었음을 나타내기 위해 CRD 값을 변경합니다. Astra Control Center가 외부 인증서 관리자를 인식하도록 설치 중에 이 단계를 완료해야 합니다.
 

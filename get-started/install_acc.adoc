@@ -32,7 +32,7 @@ Astra Control Center를 설치하려면 NetApp Support 사이트에서 설치 �
 kubectl get apiservices
 ----
 * 사용하려는 Astra FQDN이 이 클러스터에 라우팅될 수 있는지 확인합니다. 즉, 내부 DNS 서버에 DNS 항목이 있거나 이미 등록된 코어 URL 경로를 사용하고 있는 것입니다.
-* 클러스터에 인증서 관리자가 이미 있는 경우 일부를 수행해야 합니다 link:../get-started/cert-manager-prereqs.html["필수 단계"] 따라서 Astra Control Center는 자체 인증서 관리자를 설치하려고 시도하지 않습니다. 기본적으로 Astra Control Center는 설치 중에 자체 인증 관리자를 설치합니다.
+* 인증서 관리자가 클러스터에 이미 있는 경우 일부를 수행해야 합니다 link:../get-started/cert-manager-prereqs.html["필수 단계"] 따라서 Astra Control Center는 자체 인증 관리자를 설치하려고 시도하지 않습니다. 기본적으로 Astra Control Center는 설치 중에 자체 인증서 관리자를 설치합니다.
 
 
 .이 작업에 대해
@@ -440,7 +440,7 @@ kubectl get pods -n netapp-acc-operator
 
 == Astra Control Center를 구성합니다
 
-. Astra Control Center 사용자 정의 리소스(CR) 파일을 편집합니다 (`astra_control_center.yaml`) 계정, AutoSupport, 레지스트리 및 기타 필요한 구성을 만들려면:
+. Astra Control Center 사용자 정의 리소스(CR) 파일을 편집합니다 (`astra_control_center.yaml`) 계정, 지원, 레지스트리 및 기타 필요한 구성을 만들려면:
 +
 [source, console]
 ----
@@ -452,40 +452,40 @@ NOTE: YAML 주석이 붙은 샘플은 다음 단계를 따릅니다.
 
 . 다음 설정을 수정하거나 확인합니다.
 +
-.계정 이름
+.<code> 계정 이름 </code>
 [%collapsible]
 ====
 |===
 | 설정 | 지침 | 유형 | 예 
 
 
-| 계정 이름 | 를 변경합니다 `accountName` Astra Control Center 계정과 연결할 이름에 대한 문자열입니다. 하나의 accountName만 있을 수 있습니다. | 문자열 | 예 
+| `accountName` | 를 변경합니다 `accountName` Astra Control Center 계정과 연결할 이름에 대한 문자열입니다. 하나의 accountName만 있을 수 있습니다. | 문자열 | `Example` 
 |===
 ====
 +
-.astraVersion을 참조하십시오
+.<code> astraVersion </code>를 참조하십시오
 [%collapsible]
 ====
 |===
 | 설정 | 지침 | 유형 | 예 
 
 
-| astraVersion을 참조하십시오 | 배포할 Astra Control Center의 버전입니다. 값이 미리 채워질 수 있으므로 이 설정에 대한 작업은 필요하지 않습니다. | 문자열 | 22.11.0-82 
+| `astraVersion` | 배포할 Astra Control Center의 버전입니다. 값이 미리 채워질 수 있으므로 이 설정에 대한 작업은 필요하지 않습니다. | 문자열 | `22.11.0-82` 
 |===
 ====
 +
-.astraAddress를 선택합니다
+.<code> astraAddress </code>를 참조하십시오
 [%collapsible]
 ====
 |===
 | 설정 | 지침 | 유형 | 예 
 
 
-| astraAddress를 선택합니다 | 를 변경합니다 `astraAddress` 브라우저에서 Astra Control Center에 액세스하기 위해 사용할 FQDN(권장) 또는 IP 주소에 대한 문자열입니다. 이 주소는 Astra Control Center가 데이터 센터에서 어떻게 검색되는지 정의하며, 이 주소를 완료하면 로드 밸런서에서 제공한 것과 동일한 FQDN 또는 IP 주소입니다 link:requirements.html["Astra Control Center 요구 사항"^]. 참고: 사용하지 마십시오 `http://` 또는 `https://` 를 입력합니다. 에서 사용하기 위해 이 FQDN을 복사합니다 <<Astra Control Center UI에 로그인합니다,나중에>>. | 문자열 | astra.example.com 
+| `astraAddress` | 를 변경합니다 `astraAddress` 브라우저에서 Astra Control Center에 액세스하기 위해 사용할 FQDN(권장) 또는 IP 주소에 대한 문자열입니다. 이 주소는 Astra Control Center가 데이터 센터에서 어떻게 검색되는지 정의하며, 이 주소를 완료하면 로드 밸런서에서 제공한 것과 동일한 FQDN 또는 IP 주소입니다 link:requirements.html["Astra Control Center 요구 사항"^]. 참고: 사용하지 마십시오 `http://` 또는 `https://` 를 입력합니다. 에서 사용하기 위해 이 FQDN을 복사합니다 <<Astra Control Center UI에 로그인합니다,나중에>>. | 문자열 | `astra.example.com` 
 |===
 ====
 +
-.AutoSupport
+.<code> AutoSupport </code>를 참조하십시오
 [%collapsible]
 ====
 이 섹션에서 어떤 항목을 선택하는지에 따라 NetApp의 사전 지원 애플리케이션인 NetApp Active IQ에 참여할 것인지, 그리고 데이터를 보낼 위치를 결정할 수 있습니다. 인터넷 연결이 필요하며(포트 442) 모든 지원 데이터가 익명화됩니다.
@@ -494,111 +494,121 @@ NOTE: YAML 주석이 붙은 샘플은 다음 단계를 따릅니다.
 | 설정 | 사용 | 지침 | 유형 | 예 
 
 
-| AutoSupport.enrolled입니다 | 둘 다 가능합니다 `enrolled` 또는 `url` 필드를 선택해야 합니다 | 변경 `enrolled` 을 눌러 AutoSupport to로 이동합니다 `false` 인터넷 연결이 없거나 보관되지 않은 사이트의 경우 `true` 연결된 사이트의 경우. 의 설정 `true` 지원을 위해 익명 데이터를 NetApp에 전송할 수 있습니다. 기본 선택 옵션은 입니다 `false` 및 은 NetApp에 지원 데이터가 전송되지 않음을 나타냅니다. | 부울 | False(이 값은 기본값) 
+| `autoSupport.enrolled` | 둘 다 가능합니다 `enrolled` 또는 `url` 필드를 선택해야 합니다 | 변경 `enrolled` 을 눌러 AutoSupport to로 이동합니다 `false` 인터넷 연결이 없거나 보관되지 않은 사이트의 경우 `true` 연결된 사이트의 경우. 의 설정 `true` 지원을 위해 익명 데이터를 NetApp에 전송할 수 있습니다. 기본 선택 옵션은 입니다 `false` 및 은 NetApp에 지원 데이터가 전송되지 않음을 나타냅니다. | 부울 | `false` (이 값은 기본값입니다.) 
 
 
-| AutoSupport.URL을 참조하십시오 | 둘 다 가능합니다 `enrolled` 또는 `url` 필드를 선택해야 합니다 | 이 URL은 익명 데이터를 보낼 위치를 결정합니다. | 문자열 | https://support.netapp.com/asupprod/post/1.0/postAsup[] 
+| `autoSupport.url` | 둘 다 가능합니다 `enrolled` 또는 `url` 필드를 선택해야 합니다 | 이 URL은 익명 데이터를 보낼 위치를 결정합니다. | 문자열 | `https://support.netapp.com/asupprod/post/1.0/postAsup` 
 |===
 ====
 +
-.이메일
+.<code> 이메일 </code>
 [%collapsible]
 ====
 |===
 | 설정 | 지침 | 유형 | 예 
 
 
-| 이메일 | 를 변경합니다 `email` 문자열을 기본 초기 관리자 주소로 설정합니다. 에서 사용할 이 이메일 주소를 복사합니다 <<Astra Control Center UI에 로그인합니다,나중에>>. 이 이메일 주소는 UI에 로그인할 초기 계정의 사용자 이름으로 사용되며 Astra Control에서 이벤트를 알립니다. | 문자열 | admin@example.com 
+| `email` | 를 변경합니다 `email` 문자열을 기본 초기 관리자 주소로 설정합니다. 에서 사용할 이 이메일 주소를 복사합니다 <<Astra Control Center UI에 로그인합니다,나중에>>. 이 이메일 주소는 UI에 로그인할 초기 계정의 사용자 이름으로 사용되며 Astra Control에서 이벤트를 알립니다. | 문자열 | `admin@example.com` 
 |===
 ====
 +
-.이름 및 성
+.<code> FirstName </code>
 [%collapsible]
 ====
 |===
 | 설정 | 지침 | 유형 | 예 
 
 
-| 이름 | Astra 계정과 연결된 기본 초기 관리자의 이름입니다. 여기에 사용된 이름은 처음 로그인한 후 UI의 제목에 표시됩니다. | 문자열 | SRE 
-
-
-| 성 | Astra 계정과 연결된 기본 초기 관리자의 성. 여기에 사용된 이름은 처음 로그인한 후 UI의 제목에 표시됩니다. | 문자열 | 관리자 
+| `firstName` | Astra 계정과 연결된 기본 초기 관리자의 이름입니다. 여기에 사용된 이름은 처음 로그인한 후 UI의 제목에 표시됩니다. | 문자열 | `SRE` 
 |===
 ====
 +
-.imageRegistry(이미지 레지스트리)
+.<code> LastName </code>입니다
 [%collapsible]
 ====
-이 섹션에서 선택한 사항은 Astra 응용 프로그램 이미지, Astra Control Center Operator 및 Astra Control Center Helm Repository를 호스팅하는 컨테이너 이미지 레지스트리를 정의합니다.
+|===
+| 설정 | 지침 | 유형 | 예 
+
+
+| `lastName` | Astra 계정과 연결된 기본 초기 관리자의 성. 여기에 사용된 이름은 처음 로그인한 후 UI의 제목에 표시됩니다. | 문자열 | `Admin` 
+|===
+====
++
+.<code> imageRegistry </code> 를 참조하십시오
+[%collapsible]
+====
+이 섹션에서 선택한 사항은 Astra 응용 프로그램 이미지, Astra Control Center Operator 및 Astra Control Center Helm 리포지토리를 호스팅하는 컨테이너 이미지 레지스트리를 정의합니다.
 
 |===
 | 설정 | 사용 | 지침 | 유형 | 예 
 
 
-| imageRegistry.name | 필수 요소입니다 | 에서 이미지를 푸시한 이미지 레지스트리의 이름입니다 <<Astra Control Center 운영자를 설치합니다,이전 단계>>. 사용하지 마십시오 `http://` 또는 `https://` 레지스트리 이름. | 문자열 | example.registry.com/astra 
+| `imageRegistry.name` | 필수 요소입니다 | 에서 이미지를 푸시한 이미지 레지스트리의 이름입니다 <<Astra Control Center 운영자를 설치합니다,이전 단계>>. 사용하지 마십시오 `http://` 또는 `https://` 레지스트리 이름. | 문자열 | `example.registry.com/astra` 
 
 
-| imageRegistry.secret | 암호가 필요한 imageRegistry 를 사용하는 경우 필수입니다. 중요: 인증이 필요하지 않은 레지스트리를 사용하는 경우 이 항목을 삭제해야 합니다 `secret` 줄 내부 `imageRegistry` 그렇지 않으면 설치가 실패합니다. | 이미지 레지스트리를 인증하는 데 사용되는 Kubernetes 비밀의 이름입니다. | 문자열 | 아스트라-레지스트리-크레드 
+| `imageRegistry.secret` | 에 대해 입력한 문자열인 경우 필수입니다 `imageRegistry.name' requires a secret.
+
+IMPORTANT: If you are using a registry that does not require authorization, you must delete this `secret` 줄 내부 `imageRegistry` 그렇지 않으면 설치가 실패합니다. | 이미지 레지스트리를 인증하는 데 사용되는 Kubernetes 비밀의 이름입니다. | 문자열 | `astra-registry-cred` 
 |===
 ====
 +
-.storageClass 를 선택합니다
+.<code> storageClass </code> 를 참조하십시오
 [%collapsible]
 ====
 |===
 | 설정 | 지침 | 유형 | 예 
 
 
-| storageClass 를 선택합니다 | 를 변경합니다 `storageClass` 값 시작 `ontap-gold` 을 다른 Trident storageClass 리소스에 액세스하십시오. 명령을 실행합니다 `kubectl get sc` 구성된 기존 스토리지 클래스를 확인하려면 다음을 수행합니다. 매니페스트 파일(Astra-control-center-<version>.manifest)에 Trident 기반 스토리지 클래스 중 하나를 입력해야 하며 Astra PVS에 사용됩니다. 이 옵션이 설정되어 있지 않으면 기본 스토리지 클래스가 사용됩니다. 참고: 기본 스토리지 클래스가 구성된 경우 기본 주석이 있는 유일한 스토리지 클래스인지 확인하십시오. | 문자열 | ONTAP - 골드 
+| `storageClass` | 를 변경합니다 `storageClass` 값 시작 `ontap-gold` 을 다른 Trident storageClass 리소스에 액세스하십시오. 명령을 실행합니다 `kubectl get sc` 구성된 기존 스토리지 클래스를 확인하려면 다음을 수행합니다. 매니페스트 파일에 Trident 기반 스토리지 클래스 중 하나를 입력해야 합니다 (`astra-control-center-<version>.manifest`) 및 는 Astra PVS에 사용됩니다. 이 옵션이 설정되어 있지 않으면 기본 스토리지 클래스가 사용됩니다. 참고: 기본 스토리지 클래스가 구성된 경우 기본 주석이 있는 유일한 스토리지 클래스인지 확인하십시오. | 문자열 | `ontap-gold` 
 |===
 ====
 +
-.볼륨 리클레이임정책
+.<code> volumeReclaimPolicy </code>
 [%collapsible]
 ====
 |===
 | 설정 | 지침 | 유형 | 옵션 
 
 
-| 볼륨 리클레이임정책 | 그러면 Astra의 PVS에 대한 재확보 정책이 설정됩니다. 이 정책을 으로 설정합니다 `Retain` Astra가 삭제된 후 영구 볼륨을 유지합니다. 이 정책을 으로 설정합니다 `Delete` Astra가 삭제된 후 영구 볼륨을 삭제합니다. 이 값을 설정하지 않으면 PVS가 유지됩니다. | 문자열  a| 
-** 유지(기본값)
-** 삭제
+| `volumeReclaimPolicy` | 그러면 Astra의 PVS에 대한 재확보 정책이 설정됩니다. 이 정책을 으로 설정합니다 `Retain` Astra가 삭제된 후 영구 볼륨을 유지합니다. 이 정책을 으로 설정합니다 `Delete` Astra가 삭제된 후 영구 볼륨을 삭제합니다. 이 값을 설정하지 않으면 PVS가 유지됩니다. | 문자열  a| 
+** `Retain` (기본값)
+** `Delete`
 
 
 |===
 ====
 +
-.응력 유형
+.<code> 응력 유형 </code>
 [%collapsible]
 ====
 |===
 | 설정 | 지침 | 유형 | 옵션 
 
 
-| 응력 유형 | 다음 수신 유형 중 하나를 사용하십시오. * Generic * (`ingressType: "Generic"`) (기본값) 다른 수신 컨트롤러를 사용 중이거나 자체 수신 컨트롤러를 사용하려는 경우 이 옵션을 사용합니다. Astra Control Center를 배포한 후 을 구성해야 합니다 link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["수신 컨트롤러"^] URL을 사용하여 Astra Control Center를 표시합니다. * AccTraefik * (`ingressType: "AccTraefik"`) 수신 컨트롤러를 구성하지 않으려는 경우 이 옵션을 사용하십시오. 그러면 Astra Control Center가 구축됩니다 `traefik` Kubernetes 로드 밸런서 유형 서비스로서의 게이트웨이 Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. (`svc/traefik` Astra Control Center 네임스페이스에서), 액세스 가능한 외부 IP 주소를 할당해야 합니다. 로드 밸런서가 사용자 환경에서 허용되고 아직 로드 밸런서가 구성되어 있지 않은 경우 MetalLB 또는 다른 외부 서비스 로드 밸런서를 사용하여 외부 IP 주소를 서비스에 할당할 수 있습니다. 내부 DNS 서버 구성에서 Astra Control Center에 대해 선택한 DNS 이름을 부하 분산 IP 주소로 지정해야 합니다. 참고: "로드 밸런서" 및 수신 서비스 유형에 대한 자세한 내용은 을 참조하십시오 link:../get-started/requirements.html["요구 사항"^]. | 문자열  a| 
-** 일반(기본값)
-** AccTraefik
+| `ingressType` | 다음 수신 유형 중 하나를 사용하십시오.*`Generic`* (`ingressType: "Generic"`) (기본값) 다른 수신 컨트롤러를 사용 중이거나 자체 수신 컨트롤러를 사용하려는 경우 이 옵션을 사용합니다. Astra Control Center를 배포한 후 을 구성해야 합니다 link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["수신 컨트롤러"^] URL을 사용하여 Astra Control Center를 표시합니다.*`AccTraefik`* (`ingressType: "AccTraefik"`) 수신 컨트롤러를 구성하지 않으려는 경우 이 옵션을 사용하십시오. 그러면 Astra Control Center가 구축됩니다 `traefik` Kubernetes 로드 밸런서 유형 서비스로서의 게이트웨이 Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. (`svc/traefik` Astra Control Center 네임스페이스에서), 액세스 가능한 외부 IP 주소를 할당해야 합니다. 로드 밸런서가 사용자 환경에서 허용되고 아직 로드 밸런서가 구성되어 있지 않은 경우 MetalLB 또는 다른 외부 서비스 로드 밸런서를 사용하여 외부 IP 주소를 서비스에 할당할 수 있습니다. 내부 DNS 서버 구성에서 Astra Control Center에 대해 선택한 DNS 이름을 부하 분산 IP 주소로 지정해야 합니다. 참고: "로드 밸런서" 및 수신 서비스 유형에 대한 자세한 내용은 을 참조하십시오 link:../get-started/requirements.html["요구 사항"^]. | 문자열  a| 
+** `Generic` (기본값)
+** `AccTraefik`
 
 
 |===
 ====
 +
-.astraResourcaresaTM
+.<code> astraResourcesEMC </code>입니다
 [%collapsible]
 ====
 |===
 | 설정 | 지침 | 유형 | 옵션 
 
 
-| astraResourcaresaTM | AstraControlCenter 리소스 제한에 대한 확장 옵션 기본적으로 Astra Control Center는 Astra 내의 대부분의 구성 요소에 대해 설정된 리소스 요청과 함께 배포됩니다. 이 구성을 통해 Astra Control Center 소프트웨어 스택은 애플리케이션 로드 및 확장 수준이 높은 환경에서 더 나은 성능을 발휘할 수 있습니다. 그러나 더 작은 개발 또는 테스트 클러스터를 사용하는 시나리오에서는 CR 필드를 사용합니다 `astraResourcesScalar` 로 설정할 수 있습니다 `Off`. 이렇게 하면 리소스 요청이 비활성화되고 소규모 클러스터에 구축할 수 있습니다. | 문자열  a| 
-** 기본값(기본값)
-** 꺼짐
+| `astraResourcesScaler` | AstraControlCenter 리소스 제한에 대한 확장 옵션 기본적으로 Astra Control Center는 Astra 내의 대부분의 구성 요소에 대해 설정된 리소스 요청과 함께 배포됩니다. 이 구성을 통해 Astra Control Center 소프트웨어 스택은 애플리케이션 로드 및 확장 수준이 높은 환경에서 더 나은 성능을 발휘할 수 있습니다. 그러나 더 작은 개발 또는 테스트 클러스터를 사용하는 시나리오에서는 CR 필드를 사용합니다 `astraResourcesScalar` 로 설정할 수 있습니다 `Off`. 이렇게 하면 리소스 요청이 비활성화되고 소규모 클러스터에 구축할 수 있습니다. | 문자열  a| 
+** `Default` (기본값)
+** `Off`
 
 
 |===
 ====
 +
-.CRD
+.<code> CRD </code>
 [%collapsible]
 ====
 이 섹션에서 선택한 사항은 Astra Control Center에서 CRD를 처리하는 방법을 결정합니다.
@@ -607,10 +617,10 @@ NOTE: YAML 주석이 붙은 샘플은 다음 단계를 따릅니다.
 | 설정 | 지침 | 유형 | 예 
 
 
-| CRD.외부인증 관리자 | 외부 인증서 관리자를 사용하는 경우 를 변경합니다 `externalCertManager` 를 선택합니다 `true`. 기본값입니다 `false` 설치 중에 Astra Control Center가 자체 인증서 관리자 CRD를 설치합니다. CRD는 클러스터 전체 오브젝트이며 이를 설치하면 클러스터의 다른 부분에 영향을 줄 수 있습니다. 이 플래그를 사용하여 Astra Control Center에 이러한 CRD가 Astra Control Center 외부의 클러스터 관리자에 의해 설치 및 관리된다는 신호를 보낼 수 있습니다. | 부울 | False(이 값은 기본값) 
+| `crds.externalCertManager` | 외부 인증서 관리자를 사용하는 경우 를 변경합니다 `externalCertManager` 를 선택합니다 `true`. 기본값입니다 `false` 설치 중에 Astra Control Center가 자체 인증서 관리자 CRD를 설치합니다. CRD는 클러스터 전체 오브젝트이며 이를 설치하면 클러스터의 다른 부분에 영향을 줄 수 있습니다. 이 플래그를 사용하여 Astra Control Center에 이러한 CRD가 Astra Control Center 외부의 클러스터 관리자에 의해 설치 및 관리된다는 신호를 보낼 수 있습니다. | 부울 | `False` (이 값은 기본값입니다.) 
 
 
-| CRD.외부Traefik | 기본적으로 Astra Control Center는 필요한 Traefik CRD를 설치합니다. CRD는 클러스터 전체 오브젝트이며 이를 설치하면 클러스터의 다른 부분에 영향을 줄 수 있습니다. 이 플래그를 사용하여 Astra Control Center에 이러한 CRD가 Astra Control Center 외부의 클러스터 관리자에 의해 설치 및 관리된다는 신호를 보낼 수 있습니다. | 부울 | False(이 값은 기본값) 
+| `crds.externalTraefik` | 기본적으로 Astra Control Center는 필요한 Traefik CRD를 설치합니다. CRD는 클러스터 전체 오브젝트이며 이를 설치하면 클러스터의 다른 부분에 영향을 줄 수 있습니다. 이 플래그를 사용하여 Astra Control Center에 이러한 CRD가 Astra Control Center 외부의 클러스터 관리자에 의해 설치 및 관리된다는 신호를 보낼 수 있습니다. | 부울 | `False` (이 값은 기본값입니다.) 
 |===
 ====
 
@@ -956,7 +966,7 @@ kubectl apply -f nginx-Ingress.yaml
 
 
 
-WARNING: Nginx 컨트롤러를 demonSet이 아닌 배포로 설치하는 것이 좋습니다.
+WARNING: Nginx 컨트롤러를 이 아닌 배포로 설치하는 것이 좋습니다 `daemonSet`.
 
 .OpenShift Ingress 컨트롤러를 위한 단계
 . 인증서를 구입하고 OpenShift 라우트에서 사용할 수 있도록 준비된 키, 인증서 및 CA 파일을 가져옵니다.

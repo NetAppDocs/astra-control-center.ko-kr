@@ -56,7 +56,7 @@ kubectl delete resourcequota  pods-low -n netapp-acc
 ----
 kubectl delete resourcequota  pods-medium -n netapp-acc
 ----
-. NetApp-acc 네임스페이스의 제한 범위를 가져옵니다.
+. 에서 제한 범위를 가져옵니다 `netapp-acc` 네임스페이스:
 +
 [source, console]
 ----

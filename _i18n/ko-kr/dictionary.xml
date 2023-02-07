@@ -215,7 +215,6 @@
   <block id="1f7a30a87f1e03ae9b4e5a75054aea44" category="paragraph">다른 Astra Control Center 인스턴스에서 클러스터를 관리하려면 먼저 다음을 수행해야 합니다 <block ref="db506b8ca3f9d6b67f586ae44373200f" category="inline-link-macro-rx"></block> 다른 인스턴스에서 관리하기 전에 관리되는 인스턴스에서 관리에서 클러스터를 제거한 후 다음 명령을 실행하여 클러스터가 관리되지 않는 상태인지 확인합니다.</block>
   <block id="df968f82e7fe0ad4aa9c7e7fa3f7746b" category="paragraph">해당 네임스페이스에서 실행 중인 포드가 없어야 합니다. 그렇지 않으면 네임스페이스가 존재하지 않아야 합니다. 둘 중 하나가 참인 경우 클러스터는 관리되지 않습니다.</block>
   <block id="22ec3951623db87fb800ca769fec5e8f" category="paragraph">해결 방법으로 다음을 수행합니다.</block>
-  <block id="b6dcf530db55b7783db7f050410455e4" category="list-text">kubeadm-config ConfigMap 편집:</block>
   <block id="33fe94a78e4fc743a279dacacc468c5d" category="list-text">'clusterName' 필드 값을 Kubernetes(Kubernetes 기본 이름)에서 고유한 사용자 정의 이름으로 변경합니다.</block>
   <block id="890a77a8c921a60204701adfa2f5c160" category="list-text">kubecononfig('.kubbe/config')를 편집합니다.</block>
   <block id="6c97574dc1b4c1296eabcd490b901dbf" category="list-text">클러스터 이름을 Kubernetes에서 고유한 사용자 지정 이름으로 업데이트합니다(아래 예에서는 xyz-cluster 사용). 다음 예와 같이 클러스터 및 컨텍스트 섹션에서 모두 업데이트합니다.</block>
@@ -1367,55 +1366,18 @@
   <block id="d7a2df4296f778ff9dae7d8197e49f88" category="list-text">수신 게이트웨이에 대해 원하는 인증서 및 개인 키 파일을 수집하거나 생성합니다.</block>
   <block id="5f6df49e621317e5089b66dba695a9ca" category="admonition">비밀의 이름은 'istio-ingress.YAML' 파일에 제공된 'pec.tls.secretName`'과 일치해야 합니다.</block>
   <block id="509ae1887052bee235ca9fa72cd737f5" category="list-text">수신 상태를 점검하십시오.</block>
-  <block id="163d94b9255ea61fa90b17e63847f07e" category="summary">인증 관리자가 클러스터에 이미 있는 경우 Astra Control Center가 자체 인증서 관리자를 설치하지 않도록 몇 가지 필수 단계를 수행해야 합니다.</block>
   <block id="6bdc7c13872089b240b2d2e134bf8244" category="doc">외부 인증서 관리자를 구성합니다</block>
-  <block id="c5899da221d3a7388cf14e6ab2e7892a" category="paragraph">Cert-Manager가 이미 Kubernetes 클러스터에 있는 경우, Astra Control Center가 자체 인증서 관리자를 설치하지 않도록 몇 가지 필수 단계를 수행해야 합니다.</block>
-  <block id="c3cd50c648d9ae22cac1ef213536259d" category="list-text">인증서 관리자가 설치되었는지 확인합니다.</block>
-  <block id="0aff594cf0d6a1a66b4d828529f2c61b" category="list-text">astraAddress FQDN에 대한 인증서/키 쌍을 생성합니다.</block>
   <block id="26a6f964cf8ef3c290d7ddadde2a8b67" category="list-text">이전에 생성된 파일을 사용하여 암호 생성:</block>
-  <block id="226acb89f6dfd0da6e82058180b0c67b" category="list-text">다음과 같은 * 정확히 * 인 Cluster발급사 파일을 생성합니다. 단, cert-manager Pod가 설치된 네임스페이스 위치가 포함됩니다.</block>
-  <block id="083b1525b28795e829240c41c804453f" category="list-text">클러스터 발급자가 올바르게 설정되었는지 확인합니다. "준비"는 "참"이어야 계속할 수 있습니다.</block>
   <block id="e81390ac7a4e5ed54e210e59e5b5f694" category="inline-link-macro">Astra Control Center 설치 프로세스</block>
   <block id="3f7b63d8e11face0275b65afb3a7cad9" category="inline-link-macro">Astra Control Center 클러스터 YAML에 필요한 구성 단계</block>
-  <block id="fd8714003157cf4b1ef399e5ff36c828" category="list-text">를 완료합니다 <block ref="4f6226316b347cad073b05d4198e6b67" category="inline-link-macro-rx"></block>. A가 있습니다 <block ref="b10b5b361802ada39ab534d37e156fb1" category="inline-link-macro-rx"></block> CRD 값을 변경하여 CERT-manager가 외부에 설치되어 있음을 나타냅니다. Astra Control Center가 외부 인증서 관리자를 인식하도록 설치 중에 이 단계를 완료해야 합니다.</block>
   <block id="51ac4bf63a0c6a9cefa7ba69b4154ef1" category="cell">설정</block>
   <block id="a1fa27779242b4902f7ae3bdd5c6d508" category="cell">유형</block>
   <block id="ad8783089f828b927473fb61d51940ec" category="cell">사용</block>
-  <block id="bbdbf70444e48a34a4a7e7d708d85eec" category="cell">astraVersion을 참조하십시오</block>
   <block id="b45cffe084dd3d20d928bee85e7b0f21" category="cell">문자열</block>
   <block id="b651efdb98a5d6bd2b3935d0c3f4a5e2" category="cell">필수 요소입니다</block>
-  <block id="d27903c79b643b2f565c31e894abb568" category="cell">astraAddress를 선택합니다</block>
-  <block id="51c3153f8b9ad8f3a27b28d6c8f95aab" category="cell">astra.example.com</block>
-  <block id="cd7a180ee2029176203abb971a5e5ed9" category="cell">계정 이름</block>
   <block id="0a52730597fb4ffa01fc117d9e71e3a9" category="cell">예</block>
-  <block id="0c83f57c786a0b4a39efab23731c7ebc" category="cell">이메일</block>
-  <block id="e64c7d89f26bd1972efa854d13d7dd61" category="cell">admin@example.com</block>
-  <block id="ed89387bcd11937a7a92a99a2cbfb5d7" category="cell">이름</block>
-  <block id="b972b330bcbcd220003258f963c87063" category="cell">SRE</block>
-  <block id="ef21925fada6dfb684b5d8ec72114bb1" category="cell">성</block>
-  <block id="e3afed0047b08059d0fada10f400c1e5" category="cell">관리자</block>
-  <block id="78ec9b60245b46a4f05158076962ace9" category="cell">storageClass 를 선택합니다</block>
-  <block id="e3bccceaf53ea80a4685ac9b974016f3" category="cell">ONTAP - 골드</block>
-  <block id="c3c263fe360a73d45c030a672e1ad0c4" category="cell">볼륨 리클레이임정책</block>
-  <block id="7ebc1f67b2eb5a818a1c50174696304a" category="cell">astraResourcaresaTM</block>
-  <block id="64c885ad8d34e07c7de4b0ba1410c410" category="cell">응력 유형</block>
-  <block id="753832af32ffcc2d2e18e7628774d7cf" category="cell">일반(기본값)</block>
   <block id="27226c864bac7454a8504f8edb15d95b" category="cell">부울</block>
-  <block id="990dc1a09e10c7b5378e6bc8a1956cb8" category="cell">imageRegistry(이미지 레지스트리)</block>
-  <block id="f141c732c6aae0fddd2afdfac3f75f3f" category="cell">imageRegistry.name</block>
-  <block id="e77678b9947da8914bb67ef57aa6bb3d" category="cell">example.registry.com/astra</block>
-  <block id="c6fe3b36a104e3ea913f9a6b82389050" category="cell">imageRegistry.secret</block>
-  <block id="d2522c50d2a3c9af9481f3e38f4f0822" category="cell">아스트라-레지스트리-크레드</block>
   <block id="a4eae2eb04aaa73a5aa84743236715c2" category="cell">이미지 레지스트리를 인증하는 데 사용되는 Kubernetes 비밀의 이름입니다.</block>
-  <block id="5398d7dab242bfea13c044912cacfd10" category="cell">AutoSupport</block>
-  <block id="774a4ec4adf9dd65264c77b3b87833b7" category="cell">AutoSupport.enrolled입니다</block>
-  <block id="e6e84f5b60d543e4f60284bb0d8839ec" category="cell">False(이 값은 기본값)</block>
-  <block id="ca77df23f9eeb9f068b3474e5065bc35" category="cell">AutoSupport.URL을 참조하십시오</block>
-  <block id="89f1dc01ab80754de6eb13d2752e24d4" category="cell"><block ref="89f1dc01ab80754de6eb13d2752e24d4" category="inline-link-rx"></block></block>
-  <block id="c16ae51f09d668b952e5ab23072ad64e" category="cell">CRD</block>
-  <block id="665b3f371a91222c9cb860633e329f92" category="cell">CRD.외부Traefik</block>
-  <block id="15c17271ca03b109604346103f40edce" category="cell">CRD.외부인증 관리자</block>
-  <block id="0a3e1793e4eaf6bd67bdf43d1bca1c74" category="list-text">AccTraefik</block>
   <block id="b8b135c22936352c3cfdc9f8e3fd023b" category="list-text"><block ref="fb50e5d2336668b8d0662f52bcf85cbd" category="inline-xref-macro-rx"></block></block>
   <block id="ba2f1a8ca4d338f475c569aac706f70d" category="list-text"><block ref="1e68754240d611736f4d693962b83649" category="inline-xref-macro-rx"></block></block>
   <block id="fccc6a2f80c99556fc0a67d0bb45eed2" category="list-text"><block ref="4c1da4dfad9caa1797b7b20ff62bf3da" category="inline-xref-macro-rx"></block></block>
@@ -1446,7 +1408,6 @@
   <block id="e562349c27811f1520b3c670e513cda3" category="section-title">리소스 제한을 제거합니다</block>
   <block id="66abbc76b1b539a19eab77ac5f290859" category="paragraph">다음 단계를 사용하여 할당량 및 제한을 검색하고 제거할 수 있습니다. 이 예제에서 명령 출력은 명령 직후에 표시됩니다.</block>
   <block id="6c999f1f4bd422b4305a76a527b7e862" category="list-text">이름으로 모든 리소스 할당량 삭제:</block>
-  <block id="e67c35f02c9b82908b17e97b897aefe7" category="list-text">NetApp-acc 네임스페이스의 제한 범위를 가져옵니다.</block>
   <block id="091880150353e9b5462ebfe9e5007deb" category="list-text">이름별로 제한 범위를 삭제합니다.</block>
   <block id="5fed03116ab579cfabba1dfd68c70bab" category="inline-link">Astra의 NetApp 기술 자료</block>
   <block id="62b48e6002e259d6c98b0960c375f121" category="paragraph"><block ref="62b48e6002e259d6c98b0960c375f121" category="inline-link-rx"></block></block>
@@ -1864,7 +1825,6 @@
   <block id="7c90d436f62a080a98e02874957865e0" category="inline-link-macro">수행할 수 있습니다</block>
   <block id="41bdd90cead20f2dddf0647e2f48fc13" category="list-text">* Cloud Volumes ONTAP 백엔드를 사용하여 퍼블릭 클라우드에 설치 *: 사용 <block ref="cdbba4f6294205e74dc04d0ee99d1d1f" category="inline-link-macro-rx"></block> AWS(Amazon Web Services), GCP(Google Cloud Platform) 또는 Cloud Volumes ONTAP 스토리지 백엔드가 있는 Microsoft Azure에 Astra Control Center를 설치하려면 다음을 수행합니다.</block>
   <block id="5a53c718e9d33a9f0110cd7ae90b34e1" category="list-text">사용자 환경에서 POD 보안 정책을 구성했거나 구성하려는 경우 POD 보안 정책 및 해당 정책이 Astra Control Center 설치에 어떤 영향을 미치는지 숙지하십시오. 을 참조하십시오 <block ref="2fd5062be02d918e79a909cf2044d6fc" category="inline-link-macro-rx"></block>.</block>
-  <block id="ead570b5ab403d179d75ab4eab4446c4" category="list-text">클러스터에 인증서 관리자가 이미 있는 경우 일부를 수행해야 합니다 <block ref="1787bdbf8a8938a728c4bed68c77105f" category="inline-link-macro-rx"></block> 따라서 Astra Control Center는 자체 인증서 관리자를 설치하려고 시도하지 않습니다. 기본적으로 Astra Control Center는 설치 중에 자체 인증 관리자를 설치합니다.</block>
   <block id="3795639eaa5204f6fa15e47a15bca2f1" category="paragraph">Astra Control Center 설치 프로세스를 통해 다음을 수행할 수 있습니다.</block>
   <block id="590bbfe0321f70c378c20713e420c00e" category="list-text">에 Astra 구성 요소를 설치합니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> (또는 사용자 지정 이름) 네임스페이스입니다.</block>
   <block id="3f1d8d05f833ab76251fa849e383328e" category="list-text">기본 Astra Control Owner 관리자 계정을 생성합니다.</block>
@@ -1886,10 +1846,6 @@
   <block id="e8ef4881e3a5b5ed524203e110c2189c" category="list-text">에 대한 암호를 만듭니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> (또는 사용자 지정 이름) 네임스페이스입니다. Docker 정보를 추가하고 다음 명령을 실행합니다.</block>
   <block id="3d59a0091a9b90694e09ed10fd28e891" category="list-text">변경<block ref="a3d1b23e7abf0f3b3ca5fcf7e61860cd" prefix=" " category="inline-code"></block> 의 경우<block ref="4a3ecd51c30dc55cebd7ed9babbb7931" prefix=" " category="inline-code"></block> 이미지를 에서 푸시한 레지스트리 경로로 이미지 <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>.</block>
   <block id="26fcd88032025b1fd17ddffb0ce0a06a" category="list-text">변경<block ref="a3d1b23e7abf0f3b3ca5fcf7e61860cd" prefix=" " category="inline-code"></block> 의 경우<block ref="83f93b05da174976bd534cc67ad9f7b4" prefix=" " category="inline-code"></block> 이미지를 에서 푸시한 레지스트리 경로로 이미지 <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>.</block>
-  <block id="f82d1fb90ccb7f8e12e9df6b41fdd685" category="list-text">Astra Control Center 사용자 정의 리소스(CR) 파일을 편집합니다 <block ref="70b058e54d2bda749060070a7f9c4e5c" prefix="(" category="inline-code"></block>) 계정, AutoSupport, 레지스트리 및 기타 필요한 구성을 만들려면:</block>
-  <block id="a56226948269f21e33c8cedc94f81f6e" category="list-text">* 일반 * <block ref="70110d526a7afb77cc9b5240e79845c0" prefix="(" category="inline-code"></block>) (기본값)</block>
-  <block id="ad8b71ed326ec5e4a369cd1389b21bfd" category="list-text">* AccTraefik * <block ref="4388d54e87947748fc2ff08932daa51e" prefix="(" category="inline-code"></block>)</block>
-  <block id="083c57a62ef114dab22127329138d5f4" category="paragraph">수신 컨트롤러를 구성하지 않으려는 경우 이 옵션을 사용하십시오. 그러면 Astra Control Center가 구축됩니다<block ref="3f624a80eb2012ebf5d970cedbdce2bc" prefix=" " category="inline-code"></block> Kubernetes 로드 밸런서 유형 서비스로서의 게이트웨이</block>
   <block id="b50b94a0232dbff69a41914d331d9609" category="paragraph">Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. <block ref="24ace688122fb01922cde69e1e3df1d5" prefix="(" category="inline-code"></block> Astra Control Center 네임스페이스에서), 액세스 가능한 외부 IP 주소를 할당해야 합니다. 로드 밸런서가 사용자 환경에서 허용되고 아직 로드 밸런서가 구성되어 있지 않은 경우 MetalLB 또는 다른 외부 서비스 로드 밸런서를 사용하여 외부 IP 주소를 서비스에 할당할 수 있습니다. 내부 DNS 서버 구성에서 Astra Control Center에 대해 선택한 DNS 이름을 부하 분산 IP 주소로 지정해야 합니다.</block>
   <block id="24f8b619456c925b397f91e62d1630d3" category="paragraph">kubeck 명령을 사용하여 시스템 상태를 확인할 수 있습니다. OpenShift를 사용하려는 경우 검증 단계에 유사한 OC 명령을 사용할 수 있습니다.</block>
   <block id="3228f21b07b2db77590b591150d404ae" category="inline-link-macro">UI에서 클러스터 워크플로우를 추가합니다</block>
@@ -1908,7 +1864,6 @@
   <block id="f1d8de1af98697110fc280803f968a81" category="list-text"><block ref="fca54ef221c67b1dc086293500962588" category="inline-xref-macro-rx"></block>.</block>
   <block id="df364d2a468a2c97c5bfa73300766e67" category="list-text">형식의 암호를 만듭니다<block ref="2da1614efdcbaec4b6f030dd317ee661" prefix=" " category="inline-code"></block> 에서 TLS 개인 키 및 인증서의 경우<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> 에 설명된 대로 (또는 사용자 지정 이름) 네임스페이스를 사용합니다<block ref="749b9942574f6d94028c602d678053d4" category="inline-link-rx"></block>.</block>
   <block id="6d7d0892732ecd9e5bacdd8842fe70fc" category="list-text">수신 리소스를 에 배포합니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> (또는 사용자 지정 이름) 스키마에 대해 v1 리소스 형식을 사용하는 네임스페이스입니다 <block ref="5984150d3c30e721ef3f19fa2ed70f4f" prefix="(" category="inline-code"></block> 이 예에서 사용됨):</block>
-  <block id="a6b840ca5553035786ec02bc3272bb2d" category="admonition">Nginx 컨트롤러를 demonSet이 아닌 배포로 설치하는 것이 좋습니다.</block>
   <block id="cbdedb43947b6893f6e1a54b24275380" category="list-text">브라우저에서 FQDN을 입력합니다 <block ref="12b964ea9d29f94a9a648290b3478496" prefix="(" category="inline-code"></block>) 에서 을(를) 사용했습니다<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> 에 있습니다<block ref="70b058e54d2bda749060070a7f9c4e5c" prefix=" " category="inline-code"></block> CR <block ref="356be5820e2645bace29d82a8018f43d" category="inline-xref-macro-rx"></block>.</block>
   <block id="03b98f7c63a68fc1cc96f11c76b0fd3e" category="list-text">메시지가 표시되면 자체 서명된 인증서를 수락합니다.</block>
   <block id="1aa265f0c5e811fa01e074ce543d9b8f" category="list-text">Astra Control Center 로그인 페이지에서 에 사용한 값을 입력합니다<block ref="0c83f57c786a0b4a39efab23731c7ebc" prefix=" " category="inline-code"></block> 인치<block ref="70b058e54d2bda749060070a7f9c4e5c" prefix=" " category="inline-code"></block> CR <block ref="356be5820e2645bace29d82a8018f43d" category="inline-xref-macro-rx"></block>를 누른 다음 초기 설치 암호를 입력합니다 <block ref="b32e4f4e6435d1ee35c95efbd194cabb" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
@@ -2122,7 +2077,6 @@
   <block id="1dae7d05f28065a32f7e96ff1e757def" category="list-text">이미지 레지스트리 경로가 에서 이미지를 푸시한 레지스트리 경로와 일치하는지 확인합니다 <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>. 업데이트<block ref="990dc1a09e10c7b5378e6bc8a1956cb8" prefix=" " category="inline-code"></block> 의 내부<block ref="85a2ca75f68bc7e596655dc20f3244a8" prefix=" " category="inline-code"></block> 마지막 설치 이후 레지스트리가 변경된 경우</block>
   <block id="5a1b903858303085c8688af0ffb4bcc6" category="list-text">에 다음을 추가합니다<block ref="9f9c14504350d9d92656623f108b5716" prefix=" " category="inline-code"></block> 의 내부 구성<block ref="85a2ca75f68bc7e596655dc20f3244a8" prefix=" " category="inline-code"></block>:</block>
   <block id="75561cbd602b21f2fb8f22fad1d60be4" category="paragraph">파일 편집기를 저장하고 종료하면 변경 사항이 적용되고 업그레이드가 시작됩니다.</block>
-  <block id="dded6b7ada0537e0bb5cb1e6bcef3b94" category="list-text">Astra 상태 조건이 업그레이드가 완료되어 준비되었음을 나타낼 때까지 기다립니다 <block ref="f827cf462f62848df37c5e1e94a4da74" prefix="(" category="inline-code"></block>):</block>
   <block id="d554ef962e222f8e0b4c6f040c05abcc" category="admonition">작업 중에 업그레이드 상태를 모니터링하려면 다음 명령을 실행합니다.<block ref="5d533fda3d139dde32dc8b7d35483556" prefix=" " category="inline-code"></block></block>
   <block id="7b4c545e2ed086853dde2f7117a39ead" category="admonition">Astra Control Center 운영자 로그를 검사하려면 다음 명령을 실행하십시오.<block ref="dcbcfcb7193f45190ecbecbfdaca7662" prefix=" " category="inline-code"></block></block>
   <block id="e26a24f7c06add21717e1b7beaee23c6" category="list-text">버전이 업그레이드되었는지 확인합니다. UI의 * 지원 * 페이지를 참조하십시오.</block>
@@ -2392,7 +2346,6 @@
   <block id="138ea3764228f5e7341fdfd2ab86eb9c" category="list-text">* 정상적인 클러스터 운영자 및 API 서비스 *:</block>
   <block id="b898f98923f32bea4889471220e01aba" category="list-text">* FQDN 주소 *: 데이터 센터의 Astra Control Center에 대한 FQDN 주소를 얻습니다.</block>
   <block id="7a49e1a0bc84ad5cadf3b7fad78e680c" category="list-text">* OpenShift Permissions *: Red Hat OpenShift Container Platform에 대한 필수 권한과 액세스를 얻어 설명된 설치 단계를 수행합니다.</block>
-  <block id="4c71df267c87cd2b3b5085729a31c399" category="list-text">* cert-manager 구성됨 *: 인증서 관리자가 클러스터에 이미 있으면 일부를 수행해야 합니다 <block ref="7f9e8cec8531f8660dfaaf382da03535" category="inline-link-macro-rx"></block> 따라서 Astra Control Center는 자체 인증 관리자를 설치하지 않습니다. 기본적으로 Astra Control Center는 설치 중에 자체 인증 관리자를 설치합니다.</block>
   <block id="dc7c0458c369052b702ad6db4e0f5569" category="list-text">* Kubernetes 수신 컨트롤러 *: 클러스터의 로드 밸런싱과 같은 서비스에 대한 외부 액세스를 관리하는 Kubernetes 수신 컨트롤러가 있는 경우 Astra Control Center와 함께 사용하도록 설정해야 합니다.</block>
   <block id="060534066f9a22cabf451772f0daf58b" category="list-text">연산자 네임스페이스 만들기:</block>
   <block id="8f70adb2eebdea2e00d5d57216cd59b5" category="inline-link-macro">설정을 완료합니다</block>
@@ -2579,31 +2532,19 @@
   <block id="746b231b966af15f3cff713ca45075eb" category="cell">지침</block>
   <block id="d1d1376da08ba5481c947bc402f43936" category="cell">를 변경합니다<block ref="cd7a180ee2029176203abb971a5e5ed9" prefix=" " category="inline-code"></block> Astra Control Center 계정과 연결할 이름에 대한 문자열입니다. 하나의 accountName만 있을 수 있습니다.</block>
   <block id="5699a5d0302dbbb9ebafb81191b2cf4e" category="cell">배포할 Astra Control Center의 버전입니다. 값이 미리 채워질 수 있으므로 이 설정에 대한 작업은 필요하지 않습니다.</block>
-  <block id="3208af68c7dea8493fa4cee605a96daf" category="cell">22.11.0-82</block>
   <block id="785f296ad865d8dc71d68583795bf3f6" category="cell">를 변경합니다<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> 브라우저에서 Astra Control Center에 액세스하기 위해 사용할 FQDN(권장) 또는 IP 주소에 대한 문자열입니다. 이 주소는 Astra Control Center가 데이터 센터에서 어떻게 검색되는지 정의하며, 이 주소를 완료하면 로드 밸런서에서 제공한 것과 동일한 FQDN 또는 IP 주소입니다 <block ref="bdee52dd8f294f9d4eddadcb8b16676c" category="inline-link-macro-rx"></block>. 참고: 사용하지 마십시오<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> 또는<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> 를 입력합니다. 에서 사용하기 위해 이 FQDN을 복사합니다 <block ref="39c8566ec35b62823c898c5e38a4b78c" category="inline-xref-macro-rx"></block>.</block>
   <block id="7548d8cfdbba865da930704f30a7542f" category="paragraph">이 섹션에서 어떤 항목을 선택하는지에 따라 NetApp의 사전 지원 애플리케이션인 NetApp Active IQ에 참여할 것인지, 그리고 데이터를 보낼 위치를 결정할 수 있습니다. 인터넷 연결이 필요하며(포트 442) 모든 지원 데이터가 익명화됩니다.</block>
   <block id="24b6133a8f6f0866838539b9ca41cfa7" category="cell">둘 다 가능합니다<block ref="ff7af27948b380bff5d583359796d3c8" prefix=" " category="inline-code"></block> 또는<block ref="572d4e421e5e6b9bc11d815e8a027112" prefix=" " category="inline-code"></block> 필드를 선택해야 합니다</block>
   <block id="032fdfe4dd533e2a1da94f746be2861f" category="cell">변경<block ref="ff7af27948b380bff5d583359796d3c8" prefix=" " category="inline-code"></block> 을 눌러 AutoSupport to로 이동합니다<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block> 인터넷 연결이 없거나 보관되지 않은 사이트의 경우<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> 연결된 사이트의 경우. 의 설정<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> 지원을 위해 익명 데이터를 NetApp에 전송할 수 있습니다. 기본 선택 옵션은 입니다<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block> 및 은 NetApp에 지원 데이터가 전송되지 않음을 나타냅니다.</block>
   <block id="dabad3695b4ab8ff22572403a96c3ee7" category="cell">이 URL은 익명 데이터를 보낼 위치를 결정합니다.</block>
   <block id="2567e3deee28c432016a674291f588ad" category="cell">를 변경합니다<block ref="0c83f57c786a0b4a39efab23731c7ebc" prefix=" " category="inline-code"></block> 문자열을 기본 초기 관리자 주소로 설정합니다. 에서 사용할 이 이메일 주소를 복사합니다 <block ref="39c8566ec35b62823c898c5e38a4b78c" category="inline-xref-macro-rx"></block>. 이 이메일 주소는 UI에 로그인할 초기 계정의 사용자 이름으로 사용되며 Astra Control에서 이벤트를 알립니다.</block>
-  <block id="138936eb3d75a3b6dbc65ae59d3c4ac0" category="example-title">이름 및 성</block>
   <block id="9172a6784d35efa48d62caa85fe965f6" category="cell">Astra 계정과 연결된 기본 초기 관리자의 이름입니다. 여기에 사용된 이름은 처음 로그인한 후 UI의 제목에 표시됩니다.</block>
   <block id="8208a49adafaea9376c9f0c952b3ca91" category="cell">Astra 계정과 연결된 기본 초기 관리자의 성. 여기에 사용된 이름은 처음 로그인한 후 UI의 제목에 표시됩니다.</block>
-  <block id="52b0f21cd86a6767c9ecef91bdbc1464" category="paragraph">이 섹션에서 선택한 사항은 Astra 응용 프로그램 이미지, Astra Control Center Operator 및 Astra Control Center Helm Repository를 호스팅하는 컨테이너 이미지 레지스트리를 정의합니다.</block>
   <block id="df9d5b947e23d15efab408cf1c25c756" category="cell">에서 이미지를 푸시한 이미지 레지스트리의 이름입니다 <block ref="305dd956c1213ef7c4d1a1587874974e" category="inline-xref-macro-rx"></block>. 사용하지 마십시오<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> 또는<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> 레지스트리 이름.</block>
-  <block id="c0d136fdeb6a7cc5b96028c4f77ad160" category="cell">암호가 필요한 imageRegistry 를 사용하는 경우 필수입니다. 중요: 인증이 필요하지 않은 레지스트리를 사용하는 경우 이 항목을 삭제해야 합니다<block ref="5ebe2294ecd0e0f08eab7690d2a6ee69" prefix=" " category="inline-code"></block> 줄 내부<block ref="990dc1a09e10c7b5378e6bc8a1956cb8" prefix=" " category="inline-code"></block> 그렇지 않으면 설치가 실패합니다.</block>
-  <block id="f50614b0fb6512ea307cfd956d0f1578" category="cell">를 변경합니다<block ref="78ec9b60245b46a4f05158076962ace9" prefix=" " category="inline-code"></block> 값 시작<block ref="e3bccceaf53ea80a4685ac9b974016f3" prefix=" " category="inline-code"></block> 을 다른 Trident storageClass 리소스에 액세스하십시오. 명령을 실행합니다<block ref="f7a6266d561ed7e94ff1f45bb43a2f5d" prefix=" " category="inline-code"></block> 구성된 기존 스토리지 클래스를 확인하려면 다음을 수행합니다. 매니페스트 파일(Astra-control-center-&lt;version&gt;.manifest)에 Trident 기반 스토리지 클래스 중 하나를 입력해야 하며 Astra PVS에 사용됩니다. 이 옵션이 설정되어 있지 않으면 기본 스토리지 클래스가 사용됩니다. 참고: 기본 스토리지 클래스가 구성된 경우 기본 주석이 있는 유일한 스토리지 클래스인지 확인하십시오.</block>
   <block id="dae8ace18bdcbcc6ae5aece263e14fe8" category="cell">옵션</block>
   <block id="44b62ef68933aca85562e3bdab109c11" category="cell">그러면 Astra의 PVS에 대한 재확보 정책이 설정됩니다. 이 정책을 으로 설정합니다<block ref="afece4245269582cb2f1009d4fb52047" prefix=" " category="inline-code"></block> Astra가 삭제된 후 영구 볼륨을 유지합니다. 이 정책을 으로 설정합니다<block ref="f2a6c498fb90ee345d997f888fce3b18" prefix=" " category="inline-code"></block> Astra가 삭제된 후 영구 볼륨을 삭제합니다. 이 값을 설정하지 않으면 PVS가 유지됩니다.</block>
-  <block id="b573e661240a59fb2f0b6d4d1e09f0d9" category="list-text">유지(기본값)</block>
-  <block id="f2a6c498fb90ee345d997f888fce3b18" category="list-text">삭제</block>
-  <block id="3cb9755788612780ac6974af675b8875" category="cell">다음 수신 유형 중 하나를 사용하십시오. * Generic * <block ref="70110d526a7afb77cc9b5240e79845c0" prefix="(" category="inline-code"></block>) (기본값) 다른 수신 컨트롤러를 사용 중이거나 자체 수신 컨트롤러를 사용하려는 경우 이 옵션을 사용합니다. Astra Control Center를 배포한 후 을 구성해야 합니다 <block ref="7d074c32e6c49929382498ad8c5637bd" category="inline-link-macro-rx"></block> URL을 사용하여 Astra Control Center를 표시합니다. * AccTraefik * <block ref="4388d54e87947748fc2ff08932daa51e" prefix="(" category="inline-code"></block>) 수신 컨트롤러를 구성하지 않으려는 경우 이 옵션을 사용하십시오. 그러면 Astra Control Center가 구축됩니다<block ref="3f624a80eb2012ebf5d970cedbdce2bc" prefix=" " category="inline-code"></block> Kubernetes 로드 밸런서 유형 서비스로서의 게이트웨이 Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. <block ref="24ace688122fb01922cde69e1e3df1d5" prefix="(" category="inline-code"></block> Astra Control Center 네임스페이스에서), 액세스 가능한 외부 IP 주소를 할당해야 합니다. 로드 밸런서가 사용자 환경에서 허용되고 아직 로드 밸런서가 구성되어 있지 않은 경우 MetalLB 또는 다른 외부 서비스 로드 밸런서를 사용하여 외부 IP 주소를 서비스에 할당할 수 있습니다. 내부 DNS 서버 구성에서 Astra Control Center에 대해 선택한 DNS 이름을 부하 분산 IP 주소로 지정해야 합니다. 참고: "로드 밸런서" 및 수신 서비스 유형에 대한 자세한 내용은 을 참조하십시오 <block ref="f326683052260ae8ea69adae62a4336c" category="inline-link-macro-rx"></block>.</block>
   <block id="734224e6b4ec285b77e7b79b03d94b02" category="cell">AstraControlCenter 리소스 제한에 대한 확장 옵션 기본적으로 Astra Control Center는 Astra 내의 대부분의 구성 요소에 대해 설정된 리소스 요청과 함께 배포됩니다. 이 구성을 통해 Astra Control Center 소프트웨어 스택은 애플리케이션 로드 및 확장 수준이 높은 환경에서 더 나은 성능을 발휘할 수 있습니다. 그러나 더 작은 개발 또는 테스트 클러스터를 사용하는 시나리오에서는 CR 필드를 사용합니다<block ref="58109f8b5a58dff610844c779b6c42ad" prefix=" " category="inline-code"></block> 로 설정할 수 있습니다<block ref="d15305d7a4e34e02489c74a5ef542f36" prefix=" " category="inline-code"></block>. 이렇게 하면 리소스 요청이 비활성화되고 소규모 클러스터에 구축할 수 있습니다.</block>
-  <block id="877188653340f757943c83f0bc15f1be" category="list-text">기본값(기본값)</block>
-  <block id="d15305d7a4e34e02489c74a5ef542f36" category="list-text">꺼짐</block>
   <block id="a5a239f5a107b63b3aa6d192c95bb6d1" category="paragraph">이 섹션에서 선택한 사항은 Astra Control Center에서 CRD를 처리하는 방법을 결정합니다.</block>
-  <block id="15158f2541ef87a6d0bffe5a0141e4ca" category="cell">외부 인증서 관리자를 사용하는 경우 를 변경합니다<block ref="277c0561d457e7aad53dcd2e4ba8051d" prefix=" " category="inline-code"></block> 를 선택합니다<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>. 기본값입니다<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block> 설치 중에 Astra Control Center가 자체 인증서 관리자 CRD를 설치합니다. CRD는 클러스터 전체 오브젝트이며 이를 설치하면 클러스터의 다른 부분에 영향을 줄 수 있습니다. 이 플래그를 사용하여 Astra Control Center에 이러한 CRD가 Astra Control Center 외부의 클러스터 관리자에 의해 설치 및 관리된다는 신호를 보낼 수 있습니다.</block>
-  <block id="241f958366d57581f03932e9f7c77a76" category="cell">False(이 값은 기본값)</block>
   <block id="c227fa0621e3f1f87571da78dd03ca6f" category="cell">기본적으로 Astra Control Center는 필요한 Traefik CRD를 설치합니다. CRD는 클러스터 전체 오브젝트이며 이를 설치하면 클러스터의 다른 부분에 영향을 줄 수 있습니다. 이 플래그를 사용하여 Astra Control Center에 이러한 CRD가 Astra Control Center 외부의 클러스터 관리자에 의해 설치 및 관리된다는 신호를 보낼 수 있습니다.</block>
   <block id="4f508b1a632fa280de99843b2fe48176" category="list-text">스테이징에서 운영 환경으로 애플리케이션을 손쉽게 클론 복제할 수 있습니다</block>
   <block id="6c4ff7542dcef16bc12bbbab0c160e9a" category="list-text">웹 UI 또는 API를 사용하여 백업 및 마이그레이션 워크플로우를 구현합니다</block>
@@ -2626,4 +2567,74 @@
   <block id="d55b05877d0dd6743f47d3442323323e" category="inline-link-macro">Amazon Web Services를 설정합니다</block>
   <block id="87716101cfca255da11056a624dbce47" category="inline-link-macro">Azure 관리 디스크를 사용하여 Microsoft Azure를 설정합니다</block>
   <block id="55a5776613a7a49b0fb7fc4800c3065f" category="list-text">NetApp 클라우드 서비스 스토리지 오퍼링을 스토리지 백엔드로 사용하는 경우, Astra Control Service는 Astra Trident를 사용하여 앱에 영구 볼륨을 프로비저닝합니다. Amazon EBS 또는 Azure 관리 디스크를 스토리지 백엔드로 사용하는 경우 공급자별 CSI 드라이버를 설치해야 합니다. 설치 지침은 에 나와 있습니다 <block ref="ebf2a7f1b6295b0b8e4d97b888cb809e" category="inline-link-macro-rx"></block> 및 <block ref="1938f6af50a8259a0bb98bac4f34eeeb" category="inline-link-macro-rx"></block>.</block>
+  <block id="18af682d6124dcb139b603177dd087c4" category="list-text">Astra Control 상태 조건이 업그레이드가 완료되어 준비되었음을 나타낼 때까지 기다립니다 <block ref="f827cf462f62848df37c5e1e94a4da74" prefix="(" category="inline-code"></block>):</block>
+  <block id="208783ce2eb5f03baf3ca821608eaf65" category="list-text">에서 제한 범위를 가져옵니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> 네임스페이스:</block>
+  <block id="e755142aeb1d3a2c6fcfa09fb3f80fb3" category="list-text">인증서 관리자 구성됨 *: 인증서 관리자가 클러스터에 이미 있는 경우 일부를 수행해야 합니다 <block ref="7f9e8cec8531f8660dfaaf382da03535" category="inline-link-macro-rx"></block> 따라서 Astra Control Center는 자체 인증 관리자를 설치하지 않습니다. 기본적으로 Astra Control Center는 설치 중에 자체 인증서 관리자를 설치합니다.</block>
+  <block id="6721c17f49a21ba95875cebca5d8a841" category="list-text"><block ref="8045a0a6c688b0635e3caccc408a1446" prefix="*" category="inline-code"></block>* <block ref="70110d526a7afb77cc9b5240e79845c0" prefix="(" category="inline-code"></block>) (기본값)</block>
+  <block id="bdf886544ef77311b7710f6d172f214f" category="list-text"><block ref="0a3e1793e4eaf6bd67bdf43d1bca1c74" prefix="*" category="inline-code"></block>* <block ref="4388d54e87947748fc2ff08932daa51e" prefix="(" category="inline-code"></block>)</block>
+  <block id="110cc2f84b6e1647c3e08763a1a566c3" category="paragraph">수신 컨트롤러를 구성하지 않으려는 경우 이 옵션을 사용하십시오. 그러면 Astra Control Center가 구축됩니다<block ref="3f624a80eb2012ebf5d970cedbdce2bc" prefix=" " category="inline-code"></block> Kubernetes "로드 밸런서" 유형 서비스로서의 게이트웨이</block>
+  <block id="16430518131c6e0ae6967a69fa9cd07b" category="list-text">인증서 관리자가 클러스터에 이미 있는 경우 일부를 수행해야 합니다 <block ref="1787bdbf8a8938a728c4bed68c77105f" category="inline-link-macro-rx"></block> 따라서 Astra Control Center는 자체 인증 관리자를 설치하려고 시도하지 않습니다. 기본적으로 Astra Control Center는 설치 중에 자체 인증서 관리자를 설치합니다.</block>
+  <block id="c365634fe298a182f5c686c7300f9bec" category="list-text">Astra Control Center 사용자 정의 리소스(CR) 파일을 편집합니다 <block ref="70b058e54d2bda749060070a7f9c4e5c" prefix="(" category="inline-code"></block>) 계정, 지원, 레지스트리 및 기타 필요한 구성을 만들려면:</block>
+  <block id="eb5abbcca70bc9da2ade170860ad8909" category="example-title">&lt;code&gt; 계정 이름 &lt;/code&gt;</block>
+  <block id="560411eea158be604867f1a41fa7c367" category="cell"><block ref="cd7a180ee2029176203abb971a5e5ed9" prefix="" category="inline-code"></block></block>
+  <block id="7d84a3a65fb0587782566e6bb943a482" category="cell"><block ref="0a52730597fb4ffa01fc117d9e71e3a9" prefix="" category="inline-code"></block></block>
+  <block id="0e55b95a4c5cb92e244e3bd0a238beb9" category="example-title">&lt;code&gt; astraVersion &lt;/code&gt;를 참조하십시오</block>
+  <block id="d13a274d958af22bed6e8d41f55d8555" category="cell"><block ref="bbdbf70444e48a34a4a7e7d708d85eec" prefix="" category="inline-code"></block></block>
+  <block id="a5aebaf297cd651e4a79e4cd380cb403" category="cell"><block ref="3208af68c7dea8493fa4cee605a96daf" prefix="" category="inline-code"></block></block>
+  <block id="c7cf7bc0197d55fb58a764f376cee071" category="example-title">&lt;code&gt; astraAddress &lt;/code&gt;를 참조하십시오</block>
+  <block id="2768247a17baf82ba937b52168928c48" category="cell"><block ref="d27903c79b643b2f565c31e894abb568" prefix="" category="inline-code"></block></block>
+  <block id="a35d697fca562fcd8adcc6a07880b3d5" category="cell"><block ref="51c3153f8b9ad8f3a27b28d6c8f95aab" prefix="" category="inline-code"></block></block>
+  <block id="16655bd6caa78814980ce90854a07356" category="example-title">&lt;code&gt; AutoSupport &lt;/code&gt;를 참조하십시오</block>
+  <block id="60d9e21a93c21f0d9ec8e72e12270054" category="cell"><block ref="774a4ec4adf9dd65264c77b3b87833b7" prefix="" category="inline-code"></block></block>
+  <block id="3f58660bc0c5272b10e985ce01bd4c2f" category="cell"><block ref="68934a3e9455fa72420237eb05902327" prefix="" category="inline-code"></block> (이 값은 기본값입니다.)</block>
+  <block id="f997a687e1840d5f81f62259e164e2bc" category="cell"><block ref="ca77df23f9eeb9f068b3474e5065bc35" prefix="" category="inline-code"></block></block>
+  <block id="7e1e7a54dd5b9e9adae8b66b705ed9ad" category="cell"><block ref="89f1dc01ab80754de6eb13d2752e24d4" prefix="" category="inline-code"></block></block>
+  <block id="86c4d410952583621f133c07f46e78b6" category="example-title">&lt;code&gt; 이메일 &lt;/code&gt;</block>
+  <block id="ae1bde34794270bb273f407db5974619" category="cell"><block ref="0c83f57c786a0b4a39efab23731c7ebc" prefix="" category="inline-code"></block></block>
+  <block id="9e9ec1c2ec655a3f0977f0b59b35141c" category="cell"><block ref="e64c7d89f26bd1972efa854d13d7dd61" prefix="" category="inline-code"></block></block>
+  <block id="ff08f78d74ec9c316683e9cb5e48a417" category="example-title">&lt;code&gt; FirstName &lt;/code&gt;</block>
+  <block id="3d0f0a15c72e6f093532fb2fa0eb84c8" category="cell"><block ref="ed89387bcd11937a7a92a99a2cbfb5d7" prefix="" category="inline-code"></block></block>
+  <block id="51f98f3c2de70ec52c350aaddbce0726" category="cell"><block ref="b972b330bcbcd220003258f963c87063" prefix="" category="inline-code"></block></block>
+  <block id="2cfc9b755eb7443584d596eeccc03179" category="example-title">&lt;code&gt; LastName &lt;/code&gt;입니다</block>
+  <block id="6cc41479a4d4be8bdaa1ed12d52e0a96" category="cell"><block ref="ef21925fada6dfb684b5d8ec72114bb1" prefix="" category="inline-code"></block></block>
+  <block id="758c6c06a272b9b6d50653ed1516e845" category="cell"><block ref="e3afed0047b08059d0fada10f400c1e5" prefix="" category="inline-code"></block></block>
+  <block id="8f269b87c3a29d9885c16c34ecbde6a9" category="example-title">&lt;code&gt; imageRegistry &lt;/code&gt; 를 참조하십시오</block>
+  <block id="40805597a70eb3b16b5d8677eb707b2e" category="paragraph">이 섹션에서 선택한 사항은 Astra 응용 프로그램 이미지, Astra Control Center Operator 및 Astra Control Center Helm 리포지토리를 호스팅하는 컨테이너 이미지 레지스트리를 정의합니다.</block>
+  <block id="de0aa77e112a4ce851a90e3753feb60c" category="cell"><block ref="f141c732c6aae0fddd2afdfac3f75f3f" prefix="" category="inline-code"></block></block>
+  <block id="f30fb2263e42a74c71ac1e8965c9581b" category="cell"><block ref="e77678b9947da8914bb67ef57aa6bb3d" prefix="" category="inline-code"></block></block>
+  <block id="92ef70acc4ea712d223b98819c5d586e" category="cell"><block ref="c6fe3b36a104e3ea913f9a6b82389050" prefix="" category="inline-code"></block></block>
+  <block id="03d6657e34554d6beac757e76f1bc824" category="cell">에 대해 입력한 문자열인 경우 필수입니다<block ref="3ee7cb6810b98126417904e0d4bbb361" prefix=" " category="inline-code"></block> 줄 내부<block ref="990dc1a09e10c7b5378e6bc8a1956cb8" prefix=" " category="inline-code"></block> 그렇지 않으면 설치가 실패합니다.</block>
+  <block id="50232323f80e15a533d4f46ddce8e33c" category="cell"><block ref="d2522c50d2a3c9af9481f3e38f4f0822" prefix="" category="inline-code"></block></block>
+  <block id="53f885f16119beba48214c8a333dcd30" category="example-title">&lt;code&gt; storageClass &lt;/code&gt; 를 참조하십시오</block>
+  <block id="6eb82a822b962404b9694b93f2967679" category="cell"><block ref="78ec9b60245b46a4f05158076962ace9" prefix="" category="inline-code"></block></block>
+  <block id="500afee2ed201fc94dcacb20ac62d718" category="cell">를 변경합니다<block ref="78ec9b60245b46a4f05158076962ace9" prefix=" " category="inline-code"></block> 값 시작<block ref="e3bccceaf53ea80a4685ac9b974016f3" prefix=" " category="inline-code"></block> 을 다른 Trident storageClass 리소스에 액세스하십시오. 명령을 실행합니다<block ref="f7a6266d561ed7e94ff1f45bb43a2f5d" prefix=" " category="inline-code"></block> 구성된 기존 스토리지 클래스를 확인하려면 다음을 수행합니다. 매니페스트 파일에 Trident 기반 스토리지 클래스 중 하나를 입력해야 합니다 <block ref="a18a8eda5e9ff8aa5e2094148dafbb33" prefix="(" category="inline-code"></block>) 및 는 Astra PVS에 사용됩니다. 이 옵션이 설정되어 있지 않으면 기본 스토리지 클래스가 사용됩니다. 참고: 기본 스토리지 클래스가 구성된 경우 기본 주석이 있는 유일한 스토리지 클래스인지 확인하십시오.</block>
+  <block id="c60d9629b4df7e299152970fb66ff161" category="cell"><block ref="e3bccceaf53ea80a4685ac9b974016f3" prefix="" category="inline-code"></block></block>
+  <block id="8bdca8e2a506e9e7c3ee3adce5f4affe" category="example-title">&lt;code&gt; volumeReclaimPolicy &lt;/code&gt;</block>
+  <block id="ae16b8609a16806d7003f724f38de023" category="cell"><block ref="c3c263fe360a73d45c030a672e1ad0c4" prefix="" category="inline-code"></block></block>
+  <block id="accb259164503c6409c6c8dc0aa30ff2" category="list-text"><block ref="afece4245269582cb2f1009d4fb52047" prefix="" category="inline-code"></block> (기본값)</block>
+  <block id="c009f85498c5a7a2db78e1874e6dd4b1" category="list-text"><block ref="f2a6c498fb90ee345d997f888fce3b18" prefix="" category="inline-code"></block></block>
+  <block id="877908cd3e772fc4a29e88d93c30aa0b" category="example-title">&lt;code&gt; 응력 유형 &lt;/code&gt;</block>
+  <block id="0e74116a552b8536c9cafd9c8099375c" category="cell"><block ref="64c885ad8d34e07c7de4b0ba1410c410" prefix="" category="inline-code"></block></block>
+  <block id="55624a06587ae2a751647d0642593fa5" category="cell">다음 수신 유형 중 하나를 사용하십시오.<block ref="8045a0a6c688b0635e3caccc408a1446" prefix="*" category="inline-code"></block>* <block ref="70110d526a7afb77cc9b5240e79845c0" prefix="(" category="inline-code"></block>) (기본값) 다른 수신 컨트롤러를 사용 중이거나 자체 수신 컨트롤러를 사용하려는 경우 이 옵션을 사용합니다. Astra Control Center를 배포한 후 을 구성해야 합니다 <block ref="7d074c32e6c49929382498ad8c5637bd" category="inline-link-macro-rx"></block> URL을 사용하여 Astra Control Center를 표시합니다.<block ref="0a3e1793e4eaf6bd67bdf43d1bca1c74" prefix="*" category="inline-code"></block>* <block ref="4388d54e87947748fc2ff08932daa51e" prefix="(" category="inline-code"></block>) 수신 컨트롤러를 구성하지 않으려는 경우 이 옵션을 사용하십시오. 그러면 Astra Control Center가 구축됩니다<block ref="3f624a80eb2012ebf5d970cedbdce2bc" prefix=" " category="inline-code"></block> Kubernetes 로드 밸런서 유형 서비스로서의 게이트웨이 Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. <block ref="24ace688122fb01922cde69e1e3df1d5" prefix="(" category="inline-code"></block> Astra Control Center 네임스페이스에서), 액세스 가능한 외부 IP 주소를 할당해야 합니다. 로드 밸런서가 사용자 환경에서 허용되고 아직 로드 밸런서가 구성되어 있지 않은 경우 MetalLB 또는 다른 외부 서비스 로드 밸런서를 사용하여 외부 IP 주소를 서비스에 할당할 수 있습니다. 내부 DNS 서버 구성에서 Astra Control Center에 대해 선택한 DNS 이름을 부하 분산 IP 주소로 지정해야 합니다. 참고: "로드 밸런서" 및 수신 서비스 유형에 대한 자세한 내용은 을 참조하십시오 <block ref="f326683052260ae8ea69adae62a4336c" category="inline-link-macro-rx"></block>.</block>
+  <block id="33f74fc9cd2ed729c919edee9f215850" category="list-text"><block ref="8045a0a6c688b0635e3caccc408a1446" prefix="" category="inline-code"></block> (기본값)</block>
+  <block id="3e0fd8a5c1c91df5087c5d974f73427b" category="list-text"><block ref="0a3e1793e4eaf6bd67bdf43d1bca1c74" prefix="" category="inline-code"></block></block>
+  <block id="3c0bacd3ec2804fd868eb274d0915fbf" category="example-title">&lt;code&gt; astraResourcesEMC &lt;/code&gt;입니다</block>
+  <block id="1beb5725a4e77d48e361447bade6dbd6" category="cell"><block ref="7ebc1f67b2eb5a818a1c50174696304a" prefix="" category="inline-code"></block></block>
+  <block id="5f63f7f7219d9084b3eefdf63a5c8ed4" category="list-text"><block ref="7a1920d61156abc05a60135aefe8bc67" prefix="" category="inline-code"></block> (기본값)</block>
+  <block id="e5d818c93457d13a2ed03b27285ceb61" category="list-text"><block ref="d15305d7a4e34e02489c74a5ef542f36" prefix="" category="inline-code"></block></block>
+  <block id="3243c3956ad9a257aac421c5c5a8d8f9" category="example-title">&lt;code&gt; CRD &lt;/code&gt;</block>
+  <block id="df41b6d560aaea4f2486c6b78ef15ed7" category="cell"><block ref="15c17271ca03b109604346103f40edce" prefix="" category="inline-code"></block></block>
+  <block id="18985ff96f96aec9c5183204b7cd5126" category="cell">외부 인증서 관리자를 사용하는 경우 를 변경합니다<block ref="277c0561d457e7aad53dcd2e4ba8051d" prefix=" " category="inline-code"></block> 를 선택합니다<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>. 기본값입니다<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block> 설치 중에 Astra Control Center가 자체 인증서 관리자 CRD를 설치합니다. CRD는 클러스터 전체 오브젝트이며 이를 설치하면 클러스터의 다른 부분에 영향을 줄 수 있습니다. 이 플래그를 사용하여 Astra Control Center에 이러한 CRD가 Astra Control Center 외부의 클러스터 관리자에 의해 설치 및 관리된다는 신호를 보낼 수 있습니다.</block>
+  <block id="b7b6ed59352359d5fd8a21ed3d3bc13d" category="cell"><block ref="f8320b26d30ab433c5a54546d21f414c" prefix="" category="inline-code"></block> (이 값은 기본값입니다.)</block>
+  <block id="f77d6c1b695b1e8803f59034b631d046" category="cell"><block ref="665b3f371a91222c9cb860633e329f92" prefix="" category="inline-code"></block></block>
+  <block id="2e5560abf13bdb9b2887b685bdc776ef" category="admonition">Nginx 컨트롤러를 이 아닌 배포로 설치하는 것이 좋습니다<block ref="1d65fd65d23d06adc2fde7343cdde026" prefix=" " category="inline-code"></block>.</block>
+  <block id="9087c55ebeb87c277bb7dce3c3d2d251" category="summary">인증 관리자가 클러스터에 이미 있는 경우 Astra Control Center가 자체 인증서 관리자를 설치하지 않도록 몇 가지 필수 단계를 수행해야 합니다.</block>
+  <block id="c9ee559042b789dacf6ca93aaa219fca" category="doc">외부 인증서 관리자를 구성합니다</block>
+  <block id="035708270f70c1afa4b0971007b0b68c" category="paragraph">Kubernetes 클러스터에 이미 인증 관리자가 있는 경우, Astra Control Center에서 자체 인증 관리자를 설치하지 않도록 몇 가지 필수 단계를 수행해야 합니다.</block>
+  <block id="1c20bff9d8b8a9b77ac17d01dd43a086" category="list-text">인증서 관리자가 설치되었는지 확인합니다.</block>
+  <block id="e9fc735838a0194f24b1d1466b6a1377" category="list-text">에 대한 인증서/키 쌍을 생성합니다<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> FQDN:</block>
+  <block id="10f990fa470837234c728715ae222a8e" category="list-text">을 생성합니다<block ref="9811be5c3399611059862e90521bc73f" prefix=" " category="inline-code"></block> 정확히 * 인 파일 다음은 같지만 가 있는 네임스페이스 위치가 포함되어 있습니다<block ref="92f03fb7268f40326282c8c80490a62a" prefix=" " category="inline-code"></block> Pod가 설치된 경우:</block>
+  <block id="09930d02b4263b689db66fae209a4662" category="list-text">를 확인합니다<block ref="9811be5c3399611059862e90521bc73f" prefix=" " category="inline-code"></block> 이(가) 올바르게 나타납니다.<block ref="e7d31fc0602fb2ede144d18cdffd816b" prefix=" " category="inline-code"></block> 은(는) 이어야 합니다<block ref="f827cf462f62848df37c5e1e94a4da74" prefix=" " category="inline-code"></block> 계속 진행하려면:</block>
+  <block id="7c6e61d3114053fdcbb584a6afb80f0b" category="list-text">를 완료합니다 <block ref="4f6226316b347cad073b05d4198e6b67" category="inline-link-macro-rx"></block>. A가 있습니다 <block ref="b10b5b361802ada39ab534d37e156fb1" category="inline-link-macro-rx"></block> 인증서 관리자가 외부에 설치되었음을 나타내기 위해 CRD 값을 변경합니다. Astra Control Center가 외부 인증서 관리자를 인식하도록 설치 중에 이 단계를 완료해야 합니다.</block>
+  <block id="9b180301de1547cfb79fd365792a5407" category="list-text">을 편집합니다<block ref="b9d73b065c599559f2852e4f2e265934" prefix=" " category="inline-code"></block> 구성 맵:</block>
 </blocks>

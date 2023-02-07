@@ -61,7 +61,7 @@ oc get pods n -netapp-monitoring
 
 해결 방법으로 다음을 수행합니다.
 
-. kubeadm-config ConfigMap 편집:
+. 을 편집합니다 `kubeadm-config` 구성 맵:
 +
 [listing]
 ----
