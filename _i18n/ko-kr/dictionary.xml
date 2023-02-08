@@ -2478,7 +2478,6 @@
   <block id="51867b2a71ff7c3e5393cf8bb442defc" category="admonition">동일한 이메일 주소를 가진 로컬 사용자가 이미 시스템에 있는 경우 원격 사용자를 추가할 수 없습니다. 사용자를 원격 사용자로 추가하려면 먼저 시스템에서 로컬 사용자를 삭제합니다.</block>
   <block id="e6bc00cd8c52affb4292616facc440da" category="admonition">Astra Control Center는 LDAP "mail" 속성의 이메일 주소를 사용하여 원격 사용자를 검색하고 추적합니다. 이 속성은 디렉터리의 선택적 필드이거나 빈 필드일 수 있습니다. Astra Control Center에 표시하고자 하는 원격 사용자의 경우 이 필드에 이메일 주소가 있어야 합니다. 이 이메일 주소는 인증을 위해 Astra Control Center의 사용자 이름으로 사용됩니다.</block>
   <block id="a2c7a68a6d213a38c0c96fe34df9fe2e" category="list-text">* Astra Trident/ONTAP 구성 *:</block>
-  <block id="abcbb80528af555f9a3f5981771386f8" category="list-text">Astra Control Center에서는 스토리지 클래스를 생성하고 기본 스토리지 클래스로 설정해야 합니다.</block>
   <block id="2a09fd1da71158929da8e53a8b3b41b7" category="list-text">Pod가 백엔드 스토리지와 상호 작용할 수 있도록 클러스터의 작업자 노드에 적절한 스토리지 드라이버가 구성되어 있는지 확인합니다. Astra Control Center는 Astra Trident에서 제공하는 다음과 같은 ONTAP 드라이버를 지원합니다.</block>
   <block id="d7dde07915bbe8056e6854c2b5e50480" category="inline-link">작업자 노드를 준비합니다</block>
   <block id="2facff43cb177de168322dab6df7d48c" category="list-text"><block ref="2facff43cb177de168322dab6df7d48c" category="inline-link-rx"></block></block>
@@ -2637,4 +2636,6 @@
   <block id="09930d02b4263b689db66fae209a4662" category="list-text">를 확인합니다<block ref="9811be5c3399611059862e90521bc73f" prefix=" " category="inline-code"></block> 이(가) 올바르게 나타납니다.<block ref="e7d31fc0602fb2ede144d18cdffd816b" prefix=" " category="inline-code"></block> 은(는) 이어야 합니다<block ref="f827cf462f62848df37c5e1e94a4da74" prefix=" " category="inline-code"></block> 계속 진행하려면:</block>
   <block id="7c6e61d3114053fdcbb584a6afb80f0b" category="list-text">를 완료합니다 <block ref="4f6226316b347cad073b05d4198e6b67" category="inline-link-macro-rx"></block>. A가 있습니다 <block ref="b10b5b361802ada39ab534d37e156fb1" category="inline-link-macro-rx"></block> 인증서 관리자가 외부에 설치되었음을 나타내기 위해 CRD 값을 변경합니다. Astra Control Center가 외부 인증서 관리자를 인식하도록 설치 중에 이 단계를 완료해야 합니다.</block>
   <block id="9b180301de1547cfb79fd365792a5407" category="list-text">을 편집합니다<block ref="b9d73b065c599559f2852e4f2e265934" prefix=" " category="inline-code"></block> 구성 맵:</block>
+  <block id="192a0e17e823e018d9d9b67cd6dbde3a" category="list-text">클러스터에 Astra Trident 스토리지 클래스를 하나 이상 구성해야 합니다. 기본 스토리지 클래스가 구성된 경우 기본 지정의 유일한 스토리지 클래스인지 확인합니다.</block>
+  <block id="f7dff2bfbfe240ed80ab3ffd13689474" category="list-text">Pod가 백엔드 스토리지와 상호 작용할 수 있도록 클러스터의 작업자 노드에 적절한 스토리지 드라이버가 구성되어 있는지 확인합니다.</block>
 </blocks>
