@@ -20,7 +20,7 @@ settings:
   - name: Astra 제어 센터
     url: "/astra-control-center-2112"
     version-number: '21.12'
-  langs: ko-kr,us-en,ja-jp,zh-cn,zh-tw,de-de,fr-fr
+  langs: ko-kr,us-en,ja-jp,zh-cn,zh-tw,de-de,es-es,fr-fr
 sidebar:
   entries:
   - title: Astra Control Center 문서
