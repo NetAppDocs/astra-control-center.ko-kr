@@ -618,12 +618,8 @@
   <block id="7672a092783c4348b96b40ea2dcf6681" category="section-title">스토리지 클래스</block>
   <block id="9282ad3aef7e124a3b2b9c7eab52b33d" category="doc">아키텍처 및 구성 요소</block>
   <block id="646e605e86066bd9485e0c23704757f2" category="section-title">스냅샷, 백업 및 보호 정책</block>
-  <block id="0ff3a63f501bdc56779548c1895a7830" category="paragraph">snapshot_은 앱과 동일한 프로비저닝된 볼륨에 저장된 앱의 시점 복사본입니다. 대개 빠릅니다. 로컬 스냅샷을 사용하여 애플리케이션을 이전 시점으로 복원할 수 있습니다. 스냅샷은 빠른 클론에 유용합니다. 스냅샷에는 구성 파일을 포함하여 앱의 모든 Kubernetes 객체가 포함됩니다.</block>
-  <block id="8088bcbdd6f32dd97af613eaa18dbfc9" category="paragraph">백업 _ 은(는) 외부 오브젝트 저장소에 저장되며 로컬 스냅샷과 비교하여 더 느리게 실행할 수 있습니다. 앱 백업을 동일한 클러스터에 복원하거나 백업을 다른 클러스터에 복원하여 앱을 마이그레이션할 수 있습니다. 또한 백업의 보존 기간을 더 길게 선택할 수도 있습니다. 이러한 백업은 외부 개체 저장소에 저장되므로 일반적으로 서버 장애 또는 데이터 손실 시 스냅샷보다 더 뛰어난 보호 기능을 제공합니다.</block>
-  <block id="1cf677982e8ac99f55d7314cb3a51d20" category="paragraph">보호 정책 _ 은(는) 해당 앱에 대해 정의한 일정에 따라 스냅샷, 백업 또는 둘 모두를 자동으로 생성하여 앱을 보호하는 방법입니다. 또한 보호 정책을 통해 일정에 유지할 스냅샷 및 백업의 수를 선택할 수 있습니다. 보호 정책을 통해 백업 및 스냅샷을 자동화하는 것이 조직의 요구에 따라 각 앱을 보호하는 가장 좋은 방법입니다.</block>
   <block id="33bb9df0e608c1dab17890f54a41a8db" category="admonition">_최근 백업 _ 이(가) 있을 때까지 완전히 보호할 수 없습니다. 백업은 영구 볼륨으로부터 멀리 떨어진 개체 저장소에 저장되기 때문에 이 작업이 중요합니다. 장애 또는 사고로 인해 클러스터와 관련 영구 스토리지가 삭제되면 복구할 백업이 필요합니다. 스냅샷을 사용하면 복구할 수 없습니다.</block>
   <block id="999cc42b236c7aee1157ff02d6f1bcd5" category="section-title">복제</block>
-  <block id="3e92f2df0bda8968dc6665778c2f9b99" category="paragraph">clone_은 앱, 해당 구성 및 영구 스토리지의 정확한 복제입니다. 동일한 Kubernetes 클러스터 또는 다른 클러스터에 클론을 수동으로 생성할 수 있습니다. 애플리케이션 및 스토리지를 Kubernetes 클러스터 간에 이동해야 하는 경우 앱 클론을 생성하는 것이 유용할 수 있습니다.</block>
   <block id="d15664749a56effbbb05a3423ea5e504" category="summary">Red Hat OpenShift를 사용하는 경우 운영자를 사용하여 Astra Control Center를 설치할 수 있습니다.</block>
   <block id="d74cdf75cddd8ade6d1b83dd387ec2f2" category="doc">OpenShift OperatorHub를 사용하여 Astra Control Center를 설치합니다</block>
   <block id="cd165c3825c1608d9ab0d7fb7273e21a" category="inline-link">Red Hat 에코시스템 카탈로그</block>
@@ -2665,4 +2661,12 @@
   <block id="4e86b3f4151280eb07fe543c3b9974f2" category="admonition">여러 클러스터 데이터가 수집되면 각 클러스터의 메트릭이 서로 다른 색으로 표시됩니다.</block>
   <block id="039788d35f35e7e6b801a37b1b602f56" category="paragraph">Astra Control Center에서 모니터링하는 시스템에서 Fluentd 엔드포인트로 로그(Kubernetes 이벤트)를 보낼 수 있습니다. Fluentd 연결은 기본적으로 비활성화되어 있습니다.</block>
   <block id="2fae9bf7af2c006788415b299aad1207" category="admonition">NetApp ONTAP 스토리지를 사용하는 애플리케이션의 데이터 이동 없이 복원을 수행할 경우 복원된 앱에서 사용하는 공간이 두 배로 증가할 수 있습니다. 데이터 이동 없이 복구를 수행한 후 복구된 애플리케이션에서 원치 않는 스냅샷을 모두 제거하여 스토리지 공간을 확보합니다.</block>
+  <block id="cca8aaa6dccaa81bdbc26387b1f1bc63" category="paragraph">스냅샷과 백업 모두 다음과 같은 유형의 데이터를 보호합니다.</block>
+  <block id="adac08ac006f9d65c559347c106461c7" category="list-text">애플리케이션 자체입니다</block>
+  <block id="6c94a6e4d564092b6e6d44dbc8e77b07" category="list-text">애플리케이션과 연결된 모든 영구 데이터 볼륨</block>
+  <block id="7dfd52c396a70e3d3406a3363ed74be4" category="list-text">응용 프로그램에 속하는 모든 리소스 아티팩트가 있습니다</block>
+  <block id="8d2f06a986c63f2706decd28b4e24967" category="paragraph">snapshot_은 앱과 동일한 프로비저닝된 볼륨에 저장된 앱의 시점 복사본입니다. 대개 빠릅니다. 로컬 스냅샷을 사용하여 애플리케이션을 이전 시점으로 복원할 수 있습니다. 스냅샷은 빠른 클론에 유용합니다. 스냅샷에는 구성 파일을 포함하여 앱의 모든 Kubernetes 객체가 포함됩니다. 스냅샷은 동일한 클러스터 내에서 앱을 클론 생성하거나 복원하는 데 유용합니다.</block>
+  <block id="d3472e0a53fc9484c0dd7ec15e76da1d" category="paragraph">백업 _ 은(는) 스냅샷을 기반으로 합니다. 외부 오브젝트 저장소에 저장되며, 이로 인해 로컬 스냅샷과 비교하여 촬영 속도가 느려질 수 있습니다. 앱 백업을 동일한 클러스터에 복원하거나 백업을 다른 클러스터에 복원하여 앱을 마이그레이션할 수 있습니다. 또한 백업의 보존 기간을 더 길게 선택할 수도 있습니다. 이러한 백업은 외부 개체 저장소에 저장되므로 일반적으로 서버 장애 또는 데이터 손실 시 스냅샷보다 더 뛰어난 보호 기능을 제공합니다.</block>
+  <block id="5becefddd70e438fb63cc4c816b5f6cc" category="paragraph">보호 정책 _ 은(는) 해당 앱에 대해 정의한 일정에 따라 스냅샷, 백업 또는 둘 모두를 자동으로 생성하여 앱을 보호하는 방법입니다. 또한 보호 정책을 사용하여 스케줄에 보관할 스냅샷과 백업의 수를 선택하고 스케줄 세분화 수준을 다르게 설정할 수 있습니다. 보호 정책을 통해 백업 및 스냅샷을 자동화하는 것이 각 애플리케이션이 조직의 요구 사항과 SLA(서비스 수준 계약) 요구 사항에 따라 보호되도록 하는 가장 좋은 방법입니다.</block>
+  <block id="5d18a3d426ac931bca06d705d79d80cf" category="paragraph">clone_은 앱, 해당 구성 및 영구 데이터 볼륨의 정확한 복제입니다. 동일한 Kubernetes 클러스터 또는 다른 클러스터에 클론을 수동으로 생성할 수 있습니다. 애플리케이션 및 스토리지를 Kubernetes 클러스터 간에 이동해야 하는 경우 앱 클론을 생성하는 것이 유용할 수 있습니다.</block>
 </blocks>
