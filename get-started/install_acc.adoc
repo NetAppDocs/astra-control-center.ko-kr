@@ -22,6 +22,8 @@ Astra Control Center를 설치하려면 NetApp Support 사이트에서 설치 �
 
 
 ====
+Astra Control Center 설치 프로세스 데모는 를 참조하십시오 https://www.youtube.com/watch?v=eurMV80b0Ks&list=PLdXI3bZJEw7mJz13z7YdiGCS6gNQgV_aN&index=5["이 비디오"^].
+
 .필요한 것
 * link:requirements.html["설치를 시작하기 전에 Astra Control Center 구축을 위한 환경을 준비합니다"].
 * 사용자 환경에서 POD 보안 정책을 구성했거나 구성하려는 경우 POD 보안 정책 및 해당 정책이 Astra Control Center 설치에 어떤 영향을 미치는지 숙지하십시오. 을 참조하십시오 link:../concepts/understand-pod-security.html["POD 보안 정책 제한 사항 이해"].
