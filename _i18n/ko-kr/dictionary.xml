@@ -1151,8 +1151,6 @@
   <block id="1c48088dc1732bdac3e27be1a94c191a" category="inline-link">VMware NSX-T 데이터 센터 제품 설명서</block>
   <block id="783d1a3e740eff9085416ec3f709793f" category="section-title">지원되는 스토리지 백엔드</block>
   <block id="160a276b6627d6a6aa9859d6c2835948" category="paragraph">Astra Control Center는 다음과 같은 스토리지 백엔드를 지원합니다.</block>
-  <block id="dfac4790f1edf6101275f3ef6bff1bf3" category="list-text">NetApp ONTAP 9.5 이상 AFF 및 FAS 시스템</block>
-  <block id="0f0b99ea2f70cd363c2c6a279f74e760" category="list-text">NetApp Cloud Volumes ONTAP를 참조하십시오</block>
   <block id="a935ac1929664c98f15473ff54019d68" category="section-title">온프레미스 Kubernetes 클러스터의 수신</block>
   <block id="3535d3befb15db2a6b9a1413eed8204e" category="admonition">Tanzu Kubernetes Grid 클러스터에서 Astra Control Center를 호스팅하는 경우 "kubbtl get nsxlbmonitor -a" 명령을 사용하여 수신 트래픽을 허용하도록 구성된 서비스 모니터가 있는지 확인하십시오. 기존 서비스 모니터가 새 로드 밸런서 구성을 무시하므로 MetalLB를 설치하면 안 됩니다.</block>
   <block id="9094bc8efffaaa3a7bff5aba20de1ca7" category="admonition">Astra Control Center를 이중 스택 Kubernetes 클러스터에 구축할 수 있으며, Astra Control Center는 이중 스택 작업을 위해 구성된 애플리케이션 및 스토리지 백엔드를 관리할 수 있습니다. 이중 스택 클러스터 요구사항에 대한 자세한 내용은 를 참조하십시오<block ref="4e26c1cd22436fb9612733bcd727160e" category="inline-link-rx"></block>.</block>
@@ -1670,7 +1668,6 @@
   <block id="ed78458df917d6da9f19cca23d8468cd" category="paragraph"><block ref="c229e392652cddf73148e5c65f706c6d" category="inline-link-macro-rx"></block> NetApp SnapMirror 기술을 사용하여 원격 클러스터로 Astra Control은 스냅샷을 원격 클러스터에 복제하여 비동기식 재해 복구 기능을 제공합니다.</block>
   <block id="ca5eff8f4c2396bf09558b428d91e9f3" category="section-title">2022년 9월 8일(22.08.1)</block>
   <block id="322f8233054cca6c9d6204f1aa1d1f7f" category="paragraph">Astra Control Center(22.08.0)용 패치 릴리스(22.08.1)는 NetApp SnapMirror를 사용하여 앱 복제에 사소한 버그를 수정합니다.</block>
-  <block id="419590ef59b29bd36215f285b4098a7c" category="list-text">NetApp ONTAP 9.8 이상 SnapMirror 기반 애플리케이션 복제를 위한 AFF 및 FAS 시스템</block>
   <block id="eb507cd0bc5d12259c54a50f248a2049" category="list-text">원활한 재해 복구를 위해 세 번째 장애 도메인 또는 보조 사이트에 Astra Control Center를 배포하는 것이 좋습니다.</block>
   <block id="f21f22dde0e0692333a7a28cce456b08" category="sidebar">모든 Astra 문서</block>
   <block id="cc76a05fe8cbb45b45b1139e841822bd" category="admonition">AWS(Amazon Web Services) 및 GCP(Google Cloud Platform)는 일반 S3 버킷 유형을 사용합니다.</block>
@@ -2669,4 +2666,9 @@
   <block id="d3472e0a53fc9484c0dd7ec15e76da1d" category="paragraph">백업 _ 은(는) 스냅샷을 기반으로 합니다. 외부 오브젝트 저장소에 저장되며, 이로 인해 로컬 스냅샷과 비교하여 촬영 속도가 느려질 수 있습니다. 앱 백업을 동일한 클러스터에 복원하거나 백업을 다른 클러스터에 복원하여 앱을 마이그레이션할 수 있습니다. 또한 백업의 보존 기간을 더 길게 선택할 수도 있습니다. 이러한 백업은 외부 개체 저장소에 저장되므로 일반적으로 서버 장애 또는 데이터 손실 시 스냅샷보다 더 뛰어난 보호 기능을 제공합니다.</block>
   <block id="5becefddd70e438fb63cc4c816b5f6cc" category="paragraph">보호 정책 _ 은(는) 해당 앱에 대해 정의한 일정에 따라 스냅샷, 백업 또는 둘 모두를 자동으로 생성하여 앱을 보호하는 방법입니다. 또한 보호 정책을 사용하여 스케줄에 보관할 스냅샷과 백업의 수를 선택하고 스케줄 세분화 수준을 다르게 설정할 수 있습니다. 보호 정책을 통해 백업 및 스냅샷을 자동화하는 것이 각 애플리케이션이 조직의 요구 사항과 SLA(서비스 수준 계약) 요구 사항에 따라 보호되도록 하는 가장 좋은 방법입니다.</block>
   <block id="5d18a3d426ac931bca06d705d79d80cf" category="paragraph">clone_은 앱, 해당 구성 및 영구 데이터 볼륨의 정확한 복제입니다. 동일한 Kubernetes 클러스터 또는 다른 클러스터에 클론을 수동으로 생성할 수 있습니다. 애플리케이션 및 스토리지를 Kubernetes 클러스터 간에 이동해야 하는 경우 앱 클론을 생성하는 것이 유용할 수 있습니다.</block>
+  <block id="f4830a7c07883165a7a5c8d341286873" category="list-text">NetApp ONTAP 9.5 이상 AFF, FAS 및 ASA 시스템</block>
+  <block id="a6c8aa58cced8f18c41300f47bec2c86" category="list-text">NetApp ONTAP 9.8 이상 SnapMirror 기반 애플리케이션 복제를 위한 AFF, FAS 및 ASA 시스템</block>
+  <block id="2f69a705b60cbc3d6bba3c41c6be8810" category="list-text">NetApp ONTAP Select 9.5 이상</block>
+  <block id="8ccf427f70709789c9c7a4f0ffd8f8cc" category="list-text">SnapMirror 기반 애플리케이션 복제를 위한 NetApp ONTAP Select 9.8 이상</block>
+  <block id="bfd904fc0dcf06a45fdb48323bd3a82d" category="list-text">NetApp Cloud Volumes ONTAP 9.5 이상</block>
 </blocks>

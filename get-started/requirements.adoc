@@ -100,9 +100,11 @@ NOTE: 이러한 요구 사항에서는 Astra Control Center가 운영 환경에�
 
 Astra Control Center는 다음과 같은 스토리지 백엔드를 지원합니다.
 
-* NetApp ONTAP 9.5 이상 AFF 및 FAS 시스템
-* NetApp ONTAP 9.8 이상 SnapMirror 기반 애플리케이션 복제를 위한 AFF 및 FAS 시스템
-* NetApp Cloud Volumes ONTAP를 참조하십시오
+* NetApp ONTAP 9.5 이상 AFF, FAS 및 ASA 시스템
+* NetApp ONTAP 9.8 이상 SnapMirror 기반 애플리케이션 복제를 위한 AFF, FAS 및 ASA 시스템
+* NetApp ONTAP Select 9.5 이상
+* SnapMirror 기반 애플리케이션 복제를 위한 NetApp ONTAP Select 9.8 이상
+* NetApp Cloud Volumes ONTAP 9.5 이상
 
 
 Astra Control Center를 사용하려면 수행해야 할 작업에 따라 다음과 같은 ONTAP 라이센스가 있는지 확인합니다.
