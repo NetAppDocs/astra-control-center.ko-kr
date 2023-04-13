@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: get-started/intro.html 
-keywords: how astra control works, what is astra, kubernetes cluster, what is astra control center 
+keywords: how astra control works, what is astra, kubernetes cluster, what is astra control center, astra control service 
 summary: Astra Control은 Kubernetes 애플리케이션 데이터 라이프사이클 관리 서비스로, 상태 저장 애플리케이션의 운영을 단순화합니다. Kubernetes 워크로드를 손쉽게 보호, 백업, 마이그레이션하고 정상 작동하는 애플리케이션 클론을 즉시 생성할 수 있습니다. 
 ---
 = Astra Control에 대해 알아보십시오
@@ -23,9 +23,9 @@ Astra Control은 Kubernetes 애플리케이션 데이터 라이프사이클 관�
 * 영구 스토리지를 자동으로 관리합니다
 * 애플리케이션 인식 필요 시 스냅샷과 백업을 생성합니다
 * 정책 기반 스냅샷 및 백업 작업 자동화
-* NetApp SnapMirror 기술을 사용하여 애플리케이션을 원격 시스템에 복제합니다
 * Kubernetes 클러스터 간에 애플리케이션 및 데이터를 마이그레이션합니다
-* 스테이징에서 운영 환경으로 애플리케이션을 손쉽게 클론 복제할 수 있습니다
+* NetApp SnapMirror 기술(Astra Control Center)을 사용하여 원격 시스템에 애플리케이션 복제
+* 스테이징 환경에서 운영 환경으로 애플리케이션 클론 생성
 * 애플리케이션 상태 및 보호 상태를 시각화합니다
 * 웹 UI 또는 API를 사용하여 백업 및 마이그레이션 워크플로우를 구현합니다
 
@@ -65,6 +65,7 @@ Astra Control은 두 가지 배포 모델로 제공됩니다.
 +
 ** Amazon EBS
 ** NetApp ONTAP용 Amazon FSx
+** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["Cloud Volumes ONTAP"^]
 
 
 * Google 클라우드:
@@ -83,7 +84,9 @@ Astra Control은 두 가지 배포 모델로 제공됩니다.
 
 * 자가 관리 클러스터:
 +
-** NetApp ONTAP AFF 및 FAS 시스템
+** Amazon EBS
+** Google 영구 디스크
+** Azure 관리 디스크
 ** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
 
 
@@ -132,7 +135,7 @@ Astra Control의 무료 플랜을 사용하면 최대 10개의 네임스페이�
 
 Astra Control Center는 프라이빗 클라우드에서 로컬로 실행됩니다.
 
-Astra Control Center는 ONTAP 9.5 이상의 스토리지 백엔드를 포함하는 Trident 기반 스토리지 클래스를 사용하여 Kubernetes 클러스터를 지원합니다.
+Astra Control Center는 ONTAP 9.5 이상 스토리지 백엔드를 포함하는 Trident 기반 스토리지 클래스를 사용하여 Kubernetes 클러스터를 지원합니다.
 
 클라우드 연결 환경에서 Astra Control Center는 Cloud Insights를 사용하여 고급 모니터링 및 원격 측정 기능을 제공합니다. Cloud Insights 연결이 없을 경우 Astra Control Center에서 제한된(7일 메트릭) 모니터링 및 원격 측정 기능을 사용할 수 있으며, 개방형 메트릭 엔드 포인트를 통해 Kubernetes 기본 모니터링 툴(예: Prometheus 및 Grafana)으로 내보낼 수 있습니다.
 

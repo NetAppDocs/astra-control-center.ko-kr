@@ -1264,7 +1264,6 @@
   <block id="f27876af7f41dd88d732712643f9e8ab" category="list-text"><block ref="edd1a66c7657e8422b18455f2fcc01fd" category="inline-xref-macro-rx"></block></block>
   <block id="72b3b17d23e094f72641c4ffa8928d85" category="section-title">NetApp Astra kubtl 플러그인을 설치합니다</block>
   <block id="ade277501852b5468b0c3b865cb7e40f" category="paragraph">Astra Control은 Kubernetes 애플리케이션 데이터 라이프사이클 관리 솔루션으로, 상태 저장 애플리케이션의 운영을 단순화합니다. Kubernetes 워크로드를 손쉽게 보호, 백업, 복제, 마이그레이션하고 정상 작동하는 애플리케이션 클론을 즉시 생성할 수 있습니다.</block>
-  <block id="50f9f66165bfd78e72eb71c73f5252c0" category="list-text">NetApp SnapMirror 기술을 사용하여 애플리케이션을 원격 시스템에 복제합니다</block>
   <block id="4b6ccd94421822eaaf7bd027992018af" category="inline-link">Amazon Elastic Block Store를 클릭합니다</block>
   <block id="4d82a1ec1af02725042c8c785564ee7a" category="inline-link">NetApp ONTAP용 Amazon FSx</block>
   <block id="7a3f533a65a34319a327318673651449" category="list-text">Amazon EKS 클러스터의 경우 Astra Control Service가 사용합니다<block ref="a65cb6c91d35e755c3763fe01aedac72" category="inline-link-rx"></block> 또는<block ref="554e81ff0c0b44a91e38efe479d6c57c" category="inline-link-rx"></block> 영구 볼륨의 스토리지 백엔드로 사용됩니다.</block>
@@ -1962,7 +1961,6 @@
   <block id="c4d3bd82a4066f0e523ba618e438bc51" category="summary">Astra Control은 Kubernetes 애플리케이션 데이터 라이프사이클 관리 서비스로, 상태 저장 애플리케이션의 운영을 단순화합니다. Kubernetes 워크로드를 손쉽게 보호, 백업, 마이그레이션하고 정상 작동하는 애플리케이션 클론을 즉시 생성할 수 있습니다.</block>
   <block id="450dcc356e2c75be5bfea7bc913558bb" category="list-text">AKS 클러스터의 경우 Astra Control Service가 사용합니다<block ref="16e1ab965c1d673c5cb3b5a28e77c1c1" category="inline-link-rx"></block> 또는 Azure 관리 디스크를 영구 볼륨의 스토리지 백엔드로 사용합니다.</block>
   <block id="181e1260b62d0667dd25d8e26eba83f5" category="paragraph">Astra Control의 무료 플랜을 사용하면 최대 10개의 네임스페이스를 계정에서 관리할 수 있습니다. 10개 이상의 항목을 관리하려는 경우 무료 요금에서 프리미엄 요금제로 업그레이드하여 청구서를 설정해야 합니다.</block>
-  <block id="9fec972e16132554b3f6d7a367b20c12" category="paragraph">Astra Control Center는 ONTAP 9.5 이상의 스토리지 백엔드를 포함하는 Trident 기반 스토리지 클래스를 사용하여 Kubernetes 클러스터를 지원합니다.</block>
   <block id="46d0a394f0b8bd48b4ad9f07551cc671" category="paragraph">90일 평가판 라이센스를 사용하여 Astra Control Center를 사용해 볼 수 있습니다. 평가판 버전은 전자 메일 및 커뮤니티 옵션을 통해 지원됩니다. 또한 제품 내 지원 대시보드에서 Knowledgebase 문서 및 문서에 액세스할 수 있습니다.</block>
   <block id="624cfce99f1f72da4d8c5d67b46d357b" category="paragraph">Astra Control Center를 설치하는 동안(지정된 경우<block ref="5ef3c13da1e4fcb9a76fc8f568eee144" prefix=" " category="inline-code"></block> 용<block ref="5398d7dab242bfea13c044912cacfd10" prefix=" " category="inline-code"></block> Astra Control Center CR(사용자 지정 리소스) 파일 <block ref="70b058e54d2bda749060070a7f9c4e5c" prefix="(" category="inline-code"></block>), 일별 지원 번들은 에 자동으로 업로드됩니다<block ref="3725c06f412bedb14ffd610de312875d" category="inline-link-rx"></block>.</block>
   <block id="a62af64f81e65194efb6011308308c81" category="list-text">하나 이상의 네임스페이스 내에 배포된 개별 애플리케이션(이 예에서는 helm3이 사용됨)</block>
@@ -2486,7 +2484,6 @@
   <block id="734224e6b4ec285b77e7b79b03d94b02" category="cell">AstraControlCenter 리소스 제한에 대한 확장 옵션 기본적으로 Astra Control Center는 Astra 내의 대부분의 구성 요소에 대해 설정된 리소스 요청과 함께 배포됩니다. 이 구성을 통해 Astra Control Center 소프트웨어 스택은 애플리케이션 로드 및 확장 수준이 높은 환경에서 더 나은 성능을 발휘할 수 있습니다. 그러나 더 작은 개발 또는 테스트 클러스터를 사용하는 시나리오에서는 CR 필드를 사용합니다<block ref="58109f8b5a58dff610844c779b6c42ad" prefix=" " category="inline-code"></block> 로 설정할 수 있습니다<block ref="d15305d7a4e34e02489c74a5ef542f36" prefix=" " category="inline-code"></block>. 이렇게 하면 리소스 요청이 비활성화되고 소규모 클러스터에 구축할 수 있습니다.</block>
   <block id="a5a239f5a107b63b3aa6d192c95bb6d1" category="paragraph">이 섹션에서 선택한 사항은 Astra Control Center에서 CRD를 처리하는 방법을 결정합니다.</block>
   <block id="c227fa0621e3f1f87571da78dd03ca6f" category="cell">기본적으로 Astra Control Center는 필요한 Traefik CRD를 설치합니다. CRD는 클러스터 전체 오브젝트이며 이를 설치하면 클러스터의 다른 부분에 영향을 줄 수 있습니다. 이 플래그를 사용하여 Astra Control Center에 이러한 CRD가 Astra Control Center 외부의 클러스터 관리자에 의해 설치 및 관리된다는 신호를 보낼 수 있습니다.</block>
-  <block id="4f508b1a632fa280de99843b2fe48176" category="list-text">스테이징에서 운영 환경으로 애플리케이션을 손쉽게 클론 복제할 수 있습니다</block>
   <block id="6c4ff7542dcef16bc12bbbab0c160e9a" category="list-text">웹 UI 또는 API를 사용하여 백업 및 마이그레이션 워크플로우를 구현합니다</block>
   <block id="662f909cd182f2c19a1b5da86174d75f" category="list-text">* Astra Control Service *: 여러 클라우드 공급자 환경의 Kubernetes 클러스터에 대한 애플리케이션 인식 데이터 관리 기능과 자가 관리 Kubernetes 클러스터를 제공하는 NetApp 관리 서비스입니다.</block>
   <block id="a301d7b978ad27dd47b48aac714d81ef" category="list-text">* Astra Control Center *: 사내 환경에서 실행되는 Kubernetes 클러스터의 애플리케이션 인식 데이터 관리를 제공하는 자체 관리 소프트웨어입니다. 또한 NetApp Cloud Volumes ONTAP 스토리지 백엔드를 통해 여러 클라우드 공급자 환경에 Astra Control Center를 설치할 수 있습니다.</block>
@@ -2677,4 +2674,7 @@
   <block id="11c38116a632436215a6716507c1a287" category="list-text"><block ref="11c38116a632436215a6716507c1a287" category="inline-link-rx"></block></block>
   <block id="201e09e85ad81db8a19ef9f20c05d1a5" category="inline-link">이 비디오</block>
   <block id="259f3be9b6c8eefb44e844c2b70333dc" category="paragraph">Astra Control Center 설치 프로세스 데모는 를 참조하십시오<block ref="cbbdec23221803dc148346abe5a297c0" category="inline-link-rx"></block>.</block>
+  <block id="f7173fff9a92f2bab2648f86282ab07c" category="list-text">NetApp SnapMirror 기술(Astra Control Center)을 사용하여 원격 시스템에 애플리케이션 복제</block>
+  <block id="631928ccc601c8e49976a8d73af28304" category="list-text">스테이징 환경에서 운영 환경으로 애플리케이션 클론 생성</block>
+  <block id="469a0111714c5c9a6b3b013ec5fb5b82" category="paragraph">Astra Control Center는 ONTAP 9.5 이상 스토리지 백엔드를 포함하는 Trident 기반 스토리지 클래스를 사용하여 Kubernetes 클러스터를 지원합니다.</block>
 </blocks>
