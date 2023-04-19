@@ -892,10 +892,10 @@ spec:
   ingressClassName: istio
   tls:
   - hosts:
-    - <ACC addess>
+    - <ACC address>
     secretName: [tls secret name]
   rules:
-  - host: [ACC addess]
+  - host: [ACC address]
     http:
       paths:
       - path: /
@@ -948,7 +948,7 @@ spec:
     - <ACC address>
     secretName: [tls secret name]
   rules:
-  - host: <ACC addess>
+  - host: <ACC address>
     http:
       paths:
         - path:
@@ -987,7 +987,7 @@ oc create route edge --service=traefik --port=web -n [netapp-acc or custom names
 Astra Control Center를 설치한 후 기본 관리자의 암호를 변경하고 Astra Control Center UI 대시보드에 로그인합니다.
 
 .단계
-. 브라우저에서 FQDN을 입력합니다 (`https://<FQDN>`) 에서 을(를) 사용했습니다 `astraAddress` 에 있습니다 `astra_control_center.yaml` CR <<Astra Control Center를 구성합니다,Astra Control Center를 설치했습니다>>.
+. 브라우저에서 FQDN을 입력합니다 (`https://[FQDN]`) 에서 을(를) 사용했습니다 `astraAddress` 에 있습니다 `astra_control_center.yaml` CR <<Astra Control Center를 구성합니다,Astra Control Center를 설치했습니다>>.
 . 메시지가 표시되면 자체 서명된 인증서를 수락합니다.
 +
 
