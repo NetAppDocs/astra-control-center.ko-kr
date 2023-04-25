@@ -16,7 +16,7 @@ Red Hat OpenShift를 사용하는 경우 Red Hat 공인 운영자를 사용하�
 
 이 절차를 완료한 후에는 설치 절차로 돌아가 를 완료해야 합니다 link:../get-started/install_acc.html#verify-system-status["나머지 단계"^] 설치 성공 여부를 확인하고 로그온합니다.
 
-.필요한 것
+.시작하기 전에
 * * 환경 전제 조건 충족 *: link:requirements.html["설치를 시작하기 전에 Astra Control Center 구축을 위한 환경을 준비합니다"^].
 * * 정상적인 클러스터 운영자 및 API 서비스 *:
 +
@@ -63,7 +63,7 @@ oc create namespace netapp-acc-operator
 
 == Astra Control Center를 다운로드하고 압축을 풉니다
 
-. 로 이동합니다 https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Astra Control Center 평가판 다운로드 페이지"^] 를 방문하십시오.
+. 로 이동합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Center 다운로드 페이지"^] 를 방문하십시오.
 . Astra Control Center가 포함된 번들을 다운로드합니다 (`astra-control-center-[version].tar.gz`)를 클릭합니다.
 . (권장되지만 선택 사항) Astra Control Center용 인증서 및 서명 번들을 다운로드합니다 (`astra-control-center-certs-[version].tar.gz`)를 클릭하여 번들 서명을 확인합니다.
 +
@@ -91,9 +91,9 @@ tar -vxzf astra-control-center-[version].tar.gz
 
 == NetApp Astra kubtl 플러그인을 설치합니다
 
-NetApp Astra kubtl 명령줄 플러그인은 Astra Control Center 배포 및 업그레이드와 관련된 일반적인 작업을 수행할 때 시간을 절약해 줍니다.
+NetApp Astra kubtl 명령줄 플러그인을 사용하여 이미지를 로컬 Docker 저장소로 푸시할 수 있습니다.
 
-.필요한 것
+.시작하기 전에
 NetApp은 다양한 CPU 아키텍처 및 운영 체제에 대한 플러그인 바이너리를 제공합니다. 이 작업을 수행하기 전에 사용 중인 CPU 및 운영 체제를 알아야 합니다.
 
 .단계
@@ -171,7 +171,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=22.11.0-82
+export PACKAGEVERSION=23.04.0-22
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -190,7 +190,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=22.11.0-82
+export PACKAGEVERSION=23.04.0-22
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -201,8 +201,13 @@ done
 ----
 +
 
-NOTE: 레지스트리 구성에 따라 스크립트가 만드는 이미지 경로는 다음과 같아야 합니다. `https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/22.11.0-82/image:version`
+NOTE: 레지스트리 구성에 따라 스크립트가 만드는 이미지 경로는 다음과 같아야 합니다.
 
++
+[listing]
+----
+https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.04.0-22/image:version
+----
 
 
 --

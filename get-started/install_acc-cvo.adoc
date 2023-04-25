@@ -197,10 +197,10 @@ BlueXP 설명서를 참조하여 다음 단계를 완료합니다. 다음을 참
 . OpenShift 클러스터를 가져옵니다. 클러스터가 방금 생성한 작업 환경에 연결됩니다.
 +
 .. NetApp 클러스터 세부 정보를 보려면 * K8s * > * 클러스터 목록 * > * 클러스터 세부 정보 * 를 선택합니다.
-.. 오른쪽 위 모서리에서 Trident 버전을 확인합니다.
+.. 오른쪽 위 모서리에 Astra Trident 버전을 적어 둡니다.
 .. NetApp을 공급자 로 보여주는 Cloud Volumes ONTAP 클러스터 스토리지 클래스를 참조하십시오.
 +
-그러면 Red Hat OpenShift 클러스터가 가져와 기본 스토리지 클래스가 할당됩니다. 스토리지 클래스를 선택합니다. Trident는 가져오기 및 검색 프로세스의 일부로 자동으로 설치됩니다.
+그러면 Red Hat OpenShift 클러스터가 가져와 기본 스토리지 클래스가 할당됩니다. 스토리지 클래스를 선택합니다. Astra Trident는 가져오기 및 검색 프로세스의 일부로 자동으로 설치됩니다.
 
 
 
@@ -403,7 +403,7 @@ NetApp BlueXP(이전의 Cloud Manager)를 사용하여 작업 공간을 만들�
 
 BlueXP 설명서를 참조하여 다음 단계를 완료합니다. 을 참조하십시오 https://docs.netapp.com/us-en/occm/task_getting_started_gcp.html["GCP에서 Cloud Volumes ONTAP 시작하기"^].
 
-.필요한 것
+.시작하기 전에
 * 필요한 IAM 권한 및 역할을 사용하여 GCP 서비스 계정에 액세스합니다
 
 
@@ -428,7 +428,7 @@ BlueXP 설명서를 참조하여 다음 단계를 완료합니다. 을 참조하
 .. 오른쪽 위 모서리에서 Trident 버전을 확인합니다.
 .. "NetApp"을 프로비저닝자로 나타내는 Cloud Volumes ONTAP 클러스터 스토리지 클래스를 확인하십시오.
 +
-그러면 Red Hat OpenShift 클러스터가 가져와 기본 스토리지 클래스가 할당됩니다. 스토리지 클래스를 선택합니다. Trident는 가져오기 및 검색 프로세스의 일부로 자동으로 설치됩니다.
+그러면 Red Hat OpenShift 클러스터가 가져와 기본 스토리지 클래스가 할당됩니다. 스토리지 클래스를 선택합니다. Astra Trident는 가져오기 및 검색 프로세스의 일부로 자동으로 설치됩니다.
 
 
 
@@ -483,7 +483,7 @@ Astra Control Center를 호스팅하기 위해 선택한 운영 환경이 환경
 
 Astra Control Center에는 환경의 리소스 요구 사항 외에 다음과 같은 리소스가 필요합니다.
 
-을 참조하십시오 link:../get-started/requirements.html#operational-environment-requirements["Astra Control Center 운영 환경 요구 사항"].
+을 참조하십시오 link:../get-started/requirements.html["Astra Control Center 운영 환경 요구 사항"].
 
 [cols="1h,2a"]
 |===
@@ -636,7 +636,7 @@ BlueXP(이전의 Cloud Manager)를 사용하여 작업 영역을 만들고, Azur
 
 BlueXP 설명서를 참조하여 다음 단계를 완료합니다. 을 참조하십시오 https://docs.netapp.com/us-en/occm/task_getting_started_azure.html["Azure에서 BlueXP를 시작합니다"^].
 
-.필요한 것
+.시작하기 전에
 필요한 IAM 권한 및 역할을 사용하여 Azure 계정에 액세스합니다
 
 .단계
@@ -669,12 +669,12 @@ image:acc-cvo-azure-working-environment.png["이 이미지는 BlueXP의 작업 �
 +
 image:acc-cvo-azure-connected.png["이 이미지는 BlueXP에서 가져온 클러스터를 보여줍니다"]
 
-.. 오른쪽 위 모서리에서 Trident 버전을 확인합니다.
+.. 오른쪽 위 모서리에 Astra Trident 버전을 적어 둡니다.
 .. NetApp을 공급자 로 보여주는 Cloud Volumes ONTAP 클러스터 스토리지 클래스를 참조하십시오.
 
 
 +
-이렇게 하면 Red Hat OpenShift 클러스터를 가져오고 기본 스토리지 클래스를 할당합니다. 스토리지 클래스를 선택합니다. Trident는 가져오기 및 검색 프로세스의 일부로 자동으로 설치됩니다.
+이렇게 하면 Red Hat OpenShift 클러스터를 가져오고 기본 스토리지 클래스를 할당합니다. 스토리지 클래스를 선택합니다. Astra Trident는 가져오기 및 검색 프로세스의 일부로 자동으로 설치됩니다.
 
 . 이 Cloud Volumes ONTAP 배포에서 모든 영구 볼륨 및 볼륨을 기록해 둡니다.
 . Cloud Volumes ONTAP는 단일 노드 또는 고가용성으로 작동할 수 있습니다. HA가 활성화된 경우 Azure에서 실행 중인 HA 상태와 노드 배포 상태를 확인하십시오.

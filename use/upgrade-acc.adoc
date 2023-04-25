@@ -14,8 +14,8 @@ summary: Astra Control Center를 업그레이드하려면 설명된 단계에 �
 [role="lead"]
 Astra Control Center를 업그레이드하려면 NetApp Support 사이트에서 설치 번들을 다운로드하고 다음 지침을 완료하십시오. 이 절차를 사용하여 인터넷에 연결되거나 공기가 연결된 환경에서 Astra Control Center를 업그레이드할 수 있습니다.
 
-.필요한 것
-* 업그레이드하기 전에 을 참조하십시오 link:../get-started/requirements.html#operational-environment-requirements["구현할 수 있습니다"^] 사용자 환경이 Astra Control Center 배포에 대한 최소 요구 사항을 충족하는지 확인합니다. 환경에 다음이 있어야 합니다.
+.시작하기 전에
+* 업그레이드하기 전에 을 참조하십시오 link:../get-started/requirements.html["구현할 수 있습니다"^] 사용자 환경이 Astra Control Center 배포에 대한 최소 요구 사항을 충족하는지 확인합니다. 환경에 다음이 있어야 합니다.
 +
 ** 지원되는 Astra Trident 버전 실행 중인 버전을 확인하려면 기존 Astra Control Center에 대해 다음 명령을 실행합니다.
 +
@@ -100,7 +100,7 @@ tar -vxzf astra-control-center-[version].tar.gz
 
 == NetApp Astra kubtl 플러그인을 제거하고 다시 설치합니다
 
-NetApp Astra kubtl 명령줄 플러그인은 Astra Control Center 배포 및 업그레이드와 관련된 일반적인 작업을 수행할 때 시간을 절약해 줍니다.
+NetApp Astra kubtl 명령줄 플러그인을 사용하여 이미지를 로컬 Docker 저장소로 푸시할 수 있습니다.
 
 . 플러그인이 설치되어 있는지 확인합니다.
 +
@@ -192,7 +192,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=22.11.0-82
+export PACKAGEVERSION=23.04.0-22
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -211,7 +211,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=22.11.0-82
+export PACKAGEVERSION=23.04.0-22
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -222,8 +222,13 @@ done
 ----
 +
 
-NOTE: 레지스트리 구성에 따라 스크립트가 만드는 이미지 경로는 다음과 같아야 합니다. `https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/22.11.0-82/image:version`
+NOTE: 레지스트리 구성에 따라 스크립트가 만드는 이미지 경로는 다음과 같아야 합니다.
 
++
+[listing]
+----
+https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.04.0-22/image:version
+----
 
 
 --
@@ -249,8 +254,7 @@ vim astra_control_center_operator_deploy.yaml
 +
 [listing]
 ----
-imagePullSecrets:
-- name: <astra-registry-cred_or_custom_name_of_secret>
+imagePullSecrets: [{name: astra-registry-cred}]
 ----
 .. 변경 `[your_registry_path]` 의 경우 `kube-rbac-proxy` 이미지를 에서 푸시한 레지스트리 경로로 이미지 <<이미지를 로컬 레지스트리에 추가합니다,이전 단계>>.
 .. 변경 `[your_registry_path]` 의 경우 `acc-operator` 이미지를 에서 푸시한 레지스트리 경로로 이미지 <<이미지를 로컬 레지스트리에 추가합니다,이전 단계>>.
@@ -303,7 +307,7 @@ spec:
           value: "2"
         *- name: ACCOP_HELM_UPGRADETIMEOUT*
           *value: 300m*
-        *image: [your_registry_path]/acc-operator:[version x.y.z]*
+        *image: [your_registry_path]/acc-operator:23.04.21*
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -377,7 +381,7 @@ kubectl get pods -n netapp-acc-operator
 ----
 kubectl edit AstraControlCenter -n [netapp-acc or custom namespace]
 ----
-. Astra 버전 번호를 변경합니다 (`astraVersion` 의 내부 `Spec`)를 업그레이드할 버전:
+. Astra 버전 번호를 변경합니다 (`astraVersion` 의 내부 `spec`)를 업그레이드할 버전:
 +
 [listing, subs="+quotes"]
 ----
@@ -385,21 +389,21 @@ spec:
   accountName: "Example"
   *astraVersion: "[Version number]"*
 ----
-. 이미지 레지스트리 경로가 에서 이미지를 푸시한 레지스트리 경로와 일치하는지 확인합니다 <<이미지를 로컬 레지스트리에 추가합니다,이전 단계>>. 업데이트 `imageRegistry` 의 내부 `Spec` 마지막 설치 이후 레지스트리가 변경된 경우
+. 이미지 레지스트리 경로가 에서 이미지를 푸시한 레지스트리 경로와 일치하는지 확인합니다 <<이미지를 로컬 레지스트리에 추가합니다,이전 단계>>. 업데이트 `imageRegistry` 의 내부 `spec` 마지막 설치 이후 레지스트리가 변경된 경우
 +
 [listing]
 ----
   imageRegistry:
     name: "[your_registry_path]"
 ----
-. 에 다음을 추가합니다 `CRDs` 의 내부 구성 `Spec`:
+. 에 다음을 추가합니다 `crds` 의 내부 구성 `spec`:
 +
 [listing]
 ----
 crds:
   shouldUpgrade: true
 ----
-. Astra Control Center CR의 '서펙' 안에 있는 additionalValues에 다음 줄을 추가합니다.
+. 에 다음 행을 추가합니다 `additionalValues` 의 내부 `spec` Astra Control Center CR에서 다음을 수행합니다.
 +
 [listing]
 ----
@@ -409,9 +413,7 @@ additionalValues:
         periodSeconds: 30
         failureThreshold: 600
 ----
-+
-파일 편집기를 저장하고 종료하면 변경 사항이 적용되고 업그레이드가 시작됩니다.
-
+. 파일 편집기를 저장하고 종료합니다. 변경 사항이 적용되고 업그레이드가 시작됩니다.
 . (선택 사항) Pod가 종료되어 다시 사용할 수 있는지 확인합니다.
 +
 [listing]
@@ -431,7 +433,7 @@ kubectl get AstraControlCenter -n [netapp-acc or custom namespace]
 [listing]
 ----
 NAME    UUID                                      VERSION     ADDRESS         READY
-astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f      22.11.0-82  10.111.111.111  True
+astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f      23.04.0-22  10.111.111.111  True
 ----
 +
 

@@ -41,6 +41,12 @@ OC new-project WordPress OC adm policy add-SCC-to-group anyuid system:serviceacc
 
 시간당 한 번 이상 백업 또는 스냅샷을 자주 실행해야 하는 경우 를 수행할 수 있습니다 https://docs.netapp.com/us-en/astra-automation/workflows/workflows_before.html["Astra Control REST API를 사용하여 스냅샷과 백업을 생성합니다"^].
 
+
+TIP: 백업 및 복제 일정을 오프셋하여 일정이 겹치지 않도록 합니다. 예를 들어, 매시간 맨 위에서 백업을 수행하고 5분 오프셋 및 10분 간격으로 복제를 시작하도록 예약합니다.
+
+
+IMPORTANT: 앱이 에서 지원하는 저장소 클래스를 사용하는 경우 `ontap-nas-economy` 드라이버, 보호 정책을 사용할 수 없습니다. 보호 정책을 원하는 경우 대체 스토리지 클래스를 사용합니다.
+
 .단계
 . 응용 프로그램 * 을 선택한 다음 앱 이름을 선택합니다.
 . 데이터 보호 * 를 선택합니다.
@@ -71,6 +77,9 @@ Astra Control은 정의한 스케줄 및 보존 정책을 사용하여 스냅샷
 
 언제든지 주문형 스냅샷을 생성할 수 있습니다.
 
+
+IMPORTANT: 앱이 에서 지원하는 저장소 클래스를 사용하는 경우 `ontap-nas-economy` 드라이버, 스냅샷을 사용할 수 없습니다. 스냅샷에 대체 스토리지 클래스를 사용합니다.
+
 .단계
 . 응용 프로그램 * 을 선택합니다.
 . 원하는 앱의 * Actions * 열에 있는 옵션 메뉴에서 * Snapshot * 을 선택합니다.
@@ -89,6 +98,9 @@ Astra Control은 정의한 스케줄 및 보존 정책을 사용하여 스냅샷
 
 
 NOTE: Astra Control Center의 S3 버킷은 가용 용량을 보고하지 않습니다. Astra Control Center에서 관리하는 앱을 백업 또는 클론 생성하기 전에 ONTAP 또는 StorageGRID 관리 시스템에서 버킷 정보를 확인하십시오.
+
+
+IMPORTANT: 앱이 에서 지원하는 저장소 클래스를 사용하는 경우 `ontap-nas-economy` 드라이버, 백업이 중단되며 백업 작업이 완료될 때까지 앱을 사용할 수 없습니다.
 
 .단계
 . 응용 프로그램 * 을 선택합니다.

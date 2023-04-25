@@ -40,7 +40,7 @@ LDAPS 연결을 사용할 때 Astra Control Center가 LDAP 서버를 인증할 �
 
 LDAP 인증을 설정하고 Astra Control과 원격 LDAP 서버 간의 연결을 구성할 수 있습니다.
 
-.필요한 것
+.시작하기 전에
 LDAPS를 사용하려는 경우 Astra Control Center에서 LDAP 서버를 인증할 수 있도록 LDAP 서버의 개인 TLS 인증서가 Astra Control Center에 설치되어 있는지 확인합니다. 을 참조하십시오 <<LDAPS 인증을 위한 인증서를 추가합니다>> 를 참조하십시오.
 
 .단계

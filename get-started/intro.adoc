@@ -120,7 +120,7 @@ Azure에서 Astra Control Service는 Blob 컨테이너용 리소스 그룹, 스�
 
 ** 클러스터에 새 관리 역할 및 Kubernetes 서비스 계정을 생성합니다.
 ** 에서는 새 관리자 역할을 사용하여 를 설치합니다 https://docs.netapp.com/us-en/trident/index.html["아스트라 트리덴트"^] 를 클릭하여 하나 이상의 스토리지 클래스를 생성합니다.
-** NetApp 클라우드 서비스 스토리지 오퍼링을 스토리지 백엔드로 사용하는 경우, Astra Control Service는 Astra Trident를 사용하여 앱에 영구 볼륨을 프로비저닝합니다. Amazon EBS 또는 Azure 관리 디스크를 스토리지 백엔드로 사용하는 경우 공급자별 CSI 드라이버를 설치해야 합니다. 설치 지침은 에 나와 있습니다 link:set-up-amazon-web-services.html["Amazon Web Services를 설정합니다"^] 및 link:set-up-microsoft-azure-with-amd.html["Azure 관리 디스크를 사용하여 Microsoft Azure를 설정합니다"^].
+** NetApp 클라우드 서비스 스토리지 오퍼링을 스토리지 백엔드로 사용하는 경우, Astra Control Service는 Astra Trident를 사용하여 앱에 영구 볼륨을 프로비저닝합니다. Amazon EBS 또는 Azure 관리 디스크를 스토리지 백엔드로 사용하는 경우 공급자별 CSI 드라이버를 설치해야 합니다. 설치 지침은 에 나와 있습니다 https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-amazon-web-services.html["Amazon Web Services를 설정합니다"^] 및 https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-amd.html["Azure 관리 디스크를 사용하여 Microsoft Azure를 설정합니다"^].
 
 
 * 이제 앱을 클러스터에 추가할 수 있습니다. 영구 볼륨은 새로운 기본 스토리지 클래스에 프로비저닝됩니다.
@@ -135,19 +135,19 @@ Astra Control의 무료 플랜을 사용하면 최대 10개의 네임스페이�
 
 Astra Control Center는 프라이빗 클라우드에서 로컬로 실행됩니다.
 
-Astra Control Center는 ONTAP 9.5 이상 스토리지 백엔드를 포함하는 Trident 기반 스토리지 클래스를 사용하여 Kubernetes 클러스터를 지원합니다.
+Astra Control Center는 ONTAP 9.5 이상의 스토리지 백엔드가 있는 Astra Trident 기반 스토리지 클래스를 통해 Kubernetes 클러스터를 지원합니다.
 
 클라우드 연결 환경에서 Astra Control Center는 Cloud Insights를 사용하여 고급 모니터링 및 원격 측정 기능을 제공합니다. Cloud Insights 연결이 없을 경우 Astra Control Center에서 제한된(7일 메트릭) 모니터링 및 원격 측정 기능을 사용할 수 있으며, 개방형 메트릭 엔드 포인트를 통해 Kubernetes 기본 모니터링 툴(예: Prometheus 및 Grafana)으로 내보낼 수 있습니다.
 
 Astra Control Center는 AutoSupport 및 Active IQ 에코시스템에 완전히 통합되어 사용자와 NetApp 지원에 문제 해결 및 사용 정보를 제공합니다.
 
-90일 평가판 라이센스를 사용하여 Astra Control Center를 사용해 볼 수 있습니다. 평가판 버전은 전자 메일 및 커뮤니티 옵션을 통해 지원됩니다. 또한 제품 내 지원 대시보드에서 Knowledgebase 문서 및 문서에 액세스할 수 있습니다.
+90일 임베디드 평가판 라이센스를 사용하여 Astra Control Center를 사용해 볼 수 있습니다. Astra Control Center를 평가하는 동안 이메일과 커뮤니티 옵션을 통해 지원을 받을 수 있습니다. 또한 제품 내 지원 대시보드에서 Knowledgebase 문서 및 문서에 액세스할 수 있습니다.
 
-Astra Control Center를 설치하고 사용하려면 반드시 충족해야 합니다 https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html["요구 사항"].
+Astra Control Center를 설치하고 사용하려면 반드시 충족해야 합니다 https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html["요구 사항"^].
 
 Astra Control Center는 다음과 같이 높은 수준에서 작동합니다.
 
-* 현지 환경에 Astra Control Center를 설치합니다. 에 대해 자세히 알아보십시오 https://docs.netapp.com/us-en/astra-control-center/get-started/install_acc.html["Astra Control Center를 설치합니다"].
+* 현지 환경에 Astra Control Center를 설치합니다. 에 대해 자세히 알아보십시오 https://docs.netapp.com/us-en/astra-control-center/get-started/install_acc.html["Astra Control Center를 설치합니다"^].
 * 다음과 같은 몇 가지 설정 작업을 완료합니다.
 +
 ** 라이센스를 설정합니다.
@@ -158,7 +158,7 @@ Astra Control Center는 다음과 같이 높은 수준에서 작동합니다.
 
 
 
-에 대해 자세히 알아보십시오 https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html["Astra Control Center를 설정합니다"].
+에 대해 자세히 알아보십시오 https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html["Astra Control Center를 설정합니다"^].
 
 앱을 클러스터에 추가할 수 있습니다. 클러스터에 이미 관리 중인 앱이 있으면 Astra Control Center를 사용하여 관리할 수 있습니다. 그런 다음 Astra Control Center를 사용하여 스냅샷, 백업, 클론 및 복제 관계를 생성합니다.
 

@@ -23,11 +23,11 @@ summary: 환경에 따라 Astra Control Center를 설치한 후 추가 구성이
 다음 단계를 사용하여 할당량 및 제한을 검색하고 제거할 수 있습니다. 이 예제에서 명령 출력은 명령 직후에 표시됩니다.
 
 .단계
-. 에서 리소스 할당량을 가져옵니다 `netapp-acc` 네임스페이스:
+. 에서 리소스 할당량을 가져옵니다 `netapp-acc` (또는 사용자 지정 이름) 네임스페이스:
 +
 [source, console]
 ----
-kubectl get quota -n netapp-acc
+kubectl get quota -n [netapp-acc or custom namespace]
 ----
 +
 응답:
@@ -44,23 +44,23 @@ pods-medium   16s   requests.cpu: 0/10, requests.memory: 0/20Gi    limits.cpu: 0
 +
 [source, console]
 ----
-kubectl delete resourcequota  pods-high -n netapp-acc
+kubectl delete resourcequota pods-high -n [netapp-acc or custom namespace]
 ----
 +
 [source, console]
 ----
-kubectl delete resourcequota  pods-low -n netapp-acc
+kubectl delete resourcequota pods-low -n [netapp-acc or custom namespace]
 ----
 +
 [source, console]
 ----
-kubectl delete resourcequota  pods-medium -n netapp-acc
+kubectl delete resourcequota pods-medium -n [netapp-acc or custom namespace]
 ----
-. 에서 제한 범위를 가져옵니다 `netapp-acc` 네임스페이스:
+. 에서 제한 범위를 가져옵니다 `netapp-acc` (또는 사용자 지정 이름) 네임스페이스:
 +
 [source, console]
 ----
-kubectl get limits -n netapp-acc
+kubectl get limits -n [netapp-acc or custom namespace]
 ----
 +
 응답:
@@ -75,7 +75,7 @@ cpu-limit-range   2022-06-27T19:01:23Z
 +
 [source, console]
 ----
-kubectl delete limitrange cpu-limit-range -n netapp-acc
+kubectl delete limitrange cpu-limit-range -n [netapp-acc or custom namespace]
 ----
 
 
@@ -90,13 +90,13 @@ kubectl delete limitrange cpu-limit-range -n netapp-acc
 +
 [source, console]
 ----
-kubectl get networkpolicy -n netapp-acc
+kubectl get networkpolicy -n [netapp-acc or custom namespace]
 ----
-. 앞의 명령으로 반환된 각 NetworkPolicy 개체에 대해 다음 명령을 사용하여 개체를 삭제합니다. object_name>을(를) 반환된 개체의 이름으로 바꿉니다.
+. 앞의 명령으로 반환된 각 NetworkPolicy 개체에 대해 다음 명령을 사용하여 개체를 삭제합니다. [OBJECT_NAME]을(를) 반환된 객체의 이름으로 바꿉니다.
 +
 [source, console]
 ----
-kubectl delete networkpolicy <OBJECT_NAME> -n netapp-acc
+kubectl delete networkpolicy [OBJECT_NAME] -n [netapp-acc or custom namespace]
 ----
 . 다음 리소스 파일을 적용하여 를 구성합니다 `acc-avp-network-policy` Astra 플러그인 서비스가 Astra Control Center 서비스에 요청을 할 수 있도록 허용하는 개체입니다. 괄호 <>의 정보를 사용자 환경의 정보로 바꿉니다.
 +
@@ -155,7 +155,7 @@ Astra Control Center는 자체 서명된 TLS 인증서를 수신 컨트롤러 �
 기본 TLS 인증서를 교체하면 이러한 연결에 인증에 사용되는 인증서가 대체됩니다.
 
 ====
-.필요한 것
+.시작하기 전에
 * Astra Control Center가 설치된 Kubernetes 클러스터
 * 클러스터의 명령 셸에 대한 관리 액세스로 "kubbtl" 명령을 실행합니다
 * CA의 개인 키 및 인증서 파일

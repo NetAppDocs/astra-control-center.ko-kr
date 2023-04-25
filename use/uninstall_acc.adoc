@@ -16,8 +16,9 @@ summary: Astra Control Center 및 Astra Control Center 운영자를 제거하는
 
 설치 제거에 문제가 있는 경우 를 참조하십시오 <<제거 문제 해결>>.
 
-.필요한 것
-* Astra Control Center UI를 사용하여 모두 관리합니다 link:../use/unmanage.html#stop-managing-compute["클러스터"].
+.시작하기 전에
+. link:../use/unmanage.html#unmanage-an-app["모든 앱 관리를 취소합니다"^] 클러스터에서.
+. link:../use/unmanage.html#unmanage-a-cluster["모든 클러스터의 관리를 취소합니다"^].
 
 
 .단계
@@ -35,14 +36,14 @@ kubectl delete -f astra_control_center.yaml -n netapp-acc
 ----
 astracontrolcenter.astra.netapp.io "astra" deleted
 ----
-. 다음 명령을 사용하여 'NetApp-acc' 네임스페이스를 삭제합니다.
+. 다음 명령을 사용하여 를 삭제합니다 `netapp-acc` (또는 사용자 지정 이름) 네임스페이스:
 +
 [listing]
 ----
-kubectl delete ns netapp-acc
+kubectl delete ns [netapp-acc or custom namespace]
 ----
 +
-결과:
+예제 결과:
 
 +
 [listing]

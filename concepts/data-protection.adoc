@@ -65,3 +65,9 @@ image:acc-backup_4in.png["이 이미지는 S3 버킷을 사용하여 두 Kuberne
 반면, 복제는 ONTAP로 복제하여 수행하지만 페일오버로 Kubernetes 리소스를 생성합니다.
 
 image:acc-replication_4in.png["이 이미지는 두 Kubernetes 클러스터와 두 ONTAP 클러스터 간의 복제 및 페일오버를 보여 줍니다"]
+
+
+
+== 만료된 라이센스가 있는 백업, 스냅샷 및 클론
+
+라이센스가 만료되면 추가 또는 보호 중인 애플리케이션이 다른 Astra Control Center 인스턴스인 경우에만 새 애플리케이션을 추가하거나 애플리케이션 보호 작업(예: 스냅샷, 백업, 클론 및 복구 작업)을 수행할 수 있습니다.

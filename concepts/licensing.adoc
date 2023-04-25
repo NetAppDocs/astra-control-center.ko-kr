@@ -12,18 +12,38 @@ summary: Astra Control Center를 사용하여 수행할 수 있는 작업은 라
 
 
 [role="lead"]
-Astra Control Center는 전체 앱 데이터 관리 기능을 사용하려면 라이센스를 설치해야 합니다. 라이센스 없이 Astra Control Center를 배포하는 경우, 시스템 기능이 제한된다는 경고 메시지가 웹 UI에 표시됩니다.
+Astra Control Center를 구축하면 4,800 CPU 장치에 대한 90일 평가 라이센스가 내장되어 설치됩니다. 용량 또는 평가 기간이 더 필요하거나 전체 라이센스로 업그레이드하려는 경우 NetApp에서 다른 평가 라이센스 또는 전체 라이센스를 받을 수 있습니다.
 
 다음 방법 중 하나를 사용하여 라이센스를 얻습니다.
 
-* link:https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Astra Control Center를 평가 중인 경우 평가판 라이센스 파일을 다운로드하십시오"^]. 평가판 라이센스를 사용하면 라이센스를 다운로드한 날짜로부터 90일 동안 Astra Control Center를 사용할 수 있습니다.
+* Astra Control Center를 평가 중이며 임베디드 평가 라이센스에 포함된 내용과 다른 평가 조건이 필요한 경우 NetApp에 문의하여 다른 평가 라이센스 파일을 요청하십시오.
 * link:https://mysupport.netapp.com/site/["Astra Control Center를 이미 구입한 경우 NetApp 라이센스 파일(NLF)을 생성합니다."^] NetApp Support 사이트에서. 제품을 구입한 후에는 지원 사이트에서 사용하는 일련 번호와 라이센스가 제공됩니다.
 
 
 ONTAP 스토리지 백엔드에 필요한 라이센스에 대한 자세한 내용은 을 참조하십시오 link:../get-started/requirements.html["지원되는 스토리지 백엔드"].
 
 
-NOTE: 라이센스 없이 클러스터를 추가하고, 버킷을 추가하고, 스토리지 백엔드를 관리할 수 있습니다.
+NOTE: 라이센스가 필요한 만큼 CPU 유닛을 활성화하는지 확인합니다. Astra Control Center가 현재 관리하고 있는 CPU 유닛 수가 적용 중인 새 라이센스에서 사용 가능한 CPU 유닛을 초과할 경우 새 라이센스를 적용할 수 없습니다.
+
+
+
+== 평가판 라이센스 및 전체 라이센스
+
+새로운 Astra Control Center 설치와 함께 평가 라이센스가 내장되어 있습니다. 평가판 라이센스는 제한된 90일 기간 동안 전체 라이선스와 동일한 기능과 기능을 지원합니다. 평가 기간이 지나면 전체 기능을 계속 사용하려면 전체 라이센스가 필요합니다.
+
+
+
+== 라이센스 만료
+
+활성 Astra Control Center 라이센스가 만료되면 다음 기능에 대한 UI 및 API 기능을 사용할 수 없습니다.
+
+* 수동 로컬 스냅샷 및 백업
+* 예약된 로컬 스냅샷 및 백업
+* 스냅샷 또는 백업에서 복구
+* 스냅샷 또는 현재 상태에서 클론 생성
+* 새로운 애플리케이션 관리
+* 복제 정책을 구성하는 중입니다
+
 
 
 
@@ -31,7 +51,10 @@ NOTE: 라이센스 없이 클러스터를 추가하고, 버킷을 추가하고, 
 
 Astra Control Center에 새 클러스터를 추가하면 클러스터에서 실행 중인 하나 이상의 애플리케이션이 Astra Control Center에 의해 관리되기 전에는 사용된 라이센스에 포함되지 않습니다.
 
-클러스터에서 응용 프로그램 관리를 시작하면 해당 클러스터의 모든 CPU 유닛이 Astra Control Center 라이센스 소모에 포함됩니다.
+클러스터에서 응용 프로그램 관리를 시작하면 해당 클러스터의 모든 CPU 장치가 Astra Control Center 라이센스 소모에 포함됩니다. 단, 레이블을 사용하여 에서 보고하는 Red Hat OpenShift 클러스터 노드 CPU 장치는 제외됩니다 `node-role.kubernetes.io/infra: ""`.
+
+
+NOTE: Red Hat OpenShift 인프라 노드는 Astra Control Center에서 라이센스를 소비하지 않습니다. 노드를 인프라 노드로 표시하려면 레이블을 적용합니다 `node-role.kubernetes.io/infra: ""` 노드에.
 
 
 
