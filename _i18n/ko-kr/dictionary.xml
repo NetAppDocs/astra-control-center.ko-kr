@@ -1644,7 +1644,6 @@
   <block id="af0e614701190854322a2cbf66479b6f" category="inline-link">ONTAP 라이센스 관리</block>
   <block id="f79830bec9b778f1cf3c950471bafb95" category="inline-link-macro">Astra Control Center의 특징</block>
   <block id="6db4db93a9c2608b2abfc46bb675e283" category="paragraph">Kubernetes 앱을 설정 및 관리하려면 Astra Control Center UI 또는 Astra Control API를 사용할 수 있습니다.</block>
-  <block id="c39526014b70f5854cf3c59ceb0b89d3" category="list-text"><block ref="c39526014b70f5854cf3c59ceb0b89d3" category="inline-link-macro-rx"></block></block>
   <block id="996ae349b503c8bd355d8986597a6d49" category="paragraph">URL의 경우 브라우저에서 Astra_control_center.YAML 사용자 지정 리소스(CR) 파일을 설치할 때 spec.astraAddress 필드에 설정한 FQDN(정규화된 도메인 이름)을 입력합니다. 이메일은 Astra_control_center.YAML CR의 spec.email 필드에 설정한 값입니다.</block>
   <block id="bda0a7ba5f9ad395d8fbd5eadadb95db" category="paragraph">* My Application은 여러 PVS를 사용합니다. Astra Control은 이러한 PVS의 스냅샷과 백업을 수행합니까? *</block>
   <block id="f8f1ef03f08e7d1c3e62dd87dde91f57" category="paragraph">예. Astra Control의 애플리케이션에 대한 스냅샷 작업에는 애플리케이션의 PVC에 바인딩된 모든 PVS의 스냅샷이 포함됩니다.</block>
@@ -2870,4 +2869,7 @@
   <block id="4b81f371a950b4164e976fd95ff29363" category="admonition">앱이 에서 지원하는 저장소 클래스를 사용하는 경우<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> 드라이버, 보호 정책을 사용할 수 없습니다. 보호 정책을 원하는 경우 대체 스토리지 클래스를 사용합니다.</block>
   <block id="c1a51552670bd89a555dfc498d58f040" category="admonition">앱이 에서 지원하는 저장소 클래스를 사용하는 경우<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> 드라이버, 스냅샷을 사용할 수 없습니다. 스냅샷에 대체 스토리지 클래스를 사용합니다.</block>
   <block id="d340b669a21181fdcdf79c308ba61ea9" category="admonition">앱이 에서 지원하는 저장소 클래스를 사용하는 경우<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> 드라이버, 백업이 중단되며 백업 작업이 완료될 때까지 앱을 사용할 수 없습니다.</block>
+  <block id="070b3d3a153094a5ee57ed5e75530780" category="inline-link">Astra Control Center 22.11 문서</block>
+  <block id="58f23be5f86622d0993f8478be889f05" category="list-text"><block ref="58f23be5f86622d0993f8478be889f05" category="inline-link-rx"></block></block>
+  <block id="f4431fb507c16341e3a99f8f031779bc" category="list-text"><block ref="f4431fb507c16341e3a99f8f031779bc" category="inline-link-macro-rx"></block></block>
 </blocks>
