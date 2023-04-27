@@ -2160,7 +2160,6 @@
   <block id="20133d30eea258b6c1550d612eb75dfc" category="list-text">Astra Control Center에 대한 레이블을 추가합니다.</block>
   <block id="a90dd656b7a6b8d695097aab7d876d0e" category="list-text">자동 지원을 활성화 또는 비활성화합니다. 자동 지원 기능을 유지하는 것이 좋습니다.</block>
   <block id="4039227203056b7dfe2f76bcb9aedef4" category="list-text">Astra Control Center FQDN 또는 IP 주소를 입력합니다. 들어가지마<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> 또는<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> 를 입력합니다.</block>
-  <block id="54fb7a05fbdd98f00caaf5eaa1a5becc" category="list-text">Astra Control Center 버전을 입력합니다(예: 22.04.1).</block>
   <block id="dcfdd5754023d297c0d864d5eb1bf301" category="list-text">의 볼륨 재확보 정책을 선택합니다<block ref="afece4245269582cb2f1009d4fb52047" prefix=" " category="inline-code"></block>,<block ref="6b2724e1fdbbcc2065b002943d831972" prefix=" " category="inline-code"></block>, 또는<block ref="f2a6c498fb90ee345d997f888fce3b18" prefix=" " category="inline-code"></block>. 기본값은 입니다<block ref="afece4245269582cb2f1009d4fb52047" prefix=" " category="inline-code"></block>.</block>
   <block id="a650850a843a62d902c5720a572d392d" category="list-text">수신 유형을 선택합니다.</block>
   <block id="c122f0572e72207cecd5efd0f12fdf10" category="paragraph">다른 수신 컨트롤러를 사용 중이거나 자체 수신 컨트롤러를 사용하려는 경우 이 옵션을 사용하십시오. Astra Control Center를 배포한 후 을 구성해야 합니다 <block ref="7d074c32e6c49929382498ad8c5637bd" category="inline-link-macro-rx"></block> URL을 사용하여 Astra Control Center를 표시합니다.</block>
@@ -2872,4 +2871,7 @@
   <block id="070b3d3a153094a5ee57ed5e75530780" category="inline-link">Astra Control Center 22.11 문서</block>
   <block id="58f23be5f86622d0993f8478be889f05" category="list-text"><block ref="58f23be5f86622d0993f8478be889f05" category="inline-link-rx"></block></block>
   <block id="f4431fb507c16341e3a99f8f031779bc" category="list-text"><block ref="f4431fb507c16341e3a99f8f031779bc" category="inline-link-macro-rx"></block></block>
+  <block id="8275cc29d67faf18fe540b46358fde84" category="list-text">Astra Control Center 버전을 입력합니다(예: 23.04.0-22).</block>
+  <block id="9c71eb65f92b7f4fbb85f88f644c6613" category="list-text">설치 scaleSize를 선택합니다.</block>
+  <block id="f8ac7e69f7496989a600589a0a35ce94" category="admonition">기본적으로 Astra는 HA(High Availability)를 사용합니다.<block ref="dc2f257f4eea1d3b6b3a1d35e1719508" prefix=" " category="inline-code"></block> 의<block ref="87f8a6ab85c9ced3702b4ea641ad4bb5" prefix=" " category="inline-code"></block>즉, HA에서 대부분의 서비스를 구축하고 이중화를 위해 여러 복제본을 배포합니다. 와 함께<block ref="dc2f257f4eea1d3b6b3a1d35e1719508" prefix=" " category="inline-code"></block> 현재<block ref="2660064e68655415da2628c2ae2f7592" prefix=" " category="inline-code"></block>Astra는 소비를 줄이기 위한 필수 서비스를 제외한 모든 서비스의 복제본 수를 줄일 것입니다.</block>
 </blocks>

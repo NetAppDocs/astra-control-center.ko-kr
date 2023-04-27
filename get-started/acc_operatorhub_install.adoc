@@ -278,9 +278,14 @@ NOTE: 수동 승인 전략을 선택한 경우 이 운영자에 대한 수동 �
 .. Astra Control Center에 대한 레이블을 추가합니다.
 .. 자동 지원을 활성화 또는 비활성화합니다. 자동 지원 기능을 유지하는 것이 좋습니다.
 .. Astra Control Center FQDN 또는 IP 주소를 입력합니다. 들어가지마 `http://` 또는 `https://` 를 입력합니다.
-.. Astra Control Center 버전을 입력합니다(예: 22.04.1).
+.. Astra Control Center 버전을 입력합니다(예: 23.04.0-22).
 .. 계정 이름, 이메일 주소 및 관리자 성을 입력합니다.
 .. 의 볼륨 재확보 정책을 선택합니다 `Retain`, `Recycle`, 또는 `Delete`. 기본값은 입니다 `Retain`.
+.. 설치 scaleSize를 선택합니다.
++
+
+NOTE: 기본적으로 Astra는 HA(High Availability)를 사용합니다. `scaleSize` 의 `Medium`즉, HA에서 대부분의 서비스를 구축하고 이중화를 위해 여러 복제본을 배포합니다. 와 함께 `scaleSize` 현재 `Small`Astra는 소비를 줄이기 위한 필수 서비스를 제외한 모든 서비스의 복제본 수를 줄일 것입니다.
+
 .. 수신 유형을 선택합니다.
 +
 *** *`Generic`* (`ingressType: "Generic"`) (기본값)
