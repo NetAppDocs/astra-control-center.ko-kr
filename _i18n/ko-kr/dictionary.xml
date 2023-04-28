@@ -2500,7 +2500,6 @@
   <block id="259f3be9b6c8eefb44e844c2b70333dc" category="paragraph">Astra Control Center 설치 프로세스 데모는 를 참조하십시오<block ref="cbbdec23221803dc148346abe5a297c0" category="inline-link-rx"></block>.</block>
   <block id="f7173fff9a92f2bab2648f86282ab07c" category="list-text">NetApp SnapMirror 기술(Astra Control Center)을 사용하여 원격 시스템에 애플리케이션 복제</block>
   <block id="631928ccc601c8e49976a8d73af28304" category="list-text">스테이징 환경에서 운영 환경으로 애플리케이션 클론 생성</block>
-  <block id="71bf3827c9b969b454eaf3d5987aad95" category="list-text"><block ref="097c36d7e339c9c56e3325b9bd9b1890" category="inline-link-macro-rx"></block> NetApp Support 사이트에서. 제품을 구입한 후에는 지원 사이트에서 사용하는 일련 번호와 라이센스가 제공됩니다.</block>
   <block id="6ae1ccb3dd6df141f3444a3da56ae986" category="list-text">브라우저에서 FQDN(을 포함)을 입력합니다<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> 접두사)를 입력합니다<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> 에 있습니다<block ref="70b058e54d2bda749060070a7f9c4e5c" prefix=" " category="inline-code"></block> CR <block ref="356be5820e2645bace29d82a8018f43d" category="inline-xref-macro-rx"></block>.</block>
   <block id="2af1f66f8f47d8339a96c1cd543cd3a8" category="list-text">* Astra Trident *: NetApp에서 관리하는 완전 지원되는 오픈 소스 스토리지 공급자 및 오케스트레이터로서, Astra Trident를 사용하면 Docker 및 Kubernetes에서 관리하는 컨테이너 형태의 애플리케이션용 스토리지 볼륨을 생성할 수 있습니다. Astra Control Center와 함께 구축한 경우, Astra Trident에는 구성된 ONTAP 스토리지 백엔드가 포함됩니다.</block>
   <block id="a779180fd0b24eabbab889560a1bd808" category="inline-link">Astra Control Center 다운로드 페이지</block>
@@ -2874,4 +2873,5 @@
   <block id="8275cc29d67faf18fe540b46358fde84" category="list-text">Astra Control Center 버전을 입력합니다(예: 23.04.0-22).</block>
   <block id="9c71eb65f92b7f4fbb85f88f644c6613" category="list-text">설치 scaleSize를 선택합니다.</block>
   <block id="f8ac7e69f7496989a600589a0a35ce94" category="admonition">기본적으로 Astra는 HA(High Availability)를 사용합니다.<block ref="dc2f257f4eea1d3b6b3a1d35e1719508" prefix=" " category="inline-code"></block> 의<block ref="87f8a6ab85c9ced3702b4ea641ad4bb5" prefix=" " category="inline-code"></block>즉, HA에서 대부분의 서비스를 구축하고 이중화를 위해 여러 복제본을 배포합니다. 와 함께<block ref="dc2f257f4eea1d3b6b3a1d35e1719508" prefix=" " category="inline-code"></block> 현재<block ref="2660064e68655415da2628c2ae2f7592" prefix=" " category="inline-code"></block>Astra는 소비를 줄이기 위한 필수 서비스를 제외한 모든 서비스의 복제본 수를 줄일 것입니다.</block>
+  <block id="9b846b7f30a8509224caa21eb61515be" category="list-text"><block ref="097c36d7e339c9c56e3325b9bd9b1890" category="inline-link-macro-rx"></block> NetApp Support 사이트에 로그인하고 시스템 메뉴에서 소프트웨어 라이센스로 이동합니다.</block>
 </blocks>
