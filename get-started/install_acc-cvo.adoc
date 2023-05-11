@@ -135,7 +135,7 @@ Cloud Volumes ONTAP를 스토리지 백엔드로 사용하여 Astra Control Cent
 
 RedHat OpenShift 클러스터와 NetApp BlueXP(이전의 Cloud Manager) 커넥터를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.
 
-을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html#initial-aws-credentials["초기 AWS 자격 증명"^].
+을 참조하십시오 https://["초기 AWS 자격 증명"^].
 
 
 
@@ -143,7 +143,7 @@ RedHat OpenShift 클러스터와 NetApp BlueXP(이전의 Cloud Manager) 커넥�
 
 AWS에 RedHat OpenShift Container Platform 클러스터를 설치합니다.
 
-설치 지침은 를 참조하십시오 https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-aws-default.html["OpenShift Container Platform에서 AWS에 클러스터 설치"^].
+설치 지침은 를 참조하십시오 https://["OpenShift Container Platform에서 AWS에 클러스터 설치"^].
 
 
 
@@ -151,7 +151,7 @@ AWS에 RedHat OpenShift Container Platform 클러스터를 설치합니다.
 
 그런 다음 AWS를 구성하여 가상 네트워크를 생성하고, EC2 컴퓨팅 인스턴스를 설정하고, AWS S3 버킷을 생성하고, ECR(Elastic Container Register)을 생성하여 Astra Control Center 이미지를 호스팅하고, 이 레지스트리로 이미지를 푸시합니다.
 
-AWS 설명서에 따라 다음 단계를 완료하십시오. 을 참조하십시오 https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-aws-default.html["AWS 설치 설명서"^].
+AWS 설명서에 따라 다음 단계를 완료하십시오. 을 참조하십시오 https://["AWS 설치 설명서"^].
 
 . AWS 가상 네트워크를 생성합니다.
 . EC2 컴퓨팅 인스턴스를 검토합니다. 이는 AWS의 베어 메탈 서버 또는 VM이 될 수 있습니다.
@@ -180,8 +180,8 @@ NetApp BlueXP(이전의 Cloud Manager)를 사용하여 작업 공간을 생성�
 
 BlueXP 설명서를 참조하여 다음 단계를 완료합니다. 다음을 참조하십시오.
 
-* https://docs.netapp.com/us-en/occm/task_getting_started_aws.html["AWS에서 Cloud Volumes ONTAP 시작하기"^].
-* https://docs.netapp.com/us-en/occm/task_creating_connectors_aws.html#create-a-connector["BlueXP를 사용하여 AWS에서 커넥터를 생성합니다"^]
+* https://["AWS에서 Cloud Volumes ONTAP 시작하기"^].
+* https://["BlueXP를 사용하여 AWS에서 커넥터를 생성합니다"^]
 
 
 .단계
@@ -323,8 +323,8 @@ NOTE: 이러한 요구 사항에서는 Astra Control Center가 운영 환경에�
 
 설치 지침은 다음을 참조하십시오.
 
-* https://access.redhat.com/documentation/en-us/openshift_container_platform/4.10/html-single/installing/index#installing-on-gcp["GCP에서 OpenShift 클러스터 설치"^]
-* https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["GCP 서비스 계정 생성"^]
+* https://["GCP에서 OpenShift 클러스터 설치"^]
+* https://["GCP 서비스 계정 생성"^]
 
 
 
@@ -344,7 +344,7 @@ NOTE: OpenShift는 자체 리소스 그룹을 생성할 수 있습니다. 또한
 
 RedHat OpenShift 클러스터와 NetApp BlueXP(이전의 Cloud Manager) 커넥터를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.
 
-을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html#setting-up-permissions["초기 GCP 자격 증명 및 권한"^].
+을 참조하십시오 https://["초기 GCP 자격 증명 및 권한"^].
 
 
 
@@ -401,18 +401,18 @@ done < astra-control-center-22.04.41.manifest
 
 NetApp BlueXP(이전의 Cloud Manager)를 사용하여 작업 공간을 만들고, GCP에 커넥터를 추가하고, 작업 환경을 생성하고, 클러스터를 가져옵니다.
 
-BlueXP 설명서를 참조하여 다음 단계를 완료합니다. 을 참조하십시오 https://docs.netapp.com/us-en/occm/task_getting_started_gcp.html["GCP에서 Cloud Volumes ONTAP 시작하기"^].
+BlueXP 설명서를 참조하여 다음 단계를 완료합니다. 을 참조하십시오 https://["GCP에서 Cloud Volumes ONTAP 시작하기"^].
 
 .시작하기 전에
 * 필요한 IAM 권한 및 역할을 사용하여 GCP 서비스 계정에 액세스합니다
 
 
 .단계
-. BlueXP에 자격 증명을 추가합니다. 을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-gcp-accounts.html["GCP 계정 추가"^].
+. BlueXP에 자격 증명을 추가합니다. 을 참조하십시오 https://["GCP 계정 추가"^].
 . GCP용 커넥터를 추가합니다.
 +
 .. 공급자로 "GCP"를 선택합니다.
-.. GCP 자격 증명을 입력합니다. 을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["BlueXP에서 GCP에 커넥터 생성"^].
+.. GCP 자격 증명을 입력합니다. 을 참조하십시오 https://["BlueXP에서 GCP에 커넥터 생성"^].
 .. 커넥터가 실행 중인지 확인하고 해당 커넥터로 전환합니다.
 
 
@@ -560,8 +560,8 @@ NOTE: 이러한 요구 사항에서는 Astra Control Center가 운영 환경에�
 
 설치 지침은 다음을 참조하십시오.
 
-* https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html["Azure에 OpenShift 클러스터 설치"^].
-* https://docs.openshift.com/container-platform/4.8/installing/installing_azure/installing-azure-account.html#installing-azure-account["Azure 계정을 설치하는 중입니다"^].
+* https://["Azure에 OpenShift 클러스터 설치"^].
+* https://["Azure 계정을 설치하는 중입니다"^].
 
 
 
@@ -581,7 +581,7 @@ NOTE: OpenShift는 자체 리소스 그룹을 생성할 수 있습니다. 또한
 
 RedHat OpenShift 클러스터와 NetApp BlueXP Connector를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.
 
-을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html["Azure 자격 증명 및 권한"^].
+을 참조하십시오 https://["Azure 자격 증명 및 권한"^].
 
 
 
@@ -589,7 +589,7 @@ RedHat OpenShift 클러스터와 NetApp BlueXP Connector를 설치할 수 있도
 
 그런 다음 가상 네트워크를 만들고, 컴퓨팅 인스턴스를 설정하고, Azure Blob 컨테이너를 만들고, Astra Control Center 이미지를 호스팅하기 위해 ACR(Azure Container Register)을 만들고, 이 레지스트리로 이미지를 푸시하도록 Azure를 구성합니다.
 
-Azure 설명서에 따라 다음 단계를 완료합니다. 을 참조하십시오 https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html["Azure에 OpenShift 클러스터 설치"^].
+Azure 설명서에 따라 다음 단계를 완료합니다. 을 참조하십시오 https://["Azure에 OpenShift 클러스터 설치"^].
 
 . Azure 가상 네트워크를 생성합니다.
 . 컴퓨팅 인스턴스를 검토합니다. Azure의 베어 메탈 서버 또는 VM이 될 수 있습니다.
@@ -634,19 +634,19 @@ done < astra-control-center-22.04.41.manifest
 
 BlueXP(이전의 Cloud Manager)를 사용하여 작업 영역을 만들고, Azure에 커넥터를 추가하고, 작업 환경을 생성하고, 클러스터를 가져옵니다.
 
-BlueXP 설명서를 참조하여 다음 단계를 완료합니다. 을 참조하십시오 https://docs.netapp.com/us-en/occm/task_getting_started_azure.html["Azure에서 BlueXP를 시작합니다"^].
+BlueXP 설명서를 참조하여 다음 단계를 완료합니다. 을 참조하십시오 https://["Azure에서 BlueXP를 시작합니다"^].
 
 .시작하기 전에
 필요한 IAM 권한 및 역할을 사용하여 Azure 계정에 액세스합니다
 
 .단계
 . BlueXP에 자격 증명을 추가합니다.
-. Azure용 커넥터를 추가합니다. 을 참조하십시오 https://mysupport.netapp.com/site/info/cloud-manager-policies["BlueXP 정책"^].
+. Azure용 커넥터를 추가합니다. 을 참조하십시오 https://["BlueXP 정책"^].
 +
 .. 공급자로 * Azure * 를 선택합니다.
 .. 애플리케이션 ID, 클라이언트 암호 및 디렉토리(테넌트) ID를 비롯한 Azure 자격 증명을 입력합니다.
 +
-을 참조하십시오 https://docs.netapp.com/us-en/occm/task_creating_connectors_azure.html["BlueXPr에서 커넥터 만들기"^].
+을 참조하십시오 https://["BlueXPr에서 커넥터 만들기"^].
 
 
 

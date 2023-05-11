@@ -22,7 +22,7 @@ Astra Control Center를 설치하려면 NetApp Support 사이트에서 설치 �
 
 
 ====
-Astra Control Center 설치 프로세스 데모는 를 참조하십시오 https://www.youtube.com/watch?v=eurMV80b0Ks&list=PLdXI3bZJEw7mJz13z7YdiGCS6gNQgV_aN&index=5["이 비디오"^].
+Astra Control Center 설치 프로세스 데모는 를 참조하십시오 https://["이 비디오"^].
 
 .시작하기 전에
 * link:requirements.html["설치를 시작하기 전에 Astra Control Center 구축을 위한 환경을 준비합니다"].
@@ -69,7 +69,7 @@ Astra Control Center를 설치하려면 다음 단계를 수행하십시오.
 
 == Astra Control Center를 다운로드하고 압축을 풉니다
 
-. 로 이동합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Center 다운로드 페이지"^] 를 방문하십시오.
+. 로 이동합니다 https://["Astra Control Center 다운로드 페이지"^] 를 방문하십시오.
 . Astra Control Center가 포함된 번들을 다운로드합니다 (`astra-control-center-[version].tar.gz`)를 클릭합니다.
 . (권장되지만 선택 사항) Astra Control Center용 인증서 및 서명 번들을 다운로드합니다 (`astra-control-center-certs-[version].tar.gz`)를 클릭하여 번들 서명을 확인합니다.
 +
@@ -142,7 +142,7 @@ cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 . Astra Control Center 이미지 디렉토리의 패키지 이미지를 로컬 레지스트리에 밀어 넣습니다. 를 실행하기 전에 다음 대체 작업을 수행합니다 `push-images` 명령:
 +
 ** <BUNDLE_FILE>를 Astra Control 번들 파일의 이름으로 바꿉니다 (`acc.manifest.bundle.yaml`)를 클릭합니다.
-** <MY_FULL_REGISTRY_PATH>를 Docker 저장소의 URL로 바꿉니다. 예를 들어, "https://<docker-registry>"[].
+** <MY_FULL_REGISTRY_PATH>를 Docker 저장소의 URL로 바꿉니다. 예를 들어, "https://[].
 ** <MY_REGISTRY_USER>를 사용자 이름으로 바꿉니다.
 ** <MY_REGISTRY_TOKEN>를 레지스트리에 대한 인증된 토큰으로 바꿉니다.
 +
@@ -917,8 +917,8 @@ Astra Control Center를 배포한 후 URL을 사용하여 Astra Control Center�
 
 
 .시작하기 전에
-* 필수 요소입니다 https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/["수신 컨트롤러"] 이미 배포되어 있어야 합니다.
-* 를 클릭합니다 https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class["수신 클래스"] 수신 컨트롤러에 해당하는 컨트롤러가 이미 생성되어야 합니다.
+* 필수 요소입니다 https://["수신 컨트롤러"] 이미 배포되어 있어야 합니다.
+* 를 클릭합니다 https://["수신 클래스"] 수신 컨트롤러에 해당하는 컨트롤러가 이미 생성되어야 합니다.
 
 
 .Istio 침투에 대한 단계
@@ -1011,7 +1011,7 @@ ingress istio astra.example.com 172.16.103.248  80, 443 1h
 
 
 .Nginx 수신 컨트롤러 단계
-. 형식의 암호를 만듭니다 `kubernetes.io/tls` 에서 TLS 개인 키 및 인증서의 경우 `netapp-acc` 에 설명된 대로 (또는 사용자 지정 이름) 네임스페이스를 사용합니다 https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets["TLS 비밀"].
+. 형식의 암호를 만듭니다 `kubernetes.io/tls` 에서 TLS 개인 키 및 인증서의 경우 `netapp-acc` 에 설명된 대로 (또는 사용자 지정 이름) 네임스페이스를 사용합니다 https://["TLS 비밀"].
 . 수신 리소스를 에 배포합니다 `netapp-acc` (또는 사용자 지정 이름) 스키마에 대해 v1 리소스 형식을 사용하는 네임스페이스입니다 (`nginx-Ingress.yaml` 이 예에서 사용됨):
 +
 [source, yaml]
@@ -1082,7 +1082,7 @@ NOTE: 잘못된 암호를 세 번 입력하면 15분 동안 관리자 계정이 
 . 메시지가 나타나면 암호를 변경합니다.
 +
 
-NOTE: 첫 번째 로그인인 경우 암호를 잊어버리고 다른 관리 사용자 계정이 아직 생성되지 않은 경우 에 문의하십시오 https://mysupport.netapp.com/site/["NetApp 지원"] 비밀번호 복구 지원을 위해.
+NOTE: 첫 번째 로그인인 경우 암호를 잊어버리고 다른 관리 사용자 계정이 아직 생성되지 않은 경우 에 문의하십시오 https://["NetApp 지원"] 비밀번호 복구 지원을 위해.
 
 . (선택 사항) 기존의 자체 서명된 TLS 인증서를 제거하고 로 바꿉니다 link:../get-started/configure-after-install.html#add-a-custom-tls-certificate["인증 기관(CA)에서 서명한 사용자 지정 TLS 인증서"^].
 

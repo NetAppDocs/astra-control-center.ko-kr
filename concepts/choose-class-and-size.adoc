@@ -36,5 +36,5 @@ Astra Control Center에 클러스터를 추가하면 해당 클러스터에서 �
 
 == 를 참조하십시오
 
-* https://docs.netapp.com/us-en/trident/index.html["Astra Trident 문서"^]
+* https://["Astra Trident 문서"^]
 

@@ -50,7 +50,7 @@ NOTE: 클러스터를 관리하기 전에 클러스터와 연결된 앱의 관�
 클러스터 관리를 취소하는 경우:
 
 * 이 작업을 수행하면 Astra Control Center에서 클러스터를 관리할 수 없습니다. 클러스터 구성을 변경하지 않고 클러스터를 삭제하지 않습니다.
-* Astra Trident가 클러스터에서 제거되지 않습니다. https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Astra Trident를 제거하는 방법을 알아보십시오"^].
+* Astra Trident가 클러스터에서 제거되지 않습니다. https://["Astra Trident를 제거하는 방법을 알아보십시오"^].
 
 
 .단계

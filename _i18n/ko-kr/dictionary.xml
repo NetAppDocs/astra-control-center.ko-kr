@@ -575,7 +575,6 @@
   <block id="9814d372a97a81b36a132ad2cacfdff7" category="paragraph">버킷은 다음 상태 중 하나일 수 있습니다.</block>
   <block id="42a0d288cadd6192424c03a28590c9fd" category="list-text">보류 중: 버킷이 검색되도록 예약되었습니다.</block>
   <block id="fac51c0a7c720a76e584ea5b21dc752a" category="list-text">사용 가능: 버킷을 사용할 수 있습니다.</block>
-  <block id="7f5b082de7160fe4d88fcb73b137ef12" category="list-text">제거: 현재 버킷에 접근할 수 없습니다.</block>
   <block id="2670ea2abab7233a3fe9b29dabc0e86c" category="paragraph">Astra Control API를 사용하여 버킷을 관리하는 방법에 대한 지침은 을 참조하십시오 <block ref="ef5b26cd6e9ab40377842cc20d2b4ebf" category="inline-link-macro-rx"></block>.</block>
   <block id="39ee41fd712c4d72dd841699443ac03f" category="paragraph">버킷 관리와 관련된 다음 작업을 수행할 수 있습니다.</block>
   <block id="b2e5388a257b4977b3f119a349e21dc1" category="inline-link-macro">버킷을 추가합니다</block>
@@ -1143,7 +1142,6 @@
   <block id="5ffd50b83740bc0749b40034cddea615" category="paragraph">앱 클러스터의 Astra Trident가 오프라인 상태가 되고 다시 온라인 상태가 되고 앱 데이터 관리를 시도할 때 500 내부 서비스 오류가 발생하는 경우, 앱 클러스터의 모든 Kubernetes 노드를 다시 시작하여 기능을 복원합니다.</block>
   <block id="9d795eb350d2c42a03b181a4bc513987" category="paragraph">이러한 옵션은 24x7 무료로 제공됩니다.</block>
   <block id="68f269105158a82f8e06dd324631610e" category="inline-link">* 기술 자료 * (로그인 필요)</block>
-  <block id="3ce7820e1a8dcaf1b20e89638e9eb65c" category="list-text"><block ref="c21c91b055ef6d38b9e7473e1602e44f" category="inline-link-rx"></block>Astra Control과 관련된 문서, FAQ 또는 고장 수리 정보를 검색합니다.</block>
   <block id="54fb836d65dfa963fa159aa13bf9fe60" category="list-text">* 문서 센터 *: 현재 보고 있는 문서 사이트입니다.</block>
   <block id="2d1cdbb35250ece1f1e88fdafee9d683" category="list-text">* 지원 케이스 생성 *: 문제 해결을 위해 NetApp 지원에 제공할 지원 번들을 생성합니다.</block>
   <block id="5a7e155bd663e7d6145fbd05e0908d7e" category="list-text">* Astra Control에 대한 피드백 제공 *: astra.feedback@netapp.com 으로 이메일을 보내 귀하의 생각, 아이디어 또는 우려 사항을 알려 주십시오.</block>
@@ -1180,7 +1178,6 @@
   <block id="f8be12e25cfcab7e808ca98f80a56433" category="section-title">버킷 자격 증명을 제거합니다</block>
   <block id="a31d0ea55a51bfbd5a603a8f5fa7a37a" category="admonition">Astra Control에 추가하는 첫 번째 자격 증명 세트는 항상 사용 중입니다. Astra Control은 자격 증명을 사용하여 백업 버킷을 인증하기 때문입니다. 버킷이 사용 중인 경우 이러한 자격 증명을 제거하지 마십시오. 이 경우 백업 실패 및 백업 가용성 손실이 발생할 수 있습니다.</block>
   <block id="b2b8741126a8674edc86e6286a85c804" category="inline-link">버킷 자격 증명 제거 문제 해결</block>
-  <block id="983be0b26fa308ee99003c55cac37fb5" category="admonition">활성 버킷 자격 증명을 제거하는 경우 를 참조하십시오<block ref="939cc867881057c221247142d6425e0a" category="inline-link-rx"></block>.</block>
   <block id="576924ceb67cb5e87c15acdcb112c47d" category="paragraph">Astra Control API를 사용하여 S3 자격 증명을 제거하는 방법에 대한 지침은 을 참조하십시오 <block ref="ef5b26cd6e9ab40377842cc20d2b4ebf" category="inline-link-macro-rx"></block>.</block>
   <block id="aa702244278ce9224bdf493dbd836fcf" category="inline-link-macro">Cloud Volumes ONTAP 지원</block>
   <block id="8752cd76f7db37e4826aaa5b11f2a007" category="paragraph">그런 다음 AWS를 구성하여 가상 네트워크를 생성하고, EC2 컴퓨팅 인스턴스를 설정하고, AWS S3 버킷을 생성하고, ECR(Elastic Container Register)을 생성하여 Astra Control Center 이미지를 호스팅하고, 이 레지스트리로 이미지를 푸시합니다.</block>
@@ -1234,10 +1231,8 @@
   <block id="3ec365dd533ddb7ef3d1c111186ce872" category="example-title">세부 정보</block>
   <block id="e0eeb7ea73f045b4fbf1d7eebde63020" category="paragraph">Astra Control Center의 최신 릴리스를 발표하게 되어 기쁘게 생각합니다.</block>
   <block id="f4c36c8148a1c2baf23d917e226d50fa" category="list-text"><block ref="703e5962f4e6c982183fbea5d4a0ed0f" category="inline-xref-macro-rx"></block></block>
-  <block id="e6accc2a7c1df4a7d754d698ff720755" category="paragraph">원본 보안 컨텍스트 제약 조건이 OpenShift Container Platform 클러스터의 네임스페이스 내에서 서비스 계정 수준에서 구성된 경우 애플리케이션 클론이 실패할 수 있습니다. 애플리케이션 클론이 실패하면 Astra Control Center의 Managed Applications 영역에 상태가 "제거됨"으로 표시됩니다. 를 참조하십시오<block ref="9fa49b796d4996efbeb6cfe9ed39c95e" category="inline-link-rx"></block> 를 참조하십시오.</block>
   <block id="3460be97ad18de8f927ac029b73aea1e" category="section-title">클러스터를 관리하고 볼륨을 추가한 경우 앱 백업 및 스냅숏이 실패합니다</block>
   <block id="4640bdf0aa8bd9424ced0104155962b8" category="paragraph">이 시나리오에서는 백업 및 스냅샷이 UI 500 오류로 인해 실패합니다. 이 문제를 해결하려면 앱 목록을 새로 고치십시오.</block>
-  <block id="520978df3f125bf15af9a3b4c1e17a9e" category="paragraph">2개 이상의 클러스터와 컨텍스트를 사용하여 kubeconfig를 사용할 수 없습니다. 를 참조하십시오 <block ref="f42e06683377be6f7c68a4e8b05a16c0" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
   <block id="33e9a46dfde5bb0f5a8b8327623cb998" category="paragraph">네임스페이스 이름/ID에 따라 RBAC 제한이 있는 모든 '멤버' 사용자는 동일한 클러스터 또는 조직 계정의 다른 클러스터에 있는 새 네임스페이스로 앱을 클론 복제하거나 복원할 수 있습니다. 그러나 동일한 사용자가 새 네임스페이스에서 복제되거나 복원된 앱에 액세스할 수 없습니다. 클론 또는 복원 작업을 통해 새 네임스페이스를 생성한 후 계정 관리자/소유자는 'ember' 사용자 계정을 편집하고 영향을 받는 사용자의 역할 제약 조건을 업데이트하여 새 네임스페이스에 대한 액세스 권한을 부여할 수 있습니다.</block>
   <block id="d5aedbc082e54ed66f533aea75c374f6" category="paragraph">Astra Control은 "pass-by-reference" 아키텍처(예: CockroachDB 운영자)로 설계된 운영자를 복제하지 못할 수 있습니다. 이러한 유형의 클론 복제 작업 중에 클론 복제 운영자는 클론 복제 프로세스의 일부로 고유한 새로운 암호가 있음에도 불구하고 소스 운영자의 Kubernetes 암호를 참조하려고 합니다. Astra Control이 소스 운영자의 Kubernetes 암호를 모르기 때문에 클론 작업이 실패할 수 있습니다.</block>
   <block id="8903edbd1d0463471f5590d10a85b600" category="section-title">2022년 8월 10일(22.08.0)</block>
@@ -1295,7 +1290,6 @@
   <block id="6c999f1f4bd422b4305a76a527b7e862" category="list-text">이름으로 모든 리소스 할당량 삭제:</block>
   <block id="091880150353e9b5462ebfe9e5007deb" category="list-text">이름별로 제한 범위를 삭제합니다.</block>
   <block id="5fed03116ab579cfabba1dfd68c70bab" category="inline-link">Astra의 NetApp 기술 자료</block>
-  <block id="62b48e6002e259d6c98b0960c375f121" category="paragraph"><block ref="62b48e6002e259d6c98b0960c375f121" category="inline-link-rx"></block></block>
   <block id="721ed1f27b3163d26010e9d99872bd47" category="summary">Kubernetes 클러스터를 Astra Control에 추가한 후 해당 클러스터(Astra Control 외부)에 앱을 설치한 다음, Astra Control의 애플리케이션 페이지로 이동하여 앱을 관리할 수 있습니다.</block>
   <block id="456907dc64f076d8c8ed113ea6a4ac8f" category="list-text">* 운용자 구축 앱 *: Astra Control은 네임스페이스 범위 연산자로 설치된 앱을 지원합니다. 일반적으로 "pass-by-reference" 아키텍처가 아니라 "pass-by-value"로 설계되었습니다. 운영자와 설치하는 앱은 동일한 네임스페이스를 사용해야 합니다. 운영자가 배포 .YAML 파일을 수정해야 할 수도 있습니다.</block>
   <block id="be4629edbb6c58ee13cd278ee7ec5a4f" category="paragraph">다음은 이러한 패턴을 따르는 일부 운영자 앱에 대한 설명입니다.</block>
@@ -2874,4 +2868,10 @@
   <block id="9b846b7f30a8509224caa21eb61515be" category="list-text"><block ref="097c36d7e339c9c56e3325b9bd9b1890" category="inline-link-macro-rx"></block> NetApp Support 사이트에 로그인하고 시스템 메뉴에서 소프트웨어 라이센스로 이동합니다.</block>
   <block id="385a524cc6007fc04ac1f61b90b72fa0" category="inline-link-macro">&lt;block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category='inline-code'/&gt; 스토리지 클래스에서 'ONTAP-NAS' 스토리지 클래스로 볼륨 마이그레이션 지원</block>
   <block id="30070e59814ec1fda4c30c1c31eefb74" category="list-text"><block ref="8b33402cf5fbcddbe249556483cf0cc5" category="inline-link-macro-rx"></block></block>
+  <block id="8dd1f225c8914473641273beab27cfb5" category="list-text"><block ref="48b751d095184607defa7b45448cfbd4" category="inline-link-rx"></block>Astra Control과 관련된 문서, FAQ 또는 고장 수리 정보를 검색합니다.</block>
+  <block id="a1e431f4eeaf20669c6a323a70204f3b" category="paragraph"><block ref="a1e431f4eeaf20669c6a323a70204f3b" category="inline-link-rx"></block></block>
+  <block id="192aebb6811705e0e43946e8f3c7ee31" category="paragraph">원본 보안 컨텍스트 제약 조건이 OpenShift Container Platform 클러스터의 네임스페이스 내에서 서비스 계정 수준에서 구성된 경우 애플리케이션 클론이 실패할 수 있습니다. 애플리케이션 클론이 실패하면 Astra Control Center의 Managed Applications 영역에 상태가 표시됩니다<block ref="93f07b720ebf7d1246512569761a5804" prefix=" " category="inline-code"></block>. 를 참조하십시오<block ref="664cdc6e32eb2b8d6157f7f7774ed5d3" category="inline-link-rx"></block> 를 참조하십시오.</block>
+  <block id="150c473dfbcbc21128b1b0163082e277" category="paragraph">2개 이상의 클러스터와 컨텍스트를 사용하여 kubeconfig를 사용할 수 없습니다. 를 참조하십시오 <block ref="a221b9db35a895d6b52e9dd52f69851e" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
+  <block id="17aaff3db5ad600ae90d1c45f82a9ce8" category="list-text">제거: 현재 버킷에 접근할 수 없습니다.</block>
+  <block id="a5e4709506a688389ca2ed37bb81ac98" category="admonition">활성 버킷 자격 증명을 제거하는 경우 를 참조하십시오<block ref="8270c6fae649ca696475ea8dc76c4710" category="inline-link-rx"></block>.</block>
 </blocks>

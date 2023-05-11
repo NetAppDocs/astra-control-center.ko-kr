@@ -12,10 +12,10 @@ summary: 평가판 라이센스를 전체 라이센스로 변환하거나 기존
 
 
 [role="lead"]
-평가판 라이센스를 전체 라이센스로 변환하거나 기존 평가판 또는 전체 라이센스를 새 라이센스로 업데이트할 수 있습니다. 전체 라이센스가 없는 경우 NetApp 세일즈 담당자와 협력하여 전체 라이센스 및 일련 번호를 받으십시오. Astra Control Center UI 또는 를 사용할 수 있습니다 https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^] 기존 라이센스를 업데이트합니다.
+평가판 라이센스를 전체 라이센스로 변환하거나 기존 평가판 또는 전체 라이센스를 새 라이센스로 업데이트할 수 있습니다. 전체 라이센스가 없는 경우 NetApp 세일즈 담당자와 협력하여 전체 라이센스 및 일련 번호를 받으십시오. Astra Control Center UI 또는 를 사용할 수 있습니다 https://["Astra Control API"^] 기존 라이센스를 업데이트합니다.
 
 .단계
-. 에 로그인합니다 https://mysupport.netapp.com/site/["NetApp Support 사이트"^].
+. 에 로그인합니다 https://["NetApp Support 사이트"^].
 . Astra Control Center 다운로드 페이지에 액세스하여 일련 번호를 입력한 다음 전체 NetApp 라이센스 파일(NLF)을 다운로드하십시오.
 . Astra Control Center UI에 로그인합니다.
 . 왼쪽 탐색 창에서 * 계정 * > * 라이센스 * 를 선택합니다.

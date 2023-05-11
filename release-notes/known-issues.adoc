@@ -51,7 +51,7 @@ summary: 알려진 문제점은 이 제품 릴리스를 성공적으로 사용�
 
 == 서비스 계정 수준 OCP SCC(Security Context Constraints)를 사용할 때 앱 클론이 실패함
 
-원본 보안 컨텍스트 제약 조건이 OpenShift Container Platform 클러스터의 네임스페이스 내에서 서비스 계정 수준에서 구성된 경우 애플리케이션 클론이 실패할 수 있습니다. 애플리케이션 클론이 실패하면 Astra Control Center의 Managed Applications 영역에 상태가 "제거됨"으로 표시됩니다. 를 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/Application_clone_is_failing_for_an_application_in_Astra_Control_Center["기술 자료 문서를 참조하십시오"^] 를 참조하십시오.
+원본 보안 컨텍스트 제약 조건이 OpenShift Container Platform 클러스터의 네임스페이스 내에서 서비스 계정 수준에서 구성된 경우 애플리케이션 클론이 실패할 수 있습니다. 애플리케이션 클론이 실패하면 Astra Control Center의 Managed Applications 영역에 상태가 표시됩니다 `Removed`. 를 참조하십시오 https://["기술 자료 문서를 참조하십시오"^] 를 참조하십시오.
 
 
 
@@ -69,7 +69,7 @@ summary: 알려진 문제점은 이 제품 릴리스를 성공적으로 사용�
 
 == 기본 kubecononfig 파일에 컨텍스트가 두 개 이상 포함되어 있으면 Astra Control Center를 사용하여 클러스터를 관리할 수 없습니다
 
-2개 이상의 클러스터와 컨텍스트를 사용하여 kubeconfig를 사용할 수 없습니다. 를 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/Managing_cluster_with_Astra_Control_Center_may_fail_when_using_default_kubeconfig_file_contains_more_than_one_context["기술 자료 문서를 참조하십시오"^] 를 참조하십시오.
+2개 이상의 클러스터와 컨텍스트를 사용하여 kubeconfig를 사용할 수 없습니다. 를 참조하십시오 link:https://kb.netapp.com/Cloud/Astra/Control/Managing_cluster_with_Astra_Control_Center_may_fail_when_using_default_kubeconfig_file_contains_more_than_one_context["기술 자료 문서를 참조하십시오"^] 를 참조하십시오.
 
 
 
