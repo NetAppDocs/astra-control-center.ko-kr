@@ -2858,7 +2858,6 @@
   <block id="99ba824432d96de1a57be0f8b681d518" category="list-text">변경 사항을 적용합니다.</block>
   <block id="4b81f371a950b4164e976fd95ff29363" category="admonition">앱이 에서 지원하는 저장소 클래스를 사용하는 경우<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> 드라이버, 보호 정책을 사용할 수 없습니다. 보호 정책을 원하는 경우 대체 스토리지 클래스를 사용합니다.</block>
   <block id="c1a51552670bd89a555dfc498d58f040" category="admonition">앱이 에서 지원하는 저장소 클래스를 사용하는 경우<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> 드라이버, 스냅샷을 사용할 수 없습니다. 스냅샷에 대체 스토리지 클래스를 사용합니다.</block>
-  <block id="d340b669a21181fdcdf79c308ba61ea9" category="admonition">앱이 에서 지원하는 저장소 클래스를 사용하는 경우<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> 드라이버, 백업이 중단되며 백업 작업이 완료될 때까지 앱을 사용할 수 없습니다.</block>
   <block id="070b3d3a153094a5ee57ed5e75530780" category="inline-link">Astra Control Center 22.11 문서</block>
   <block id="58f23be5f86622d0993f8478be889f05" category="list-text"><block ref="58f23be5f86622d0993f8478be889f05" category="inline-link-rx"></block></block>
   <block id="f4431fb507c16341e3a99f8f031779bc" category="list-text"><block ref="f4431fb507c16341e3a99f8f031779bc" category="inline-link-macro-rx"></block></block>
@@ -2874,4 +2873,6 @@
   <block id="150c473dfbcbc21128b1b0163082e277" category="paragraph">2개 이상의 클러스터와 컨텍스트를 사용하여 kubeconfig를 사용할 수 없습니다. 를 참조하십시오 <block ref="a221b9db35a895d6b52e9dd52f69851e" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
   <block id="17aaff3db5ad600ae90d1c45f82a9ce8" category="list-text">제거: 현재 버킷에 접근할 수 없습니다.</block>
   <block id="a5e4709506a688389ca2ed37bb81ac98" category="admonition">활성 버킷 자격 증명을 제거하는 경우 를 참조하십시오<block ref="8270c6fae649ca696475ea8dc76c4710" category="inline-link-rx"></block>.</block>
+  <block id="c90437e103f3b6c1db9096cab99fff62" category="inline-link">Kubernetes 스토리지 오브젝트입니다</block>
+  <block id="299a4cd5c8c701fdb940ed995eb4a9c9" category="admonition">앱이 에서 지원하는 저장소 클래스를 사용하는 경우<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> 드라이버, 을(를) 정의했는지 확인하십시오<block ref="55b56fb238360663afa6230ad82e74a0" prefix=" " category="inline-code"></block> 매개 변수 을 선택합니다<block ref="b0adeee9b2f75fa024a8a1ac8b9bfc07" category="inline-link-rx"></block> 을 값으로 사용합니다<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> 보호 작업을 수행하기 전에 에서 지원하는 앱의 백업<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> 백업 작업이 완료될 때까지 애플리케이션을 사용할 수 없게 됩니다.</block>
 </blocks>

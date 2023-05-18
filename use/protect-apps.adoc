@@ -100,7 +100,7 @@ IMPORTANT: 앱이 에서 지원하는 저장소 클래스를 사용하는 경우
 NOTE: Astra Control Center의 S3 버킷은 가용 용량을 보고하지 않습니다. Astra Control Center에서 관리하는 앱을 백업 또는 클론 생성하기 전에 ONTAP 또는 StorageGRID 관리 시스템에서 버킷 정보를 확인하십시오.
 
 
-IMPORTANT: 앱이 에서 지원하는 저장소 클래스를 사용하는 경우 `ontap-nas-economy` 드라이버, 백업이 중단되며 백업 작업이 완료될 때까지 앱을 사용할 수 없습니다.
+IMPORTANT: 앱이 에서 지원하는 저장소 클래스를 사용하는 경우 `ontap-nas-economy` 드라이버, 을(를) 정의했는지 확인하십시오 `backendType` 매개 변수 을 선택합니다 https://["Kubernetes 스토리지 오브젝트입니다"^] 을 값으로 사용합니다 `ontap-nas-economy` 보호 작업을 수행하기 전에 에서 지원하는 앱의 백업 `ontap-nas-economy` 백업 작업이 완료될 때까지 애플리케이션을 사용할 수 없게 됩니다.
 
 .단계
 . 응용 프로그램 * 을 선택합니다.
