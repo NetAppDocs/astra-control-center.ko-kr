@@ -28,6 +28,7 @@ summary: 알려진 문제점은 이 제품 릴리스를 성공적으로 사용�
 .클러스터
 * <<기본 kubecononfig 파일에 컨텍스트가 두 개 이상 포함되어 있으면 Astra Control Center를 사용하여 클러스터를 관리할 수 없습니다>>
 * <<Astra Control Center 23.04로 업그레이드한 후 일부 포드가 시작되지 않습니다>>
+* <<Istio 환경에서는 모니터링 포드가 충돌할 수 있습니다>>
 
 
 .기타 문제
@@ -96,6 +97,58 @@ pcloud-astra-control-center-au-pod-0 0/1 CreateContainerConfigError 0 13s
 [listing]
 ----
 kubectl delete pod pcloud-astra-control-center-au-pod-0 -n <namespace>
+----
+
+
+
+
+== Istio 환경에서는 모니터링 포드가 충돌할 수 있습니다
+
+Istio 환경에서 Astra Control Center와 Cloud Insights를 페어링하는 경우, 를 참조하십시오 `telegraf-rs` POD가 충돌할 수 있습니다. 이 문제를 해결하려면 다음 단계를 수행하십시오.
+
+. 충돌한 포드 찾기:
++
+[listing]
+----
+kubectl -n netapp-monitoring get pod | grep Error
+----
++
+다음과 유사한 출력이 표시됩니다.
+
++
+[listing]
+----
+NAME READY STATUS RESTARTS AGE
+telegraf-rs-fhhrh 1/2 Error 2 (26s ago) 32s
+----
+. 충돌한 포드를 다시 시작하여 교체합니다 `<pod_name_from_output>` 영향을 받는 POD 이름 사용:
++
+[listing]
+----
+kubectl -n netapp-monitoring delete pod <pod_name_from_output>
+----
++
+다음과 유사한 출력이 표시됩니다.
+
++
+[listing]
+----
+pod "telegraf-rs-fhhrh" deleted
+----
+. 포드가 다시 시작되었으며 오류 상태가 아닌지 확인합니다.
++
+[listing]
+----
+kubectl -n netapp-monitoring get pod
+----
++
+다음과 유사한 출력이 표시됩니다.
+
++
+[listing]
+----
+NAME READY STATUS RESTARTS AGE
+telegraf-rs-rrnsb 2/2 Running 0 11s
 ----
 
 
