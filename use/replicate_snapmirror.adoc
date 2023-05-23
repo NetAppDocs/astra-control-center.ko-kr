@@ -47,11 +47,11 @@ Astra Control 애플리케이션 복제를 시작하려면 먼저 다음과 같�
 
 * 원활한 재해 복구를 위해 세 번째 장애 도메인 또는 보조 사이트에 Astra Control Center를 배포하는 것이 좋습니다.
 * 앱의 호스트 Kubernetes 클러스터 및 대상 Kubernetes 클러스터를 ONTAP 클러스터와 함께 관리해야 하며, 이상적으로는 다른 장애 도메인 또는 사이트에서 관리할 수 있어야 합니다.
-* ONTAP 클러스터와 호스트 SVM이 페어링되어야 합니다. 을 참조하십시오 https://["클러스터 및 SVM 피어링 개요"^].
+* ONTAP 클러스터와 호스트 SVM이 페어링되어야 합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링 개요"^].
 * 대상 클러스터의 Astra Trident에서 페어링된 원격 SVM을 사용할 수 있어야 합니다.
 * Astra Trident 버전 22.07 이상이 소스 및 대상 ONTAP 클러스터 모두에 있어야 합니다.
-* 소스 및 대상 ONTAP 클러스터 모두에서 데이터 보호 번들을 사용하는 ONTAP SnapMirror 비동기식 라이센스를 설정해야 합니다. 을 참조하십시오 https://["ONTAP의 SnapMirror 라이센스 개요"^].
-* ONTAP 스토리지 백엔드를 Astra 제어 센터에 추가할 때 액세스 방법이 있는 "admin" 역할을 사용하여 사용자 자격 증명을 적용합니다 `http` 및 `ontapi` ONTAP 소스 클러스터와 대상 클러스터 모두에서 사용하도록 설정되었습니다. 을 참조하십시오 https://["ONTAP 설명서에서 사용자 계정을 관리합니다"^] 를 참조하십시오.
+* 소스 및 대상 ONTAP 클러스터 모두에서 데이터 보호 번들을 사용하는 ONTAP SnapMirror 비동기식 라이센스를 설정해야 합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["ONTAP의 SnapMirror 라이센스 개요"^].
+* ONTAP 스토리지 백엔드를 Astra 제어 센터에 추가할 때 액세스 방법이 있는 "admin" 역할을 사용하여 사용자 자격 증명을 적용합니다 `http` 및 `ontapi` ONTAP 소스 클러스터와 대상 클러스터 모두에서 사용하도록 설정되었습니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ONTAP 설명서에서 사용자 계정을 관리합니다"^] 를 참조하십시오.
 * 소스 및 대상 Kubernetes 클러스터와 ONTAP 클러스터는 Astra Control에서 관리해야 합니다.
 +
 

@@ -27,9 +27,9 @@ IMPORTANT: Astra Control Center에 대한 평가판 라이센스가 있는 경�
 
 이러한 옵션은 24x7 무료로 제공됩니다.
 
-* https://["* 기술 자료 * (로그인 필요)"^]Astra Control과 관련된 문서, FAQ 또는 고장 수리 정보를 검색합니다.
+* https://kb.netapp.com/Cloud/Astra/Control["* 기술 자료 * (로그인 필요)"^]Astra Control과 관련된 문서, FAQ 또는 고장 수리 정보를 검색합니다.
 * * 문서 센터 *: 현재 보고 있는 문서 사이트입니다.
-* https://["* 불화를 통한 도움 받기*"^]: Pub 카테고리의 Astra로 이동하여 동료 및 전문가와 교류하십시오.
+* https://discord.gg/NetApp["* 불화를 통한 도움 받기*"^]: Pub 카테고리의 Astra로 이동하여 동료 및 전문가와 교류하십시오.
 * * 지원 케이스 생성 *: 문제 해결을 위해 NetApp 지원에 제공할 지원 번들을 생성합니다.
 * * Astra Control에 대한 피드백 제공 *: astra.feedback@netapp.com 으로 이메일을 보내 귀하의 생각, 아이디어 또는 우려 사항을 알려 주십시오.
 
@@ -38,7 +38,7 @@ IMPORTANT: Astra Control Center에 대한 평가판 라이센스가 있는 경�
 
 == NetApp Support에 매일 예약된 지원 번들 업로드를 활성화합니다
 
-Astra Control Center를 설치하는 동안(지정된 경우 `enrolled: true` 용 `autoSupport` Astra Control Center CR(사용자 지정 리소스) 파일 (`astra_control_center.yaml`), 일별 지원 번들은 에 자동으로 업로드됩니다 https://["NetApp Support 사이트"^].
+Astra Control Center를 설치하는 동안(지정된 경우 `enrolled: true` 용 `autoSupport` Astra Control Center CR(사용자 지정 리소스) 파일 (`astra_control_center.yaml`), 일별 지원 번들은 에 자동으로 업로드됩니다 https://mysupport.netapp.com/site/["NetApp Support 사이트"^].
 
 
 
@@ -98,7 +98,7 @@ TIP: UI 오른쪽 위에 있는 알림 아이콘은 지원 번들과 관련된 �
 다음 방법 중 하나를 사용하여 이 작업을 수행할 수 있습니다.
 
 +
-** 사용 https://["NetApp 인증된 파일 업로드(로그인 필요)"^].
+** 사용 https://upload.netapp.com/sg["NetApp 인증된 파일 업로드(로그인 필요)"^].
 ** NSS에서 케이스에 번들을 직접 부착합니다.
 ** NetApp Active IQ 사용
 
@@ -108,6 +108,6 @@ TIP: UI 오른쪽 위에 있는 알림 아이콘은 지원 번들과 관련된 �
 [discrete]
 == 자세한 내용을 확인하십시오
 
-* https://["NetApp에 파일을 업로드하는 방법(로그인 필요)"^]
-* https://["파일을 NetApp에 수동으로 업로드하는 방법(로그인 필요)"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["NetApp에 파일을 업로드하는 방법(로그인 필요)"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_manually_upload_AutoSupport_messages_to_NetApp_in_ONTAP_9["파일을 NetApp에 수동으로 업로드하는 방법(로그인 필요)"^]
 

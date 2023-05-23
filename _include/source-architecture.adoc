@@ -14,9 +14,9 @@ image:astra-architecture-diagram-v5.png["Astra Control 아키텍처 및 해당 �
 +
 ** Astra Control Service는 다음과 같은 스토리지 백엔드를 사용합니다.
 +
-*** https://["Google Cloud용 NetApp Cloud Volumes Service"^] 또는 GKE 클러스터의 스토리지 백엔드로 Google 영구 디스크를 사용할 수 있습니다
-*** https://["Azure NetApp Files"^] 또는 Azure 관리 디스크를 AKS 클러스터의 스토리지 백엔드로 사용합니다.
-*** https://["Amazon EBS(Elastic Block Store)"^] 또는 https://["NetApp ONTAP용 Amazon FSx"^] EKS 클러스터에 대한 백엔드 스토리지 옵션으로 제공됩니다.
+*** https://www.netapp.com/cloud-services/cloud-volumes-service-for-google-cloud/["Google Cloud용 NetApp Cloud Volumes Service"^] 또는 GKE 클러스터의 스토리지 백엔드로 Google 영구 디스크를 사용할 수 있습니다
+*** https://www.netapp.com/cloud-services/azure-netapp-files/["Azure NetApp Files"^] 또는 Azure 관리 디스크를 AKS 클러스터의 스토리지 백엔드로 사용합니다.
+*** https://docs.aws.amazon.com/ebs/["Amazon EBS(Elastic Block Store)"^] 또는 https://docs.aws.amazon.com/fsx/["NetApp ONTAP용 Amazon FSx"^] EKS 클러스터에 대한 백엔드 스토리지 옵션으로 제공됩니다.
 
 
 ** Astra Control Center는 다음과 같은 스토리지 백엔드를 사용합니다.
@@ -46,10 +46,10 @@ image:astra-architecture-diagram-v5.png["Astra Control 아키텍처 및 해당 �
 
 == 를 참조하십시오
 
-* https://["Astra Control Service 문서"^]
-* https://["Astra Control Center 문서"^]
-* https://["Astra Trident 문서"^]
-* https://["Astra Control API를 사용합니다"^]
-* https://["Cloud Insights 설명서"^]
-* https://["ONTAP 설명서"^]
+* https://docs.netapp.com/us-en/astra/index.html["Astra Control Service 문서"^]
+* https://docs.netapp.com/us-en/astra-control-center/index.html["Astra Control Center 문서"^]
+* https://docs.netapp.com/us-en/trident/index.html["Astra Trident 문서"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 사용합니다"^]
+* https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights 설명서"^]
+* https://docs.netapp.com/us-en/ontap/index.html["ONTAP 설명서"^]
 

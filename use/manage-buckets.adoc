@@ -116,7 +116,7 @@ Astra Control은 버킷 자격 증명을 사용하여 액세스 권한을 얻고
 TIP: Astra Control에 추가하는 첫 번째 자격 증명 세트는 항상 사용 중입니다. Astra Control은 자격 증명을 사용하여 백업 버킷을 인증하기 때문입니다. 버킷이 사용 중인 경우 이러한 자격 증명을 제거하지 마십시오. 이 경우 백업 실패 및 백업 가용성 손실이 발생할 수 있습니다.
 
 
-NOTE: 활성 버킷 자격 증명을 제거하는 경우 를 참조하십시오 https://["버킷 자격 증명 제거 문제 해결"].
+NOTE: 활성 버킷 자격 증명을 제거하는 경우 를 참조하십시오 https://kb.netapp.com/Cloud/Astra/Control/Deleting_active_S3_bucket_credentials_leads_to_spurious_500_errors_reported_in_the_UI["버킷 자격 증명 제거 문제 해결"].
 
 Astra Control API를 사용하여 S3 자격 증명을 제거하는 방법에 대한 지침은 을 참조하십시오 link:https://docs.netapp.com/us-en/astra-automation/["Astra 자동화 및 API 정보"^].
 
@@ -151,5 +151,5 @@ NOTE: Astra Control은 먼저 버킷에 백업을 사용하는 스케줄 정책�
 
 == 자세한 내용을 확인하십시오
 
-* https://["Astra Control API를 사용합니다"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 사용합니다"^]
 

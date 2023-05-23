@@ -200,12 +200,12 @@ Astra Control Center에서 관리하는 Kubernetes 클러스터에 대한 Cloud 
 
 Prometheus로 Astra Control Center 데이터를 모니터링할 수 있습니다. Kubernetes 클러스터 메트릭 엔드포인트에서 메트릭을 수집하도록 Prometheus를 구성할 수 있으며 Prometheus를 사용하여 메트릭 데이터를 시각화할 수도 있습니다.
 
-Prometheus 사용에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Prometheus 시작"].
+Prometheus 사용에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://prometheus.io/docs/prometheus/latest/getting_started/["Prometheus 시작"].
 
 .필요한 것
 Astra Control Center 클러스터나 Astra Control Center 클러스터와 통신할 수 있는 다른 클러스터에 Prometheus 패키지를 다운로드하여 설치했는지 확인하십시오.
 
-의 공식 설명서에 있는 지침을 따르십시오 https://["Prometheus를 설치합니다"].
+의 공식 설명서에 있는 지침을 따르십시오 https://prometheus.io/docs/prometheus/latest/installation/["Prometheus를 설치합니다"].
 
 Prometheus는 Astra Control Center Kubernetes 클러스터와 통신할 수 있어야 합니다. Prometheus가 Astra Control Center 클러스터에 설치되어 있지 않은 경우 Astra Control Center 클러스터에서 실행 중인 메트릭 서비스와 통신할 수 있는지 확인해야 합니다.
 
