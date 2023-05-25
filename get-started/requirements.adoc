@@ -144,7 +144,7 @@ Astra Control Center 빌드 이미지를 푸시할 수 있는 기존 개인 Dock
 
 == Astra Control Center 라이센스
 
-Astra Control Center에는 Astra Control Center 라이센스가 필요합니다. Astra Control Center를 설치할 때 4,800 CPU 장치에 대한 90일 평가 라이센스가 내장되어 있습니다. 용량 또는 다른 평가 조건이 필요하거나 전체 라이센스로 업그레이드하려는 경우 NetApp에서 다른 평가 라이센스 또는 전체 라이센스를 얻을 수 있습니다. 애플리케이션과 데이터를 보호하려면 라이센스가 필요합니다. 을 참조하십시오 link:../concepts/intro.html["Astra Control Center의 특징"] 를 참조하십시오.
+Astra Control Center에는 Astra Control Center 라이센스가 필요합니다. Astra Control Center를 설치할 때 4,800 CPU 장치에 대한 90일 평가 라이센스가 내장되어 있습니다. 용량 또는 다른 평가 조건이 필요하거나 전체 라이센스로 업그레이드하려는 경우 NetApp에서 다른 평가 라이센스 또는 전체 라이센스를 얻을 수 있습니다. 애플리케이션과 데이터를 보호하려면 라이센스가 필요합니다.
 
 Astra Control Center는 무료 평가판을 신청하여 사용해 볼 수 있습니다. 등록을 통해 등록할 수 있습니다 link:https://bluexp.netapp.com/astra-register["여기"^].
 

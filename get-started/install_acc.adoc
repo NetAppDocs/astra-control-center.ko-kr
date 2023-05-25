@@ -179,7 +179,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.04.0-22
+export PACKAGEVERSION=23.04.2-7
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -198,7 +198,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.04.0-22
+export PACKAGEVERSION=23.04.2-7
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -214,7 +214,7 @@ NOTE: 레지스트리 구성에 따라 스크립트가 만드는 이미지 경�
 +
 [listing]
 ----
-https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.04.0-22/image:version
+https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.04.2-7/image:version
 ----
 
 
@@ -253,7 +253,7 @@ namespace/netapp-acc-operator created
 .. NetApp-acc-operator 네임스페이스에 대한 암호를 생성합니다. Docker 정보를 추가하고 다음 명령을 실행합니다.
 +
 
-NOTE: 자리 표시자입니다 `your_registry_path` 이전에 업로드한 이미지의 위치와 일치해야 합니다(예: `[Registry_URL]/netapp/astra/astracc/23.04.0-22`)를 클릭합니다.
+NOTE: 자리 표시자입니다 `your_registry_path` 이전에 업로드한 이미지의 위치와 일치해야 합니다(예: `[Registry_URL]/netapp/astra/astracc/23.04.2-7`)를 클릭합니다.
 
 +
 [source, console]
@@ -380,7 +380,7 @@ spec:
           value: "2"
         - name: ACCOP_HELM_INSTALLTIMEOUT
           value: 5m
-        *image: [your_registry_path]/acc-operator:23.04.21*
+        *image: [your_registry_path]/acc-operator:23.04.36*
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -478,7 +478,7 @@ NOTE: YAML 주석이 붙은 샘플은 다음 단계를 따릅니다.
 | 설정 | 지침 | 유형 | 예 
 
 
-| `astraVersion` | 배포할 Astra Control Center의 버전입니다. 값이 미리 채워질 수 있으므로 이 설정에 대한 작업은 필요하지 않습니다. | 문자열 | `23.04.0-22` 
+| `astraVersion` | 배포할 Astra Control Center의 버전입니다. 값이 미리 채워질 수 있으므로 이 설정에 대한 작업은 필요하지 않습니다. | 문자열 | `23.04.2-7` 
 |===
 ====
 +
@@ -893,7 +893,7 @@ kubectl get AstraControlCenter -n [netapp-acc or custom namespace]
 [listing]
 ----
 NAME    UUID                                  VERSION     ADDRESS         READY
-astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f  23.04.0-22  10.111.111.111  True
+astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f  23.04.2-7   10.111.111.111  True
 ----
 +
 

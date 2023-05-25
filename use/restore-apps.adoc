@@ -169,7 +169,7 @@ TIP: 원하는 만큼 리소스 포함 및 제외 규칙을 만들 수 있습니
 
 == ONTAP-NAS-이코노미 스토리지에서 ONTAP-NAS 스토리지로 마이그레이션
 
-Astra Control을 사용할 수 있습니다 link:../use/restore-apps.html["애플리케이션 복원"] 에서 지원하는 스토리지 클래스에서 애플리케이션 볼륨을 마이그레이션하는 작업입니다 `ontap-nas-economy`에서는 제한된 애플리케이션 보호 옵션을 에서 지원하는 스토리지 클래스에 허용합니다 `ontap-nas` Astra Control 보호 옵션을 모두 갖추고 있습니다. 복원 작업은 를 사용하는 Qtree 기반 볼륨을 마이그레이션합니다 `ontap-nas-economy` 에서 지원하는 표준 볼륨에 백엔드를 제공합니다 `ontap-nas`. 볼륨에 대한 모든 정보가 포함됩니다 `ontap-nas-economy` 백업만 또는 혼합으로 타겟 스토리지 클래스로 마이그레이션됩니다. 마이그레이션이 완료된 후에는 보호 옵션이 더 이상 제한되지 않습니다.
+Astra Control을 사용할 수 있습니다 link:../use/restore-apps.html["애플리케이션 복원"] 또는 link:../use/clone-apps.html["애플리케이션 클론"^] 에서 지원하는 스토리지 클래스에서 애플리케이션 볼륨을 마이그레이션하는 작업입니다 `ontap-nas-economy`에서는 제한된 애플리케이션 보호 옵션을 에서 지원하는 스토리지 클래스에 허용합니다 `ontap-nas` Astra Control 보호 옵션을 모두 갖추고 있습니다. 클론 또는 복원 작업은 를 사용하는 Qtree 기반 볼륨을 마이그레이션합니다 `ontap-nas-economy` 에서 지원하는 표준 볼륨에 백엔드를 제공합니다 `ontap-nas`. 볼륨에 대한 모든 정보가 포함됩니다 `ontap-nas-economy` 백업만 또는 혼합으로 타겟 스토리지 클래스로 마이그레이션됩니다. 마이그레이션이 완료된 후에는 보호 옵션이 더 이상 제한되지 않습니다.
 
 
 

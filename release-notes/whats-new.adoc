@@ -16,6 +16,16 @@ Astra Control Center의 최신 릴리스를 발표하게 되어 기쁘게 생각
 
 
 
+== 2023년 5월 18일(23.04.2)
+
+Astra Control Center(23.04.0)용 패치 릴리스(23.04.2)는 에 대한 지원을 제공합니다 https://newreleases.io/project/github/kubernetes-csi/external-snapshotter/release/v6.1.0["Kubernetes CSI 외부 스냅샷 v6.1.0"^] 및 에서는 다음 사항을 수정합니다.
+
+* 실행 후크를 사용할 때 현재 위치 응용 프로그램 복원의 버그
+* 버킷 서비스 연결 문제
+
+
+
+
 == 2023년 4월 25일(23.04.0)
 
 .새로운 기능 및 지원
@@ -25,6 +35,11 @@ Astra Control Center의 최신 릴리스를 발표하게 되어 기쁘게 생각
 * 
 * link:../use/restore-apps.html#filter-resources-during-an-application-restore["복원 작업 중에 애플리케이션 리소스를 포함 또는 제외하는 지원"^]
 * link:../use/manage-apps.html["데이터 전용 애플리케이션 관리 지원"]
+
+
+.알려진 문제 및 제한 사항
+* link:../release-notes/known-issues.html["이 릴리스에 대해 알려진 문제입니다"^]
+* link:../release-notes/known-limitations.html["이 릴리스에 대해 알려진 제한 사항입니다"^]
 
 
 
