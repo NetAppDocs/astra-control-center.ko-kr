@@ -50,7 +50,7 @@ Astra Control은 애플리케이션 스냅샷 복사본을 원격 클러스터�
 
 앱 복제는 다음과 같은 방식으로 앱 백업 및 복원과 다릅니다.
 
-* * 앱 복제 *: Astra Control을 사용하려면 NetApp SnapMirror를 지원하도록 구성된 각 ONTAP 스토리지 백엔드를 통해 소스 및 대상 Kubernetes 클러스터를 사용하고 관리해야 합니다. Astra Control은 정책 기반 애플리케이션 스냅샷을 생성하여 원격 클러스터에 복제합니다. NetApp SnapMirror 기술은 영구 볼륨 데이터를 복제하는 데 사용됩니다. Astra Control은 페일오버하기 위해 대상 Kubernetes 클러스터의 앱 객체를 대상 ONTAP 클러스터의 복제된 볼륨으로 재생성하여 복제된 앱을 온라인으로 전환할 수 있습니다. 대상 ONTAP 클러스터에 영구 볼륨 데이터가 이미 있으므로 Astra Control은 페일오버에 대한 빠른 복구 시간을 제공할 수 있습니다.
+* * 앱 복제 *: Astra Control을 사용하려면 NetApp SnapMirror를 지원하도록 구성된 각각의 ONTAP 스토리지 백엔드를 통해 소스 및 대상 Kubernetes 클러스터를 사용하고 관리해야 합니다. Astra Control은 정책 기반 애플리케이션 스냅샷을 생성하여 원격 클러스터에 복제합니다. NetApp SnapMirror 기술은 영구 볼륨 데이터를 복제하는 데 사용됩니다. Astra Control은 페일오버하기 위해 대상 Kubernetes 클러스터의 앱 객체를 대상 ONTAP 클러스터의 복제된 볼륨으로 재생성하여 복제된 앱을 온라인으로 전환할 수 있습니다. 대상 ONTAP 클러스터에 영구 볼륨 데이터가 이미 있으므로 Astra Control은 페일오버에 대한 빠른 복구 시간을 제공할 수 있습니다.
 * * 애플리케이션 백업 및 복원 *: 애플리케이션을 백업할 때 Astra Control은 애플리케이션 데이터의 스냅샷을 생성하고 이를 오브젝트 스토리지 버킷에 저장합니다. 복원이 필요한 경우 버킷 내의 데이터를 ONTAP 클러스터의 영구 볼륨에 복사해야 합니다. 백업/복원 작업에서는 보조 Kubernetes/ONTAP 클러스터를 사용하고 관리할 필요가 없지만, 추가 데이터 복사본을 사용할 경우 복원 시간이 길어질 수 있습니다.
 
 
@@ -62,7 +62,7 @@ Astra Control은 애플리케이션 스냅샷 복사본을 원격 클러스터�
 
 image:acc-backup_4in.png["이 이미지는 S3 버킷을 사용하여 두 Kubernetes 클러스터 간에 예약된 백업 및 복원을 보여줍니다"]
 
-반면, 복제는 ONTAP로 복제하여 수행하지만 페일오버로 Kubernetes 리소스를 생성합니다.
+반면, 복제는 ONTAP로 복제하여 수행한 다음 페일오버로 Kubernetes 리소스를 생성합니다.
 
 image:acc-replication_4in.png["이 이미지는 두 Kubernetes 클러스터와 두 ONTAP 클러스터 간의 복제 및 페일오버를 보여 줍니다"]
 

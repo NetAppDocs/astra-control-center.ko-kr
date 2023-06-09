@@ -155,7 +155,7 @@ AWS 설명서에 따라 다음 단계를 완료하십시오. 을 참조하십시
 
 . AWS 가상 네트워크를 생성합니다.
 . EC2 컴퓨팅 인스턴스를 검토합니다. 이는 AWS의 베어 메탈 서버 또는 VM이 될 수 있습니다.
-. 인스턴스 유형이 마스터 및 작업자 노드에 대한 Astra 최소 리소스 요구 사항과 일치하지 않으면 AWS의 인스턴스 유형을 Astra 요구 사항에 맞게 변경합니다. 을 참조하십시오 link:../get-started/requirements.html["Astra Control Center 요구 사항"^].
+. 인스턴스 유형이 마스터 및 작업자 노드에 대한 Astra 최소 리소스 요구 사항과 일치하지 않으면 AWS의 인스턴스 유형을 Astra 요구 사항에 맞게 변경합니다.  을 참조하십시오 link:../get-started/requirements.html["Astra Control Center 요구 사항"^].
 . 백업을 저장할 AWS S3 버킷을 하나 이상 생성합니다.
 . AWS ECR(Elastic Container Registry)을 생성하여 모든 ACC 이미지를 호스팅합니다.
 +
@@ -593,7 +593,7 @@ Azure 설명서에 따라 다음 단계를 완료합니다. 을 참조하십시�
 
 . Azure 가상 네트워크를 생성합니다.
 . 컴퓨팅 인스턴스를 검토합니다. Azure의 베어 메탈 서버 또는 VM이 될 수 있습니다.
-. 인스턴스 유형이 마스터 및 작업자 노드에 대한 Astra 최소 리소스 요구 사항과 일치하지 않으면 Azure의 인스턴스 유형을 Astra 요구 사항에 맞게 변경합니다. 을 참조하십시오 link:../get-started/requirements.html["Astra Control Center 요구 사항"^].
+. 인스턴스 유형이 마스터 및 작업자 노드에 대한 Astra 최소 리소스 요구 사항과 일치하지 않으면 Azure의 인스턴스 유형을 Astra 요구 사항에 맞게 변경합니다.  을 참조하십시오 link:../get-started/requirements.html["Astra Control Center 요구 사항"^].
 . 백업을 저장할 Azure Blob 컨테이너를 하나 이상 생성합니다.
 . 저장소 계정을 생성합니다. Astra Control Center에서 버킷으로 사용할 컨테이너를 생성하려면 저장소 계정이 필요합니다.
 . 버킷 액세스에 필요한 암호를 생성합니다.

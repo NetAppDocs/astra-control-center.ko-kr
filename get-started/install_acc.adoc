@@ -37,6 +37,9 @@ kubectl get apiservices
 * 인증서 관리자가 클러스터에 이미 있는 경우 일부를 수행해야 합니다 link:../get-started/cert-manager-prereqs.html["필수 단계"^] 따라서 Astra Control Center는 자체 인증 관리자를 설치하려고 시도하지 않습니다. 기본적으로 Astra Control Center는 설치 중에 자체 인증서 관리자를 설치합니다.
 
 
+
+TIP: Astra Control Center를 세 번째 고장 도메인 또는 보조 사이트에 배포합니다. 앱 복제 및 원활한 재해 복구에 권장됩니다.
+
 .이 작업에 대해
 Astra Control Center 설치 프로세스를 통해 다음을 수행할 수 있습니다.
 
@@ -593,7 +596,17 @@ IMPORTANT: If you are using a registry that does not require authorization, you 
 | 설정 | 지침 | 유형 | 옵션 
 
 
-| `ingressType` | 다음 수신 유형 중 하나를 사용하십시오.*`Generic`* (`ingressType: "Generic"`) (기본값) 다른 수신 컨트롤러를 사용 중이거나 자체 수신 컨트롤러를 사용하려는 경우 이 옵션을 사용합니다. Astra Control Center를 배포한 후 을 구성해야 합니다 link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["수신 컨트롤러"^] URL을 사용하여 Astra Control Center를 표시합니다.*`AccTraefik`* (`ingressType: "AccTraefik"`) 수신 컨트롤러를 구성하지 않으려는 경우 이 옵션을 사용하십시오. 그러면 Astra Control Center가 구축됩니다 `traefik` Kubernetes 로드 밸런서 유형 서비스로서의 게이트웨이 Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. (`svc/traefik` Astra Control Center 네임스페이스에서), 액세스 가능한 외부 IP 주소를 할당해야 합니다. 로드 밸런서가 사용자 환경에서 허용되고 아직 로드 밸런서가 구성되어 있지 않은 경우 MetalLB 또는 다른 외부 서비스 로드 밸런서를 사용하여 외부 IP 주소를 서비스에 할당할 수 있습니다. 내부 DNS 서버 구성에서 Astra Control Center에 대해 선택한 DNS 이름을 부하 분산 IP 주소로 지정해야 합니다. 참고: "로드 밸런서" 및 수신 서비스 유형에 대한 자세한 내용은 을 참조하십시오 link:../get-started/requirements.html["요구 사항"^]. | 문자열  a| 
+| `ingressType` | 다음 수신 유형 중 하나를 사용하십시오.
+
+*`Generic`* (`ingressType: "Generic"`) (기본값)
+다른 수신 컨트롤러를 사용 중이거나 자체 수신 컨트롤러를 사용하려는 경우 이 옵션을 사용하십시오. Astra Control Center를 배포한 후 을 구성해야 합니다 link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["수신 컨트롤러"^] URL을 사용하여 Astra Control Center를 표시합니다.
+
+*`AccTraefik`* (`ingressType: "AccTraefik"`)
+수신 컨트롤러를 구성하지 않으려는 경우 이 옵션을 사용하십시오. 그러면 Astra Control Center가 구축됩니다 `traefik` Kubernetes 로드 밸런서 유형 서비스로서의 게이트웨이
+
+Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. (`svc/traefik` Astra Control Center 네임스페이스에서), 액세스 가능한 외부 IP 주소를 할당해야 합니다. 로드 밸런서가 사용자 환경에서 허용되고 아직 로드 밸런서가 구성되어 있지 않은 경우 MetalLB 또는 다른 외부 서비스 로드 밸런서를 사용하여 외부 IP 주소를 서비스에 할당할 수 있습니다. 내부 DNS 서버 구성에서 Astra Control Center에 대해 선택한 DNS 이름을 부하 분산 IP 주소로 지정해야 합니다.
+
+참고: "로드 밸런서" 및 수신 서비스 유형에 대한 자세한 내용은 을 참조하십시오 link:../get-started/requirements.html["요구 사항"^]. | 문자열  a| 
 ** `Generic` (기본값)
 ** `AccTraefik`
 

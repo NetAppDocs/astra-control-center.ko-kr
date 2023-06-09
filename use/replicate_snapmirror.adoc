@@ -45,34 +45,45 @@ Astra Control을 사용하면 애플리케이션 복제와 관련된 다음 작�
 
 Astra Control 애플리케이션 복제를 시작하려면 먼저 다음과 같은 사전 요구 사항을 충족해야 합니다.
 
-* 원활한 재해 복구를 위해 세 번째 장애 도메인 또는 보조 사이트에 Astra Control Center를 배포하는 것이 좋습니다.
-* 앱의 호스트 Kubernetes 클러스터 및 대상 Kubernetes 클러스터를 ONTAP 클러스터와 함께 관리해야 하며, 이상적으로는 다른 장애 도메인 또는 사이트에서 관리할 수 있어야 합니다.
-* ONTAP 클러스터와 호스트 SVM이 페어링되어야 합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링 개요"^].
-* 대상 클러스터의 Astra Trident에서 페어링된 원격 SVM을 사용할 수 있어야 합니다.
-* Astra Trident 버전 22.07 이상이 소스 및 대상 ONTAP 클러스터 모두에 있어야 합니다.
-* 소스 및 대상 ONTAP 클러스터 모두에서 데이터 보호 번들을 사용하는 ONTAP SnapMirror 비동기식 라이센스를 설정해야 합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["ONTAP의 SnapMirror 라이센스 개요"^].
-* ONTAP 스토리지 백엔드를 Astra 제어 센터에 추가할 때 액세스 방법이 있는 "admin" 역할을 사용하여 사용자 자격 증명을 적용합니다 `http` 및 `ontapi` ONTAP 소스 클러스터와 대상 클러스터 모두에서 사용하도록 설정되었습니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ONTAP 설명서에서 사용자 계정을 관리합니다"^] 를 참조하십시오.
-* 소스 및 대상 Kubernetes 클러스터와 ONTAP 클러스터는 Astra Control에서 관리해야 합니다.
+* * ONTAP 클러스터 *:
++
+** * Trident *: Astra Trident 버전 22.07 이상은 ONTAP를 백엔드로 사용하는 소스 및 대상 Kubernetes 클러스터 모두에 있어야 합니다.
+** * 라이센스 *: 소스 및 대상 ONTAP 클러스터 모두에서 데이터 보호 번들을 사용하는 ONTAP SnapMirror 비동기 라이센스를 활성화해야 합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["ONTAP의 SnapMirror 라이센스 개요"^] 를 참조하십시오.
+
+
+* * 페어링 *:
++
+** * 클러스터 및 SVM *: ONTAP 클러스터와 호스트 SVM이 페어링되어야 합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링 개요"^] 를 참조하십시오.
+** * Trident 및 SVM *: 대상 클러스터의 Astra Trident에서 페어링된 원격 SVM을 사용할 수 있어야 합니다.
+
+
+* * Astra Control Center *:
 +
 
-NOTE: 다른 클러스터 또는 사이트에서 실행 중인 다른 앱을 반대 방향으로 동시에 복제할 수 있습니다. 예를 들어, 애플리케이션 A, B, C를 데이터 센터 1에서 데이터 센터 2로 복제하고 애플리케이션 X, Y, Z를 데이터 센터 2에서 데이터 센터 1로 복제할 수 있습니다.
+TIP: link:../get-started/install_acc.html["Astra Control Center를 구축합니다"^] 원활한 재해 복구를 위한 세 번째 장애 도메인 또는 보조 사이트.
 
-* * Astra Trident/ONTAP 구성 *: Astra Control Center를 사용하려면 스토리지 클래스를 생성하고 기본 스토리지 클래스로 설정해야 합니다. Astra Control Center는 복제를 위해 Astra Trident에서 제공하는 다음과 같은 ONTAP 드라이버를 지원합니다.
 +
-** ONTAP - NAS
-** ONTAP - NAS - 경제성(이 스토리지 클래스에는 Astra Control과 함께 SnapMirror 복제 기능을 사용할 수 없음)
-** ONTAP-SAN
+** * 관리형 클러스터 *: Astra Control에 다음 클러스터를 추가하고 관리해야 하며, 이상적으로는 서로 다른 장애 도메인 또는 사이트에서 관리되어야 합니다.
++
+*** 소스 Kubernetes 클러스터
+*** 대상 Kubernetes 클러스터
+*** 연결된 ONTAP 클러스터
+
+
+** * 사용자 계정 *: ONTAP 스토리지 백엔드를 Astra 제어 센터에 추가할 때 "admin" 역할을 사용하여 사용자 자격 증명을 적용합니다. 이 역할에는 액세스 방법이 있습니다 `http` 및 `ontapi` ONTAP 소스 클러스터와 대상 클러스터 모두에서 사용하도록 설정되었습니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ONTAP 설명서에서 사용자 계정을 관리합니다"^] 를 참조하십시오.
+
+
+* * Astra Trident/ONTAP 구성 *: Astra Control Center를 사용하려면 소스 및 대상 클러스터 모두에 대한 복제를 지원하는 스토리지 클래스를 하나 이상 구성해야 합니다.
 
 
 
-
-자세한 내용을 알아보십시오 link:../use/replicate_snapmirror.html["SnapMirror 기술을 사용하여 원격 시스템에 애플리케이션을 복제합니다"^].
+IMPORTANT: Astra Control 복제는 단일 스토리지 클래스를 사용하는 애플리케이션을 지원합니다. 네임스페이스에 앱을 추가하는 경우 네임스페이스에서 다른 앱과 동일한 저장소 클래스가 앱에 있는지 확인합니다. 복제된 앱에 PVC를 추가할 때 새로운 PVC의 저장 클래스가 네임스페이스의 다른 PVC와 동일한지 확인하십시오.
 
 
 
 == 복제 관계를 설정합니다
 
-복제 관계를 설정하려면 복제 정책을 구성하는 다음 작업이 필요합니다.
+복제 관계를 설정하려면 다음을 수행해야 합니다.
 
 * Astra Control에서 애플리케이션 스냅샷을 얼마나 자주 생성할지 선택(앱의 Kubernetes 리소스 및 각 앱의 볼륨에 대한 볼륨 스냅샷 포함)
 * 복제 일정 선택(Kubernetes 리소스 및 영구 볼륨 데이터 포함)
@@ -108,7 +119,7 @@ Astra Control은 복제에 사용되는 애플리케이션 스냅샷을 생성�
 
 . 응용 프로그램 스냅샷 상태를 보려면 * 응용 프로그램 * > * 스냅샷 * 탭을 선택합니다.
 +
-스냅샷 이름은 "replication-schedule-<string>" 형식을 사용합니다. Astra Control은 복제에 사용된 마지막 스냅샷을 보존합니다. 복제를 성공적으로 완료한 후에는 이전의 모든 복제 스냅샷이 삭제됩니다.
+스냅샷 이름은 의 형식을 사용합니다 `replication-schedule-<string>`. Astra Control은 복제에 사용된 마지막 스냅샷을 보존합니다. 복제를 성공적으로 완료한 후에는 이전의 모든 복제 스냅샷이 삭제됩니다.
 
 
 
@@ -133,7 +144,7 @@ Astra Control은 관계를 수립함으로써 다음과 같은 조치를 수행�
 
 == 대상 클러스터에서 복제된 앱을 온라인 상태로 전환(페일오버)
 
-Astra Control을 사용하면 복제된 애플리케이션을 대상 클러스터로 "페일오버"할 수 있습니다. 이 절차는 복제 관계를 중지하고 대상 클러스터에서 앱을 온라인으로 전환합니다. 이 절차를 수행해도 소스 클러스터에서 앱이 중지되지 않습니다.
+Astra Control을 사용하면 복제된 애플리케이션을 대상 클러스터로 페일오버할 수 있습니다. 이 절차는 복제 관계를 중지하고 대상 클러스터에서 앱을 온라인으로 전환합니다. 이 절차를 수행해도 소스 클러스터에서 앱이 중지되지 않습니다.
 
 .단계
 . Astra Control 왼쪽 탐색 모음에서 * 응용 프로그램 * 을 선택합니다.
@@ -148,7 +159,7 @@ Astra Control을 사용하면 복제된 애플리케이션을 대상 클러스�
 * 대상 클러스터에서 최신 복제된 스냅샷을 기반으로 앱이 시작됩니다.
 * 소스 클러스터와 앱(작동 중인 경우)이 중지되지 않고 계속 실행됩니다.
 * 복제 상태가 "페일오버 중"으로 변경되고, 완료되면 "페일오버 실패"로 변경됩니다.
-* 소스 앱의 보호 정책은 장애 조치 시 소스 앱에 있는 일정에 따라 대상 앱에 복사됩니다.
+* 소스 앱의 보호 정책은 페일오버 시 소스 앱에 있는 일정에 따라 대상 앱에 복사됩니다.
 * 소스 앱에 복원 후 실행 후크가 하나 이상 활성화된 경우 해당 실행 후크가 대상 앱에 대해 실행됩니다.
 * Astra Control은 소스 및 대상 클러스터와 해당 상태 모두에서 앱을 표시합니다.
 
@@ -215,9 +226,9 @@ CAUTION: 대상의 데이터를 덮어쓰므로 재동기화 소스를 신중하
 
 == 애플리케이션을 원래 소스 클러스터로 페일백합니다
 
-Astra Control을 사용하면 다음과 같은 일련의 작업을 통해 "장애 조치" 작업 후에 "장애 복구"를 달성할 수 있습니다. 이 워크플로우에서 원래 복제 방향을 복구하기 위해 Astra Control은 복제 방향을 바꾸기 전에 애플리케이션 변경 사항을 원래 소스 클러스터로 복제(재동기화)합니다.
+Astra Control을 사용하면 다음 작업 시퀀스를 사용하여 장애 조치 작업 후 "장애 복구"를 수행할 수 있습니다. 이 워크플로우에서 원래 복제 방향을 복구하기 위해 Astra Control은 복제 방향을 바꾸기 전에 애플리케이션 변경 사항을 원래 소스 클러스터로 복제(재동기화)합니다.
 
-이 프로세스는 대상에 대한 장애 조치를 완료한 관계로부터 시작되며 다음 단계를 포함합니다.
+이 프로세스는 대상에 대한 페일오버를 완료한 관계로부터 시작되며 다음 단계를 포함합니다.
 
 * 페일오버된 상태로 시작합니다.
 * 관계를 다시 동기화합니다.
@@ -228,7 +239,7 @@ Astra Control을 사용하면 다음과 같은 일련의 작업을 통해 "장�
 . Astra Control 왼쪽 탐색 모음에서 * 응용 프로그램 * 을 선택합니다.
 . 애플리케이션 페이지에서 * 데이터 보호 * > * 복제 * 탭을 선택합니다.
 . 데이터 보호 > 복제 탭의 작업 메뉴에서 * 재동기화 * 를 선택합니다.
-. 장애 복구 작업의 경우 페일오버된 앱을 재동기화 작업의 소스로 선택합니다(기록된 모든 데이터 장애 조치 유지).
+. 페일백 작업의 경우 페일오버된 앱을 재동기화 작업의 소스로 선택합니다(기록된 모든 데이터 유지 사후 페일오버).
 . "resync"를 입력하여 확인합니다.
 . 예, 재동기화 * 를 선택하여 완료합니다.
 . 재동기화가 완료되면 데이터 보호 > 복제 탭의 동작 메뉴에서 * 역방향 복제 * 를 선택합니다.
