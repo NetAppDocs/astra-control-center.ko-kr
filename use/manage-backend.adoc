@@ -164,5 +164,5 @@ NOTE: 여기에 자격 증명을 입력한 사용자에게는 가 있어야 합�
 
 == 자세한 내용을 확인하십시오
 
-* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 사용합니다"^]
+* https://docs.netapp.com/us-en/astra-automation["Astra Control API를 사용합니다"^]
 

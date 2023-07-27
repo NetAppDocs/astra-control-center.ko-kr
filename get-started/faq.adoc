@@ -91,7 +91,7 @@ Astra Control은 애플리케이션을 배포하지 않습니다. 응용 프로�
 
 "Astra Control을 자체적으로 관리해야 합니까?" *
 
-아니요, Astra Control 자체는 "시스템 응용 프로그램"이기 때문에 관리하지 않아야 합니다.
+Astra Control Center는 기본적으로 관리할 수 있는 애플리케이션으로 표시되지 않지만 다른 Astra Control Center 인스턴스를 사용하여 Astra Control Center 인스턴스를 백업 및 복원할 수 있습니다.
 
 * 비정상적인 포드가 앱 관리에 영향을 미칩니까? *
 

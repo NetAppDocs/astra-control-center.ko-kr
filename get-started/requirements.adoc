@@ -40,25 +40,22 @@ NOTE: Astra Control Center를 호스팅하도록 선택한 Kubernetes 환경이 
 | 호스트 클러스터에서의 Kubernetes 배포 | 지원되는 버전 
 
 
-| Azure Stack HCI 기반 Azure Kubernetes Service | AKS 1.23 및 1.24가 포함된 Azure Stack HCI 21H2 및 22H2 
+| Azure Stack HCI 기반 Azure Kubernetes Service | AKS 1.24.x 및 1.25.x가 포함된 Azure Stack HCI 21H2 및 22H2 
 
 
-| Google Anthos | 1.12 ~ 1.14(참조 <<Google Anthos 수신 요구 사항>>) 
+| Google Anthos | 1.14 ~ 1.16(참조 <<Google Anthos 수신 요구 사항>>) 
 
 
-| Kubernetes(업스트림) | 1.24 ~ 1.26(Kubernetes 1.25 이상의 경우 Astra Trident 22.10 이상 필요) 
+| Kubernetes(업스트림) | 1.25 ~ 1.27(Kubernetes 1.25 이상의 경우 Astra Trident 22.10 이상 필요) 
 
 
-| RKE(Rancher Kubernetes Engine) | RKE 1.3, Rancher 2.6 RKE 1.4, Rancher 2.7 RKE 2 (v1.23.x), Rancher 2.6 RKE 2 (v1.24.x), Rancher 2.7 
+| RKE(Rancher Kubernetes Engine) | RKE 1.3 Rancher Manager 2.6
+RKE 1.4 및 Rancher Manager 2.7
+RKE 2 (v1.24.x), Rancher 2.6 포함
+RKE 2 (v1.25.x) 및 Rancher 2.7 
 
 
-| Red Hat OpenShift Container Platform | 4.10 ~ 4.12 
-
-
-| VMware Tanzu Kubernetes Grid를 참조하십시오 | 1.6(참조 <<호스트 클러스터 리소스 요구 사항>>) 
-
-
-| VMware Tanzu Kubernetes Grid Integrated Edition을 참조하십시오 | 1.14 및 1.15(참조 <<호스트 클러스터 리소스 요구 사항>>) 
+| Red Hat OpenShift Container Platform | 4.11 ~ 4.13 
 |===
 
 
@@ -71,14 +68,6 @@ NOTE: 이러한 요구 사항에서는 Astra Control Center가 운영 환경에�
 
 * * CPU 확장 *: 호스팅 환경의 모든 노드에 있는 CPU에는 AVX 확장이 활성화되어 있어야 합니다.
 * * 작업자 노드 *: 총 3개 이상의 작업자 노드, CPU 코어 4개, 12GB RAM
-* * VMware Tanzu Kubernetes Grid 클러스터 요구 사항 *: VMware Tanzu Kubernetes Grid(TKG) 또는 Tanzu Kubernetes Grid Integrated Edition(TKGi) 클러스터에서 Astra Control Center를 호스팅하는 경우 다음 사항을 고려하십시오.
-+
-** 기본 VMware TKG 및 TKGi 구성 파일 토큰은 구축 후 10시간 후에 만료됩니다. Tanzu 포트폴리오 제품을 사용하는 경우, Astra Control Center와 관리되는 애플리케이션 클러스터 간의 연결 문제를 방지하기 위해 만료되지 않는 토큰이 포함된 Tanzu Kubernetes Cluster 구성 파일을 생성해야 합니다. 자세한 내용은 를 참조하십시오 https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.2/nsx-application-platform/GUID-52A52C0B-9575-43B6-ADE2-E8640E22C29F.html["VMware NSX-T 데이터 센터 제품 설명서"^]
-** 를 사용합니다 `kubectl get nsxlbmonitors -A` 수신 트래픽을 허용하도록 서비스 모니터가 이미 구성되어 있는지 확인하는 명령입니다. 기존 서비스 모니터가 새 로드 밸런서 구성을 무시하므로 MetalLB를 설치하면 안 됩니다.
-** Astra Control에서 관리하려는 모든 애플리케이션 클러스터에서 TKG 또는 TKGi 기본 스토리지 클래스 적용을 비활성화합니다. 네임스페이스 클러스터에서 '탄자쿠스컨테이너 클러스터' 리소스를 편집하여 이 작업을 수행할 수 있습니다.
-** TKG 또는 TKGi 환경에 Astra Control Center를 구축하는 경우 Astra Trident에 대한 특정 요구 사항을 숙지하십시오. 자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#other-known-configuration-options["Astra Trident 문서"^].
-
-
 
 
 
@@ -87,8 +76,8 @@ NOTE: 이러한 요구 사항에서는 Astra Control Center가 운영 환경에�
 
 귀사의 환경 요구사항에 맞는 다음과 같은 Astra Trident 요구사항을 충족해야 합니다.
 
-* * Astra Control Center *: Astra Trident 22.04 이상 설치 및 구성된 최소 버전.
-* SnapMirror 복제 *: SnapMirror 기반 애플리케이션 복제를 위해 설치된 Astra Trident 22.07 이상
+* * Astra Control Center *: Astra Trident 22.10 이상 설치 및 구성된 최소 버전.
+* SnapMirror 복제 *: SnapMirror 기반 애플리케이션 복제를 위해 설치된 Astra Trident 22.10 이상
 * * Kubernetes 1.25 이상 지원 *: Kubernetes 1.25 이상 클러스터에 설치된 Astra Trident 22.10 이상(Kubernetes 1.25 이상으로 업그레이드하기 전에 Astra Trident 22.10으로 업그레이드해야 함)
 * * Astra Trident * 를 사용한 ONTAP 구성:
 +
@@ -111,14 +100,24 @@ NOTE: 이러한 요구 사항에서는 Astra Control Center가 운영 환경에�
 
 지원되는 백엔드에 충분한 용량이 있는지 확인합니다.
 
+* * 필요한 스토리지 백엔드 용량 *: 500GB 이상 사용 가능
 * * 지원되는 백엔드 *: Astra Control Center는 다음과 같은 스토리지 백엔드를 지원합니다.
 +
 ** NetApp ONTAP 9.8 이상 AFF, FAS 및 ASA 시스템
 ** NetApp ONTAP Select 9.8 이상
 ** NetApp Cloud Volumes ONTAP 9.8 이상
+** Longhorn 1.5.0 이상
++
+*** VolumeSnapshotClass 객체를 수동으로 생성해야 합니다. 을 참조하십시오 https://longhorn.io/docs/1.5.0/snapshots-and-backups/csi-snapshot-support/csi-volume-snapshot-associated-with-longhorn-snapshot/#create-a-csi-volumesnapshot-associated-with-longhorn-snapshot["롱혼 설명서"^] 를 참조하십시오.
 
 
-* * 필요한 스토리지 백엔드 용량 *: 500GB 이상 사용 가능
+** NetApp MetroCluster
++
+*** 관리 Kubernetes 클러스터는 확장 구성에 있어야 합니다.
+
+
+
+
 
 
 
@@ -133,6 +132,19 @@ Astra Control Center를 사용하려면 수행해야 할 작업에 따라 다음
 
 
 ONTAP 시스템에 필요한 라이센스가 있는지 확인하려면 을 참조하십시오 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["ONTAP 라이센스 관리"^].
+
+
+
+=== NetApp MetroCluster
+
+NetApp MetroCluster를 스토리지 백엔드로 사용할 경우 사용하는 Astra Trident 드라이버에서 SVM 관리 LIF를 백엔드 옵션으로 지정해야 합니다.
+
+MetroCluster LIF를 구성하려면 Astra Trident 문서를 참조하여 각 드라이버에 대한 자세한 정보를 확인하십시오.
+
+* https://docs.netapp.com/us-en/trident/trident-use/ontap-san-examples.html["산"^]
+* https://docs.netapp.com/us-en/trident/trident-use/ontap-nas-examples.html["NAS"^]
+* https://docs.netapp.com/us-en/trident/trident-use/trident-fsx-examples.html["FSX"^]
+
 
 
 

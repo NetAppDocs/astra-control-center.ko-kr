@@ -17,7 +17,7 @@ LDAP는 분산된 디렉터리 정보에 액세스하기 위한 업계 표준 �
 이 구성에는 Astra와 LDAP를 통합하고 LDAP 정의에 해당하는 Astra Control 사용자 및 그룹을 정의하는 작업이 포함됩니다. Astra Control API 또는 웹 UI를 사용하여 LDAP 인증과 LDAP 사용자 및 그룹을 구성할 수 있습니다.
 
 
-IMPORTANT: Astra Control Center는 LDAP "mail" 속성의 이메일 주소를 사용하여 원격 사용자를 검색하고 추적합니다. 이 속성은 디렉터리의 선택적 필드이거나 빈 필드일 수 있습니다. Astra Control Center에 표시하고자 하는 원격 사용자의 경우 이 필드에 이메일 주소가 있어야 합니다. 이 이메일 주소는 인증을 위해 Astra Control Center의 사용자 이름으로 사용됩니다.
+IMPORTANT: Astra Control Center는 원격 인증이 활성화될 때 구성된 사용자 로그인 속성을 사용하여 원격 사용자를 검색하고 추적합니다. Astra Control Center에 표시하고자 하는 원격 사용자의 경우 이메일 주소("메일") 또는 사용자 주체 이름("userPrincipalName")의 속성이 이 필드에 있어야 합니다. 이 속성은 인증을 위한 Astra Control Center의 사용자 이름과 원격 사용자를 검색하는 데 사용됩니다.
 
 
 
@@ -53,7 +53,12 @@ LDAPS를 사용하려는 경우 Astra Control Center에서 LDAP 서버를 인증
 NOTE: 가장 좋은 방법은 LDAP 서버와 연결할 때 LDAPS를 사용하는 것입니다. LDAPS에 연결하기 전에 Astra Control Center에 LDAP 서버의 개인 TLS 인증서를 설치해야 합니다.
 
 . 서비스 계정 자격 증명을 이메일 형식(administrator@example.com 입력합니다. Astra Control은 LDAP 서버에 연결할 때 이러한 자격 증명을 사용합니다.
-. 사용자 일치 * 섹션에서 기본 DN과 LDAP 서버에서 사용자 정보를 검색할 때 사용할 적절한 사용자 검색 필터를 입력합니다.
+. 사용자 일치 * 섹션에서 다음을 수행합니다.
++
+.. LDAP 서버에서 사용자 정보를 검색할 때 사용할 기본 DN과 적절한 사용자 검색 필터를 입력합니다.
+.. (선택 사항) 디렉터리에서 사용자 로그인 속성을 사용하는 경우 `userPrincipalName` 대신 `mail`를 입력합니다 `userPrincipalName` 사용자 로그인 속성 * 필드의 올바른 속성
+
+
 . 그룹 일치 * 섹션에서 그룹 검색 기준 DN과 적절한 사용자 지정 그룹 검색 필터를 입력합니다.
 +
 
@@ -106,7 +111,7 @@ NOTE: 원격 인증* 창이 "사용 안 함" 상태이면 LDAP 서버 URL 또는
 LDAP 서버에서 연결을 끊고 Astra Control에서 구성 설정을 제거할 수 있습니다.
 
 
-CAUTION: LDAP 서버에서 연결을 끊으면 해당 LDAP 서버에 대한 모든 구성 설정이 Astra Control에서 제거되고 해당 LDAP 서버에서 추가된 모든 원격 사용자 및 그룹이 제거됩니다.
+CAUTION: LDAP 사용자인 경우 연결을 끊으면 세션이 즉시 종료됩니다 LDAP 서버에서 연결을 끊으면 해당 LDAP 서버에 대한 모든 구성 설정이 Astra Control에서 제거되고 해당 LDAP 서버에서 추가된 모든 원격 사용자 및 그룹이 제거됩니다.
 
 .단계
 . 계정 > 연결 * 으로 이동합니다.

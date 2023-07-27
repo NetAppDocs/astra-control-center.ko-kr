@@ -21,7 +21,6 @@ summary: 알려진 제한 사항은 이 제품 릴리스에서 지원하지 않�
 
 .역할 기반 액세스 제어(RBAC) 제한 사항
 * <<네임스페이스 RBAC 제약 조건이 있는 사용자는 클러스터를 추가 및 관리할 수 있습니다>>
-* <<네임스페이스 제약 조건이 있는 구성원은 관리자가 제약 조건에 네임스페이스를 추가할 때까지 복제되거나 복원된 앱에 액세스할 수 없습니다>>
 
 
 .앱 관리 제한 사항
@@ -32,16 +31,16 @@ summary: 알려진 제한 사항은 이 제품 릴리스에서 지원하지 않�
 * <<인증서 관리자를 사용하는 앱의 데이터 이동 없는 복원 작업은 지원되지 않습니다>>
 * <<OLM 지원 및 클러스터 범위 운영자로 배포된 앱은 지원되지 않습니다>>
 * <<Helm 2와 함께 배포된 앱은 지원되지 않습니다>>
+* <<특정 스냅샷 컨트롤러 버전을 사용하는 Kubernetes 1.25 이상 클러스터의 경우 스냅샷이 실패할 수 있습니다>>
+* <<Astra Control Center 인스턴스를 제거하는 동안 백업 및 스냅샷이 보존되지 않을 수 있습니다>>
 
 
 .일반 제한 사항
+* <<LDAP 사용자 및 그룹 제한>>
 * <<Astra Control Center의 S3 버킷은 가용 용량을 보고하지 않습니다>>
 * <<Astra Control Center는 프록시 서버에 대해 입력한 세부 정보를 확인하지 않습니다>>
 * <<Postgres POD에 대한 기존 연결로 인해 오류가 발생합니다>>
-* <<Astra Control Center 인스턴스를 제거하는 동안 백업 및 스냅샷이 보존되지 않을 수 있습니다>>
-* <<LDAP 사용자 및 그룹 제한>>
 * <<활동 페이지에는 최대 100,000개의 이벤트가 표시됩니다>>
-* <<특정 스냅샷 컨트롤러 버전을 사용하는 Kubernetes 1.25 이상 클러스터의 경우 스냅샷이 실패할 수 있습니다>>
 
 
 
@@ -100,12 +99,6 @@ current-context: kubernetes-admin@kubernetes
 
 
 
-== 네임스페이스 제약 조건이 있는 구성원은 관리자가 제약 조건에 네임스페이스를 추가할 때까지 복제되거나 복원된 앱에 액세스할 수 없습니다
-
-네임스페이스 이름/ID에 따라 RBAC 제한이 있는 모든 '멤버' 사용자는 동일한 클러스터 또는 조직 계정의 다른 클러스터에 있는 새 네임스페이스로 앱을 클론 복제하거나 복원할 수 있습니다. 그러나 동일한 사용자가 새 네임스페이스에서 복제되거나 복원된 앱에 액세스할 수 없습니다. 클론 또는 복원 작업을 통해 새 네임스페이스를 생성한 후 계정 관리자/소유자는 'ember' 사용자 계정을 편집하고 영향을 받는 사용자의 역할 제약 조건을 업데이트하여 새 네임스페이스에 대한 액세스 권한을 부여할 수 있습니다.
-
-
-
 == 단일 네임스페이스의 여러 응용 프로그램을 다른 네임스페이스로 집합적으로 복원할 수 없습니다
 
 Astra Control에서 여러 애플리케이션 정의를 생성하여 단일 네임스페이스에서 여러 애플리케이션을 관리하는 경우 모든 애플리케이션을 다른 단일 네임스페이스로 복원할 수 없습니다. 각 애플리케이션을 별도의 네임스페이스로 복원해야 합니다.
@@ -128,7 +121,7 @@ Astra Control은 클라우드 인스턴스에 대해 기본 버킷을 자동으�
 
 Astra Control은 네임스페이스 범위 연산자와 함께 설치된 앱을 지원합니다. 이러한 연산자는 일반적으로 "pass-by-reference" 아키텍처가 아니라 "pass-by-value"로 설계되었습니다. 다음은 이러한 패턴을 따르는 일부 운영자 앱에 대한 설명입니다.
 
-* https://github.com/k8ssandra/cass-operator/tree/v1.7.1["아파치 K8ssandra"^]
+* https://github.com/k8ssandra/cass-operator["아파치 K8ssandra"^]
 +
 
 NOTE: K8ssandra 의 경우 현재 위치 복원 작업이 지원됩니다. 새 네임스페이스 또는 클러스터에 대한 복원 작업을 수행하려면 응용 프로그램의 원래 인스턴스를 중단해야 합니다. 이는 이월된 피어 그룹 정보가 인스턴스 간 통신으로 이어지지 않도록 하기 위한 것입니다. 앱 복제는 지원되지 않습니다.
@@ -162,6 +155,35 @@ Helm을 사용하여 앱을 배포하는 경우 Astra Control Center에 Helm 버
 
 
 
+== 특정 스냅샷 컨트롤러 버전을 사용하는 Kubernetes 1.25 이상 클러스터의 경우 스냅샷이 실패할 수 있습니다
+
+버전 1.25 이상을 실행하는 Kubernetes 클러스터의 스냅샷은 버전 v1beta1 의 스냅샷 컨트롤러 API가 클러스터에 설치된 경우 실패할 수 있습니다.
+
+이 문제를 해결하려면 기존 Kubernetes 1.25 이상 설치를 업그레이드할 때 다음을 수행하십시오.
+
+. 기존 스냅샷 CRD 및 기존 스냅샷 컨트롤러를 모두 제거합니다.
+. https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Astra Trident를 제거합니다"^].
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["스냅샷 CRD 및 스냅샷 컨트롤러를 설치합니다"^].
+. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["최신 Astra Trident 버전을 설치합니다"^].
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-create-a-volumesnapshotclass["VolumeSnapshotClass를 생성합니다"^].
+
+
+
+
+== Astra Control Center 인스턴스를 제거하는 동안 백업 및 스냅샷이 보존되지 않을 수 있습니다
+
+평가 라이센스가 있는 경우 ASUP를 보내지 않을 경우 Astra Control Center에 장애가 발생할 경우 데이터 손실을 방지하기 위해 계정 ID를 저장해야 합니다.
+
+
+
+== LDAP 사용자 및 그룹 제한
+
+Astra Control Center는 최대 5,000개의 원격 그룹과 10,000명의 원격 사용자를 지원합니다.
+
+Astra Control은 뒤에 '\' 또는 후행 공백이 있는 RDN이 포함된 LDAP 엔티티(사용자 또는 그룹)를 지원하지 않습니다.
+
+
+
 == Astra Control Center의 S3 버킷은 가용 용량을 보고하지 않습니다
 
 Astra Control Center에서 관리하는 앱을 백업 또는 클론 생성하기 전에 ONTAP 또는 StorageGRID 관리 시스템에서 버킷 정보를 확인하십시오.
@@ -180,36 +202,9 @@ Postgres Pod에서 작업을 수행할 때 psql 명령을 사용하기 위해 PO
 
 
 
-== Astra Control Center 인스턴스를 제거하는 동안 백업 및 스냅샷이 보존되지 않을 수 있습니다
-
-평가 라이센스가 있는 경우 ASUP를 보내지 않을 경우 Astra Control Center에 장애가 발생할 경우 데이터 손실을 방지하기 위해 계정 ID를 저장해야 합니다.
-
-
-
-== LDAP 사용자 및 그룹 제한
-
-Astra Control Center는 최대 5,000개의 원격 그룹과 10,000명의 원격 사용자를 지원합니다.
-
-
-
 == 활동 페이지에는 최대 100,000개의 이벤트가 표시됩니다
 
-Astra Control Activity 페이지에는 최대 100,000개의 이벤트가 표시될 수 있습니다. 기록된 이벤트를 모두 보려면 를 사용하여 이벤트를 검색합니다 link:../rest-api/api-intro.html["Astra Control REST API"^].
-
-
-
-== 특정 스냅샷 컨트롤러 버전을 사용하는 Kubernetes 1.25 이상 클러스터의 경우 스냅샷이 실패할 수 있습니다
-
-버전 1.25 이상을 실행하는 Kubernetes 클러스터의 스냅샷은 버전 v1beta1 의 스냅샷 컨트롤러 API가 클러스터에 설치된 경우 실패할 수 있습니다.
-
-이 문제를 해결하려면 기존 Kubernetes 1.25 이상 설치를 업그레이드할 때 다음을 수행하십시오.
-
-. 기존 스냅샷 CRD 및 기존 스냅샷 컨트롤러를 모두 제거합니다.
-. https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Astra Trident를 제거합니다"^].
-. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["스냅샷 CRD 및 스냅샷 컨트롤러를 설치합니다"^].
-. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["최신 Astra Trident 버전을 설치합니다"^].
-. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-create-a-volumesnapshotclass["VolumeSnapshotClass를 생성합니다"^].
-
+Astra Control Activity 페이지에는 최대 100,000개의 이벤트가 표시될 수 있습니다. 기록된 이벤트를 모두 보려면 를 사용하여 이벤트를 검색합니다 link:../rest-api/api-intro.html["Astra Control API를 참조하십시오"^].
 
 
 

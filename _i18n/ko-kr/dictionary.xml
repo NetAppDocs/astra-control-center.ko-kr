@@ -25,7 +25,6 @@
   <block id="14d9b10c6196045941347a9e85704b50" category="inline-link">Astra Trident 문서</block>
   <block id="4a2ab62188738135163aaaaeab1d6cfe" category="list-text"><block ref="4a2ab62188738135163aaaaeab1d6cfe" category="inline-link-rx"></block></block>
   <block id="d418042930eb178009f4c27360b349f6" category="inline-link">Astra Control API를 사용합니다</block>
-  <block id="35e127abdc4e59a01dd3fd4f63603bf1" category="list-text"><block ref="35e127abdc4e59a01dd3fd4f63603bf1" category="inline-link-rx"></block></block>
   <block id="5858ee4031acd7b896faa2d3d2c1a299" category="inline-link">Cloud Insights 설명서</block>
   <block id="2b93b48daf034e4100d00b85950e109d" category="list-text"><block ref="2b93b48daf034e4100d00b85950e109d" category="inline-link-rx"></block></block>
   <block id="eb75aeb3b4b2b9734ba3e52f5483f0b2" category="inline-link">ONTAP 설명서</block>
@@ -136,16 +135,9 @@
   <block id="34515f1d88b10d0db0a78eba6c533394" category="summary">알려진 문제점은 이 제품 릴리스를 성공적으로 사용하지 못하게 만들 수 있는 문제를 식별합니다.</block>
   <block id="95dc0391ce7b396d7dd5622284e8fc3e" category="doc">알려진 문제</block>
   <block id="825cc355a6b503245e0d84d26f0e16d1" category="paragraph">현재 릴리즈에는 다음과 같은 알려진 문제가 영향을 줍니다.</block>
-  <block id="d3e9aa65af62841e4f76b512ae2f0bc6" category="list-text"><block ref="b3245371f9a4420028b8568536aa8ffb" category="inline-xref-macro-rx"></block></block>
-  <block id="44bbaceb9730fce0bf79a03b1cb03590" category="list-text"><block ref="ef100d4c8be3f2a7ebbf72b00fb6753a" category="inline-xref-macro-rx"></block></block>
   <block id="afd67a029bbc3d626a57863c0463ffde" category="list-text"><block ref="515fadbfad517b21ae910bd738504cc1" category="inline-xref-macro-rx"></block></block>
-  <block id="79e14bb63b840b793278e7157047e544" category="list-text"><block ref="61497857da55dc3a83cffe91385a8c5f" category="inline-xref-macro-rx"></block></block>
   <block id="de00c1e27be1485dd099e4cd2aaa554d" category="inline-link-macro">백업을 삭제합니다</block>
   <block id="d2345544e5b85f26908fbbfcea4178f8" category="inline-link-macro">Astra Control API를 참조하십시오</block>
-  <block id="c1ab420107ece0814547044cc11d2689" category="paragraph">백업을 생성한 후 영구 볼륨의 크기를 조정한 다음 해당 백업에서 복원하는 경우 영구 볼륨 크기는 백업 크기를 사용하는 대신 PV의 새 크기와 일치합니다.</block>
-  <block id="cbe80683ce886af66ccaaa3c0870a530" category="section-title">특정 버전의 PostgreSQL을 사용하여 앱 클론이 실패합니다</block>
-  <block id="70fc1bae36d48b09899dc323f7fbc3b4" category="paragraph">동일한 클러스터 내의 앱 클론은 Bitnami PostgreSQL 11.5.0 차트와 함께 일관되게 실패합니다. 클론을 성공적으로 생성하려면 이전 또는 이후 버전의 차트를 사용하십시오.</block>
-  <block id="9a9f5df9245945e0d6fd7c59478636f9" category="section-title">서비스 계정 수준 OCP SCC(Security Context Constraints)를 사용할 때 앱 클론이 실패함</block>
   <block id="d3436d442a8980f0fa5c7451b72dc851" category="inline-link">기술 자료 문서를 참조하십시오</block>
   <block id="1af0576f77189b1c71e1d3a9eade995a" category="section-title">애플리케이션 클론을 세트 스토리지 클래스로 구축한 후에는 애플리케이션 클론이 실패합니다</block>
   <block id="99dd9758763fdd9d63c8172bb77a83e6" category="paragraph">애플리케이션이 명시적으로 설정된 스토리지 클래스(예: 'helm install...-set global.storageClass=NetApp-cvs-perf-extreme')로 구축된 후 애플리케이션을 복제하려는 이후에 타겟 클러스터에 원래 지정된 스토리지 클래스가 있어야 합니다. 명시적으로 설정된 스토리지 클래스를 가진 애플리케이션을 동일한 스토리지 클래스가 없는 클러스터로 클론 복제하면 실패합니다. 이 시나리오에서는 복구 단계가 없습니다.</block>
@@ -154,7 +146,6 @@
   <block id="9f097dac85ac3ea6adc46bf130f734ac" category="inline-link-macro">버킷 기본값을 변경합니다</block>
   <block id="402051f4be0cc3aad33bcf3ac3d6532b" category="inline-link-macro">백업</block>
   <block id="bb2ac0b8da1f64a3498af147ba43fc10" category="inline-link-macro">복원</block>
-  <block id="36b09903bc03f599758bd10a012681dc" category="section-title">기본 kubecononfig 파일에 컨텍스트가 두 개 이상 포함되어 있으면 Astra Control Center를 사용하여 클러스터를 관리할 수 없습니다</block>
   <block id="886724137bc7914c606d6d8869d43fdc" category="section-title">Astra Control Center를 제거해도 관리 클러스터의 모니터링 운영자 포드가 정리되지 않습니다</block>
   <block id="bf4630e3d3e7f4201dd37b09622ec440" category="paragraph">Astra Control Center를 제거하기 전에 클러스터를 관리하지 않았다면 NetApp 모니터링 네임스페이스 및 네임스페이스에서 Pod를 수동으로 삭제할 수 있습니다. 이러한 명령은 다음과 같습니다.</block>
   <block id="ed10507c2015094add0b86140437d39f" category="list-text">'acc-monitoring' 에이전트 삭제:</block>
@@ -217,7 +208,6 @@
   <block id="6c97574dc1b4c1296eabcd490b901dbf" category="list-text">클러스터 이름을 Kubernetes에서 고유한 사용자 지정 이름으로 업데이트합니다(아래 예에서는 xyz-cluster 사용). 다음 예와 같이 클러스터 및 컨텍스트 섹션에서 모두 업데이트합니다.</block>
   <block id="cee3f7f1743165823d88b27d5998cf00" category="paragraph">Astra Control은 네임스페이스 범위 연산자와 함께 설치된 앱을 지원합니다. 이러한 연산자는 일반적으로 "pass-by-reference" 아키텍처가 아니라 "pass-by-value"로 설계되었습니다. 다음은 이러한 패턴을 따르는 일부 운영자 앱에 대한 설명입니다.</block>
   <block id="489435e765db57e2156b5a11839b6533" category="inline-link">아파치 K8ssandra</block>
-  <block id="3440b7c2bc625432a7948e390eab90ab" category="list-text"><block ref="3440b7c2bc625432a7948e390eab90ab" category="inline-link-rx"></block></block>
   <block id="6bf4ab292e1934fbd766550b2286a71d" category="inline-link">젠킨스 CI</block>
   <block id="24337449ed86c9d906bb8f815e170f3c" category="list-text"><block ref="24337449ed86c9d906bb8f815e170f3c" category="inline-link-rx"></block></block>
   <block id="31131d7e3685b20b85f5636870f62782" category="inline-link">Percona XtraDB 클러스터</block>
@@ -277,7 +267,6 @@
   <block id="201d245e3b93a26007d42f5f603f6230" category="paragraph">Astra Control Center는 계정에서 사용자를 제거합니다.</block>
   <block id="02c8c5fbeebdf293d83e1ec96ea30aff" category="summary">Astra는 스냅샷 또는 백업에서 애플리케이션 구성과 영구 스토리지를 복원할 수 있습니다. 영구 스토리지 백업은 오브젝트 저장소에서 전송되므로 기존 백업에서 복원하면 가장 빠르게 완료됩니다.</block>
   <block id="e07596cf624c6e8c354d1188f9bdb6bb" category="doc">앱 복원</block>
-  <block id="bd48cb856a5ec10f9c3c2bf8d62fc86c" category="paragraph">Astra Control은 스냅샷 또는 백업에서 애플리케이션을 복원할 수 있습니다. 애플리케이션을 동일한 클러스터로 복구할 경우 기존 스냅샷에서 복구하는 속도가 빨라집니다. Astra Control UI 또는 를 사용할 수 있습니다<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> 앱을 복원합니다.</block>
   <block id="f9593b97b50d869eb3ae91a5f58c8a4d" category="paragraph">OC new-project WordPress OC adm policy add-SCC-to-group anyuid system:serviceaccounts:WordPress의 OC adm policy add-SCC-to-user privileged-z default-n WordPress</block>
   <block id="88999cc5907cf0e9ead77c8da2e009fd" category="list-text">응용 프로그램 * 을 선택한 다음 앱 이름을 선택합니다.</block>
   <block id="b99a9a5879442c5ad3ae30c94964ccb3" category="list-text">Review * 를 선택합니다.</block>
@@ -305,7 +294,6 @@
   <block id="0f391d5482822722d86585c248878517" category="section-title">자격 증명을 추가합니다</block>
   <block id="4a87fa835867f2ba8e942d57fa2d0620" category="inline-link-macro">Kubernetes 클러스터 추가</block>
   <block id="d9348d075dc7b3c91cff99d56dfc327b" category="inline-link">Kubernetes 문서</block>
-  <block id="04b7edd723480f6d26b90b3374f8646b" category="admonition">고유한 "kubecononfig" 파일을 만들 경우 해당 파일에 * 하나의 * 컨텍스트 요소만 정의해야 합니다. 을 참조하십시오<block ref="54676762f2eb4e7149fe4e9996a20b1c" category="inline-link-rx"></block> kubecononfig 파일을 만드는 방법에 대한 자세한 내용은</block>
   <block id="25f033e226552b2f5ae002edb8e5fd2f" category="section-title">자격 증명을 제거합니다</block>
   <block id="fa0f92a9aa40ef90318ac6c6fd08d359" category="inline-link-macro">연결된 모든 클러스터의 관리를 취소합니다</block>
   <block id="820deed2d38c11ae882bb1d534eb7126" category="paragraph">언제든지 계정에서 자격 증명을 제거합니다. 자격 증명은 이후에 제거해야 합니다 <block ref="ab5f3fedb874ecdac51d6f2573b1bf0e" category="inline-link-macro-rx"></block>.</block>
@@ -481,7 +469,6 @@
   <block id="a326a340f6ec93d615d626a96b57ccd0" category="admonition">Astra Control Center * Dashboard * 부터 앱 정보를 볼 수도 있습니다. 리소스 요약 * 의 * 응용 프로그램 * 탭에서 * 응용 프로그램 * 페이지로 이동하는 관리되는 앱을 선택할 수 있습니다. 응용 프로그램 * 페이지로 이동한 후 위에 설명된 단계를 따릅니다.</block>
   <block id="3f56b586fa072522750beb7ff617deb2" category="summary">Astra Control Center를 업그레이드하려면 설명된 단계에 따라 번들을 다운로드하고 업그레이드합니다.</block>
   <block id="e3ebf55f76dc38e964104d304e65e99f" category="doc">Astra Control Center를 업그레이드합니다</block>
-  <block id="9cc7b6d57e2a51242322baa80ba76e7d" category="list-text">모든 API 서비스가 정상 상태이며 사용 가능한지 확인합니다.</block>
   <block id="acd4353523a542de5b311529e048a8e8" category="paragraph">Astra Control Center 업그레이드 프로세스는 다음과 같은 고급 단계를 안내합니다.</block>
   <block id="14905c130cb21eb99b32fda77b5847e3" category="list-text"><block ref="8f05616ca07e5e0f0a406924d57cac8c" category="inline-xref-macro-rx"></block></block>
   <block id="279afcccd954d47b442a29a6bd38e688" category="list-text"><block ref="75ed4647183314a63168429062f35c29" category="inline-xref-macro-rx"></block></block>
@@ -563,7 +550,6 @@
   <block id="9de0e2b17d7e1e2da6c0ce7e9dc6e377" category="list-text">클론 * 을 선택합니다.</block>
   <block id="dd74de0d68eefd1c10bd1501afbc8b46" category="list-text">이름을 입력합니다.</block>
   <block id="e78b0b14ef505bb78e615dad8a884310" category="list-text">클론의 대상 클러스터를 선택합니다.</block>
-  <block id="b46ababc2613e3b600f7e8b12db303fc" category="list-text">기존 스냅샷이나 백업에서 클론을 생성할지 여부를 선택합니다. 이 옵션을 선택하지 않으면 Astra Control Center는 앱의 현재 상태에서 클론을 생성합니다.</block>
   <block id="c6026de894eab4233269713f21d557bb" category="paragraph">애플리케이션 및 영구 스토리지를 백업하려는 경우나 클러스터 간에 애플리케이션을 클론 복제하려는 경우에는 오브젝트 저장소 버킷 공급자가 필수적입니다. Astra Control Center를 사용하여 객체 저장소 공급자를 오프라인 클러스터, 앱의 백업 대상으로 추가합니다.</block>
   <block id="df2c24964ca3e99761acc48b2c8a75c9" category="list-text">NetApp ONTAP S3</block>
   <block id="ddcd79fba6592bc379dfa1df9f804760" category="list-text">NetApp StorageGRID S3</block>
@@ -715,7 +701,6 @@
   <block id="f940bc4260ea160f249996c1f8936f48" category="list-text">"NetApp-acc"(또는 사용자 지정) 네임스페이스에 Astra Control Center를 설치합니다.</block>
   <block id="0d8696fee8128bfee6ff7fd8a30bb0e4" category="list-text">모든 시스템 구성 요소가 성공적으로 설치되었는지 확인합니다.</block>
   <block id="11c3861e648bc26a2b528eee5b947860" category="paragraph">각 포드는 'Running' 상태여야 합니다. 시스템 포드를 구축하는 데 몇 분 정도 걸릴 수 있습니다.</block>
-  <block id="13cfc7621dad08a2783d2e6063e03159" category="list-text">(선택 사항) 설치가 완료되었는지 확인하려면 다음 명령을 사용하여 "acc-operator" 로그를 볼 수 있습니다.</block>
   <block id="57502383dd464e72f74b266da253f57f" category="section-title">Astra Control Center UI에 로그인합니다</block>
   <block id="bb16257665d62ee6a5bf8c4d37b2aac0" category="paragraph">Astra Control Center를 설치한 후 기본 관리자의 암호를 변경하고 Astra Control Center UI 대시보드에 로그인합니다.</block>
   <block id="db054947df7cf8cd0657ebbe047d6786" category="inline-xref">Astra Control Center를 설치했습니다</block>
@@ -736,7 +721,6 @@
   <block id="c6c2bc2133c73ae2516508de9a2b5869" category="list-text">클러스터 역할 바인딩을 적용합니다.</block>
   <block id="b6e00a7dda090ccd5afd1c904d80548c" category="list-text">'&lt;context&gt;'을(를) 설치에 적합한 컨텍스트로 대체하여 서비스 계정 암호를 나열합니다.</block>
   <block id="f087976277d273660b942918b43af841" category="paragraph">출력의 끝은 다음과 유사합니다.</block>
-  <block id="65c0a05d8c47a658174fbed46d46f8e7" category="paragraph">제탑 배열의 각 요소에 대한 지수는 0으로 시작합니다. 위의 예에서, astractrol-service-account-dockercfg-vhz87 인덱스는 0이고, astracontrol-service-account-token-r59kr의 인덱스는 1이 된다. 출력에서 "token"이라는 단어가 포함된 서비스 계정 이름의 인덱스를 기록해 둡니다.</block>
   <block id="d3727d544efa902d0381ec79cec3d488" category="list-text">다음과 같이 kubecononfig를 생성합니다.</block>
   <block id="ed6be01d66e94b422222a328f085d0bc" category="list-text">create-kubecononfig.sh 파일을 만듭니다. 다음 스크립트 시작 부분의 token_index를 올바른 값으로 바꿉니다.</block>
   <block id="7d164f3971b504d6203cf274cc77dd35" category="list-text">Kubernetes 클러스터에 적용할 명령을 소스 하십시오.</block>
@@ -755,7 +739,6 @@
   <block id="2dc175901deba5089804ee6c0333845e" category="list-text"><block ref="67b3c635802e8387fdfcea745c19918f" category="inline-xref-macro-rx"></block></block>
   <block id="8378fd4759f24f14cebfb73e947ac1de" category="list-text"><block ref="63668134c65384a6b95d5dee695d38d8" category="inline-xref-macro-rx"></block></block>
   <block id="ddea44f796e2d507e657985d19f15829" category="section-title">Astra Control Center에 대한 라이센스를 추가합니다</block>
-  <block id="db974238714ca8de634a7ce1d083a14f" category="inline-link">API를 참조하십시오</block>
   <block id="c867b312646c7b0352a53ec73b46b3da" category="admonition">설치가 라이센스 CPU 유닛 수를 초과하여 증가할 경우, Astra Control Center를 통해 새 애플리케이션을 관리할 수 없습니다. 용량이 초과되면 경고가 표시됩니다.</block>
   <block id="344288bf3b493daae12169abb03c224a" category="list-text">계정 * &gt; * 라이센스 * 를 선택합니다.</block>
   <block id="c8508c0ce4da6dc634b7c66b1df15681" category="list-text">라이센스 추가 * 를 선택합니다.</block>
@@ -872,7 +855,6 @@
   <block id="a11a0e1d242df8616f3c50d7c65bb304" category="list-text">작업을 확인하려면 "remove"를 입력합니다.</block>
   <block id="e6cd86d61f4639c8a27006c6c29b3e9f" category="list-text">다음 * 을 선택합니다.</block>
   <block id="19f1799814a50fc19daad0ce851f2b34" category="doc">역할을 관리합니다</block>
-  <block id="a570617b73a4a19e27f1777e4332cbb0" category="paragraph">네임스페이스 제약 조건을 추가하고 이러한 제약 조건에 대한 사용자 역할을 제한하여 역할을 관리할 수 있습니다. 이렇게 하면 조직 내의 리소스에 대한 액세스를 제어할 수 있습니다. Astra Control UI 또는 를 사용할 수 있습니다<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> 역할을 관리합니다.</block>
   <block id="676588bdedb566aa975286a947887eb5" category="section-title">역할에 네임스페이스 제약 조건을 추가합니다</block>
   <block id="7f60c72cf941277cd8d80aa0e42f845b" category="list-text">Actions * 열에서 Member 또는 Viewer 역할을 가진 사용자의 메뉴 버튼을 선택합니다.</block>
   <block id="8b950be10553ca14d8752cc7cbea7834" category="list-text">역할 편집 * 을 선택합니다.</block>
@@ -893,7 +875,6 @@
   <block id="8fc83de3acd5a50dded43bfb013b1371" category="list-text">제거할 구속 조건의 오른쪽에 있는 * X * 를 선택합니다.</block>
   <block id="8b3d0f4732164acbbcf0546961e00939" category="inline-link-macro">사용자 역할 및 네임스페이스</block>
   <block id="ae44e4f9f4b1b81858650850e786852f" category="list-text"><block ref="ae44e4f9f4b1b81858650850e786852f" category="inline-link-macro-rx"></block></block>
-  <block id="683680341c1485a9254d81c06fc946e1" category="admonition">클러스터가 "이동된" 상태에 있지만 클러스터 및 네트워크 연결이 양호한 것으로 나타나는 경우(Kubernetes API를 사용하여 클러스터에 액세스하려는 외부 시도가 성공한 경우), Astra Control에 제공한 kubeconfig는 더 이상 유효하지 않을 수 있습니다. 클러스터의 인증서 순환 또는 만료 때문일 수 있습니다. 이 문제를 해결하려면 을 사용하여 Astra Control의 클러스터와 연결된 자격 증명을 업데이트하십시오 <block ref="a2191a9273bc54ae2e00dd51b40d424f" category="inline-link-macro-rx"></block>.</block>
   <block id="8ac8cdab8f5e3debaeca852b2bd827a5" category="paragraph">인터페이스의 오른쪽 상단에서 이러한 알림을 관리할 수 있습니다.</block>
   <block id="7cd96b636ffaef16d4d36364bdc95346" category="paragraph"><block ref="7cd96b636ffaef16d4d36364bdc95346" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0c3b0202fda7d6831c1b3eebfdf7aeb9" category="list-text">계정 * 을 선택합니다.</block>
@@ -914,8 +895,6 @@
   <block id="b693c64ae6465cc37d63bb7e1a3bc84e" category="list-text">다음 값을 'env' 섹션에 추가합니다.</block>
   <block id="abbdf883cc067b91d7f07fa1caa34803" category="list-text">(선택 사항) Pod가 종료되어 다시 사용할 수 있는지 확인합니다.</block>
   <block id="28bf422476991dfbb020a7ba40609d34" category="section-title">부하 분산을 위한 수신 설정</block>
-  <block id="d2e0bfa92cbdb9744792901598e01895" category="list-text">Nginx 수신 컨트롤러</block>
-  <block id="af7ce6fd0022e0cfad8a3a38be49e57e" category="list-text">OpenShift 수신 컨트롤러</block>
   <block id="755b9231ee42d01f14847f168ef9e8e3" category="inline-link">수신 컨트롤러</block>
   <block id="b41881693f4532694540e72b24335021" category="list-text">필수 요소입니다<block ref="9920b40167a2299d5c2c4f21b9ae2269" category="inline-link-rx"></block> 이미 배포되어 있어야 합니다.</block>
   <block id="a29bee01337640a12ba996d7054f3cc5" category="inline-link">수신 클래스</block>
@@ -952,7 +931,6 @@
   <block id="24b2dd561e8c1a78806d971ae48c2d3d" category="section-title">제거 문제 해결</block>
   <block id="ed0619bd2334d416b3942020e0ba89b0" category="paragraph">다음 해결 방법을 사용하여 Astra Control Center를 제거할 때 발생하는 문제를 해결하십시오.</block>
   <block id="4ea4809229f58272b813b2c68b742bc5" category="admonition">방금 추가한 앱에는 Protected(보호) 열 아래에 백업이 없고 아직 백업이 예약되지 않았음을 나타내는 경고 아이콘이 있을 수 있습니다.</block>
-  <block id="2c1b2aa1361b2b30f079d2afc37936be" category="admonition">Astra Control 자체는 표준 앱이 아니며 "시스템 앱"입니다. Astra Control 자체를 관리하려고 해서는 안 됩니다. 관리 시 Astra Control 자체는 기본적으로 표시되지 않습니다.</block>
   <block id="0ec24420f91223b35f271fb4a5f65f2f" category="summary">Astra Control Center를 사용하여 수행할 수 있는 작업은 라이센스 상태에 따라 어떻게 다르며, Astra Control Center를 사용하는 경우 라이센스 소모에 어떤 영향을 미치는지 알아보십시오.</block>
   <block id="0b9c6eef4e3d3a222eb04e910d252339" category="doc">라이센싱</block>
   <block id="b2492fb1fd7556ab678e6f20a0553c6b" category="section-title">라이선스 소비량의 계산 방법</block>
@@ -981,14 +959,11 @@
   <block id="9aed630e926461540134fd3b366acb60" category="list-text">Astra Control UI에 액세스하려면 AWS 호스팅 영역 및 Route 53 항목이 필요합니다</block>
   <block id="b28afa4a53082b7d05699e299fe2cd40" category="section-title">AWS의 운영 환경 요구사항</block>
   <block id="f6580f51bb34b0db2ca218feade3ddd8" category="paragraph">Astra Control Center에는 AWS를 위한 다음과 같은 운영 환경이 필요합니다.</block>
-  <block id="52481546a79142d2bcdcfcf0e38d6c4c" category="list-text">Red Hat OpenShift Container Platform 4.8</block>
   <block id="7c50a0d1133c9c14ea49301c56caba6d" category="cell">백엔드 NetApp Cloud Volumes ONTAP 스토리지 용량입니다</block>
   <block id="a7eddf1020c78d019a92db75f2a7c1cf" category="cell">작업자 노드(AWS EC2 요구사항)</block>
   <block id="54d10ad0596f83f1ca32d3762690d6fa" category="paragraph">총 3개 이상의 작업자 노드, vCPU 코어 4개, 12GB RAM</block>
   <block id="d36eca5e0bf1dfff485d4978d6d506b6" category="cell">FQDN</block>
-  <block id="bb726d94be3e1be9701ebfefbabe7415" category="paragraph">Astra Trident 21.04 이상 설치 및 구성, NetApp ONTAP 버전 9.5 이상 버전을 스토리지 백엔드로 사용합니다</block>
   <block id="4d7c5466d2e8269a12c5fb2c17325819" category="cell">이미지 레지스트리</block>
-  <block id="b844d342c437c771a94b9a4b4da9c67c" category="paragraph">Astra Control Center 빌드 이미지를 푸시할 수 있는 AWS Elastic Container Registry와 같은 기존 개인 레지스트리가 있어야 합니다. 이미지를 업로드할 이미지 레지스트리의 URL을 제공해야 합니다.</block>
   <block id="9bc2578a013052472b750d7a7b04dc0f" category="admonition">Astra Control Center에서 호스팅되는 클러스터와 관리 클러스터는 Resetic 기반 이미지를 사용하여 앱을 백업 및 복원할 수 있도록 동일한 이미지 레지스트리에 액세스할 수 있어야 합니다.</block>
   <block id="4dc3bf2499855bf156a82b0e9ff67920" category="cell">Astra Trident/ONTAP 구성</block>
   <block id="cfb98b2d123707127a972849904f7111" category="list-text">``vsaworkingenvironment-&lt;&gt;-ha-nas csi.trident.netapp.io`</block>
@@ -1008,14 +983,10 @@
   <block id="ed759a399e3faa755d36418e610d10fb" category="section-title">AWS에 RedHat OpenShift 클러스터를 설치합니다</block>
   <block id="cf332e80a7ec669ab4bcd7132f9cf315" category="paragraph">AWS에 RedHat OpenShift Container Platform 클러스터를 설치합니다.</block>
   <block id="fe44234b66d63db4cd81036ae75cf378" category="inline-link">OpenShift Container Platform에서 AWS에 클러스터 설치</block>
-  <block id="09c5cce6c0b81c5a122141133cc096d8" category="paragraph">설치 지침은 를 참조하십시오<block ref="02dece0ad7d56c8ca4c0002821b8ba8e" category="inline-link-rx"></block>.</block>
   <block id="431d662f081880135f580544e6ebca68" category="section-title">AWS 구성</block>
   <block id="455960d50b151ff6ed28fa01f3d6356f" category="inline-link">AWS 설치 설명서</block>
-  <block id="e874bd0f330d9513016dc844dfd62e6f" category="paragraph">AWS 설명서에 따라 다음 단계를 완료하십시오. 을 참조하십시오<block ref="b5a7979c22035fe192b9eb8d0cab1e4a" category="inline-link-rx"></block>.</block>
   <block id="92d9212a67ec9da982a091cf92cb4347" category="list-text">EC2 컴퓨팅 인스턴스를 검토합니다. 이는 AWS의 베어 메탈 서버 또는 VM이 될 수 있습니다.</block>
   <block id="b109e192f966bb3bb3e8cd30e1a59bfa" category="list-text">백업을 저장할 AWS S3 버킷을 하나 이상 생성합니다.</block>
-  <block id="e5c5351f3ea6206a7f110205b4155acc" category="list-text">AWS ECR(Elastic Container Registry)을 생성하여 모든 ACC 이미지를 호스팅합니다.</block>
-  <block id="6da6782dc02c8e2ffb3f2eeb0c8f4f10" category="list-text">ACC 이미지를 정의된 레지스트리로 푸시합니다.</block>
   <block id="d0d3a0a6bbae566c1e61c2fc0d0377ad" category="paragraph">다음은 AWS 구축의 예입니다.</block>
   <block id="f7bba7b010fcf309ed99329ba3de1d34" category="inline-link">AWS에서 Cloud Volumes ONTAP 시작하기</block>
   <block id="875986068fd60999889e672086c4a739" category="list-text"><block ref="c7ce1d84b369179362f6c701fb404ff4" category="inline-link-rx"></block>.</block>
@@ -1038,8 +1009,6 @@
   <block id="ac388b858e49b0566fa15ba968147e01" category="inline-link-macro">Astra Control Center 운영 환경 요구 사항</block>
   <block id="98c6bc51841c094bfa7f813391562f38" category="cell">작업자 노드(Azure 컴퓨팅 요구 사항)</block>
   <block id="e047c10f2ecd816933f9e5d910ba88e5" category="cell">FQDN(Azure DNS 영역)</block>
-  <block id="55aed975133aa6d461724ac8194fcfde" category="paragraph">설치 및 구성된 Astra Trident 21.04 이상 및 NetApp ONTAP 버전 9.5 이상이 스토리지 백엔드로 사용됩니다</block>
-  <block id="1966e0f797b16227e0907947f62d07b4" category="paragraph">Astra Control Center 빌드 이미지를 푸시할 수 있는 Azure 컨테이너 레지스트리(ACR)와 같은 기존 개인 레지스트리가 있어야 합니다. 이미지를 업로드할 이미지 레지스트리의 URL을 제공해야 합니다.</block>
   <block id="8420dcef28527cf221a78c85d6aeda26" category="admonition">백업을 위해 Restic 이미지를 풀려면 익명 액세스를 설정해야 합니다.</block>
   <block id="1043ba2e5d59561d093286d357279240" category="section-title">Azure 구축 개요</block>
   <block id="c7474e7220f6d793dfc9113c7ba4ad8a" category="paragraph">다음은 Azure용 Astra Control Center를 설치하는 프로세스의 개요입니다.</block>
@@ -1051,7 +1020,6 @@
   <block id="4a3ec74d604704b9803df28451c8fc6b" category="paragraph">설치 지침은 다음을 참조하십시오.</block>
   <block id="4f6685bd07b182993d024dcf856ff5ae" category="inline-link">Azure에 OpenShift 클러스터 설치</block>
   <block id="eed9d4fe807c07d271c864a1240c1c3f" category="inline-link">Azure 계정을 설치하는 중입니다</block>
-  <block id="03936dba93dbfb5fc2df3ced6ce0b025" category="list-text"><block ref="2950a8cca92e141f7cc27cfe82878caa" category="inline-link-rx"></block>.</block>
   <block id="9b227636b2d4cea11291793360089d9f" category="section-title">Azure 리소스 그룹을 생성합니다</block>
   <block id="b15c7c1cada48f735340ffa1ec2e4b6d" category="paragraph">Azure 리소스 그룹을 하나 이상 생성합니다.</block>
   <block id="f754cf28e9ca6bd457246cb85d6d5535" category="admonition">OpenShift는 자체 리소스 그룹을 생성할 수 있습니다. 또한 Azure 리소스 그룹을 정의해야 합니다. OpenShift 설명서를 참조하십시오.</block>
@@ -1062,9 +1030,6 @@
   <block id="d03589157dd63e1aaf5497955f5058f5" category="list-text">컴퓨팅 인스턴스를 검토합니다. Azure의 베어 메탈 서버 또는 VM이 될 수 있습니다.</block>
   <block id="307374e80fc7db1b05d765029543d9c8" category="list-text">저장소 계정을 생성합니다. Astra Control Center에서 버킷으로 사용할 컨테이너를 생성하려면 저장소 계정이 필요합니다.</block>
   <block id="a9d92f56cc3dae134fc1ee53e8136378" category="list-text">버킷 액세스에 필요한 암호를 생성합니다.</block>
-  <block id="7d8431378165cbd970da3a000187a79e" category="list-text">Azure Container Registry(ACR)를 생성하여 모든 Astra Control Center 이미지를 호스트합니다.</block>
-  <block id="4f5af91528c01098c29871fe09ac9d57" category="list-text">Docker에 대한 ACR 액세스를 설정하여 모든 Astra Control Center 이미지를 푸시/풀합니다.</block>
-  <block id="d529175e9b6c64524a535d3c41e5dbc0" category="list-text">다음 스크립트를 입력하여 ACC 이미지를 이 레지스트리에 푸시합니다.</block>
   <block id="29fb476acd8884c5f94b56255bdac62c" category="paragraph">* 예 *:</block>
   <block id="01e3a2cdfc793998c37015da1e6ba225" category="list-text">DNS 존 설정</block>
   <block id="da5ad27abf5b7efd518ee58724aa05fd" category="paragraph">필요한 IAM 권한 및 역할을 사용하여 Azure 계정에 액세스합니다</block>
@@ -1078,9 +1043,6 @@
   <block id="22a505b5cbfe40e35bb7fb0543690f0e" category="inline-link-macro">Astra Control Center를 설정하고 버킷을 추가합니다</block>
   <block id="db199481bf6cf2d5e29909b07d83a660" category="summary">Astra Control Center 설치를 선택할 수 있습니다.</block>
   <block id="29a22a050bd07366c87409e65a0fd0cd" category="list-text"><block ref="29a22a050bd07366c87409e65a0fd0cd" category="inline-link-macro-rx"></block></block>
-  <block id="883a74644c0071959dda599b0318b7ca" category="list-text">Astra Control에서 관리하려는 모든 애플리케이션 클러스터에서 TKG 또는 TKGi 기본 스토리지 클래스 적용을 비활성화합니다. 네임스페이스 클러스터에서 '탄자쿠스컨테이너 클러스터' 리소스를 편집하여 이 작업을 수행할 수 있습니다.</block>
-  <block id="9677a883a700a1804af4204a39942a01" category="list-text">TKG 또는 TKGi 환경에 Astra Control Center를 구축하는 경우 Astra Trident에 대한 특정 요구 사항을 숙지하십시오. 자세한 내용은 를 참조하십시오<block ref="7262878c61e63204c825af54299b7a49" category="inline-link-rx"></block>.</block>
-  <block id="1c48088dc1732bdac3e27be1a94c191a" category="inline-link">VMware NSX-T 데이터 센터 제품 설명서</block>
   <block id="a935ac1929664c98f15473ff54019d68" category="section-title">온프레미스 Kubernetes 클러스터의 수신</block>
   <block id="9094bc8efffaaa3a7bff5aba20de1ca7" category="admonition">Astra Control Center를 이중 스택 Kubernetes 클러스터에 구축할 수 있으며, Astra Control Center는 이중 스택 작업을 위해 구성된 애플리케이션 및 스토리지 백엔드를 관리할 수 있습니다. 이중 스택 클러스터 요구사항에 대한 자세한 내용은 를 참조하십시오<block ref="4e26c1cd22436fb9612733bcd727160e" category="inline-link-rx"></block>.</block>
   <block id="4b873c67645eb86742bf821df2fd20b3" category="cell">NetApp AutoSupport를 참조하십시오 <block ref="c62335da5e33220e8626bdc132f0ce39" category="inline-link-rx"></block></block>
@@ -1095,7 +1057,6 @@
   <block id="c198f005af93363b23c0583d11980e76" category="list-text"><block ref="e43f05398a515e7831c1ad56aeb8fddd" category="inline-xref-macro-rx"></block></block>
   <block id="19c1911c15404b466d1dbdce1f447fa5" category="list-title">역할 기반 액세스 제어(RBAC) 제한 사항</block>
   <block id="06f121da43c8b9e648a8aa029ad9c1ca" category="list-text"><block ref="0ff2bc9c7cdbd106f2423a9af8105247" category="inline-xref-macro-rx"></block></block>
-  <block id="692bef51c3cefb709496e672979fafda" category="list-text"><block ref="c3444bf1f6ccff644809494fcfe68216" category="inline-xref-macro-rx"></block></block>
   <block id="ec566a7ae96d8d40feeed984810bbeaa" category="list-title">앱 관리 제한 사항</block>
   <block id="d6aecdecacb7cb41bd96009bea321c02" category="list-text"><block ref="85a43651eb874e0332c9ab2d2662076d" category="inline-xref-macro-rx"></block></block>
   <block id="43a43f73112791eff6baa40fc8076740" category="list-text"><block ref="df634ab88d533e7ad05b50fb9326e7c4" category="inline-xref-macro-rx"></block></block>
@@ -1109,19 +1070,13 @@
   <block id="7a74863a3e751df4941db2bd87309f5f" category="paragraph">이미 있는 클러스터의 이름과 동일한 이름의 클러스터를 추가하려고 하면 작업이 실패합니다. 이 문제는 Kubernetes 구성 파일에서 클러스터 이름 기본값을 변경하지 않은 경우 표준 Kubernetes 환경에서 가장 자주 발생합니다.</block>
   <block id="66ba81be546d7a5973fa02b72f2d22d7" category="section-title">네임스페이스 RBAC 제약 조건이 있는 사용자는 클러스터를 추가 및 관리할 수 있습니다</block>
   <block id="6d70905dce5a2e1f37d99d5fa5a0fca9" category="paragraph">네임스페이스 RBAC 제약 조건이 있는 사용자는 클러스터를 추가하거나 관리할 수 없습니다. 현재 제한 사항으로 인해 Astra는 이러한 사용자가 클러스터 관리를 해제하는 것을 방지하지 않습니다.</block>
-  <block id="8164f139371aabdbe264f5f85a178858" category="section-title">네임스페이스 제약 조건이 있는 구성원은 관리자가 제약 조건에 네임스페이스를 추가할 때까지 복제되거나 복원된 앱에 액세스할 수 없습니다</block>
   <block id="7e7238c05e3b1dcf3e882e6ef2251cbb" category="section-title">pass-by-reference 연산자를 사용하여 설치된 앱의 클론이 실패할 수 있습니다</block>
   <block id="1815092c8149587d0b20c39d938df877" category="admonition">K8ssandra 의 경우 현재 위치 복원 작업이 지원됩니다. 새 네임스페이스 또는 클러스터에 대한 복원 작업을 수행하려면 응용 프로그램의 원래 인스턴스를 중단해야 합니다. 이는 이월된 피어 그룹 정보가 인스턴스 간 통신으로 이어지지 않도록 하기 위한 것입니다. 앱 복제는 지원되지 않습니다.</block>
   <block id="2628d7b5cc84b024c4b920441addcb86" category="section-title">인증서 관리자를 사용하는 앱의 데이터 이동 없는 복원 작업은 지원되지 않습니다</block>
   <block id="0c720a6e3ad49e060d1d688dfae826f4" category="paragraph">이 Astra Control Center 릴리스는 인증서 관리자와의 응용 프로그램 데이터 이동 없는 복원을 지원하지 않습니다. 복원 작업을 다른 네임스페이스로 복원하고 클론 작업을 지원합니다.</block>
   <block id="81b2ffe313f89c0d8ef823b0e4724a40" category="paragraph">Astra Control Center는 클러스터 범위 운영자의 애플리케이션 관리 활동을 지원하지 않습니다.</block>
-  <block id="a6f00c82b6eb55a13a1f242313aaf9c9" category="list-title">인프라</block>
-  <block id="b24e23005ed2cadfce9c683ec2b754c5" category="list-text"><block ref="213007433d1a45330875fe1630ec15fa" category="inline-xref-macro-rx"></block></block>
   <block id="b9cce366a2d9d759915518e851cf0665" category="list-text"><block ref="16c16afb381b877e03025eb37da25b48" category="inline-xref-macro-rx"></block></block>
-  <block id="9b99bf7d2bfd4b09363304c166832734" category="list-title">클러스터</block>
-  <block id="c44dd49a83e18cbd27c250a656ebf16d" category="list-title">기타 문제</block>
   <block id="440441988db4dd1a631f18e5ce228880" category="list-text"><block ref="4791c8debe5295c527a6dd0dc7f0957f" category="inline-xref-macro-rx"></block></block>
-  <block id="ca318d6b4eed133149be28dcaf9203ab" category="section-title">앱 복원으로 인해 PV 크기가 원래 PV보다 큽니다</block>
   <block id="f64cab133147d09d35d2708459ada555" category="section-title">Astra Trident가 오프라인일 때 내부 서비스 오류(500)와 함께 앱 데이터 관리 작업이 실패했습니다</block>
   <block id="5ffd50b83740bc0749b40034cddea615" category="paragraph">앱 클러스터의 Astra Trident가 오프라인 상태가 되고 다시 온라인 상태가 되고 앱 데이터 관리를 시도할 때 500 내부 서비스 오류가 발생하는 경우, 앱 클러스터의 모든 Kubernetes 노드를 다시 시작하여 기능을 복원합니다.</block>
   <block id="9d795eb350d2c42a03b181a4bc513987" category="paragraph">이러한 옵션은 24x7 무료로 제공됩니다.</block>
@@ -1164,12 +1119,10 @@
   <block id="b2b8741126a8674edc86e6286a85c804" category="inline-link">버킷 자격 증명 제거 문제 해결</block>
   <block id="576924ceb67cb5e87c15acdcb112c47d" category="paragraph">Astra Control API를 사용하여 S3 자격 증명을 제거하는 방법에 대한 지침은 을 참조하십시오 <block ref="ef5b26cd6e9ab40377842cc20d2b4ebf" category="inline-link-macro-rx"></block>.</block>
   <block id="aa702244278ce9224bdf493dbd836fcf" category="inline-link-macro">Cloud Volumes ONTAP 지원</block>
-  <block id="8752cd76f7db37e4826aaa5b11f2a007" category="paragraph">그런 다음 AWS를 구성하여 가상 네트워크를 생성하고, EC2 컴퓨팅 인스턴스를 설정하고, AWS S3 버킷을 생성하고, ECR(Elastic Container Register)을 생성하여 Astra Control Center 이미지를 호스팅하고, 이 레지스트리로 이미지를 푸시합니다.</block>
   <block id="9c7a256a23d947f541662b1e88bac33d" category="list-text">AWS 가상 네트워크를 생성합니다.</block>
   <block id="9d58e473a9f64a9efe76c63ca0a30602" category="admonition">ECR을 생성하지 않으면 Astra Control Center는 AWS 백엔드가 있는 Cloud Volumes ONTAP가 포함된 클러스터에서 모니터링 데이터에 액세스할 수 없습니다. 이 문제는 Astra Control Center를 사용하여 검색 및 관리하려는 클러스터에 AWS ECR 액세스 권한이 없을 때 발생합니다.</block>
   <block id="1768a4b0762c934953673bc18b18890a" category="admonition">AWS ECR(Elastic Container Registry) 토큰이 12시간 후에 만료되어 클러스터 간 클론 작업이 실패합니다. 이 문제는 AWS용으로 구성된 Cloud Volumes ONTAP에서 스토리지 백엔드를 관리할 때 발생합니다. 이 문제를 해결하려면 ECR을 다시 인증하고 클론 작업이 성공적으로 재개되도록 새로운 암호를 생성하십시오.</block>
   <block id="b68aeba87c67e932282eec3bb99d6309" category="list-text">이 Cloud Volumes ONTAP 배포에서 모든 영구 볼륨 및 볼륨을 기록해 둡니다.</block>
-  <block id="daee2a4caddb0f1fced149c9b185ab3e" category="paragraph">그런 다음 가상 네트워크를 만들고, 컴퓨팅 인스턴스를 설정하고, Azure Blob 컨테이너를 만들고, Astra Control Center 이미지를 호스팅하기 위해 ACR(Azure Container Register)을 만들고, 이 레지스트리로 이미지를 푸시하도록 Azure를 구성합니다.</block>
   <block id="52393bb21023d79ef4e0fa374e54b83d" category="list-text">Azure 가상 네트워크를 생성합니다.</block>
   <block id="5df56ab7fcd23252a7ac4c7a21742e57" category="list-text">백업을 저장할 Azure Blob 컨테이너를 하나 이상 생성합니다.</block>
   <block id="eb33ac2274505b5f55f336ecd9e9a2d2" category="paragraph">Astra Control에서 스토리지 클러스터를 스토리지 백엔드로 관리하면 PVS(영구적 볼륨)와 스토리지 백엔드 간의 연결 및 추가 스토리지 메트릭을 얻을 수 있습니다.</block>
@@ -1200,11 +1153,7 @@
   <block id="a7da53d86332105dcae80a12f3e8b7a5" category="summary">Astra Control의 관리되는 앱 유형을 설명합니다.</block>
   <block id="848f207b3c4594754aa82fd21b5fc5e0" category="paragraph">Astra Control이 클러스터를 검색할 때 해당 클러스터의 앱은 관리 방법을 선택할 때까지 관리되지 않습니다. Astra Control에서 관리되는 응용 프로그램은 다음 중 하나일 수 있습니다.</block>
   <block id="3757d3597962f660c54cb3f9ed5ba251" category="list-text">네임스페이스에서 모든 리소스를 포함하는 네임스페이스입니다</block>
-  <block id="7bae362ecd78982068db2938cc07dff6" category="section-title">원격 클러스터에 복제</block>
-  <block id="db36c1f6d107c3e886b3f731d4f40400" category="paragraph">Astra Control을 사용하면 NetApp SnapMirror 기술의 비동기식 복제 기능을 사용하여 낮은 RPO(복구 시점 목표) 및 낮은 RTO(복구 시간 목표)로 애플리케이션에 대한 비즈니스 연속성을 구축할 수 있습니다. 이 기능을 구성하면 애플리케이션에서 클러스터 간에 데이터 및 애플리케이션 변경사항을 복제할 수 있습니다.</block>
-  <block id="fdd9ffdc3a0486a64b5e96644b02f7c8" category="paragraph">Astra Control은 애플리케이션 스냅샷 복사본을 원격 클러스터에 비동기식으로 복제합니다. 복제 프로세스에는 SnapMirror에 의해 복제된 영구 볼륨의 데이터와 Astra Control에 의해 보호되는 애플리케이션 메타데이터가 포함됩니다.</block>
   <block id="071847902e81028a04c20a09cdb1c6e8" category="paragraph">앱 복제는 다음과 같은 방식으로 앱 백업 및 복원과 다릅니다.</block>
-  <block id="46f7c1ba8a4fd8b1f55723b061d38c1d" category="list-text">* 애플리케이션 백업 및 복원 *: 애플리케이션을 백업할 때 Astra Control은 애플리케이션 데이터의 스냅샷을 생성하고 이를 오브젝트 스토리지 버킷에 저장합니다. 복원이 필요한 경우 버킷 내의 데이터를 ONTAP 클러스터의 영구 볼륨에 복사해야 합니다. 백업/복원 작업에서는 보조 Kubernetes/ONTAP 클러스터를 사용하고 관리할 필요가 없지만, 추가 데이터 복사본을 사용할 경우 복원 시간이 길어질 수 있습니다.</block>
   <block id="229c7c759f13c80c6aa16940d599fb67" category="inline-link-macro">SnapMirror 기술을 사용하여 원격 시스템에 애플리케이션을 복제합니다</block>
   <block id="2e67b4ffa9856ed714ace3c83ce69b11" category="paragraph">다음 이미지는 복제 프로세스와 비교하여 예약된 백업 및 복원 프로세스를 보여 줍니다.</block>
   <block id="0684163543dd8c63ba059f860287849a" category="paragraph">백업 프로세스는 데이터를 S3 버킷으로 복사하고 S3 버킷에서 복원:</block>
@@ -1215,7 +1164,6 @@
   <block id="f4c36c8148a1c2baf23d917e226d50fa" category="list-text"><block ref="703e5962f4e6c982183fbea5d4a0ed0f" category="inline-xref-macro-rx"></block></block>
   <block id="3460be97ad18de8f927ac029b73aea1e" category="section-title">클러스터를 관리하고 볼륨을 추가한 경우 앱 백업 및 스냅숏이 실패합니다</block>
   <block id="4640bdf0aa8bd9424ced0104155962b8" category="paragraph">이 시나리오에서는 백업 및 스냅샷이 UI 500 오류로 인해 실패합니다. 이 문제를 해결하려면 앱 목록을 새로 고치십시오.</block>
-  <block id="33e9a46dfde5bb0f5a8b8327623cb998" category="paragraph">네임스페이스 이름/ID에 따라 RBAC 제한이 있는 모든 '멤버' 사용자는 동일한 클러스터 또는 조직 계정의 다른 클러스터에 있는 새 네임스페이스로 앱을 클론 복제하거나 복원할 수 있습니다. 그러나 동일한 사용자가 새 네임스페이스에서 복제되거나 복원된 앱에 액세스할 수 없습니다. 클론 또는 복원 작업을 통해 새 네임스페이스를 생성한 후 계정 관리자/소유자는 'ember' 사용자 계정을 편집하고 영향을 받는 사용자의 역할 제약 조건을 업데이트하여 새 네임스페이스에 대한 액세스 권한을 부여할 수 있습니다.</block>
   <block id="d5aedbc082e54ed66f533aea75c374f6" category="paragraph">Astra Control은 "pass-by-reference" 아키텍처(예: CockroachDB 운영자)로 설계된 운영자를 복제하지 못할 수 있습니다. 이러한 유형의 클론 복제 작업 중에 클론 복제 운영자는 클론 복제 프로세스의 일부로 고유한 새로운 암호가 있음에도 불구하고 소스 운영자의 Kubernetes 암호를 참조하려고 합니다. Astra Control이 소스 운영자의 Kubernetes 암호를 모르기 때문에 클론 작업이 실패할 수 있습니다.</block>
   <block id="8903edbd1d0463471f5590d10a85b600" category="section-title">2022년 8월 10일(22.08.0)</block>
   <block id="cf730d1df7f3b98c75cd949f7b3155ec" category="inline-link-macro">NetApp SnapMirror 기술을 사용하여 애플리케이션을 복제합니다</block>
@@ -1226,11 +1174,8 @@
   <block id="c0a85ce872a49b700d02bd247127ab1e" category="inline-link-macro">Google Anthos 지원</block>
   <block id="8614e6ee0f1155b4b418f8b634802110" category="inline-link">LDAP 구성(Astra Control API 사용)</block>
   <block id="6b711ca63f3156860c2b2918a106b882" category="inline-link-macro">필수 단계</block>
-  <block id="e13d4a668fc56237f39878bf668e8d7b" category="inline-link-macro">POD 보안 정책 제한 사항 이해</block>
   <block id="008c400b59b77d7bf927c2a682a431e6" category="list-text">사용하려는 Astra FQDN이 이 클러스터에 라우팅될 수 있는지 확인합니다. 즉, 내부 DNS 서버에 DNS 항목이 있거나 이미 등록된 코어 URL 경로를 사용하고 있는 것입니다.</block>
   <block id="33af5b5ab1531482f9e1f1b5a5685f71" category="admonition">YAML 주석이 붙은 샘플은 다음 단계를 따릅니다.</block>
-  <block id="12f475c06a815cdd9492e49594e2118b" category="example-title">샘플 응답</block>
-  <block id="a7302f73f009315fcf704584d75d2bcb" category="list-text">이스티오 침투</block>
   <block id="e0dc391851e56c00a5adaa4c79f40d66" category="list-title">Istio 침투에 대한 단계</block>
   <block id="5dcea3ec02262e2a09d94f1377d15060" category="list-text">Istio Ingress를 구성합니다.</block>
   <block id="d7a2df4296f778ff9dae7d8197e49f88" category="list-text">수신 게이트웨이에 대해 원하는 인증서 및 개인 키 파일을 수집하거나 생성합니다.</block>
@@ -1254,14 +1199,11 @@
   <block id="d193cd9a2432eca22e5cf0d06dcee1e6" category="section-title">복제 사전 요구 사항</block>
   <block id="9fecd08b776fdfca7b33426363edf913" category="inline-link">클러스터 및 SVM 피어링 개요</block>
   <block id="ba84728ffba482ceb12371a53be2f636" category="inline-link">ONTAP의 SnapMirror 라이센스 개요</block>
-  <block id="12656d1c4d74b517feee96e4c4eda095" category="admonition">다른 클러스터 또는 사이트에서 실행 중인 다른 앱을 반대 방향으로 동시에 복제할 수 있습니다. 예를 들어, 애플리케이션 A, B, C를 데이터 센터 1에서 데이터 센터 2로 복제하고 애플리케이션 X, Y, Z를 데이터 센터 2에서 데이터 센터 1로 복제할 수 있습니다.</block>
   <block id="52913e7a98da14ff1b85bfe6ade5baae" category="section-title">Astra Control Center에서 설치한 PSP</block>
   <block id="441bc72de0516ac10b182a0da6d92ddc" category="section-title">설치 중에 PSP가 생성되었습니다</block>
   <block id="fa8501fe06bb26b6d228be2795ca7ab7" category="paragraph">새 정책 및 객체에는 다음과 같은 특성이 있습니다.</block>
   <block id="f489543943b835018355a7f98551ed7e" category="section-title">백업 작업 중에 PSP가 생성되었습니다</block>
   <block id="0606641f2b729119d7709942743b8888" category="section-title">클러스터 관리 중에 생성된 PSP입니다</block>
-  <block id="49df4bd07f95849b3ea34b77bd1bba1b" category="section-title">네임스페이스 간 네트워크 통신을 활성화합니다</block>
-  <block id="a67a954c56c3691d13b3a4dece634155" category="list-text">Astra Control Center 네임스페이스에 있는 NetworkPolicy 리소스를 삭제합니다.</block>
   <block id="e562349c27811f1520b3c670e513cda3" category="section-title">리소스 제한을 제거합니다</block>
   <block id="66abbc76b1b539a19eab77ac5f290859" category="paragraph">다음 단계를 사용하여 할당량 및 제한을 검색하고 제거할 수 있습니다. 이 예제에서 명령 출력은 명령 직후에 표시됩니다.</block>
   <block id="6c999f1f4bd422b4305a76a527b7e862" category="list-text">이름으로 모든 리소스 할당량 삭제:</block>
@@ -1319,13 +1261,11 @@
   <block id="6a7d60379bb9015c0bfe02adcc54d0b5" category="list-text">스크립트 크기는 96KB로 제한됩니다.</block>
   <block id="7fdb6925e171ac617262d69ebf119664" category="list-text">Astra Control은 실행 후크 설정과 모든 일치 기준을 사용하여 스냅샷, 백업 또는 복구 작업에 적용할 수 있는 후크를 결정합니다.</block>
   <block id="71bd0199539278d83c2eb3eaf817b710" category="list-text">모든 실행 후크 장애는 소프트 장애이며, 후크가 실패하더라도 다른 후크와 데이터 보호 작업은 계속 시도됩니다. 그러나 후크가 실패하면 * Activity * 페이지 이벤트 로그에 경고 이벤트가 기록됩니다.</block>
-  <block id="7b1a9d930edd4676e6aca05c81245d86" category="list-text">임시 데이터 보호 작업의 경우 모든 후크 이벤트가 생성되고 * Activity * 페이지 이벤트 로그에 저장됩니다. 그러나 예약된 데이터 보호 작업의 경우 후크 장애 이벤트만 이벤트 로그에 기록됩니다(예약된 데이터 보호 작업 자체에서 생성되는 이벤트는 계속 기록됨).</block>
   <block id="a9f57378169166a88acf61a71442e5fb" category="section-title">실행 순서</block>
   <block id="e8132483e0cae3565c87c193b3fd8f57" category="paragraph">데이터 보호 작업이 실행되면 실행 후크 이벤트가 다음 순서로 발생합니다.</block>
   <block id="4a6ccf1757fd10978b3fb28d81187dcc" category="list-text">해당되는 모든 사용자 정의 사전 작업 실행 후크는 해당 컨테이너에서 실행됩니다. 필요한 만큼 사용자 지정 사전 작업 후크를 만들고 실행할 수 있지만, 이 후크의 실행 순서는 보장되거나 구성할 수 없습니다.</block>
   <block id="cfbed2286711be0cf6dbc12aba602709" category="list-text">데이터 보호 작업이 수행됩니다.</block>
   <block id="9465fae733e0b5fdcd6e532ef8a78b08" category="list-text">해당되는 모든 사용자 지정 작업 후 실행 후크는 해당 컨테이너에서 실행됩니다. 필요한 만큼 사용자 지정 사후 작업 후크를 만들고 실행할 수 있지만 작업 후 후크의 실행 순서는 보장되거나 구성할 수 없습니다.</block>
-  <block id="7a37fb009b30aa8da977e15f71c6bc77" category="paragraph">같은 유형의 실행 후크를 여러 개 생성하는 경우(예: 사전 스냅샷) 해당 후크의 실행 순서는 보장되지 않습니다. 그러나 다른 유형의 후크를 실행하는 순서는 보장됩니다. 예를 들어, 5가지 유형의 후크가 모두 있는 구성의 실행 순서는 다음과 같습니다.</block>
   <block id="59b50be8e9e2ed1b0e1bccae54c76036" category="list-text">예비 후크가 실행되었습니다</block>
   <block id="25fcbdcc7c9fb7d2e1db9e64ef06804c" category="list-text">사전 스냅샷 후크가 실행되었습니다</block>
   <block id="f098e888afa8ccb3f1ad3337c3b6eea1" category="list-text">사후 스냅샷 후크가 실행되었습니다</block>
@@ -1412,28 +1352,16 @@
   <block id="7a70ed1dedf46a2dc2183b1bb676b4d7" category="list-text"><block ref="09dd9d0d67637fa5f48296e4ed8a4b42" category="inline-xref-macro-rx"></block></block>
   <block id="7c44602fcab6f0f9af30e21ff31c9e35" category="list-text"><block ref="d677934c72a803480da8a15f8e837ab0" category="inline-xref-macro-rx"></block></block>
   <block id="40322a2a338856f04751d8d3bdb62496" category="section-title">복제 관계를 설정합니다</block>
-  <block id="123d4394839930e2060eac47df4fbf6e" category="list-text">Astra Control에서 애플리케이션 스냅샷을 얼마나 자주 생성할지 선택(앱의 Kubernetes 리소스 및 각 앱의 볼륨에 대한 볼륨 스냅샷 포함)</block>
   <block id="c588309ae3691c4f1eabe66e12ca5f9f" category="list-text">복제 일정 선택(Kubernetes 리소스 및 영구 볼륨 데이터 포함)</block>
-  <block id="731d56c0c4e15e248b987328cf2f2425" category="list-text">스냅샷을 촬영할 시간 설정</block>
   <block id="200d90d66f2a3231dbdc96b925537815" category="list-text">Astra Control 왼쪽 탐색 모음에서 * 응용 프로그램 * 을 선택합니다.</block>
-  <block id="f5d11a502f1263f05caf55beb868f0a4" category="list-text">애플리케이션 페이지에서 * 데이터 보호 * &gt; * 복제 * 탭을 선택합니다.</block>
-  <block id="77a8ae018cc954b27648a63ce067e4da" category="list-text">데이터 보호 &gt; 복제 탭에서 * 복제 정책 구성 * 을 선택합니다. 또는 애플리케이션 보호 상자에서 작업 옵션을 선택하고 * 복제 정책 구성 * 을 선택합니다.</block>
   <block id="9096869593ba566150c482b51e0bc821" category="list-text">다음 정보를 입력하거나 선택합니다.</block>
-  <block id="27796f91061ed971808de961a27b094e" category="list-text">* 대상 스토리지 클래스 *: 대상 ONTAP 클러스터에서 쌍을 이루는 SVM을 사용하는 스토리지 클래스를 선택하거나 입력합니다.</block>
-  <block id="2d2bbc8ef94620f328b67fdf2362dc45" category="list-text">* 복제 빈도 *: Astra Control이 스냅샷을 생성하여 대상에 복제할 빈도를 설정합니다.</block>
   <block id="e0db10b749c9a588a8dabc1a0e7e120e" category="list-text">다음 * 을 선택하고 요약을 검토하고 * 저장 * 을 선택합니다.</block>
   <block id="6d0200299494f68f69d2f529d8ca9132" category="admonition">첫 번째 일정이 발생하기 전에 상태가 "APP-MIRROR"로 표시됩니다.</block>
-  <block id="9603a5bc7b3cf58a39dcd6d6c99576ed" category="paragraph">Astra Control은 복제에 사용되는 애플리케이션 스냅샷을 생성합니다.</block>
-  <block id="1e0086e0e5c82b6984c52b4aa5aeda18" category="list-text">응용 프로그램 스냅샷 상태를 보려면 * 응용 프로그램 * &gt; * 스냅샷 * 탭을 선택합니다.</block>
   <block id="e3ac8db6af80d439fa6ad1af2019b744" category="paragraph">그러면 복제 관계가 생성됩니다.</block>
   <block id="3d08809cb017f3bf55d0cc432592b59c" category="paragraph">Astra Control은 관계를 수립함으로써 다음과 같은 조치를 수행합니다.</block>
   <block id="5ec65a98bb18ff0a2a5c73960bba76be" category="list-text">대상에서 네임스페이스 생성(없는 경우)</block>
   <block id="8aa71ed35f20e463b017abca841bf303" category="list-text">소스 앱의 PVC에 해당하는 대상 네임스페이스에 PVC를 생성합니다.</block>
-  <block id="f1cc67e717be65116b90d6dec479c88f" category="list-text">애플리케이션 정합성이 보장되는 초기 Snapshot을 만듭니다.</block>
-  <block id="80dbafe72acbb7b9cf3ccb83340cb7a1" category="list-text">초기 스냅샷을 사용하여 영구 볼륨의 SnapMirror 관계를 설정합니다.</block>
-  <block id="eaef9a924c49f9e12a4657b4da20f435" category="paragraph">데이터 보호 페이지에는 복제 관계 상태 및 상태가 표시됩니다. &lt;상태&gt;|&lt;관계 수명 주기 상태&gt;</block>
   <block id="e2562aa0b069506734b123f820293a19" category="paragraph">예: Normal | 설정합니다</block>
-  <block id="ecfa3d1eba71f477f07cde7d354d8328" category="list-text">데이터 보호 &gt; 복제 탭의 작업 메뉴에서 * 페일오버 * 를 선택합니다.</block>
   <block id="c26e877028668e42775a491c8f681271" category="list-text">페일오버 페이지에서 정보를 검토하고 * 페일오버 * 를 선택합니다.</block>
   <block id="ef6c7c8b849aec0ce62a77701cfbdca2" category="list-text">소스 클러스터와 앱(작동 중인 경우)이 중지되지 않고 계속 실행됩니다.</block>
   <block id="9fa873e485bd560b94b1675bdb21b316" category="list-text">복제 상태가 "페일오버 중"으로 변경되고, 완료되면 "페일오버 실패"로 변경됩니다.</block>
@@ -1442,7 +1370,6 @@
   <block id="fcd47708db9cd2598d987d39867fc2b4" category="paragraph">재동기화 작업은 복제 관계를 다시 설정합니다. 관계의 소스를 선택하여 소스 또는 타겟 클러스터에 데이터를 유지할 수 있습니다. 이 작업은 SnapMirror 관계를 다시 설정하여 원하는 방향으로 볼륨 복제를 시작합니다.</block>
   <block id="2e1da34c23f994f0afff8a6cb951ffdb" category="paragraph">이 프로세스는 복제를 다시 설정하기 전에 새 대상 클러스터에서 앱을 중지합니다.</block>
   <block id="b6fc346f3e95c4ba2d6b87f2bc19093a" category="admonition">재동기화 프로세스 중에 수명 주기 상태가 "설정 중"으로 표시됩니다.</block>
-  <block id="af4f9d3918042347d56f253fb46d2b40" category="list-text">데이터 보호 &gt; 복제 탭의 작업 메뉴에서 * 재동기화 * 를 선택합니다.</block>
   <block id="096f827590378fa2b147d07eea38eac4" category="list-text">재동기화 페이지에서 보존할 데이터가 포함된 소스 또는 대상 앱 인스턴스를 선택합니다.</block>
   <block id="397234a53d4882ba866ccdd3272f91d7" category="admonition">대상의 데이터를 덮어쓰므로 재동기화 소스를 신중하게 선택합니다.</block>
   <block id="64e0d794a4796284e011f261a581a0f6" category="list-text">계속하려면 * 재동기화 * 를 선택하십시오.</block>
@@ -1454,16 +1381,10 @@
   <block id="3d69e8a488a5c70201c116ab3053c473" category="list-text">Astra Control은 SnapMirror 재동기화를 사용하여 선택한 방향으로 영구 볼륨 복제를 다시 설정합니다.</block>
   <block id="1a5dd0021d793ce09e553da831e77913" category="list-text">복제 페이지에는 업데이트된 관계가 표시됩니다.</block>
   <block id="1ae594b726d5dae8d745bb3998b1d2bf" category="section-title">애플리케이션 복제를 역으로 수행합니다</block>
-  <block id="0b8419408c83cf1bebc863416d897fc2" category="paragraph">원래 소스 클러스터로 계속 복제하면서 애플리케이션을 대상 클러스터로 이동하기 위한 계획된 작업입니다. Astra Control은 소스 클러스터에서 애플리케이션을 중지하고 대상 클러스터에 앱을 페일오버하기 전에 데이터를 대상에 복제합니다.</block>
-  <block id="e09cd07068e71770b5caf3181be2b41e" category="paragraph">이 경우 소스와 대상을 스와핑합니다. 원래 소스 클러스터가 새 대상 클러스터가 되고 원래 타겟 클러스터가 새 소스 클러스터가 됩니다.</block>
-  <block id="24007b9787192aefe5195fcefd80e928" category="list-text">데이터 보호 &gt; 복제 탭의 동작 메뉴에서 * 역방향 복제 * 를 선택합니다.</block>
   <block id="97dd57a9f7d04e99e5f8890cf06492f7" category="list-text">역방향 복제 페이지에서 정보를 검토하고 계속하려면 * 역방향 복제 * 를 선택합니다.</block>
   <block id="787a45856a95df3df7333cdc10ebfac8" category="paragraph">역방향 복제의 결과로 다음 작업이 수행됩니다.</block>
-  <block id="4789401d94b54ed3655ba52d4149c881" category="list-text">원본 소스 앱의 Kubernetes 리소스 에 대한 스냅샷이 촬영됩니다.</block>
   <block id="08c383efd49395a644fa60036a0853a2" category="list-text">앱의 Kubernetes 리소스를 삭제하여 원본 소스 앱의 Pod를 정상적으로 중지할 수 있습니다(PVC 및 PVS를 그대로 둡니다).</block>
-  <block id="c45813c735d2da8514c92a265f8e39e2" category="list-text">포드가 종료된 후 앱 볼륨의 스냅샷이 촬영되고 복제됩니다.</block>
   <block id="b1907879d61e1f061c433469dfb8ddcf" category="list-text">SnapMirror 관계가 끊어져 타겟 볼륨이 읽기/쓰기 준비가 되었습니다.</block>
-  <block id="3796de18ff14ef168482ad583a71736e" category="list-text">앱의 Kubernetes 리소스는 원래 소스 애플리케이션이 종료된 후 복제된 볼륨 데이터를 사용하여 사전 종료 Snapshot에서 복원됩니다.</block>
   <block id="3cecdf93ba8c40eb3b09b7a7f9985e1d" category="list-text">복제는 반대 방향으로 다시 설정됩니다.</block>
   <block id="827d6f4840be3ba668aa3eaee7c11d8d" category="section-title">애플리케이션을 원래 소스 클러스터로 페일백합니다</block>
   <block id="9cbd7771b861e31b5edb23d83de4758c" category="list-text">페일오버된 상태로 시작합니다.</block>
@@ -1474,7 +1395,6 @@
   <block id="27c2bd73944d5cb6285cb3bca40e50a8" category="paragraph">이렇게 하면 "재동기화" 및 "역관계" 작업의 결과가 결합되어 원래 소스 클러스터에서 애플리케이션이 온라인 상태가 되고 복제가 원래 대상 클러스터로 다시 시작됩니다.</block>
   <block id="b0385aeb13cec4c591c137969fe07508" category="section-title">애플리케이션 복제 관계를 삭제합니다</block>
   <block id="8353e8b2a83a3827c81b3145d7c43df6" category="paragraph">관계를 삭제하면 두 개의 별도 앱이 서로 관계가 없습니다.</block>
-  <block id="70656dfb423e38cc4b66a0c2c30dd095" category="list-text">데이터 보호 &gt; 복제 탭의 애플리케이션 보호 상자 또는 관계 다이어그램에서 * 복제 관계 삭제 * 를 선택합니다.</block>
   <block id="09e0686702e091c731510d8bf55a42a2" category="paragraph">복제 관계를 삭제하면 다음과 같은 작업이 수행됩니다.</block>
   <block id="81aee616d642e8a3a1bbab2cf5eb18aa" category="list-text">관계가 설정되었지만 대상 클러스터에서 앱이 아직 온라인 상태가 되지 않은 경우(장애 발생) Astra Control은 초기화 중에 생성된 PVC를 유지하고 "비어 있는" 관리 앱을 대상 클러스터에 남겨두고 생성된 백업을 유지할 수 있도록 대상 앱을 유지합니다.</block>
   <block id="a19ddf25527682504cea065ee1f5d6fb" category="list-text">대상 클러스터에서 앱이 온라인 상태가 된 경우(장애 발생), Astra Control은 PVC 및 대상 앱을 유지합니다. 이제 소스 및 대상 앱이 독립 앱으로 취급됩니다. 백업 스케줄은 두 애플리케이션 모두에 유지되지만 서로 연결되지 않습니다. </block>
@@ -1482,18 +1402,13 @@
   <block id="fb1e8e624d1ca540c8ad7e060665231c" category="paragraph">Astra Control은 복제 관계의 관계 상태와 수명 주기의 상태를 표시합니다.</block>
   <block id="97ed88ed8b0baaa79b181df9311188d0" category="section-title">복제 관계 상태</block>
   <block id="867b1e9afff9d36e826938030d1063ea" category="paragraph">다음 상태는 복제 관계의 상태를 나타냅니다.</block>
-  <block id="c2f157c01c5e1ea33c76c09ad75bcd85" category="list-text">* 정상 *: 관계가 설정되었거나 설정되었으며 최근 스냅샷이 성공적으로 전송되었습니다.</block>
   <block id="9b9df751a0db0c50e2aad9ea69a1dc16" category="list-text">* 경고 *: 관계가 페일오버되었거나 페일오버되었습니다(따라서 소스 앱을 더 이상 보호하지 않음).</block>
   <block id="ff40fa35d75fb5289657c37a124f5df2" category="list-text">* 심각 *</block>
   <block id="89e02e8fc70118a657658e0ef77ed4dd" category="list-text">관계가 설정 또는 페일오버되고 마지막 조정 시도가 실패했습니다.</block>
   <block id="3e5024a8e7b1aba9033af616af3aed34" category="list-text">관계가 성립되고 새로운 PVC의 추가를 조정하기 위한 마지막 시도가 실패합니다.</block>
-  <block id="7c58a5a72691dead066a606f7a5bc6a6" category="list-text">관계가 설정되지만(성공한 스냅샷은 복제되고 페일오버는 가능) 가장 최근의 스냅샷이 실패했거나 복제하지 못했습니다.</block>
   <block id="ede436a826fea8ebe2c85683ac2b4445" category="section-title">복제 수명 주기 상태입니다</block>
   <block id="3c206bbe8504049d7e01e195863cb978" category="paragraph">다음 상태는 복제 주기의 여러 단계를 반영합니다.</block>
   <block id="70b46f343417e27749d2aa0ccfa36f06" category="list-text">* 설정 *: 새 복제 관계가 생성됩니다. Astra Control은 필요한 경우 네임스페이스를 생성하고, 대상 클러스터의 새 볼륨에 지속적인 PVC(Volume Claim)를 생성하여 SnapMirror 관계를 생성합니다. 이 상태는 복제가 재동기화 중이거나 복제 재동기화 중임을 나타낼 수도 있습니다.</block>
-  <block id="08922ac26faf00d27a31b7cf7955b53d" category="list-text">* 설정됨 *: 복제 관계가 있습니다. Astra Control은 주기적으로 PVC가 사용 가능한지 확인하고, 복제 관계를 확인하고, 정기적으로 앱의 스냅샷을 생성하고, 앱에서 새로운 소스 PVC를 식별합니다. 이 경우 Astra Control은 복제에 포함할 리소스를 생성합니다.</block>
-  <block id="10d2cf9e5ebcb3088cc151f7e753db7a" category="list-text">* 페일오버 *: Astra Control은 SnapMirror 관계를 중단시키고 마지막으로 성공한 복제 애플리케이션 Snapshot에서 앱의 Kubernetes 리소스를 복원합니다.</block>
-  <block id="ee6f351221df9109caec69f53ae49738" category="list-text">* 페일오버됨 *: Astra Control은 소스 클러스터에서 복제를 중지하고, 대상에서 최근(성공한) 복제 앱 Snapshot을 사용하고, Kubernetes 리소스를 복원합니다.</block>
   <block id="27981e21c4631ae95b8e809458f50870" category="list-text">* 재동기화 *: Astra Control SnapMirror 재동기화를 사용하여 재동기화 소스의 새 데이터를 재동기화 대상으로 재동기화합니다. 이 작업은 동기화 방향에 따라 대상의 일부 데이터를 덮어쓸 수 있습니다. Astra Control은 대상 네임스페이스에서 실행 중인 앱을 중지하고 Kubernetes 앱을 제거합니다. 재동기화 프로세스 중에 상태가 "설정 중"으로 표시됩니다.</block>
   <block id="430cef72bcc7a837b789212c0e194d0f" category="list-text">* 후진 *: 은 원래 소스 클러스터로 계속 복제하면서 애플리케이션을 대상 클러스터로 이동하기 위한 계획된 작업입니다. Astra Control은 소스 클러스터에서 애플리케이션을 중지하고, 대상 클러스터에 앱을 페일오버하기 전에 데이터를 대상에 복제합니다. 역방향 복제 중에 상태가 "설정 중"으로 표시됩니다.</block>
   <block id="366c043ac239af39c01a69c524d5c4d8" category="list-text">* 삭제 *:</block>
@@ -1528,7 +1443,6 @@
   <block id="a7cfd917113a9ee9c1e789887d1d809f" category="sidebar">불화 채널</block>
   <block id="bb6d95ff16fd3c7abf9daa650b5357c5" category="list-text">디렉토리를 변경합니다.</block>
   <block id="3287973c50b09462bde24fe82b06c59b" category="list-text">Pod가 실행 중인지 확인합니다.</block>
-  <block id="4350127c708b74b4f04ca10d2c10b10d" category="list-text">Astra Control Center 호스트 클러스터에 대한 KUBECONFIG를 내보냅니다.</block>
   <block id="85573d5352311b01ff7319a4b0e9bf34" category="admonition">UUID 값을 복사합니다. 암호는 ACC-, UUID 값( ACC-[UUID]), 이 예에서는 ACC-9aa5faaaaaaaud-4214-4cb7-9976-5d8b4c0ce27f)입니다.</block>
   <block id="ed78458df917d6da9f19cca23d8468cd" category="paragraph"><block ref="c229e392652cddf73148e5c65f706c6d" category="inline-link-macro-rx"></block> NetApp SnapMirror 기술을 사용하여 원격 클러스터로 Astra Control은 스냅샷을 원격 클러스터에 복제하여 비동기식 재해 복구 기능을 제공합니다.</block>
   <block id="ca5eff8f4c2396bf09558b428d91e9f3" category="section-title">2022년 9월 8일(22.08.1)</block>
@@ -1543,12 +1457,10 @@
   <block id="1e1383512a183b22a38cf414944a5e6f" category="section-title">Google Cloud Platform에 Astra Control Center를 구축합니다</block>
   <block id="b22e8d7dd55c8decf5f9ba74419121b1" category="paragraph">GCP(Google Cloud Platform) 퍼블릭 클라우드에서 호스팅되는 자가 관리형 Kubernetes 클러스터에 Astra Control Center를 구축할 수 있습니다.</block>
   <block id="643d752df6c3694f3ce7af63534415ce" category="paragraph">GCP에 Astra Control Center를 구축하기 전에 다음 항목이 필요합니다.</block>
-  <block id="f5c6148230da18b53bb888b7c50f6394" category="list-text">OCP를 사용하는 경우 Red Hat OpenShift Container Platform(OCP) 4.10</block>
   <block id="053fe1b94d4c8c543d8ea27c9283521c" category="list-text">버킷 및 커넥터를 생성할 수 있는 권한이 있는 GCP 서비스 계정</block>
   <block id="b32083661594dec86f9945fb39f2b059" category="section-title">GCP의 운영 환경 요구 사항</block>
   <block id="b75c2ef9095a885dc0ef6fd7ca29fdcf" category="cell">작업자 노드(GCP 컴퓨팅 요구사항)</block>
   <block id="03b9b349bfdd1ce91a22d139cbf004bc" category="cell">FQDN(GCP DNS 영역)</block>
-  <block id="4e2bfc03b961741a1606bd501279f287" category="paragraph">Astra Control Center 빌드 이미지를 푸시할 수 있는 Google Container Registry와 같은 기존 개인 레지스트리가 있어야 합니다. 이미지를 업로드할 이미지 레지스트리의 URL을 제공해야 합니다.</block>
   <block id="baa0c7f7c93168cadeba3527548bd954" category="section-title">GCP 구축 개요</block>
   <block id="2070102f40ff1d99329caf83f2507c4e" category="paragraph">다음은 Astra Control Center를 스토리지 백엔드로 Cloud Volumes ONTAP를 사용하는 GCP의 자체 관리 OCP 클러스터에 설치하는 프로세스의 개요입니다.</block>
   <block id="3b02e745516f5c71a77c246060a51e43" category="list-text"><block ref="d61d940c61a6a00e19275fbf437320a7" category="inline-xref-macro-rx"></block>.</block>
@@ -1557,7 +1469,6 @@
   <block id="12332c49e684e46b7ac699f207bf16a8" category="section-title">GCP에 RedHat OpenShift 클러스터를 설치합니다</block>
   <block id="7c5a7b7621ba103d2f073201a81e462a" category="paragraph">첫 번째 단계는 GCP에 RedHat OpenShift 클러스터를 설치하는 것입니다.</block>
   <block id="d1442006ea024cc45950b650da58fcb9" category="inline-link">GCP에서 OpenShift 클러스터 설치</block>
-  <block id="06ae5144a84de0bebf0efd5df7c00e06" category="list-text"><block ref="06ae5144a84de0bebf0efd5df7c00e06" category="inline-link-rx"></block></block>
   <block id="cb61f975c18dbe1fc8e8d6c8d8486d7e" category="inline-link">GCP 서비스 계정 생성</block>
   <block id="83e04df6a72ee17f24d691755368e8d5" category="list-text"><block ref="83e04df6a72ee17f24d691755368e8d5" category="inline-link-rx"></block></block>
   <block id="87d185607b5b3fa9b106856512932ac9" category="section-title">GCP 프로젝트 및 가상 프라이빗 클라우드를 생성합니다</block>
@@ -1566,14 +1477,11 @@
   <block id="f278df8e4fae8c2d860bbf93ec87083a" category="inline-link">초기 GCP 자격 증명 및 권한</block>
   <block id="a51774c7ee8c7a1917d32e07bbbdef38" category="paragraph">을 참조하십시오<block ref="385e8d87b885c39cb24ca39a45247481" category="inline-link-rx"></block>.</block>
   <block id="209192cc4a50f2aaec907833e188e01e" category="section-title">GCP를 구성합니다</block>
-  <block id="fd44c34d860360718bf48fe6737d924e" category="paragraph">그런 다음 VPC를 생성하고, 컴퓨팅 인스턴스를 설정하고, Google Cloud Object Storage를 생성하고, Google Container Register를 생성하여 Astra Control Center 이미지를 호스팅하고, 이미지를 이 레지스트리로 푸시하도록 GCP를 구성합니다.</block>
   <block id="c578b94b33bf07e688365d51671b2a15" category="paragraph">GCP 문서에 따라 다음 단계를 완료합니다. GCP에서 OpenShift 클러스터 설치를 참조하십시오.</block>
   <block id="70f9b4bc984c8a51ae2377e7357c3f9c" category="list-text">CVO 백엔드가 있는 OCP 클러스터에 사용할 GCP에서 사용할 GCP 프로젝트 및 VPC를 GCP에서 생성합니다.</block>
   <block id="79b77f6749b1fd6847f3c81051c1a461" category="list-text">컴퓨팅 인스턴스를 검토합니다. GCP의 베어 메탈 서버 또는 VM이 될 수 있습니다.</block>
   <block id="84e3433d1da2695e582ef2f2de7e3312" category="list-text">백업을 저장할 하나 이상의 GCP Cloud Storage Bucket을 생성합니다.</block>
-  <block id="2dd9e1f422bf892345f5cec3f5b2b2c2" category="list-text">모든 Astra Control Center 이미지를 호스트하기 위해 Google Container Registry를 생성합니다.</block>
   <block id="033b1ecf3fb0416aaad3238723dff2c9" category="list-text">모든 Astra Control Center 이미지에 대해 Docker 푸시/풀용 Google Container Registry 액세스를 설정합니다.</block>
-  <block id="81634e2d9f608a938249929e3c633af7" category="paragraph">예: 다음 스크립트를 입력하여 ACC 이미지를 이 레지스트리로 푸시할 수 있습니다.</block>
   <block id="2701c9c6d63abc5115841cd703843f03" category="paragraph">이 스크립트에는 Astra Control Center 매니페스트 파일과 Google Image 레지스트리 위치가 필요합니다.</block>
   <block id="81eeab9506186e2dca8faefa78d54067" category="paragraph">예:</block>
   <block id="dfe1fba5955d5d74d058493ad8119d8b" category="inline-link">GCP에서 Cloud Volumes ONTAP 시작하기</block>
@@ -1586,7 +1494,6 @@
   <block id="e5f70079847fbdf0dfed8524e002462a" category="admonition">Cloud Volumes ONTAP는 단일 노드 또는 고가용성(HA)으로 작동할 수 있습니다. HA가 사용되도록 설정된 경우 GCP에서 실행 중인 HA 상태 및 노드 배포 상태를 확인합니다.</block>
   <block id="425fd91b4451257e5079173762463def" category="admonition">GCP는 일반 S3 버킷 유형을 사용합니다.</block>
   <block id="9e7e41f010f82585ef3b0ebd3f1de902" category="list-text">Docker Secret를 생성하여 Astra Control Center 설치를 위한 이미지를 가져옵니다.</block>
-  <block id="06e1b0116459bf681b32b65360e38671" category="list-text">OCP를 사용하는 경우 Red Hat OpenShift Container Platform(OCP) 4.8</block>
   <block id="4ab759267d2877902a521921e10f5f5b" category="list-text">astractrol-service-account.yaML이라는 서비스 계정 파일을 만듭니다.</block>
   <block id="40c5eb63f5dc254aeb1e6c3a7b34d15d" category="inline-link-macro">지원되는 스토리지 백엔드</block>
   <block id="3e55b813dfc77f5a692ec8411b86bba6" category="paragraph">ONTAP 스토리지 백엔드에 필요한 라이센스에 대한 자세한 내용은 을 참조하십시오 <block ref="dff615b80497dbcbaf9794a9900b6f10" category="inline-link-macro-rx"></block>.</block>
@@ -1615,19 +1522,11 @@
   <block id="9e4ede61dd0a24114a7bb2542c2af758" category="list-text">* 애플리케이션 클러스터 요구 사항 *: <block ref="6829af24c0361d941de7c8d905281d56" category="inline-link-macro-rx"></block></block>
   <block id="6cb130c6d28872b66cbcd0bcdd296d6f" category="list-text">* 관리되는 애플리케이션 요구 사항 *: <block ref="03ed8d5edcddc18d90f1abc9b8a675a8" category="inline-link-macro-rx"></block></block>
   <block id="16971a7b30300745266670fd11a9fdca" category="list-text">* 앱 복제에 대한 추가 요구 사항 *: <block ref="d445bcc1fd4e59834793d5cb3f655d5a" category="inline-link-macro-rx"></block></block>
-  <block id="6f2e84a8cc83bea678c051eedf03eda5" category="admonition">기본 VMware TKG 및 TKGi 구성 파일 토큰은 구축 후 10시간 후에 만료됩니다. Tanzu 포트폴리오 제품을 사용하는 경우, Astra Control Center와 관리되는 애플리케이션 클러스터 간의 연결 문제를 방지하기 위해 만료되지 않는 토큰이 포함된 Tanzu Kubernetes Cluster 구성 파일을 생성해야 합니다. 자세한 내용은 를 참조하십시오<block ref="8b2a2640d5e94aaf0de3bd3373313f4b" category="inline-link-rx"></block></block>
   <block id="3a42870ce3d29e1095c37076fe6c6815" category="paragraph">를 봅니다 <block ref="74def782ae5baa10e738e0c5d17d2d09" category="inline-link-macro-rx"></block> 개요.</block>
   <block id="0865e3e3a3839a597542d410b4de9778" category="paragraph">Astra Control Center를 설치하려면 NetApp Support 사이트에서 설치 번들을 다운로드하고 다음 단계를 수행하십시오. 이 절차를 사용하여 인터넷에 연결되었거나 공기가 연결된 환경에 Astra Control Center를 설치할 수 있습니다.</block>
-  <block id="99651f5ec6338214cd121a7237a833f3" category="example-title">기타 설치 절차</block>
   <block id="187f2749a6d296ffe4b566bb9bb5e4e7" category="list-text">RedHat OpenShift OperatorHub * 로 설치: 이 옵션을 사용합니다 <block ref="3070b96c53dc6268c37367db253e962f" category="inline-link-macro-rx"></block> OperatorHub를 사용하여 OpenShift에 Astra Control Center를 설치합니다.</block>
   <block id="7c90d436f62a080a98e02874957865e0" category="inline-link-macro">수행할 수 있습니다</block>
   <block id="41bdd90cead20f2dddf0647e2f48fc13" category="list-text">* Cloud Volumes ONTAP 백엔드를 사용하여 퍼블릭 클라우드에 설치 *: 사용 <block ref="cdbba4f6294205e74dc04d0ee99d1d1f" category="inline-link-macro-rx"></block> AWS(Amazon Web Services), GCP(Google Cloud Platform) 또는 Cloud Volumes ONTAP 스토리지 백엔드가 있는 Microsoft Azure에 Astra Control Center를 설치하려면 다음을 수행합니다.</block>
-  <block id="3795639eaa5204f6fa15e47a15bca2f1" category="paragraph">Astra Control Center 설치 프로세스를 통해 다음을 수행할 수 있습니다.</block>
-  <block id="590bbfe0321f70c378c20713e420c00e" category="list-text">에 Astra 구성 요소를 설치합니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> (또는 사용자 지정 이름) 네임스페이스입니다.</block>
-  <block id="3f1d8d05f833ab76251fa849e383328e" category="list-text">기본 Astra Control Owner 관리자 계정을 생성합니다.</block>
-  <block id="8ecb9c60f0c3b7e9cd918e5bc02574b7" category="list-text">관리자 이메일 주소와 기본 초기 설정 암호를 설정합니다. 이 사용자에게는 UI에 처음 로그인하는 데 필요한 소유자 역할이 할당됩니다.</block>
-  <block id="0a95083609256f37336e12a9bcf2e463" category="list-text">모든 Astra Control Center Pod가 실행되고 있는지 확인합니다.</block>
-  <block id="b9c8db9ede8046f6b37500c8dbd6bff3" category="list-text">Astra Control Center UI를 설치합니다.</block>
   <block id="d73f4cd3ed09d80212f766964fd60d2b" category="admonition">Astra Control Center 운영자를 삭제하지 마십시오(예:<block ref="dfe54be7b1dbab0ff279802517dca055" prefix=" " category="inline-code"></block>) 포드가 삭제되지 않도록 Astra Control Center 설치 또는 작동 중에 언제든지.</block>
   <block id="23a38036ff7df90ffe338fd68ee89bb1" category="paragraph">NetApp은 다양한 CPU 아키텍처 및 운영 체제에 대한 플러그인 바이너리를 제공합니다. 이 작업을 수행하기 전에 사용 중인 CPU 및 운영 체제를 알아야 합니다.</block>
   <block id="18f40e403e21c47db1d640c681eb60c1" category="list-text">사용 가능한 NetApp Astra kubectl 플러그인 바이너리를 나열하고 운영 체제 및 CPU 아키텍처에 필요한 파일 이름을 적어 주십시오.</block>
@@ -1635,19 +1534,15 @@
   <block id="70c1282aae344c7012022e40f12892d7" category="list-text">올바른 바이너리를 현재 경로로 이동하고 이름을 로 변경합니다<block ref="90432a9da14d46e4d20c4b841576b1ee" prefix=" " category="inline-code"></block>:</block>
   <block id="f65f53e091cb29cf07faf1ce22c7b7af" category="list-text">&lt;MY_REGISTRY_USER&gt;를 사용자 이름으로 바꿉니다.</block>
   <block id="942beacf5a707600cdbf9c51118da46f" category="list-text">&lt;MY_REGISTRY_TOKEN&gt;를 레지스트리에 대한 인증된 토큰으로 바꿉니다.</block>
-  <block id="739ad756d2571ec4c01ae0e2a5a259ff" category="admonition">설치를 완료하기 전에 KUBECONFIG가 Astra Control Center를 설치할 클러스터를 가리키고 있는지 확인하십시오. KUBECONFIG는 하나의 컨텍스트만 포함할 수 있습니다.</block>
   <block id="fba3b8edc8af9a70acd65d8e7cf9463f" category="admonition">암호를 생성한 후 네임스페이스를 삭제하면 네임스페이스를 다시 만든 다음 네임스페이스에 대한 암호를 다시 생성합니다.</block>
   <block id="d9cf54d120e6c7828718763a08f6c1dc" category="list-text">를 생성합니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> (또는 사용자 지정 이름) 네임스페이스입니다.</block>
   <block id="e8ef4881e3a5b5ed524203e110c2189c" category="list-text">에 대한 암호를 만듭니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> (또는 사용자 지정 이름) 네임스페이스입니다. Docker 정보를 추가하고 다음 명령을 실행합니다.</block>
-  <block id="3d59a0091a9b90694e09ed10fd28e891" category="list-text">변경<block ref="a3d1b23e7abf0f3b3ca5fcf7e61860cd" prefix=" " category="inline-code"></block> 의 경우<block ref="4a3ecd51c30dc55cebd7ed9babbb7931" prefix=" " category="inline-code"></block> 이미지를 에서 푸시한 레지스트리 경로로 이미지 <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>.</block>
-  <block id="26fcd88032025b1fd17ddffb0ce0a06a" category="list-text">변경<block ref="a3d1b23e7abf0f3b3ca5fcf7e61860cd" prefix=" " category="inline-code"></block> 의 경우<block ref="83f93b05da174976bd534cc67ad9f7b4" prefix=" " category="inline-code"></block> 이미지를 에서 푸시한 레지스트리 경로로 이미지 <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>.</block>
   <block id="b50b94a0232dbff69a41914d331d9609" category="paragraph">Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. <block ref="24ace688122fb01922cde69e1e3df1d5" prefix="(" category="inline-code"></block> Astra Control Center 네임스페이스에서), 액세스 가능한 외부 IP 주소를 할당해야 합니다. 로드 밸런서가 사용자 환경에서 허용되고 아직 로드 밸런서가 구성되어 있지 않은 경우 MetalLB 또는 다른 외부 서비스 로드 밸런서를 사용하여 외부 IP 주소를 서비스에 할당할 수 있습니다. 내부 DNS 서버 구성에서 Astra Control Center에 대해 선택한 DNS 이름을 부하 분산 IP 주소로 지정해야 합니다.</block>
   <block id="24f8b619456c925b397f91e62d1630d3" category="paragraph">kubeck 명령을 사용하여 시스템 상태를 확인할 수 있습니다. OpenShift를 사용하려는 경우 검증 단계에 유사한 OC 명령을 사용할 수 있습니다.</block>
   <block id="3228f21b07b2db77590b591150d404ae" category="inline-link-macro">UI에서 클러스터 워크플로우를 추가합니다</block>
   <block id="2de8b3f0e5e78c32f5685fa2a946bc2c" category="list-text">모든 Pod가 실행되면 설치가 성공적으로 완료되었는지 확인합니다 <block ref="2baa69eafc7204f3bd8648eba580c489" prefix="(" category="inline-code"></block> 있습니다<block ref="f827cf462f62848df37c5e1e94a4da74" prefix=" " category="inline-code"></block>)를 입력하고 Astra Control Center에 로그인할 때 사용할 초기 설치 암호를 받습니다.</block>
   <block id="448c755750fe91f2f9a84c5ebb6cad60" category="paragraph">서비스에 대한 외부 액세스를 관리하는 Kubernetes 수신 컨트롤러를 설정할 수 있습니다. 이 절차에서는 기본값을 사용한 경우 수신 컨트롤러에 대한 설정 예제를 제공합니다<block ref="70110d526a7afb77cc9b5240e79845c0" prefix=" " category="inline-code"></block> Astra Control Center 사용자 지정 리소스 <block ref="70b058e54d2bda749060070a7f9c4e5c" prefix="(" category="inline-code"></block>)를 클릭합니다. 지정한 경우 이 절차를 사용할 필요가 없습니다<block ref="4388d54e87947748fc2ff08932daa51e" prefix=" " category="inline-code"></block> Astra Control Center 사용자 지정 리소스 <block ref="70b058e54d2bda749060070a7f9c4e5c" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
   <block id="86b42486fb30abe088119b9bdb8b37fe" category="paragraph">Astra Control Center를 배포한 후 URL을 사용하여 Astra Control Center를 노출하도록 수신 컨트롤러를 구성해야 합니다.</block>
-  <block id="170f2881c2ec26c6c827db92f888036a" category="paragraph">설치 단계는 사용하는 수신 컨트롤러의 유형에 따라 다릅니다. Astra Control Center는 다양한 수신 컨트롤러 유형을 지원합니다. 이러한 설정 절차에서는 다음과 같은 수신 컨트롤러 유형에 대한 예제 단계를 제공합니다.</block>
   <block id="9e68f5537584938ae726ba61ef82517b" category="admonition">이 절차에서는 "기본" 구성 프로파일을 사용하여 Istio를 구축한다고 가정합니다.</block>
   <block id="84edbaa30a195a5d0c38b11e6dcc7fa1" category="paragraph">CA 서명 또는 자체 서명 인증서를 사용할 수 있습니다. 공통 이름은 Astra 주소(FQDN)여야 합니다.</block>
   <block id="5fd300737b7909532dc522634d75def5" category="paragraph">명령 예:</block>
@@ -1666,7 +1561,6 @@
   <block id="c253328fa1c3fdd381dbcd1947f860fe" category="list-text">(선택 사항) 환경에 따라 사후 설치를 완료합니다 <block ref="c806b8b1d125a0b458ba20e4c35a2d45" category="inline-link-macro-rx"></block>.</block>
   <block id="c9f3abefb4636a9fe741f546da8ebc6a" category="summary">환경에 따라 Astra Control Center를 설치한 후 추가 구성이 필요할 수 있습니다.</block>
   <block id="36ba1b7ac69684383073b716c78b3168" category="doc">설치 후 Astra Control Center를 구성합니다</block>
-  <block id="adef327cbb3a8e19d7fe6ce3a8f078b6" category="paragraph">일부 환경에서는 NetworkPolicy 구문을 사용하여 네임스페이스 간 트래픽을 제한합니다. Astra Control Center 운영자와 Astra Control Center는 서로 다른 네임스페이스에 있습니다. 서로 다른 네임스페이스에 있는 서비스는 서로 통신할 수 있어야 합니다. 이 통신을 활성화하려면 다음 단계를 수행하십시오.</block>
   <block id="4fced57ef685fd313b21b67b6ecc577d" category="paragraph">Astra Control Center는 자체 서명된 TLS 인증서를 수신 컨트롤러 트래픽(특정 구성에만 해당)과 웹 브라우저를 통한 웹 UI 인증에 사용합니다. 기존의 자체 서명된 TLS 인증서를 제거하고 CA(인증 기관)에서 서명한 TLS 인증서로 바꿀 수 있습니다.</block>
   <block id="0925ccf0721e0dd8122d0ab7633e6caf" category="paragraph">자체 서명된 기본 인증서는 다음 두 가지 연결 유형에 사용됩니다.</block>
   <block id="de5aaae7c07c37e434bd1136307a8d14" category="list-text">Astra Control Center 웹 UI에 대한 HTTPS 연결</block>
@@ -1691,22 +1585,16 @@
   <block id="73329564760013a7824ff9d5d1af91ff" category="inline-link">설치되어 있습니다</block>
   <block id="d5158c215f75d40b3dc3a9efd519b60a" category="inline-link">설정</block>
   <block id="6e623f58f3de0088c1a5e9284fd0aba0" category="list-text">* Astra Trident 볼륨 스냅샷 컨트롤러 및 볼륨 스냅샷 클래스 설치 및 구성 *: 볼륨 스냅샷 컨트롤러가 되어야 합니다<block ref="8c0af001953d4be1cc072658538e955b" category="inline-link-rx"></block> 따라서 Astra Control에서 스냅샷을 생성할 수 있습니다. Astra Trident가 하나 이상 있어야 합니다<block ref="19476662cd814e0aa085eca121de89b8" prefix=" " category="inline-code"></block> 있습니다<block ref="75fbdf7a5c036fb3ab281101e48530be" category="inline-link-rx"></block> 관리자의 경우.</block>
-  <block id="9d9542e5b4db9b70118c8d71a180a912" category="inline-link">클러스터 쿠베토무화과</block>
-  <block id="71867f76c14caac59debbdb8695e4957" category="list-text">* Kubecon무화과 액세스 가능 *: 에 액세스할 수 있습니다<block ref="ce846d28e96d94b77a3d27a6871f825b" category="inline-link-rx"></block> 여기에는 하나의 컨텍스트 요소만 포함됩니다.</block>
   <block id="b904d7fe23037b9f2584ad98638fab08" category="list-text">* ONTAP credentials *: Astra Control Center를 사용하여 앱을 백업 및 복원하려면 ONTAP 시스템에 ONTAP 자격 증명과 고급 사용자 및 사용자 ID가 설정되어 있어야 합니다.</block>
   <block id="912fa11d62b00e0a43abbc717e1243df" category="paragraph">ONTAP 명령줄에서 다음 명령을 실행합니다.</block>
   <block id="cf6c596a44d2e4c76a3a7da085c47495" category="list-text">* Rancher 전용 *: Rancher 환경에서 애플리케이션 클러스터를 관리할 때 Rancher가 제공하는 kubecon무화과 파일에서 애플리케이션 클러스터의 기본 컨텍스트를 수정하여 Rancher API 서버 컨텍스트 대신 컨트롤 플레인 컨텍스트를 사용합니다. 따라서 Rancher API 서버의 부하가 줄어들고 성능이 향상됩니다.</block>
   <block id="6c8bc25bbb383bdd569b3a8b67462c4a" category="list-text">Pod가 실행 중인지 확인합니다.</block>
-  <block id="5233060de977a0ac38ed2b3fb9f19d5b" category="section-title">제한된 클러스터 역할인 kubecononfig를 생성합니다</block>
-  <block id="4dcbed7023122959ca7362e1bbe96489" category="paragraph">필요한 경우 Astra Control Center에 대해 제한된 관리자 역할을 생성할 수 있습니다. 이것은 Astra Control Center 설정에 필요한 절차가 아닙니다. 이 절차는 관리하는 클러스터에 대한 Astra Control 권한을 제한하는 별도의 kubecononfig를 생성하는 데 도움이 됩니다.</block>
   <block id="2691c8d1f292681c444c4ccb255290d3" category="paragraph">절차 단계를 완료하기 전에 관리하려는 클러스터에 대해 다음 사항을 확인해야 합니다.</block>
   <block id="e518ff6eca9962a9ad470732191bb026" category="list-text">kubbtl v1.23 이상이 설치되었습니다</block>
   <block id="3b34edb55fd85d9b0636e2533b140b9f" category="list-text">Astra Control Center를 통해 추가하고 관리하려는 클러스터에 kubctl 액세스를 허용합니다</block>
   <block id="d5b7f62a909e346c0e1cd08be571c54f" category="admonition">이 절차를 수행하려면 Astra Control Center를 실행 중인 클러스터에 kubectl을 액세스할 필요가 없습니다.</block>
   <block id="c49be33f592950e78d23dd417a4a75e5" category="list-text">활성 컨텍스트에 대한 클러스터 관리자 권한으로 관리하려는 클러스터에 대한 활성 kubecononfig입니다</block>
   <block id="565bfe8a9451afd10f3c41fe9fa4cf22" category="list-text">서비스 계정 생성:</block>
-  <block id="a5b04ee4b7e258feda801f019a83ef8d" category="list-text">Astra Control에서 클러스터를 관리하는 데 필요한 최소 사용 권한으로 제한된 클러스터 역할을 생성합니다.</block>
-  <block id="f5a1285ab33a0c03b3b40c56ccdcecb6" category="list-text">을 생성합니다<block ref="d7d354d0f9d0780e168c895c92a32c24" prefix=" " category="inline-code"></block> 파일을 호출했습니다<block ref="b7bb4a27d91c967fbba0bb19f36a3533" prefix=" " category="inline-code"></block>.</block>
   <block id="d2f7aa8c006dd5e0b027cb6e32926a4e" category="list-text">클러스터 역할 적용:</block>
   <block id="a30ca90c640932dfa98b3ac560bb10ab" category="list-text">클러스터 역할에 대한 클러스터 역할 바인딩을 서비스 계정에 생성합니다.</block>
   <block id="28f4058b3debe49781dd1cccb1354c1e" category="list-text">(선택 사항) kubeconfig의 이름을 클러스터의 의미 있는 이름으로 바꿉니다.</block>
@@ -1718,7 +1606,6 @@
   <block id="7c819b1dc044ee2e7ff8cdf4989a79c3" category="list-text">리소스 요약의 * 대시보드 * 에서 클러스터 창에서 * 추가 * 를 선택합니다.</block>
   <block id="690cdd0fe7805448e07a8d6c555e7ffd" category="list-text">왼쪽 탐색 영역에서 * 클러스터 * 를 선택한 다음 클러스터 페이지에서 * 클러스터 추가 * 를 선택합니다.</block>
   <block id="6a705187c0e83d78cbe519ded63e1ee7" category="inline-xref">위의 프로세스</block>
-  <block id="76df310121b30393cfee6396f28e7abb" category="admonition">직접 만드는 경우<block ref="deabc6332aa53495b56c51d2e3eca54f" prefix=" " category="inline-code"></block> 파일에서 * 하나의 * 컨텍스트 요소만 정의해야 합니다. 을 참조하십시오<block ref="54676762f2eb4e7149fe4e9996a20b1c" category="inline-link-rx"></block> 을 참조하십시오<block ref="deabc6332aa53495b56c51d2e3eca54f" prefix=" " category="inline-code"></block> 파일. 을 사용하여 제한된 클러스터 역할에 대해 kubecon무화과를 생성한 경우 <block ref="7d245046a817e1339352d32f2a689297" category="inline-xref-macro-rx"></block>이 단계에서는 과베토화과를 업로드하거나 붙여 넣으십시오.</block>
   <block id="2c2e7fe00f6284e8fe1d5912a2f0bace" category="list-text">이 Kubernetes 클러스터에 사용할 기본 스토리지 클래스를 선택하고 * Next * 를 선택합니다.</block>
   <block id="5977f222fbe997f9173cd7c29ba765bc" category="list-text">정보를 검토하고 모든 것이 정상적으로 나타나면 * 추가 * 를 선택합니다.</block>
   <block id="f152ec5ba865e7c8d2750571a4baa896" category="paragraph">클러스터가 * 검색 * 상태로 전환되고 * 정상 * 으로 변경됩니다. 이제 Astra Control Center로 클러스터를 관리하고 있습니다.</block>
@@ -1727,7 +1614,6 @@
   <block id="6a64c1bcaf700e10eff83e4b3e6a72a0" category="inline-link">ONTAP 설명서에서 사용자 계정을 관리합니다</block>
   <block id="801b71ec9b9ddb9cd61c5b2a99553262" category="admonition">여기에 자격 증명을 입력한 사용자에게는 가 있어야 합니다<block ref="045ed0306c61104cb0777ccd31ce648b" prefix=" " category="inline-code"></block> ONTAP 클러스터의 ONTAP System Manager에서 활성화된 사용자 로그인 액세스 방법입니다. SnapMirror 복제를 사용하려는 경우 액세스 방법이 있는 "admin" 역할의 사용자 자격 증명을 적용하십시오<block ref="045ed0306c61104cb0777ccd31ce648b" prefix=" " category="inline-code"></block> 및<block ref="80791b3ae7002cb88c246876d9faa8f8" prefix=" " category="inline-code"></block>, 소스 및 대상 ONTAP 클러스터 모두에서. 을 참조하십시오<block ref="8a6bfa44d9bdad330c1959698c083f78" category="inline-link-rx"></block> 를 참조하십시오.</block>
   <block id="094888b3c75d89979aa1e343a8e5c119" category="list-text">백엔드 세부 정보를 확인하고 * 관리 * 를 선택합니다.</block>
-  <block id="aefb5fa4f0ce5b418c3cb318fd8586b1" category="paragraph">Astra Control UI 또는 를 사용하여 버킷을 추가할 수 있습니다<block ref="3f4eec2c2c841509295f8beef0b157bb" category="inline-link-rx"></block>. 애플리케이션과 영구 스토리지를 백업하려는 경우나 클러스터 간에 애플리케이션을 클론 복제하려는 경우에는 오브젝트 저장소 버킷 공급자를 추가하는 것이 중요합니다. Astra Control은 이러한 백업 또는 클론을 정의한 오브젝트 저장소 버킷에 저장합니다.</block>
   <block id="e09f6210c0a089de2df41244f8b3502e" category="paragraph">애플리케이션 구성과 영구 스토리지를 동일한 클러스터에 클론 복제하려는 경우 Astra Control에 버킷이 필요하지 않습니다. 애플리케이션 스냅샷 기능에는 버킷이 필요하지 않습니다.</block>
   <block id="b78ba62ac90252cb2b4daf5136b7d4a5" category="list-text">Astra Control Center에서 관리하는 클러스터에서 연결할 수 있는 버킷입니다.</block>
   <block id="d42f6fd39d429645c7a78a215faccf15" category="list-text">버킷에 대한 자격 증명.</block>
@@ -1774,9 +1660,7 @@
   <block id="3a0d14b3719f12241093d9a8700561f6" category="cell">Astra Trident(NetApp BlueXP에서 Kubernetes 클러스터 검색의 일부로 설치됨)</block>
   <block id="43c3f8373eb78fef58f31e8c69abaa58" category="list-text"><block ref="ba54a27fa08437a0c2cef3c443defa07" category="inline-xref-macro-rx"></block>.</block>
   <block id="d7d627847f4ca5b17224798174083660" category="list-text"><block ref="5a640de392c9c18e0876cd7dc903caba" category="inline-xref-macro-rx"></block>.</block>
-  <block id="cb2a7e557d4f982a8bd21e1cb8a70322" category="list-text"><block ref="47d6ff2ae3c160ae5e0683f88381cb00" category="inline-link-rx"></block>.</block>
   <block id="42d7a01897afbc8ecc532bc480a4c840" category="paragraph">RedHat OpenShift 클러스터와 NetApp BlueXP Connector를 설치할 수 있도록 충분한 IAM 역할 및 권한이 있는지 확인합니다.</block>
-  <block id="55e97b9e5267c3f5615048df47e2403b" category="paragraph">Azure 설명서에 따라 다음 단계를 완료합니다. 을 참조하십시오<block ref="0e7a8da8480a9d852a625433095b0dfb" category="inline-link-rx"></block>.</block>
   <block id="da80688a40c25dd285e5c32d2a611849" category="section-title">Azure용 NetApp BlueXP(이전의 Cloud Manager)를 구성합니다</block>
   <block id="a699debb04997d9d7b341f0872c23d04" category="paragraph">BlueXP(이전의 Cloud Manager)를 사용하여 작업 영역을 만들고, Azure에 커넥터를 추가하고, 작업 환경을 생성하고, 클러스터를 가져옵니다.</block>
   <block id="1ee7c6b4d515821e84a3fb4e8a732a4c" category="inline-link">Azure에서 BlueXP를 시작합니다</block>
@@ -1796,8 +1680,6 @@
   <block id="624cfce99f1f72da4d8c5d67b46d357b" category="paragraph">Astra Control Center를 설치하는 동안(지정된 경우<block ref="5ef3c13da1e4fcb9a76fc8f568eee144" prefix=" " category="inline-code"></block> 용<block ref="5398d7dab242bfea13c044912cacfd10" prefix=" " category="inline-code"></block> Astra Control Center CR(사용자 지정 리소스) 파일 <block ref="70b058e54d2bda749060070a7f9c4e5c" prefix="(" category="inline-code"></block>), 일별 지원 번들은 에 자동으로 업로드됩니다<block ref="3725c06f412bedb14ffd610de312875d" category="inline-link-rx"></block>.</block>
   <block id="a62af64f81e65194efb6011308308c81" category="list-text">하나 이상의 네임스페이스 내에 배포된 개별 애플리케이션(이 예에서는 helm3이 사용됨)</block>
   <block id="5200a678b94ac14cf371f3073027246a" category="list-text">하나 이상의 네임스페이스 내에서 Kubernetes 레이블로 식별되는 리소스 그룹입니다</block>
-  <block id="a2bbd5d6b932fb5a7f8ebfec6951f1f2" category="summary">Astra Control Center는 ONTAP 스토리지가 지원하는 Trident 스토리지 클래스를 지원합니다. 또한, 스토리지 클래스와 영구 볼륨 크기가 성능 목표를 달성하는 데 어떤 도움이 되는지 이해해야 합니다.</block>
-  <block id="d1d53174cbfc08e37cf1ed526ec5e79a" category="paragraph">Astra Control Center는 스토리지 백엔드로 ONTAP를 지원합니다.</block>
   <block id="19739a1b4bb767473bb93e4b46857d21" category="paragraph">Astra Control Center에 클러스터를 추가하면 해당 클러스터에서 이전에 구성된 스토리지 클래스 중 하나를 기본 스토리지 클래스로 선택하라는 메시지가 표시됩니다. 이 스토리지 클래스는 영구 볼륨 클레임(PVC)에 지정된 저장소 클래스가 없을 때 사용됩니다. 기본 스토리지 클래스는 Astra Control Center 내에서 언제든지 변경할 수 있으며, PVC 또는 H제어 차트 내에서 스토리지 클래스의 이름을 지정하여 언제든지 모든 스토리지 클래스를 사용할 수 있습니다. Kubernetes 클러스터에 대해 단일 기본 스토리지 클래스만 정의되어 있는지 확인하십시오.</block>
   <block id="f5e1d8b0770bb73b3dfb08ad39ded132" category="summary">Astra Control Center를 설치하기 전에 POD 보안이 어떻게 작동하는지 이해해야 합니다.</block>
   <block id="6b0fa39c831534ec56dc4961f42c32c5" category="doc">POD 보안</block>
@@ -1805,11 +1687,7 @@
   <block id="76c76b3c18290cf8627af11b8fe7962a" category="paragraph">일부 Kubernetes 배포 시 기본 POD 보안 구성이 너무 제한적이고 Astra Control Center 설치 시 문제가 발생할 수 있습니다.</block>
   <block id="cafa60baff264721b406c2ce9d383fd5" category="paragraph">여기에 포함된 정보와 예제를 사용하여 Astra Control Center가 수행하는 POD 보안 변경 사항을 이해하고, Astra Control Center 기능을 방해하지 않으면서 필요한 보호 기능을 제공하는 POD 보안 접근 방식을 사용할 수 있습니다.</block>
   <block id="c90727acfbbc4ca587a6b933b72e196f" category="section-title">Astra Control Center에서 시행한 PSA</block>
-  <block id="4083c45fbb5280f852974375dbe30279" category="paragraph">설치 중에 Astra Control Center는 에 다음 레이블을 추가하여 POD 보안 입원을 적용할 수 있습니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> 또는 사용자 지정 네임스페이스:</block>
   <block id="c59aca96706070ba4b2e2598eee99c40" category="paragraph">Kubernetes 1.23 또는 1.24에 Astra Control Center를 설치할 경우 설치 중에 몇 가지 POD 보안 정책이 생성됩니다. 이 중 일부는 영구적이며 일부 작업은 특정 작업 중에 생성되며 작업이 완료되면 제거됩니다. Astra Control Center는 호스트 클러스터에서 Kubernetes 1.25 이상을 실행 중인 경우 이러한 버전에서 지원되지 않으므로 PSP 설치를 시도하지 않습니다.</block>
-  <block id="58d777db270ba1064548793724d7bd03" category="list-text"><block ref="b34c2421f1c0ca76573aa7c8ccf49ec1" category="inline-xref-macro-rx"></block></block>
-  <block id="82471e9f643dacab1a6103e19aa281a3" category="section-title">프록시를 통해 연결할 때 NetApp Cloud Insights에 관리 클러스터가 나타나지 않습니다</block>
-  <block id="96f49a6fadb537fbf8c6f3a4a4564854" category="paragraph">Astra Control Center가 프록시를 통해 NetApp Cloud Insights에 연결할 경우 Cloud Insights에 관리 클러스터가 나타나지 않을 수 있습니다. 이 문제를 해결하려면 관리되는 각 클러스터에서 다음 명령을 실행합니다.</block>
   <block id="7e5d4de008d007916f8abfe6f4459cae" category="list-text"><block ref="70d71fa7fe570d7c6b4b91fbffb2fddd" category="inline-xref-macro-rx"></block></block>
   <block id="d0b3f89887aa2260c450d3669d7213e0" category="list-text"><block ref="956543f3ee60c60903e04dc51898ac93" category="inline-xref-macro-rx"></block></block>
   <block id="fa9d4c270a108ea9b1d4bf38e8af0f1b" category="list-text"><block ref="cfdaae948ee545174f8ac3955e092c2a" category="inline-xref-macro-rx"></block></block>
@@ -1830,18 +1708,12 @@
   <block id="432b09f47d1f21c47c9c27c092f6475a" category="inline-link">Astra Control Center 22.08 문서</block>
   <block id="ab9b97a549065c3593d2144edfd022af" category="list-text"><block ref="ab9b97a549065c3593d2144edfd022af" category="inline-link-rx"></block></block>
   <block id="4f421b660c64894f7d47148b39311546" category="paragraph">Astra Control Center를 업그레이드하려면 NetApp Support 사이트에서 설치 번들을 다운로드하고 다음 지침을 완료하십시오. 이 절차를 사용하여 인터넷에 연결되거나 공기가 연결된 환경에서 Astra Control Center를 업그레이드할 수 있습니다.</block>
-  <block id="6563ecbace449da5ee88009b9a7f488c" category="list-text">지원되는 Astra Trident 버전 실행 중인 버전을 확인하려면 기존 Astra Control Center에 대해 다음 명령을 실행합니다.</block>
   <block id="2bec95ea41e3155e4ddfa49e64612471" category="paragraph">을 참조하십시오<block ref="237322f54b0d6cc402e718a72e7ba939" category="inline-link-rx"></block> 이전 버전에서 업그레이드하는 경우.</block>
   <block id="0b681eba9dff7b5d953960b415b7a6d5" category="admonition">Kubernetes 1.25로 업그레이드하기 전에 * Astra Trident 22.10 * 으로 업그레이드해야 합니다.</block>
-  <block id="cfb1e566ae5756111ffacdfd144c9cfd" category="list-text">지원되는 Kubernetes 배포 실행 중인 버전을 확인하려면 기존 Astra Control Center에 대해 다음 명령을 실행합니다.<block ref="f8c2123f5e655b932bb6d6abcd319d12" prefix=" " category="inline-code"></block></block>
-  <block id="ac662b1bce26ddec5a22364a134593a7" category="list-text">클러스터 리소스를 확인하는 데 충분한 클러스터 리소스가 있습니다. 기존 Astra Control Center 클러스터에서 다음 명령을 실행합니다.<block ref="06591120571567ca266d112ef6824e10" prefix=" " category="inline-code"></block></block>
   <block id="c7794ecf52b38994d678ea00daa82d5f" category="list-text">Astra Control Center 이미지를 푸시 및 업로드하는 데 사용할 수 있는 레지스트리입니다</block>
-  <block id="fc6ccc2ccd83dc8264cd34d7b982f76c" category="list-text">기본 스토리지 클래스 기본 스토리지 클래스를 확인하려면 기존 Astra Control Center에 대해 다음 명령을 실행합니다.<block ref="6c8dbf2986e91118b19341b89fa1a31d" prefix=" " category="inline-code"></block></block>
-  <block id="f84aae8dfc7421a333e4e7e836c130c7" category="list-text">(OpenShift에만 해당) 모든 클러스터 운영자가 양호한 상태이며 사용 가능한지 확인합니다.</block>
   <block id="825d372ea32aac53c3ee57e9a6a5bbc6" category="list-text">업그레이드를 시작하기 전에 Astra Control Center UI에서 로그아웃하십시오.</block>
   <block id="a7cd7e89d9e646b3bc6c32ee6ac752b0" category="admonition">Astra Control Center 운영자를 삭제하지 마십시오(예:<block ref="dfe54be7b1dbab0ff279802517dca055" prefix=" " category="inline-code"></block>) 포드가 삭제되지 않도록 Astra Control Center 업그레이드 또는 작업 중 언제든지.</block>
   <block id="9cdaf3a6ae59eb2faabcb002cfc1bd4b" category="list-text">인증이 필요한 레지스트리를 사용하는 경우 의 기본 줄을 바꾸거나 편집합니다<block ref="e90e0b4a41dde5f038023d33ee45ad34" prefix=" " category="inline-code"></block> 다음 포함:</block>
-  <block id="ddfa64b94159cbde6c02f2aa3ae5598c" category="list-text">변경<block ref="a3d1b23e7abf0f3b3ca5fcf7e61860cd" prefix=" " category="inline-code"></block> 의 경우<block ref="4b559e0a1b6f68f62c5edecea8c35c7e" prefix=" " category="inline-code"></block> 이미지를 에서 푸시한 레지스트리 경로로 이미지 <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>.</block>
   <block id="49442a4bf304a6a24081fc054a06ba5e" category="list-text">Astra Control Center 사용자 지정 리소스(CR) 편집:</block>
   <block id="d554ef962e222f8e0b4c6f040c05abcc" category="admonition">작업 중에 업그레이드 상태를 모니터링하려면 다음 명령을 실행합니다.<block ref="5d533fda3d139dde32dc8b7d35483556" prefix=" " category="inline-code"></block></block>
   <block id="7b4c545e2ed086853dde2f7117a39ead" category="admonition">Astra Control Center 운영자 로그를 검사하려면 다음 명령을 실행하십시오.<block ref="dcbcfcb7193f45190ecbecbfdaca7662" prefix=" " category="inline-code"></block></block>
@@ -1875,7 +1747,6 @@
   <block id="58ac13bbbf31fdfc6209f295d87d6f8c" category="list-text">응용 프로그램의 세부 정보에서 * 작업 * 탭을 선택합니다.</block>
   <block id="cfc3cf86cd5384d69473c1c86bee13ed" category="paragraph">현재 또는 과거 작업의 세부 정보를 보고 작업 상태별로 필터링할 수 있습니다.</block>
   <block id="3c7a9468d8e88098529c5c010786a9b5" category="admonition">태스크는 최대 24시간 동안 * 작업 * 목록에 유지됩니다. 을 사용하여 이 제한 및 기타 작업 모니터 설정을 구성할 수 있습니다<block ref="e93b3636581f66b64a28523c18b01d81" category="inline-link-rx"></block>.</block>
-  <block id="0a7b626f0fa1435c448830a251bcde27" category="list-text">* 대상 클러스터 *: 소스와 다른 대상 클러스터를 입력합니다.</block>
   <block id="d7ff2fd71fd9004df88d4975a8aa7449" category="list-text">* 대상 네임스페이스 *: 대상 클러스터에 대한 새 또는 기존 대상 네임스페이스를 입력합니다.</block>
   <block id="3058b4a4268a68d2728f76e4c1a0a9e4" category="list-text">(선택 사항) * 네임스페이스 추가 * 를 선택하고 드롭다운 목록에서 네임스페이스를 선택하여 네임스페이스를 추가합니다.</block>
   <block id="41dc0922bcda7f329078e250798b270e" category="paragraph">이 항목의 끝에 있는 복제 상태 및 상태에 대해 자세히 알아보십시오.</block>
@@ -1899,7 +1770,6 @@
   <block id="371bbe95790324d210585d204d9814fe" category="list-text">서버 IP 주소, 포트 및 기본 설정 연결 프로토콜(LDAP 또는 LDAPS)을 입력합니다.</block>
   <block id="f9332d7e1f037edbe5b7093345c61d00" category="admonition">가장 좋은 방법은 LDAP 서버와 연결할 때 LDAPS를 사용하는 것입니다. LDAPS에 연결하기 전에 Astra Control Center에 LDAP 서버의 개인 TLS 인증서를 설치해야 합니다.</block>
   <block id="384c3e49545ce9ce0fb913c4592ed09e" category="list-text">서비스 계정 자격 증명을 이메일 형식(administrator@example.com 입력합니다. Astra Control은 LDAP 서버에 연결할 때 이러한 자격 증명을 사용합니다.</block>
-  <block id="723fb5466bf1e8364395fb46f2d1d8ab" category="list-text">사용자 일치 * 섹션에서 기본 DN과 LDAP 서버에서 사용자 정보를 검색할 때 사용할 적절한 사용자 검색 필터를 입력합니다.</block>
   <block id="4406852d982beef0d4d89f184199f67f" category="list-text">그룹 일치 * 섹션에서 그룹 검색 기준 DN과 적절한 사용자 지정 그룹 검색 필터를 입력합니다.</block>
   <block id="d9d3bc60905a8a1701f0a70fbe915e9f" category="admonition">올바른 기본 DN(고유 이름)과 * 사용자 일치 * 및 * 그룹 일치 * 에 대한 적절한 검색 필터를 사용해야 합니다. 기본 DN은 Astra Control에 검색을 시작할 디렉토리 트리의 수준을 알리고 검색 필터는 디렉토리 트리 Astra Control의 검색 부분을 제한합니다.</block>
   <block id="b623e6ded9a852f4e7cd9765578d0c08" category="list-text">제출 * 을 선택합니다.</block>
@@ -1914,11 +1784,9 @@
   <block id="ddb2cda7aacdef2da81c370ab5aaa1fa" category="list-text">필요한 내용을 변경하고 * Edit * 를 선택합니다.</block>
   <block id="c8b81204df2b05f5bf48d38512fbf2d9" category="section-title">원격 인증 연결을 끊습니다</block>
   <block id="0f1f6b3fc7e35b08afa8acba90c0bc6f" category="paragraph">LDAP 서버에서 연결을 끊고 Astra Control에서 구성 설정을 제거할 수 있습니다.</block>
-  <block id="a60bbe4513846409185ab59e5fa0e453" category="admonition">LDAP 서버에서 연결을 끊으면 해당 LDAP 서버에 대한 모든 구성 설정이 Astra Control에서 제거되고 해당 LDAP 서버에서 추가된 모든 원격 사용자 및 그룹이 제거됩니다.</block>
   <block id="cb9785ec277944720e5f9f60e8b3159e" category="paragraph">원격 인증 * 창 상태가 * 연결 끊김 * 으로 이동합니다. 원격 인증 설정, 원격 사용자 및 원격 그룹은 Astra Control에서 제거됩니다.</block>
   <block id="49f502bbc3e5f2f80a138161cf936fe7" category="paragraph">Astra Control Center를 실행 중인 네트워크에 인터넷에 연결하기 위한 프록시가 필요한 경우(NetApp Support 사이트에 지원 번들을 업로드하거나 Cloud Insights에 연결을 설정하려면), Astra Control Center에서 프록시 서버를 구성해야 합니다.</block>
   <block id="a968a24df2369fe2338fbd5b524faa78" category="section-title">Cloud Insights 또는 NetApp Support 사이트에 연결할 프록시 서버를 추가합니다</block>
-  <block id="f93aafcca7f46eab0fc7a7762b4a0a58" category="paragraph">자동화된 보호 정책을 사용하거나 필요에 따라 스냅샷 및 백업을 수행하여 모든 애플리케이션을 보호합니다. Astra Control Center UI 또는 를 사용할 수 있습니다<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> 앱을 보호합니다.</block>
   <block id="38490cdd96bdfa8bacc940638bce2f63" category="list-text">* 앱 배포 *: Helm을 사용하여 앱을 배포하는 경우 Astra Control Center에 Helm 버전 3이 필요합니다. Helm 3으로 배포된 애플리케이션 관리 및 복제(또는 Helm 2에서 Helm 3으로 업그레이드)가 완벽하게 지원됩니다. Helm 2와 함께 배포된 앱은 지원되지 않습니다.</block>
   <block id="45ad0235a77627fe6b23b64997cecf69" category="paragraph">보호 정책은 정의된 일정에 따라 스냅샷, 백업 또는 둘 다를 생성하여 앱을 보호합니다. 시간별, 일별, 주별 및 월별 스냅샷과 백업을 생성하도록 선택할 수 있으며, 보존할 복제본 수를 지정할 수 있습니다.</block>
   <block id="592d363442bda9d231d57bf7cf1b36d3" category="inline-link">Astra Control REST API를 사용하여 스냅샷과 백업을 생성합니다</block>
@@ -1945,7 +1813,6 @@
   <block id="6afdaa2bb224b8126859642c069485d7" category="paragraph">클러스터 관리를 취소하는 경우:</block>
   <block id="b45fd4b138e5a28b66c5e82312f48018" category="list-text">더 이상 관리하지 않으려는 클러스터의 확인란을 선택합니다.</block>
   <block id="f4d5e36ed4f7235403e25ad1183d2684" category="paragraph">클러스터의 상태가 * Removing * 으로 변경됩니다. 그 이후에는 클러스터가 * Clusters * 페이지에서 제거되고 Astra Control Center에서 더 이상 관리되지 않습니다.</block>
-  <block id="b9bc0e334188e0642ec10cd8dcb24f7c" category="paragraph">평가판 라이센스를 전체 라이센스로 변환하거나 기존 평가판 또는 전체 라이센스를 새 라이센스로 업데이트할 수 있습니다. 전체 라이센스가 없는 경우 NetApp 세일즈 담당자와 협력하여 전체 라이센스 및 일련 번호를 받으십시오. Astra Control Center UI 또는 를 사용할 수 있습니다<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> 기존 라이센스를 업데이트합니다.</block>
   <block id="4853ac5909bba59fd0ddaf13c9303742" category="summary">앱 관리를 시작한 후 Astra Control에서 앱 상태, 보호 상태, Pod, 영구 스토리지 등을 확인할 수 있는 앱에 대한 세부 정보를 제공합니다.</block>
   <block id="fa5fe34788e56d2fac1bbbcd7f415142" category="paragraph">앱 관리를 시작한 후 Astra Control은 앱의 상태(정상 여부), 보호 상태(장애 시 완전히 보호되는지 여부), Pod, 영구 스토리지 등을 식별할 수 있는 앱에 대한 세부 정보를 제공합니다.</block>
   <block id="e8b49ea8e62fe866dbf3f1706431a58f" category="list-text">* App Status *: Kubernetes의 앱 상태를 반영하는 상태를 제공합니다. 예를 들어, Pod와 영구 볼륨을 온라인으로 전환합니까? 앱이 정상 상태가 아닌 경우 Kubernetes 로그를 확인하여 클러스터에서 문제를 해결해야 합니다. Astra는 고장 난 앱을 수정하는 데 도움이 되는 정보를 제공하지 않습니다.</block>
@@ -2003,7 +1870,6 @@
   <block id="d9422cf04f5047cde2765006c086a102" category="doc">원격 사용자 및 그룹 관리</block>
   <block id="1160ee39f7820d7d2e76804af2039930" category="paragraph">Astra Control 시스템에서 LDAP 인증을 활성화한 경우 LDAP 사용자 및 그룹을 검색하여 승인된 시스템 사용자에게 포함시킬 수 있습니다.</block>
   <block id="37bf4a5ff56340f15000d94c368e718e" category="section-title">원격 사용자를 추가합니다</block>
-  <block id="2a1541ed344df5fc941cbeff73413063" category="paragraph">계정 소유자와 관리자는 Astra Control에 원격 사용자를 추가할 수 있습니다.</block>
   <block id="0458c4dea7d5155829cbeb52eb203f5c" category="list-text">계정 * 영역으로 이동합니다.</block>
   <block id="e61c9783dfaef20ae4845e278eb547a0" category="list-text">사용자 및 그룹 * 탭을 선택합니다.</block>
   <block id="de1aef9870a455f409b14e0fb5c27639" category="list-text">페이지 맨 오른쪽에서 * 원격 사용자 * 를 선택합니다.</block>
@@ -2015,7 +1881,6 @@
   <block id="75ed781247263c65cb75c9e8bd62a1db" category="admonition">사용자가 LDAP 그룹 구성원 자격을 통해 여러 역할을 할당하면 가장 허용 가능한 역할의 제약 조건만 적용됩니다. 예를 들어, 로컬 뷰어 역할을 가진 사용자가 멤버 역할에 바인딩된 세 개의 그룹에 참여하는 경우 멤버 역할의 제약 조건의 합계가 적용되고 뷰어 역할의 모든 제약 조건은 무시됩니다.</block>
   <block id="4ba142182b32f2342b1a99a600304948" category="paragraph">새 사용자가 원격 사용자 목록에 나타납니다. 이 목록에서 사용자의 활성 제약 조건을 확인하고 * Actions * 메뉴에서 사용자를 관리할 수 있습니다.</block>
   <block id="7ec57df8a50c35a347edbfdaa1507c1f" category="section-title">원격 그룹을 추가합니다</block>
-  <block id="2b70d41c496ac74f3aff89a0c34b6b79" category="paragraph">한 번에 많은 원격 사용자를 추가하려면 계정 소유자와 관리자가 Astra Control에 원격 그룹을 추가할 수 있습니다. 원격 그룹을 추가하면 해당 그룹의 모든 원격 사용자가 Astra Control에 추가되고 동일한 역할을 상속합니다.</block>
   <block id="3fbd50a11a3a729dbb80aa82ddd855a7" category="list-text">페이지 맨 오른쪽에서 * 원격 그룹 * 을 선택합니다.</block>
   <block id="0d46fa45b7635cefbd79a0cf4b10737a" category="paragraph">이 창에서는 Astra Control이 디렉토리에서 검색한 LDAP 그룹의 공통 이름과 고유 이름 목록을 볼 수 있습니다.</block>
   <block id="4d91af039c4d58ef67f3efb6e2dc4ee2" category="list-text">선택적으로 * Filter by common name * 필드에 그룹의 공통 이름을 입력하여 LDAP 그룹을 검색합니다.</block>
@@ -2023,9 +1888,7 @@
   <block id="5a1ec1de94a58fda84f8635fcf474ada" category="list-text">그룹에 역할을 할당합니다.</block>
   <block id="b450e98a5311c556456bf714eb9e9134" category="admonition">선택한 역할은 이 그룹의 모든 사용자에게 할당됩니다. 사용자와 사용자 그룹에 서로 다른 역할을 할당하면 더 많은 권한을 허용하는 역할이 우선합니다.</block>
   <block id="bf28428b399f279cdd906a4b95d4e4a1" category="list-text">필요한 경우 이 그룹에 하나 이상의 네임스페이스 제약 조건을 할당하고 * 제약 조건으로 역할 제한 * 을 선택하여 해당 제약 조건을 적용합니다. 제약 조건 추가 * 를 선택하여 새 네임스페이스 제약 조건을 추가할 수 있습니다.</block>
-  <block id="557b3926b0f625e45b7786b5ecea41c6" category="paragraph">새 그룹이 원격 그룹 목록에 나타나고 이 그룹의 모든 원격 사용자가 원격 사용자 목록에 나타납니다. 이 목록에서 그룹에 대한 세부 정보를 볼 수 있을 뿐 아니라 * Actions * 메뉴에서 그룹을 관리할 수 있습니다.</block>
   <block id="0aac11ed4d1a1befcac30cb330cd159e" category="paragraph">기존 앱을 클론 복제하여 동일한 Kubernetes 클러스터 또는 다른 클러스터에 중복 앱을 생성할 수 있습니다. Astra Control은 앱을 클론할 때 애플리케이션 구성 및 영구 스토리지의 클론을 생성합니다.</block>
-  <block id="aeeeb524e689e79bcd894e5b1dde520a" category="paragraph">Kubernetes 클러스터 간에 애플리케이션 및 스토리지를 이동해야 하는 경우 클로닝에 도움이 될 수 있습니다. 예를 들어, CI/CD 파이프라인과 Kubernetes 네임스페이스 전체에서 워크로드를 이동할 수 있습니다. Astra Control Center UI 또는 를 사용할 수 있습니다<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> 앱을 클론 복제 및 마이그레이션합니다.</block>
   <block id="7d754e7d4f4a324710302cf0fc4d80c2" category="list-text">앱을 다른 클러스터에 클론 복제하려면 소스 및 대상 클러스터가 포함된 클라우드 인스턴스(동일하지 않은 경우)에 기본 버킷이 있는지 확인해야 합니다. 각 클라우드 인스턴스에 대해 기본 버킷을 할당해야 합니다.</block>
   <block id="81eb21a03d5ee9fbe847337ca76b57dc" category="list-title">클론 제한 사항</block>
   <block id="d32d7bd30d168502b9d4ee99b9925378" category="list-text">* 클론 및 사용자 제약 조건 *: 네임스페이스 이름/ID 또는 네임스페이스 레이블에 의해 네임스페이스 제한이 있는 구성원 사용자는 동일한 클러스터의 새 네임스페이스 또는 조직 계정의 다른 클러스터에 앱을 클론 복제하거나 복원할 수 있습니다. 그러나 동일한 사용자가 새 네임스페이스에서 복제되거나 복원된 앱에 액세스할 수 없습니다. 클론 또는 복원 작업을 통해 새 네임스페이스를 생성한 후 계정 관리자/소유자는 구성원 사용자 계정을 편집하고 영향을 받는 사용자의 역할 제약 조건을 업데이트하여 새 네임스페이스에 대한 액세스 권한을 부여할 수 있습니다.</block>
@@ -2037,13 +1900,11 @@
   <block id="aeab80cfb15ad65c1e6e9dd1a3f54301" category="list-text">클론의 세부 정보 지정:</block>
   <block id="9eb330956cd3a3e77fa07765521d927a" category="list-text">클론의 대상 네임스페이스를 입력합니다. 앱과 연결된 각 소스 네임스페이스는 사용자가 정의하는 대상 네임스페이스에 매핑됩니다.</block>
   <block id="411a48d6c0de4b9fbde3de65ac433663" category="admonition">Astra Control은 클론 작업의 일부로 새 대상 네임스페이스를 생성합니다. 지정한 대상 네임스페이스가 대상 클러스터에 이미 있으면 안 됩니다.</block>
-  <block id="d0e721bec5fc1bc7c2e9064111e136f3" category="list-text">기존 스냅샷 또는 백업에서 복제하도록 선택한 경우 사용할 스냅샷 또는 백업을 선택합니다.</block>
   <block id="b92d91ea83b6fa7710918e0aa9c334a7" category="list-text">클론에 대한 정보를 검토하고 * Clone * 을 선택합니다.</block>
   <block id="388750beff3f33d3945072066707b581" category="paragraph">Astra Control은 사용자가 제공한 정보를 기반으로 앱을 복제합니다. 새 애플리케이션 클론이 에 있을 때 클론 작업이 성공적으로 수행됩니다<block ref="396d45b57c2fbe3318e7b93272a2686b" prefix=" " category="inline-code"></block> 상태를 표시합니다.</block>
   <block id="f661390a0d28c238ffbca34027c731cc" category="paragraph">클론 또는 복원 작업을 통해 새 네임스페이스를 생성한 후 계정 관리자/소유자는 구성원 사용자 계정을 편집하고 영향을 받는 사용자의 역할 제약 조건을 업데이트하여 새 네임스페이스에 대한 액세스 권한을 부여할 수 있습니다.</block>
   <block id="f69fad8f84cf0520846a0b834ddec08a" category="admonition">데이터 보호 작업(클론, 백업 또는 복원)과 후속 영구 볼륨 크기 조정 후 UI에 새 볼륨 크기가 표시되기까지 최대 20분이 지연됩니다. 데이터 보호 작업이 몇 분 내에 성공적으로 완료되며 스토리지 백엔드에 관리 소프트웨어를 사용하여 볼륨 크기 변경을 확인할 수 있습니다.</block>
   <block id="dc1e63c17d23532f0ec6742ab15f0966" category="summary">Astra Control Center 시스템에서 사용자 및 역할을 관리합니다.</block>
-  <block id="bd22edbcf6e679674913acd324de66a8" category="paragraph">Astra Control Center 설치 사용자는 Astra Control UI를 사용하여 추가, 제거 및 편집할 수 있습니다. Astra Control UI 또는 를 사용할 수 있습니다<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> 를 눌러 사용자를 관리합니다.</block>
   <block id="ddf251f25257df9d5e5cfc1f57192cd2" category="paragraph">LDAP는 분산된 디렉터리 정보에 액세스하기 위한 업계 표준 프로토콜이며 엔터프라이즈 인증에 널리 사용되는 프로토콜입니다. Astra Control Center를 LDAP 서버에 연결하여 선택한 Astra Control 사용자에 대한 인증을 수행할 수 있습니다. 이 구성에는 Astra와 LDAP를 통합하고 LDAP 정의에 해당하는 Astra Control 사용자 및 그룹을 정의하는 작업이 포함됩니다. Astra Control API 또는 웹 UI를 사용하여 LDAP 인증과 LDAP 사용자 및 그룹을 구성할 수 있습니다. 자세한 내용은 다음 설명서를 참조하십시오.</block>
   <block id="c5b327600239a02bfa5145deed1b84e1" category="inline-link">Astra Control API를 사용하여 원격 인증 및 사용자를 관리합니다</block>
   <block id="47cb8bed99f3383238675b6feb88b1b1" category="list-text"><block ref="47cb8bed99f3383238675b6feb88b1b1" category="inline-link-rx"></block></block>
@@ -2063,8 +1924,6 @@
   <block id="f789b438cbc1e82cd52918fc029eeb85" category="sidebar">Astra Control REST API로 자동화</block>
   <block id="934c5edffa8e732ecb866cb319c8454a" category="doc">애플리케이션 관리</block>
   <block id="27042a183bb69f835a160266dc686d7e" category="paragraph">일부 환경에서는 ResourceQuotas 및 LimitRanges 개체를 사용하여 네임스페이스의 리소스가 클러스터에서 사용 가능한 모든 CPU 및 메모리를 사용하지 못하도록 합니다. Astra Control Center는 최대 제한을 설정하지 않으므로 해당 리소스를 준수하지 않습니다. 이러한 방식으로 환경을 구성한 경우 Astra Control Center를 설치할 네임스페이스에서 해당 리소스를 제거해야 합니다.</block>
-  <block id="75737555f299b5cf07ceed034f1ff8b6" category="list-text">다음 리소스 파일을 적용하여 를 구성합니다<block ref="5cb8f4cd498c1f67715d95747bfe9d39" prefix=" " category="inline-code"></block> Astra 플러그인 서비스가 Astra Control Center 서비스에 요청을 할 수 있도록 허용하는 개체입니다. 괄호 &lt;&gt;의 정보를 사용자 환경의 정보로 바꿉니다.</block>
-  <block id="faaefdbaf8391a432c7a74564eda522f" category="list-text">다음 리소스 파일을 적용하여 를 구성합니다<block ref="e2fb7408f897e481d4b7e94f3840f27c" prefix=" " category="inline-code"></block> Astra Control Center 운영자가 Astra Control Center 서비스와 통신할 수 있도록 하는 객체. 괄호 &lt;&gt;의 정보를 사용자 환경의 정보로 바꿉니다.</block>
   <block id="b8d4d634b190031290c70773522846be" category="paragraph">Astra Control Center를 설치하는 동안, Astra Control Center 운영자는 사용자 정의 POD 보안 정책(a)을 설치합니다<block ref="bbbabdbe1b262f75d99d62880b953be1" prefix=" " category="inline-code"></block> 개체, 및<block ref="ec7eab019566cfca91934ab1e0073511" prefix=" " category="inline-code"></block> Astra Control Center 네임스페이스에서 Astra Control Center 서비스 배포를 지원하는 개체입니다.</block>
   <block id="8513cb080cab78ccf96de84f5f78e0bb" category="paragraph">백업 작업 중에 Astra Control Center는 동적 POD 보안 정책인 을 생성합니다<block ref="d7d354d0f9d0780e168c895c92a32c24" prefix=" " category="inline-code"></block> 개체, 및<block ref="ec7eab019566cfca91934ab1e0073511" prefix=" " category="inline-code"></block> 오브젝트. 이러한 백업 프로세스는 별도의 네임스페이스에서 수행됩니다.</block>
   <block id="be8388c8f6217d1c42721f925d1fd7a9" category="paragraph">클러스터를 관리할 때 Astra Control Center는 NetApp 모니터링 연산자를 관리형 클러스터에 설치합니다. 이 운영자는 POD 보안 정책인 을 생성합니다<block ref="d7d354d0f9d0780e168c895c92a32c24" prefix=" " category="inline-code"></block> 개체, 및<block ref="ec7eab019566cfca91934ab1e0073511" prefix=" " category="inline-code"></block> Astra Control Center 네임스페이스에 원격 측정 서비스를 구축하는 객체</block>
@@ -2159,7 +2018,6 @@
   <block id="ea0df431e9a218f5a0629b3821a462af" category="list-text"><block ref="a31feca3886e9400a923ff8b2642373f" category="inline-link-macro-rx"></block>보호 정책을 구성하고 앱을 복제, 클론 복제 및 마이그레이션합니다.</block>
   <block id="d9379e355ade43c04f76c0b075ef6732" category="inline-link-macro">필요에 따라 Cloud Insights에 연결합니다</block>
   <block id="cd0049b5789664729fdfe7d5fc0b4f40" category="list-text"><block ref="bf4c77b3020a0bd5cc9fb63a5d3fb351" category="inline-link-macro-rx"></block>: 시스템 상태에 대한 메트릭을 봅니다.</block>
-  <block id="e84bb7e947a5b25481546110f575734a" category="list-text"><block ref="e84bb7e947a5b25481546110f575734a" category="inline-link-rx"></block></block>
   <block id="d562c4dd354cbcb5a399ecd947d57a28" category="list-text"><block ref="d562c4dd354cbcb5a399ecd947d57a28" category="inline-link-macro-rx"></block></block>
   <block id="749c18da581d94e0dd92db056f0ede8d" category="inline-link-macro">Astra Control에 대한 도움을 받으십시오</block>
   <block id="8a06e7781d9c301da6075deb2bbbe145" category="list-text"><block ref="8a06e7781d9c301da6075deb2bbbe145" category="inline-link-macro-rx"></block></block>
@@ -2177,8 +2035,6 @@
   <block id="89eae3d9e27253b30e1b76d62008b32d" category="inline-link-macro">Astra Control Center를 처음 설정할 때 라이센스를 추가합니다</block>
   <block id="117e62f8841c871dc009220d6b7e5401" category="list-text"><block ref="117e62f8841c871dc009220d6b7e5401" category="inline-link-macro-rx"></block></block>
   <block id="2f8cadf95c6d0e5ffc19921fb6fd5cca" category="doc">Astra Control Center를 다운로드하고 압축을 풉니다</block>
-  <block id="7bf65886a6daf176486ecc32f5736b33" category="list-text">Astra Control Center가 포함된 번들을 다운로드합니다 <block ref="f38ca01b4c2fe15aa06076beb2ee98ff" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
-  <block id="a5633748c6774da7b883a9fcf799a73e" category="list-text">(권장되지만 선택 사항) Astra Control Center용 인증서 및 서명 번들을 다운로드합니다 <block ref="7a63467f08b4d3ec454a0b66e2353d54" prefix="(" category="inline-code"></block>)를 클릭하여 번들 서명을 확인합니다.</block>
   <block id="79204d6da69fa9c1924fe4edc28bd8c4" category="paragraph">출력이 표시됩니다<block ref="33a9cc0739a5a17f65e28cf0b260007f" prefix=" " category="inline-code"></block> 확인 성공 후.</block>
   <block id="e05ea496750d85fb7d63c1d2952dc33e" category="list-text">Astra Control Center 번들에서 이미지를 추출합니다.</block>
   <block id="47fc3325fabe9d0cade728b90fbe622a" category="list-text"><block ref="182b6f14d78206b412277e5e36bb924f" category="inline-xref-macro-rx"></block></block>
@@ -2192,11 +2048,8 @@
   <block id="aedff9adaa71ff103bfa455b6a0fe7f0" category="section-title">NetApp Astra kubtl 플러그인을 제거하고 다시 설치합니다</block>
   <block id="cc1f46f2f9e4a1afbedacc4d8ce3c2e3" category="list-text">플러그인이 설치되어 있는지 확인합니다.</block>
   <block id="c8395a903c51ee6b771d7f06ac987978" category="list-text">다음 작업 중 하나를 수행합니다.</block>
-  <block id="d0ff3cbf62dac1b7f8447b852cfe9c4c" category="list-text">플러그인이 설치된 경우 kubeck 플러그인 도움말을 반환해야 합니다. kubbeck-Astra의 기존 버전을 제거하려면 다음 명령을 실행합니다.<block ref="53504093e13f5f1ec1d1d91d3e1dd05b" prefix=" " category="inline-code"></block>.</block>
   <block id="1b6605c6bf28deef0dc2970f3179c395" category="list-text">명령이 오류를 반환하면 플러그인이 설치되지 않은 것이므로 다음 단계를 수행하여 설치할 수 있습니다.</block>
   <block id="dab1a9c7ecb95d287fc412736d955975" category="list-text">플러그인 설치:</block>
-  <block id="51867b2a71ff7c3e5393cf8bb442defc" category="admonition">동일한 이메일 주소를 가진 로컬 사용자가 이미 시스템에 있는 경우 원격 사용자를 추가할 수 없습니다. 사용자를 원격 사용자로 추가하려면 먼저 시스템에서 로컬 사용자를 삭제합니다.</block>
-  <block id="e6bc00cd8c52affb4292616facc440da" category="admonition">Astra Control Center는 LDAP "mail" 속성의 이메일 주소를 사용하여 원격 사용자를 검색하고 추적합니다. 이 속성은 디렉터리의 선택적 필드이거나 빈 필드일 수 있습니다. Astra Control Center에 표시하고자 하는 원격 사용자의 경우 이 필드에 이메일 주소가 있어야 합니다. 이 이메일 주소는 인증을 위해 Astra Control Center의 사용자 이름으로 사용됩니다.</block>
   <block id="d7dde07915bbe8056e6854c2b5e50480" category="inline-link">작업자 노드를 준비합니다</block>
   <block id="2facff43cb177de168322dab6df7d48c" category="list-text"><block ref="2facff43cb177de168322dab6df7d48c" category="inline-link-rx"></block></block>
   <block id="8dcf3121a9c80a937dfc06bc5fd4e5e3" category="inline-image-macro">이 이미지는 프록시 연결을 활성화하는 연결 옵션을 보여줍니다.</block>
@@ -2383,7 +2236,6 @@
   <block id="2ae88408008bbb2152e31e0d54fb16f7" category="paragraph">Prometheus로 Astra Control Center 데이터를 모니터링할 수 있습니다. Kubernetes 클러스터 메트릭 엔드포인트에서 메트릭을 수집하도록 Prometheus를 구성할 수 있으며 Prometheus를 사용하여 메트릭 데이터를 시각화할 수도 있습니다.</block>
   <block id="ab3cc7884a2a586e737ccb176552b3b5" category="inline-link">Prometheus 시작</block>
   <block id="7ae1262308bfda5eda5f20a58c209052" category="paragraph">Prometheus 사용에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오<block ref="6ad3149d8ef2efb7cc0b4f11257b9f54" category="inline-link-rx"></block>.</block>
-  <block id="eed5ddc8f738970611f01ee16f2a17e5" category="paragraph-title">필요한 것</block>
   <block id="411ee6dde1e5ad68cfbff923bf03b28c" category="paragraph">Astra Control Center 클러스터나 Astra Control Center 클러스터와 통신할 수 있는 다른 클러스터에 Prometheus 패키지를 다운로드하여 설치했는지 확인하십시오.</block>
   <block id="88b8613d339947a37e41b1f514dcc42c" category="inline-link">Prometheus를 설치합니다</block>
   <block id="e4c7f77e7b92bcbfbb43c2080cfe6f9f" category="paragraph">의 공식 설명서에 있는 지침을 따르십시오<block ref="dd427b070bec20dc10247d034a173c9b" category="inline-link-rx"></block>.</block>
@@ -2437,7 +2289,6 @@
   <block id="6ae1ccb3dd6df141f3444a3da56ae986" category="list-text">브라우저에서 FQDN(을 포함)을 입력합니다<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> 접두사)를 입력합니다<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> 에 있습니다<block ref="70b058e54d2bda749060070a7f9c4e5c" prefix=" " category="inline-code"></block> CR <block ref="356be5820e2645bace29d82a8018f43d" category="inline-xref-macro-rx"></block>.</block>
   <block id="2af1f66f8f47d8339a96c1cd543cd3a8" category="list-text">* Astra Trident *: NetApp에서 관리하는 완전 지원되는 오픈 소스 스토리지 공급자 및 오케스트레이터로서, Astra Trident를 사용하면 Docker 및 Kubernetes에서 관리하는 컨테이너 형태의 애플리케이션용 스토리지 볼륨을 생성할 수 있습니다. Astra Control Center와 함께 구축한 경우, Astra Trident에는 구성된 ONTAP 스토리지 백엔드가 포함됩니다.</block>
   <block id="a779180fd0b24eabbab889560a1bd808" category="inline-link">Astra Control Center 다운로드 페이지</block>
-  <block id="2cbce367b3410bd332af96c3f6df8640" category="list-text">로 이동합니다<block ref="ad7a4184e43a3f62f1a8252e7d3ef71f" category="inline-link-rx"></block> 를 방문하십시오.</block>
   <block id="08aa38c1bafe9d645de9679abd0428e8" category="admonition">레지스트리 구성에 따라 스크립트가 만드는 이미지 경로는 다음과 같아야 합니다.</block>
   <block id="b3a251432f4f7fb7ae435e5ab5909f98" category="list-text">NetApp 클라우드 서비스 스토리지 오퍼링을 스토리지 백엔드로 사용하는 경우, Astra Control Service는 Astra Trident를 사용하여 앱에 영구 볼륨을 프로비저닝합니다. Amazon EBS 또는 Azure 관리 디스크를 스토리지 백엔드로 사용하는 경우 공급자별 CSI 드라이버를 설치해야 합니다. 설치 지침은 에 나와 있습니다<block ref="2f14c0839a4ba055988d1f8f5b4045be" category="inline-link-rx"></block> 및<block ref="1bd9474283b73e0fe391dfa7d2f421f2" category="inline-link-rx"></block>.</block>
   <block id="95936e8fb1e1f6bf4c0671f4ccc84fe7" category="paragraph">Astra Control Center는 ONTAP 9.5 이상의 스토리지 백엔드가 있는 Astra Trident 기반 스토리지 클래스를 통해 Kubernetes 클러스터를 지원합니다.</block>
@@ -2460,7 +2311,6 @@
   <block id="7d008a15300802377dec025a7c3d1526" category="list-text">복제 정책을 구성하는 중입니다</block>
   <block id="02df35f0fcff33e77f357dd4528d6d9f" category="paragraph">클러스터에서 응용 프로그램 관리를 시작하면 해당 클러스터의 모든 CPU 장치가 Astra Control Center 라이센스 소모에 포함됩니다. 단, 레이블을 사용하여 에서 보고하는 Red Hat OpenShift 클러스터 노드 CPU 장치는 제외됩니다<block ref="10c74fc36336285a5b0a7e83581224b7" prefix=" " category="inline-code"></block>.</block>
   <block id="6bc90abf5c663a84ba123ee81c4f462a" category="admonition">Red Hat OpenShift 인프라 노드는 Astra Control Center에서 라이센스를 소비하지 않습니다. 노드를 인프라 노드로 표시하려면 레이블을 적용합니다<block ref="10c74fc36336285a5b0a7e83581224b7" prefix=" " category="inline-code"></block> 노드에.</block>
-  <block id="96a79af6715c6314aa3c257cbac2f314" category="list-text">* ONTAP 스토리지에서 지원하는 Astra Trident 스토리지 클래스 *: ONTAP 백엔드를 사용하는 경우, Astra Control Center는 다양한 모니터링 정보를 보고하기 위해 ONTAP 백엔드를 가져올 수 있는 기능을 제공합니다.</block>
   <block id="6b2f4144cb08013dcf2bcec8059919af" category="admonition">Astra Trident 스토리지 클래스는 Astra Control Center 외부에서 사전 구성되어야 합니다.</block>
   <block id="376f2cee8db0934296d141555a55714d" category="section-title">만료된 라이센스가 있는 백업, 스냅샷 및 클론</block>
   <block id="cfe5e1d726f72f4d0b09655bc48ba2ca" category="paragraph">라이센스가 만료되면 추가 또는 보호 중인 애플리케이션이 다른 Astra Control Center 인스턴스인 경우에만 새 애플리케이션을 추가하거나 애플리케이션 보호 작업(예: 스냅샷, 백업, 클론 및 복구 작업)을 수행할 수 있습니다.</block>
@@ -2488,7 +2338,6 @@
   <block id="65c5857b3b433f35d0ac583e6a7d8a2c" category="list-text">Astra Control Center CR의 출력을 확인하려면:</block>
   <block id="5bca497d9ea6bf6eca3e17f4bc56928e" category="list-text">에서 리소스 할당량을 가져옵니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> (또는 사용자 지정 이름) 네임스페이스:</block>
   <block id="89235ec3307dc2b7bc36342060cec29b" category="list-text">에서 제한 범위를 가져옵니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> (또는 사용자 지정 이름) 네임스페이스:</block>
-  <block id="f6a3d39ded3dc2a43b37e0af1cc54e54" category="list-text">앞의 명령으로 반환된 각 NetworkPolicy 개체에 대해 다음 명령을 사용하여 개체를 삭제합니다. [OBJECT_NAME]을(를) 반환된 객체의 이름으로 바꿉니다.</block>
   <block id="2946ad5b585e25a6265a7c6cd68fddcf" category="list-text">오른쪽 위 모서리에 Astra Trident 버전을 적어 둡니다.</block>
   <block id="0a8d6a85933f0f1967973d4753b4c395" category="paragraph">그러면 Red Hat OpenShift 클러스터가 가져와 기본 스토리지 클래스가 할당됩니다. 스토리지 클래스를 선택합니다. Astra Trident는 가져오기 및 검색 프로세스의 일부로 자동으로 설치됩니다.</block>
   <block id="8cf442a8f3b56c7c3499cf63b521ae93" category="paragraph">이렇게 하면 Red Hat OpenShift 클러스터를 가져오고 기본 스토리지 클래스를 할당합니다. 스토리지 클래스를 선택합니다. Astra Trident는 가져오기 및 검색 프로세스의 일부로 자동으로 설치됩니다.</block>
@@ -2506,28 +2355,15 @@
   <block id="976d83f1e830fe3993112a5b9e67324e" category="cell">호스트 클러스터에서의 Kubernetes 배포</block>
   <block id="2e5d14f7919ff3c6138e7845aec4f915" category="cell">지원되는 버전</block>
   <block id="22ec69733e61456fac578b2f6fcc2856" category="cell">Azure Stack HCI 기반 Azure Kubernetes Service</block>
-  <block id="cd96805b6007cc4c2282c90a414e97f3" category="cell">AKS 1.23 및 1.24가 포함된 Azure Stack HCI 21H2 및 22H2</block>
   <block id="1c4dff0a00340691e103ef63154df371" category="cell">Google Anthos</block>
-  <block id="bef5b58214b9cae906121ccd185ebdf5" category="cell">1.12 ~ 1.14(참조 <block ref="ca85a59b7f183a96161fa125579f74e9" category="inline-xref-macro-rx"></block>)</block>
   <block id="0770a54f3635e09a4e4ff53a035b9979" category="cell">Kubernetes(업스트림)</block>
-  <block id="4863c0e3b29248649240a69b9df08e1e" category="cell">1.24 ~ 1.26(Kubernetes 1.25 이상의 경우 Astra Trident 22.10 이상 필요)</block>
   <block id="8c95b632875261344eb6365459feffd0" category="cell">RKE(Rancher Kubernetes Engine)</block>
-  <block id="86742721bf4e412fd236371e22eea76b" category="cell">RKE 1.3, Rancher 2.6 RKE 1.4, Rancher 2.7 RKE 2 (v1.23.x), Rancher 2.6 RKE 2 (v1.24.x), Rancher 2.7</block>
   <block id="fd89bb4228981d3b22187eb451421cd6" category="cell">Red Hat OpenShift Container Platform</block>
-  <block id="2fc3e0590f5be49e12616e7785d1d1d8" category="cell">4.10 ~ 4.12</block>
-  <block id="a56837df79ae6671b6b511c330431135" category="cell">VMware Tanzu Kubernetes Grid를 참조하십시오</block>
-  <block id="c6865a8430878505b136faaaf2730f0d" category="cell">1.6(참조 <block ref="a236b45bda1ffb990a9a89199862a5ae" category="inline-xref-macro-rx"></block>)</block>
-  <block id="a1c1bb4994628000cfe61563bf4ff4f5" category="cell">VMware Tanzu Kubernetes Grid Integrated Edition을 참조하십시오</block>
-  <block id="04de7660a0bbd7757f01fc8527051da4" category="cell">1.14 및 1.15(참조 <block ref="a236b45bda1ffb990a9a89199862a5ae" category="inline-xref-macro-rx"></block>)</block>
   <block id="da3ba513df86d149caebcbcedaa2f8c9" category="section-title">호스트 클러스터 리소스 요구 사항</block>
   <block id="0b145934590b9ed05cf63a628294d371" category="list-text">* CPU 확장 *: 호스팅 환경의 모든 노드에 있는 CPU에는 AVX 확장이 활성화되어 있어야 합니다.</block>
   <block id="47303824eafa22af5698d5f414ed3e9c" category="list-text">* 작업자 노드 *: 총 3개 이상의 작업자 노드, CPU 코어 4개, 12GB RAM</block>
-  <block id="dfee63492fa418d45012f44e9efcecf3" category="list-text">* VMware Tanzu Kubernetes Grid 클러스터 요구 사항 *: VMware Tanzu Kubernetes Grid(TKG) 또는 Tanzu Kubernetes Grid Integrated Edition(TKGi) 클러스터에서 Astra Control Center를 호스팅하는 경우 다음 사항을 고려하십시오.</block>
-  <block id="71aeb6f089406bc5a9abfec5efe995cc" category="list-text">를 사용합니다<block ref="3b7e746f7178ae60c65fc979bda0c36b" prefix=" " category="inline-code"></block> 수신 트래픽을 허용하도록 서비스 모니터가 이미 구성되어 있는지 확인하는 명령입니다. 기존 서비스 모니터가 새 로드 밸런서 구성을 무시하므로 MetalLB를 설치하면 안 됩니다.</block>
   <block id="0629fb104936d0fb60cc736b6cb01caa" category="section-title">Astra Trident 요구사항</block>
   <block id="ccfd4911c3e4e3a1869bde34aee08213" category="paragraph">귀사의 환경 요구사항에 맞는 다음과 같은 Astra Trident 요구사항을 충족해야 합니다.</block>
-  <block id="018d3fe087f0a33b7f1628e615469601" category="list-text">* Astra Control Center *: Astra Trident 22.04 이상 설치 및 구성된 최소 버전.</block>
-  <block id="4d0b052002df0c243c3533a5520c1007" category="list-text">SnapMirror 복제 *: SnapMirror 기반 애플리케이션 복제를 위해 설치된 Astra Trident 22.07 이상</block>
   <block id="efcd7847357fc4096fb4db5e47f79f17" category="list-text">* Kubernetes 1.25 이상 지원 *: Kubernetes 1.25 이상 클러스터에 설치된 Astra Trident 22.10 이상(Kubernetes 1.25 이상으로 업그레이드하기 전에 Astra Trident 22.10으로 업그레이드해야 함)</block>
   <block id="b040dd2ca7ada50da6252bec5fe83b03" category="list-text">* Astra Trident * 를 사용한 ONTAP 구성:</block>
   <block id="531ade9aaa74479e00c195b314444616" category="list-text">* 스토리지 클래스 *: 클러스터에 Astra Trident 스토리지 클래스를 하나 이상 구성합니다. 기본 스토리지 클래스가 구성된 경우 기본 지정의 유일한 스토리지 클래스인지 확인합니다.</block>
@@ -2560,7 +2396,6 @@
   <block id="b076c1f761d0b92929621e81c3c931c3" category="summary">Astra Control Center를 설치하고, UI에 로그인하고, 암호를 변경하면 라이센스를 설정하고, 클러스터를 추가하고, 인증을 설정하고, 스토리지를 관리하고, 버킷을 추가할 수 있습니다.</block>
   <block id="9dff1d917a2ab55f9b011693f3edb2e6" category="list-text"><block ref="57bfe64ccef32c62c91778f81d22de6e" category="inline-xref-macro-rx"></block></block>
   <block id="9b9a4bad5c62667ce507fae6527af6a1" category="paragraph">Astra Control Center를 설치할 때 포함된 평가판 라이센스가 이미 설치되어 있습니다. Astra Control Center를 평가하는 경우 이 단계를 건너뛸 수 있습니다.</block>
-  <block id="5309511b0ec14cc87505c408a2785d27" category="paragraph">Astra Control UI 또는 를 사용하여 새 라이센스를 추가할 수 있습니다<block ref="3f4eec2c2c841509295f8beef0b157bb" category="inline-link-rx"></block>.</block>
   <block id="005e1b50c910ec2acdc65d7425ba6e32" category="list-text">귀사의 환경은 을(를) 충족합니다 <block ref="ccb0e0bd30b9675a77be4777ecce7ae0" category="inline-link-macro-rx"></block> Astra Trident 및 Astra Control Center용.</block>
   <block id="53672aeea1a1c5b1f615a3293aa968b9" category="list-text">Astra Trident의 한 버전입니다 <block ref="8a29465e9cc22369a19ca6cfb50905b9" category="inline-link-macro-rx"></block> 설치됨:</block>
   <block id="b96eefd255ea3579d599300b9a9bc9b7" category="admonition">가능합니다<block ref="ec89e21f8106b8624273185ce464dfb2" category="inline-link-rx"></block> Astra Trident 연산자(수동 또는 제어 차트 사용) 또는 를 사용합니다<block ref="c67fd1b99934afa248dfeb285a9a4191" prefix=" " category="inline-code"></block>. Astra Trident를 설치 또는 업그레이드하기 전에 을 검토하십시오<block ref="c11537a174ec95a098cfff995b6e8b14" category="inline-link-rx"></block>.</block>
@@ -2609,7 +2444,6 @@
   <block id="d6a7b1f1c6944950d31662cd6335cd32" category="list-text">* 서명된 인증서 *:<block ref="2a84f2965aaa57fb61e3627917c14a13" prefix=" " category="inline-code"></block> (ONTAP에서 _server certificate_라고도 함)</block>
   <block id="ce019945b9ff674652b841c7f3e139c6" category="list-text">* 루트 CA 인증서 *:<block ref="58c60d51af1795a6c28df0f1c736b89e" prefix=" " category="inline-code"></block> (ONTAP에서 _server-ca certificate_라고도 합니다.)</block>
   <block id="9228340b5d92ff30ea7c7a93fc314ac9" category="list-text">이러한 인증서를 ONTAP에 설치합니다. 생성 및 설치<block ref="cf1e8c14e54505f60aa10ceb8d5d8ab3" prefix=" " category="inline-code"></block> 및<block ref="6506b3e1b1b650a5b2d470b53640bc72" prefix=" " category="inline-code"></block> ONTAP의 인증서.</block>
-  <block id="62f298fc0bdc9e54e2931af5b3412ec3" category="paragraph">샘플 정보. YAML</block>
   <block id="3120b2976ef02a32272d42dfda8060ac" category="list-text">암호 없는 통신을 위해 동일한 호스트에 대한 클라이언트 인증서를 생성합니다. Astra Control Center는 이 프로세스를 사용하여 ONTAP와 통신합니다.</block>
   <block id="8999b0469cf91e57a049576a5dd4875d" category="list-text">ONTAP에서 클라이언트 인증서 생성 및 설치:</block>
   <block id="a498ab5a31afbb7b47b9d0b23806d204" category="list-text">Astra Control Center UI에 스토리지 백엔드를 추가하고 다음 값을 제공합니다.</block>
@@ -2632,26 +2466,14 @@
   <block id="2ffc1b9c31ec02503b31e837127256d6" category="inline-link">Astra Trident 문서의 다음 단계를 따릅니다</block>
   <block id="bd5bd693096363c197fea38bed64ef75" category="paragraph">* 관리를 해제하면 NetApp Astra Trident가 클러스터에서 자동으로 제거됩니까? * Astra Control Center에서 클러스터를 관리할 경우 Astra Trident가 클러스터에서 자동으로 제거되지 않습니다. Astra Trident를 제거하려면 다음을 수행해야 합니다<block ref="63f898d0a9f06a9c415a80b9d724603c" category="inline-link-rx"></block>.</block>
   <block id="74014f44bc5ee9e79cd2adb1167b2d8a" category="paragraph">"Astra Control을 자체적으로 관리해야 합니까?" *</block>
-  <block id="88db3f54bc3210b4b8ffbd67967f6c75" category="paragraph">아니요, Astra Control 자체는 "시스템 응용 프로그램"이기 때문에 관리하지 않아야 합니다.</block>
   <block id="9a37b9eea91cad57070a6757b200a6fa" category="paragraph">* 비정상적인 포드가 앱 관리에 영향을 미칩니까? *</block>
   <block id="122340512db23eef4128af6d9fd5a597" category="paragraph">아니요. Pod의 상태는 앱 관리에 영향을 주지 않습니다.</block>
-  <block id="d2faa00dfc4d5ba6c178aa8b88ae8916" category="list-text"><block ref="4ba22f2be55f31cf96117b0c6ad9fd5c" category="inline-xref-macro-rx"></block></block>
-  <block id="6874b0a5b35035f4e7f333af29657cae" category="section-title">Astra Control Center 23.04로 업그레이드한 후 일부 포드가 시작되지 않습니다</block>
-  <block id="965eb6e78a54ca093665c8c7b7807dc6" category="paragraph">Astra Control Center 23.04로 업그레이드한 후 일부 포드가 시작되지 않을 수 있습니다. 이 문제를 해결하려면 다음 단계를 사용하여 영향을 받는 포드를 수동으로 다시 시작하십시오.</block>
-  <block id="3dcb6bd2a75a7b9a62d751043941b325" category="list-text">&lt;namespace&gt;를 현재 네임스페이스로 대체하여 영향을 받는 Pod를 찾습니다.</block>
-  <block id="d5b30331f9bdfd0e0a4b9cc299f4bcf0" category="paragraph">영향을 받는 Pod의 결과는 다음과 같습니다.</block>
-  <block id="86119fd83e8fcb2c30d9e626fe86e19a" category="list-text">영향을 받는 각 포드를 다시 시작하고 &lt;namespace&gt;를 현재 네임스페이스로 대체합니다.</block>
   <block id="5f19a159b98db30779660d8624ef7fc4" category="section-title">2023년 4월 25일(23.04.0)</block>
   <block id="b176bb567ff7d20bac0cf1796c175044" category="inline-link-macro">새 Astra Control Center 설치에 대해 기본적으로 90일 평가판 라이센스가 활성화됩니다</block>
-  <block id="9ae9913e7bfea4beccbe107b83f21df5" category="list-text"><block ref="9ae9913e7bfea4beccbe107b83f21df5" category="inline-link-macro-rx"></block></block>
   <block id="dc76043b82b478d28285ae514fece7b7" category="inline-link-macro">추가 필터링 옵션이 포함된 향상된 실행 후크 기능</block>
-  <block id="846a7e14007c3c26ac57947eaedc4c61" category="list-text"><block ref="846a7e14007c3c26ac57947eaedc4c61" category="inline-link-macro-rx"></block></block>
   <block id="25f2cff6a812654b1394f53034bcf564" category="inline-link-macro">이제 Astra Control Center를 사용하여 복제 페일오버 후에 실행 후크를 실행할 수 있습니다</block>
-  <block id="6d60c4f196979c4b445f94bc2daa72b2" category="list-text"><block ref="6d60c4f196979c4b445f94bc2daa72b2" category="inline-link-macro-rx"></block></block>
   <block id="e230abda83cb11e7b7ac9992ed62766e" category="inline-link-macro">복원 작업 중에 애플리케이션 리소스를 포함 또는 제외하는 지원</block>
-  <block id="c615097b74f61376d422e9fa5af786b5" category="list-text"><block ref="c615097b74f61376d422e9fa5af786b5" category="inline-link-macro-rx"></block></block>
   <block id="b909803838dd775bd8b8dcfbaf82fb87" category="inline-link-macro">데이터 전용 애플리케이션 관리 지원</block>
-  <block id="4db832ff5f281acffc08296d3bbdd651" category="list-text"><block ref="4db832ff5f281acffc08296d3bbdd651" category="inline-link-macro-rx"></block></block>
   <block id="3ff8baa90fbc4031f87ca3e1cf5c3622" category="list-text"><block ref="3ff8baa90fbc4031f87ca3e1cf5c3622" category="inline-link-rx"></block></block>
   <block id="df79a655be206b6ec06f2bb9abec76b0" category="list-text"><block ref="df79a655be206b6ec06f2bb9abec76b0" category="inline-link-rx"></block></block>
   <block id="350c3f5200386ba1099a1a57a2ef15ff" category="list-text"><block ref="350c3f5200386ba1099a1a57a2ef15ff" category="inline-link-rx"></block></block>
@@ -2662,15 +2484,10 @@
   <block id="9b851474b7a11191f7c7c3f4527dbe06" category="list-text"><block ref="9b851474b7a11191f7c7c3f4527dbe06" category="inline-link-rx"></block></block>
   <block id="14d00b766289611c8b24e20d70ee5f18" category="list-text"><block ref="56fa2c12ee64f725e22e81b9cfe9a196" category="inline-xref-macro-rx"></block></block>
   <block id="1cb08cc65f3cc745b6fb702c0b15365e" category="section-title">활동 페이지에는 최대 100,000개의 이벤트가 표시됩니다</block>
-  <block id="676bd50e0f10e6725dc7a68e3041cfed" category="inline-link-macro">Astra Control REST API</block>
-  <block id="474be14e965990f35641a82fd1940bd1" category="paragraph">Astra Control Activity 페이지에는 최대 100,000개의 이벤트가 표시될 수 있습니다. 기록된 이벤트를 모두 보려면 를 사용하여 이벤트를 검색합니다 <block ref="65b0251af1492433290d52a893eea83e" category="inline-link-macro-rx"></block>.</block>
   <block id="3eb6e57cf84a8302b4b922f25ea2ea39" category="admonition">Astra Control Center가 Cloud Insights와 페어링된 경우 Cloud Insights에서 * 배포 수정 * 옵션을 사용하면 안 됩니다. </block>
   <block id="320e95fd9e1aa20ab2198f9eaf237d3f" category="admonition">Cloud Insights 연결을 설정한 후에는 * backends * 페이지에서 처리량 정보를 확인하고 스토리지 백엔드를 선택한 후 Cloud Insights에 연결할 수 있습니다. 또한 클러스터 섹션의 * 대시보드 * 에서 정보를 찾고 Cloud Insights에 연결할 수도 있습니다.</block>
   <block id="f4ab41f5fc2122a64e7d7389423854ee" category="paragraph">Astra Control Center에서 모니터링하는 시스템의 로그(Kubernetes 이벤트)를 Fluentd 엔드포인트로 보낼 수 있습니다. Fluentd 연결은 기본적으로 비활성화되어 있습니다.</block>
-  <block id="5b02c27dbb0caca9b20a736fed788fe5" category="list-text">* 복제 유형 *: "비동기"는 현재 사용 가능한 유일한 복제 유형입니다.</block>
-  <block id="8865b45a34f33f3189143bbc3c61c00c" category="list-text">* 오프셋 *: Astra Control에서 스냅샷을 생성할 시간(분)을 설정합니다. 다른 예약된 작업과 일치하지 않도록 오프셋을 사용할 수 있습니다.</block>
   <block id="69f7fefc112d0cd0af937e058f3df889" category="admonition">백업 및 복제 일정을 오프셋하여 일정이 겹치지 않도록 합니다. 예를 들어, 매시간 맨 위에서 백업을 수행하고 5분 오프셋 및 10분 간격으로 복제를 시작하도록 예약합니다.</block>
-  <block id="d81002a868da6107b0af9529861aeb57" category="list-text">대상 클러스터에서 최신 복제된 스냅샷을 기반으로 앱이 시작됩니다.</block>
   <block id="b696280e6a5119acc8b4e3b32b66f483" category="list-text">소스 앱에 복원 후 실행 후크가 하나 이상 활성화된 경우 해당 실행 후크가 대상 앱에 대해 실행됩니다.</block>
   <block id="cb6cf888925c59b5c1490a88703bc34c" category="inline-link-macro">모든 앱 관리를 취소합니다</block>
   <block id="2f429e20a4e4d7a4cabcce989a2c2916" category="list-text"><block ref="43a61e5564eee1552db29a874774ce4f" category="inline-link-macro-rx"></block> 클러스터에서.</block>
@@ -2680,17 +2497,9 @@
   <block id="e6cd046e3064b2ac3beb88a9de47d686" category="paragraph">예제 결과:</block>
   <block id="ccd62d676165e34c2e9c6d088c06e70f" category="paragraph">실행 후크는 관리되는 앱의 데이터 보호 작업과 함께 실행되도록 구성할 수 있는 사용자 지정 작업입니다. 예를 들어 데이터베이스 앱이 있는 경우 실행 후크를 사용하여 스냅샷 전에 모든 데이터베이스 트랜잭션을 일시 중지하고 스냅샷이 완료된 후 트랜잭션을 다시 시작할 수 있습니다. 따라서 애플리케이션 정합성이 보장되는 스냅샷이 보장됩니다.</block>
   <block id="99dc882fc0f61d1db87631ed9f156913" category="section-title">실행 후크 필터</block>
-  <block id="d335f82eb07728e66330e5d345123e4e" category="paragraph">실행 후크를 응용 프로그램에 추가하거나 편집할 때 실행 후크에 필터를 추가하여 후크가 일치하는 컨테이너를 관리할 수 있습니다. 필터는 모든 컨테이너에서 동일한 컨테이너 이미지를 사용하는 응용 프로그램에 유용하지만 각 이미지를 다른 용도(예: Elasticsearch)로 사용할 수 있습니다. 필터를 사용하면 실행 후크가 동일한 컨테이너 중 일부에서 실행되는 시나리오를 만들 수 있지만 반드시 모든 컨테이너를 실행하는 것은 아닙니다. 단일 실행 후크에 대해 여러 개의 필터를 만들면 논리적 필터 및 연산자와 결합됩니다. 실행 후크당 최대 10개의 활성 필터를 사용할 수 있습니다.</block>
-  <block id="1f7268b251b886be0fbed048e85fcbae" category="paragraph">실행 후크에 추가하는 각 필터는 클러스터의 컨테이너와 일치시키기 위해 정규식을 사용합니다. 후크가 컨테이너와 일치하면 후크는 해당 컨테이너에서 연결된 스크립트를 실행합니다.</block>
-  <block id="8f00b1ba5cf1b5159598a4201b24c485" category="admonition">필터에 대한 정규식은 정규식 2(RE2) 구문을 사용합니다. 이 구문은 일치 목록에서 컨테이너를 제외하는 필터를 만드는 것을 지원하지 않습니다.</block>
   <block id="7caae75448dbc59fcadd621099e170b3" category="inline-link">정규식 2(RE2) 구문 지원</block>
-  <block id="348be7b5ea322b3d9f3cc7f3638347e8" category="paragraph">Astra Control이 실행 후크 필터의 정규식에 대해 지원하는 구문에 대한 자세한 내용은 을 참조하십시오<block ref="d4d0dd655d04b2dc5b031206e1febd50" category="inline-link-rx"></block>.</block>
-  <block id="a00c0d5dc029d521b5d82eba2c9f84ec" category="paragraph">실행 후크는 실행 중인 응용 프로그램의 기능을 줄이거나 완전히 비활성화하기 때문에 사용자 지정 실행 후크가 실행되는 시간을 최소화해야 합니다. 연결된 실행 후크와 함께 백업 또는 스냅샷 작업을 시작한 다음 취소하면 백업 또는 스냅샷 작업이 이미 시작된 경우에도 후크를 실행할 수 있습니다. 즉, 백업 후 실행 후크에 사용되는 논리는 백업이 완료된 것으로 가정할 수 없습니다.</block>
-  <block id="4615b89d43551952b2c71aed9b7e7f6a" category="list-text">Astra Control Center가 복제된 소스 앱을 대상 앱으로 페일오버하면 페일오버가 완료된 후 소스 앱에 대해 활성화된 복원 후 실행 후크가 대상 앱에 대해 실행됩니다.</block>
   <block id="4c004df391027b81952b788a3802e37c" category="list-text">복원 또는 클론 작업 후에 실행되는 실행 후크에 네임스페이스 필터를 추가하고 복원 또는 클론 소스와 대상이 서로 다른 네임스페이스에 있는 경우 네임스페이스 필터는 대상 네임스페이스에만 적용됩니다.</block>
   <block id="ad06e01fed5c441edb22a5ad730a28c4" category="paragraph">결과 목록에서 사용 가능하거나 비활성화된 실행 후크를 모두 볼 수 있습니다. 후크의 상태, 일치하는 컨테이너 수, 생성 시간 및 실행 시간(사전 또는 사후 작업)을 확인할 수 있습니다. 를 선택할 수 있습니다<block ref="26b17225b626fb9238849fd60eabdf60" prefix=" " category="inline-code"></block> 실행할 컨테이너 목록을 확장하려면 후크 이름 옆에 있는 아이콘을 클릭합니다. 이 응용 프로그램의 실행 후크를 둘러싼 이벤트 로그를 보려면 * Activity * 탭으로 이동하십시오.</block>
-  <block id="fdccfeac6686fcf9ef3545d27c98ebd9" category="paragraph">각 실행 후크는 스크립트를 사용하여 작업을 수행해야 합니다. 실행 후크가 참조할 수 있는 스크립트를 하나 이상 추가할 수 있습니다. 많은 실행 후크가 동일한 스크립트를 참조할 수 있으므로 하나의 스크립트만 변경하여 여러 실행 후크를 업데이트할 수 있습니다.</block>
-  <block id="f7dab4c8b3608b84fa8e0c583d18f33a" category="paragraph">앱의 사용자 정의 실행 후크를 만들 수 있습니다. 을 참조하십시오 <block ref="17e166b6ef6242446312ff693caa559b" category="inline-xref-macro-rx"></block> 후크 예 실행 후크를 만들려면 소유자, 관리자 또는 구성원 권한이 있어야 합니다.</block>
   <block id="730e56f4151d257d4be9b69d500491b1" category="list-text">후크 세부 정보 * 영역에서:</block>
   <block id="754306132541c264b899699072715a8d" category="list-text">작업 * 드롭다운 메뉴에서 작업 유형을 선택하여 후크를 언제 실행해야 하는지 결정합니다.</block>
   <block id="b3bf4b7c4fe4ab9fd4c927146b958c29" category="list-text">(선택 사항) * Hook Filter Details * 영역에서 실행 후크가 실행되는 컨테이너를 제어하는 필터를 추가할 수 있습니다.</block>
@@ -2710,7 +2519,6 @@
   <block id="4c5848fdf558a402deead01b3a7267ca" category="list-text">결과 대화 상자에 "delete"를 입력하여 확인합니다.</block>
   <block id="4bc73956dcf3b9d92b687a0e41330027" category="list-text">예, 실행 후크 삭제 * 를 선택합니다.</block>
   <block id="d609930de7bbf116e48c59d16544b92b" category="list-text">* 라이선스 *: Astra Control Center를 사용하여 애플리케이션을 관리하려면 Astra Control Center 평가판 라이센스 또는 전체 라이센스가 필요합니다.</block>
-  <block id="dcb9a5ddd39d8514ddcd5a64c129a6b0" category="example-title">앱 네임스페이스에 클러스터 범위 리소스를 추가하는 방법에 대해 자세히 알아보십시오.</block>
   <block id="ecea927620c87b1d617cd9e86ada1f21" category="list-text">* ONTAP - NAS - 경제적인 스토리지 클래스 *: 앱이 에서 지원하는 스토리지 클래스를 사용하는 경우<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> 드라이버, 클론 작업의 백업 부분은 중단이 발생합니다. 백업이 완료될 때까지 소스 애플리케이션을 사용할 수 없습니다. 클론 작업의 복원 부분은 무중단으로 수행됩니다.</block>
   <block id="63d526831e75bdfe2a1b18d7e1752ca3" category="list-text">앱과 연결된 원래 저장소 클래스를 유지하거나 다른 저장소 클래스를 선택합니다.</block>
   <block id="5f116b62082ad46b96d2b6d9abbcf0ec" category="admonition">다른 스토리지 클래스를 선택했고 복원 시 이 스토리지 클래스가 존재하지 않는 경우 오류가 반환됩니다.</block>
@@ -2740,7 +2548,6 @@
   <block id="77e10aacbaacde5feb20b931483aa483" category="list-text">복원 작업에 대한 세부 정보를 주의 깊게 검토하고 "restore"를 입력하고(메시지가 나타나면) * Restore * 를 선택합니다.</block>
   <block id="a15cd5bb4e51612a5f115c3a8944c786" category="section-title">응용 프로그램 복원 중에 리소스를 필터링합니다</block>
   <block id="78368183ca89472e89be5c8bb443ac4e" category="paragraph">에 필터 규칙을 추가할 수 있습니다 <block ref="ade375e828882781f654729e54a482ee" category="inline-link-macro-rx"></block> 복원된 응용 프로그램에서 포함하거나 제외할 기존 응용 프로그램 리소스를 지정하는 작업입니다. 지정된 네임스페이스, 레이블 또는 GVK(GroupVersionKind)를 기반으로 리소스를 포함하거나 제외할 수 있습니다.</block>
-  <block id="13f8f7db9cb20dc7064b63d9b2a9da6d" category="example-title">포함 및 제외 시나리오에 대해 자세히 알아보세요</block>
   <block id="75b97781a9a8e81bcc6c6bd760f0d4d6" category="list-text">* 원본 네임스페이스가 있는 포함 규칙(원본 위치 복원) * 을 선택합니다. 규칙에 정의된 기존 응용 프로그램 리소스는 삭제되며 복구에 사용하는 선택한 스냅숏 또는 백업의 리소스로 대체됩니다. 포함 규칙에 지정하지 않은 모든 리소스는 변경되지 않습니다.</block>
   <block id="122751a1cdad4f81e9738e1aaee57fa5" category="list-text">* 새 네임스페이스가 있는 포함 규칙 선택 *: 이 규칙을 사용하여 복원된 응용 프로그램에서 원하는 특정 리소스를 선택합니다. 포함 규칙에 지정하지 않은 리소스는 복원된 응용 프로그램에 포함되지 않습니다.</block>
   <block id="2d19e5ef70897677691c8274e0c86202" category="list-text">* 원본 네임스페이스가 있는 제외 규칙(원본 위치 복원) * 선택: 제외하도록 지정한 리소스는 복원되지 않고 변경되지 않습니다. 제외하도록 지정하지 않은 리소스는 스냅샷 또는 백업에서 복구됩니다. 해당 StatefulSet 이 필터링된 리소스의 일부인 경우 영구 볼륨의 모든 데이터가 삭제되고 다시 생성됩니다.</block>
@@ -2766,7 +2573,6 @@
   <block id="5ca4648f1bb1157edc69a1a2d478b1ec" category="section-title">다른 앱과 리소스를 공유하는 앱의 데이터 이동 없이 복원 복잡성</block>
   <block id="b9c5aa5f0760c46a33739ee66fcb84b7" category="paragraph">다른 앱과 리소스를 공유하고 의도하지 않은 결과를 생성하는 앱에서 현재 위치 복원 작업을 수행할 수 있습니다. 앱 간에 공유되는 모든 리소스는 앱 중 하나에서 데이터 이동 없이 복원이 수행될 때 교체됩니다.</block>
   <block id="76d6e00a16a4b5b026bf5cd77e765048" category="paragraph">다음은 복원에 NetApp SnapMirror 복제를 사용할 때 바람직하지 않은 상황을 만드는 예제 시나리오입니다.</block>
-  <block id="777c563672cb7cb950e79c65b8b7eed7" category="list-text">업그레이드하기 전에 을 참조하십시오 <block ref="ccb0e0bd30b9675a77be4777ecce7ae0" category="inline-link-macro-rx"></block> 사용자 환경이 Astra Control Center 배포에 대한 최소 요구 사항을 충족하는지 확인합니다. 환경에 다음이 있어야 합니다.</block>
   <block id="4bc1d1c42f12d420fb373e1a8d345a2d" category="list-text">Astra 버전 번호를 변경합니다 <block ref="bbdbf70444e48a34a4a7e7d708d85eec" prefix="(" category="inline-code"></block> 의 내부<block ref="b979c2934ac0b4ba3f08dabfdd1b2299" prefix=" " category="inline-code"></block>)를 업그레이드할 버전:</block>
   <block id="41ff704de5d4377c40831a45f37b2f9c" category="list-text">이미지 레지스트리 경로가 에서 이미지를 푸시한 레지스트리 경로와 일치하는지 확인합니다 <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>. 업데이트<block ref="990dc1a09e10c7b5378e6bc8a1956cb8" prefix=" " category="inline-code"></block> 의 내부<block ref="b979c2934ac0b4ba3f08dabfdd1b2299" prefix=" " category="inline-code"></block> 마지막 설치 이후 레지스트리가 변경된 경우</block>
   <block id="0721a4ab2e84ecf070923858d32930ec" category="list-text">에 다음을 추가합니다<block ref="c16ae51f09d668b952e5ab23072ad64e" prefix=" " category="inline-code"></block> 의 내부 구성<block ref="b979c2934ac0b4ba3f08dabfdd1b2299" prefix=" " category="inline-code"></block>:</block>
@@ -2794,7 +2600,6 @@
   <block id="9b846b7f30a8509224caa21eb61515be" category="list-text"><block ref="097c36d7e339c9c56e3325b9bd9b1890" category="inline-link-macro-rx"></block> NetApp Support 사이트에 로그인하고 시스템 메뉴에서 소프트웨어 라이센스로 이동합니다.</block>
   <block id="8dd1f225c8914473641273beab27cfb5" category="list-text"><block ref="48b751d095184607defa7b45448cfbd4" category="inline-link-rx"></block>Astra Control과 관련된 문서, FAQ 또는 고장 수리 정보를 검색합니다.</block>
   <block id="a1e431f4eeaf20669c6a323a70204f3b" category="paragraph"><block ref="a1e431f4eeaf20669c6a323a70204f3b" category="inline-link-rx"></block></block>
-  <block id="192aebb6811705e0e43946e8f3c7ee31" category="paragraph">원본 보안 컨텍스트 제약 조건이 OpenShift Container Platform 클러스터의 네임스페이스 내에서 서비스 계정 수준에서 구성된 경우 애플리케이션 클론이 실패할 수 있습니다. 애플리케이션 클론이 실패하면 Astra Control Center의 Managed Applications 영역에 상태가 표시됩니다<block ref="93f07b720ebf7d1246512569761a5804" prefix=" " category="inline-code"></block>. 를 참조하십시오<block ref="664cdc6e32eb2b8d6157f7f7774ed5d3" category="inline-link-rx"></block> 를 참조하십시오.</block>
   <block id="150c473dfbcbc21128b1b0163082e277" category="paragraph">2개 이상의 클러스터와 컨텍스트를 사용하여 kubeconfig를 사용할 수 없습니다. 를 참조하십시오 <block ref="a221b9db35a895d6b52e9dd52f69851e" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
   <block id="17aaff3db5ad600ae90d1c45f82a9ce8" category="list-text">제거: 현재 버킷에 접근할 수 없습니다.</block>
   <block id="a5e4709506a688389ca2ed37bb81ac98" category="admonition">활성 버킷 자격 증명을 제거하는 경우 를 참조하십시오<block ref="8270c6fae649ca696475ea8dc76c4710" category="inline-link-rx"></block>.</block>
@@ -2808,16 +2613,9 @@
   <block id="a01baa463ac1e6fef15fc9bb46970008" category="list-text">충돌한 포드를 다시 시작하여 교체합니다<block ref="4e9cb364ac6a8e38c717de332e5ab544" prefix=" " category="inline-code"></block> 영향을 받는 POD 이름 사용:</block>
   <block id="8698a79136323b081bc992e5c4a76411" category="list-text">포드가 다시 시작되었으며 오류 상태가 아닌지 확인합니다.</block>
   <block id="fee805c99a52d5e0d8310f481585c349" category="paragraph">Astra Control Center에는 Astra Control Center 라이센스가 필요합니다. Astra Control Center를 설치할 때 4,800 CPU 장치에 대한 90일 평가 라이센스가 내장되어 있습니다. 용량 또는 다른 평가 조건이 필요하거나 전체 라이센스로 업그레이드하려는 경우 NetApp에서 다른 평가 라이센스 또는 전체 라이센스를 얻을 수 있습니다. 애플리케이션과 데이터를 보호하려면 라이센스가 필요합니다.</block>
-  <block id="f1f90d86552f62434ab368655ada65bf" category="admonition">자리 표시자입니다<block ref="facf912114e23f5e3f2192e508b5894a" prefix=" " category="inline-code"></block> 이전에 업로드한 이미지의 위치와 일치해야 합니다(예:<block ref="9d25f36f928ac74d96f680647f332dbe" prefix=" " category="inline-code"></block>)를 클릭합니다.</block>
-  <block id="934bb7959df7a88b3c9ec1d63747aa1b" category="cell"><block ref="f112ce7ab8899f4d86606a72f7fe081d" prefix="" category="inline-code"></block></block>
   <block id="7288e3952a556db34096b24b93385dc1" category="list-text"><block ref="c62908faf3447493ca66c05b06a828e1" category="inline-link-macro-rx"></block>.</block>
   <block id="e5517a467afb2d95f1d64912b2e0f6c0" category="paragraph">표준을 따릅니다 <block ref="62ba019c882e8ef47d6d25ebcbcb2b75" category="inline-link-macro-rx"></block>.</block>
   <block id="677baadfa6fa8bc8c46459c6fa0cd3a1" category="paragraph">Astra Control Center를 표준으로 설치합니다 <block ref="b6ac4cfeef1c22bcb70d1621ddcd2c5f" category="inline-link-macro-rx"></block>.</block>
-  <block id="d01bb03e88099369194f670cc934880d" category="list-text">Astra Control Center 버전을 입력합니다(예: 23.04.2-7).</block>
-  <block id="dc9d2d10b22b9ec46b7f5c5aa778f8d4" category="list-text"><block ref="54dff5fba7d0e1b6a0d5e1b1616a1d91" category="inline-xref-macro-rx"></block></block>
-  <block id="0f8e8b596b378fec7ec9a60a322624c9" category="section-title">일부 포드는 23.04에서 23.04.2로 업그레이드하는 제거 단계 후에 오류 상태를 표시합니다</block>
-  <block id="f48dc887cf479ce835ef8e2bce6d51b4" category="paragraph">Astra Control Center 23.04.2로 업그레이드한 후 일부 Pod에서 와 관련된 로그에 오류가 표시될 수 있습니다<block ref="d48635051cf3e3bbf27ad6abca07abae" prefix=" " category="inline-code"></block>:</block>
-  <block id="adcb6f2c38c61918c42adaa1885c97e8" category="paragraph">이 오류 상태는 정리 단계가 제대로 실행되지 않았음을 의미합니다. 23.04.2로의 전체 업그레이드가 성공했습니다. 다음 명령을 실행하여 작업을 정리하고 오류 상태를 제거합니다.</block>
   <block id="b37bd23859984896c3d3f841546dac73" category="section-title">2023년 5월 18일(23.04.2)</block>
   <block id="d9464d9b156be28ce8802bc6d5f12d80" category="inline-link">Kubernetes CSI 외부 스냅샷 v6.1.0</block>
   <block id="a16843a9cef62fd03908d0f2034b198a" category="paragraph">Astra Control Center(23.04.0)용 패치 릴리스(23.04.2)는 에 대한 지원을 제공합니다<block ref="9e98f82546df6be7f59de83a3fc62f08" category="inline-link-rx"></block> 및 에서는 다음 사항을 수정합니다.</block>
@@ -2838,10 +2636,6 @@
   <block id="a303c00b0d0d4a1b4adf9ac86b7be2cc" category="list-text"><block ref="6b04d2c2cadce52e000fe64978797f65" category="inline-link-rx"></block>.</block>
   <block id="48d0b044dd9368b2691ff16393a31d86" category="inline-link">VolumeSnapshotClass를 생성합니다</block>
   <block id="0fa487fe8680011a1e8590273692a729" category="list-text"><block ref="7780c580e1dcefaf97af849cafb81d68" category="inline-link-rx"></block>.</block>
-  <block id="03c93e76d1da3f91157a4ff3e62f2e96" category="inline-link-macro">Astra Control Center 23.04.1에 대한 고지 사항</block>
-  <block id="13d17b4f7df69833bce96d36f023a8e6" category="list-text"><block ref="13d17b4f7df69833bce96d36f023a8e6" category="inline-link-macro-rx"></block></block>
-  <block id="8ffc20042a078d24d744309f9d7244d1" category="inline-link-macro">Astra Control Center 23.04.2에 대한 고지 사항</block>
-  <block id="cd7ec3ea252e4bdb4b19d7d7757c6550" category="list-text"><block ref="cd7ec3ea252e4bdb4b19d7d7757c6550" category="inline-link-macro-rx"></block></block>
   <block id="7b7d629ee3a588d6b640e7a6fda185b4" category="admonition">앱이 에서 지원하는 저장소 클래스를 사용하는 경우<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> 드라이버, 보호 정책을 사용할 수 없습니다. 백업 및 스냅샷을 예약하려면 Astra Control에서 지원하는 스토리지 클래스로 마이그레이션합니다.</block>
   <block id="f48fcbd3913b071dd3dde66b31c0287b" category="admonition">앱이 에서 지원하는 저장소 클래스를 사용하는 경우<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> 드라이버, 스냅샷을 생성할 수 없습니다. 스냅샷에 대체 스토리지 클래스를 사용합니다.</block>
   <block id="76b712662caf9fbe541b9d649fa54d92" category="list-text">Astra Control에서 앱과 여러 네임스페이스를 사용하려면 <block ref="f6af6b7c10e981a9dabaa6d78121021d" category="inline-link-macro-rx"></block> 여러 네임스페이스 지원이 있는 Astra Control Center 버전으로 업그레이드한 후</block>
@@ -2849,7 +2643,6 @@
   <block id="41a4570187d06828a974d60a4651a66b" category="admonition">앱의 스토리지 클래스를 네이티브 클라우드 공급자 스토리지 클래스 또는 기타 지원되는 스토리지 클래스로 마이그레이션할 수 있습니다. <block ref="f8d9b94d50b5e98113fcda35456f34c9" category="inline-link-macro-rx"></block> 에서 지원하는 스토리지 클래스로<block ref="8321592ce24c8a122ecf26a63cfca407" prefix=" " category="inline-code"></block> 또는 에서 지원하는 저장소 클래스가 있는 다른 클러스터로 앱을 복사합니다<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> 드라이버.</block>
   <block id="9e3a6ce1ccfacb25ac629fb54543636a" category="inline-link-macro">애플리케이션 클론</block>
   <block id="90ad44e959c6022cbe5ffd18d92a13f4" category="paragraph">Astra Control을 사용할 수 있습니다 <block ref="8a5873c85b30e3ecf46411b2e0542bf9" category="inline-link-macro-rx"></block> 또는 <block ref="4fe412ff620daeb2de5c384ec9480b70" category="inline-link-macro-rx"></block> 에서 지원하는 스토리지 클래스에서 애플리케이션 볼륨을 마이그레이션하는 작업입니다<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block>에서는 제한된 애플리케이션 보호 옵션을 에서 지원하는 스토리지 클래스에 허용합니다<block ref="8321592ce24c8a122ecf26a63cfca407" prefix=" " category="inline-code"></block> Astra Control 보호 옵션을 모두 갖추고 있습니다. 클론 또는 복원 작업은 를 사용하는 Qtree 기반 볼륨을 마이그레이션합니다<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> 에서 지원하는 표준 볼륨에 백엔드를 제공합니다<block ref="8321592ce24c8a122ecf26a63cfca407" prefix=" " category="inline-code"></block>. 볼륨에 대한 모든 정보가 포함됩니다<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> 백업만 또는 혼합으로 타겟 스토리지 클래스로 마이그레이션됩니다. 마이그레이션이 완료된 후에는 보호 옵션이 더 이상 제한되지 않습니다.</block>
-  <block id="40a5ac4872e24c5b79e01580ead1314b" category="list-text">* 앱 복제 *: Astra Control을 사용하려면 NetApp SnapMirror를 지원하도록 구성된 각각의 ONTAP 스토리지 백엔드를 통해 소스 및 대상 Kubernetes 클러스터를 사용하고 관리해야 합니다. Astra Control은 정책 기반 애플리케이션 스냅샷을 생성하여 원격 클러스터에 복제합니다. NetApp SnapMirror 기술은 영구 볼륨 데이터를 복제하는 데 사용됩니다. Astra Control은 페일오버하기 위해 대상 Kubernetes 클러스터의 앱 객체를 대상 ONTAP 클러스터의 복제된 볼륨으로 재생성하여 복제된 앱을 온라인으로 전환할 수 있습니다. 대상 ONTAP 클러스터에 영구 볼륨 데이터가 이미 있으므로 Astra Control은 페일오버에 대한 빠른 복구 시간을 제공할 수 있습니다.</block>
   <block id="5d76a250620c4ad52078eb0aa76da569" category="paragraph">앱을 복제하는 방법에 대한 자세한 내용은 을 참조하십시오 <block ref="f775ff169c13e4056fe6b95c5da23416" category="inline-link-macro-rx"></block>.</block>
   <block id="90151d16080190e6e9db4ab63cc487d1" category="paragraph">반면, 복제는 ONTAP로 복제하여 수행한 다음 페일오버로 Kubernetes 리소스를 생성합니다.</block>
   <block id="95934194955943d636bf2c33dd9640de" category="paragraph">제약 조건 추가에 대한 자세한 내용은 을 참조하십시오 <block ref="96444a83815584634ee968ab79f8378a" category="inline-link-macro-rx"></block>.</block>
@@ -2857,11 +2650,7 @@
   <block id="6fcd8e360b3d3a77bbc2e97f7976afca" category="list-text"><block ref="3fe5265d179b3ec0334589a121d144d4" category="inline-xref-macro-rx"></block></block>
   <block id="c112281e9b11e08802558432225227d5" category="paragraph">Astra Control 애플리케이션 복제를 시작하려면 먼저 다음과 같은 사전 요구 사항을 충족해야 합니다.</block>
   <block id="ed76a067e5f4a29a05ea4fdad7261fbc" category="list-text">* ONTAP 클러스터 *:</block>
-  <block id="04ee9f7a632a804849a67f1f95680f2b" category="list-text">* Trident *: Astra Trident 버전 22.07 이상은 ONTAP를 백엔드로 사용하는 소스 및 대상 Kubernetes 클러스터 모두에 있어야 합니다.</block>
   <block id="b677eb65f7f869d18b845725a133a8d5" category="list-text">* 라이센스 *: 소스 및 대상 ONTAP 클러스터 모두에서 데이터 보호 번들을 사용하는 ONTAP SnapMirror 비동기 라이센스를 활성화해야 합니다. 을 참조하십시오<block ref="a7b9425cefc4a3715b38951f4b2b6b35" category="inline-link-rx"></block> 를 참조하십시오.</block>
-  <block id="1ffa92462c2a459ede71853b70d1cfcf" category="list-text">* 페어링 *:</block>
-  <block id="8547cab11beccac64173e265e3885ca9" category="list-text">* 클러스터 및 SVM *: ONTAP 클러스터와 호스트 SVM이 페어링되어야 합니다. 을 참조하십시오<block ref="60333a598df416e49fbceb5a88dce370" category="inline-link-rx"></block> 를 참조하십시오.</block>
-  <block id="42432dfdbb8967c3db596920e74c496e" category="list-text">* Trident 및 SVM *: 대상 클러스터의 Astra Trident에서 페어링된 원격 SVM을 사용할 수 있어야 합니다.</block>
   <block id="8bfd96ddfe717f9c7e8aae31c96c0a6d" category="list-text">* Astra Control Center *:</block>
   <block id="5d0ffcf9d34e83cac6b3695e4fb15789" category="inline-link-macro">Astra Control Center를 구축합니다</block>
   <block id="b0a1e0fb0109a172a8d145a4ce038540" category="admonition"><block ref="2c93bd11d1c2dbeba6c5ce9dc1809453" category="inline-link-macro-rx"></block> 원활한 재해 복구를 위한 세 번째 장애 도메인 또는 보조 사이트.</block>
@@ -2870,15 +2659,12 @@
   <block id="47f8d1598af74532f222c8cf5ac3c2de" category="list-text">대상 Kubernetes 클러스터</block>
   <block id="1959c4014011521d9667a1aa5b38a03a" category="list-text">연결된 ONTAP 클러스터</block>
   <block id="07c6704baadc559b34f30eaff1c8db37" category="list-text">* 사용자 계정 *: ONTAP 스토리지 백엔드를 Astra 제어 센터에 추가할 때 "admin" 역할을 사용하여 사용자 자격 증명을 적용합니다. 이 역할에는 액세스 방법이 있습니다<block ref="80791b3ae7002cb88c246876d9faa8f8" prefix=" " category="inline-code"></block> 및<block ref="045ed0306c61104cb0777ccd31ce648b" prefix=" " category="inline-code"></block> ONTAP 소스 클러스터와 대상 클러스터 모두에서 사용하도록 설정되었습니다. 을 참조하십시오<block ref="8a6bfa44d9bdad330c1959698c083f78" category="inline-link-rx"></block> 를 참조하십시오.</block>
-  <block id="e0859802253334bb1c7a5593cdb2ff37" category="list-text">* Astra Trident/ONTAP 구성 *: Astra Control Center를 사용하려면 소스 및 대상 클러스터 모두에 대한 복제를 지원하는 스토리지 클래스를 하나 이상 구성해야 합니다.</block>
   <block id="aa69311404dd1c9f5ef74d3867c7882b" category="admonition">Astra Control 복제는 단일 스토리지 클래스를 사용하는 애플리케이션을 지원합니다. 네임스페이스에 앱을 추가하는 경우 네임스페이스에서 다른 앱과 동일한 저장소 클래스가 앱에 있는지 확인합니다. 복제된 앱에 PVC를 추가할 때 새로운 PVC의 저장 클래스가 네임스페이스의 다른 PVC와 동일한지 확인하십시오.</block>
   <block id="f7c69ddccabddb0b74276d3c2a3086e0" category="paragraph">복제 관계를 설정하려면 다음을 수행해야 합니다.</block>
-  <block id="ac5dc23be765c7a0db4f0f7b545e0800" category="paragraph">스냅샷 이름은 의 형식을 사용합니다<block ref="8a6fb5afc9ce51e5156f198062225a5e" prefix=" " category="inline-code"></block>. Astra Control은 복제에 사용된 마지막 스냅샷을 보존합니다. 복제를 성공적으로 완료한 후에는 이전의 모든 복제 스냅샷이 삭제됩니다.</block>
   <block id="6b8fa9117a3e1e581d7e26ef346a626f" category="section-title">대상 클러스터에서 복제된 앱을 온라인 상태로 전환(페일오버)</block>
   <block id="320fee9872bb79c12fd15c0bc89db3f8" category="paragraph">Astra Control을 사용하면 복제된 애플리케이션을 대상 클러스터로 페일오버할 수 있습니다. 이 절차는 복제 관계를 중지하고 대상 클러스터에서 앱을 온라인으로 전환합니다. 이 절차를 수행해도 소스 클러스터에서 앱이 중지되지 않습니다.</block>
   <block id="606ef54e2fc1277de1554311511f4233" category="paragraph">페일오버 절차로 인해 다음 작업이 수행됩니다.</block>
   <block id="32a212518c07368c59c90b2829bc865d" category="list-text">소스 앱의 보호 정책은 페일오버 시 소스 앱에 있는 일정에 따라 대상 앱에 복사됩니다.</block>
-  <block id="9b7c38ef5ada7c42b96acea3bcd356e9" category="paragraph">Astra Control을 사용하면 다음 작업 시퀀스를 사용하여 장애 조치 작업 후 "장애 복구"를 수행할 수 있습니다. 이 워크플로우에서 원래 복제 방향을 복구하기 위해 Astra Control은 복제 방향을 바꾸기 전에 애플리케이션 변경 사항을 원래 소스 클러스터로 복제(재동기화)합니다.</block>
   <block id="3a045f0ae84563b460627f43bb272936" category="paragraph">이 프로세스는 대상에 대한 페일오버를 완료한 관계로부터 시작되며 다음 단계를 포함합니다.</block>
   <block id="ea6a68246ab8490d907a3b016951679c" category="list-text">페일백 작업의 경우 페일오버된 앱을 재동기화 작업의 소스로 선택합니다(기록된 모든 데이터 유지 사후 페일오버).</block>
   <block id="469971e92354cd8e5d00df4829e7d912" category="paragraph">클러스터를 관리할 때 Astra Control Center에 자격 증명을 추가할 수 있습니다. 새 클러스터를 추가하여 자격 증명을 추가하려면 을 참조하십시오 <block ref="ad3ca5aac043550f4fed0aaf3c4ef35c" category="inline-link-macro-rx"></block>.</block>
@@ -2890,11 +2676,9 @@
   <block id="65b08146542877326255bf91b45b037b" category="paragraph">Astra Control은 네임스페이스당 단일 스토리지 클래스를 사용하는 앱을 지원합니다. 네임스페이스에 앱을 추가하는 경우 네임스페이스에서 다른 앱과 동일한 저장소 클래스가 앱에 있는지 확인합니다.</block>
   <block id="5dbb3a1550feec5099b5a4d632d2fb0f" category="paragraph">Helm을 사용하여 앱을 배포하는 경우 Astra Control Center에 Helm 버전 3이 필요합니다. Helm 3으로 배포된 애플리케이션 관리 및 복제(또는 Helm 2에서 Helm 3으로 업그레이드)가 완벽하게 지원됩니다. 자세한 내용은 을 참조하십시오 <block ref="a41c664e3d2520e4c4deb907d0286272" category="inline-link-macro-rx"></block>.</block>
   <block id="80c0bd2ef822d1999495fd4100dfa412" category="inline-link-macro">'ONTAP-NAS-이코노미 스토리지' 클래스에서 'ONTAP-NAS' 스토리지 클래스로 볼륨 마이그레이션 지원</block>
-  <block id="d400e3e0853c4ba410cb24b97fcb772f" category="list-text"><block ref="d400e3e0853c4ba410cb24b97fcb772f" category="inline-link-macro-rx"></block></block>
   <block id="fe64ba4bf49c6d43b6885412580ca925" category="paragraph">라이센스 작동 방법에 대한 자세한 내용은 을 참조하십시오 <block ref="33517e0e170e068dfb6f5617810a0372" category="inline-link-macro-rx"></block>.</block>
   <block id="7cb51a30193b941f849185a8a02bede9" category="paragraph">자세한 내용은 을 참조하십시오 <block ref="e946ce9301d58c125e849f19a3f3cea9" category="inline-link-macro-rx"></block>.</block>
   <block id="e021599abc20b7779d5253ab321c85f1" category="paragraph">Google Anthos 클러스터에서 Astra Control Center를 호스팅할 때 Google Anthos에는 MetalLB 로드 밸런서와 Istio 수신 서비스가 기본적으로 포함되어 있으므로 설치 중에 Astra Control Center의 일반적인 수신 기능을 사용할 수 있습니다. 을 참조하십시오 <block ref="cfdb0a3ba609f2fa25b168afc22748d3" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
-  <block id="80ba5d209a6c02eb82d0a6e75e4355ff" category="list-text">사용자 환경에서 POD 보안 정책을 구성했거나 구성하려는 경우 POD 보안 정책 및 해당 정책이 Astra Control Center 설치에 어떤 영향을 미치는지 숙지하십시오. 을 참조하십시오 <block ref="2a481a17dd103cf67632448be5755ab1" category="inline-link-macro-rx"></block>.</block>
   <block id="f96c06e8efd6770cb5f76e8c3aa4238f" category="admonition">Astra Control Center를 세 번째 고장 도메인 또는 보조 사이트에 배포합니다. 앱 복제 및 원활한 재해 복구에 권장됩니다.</block>
   <block id="5e1a1c5fb0d9be2b07674277ca1d53c8" category="cell">다음 수신 유형 중 하나를 사용하십시오.
 
@@ -2920,10 +2704,254 @@ Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. <
   <block id="48b5d328b123f4e05f5a4f65f897189d" category="paragraph">다음 설치 작업을 완료합니다.</block>
   <block id="838fcb8e71dcfbd66a61fc27b2cfb4cc" category="list-text">Astra Control Center를 평가하는 경우 이미 포함된 평가 라이센스가 포함되어 있습니다</block>
   <block id="2c6dff9a92bbcef6a5083cd35891c541" category="paragraph">시작하려면 몇 가지 기본 작업을 완료하십시오.</block>
-  <block id="0c39f9a137a0a9c47a6f520e25815ae4" category="paragraph">Astra Control Center 설정을 마친 후 Astra Control UI 또는 를 사용합니다<block ref="c076c843349c85837d82b7f2e26fe2bf" category="inline-link-rx"></block> 앱 관리 및 보호를 시작하려면</block>
   <block id="a104969737461afdb4fd0f2b1121cbf5" category="list-text"><block ref="6fe79d58f8a8b720433194a3efe0f398" category="inline-link-macro-rx"></block>: 관리할 리소스를 정의합니다.</block>
   <block id="caffc5ba1163dd0a5508fd1eae34a69c" category="list-text"><block ref="442a8ba322bd53d625de068878060461" category="inline-link-macro-rx"></block>사용자, 역할, LDAP, 자격 증명 등</block>
   <block id="30136395f01879792198317c11831ea4" category="inline-link">쿠버네티스</block>
   <block id="501a7b3c879675fb528c68e904b076d1" category="list-text">* 대상 볼륨 확인 *: 다른 스토리지 클래스로 복원하는 경우 스토리지 클래스가 동일한 영구 볼륨 액세스 모드(예: ReadWriteMany)를 사용하는지 확인합니다. 대상 영구 볼륨 액세스 모드가 다르면 복원 작업이 실패합니다. 예를 들어, 소스 영구 볼륨에서 rwx 액세스 모드를 사용하는 경우 Azure Managed Disks, AWS EBS, Google Persistent Disk 또는 와 같이 rwx를 제공할 수 없는 대상 스토리지 클래스를 선택합니다<block ref="73a3350a1b91aeb6e2836fdf5975672c" prefix=" " category="inline-code"></block>, 복구 작업이 실패합니다. 영구 볼륨 액세스 모드에 대한 자세한 내용은 를 참조하십시오<block ref="051768f02ea3f9f1a6b86b9d9b060248" category="inline-link-rx"></block> 문서화:</block>
   <block id="0f707c2e2c303edecbc57b2a451ad8a9" category="list-text">* 대상 볼륨 확인 *: 다른 스토리지 클래스에 클론을 생성하는 경우 스토리지 클래스가 동일한 영구 볼륨 액세스 모드(예: ReadWriteMany)를 사용하는지 확인합니다. 대상 영구 볼륨 액세스 모드가 다르면 클론 작업이 실패합니다. 예를 들어, 소스 영구 볼륨에서 rwx 액세스 모드를 사용하는 경우 Azure Managed Disks, AWS EBS, Google Persistent Disk 또는 와 같이 rwx를 제공할 수 없는 대상 스토리지 클래스를 선택합니다<block ref="73a3350a1b91aeb6e2836fdf5975672c" prefix=" " category="inline-code"></block>, 클론 작업이 실패합니다. 영구 볼륨 액세스 모드에 대한 자세한 내용은 를 참조하십시오<block ref="051768f02ea3f9f1a6b86b9d9b060248" category="inline-link-rx"></block> 문서화:</block>
+  <block id="97405303dc4032eccce1d1ee461827b3" category="admonition">고유한 kubecononfig 파일을 만드는 경우 해당 파일에 * 하나의 * 컨텍스트 요소만 정의해야 합니다. 을 참조하십시오<block ref="54676762f2eb4e7149fe4e9996a20b1c" category="inline-link-rx"></block> kubecononfig 파일을 만드는 방법에 대한 자세한 내용은</block>
+  <block id="a5f10d67b5e6af8ee530236118c159a4" category="paragraph">계정 소유자와 관리자는 Astra Control에 원격 사용자를 추가할 수 있습니다. Astra Control Center는 최대 10,000명의 LDAP 원격 사용자를 지원합니다.</block>
+  <block id="b643d5f161bd1a8f5da275323a29375b" category="admonition">Astra Control Center는 원격 인증이 활성화될 때 구성된 사용자 로그인 속성을 사용하여 원격 사용자를 검색하고 추적합니다. Astra Control Center에 표시하고자 하는 원격 사용자의 경우 이메일 주소("메일") 또는 사용자 주체 이름("userPrincipalName")의 속성이 이 필드에 있어야 합니다. 이 속성은 인증을 위한 Astra Control Center의 사용자 이름과 원격 사용자를 검색하는 데 사용됩니다.</block>
+  <block id="2a5eae2570be838486bf4375752c35b5" category="admonition">시스템에 동일한 이메일 주소("메일" 또는 "사용자 기본 이름" 속성에 기반함)를 가진 로컬 사용자가 이미 있는 경우 원격 사용자를 추가할 수 없습니다. 사용자를 원격 사용자로 추가하려면 먼저 시스템에서 로컬 사용자를 삭제합니다.</block>
+  <block id="947cb356a5a10e31b47d489f608287ca" category="paragraph">한 번에 많은 원격 사용자를 추가하려면 계정 소유자와 관리자가 Astra Control에 원격 그룹을 추가할 수 있습니다. 원격 그룹을 추가하면 해당 그룹의 모든 원격 사용자가 Astra Control에 로그인할 수 있으며 그룹과 동일한 역할을 상속합니다.</block>
+  <block id="2fe6281968007f41d2911691667715df" category="paragraph">Astra Control Center는 최대 5,000개의 LDAP 원격 그룹을 지원합니다.</block>
+  <block id="004af1193dd5ff7016e1273ffe6bf3a4" category="paragraph">원격 그룹 목록에 새 그룹이 나타납니다. 이 그룹의 원격 사용자는 각 원격 사용자가 로그인할 때까지 원격 사용자 목록에 나타나지 않습니다. 이 목록에서 그룹에 대한 세부 정보를 볼 수 있을 뿐 아니라 * Actions * 메뉴에서 그룹을 관리할 수 있습니다.</block>
+  <block id="fac8cbe6907b2a0730ca5487e5afcb31" category="inline-link-macro">Astra Control Center 구축을 위한 최소 요구 사항</block>
+  <block id="1ff012eadcdee149ff04aba4d987f1be" category="paragraph">업그레이드하기 전에 환경이 에 맞는지 확인하십시오 <block ref="2b6a456e8b1f5797382913c1d6c1c2a3" category="inline-link-macro-rx"></block>. 환경에 다음이 있어야 합니다.</block>
+  <block id="0b849d01036e2a8231441c1e64dc8329" category="list-text">지원되는 Astra Trident 버전</block>
+  <block id="9ff1fc03b334d37bc3b6f68a2a0b899b" category="paragraph">실행 중인 Trident 버전 확인:</block>
+  <block id="7d2a1830e5528e47502a6bd6741f09bd" category="list-text">지원되는 Kubernetes 배포</block>
+  <block id="44519df89bc1b9547b949977eea93c5c" category="paragraph">실행 중인 Kubernetes 버전 확인:</block>
+  <block id="d463021c6c04b7a138c41bb62d465c56" category="list-text">충분한 클러스터 리소스</block>
+  <block id="67f51a2fd535051ec640950edee79d35" category="paragraph">사용 가능한 클러스터 리소스 결정:</block>
+  <block id="d953870b02ef6592f4a096cf3069ebfa" category="list-text">기본 스토리지 클래스입니다</block>
+  <block id="8eab9cf7941efbc327c6b9b1ba479a0e" category="paragraph">기본 스토리지 클래스 확인:</block>
+  <block id="4f31541b0e2f8a502d0015c6304b9ac2" category="list-text">사용 가능한 정상 API 서비스</block>
+  <block id="255d80f4eb60a940be4a283a90ad1915" category="list-text">(OpenShift에만 해당) 사용 가능한 정상 클러스터 운영자</block>
+  <block id="117400efd3baa6660e2f6aff085f3275" category="paragraph">모든 클러스터 운영자가 양호한 상태이며 사용 가능한지 확인합니다.</block>
+  <block id="ebc086c904b259a7c91abe3cef099b00" category="inline-xref">최신 운영자 &lt;block ref="4b559e0a1b6f68f62c5edecea8c35c7e" prefix="(" category='inline-code'/&gt; 설치)</block>
+  <block id="45ae96aa3866dc2b8df55b0b2186cba6" category="admonition">이 절차의 일부로 해야 합니다 <block ref="5c1e8e925dad0c2557890c31eea8e73f" category="inline-xref-macro-rx"></block> Astra Control Center를 업그레이드하는 경우 이 업데이트된 연산자를 사용하여 이전 버전의 Astra Control Center로 업그레이드할 수 없습니다.</block>
+  <block id="e43801c729e4865b674295d6a84667b0" category="list-text">(권장되지만 선택 사항) Astra Control Center용 인증서 및 서명 번들을 다운로드합니다 <block ref="7a63467f08b4d3ec454a0b66e2353d54" prefix="(" category="inline-code"></block>)를 클릭하여 번들 서명을 확인합니다.</block>
+  <block id="8914a5d9ad04b7759b5c40a0816adc8b" category="example-title">자세한 내용을 보려면 를 확장합니다</block>
+  <block id="4d71c9c3c2ce527cd5680efb79c98d28" category="list-text">플러그인이 설치되어 있는 경우 kubeck 플러그인 도움말을 반환해야 하며 kubbctl-Astra의 기존 버전을 제거할 수 있습니다.<block ref="53504093e13f5f1ec1d1d91d3e1dd05b" prefix=" " category="inline-code"></block>.</block>
+  <block id="0c0c3ff1c52bb074fd2303d80e98f308" category="list-text">변경<block ref="e7fbb61ffc587682a801796b46db408a" prefix=" " category="inline-code"></block> 의 경우<block ref="4a3ecd51c30dc55cebd7ed9babbb7931" prefix=" " category="inline-code"></block> 이미지를 에서 푸시한 레지스트리 경로로 이미지 <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>.</block>
+  <block id="03aba1d9805de6bcaf8e5630c7d59531" category="list-text">변경<block ref="e7fbb61ffc587682a801796b46db408a" prefix=" " category="inline-code"></block> 의 경우<block ref="4b559e0a1b6f68f62c5edecea8c35c7e" prefix=" " category="inline-code"></block> 이미지를 에서 푸시한 레지스트리 경로로 이미지 <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>.</block>
+  <block id="dcff319722d60caebbe136ed48de575f" category="example-title">샘플 Astra_control_center_operator_deploy.YAML:</block>
+  <block id="c54c996d7f5196915f43477cd50ceb3b" category="paragraph">Kubernetes 클러스터 간에 애플리케이션 및 스토리지를 이동해야 하는 경우 클로닝에 도움이 될 수 있습니다. 예를 들어, CI/CD 파이프라인과 Kubernetes 네임스페이스 전체에서 워크로드를 이동할 수 있습니다. Astra Control Center UI 또는 를 사용할 수 있습니다<block ref="bd25eec94181cb8a1c6322299b11a4e5" category="inline-link-rx"></block> 앱을 클론 복제 및 마이그레이션합니다.</block>
+  <block id="82f08482c57174fbdb1f8f5260f65536" category="list-text">* 특정 버전의 PostgreSQL * 사용: 동일한 클러스터 내의 앱 클론은 Bitnami PostgreSQL 11.5.0 차트와 함께 일관되게 실패합니다. 클론을 성공적으로 생성하려면 이전 또는 이후 버전의 차트를 사용하십시오.</block>
+  <block id="8a0e4937d6213b0b4c46876b6b67e02f" category="list-text"><block ref="8a0e4937d6213b0b4c46876b6b67e02f" category="inline-link-rx"></block></block>
+  <block id="6435f8800b271df26f35807aac834f7d" category="example-title">앱 네임스페이스에 클러스터 범위 리소스를 추가하는 방법에 대한 자세한 내용은 을(를) 참조하십시오.</block>
+  <block id="ea756c5e8523bbc62830afd3e695ded1" category="admonition">Astra Control Center는 기본적으로 관리할 수 있는 애플리케이션으로 표시되지 않지만 다른 Astra Control Center 인스턴스를 사용하여 Astra Control Center 인스턴스를 백업 및 복원할 수 있습니다.</block>
+  <block id="21ac3c6caac2208f11c821f1cac152bc" category="list-text"><block ref="21ac3c6caac2208f11c821f1cac152bc" category="inline-link-rx"></block></block>
+  <block id="607dcd38e95d3d5e23d71235dd548c30" category="admonition">클러스터가 인 경우<block ref="b07286ebbb5bc7aa91cc3eaa8bc19711" prefix=" " category="inline-code"></block> 클러스터 및 네트워크 연결이 양호해 보이지만(Kubernetes API를 사용하여 클러스터에 액세스하려는 외부 시도가 성공한 경우), Astra Control에 제공한 kubeconfig는 더 이상 유효하지 않을 수 있습니다. 클러스터의 인증서 순환 또는 만료 때문일 수 있습니다. 이 문제를 해결하려면 을 사용하여 Astra Control의 클러스터와 연결된 자격 증명을 업데이트하십시오<block ref="00457624a82a2b11b2efd3fe1cffa09b" category="inline-link-rx"></block>.</block>
+  <block id="b479ef5fd7be9ad4a09aa3b2aa2d3788" category="doc">SnapMirror 기술을 사용하여 스토리지 백엔드 간에 앱을 복제합니다</block>
+  <block id="d79b6655a940561714d550a1c8160ab1" category="paragraph">Astra Control을 사용하면 NetApp SnapMirror 기술의 비동기식 복제 기능을 사용하여 낮은 RPO(복구 시점 목표) 및 낮은 RTO(복구 시간 목표)로 애플리케이션에 대한 비즈니스 연속성을 구축할 수 있습니다. 이 기능을 구성하면 애플리케이션에서 한 스토리지 백엔드에서 다른 스토리지 백엔드, 동일한 클러스터 또는 서로 다른 클러스터 간에 데이터 및 애플리케이션 변경 사항을 복제할 수 있습니다.</block>
+  <block id="9b680dd780b9b2f23b7b82214b8ac6cb" category="list-text">사내 사이트 A에서 사내 사이트 A로</block>
+  <block id="feb06739d88af83f802d1d27e9957a4f" category="admonition">다른 앱을 반대 방향으로 동시에 복제할 수 있습니다. 예를 들어, 애플리케이션 A, B, C를 데이터 센터 1에서 데이터 센터 2로 복제하고 애플리케이션 X, Y, Z를 데이터 센터 2에서 데이터 센터 1로 복제할 수 있습니다.</block>
+  <block id="91e72b9550cecc5282265dceea3825e2" category="list-text">* Astra Trident *: Astra Trident 버전 22.10 이상이 ONTAP를 백엔드로 사용하는 소스 및 대상 Kubernetes 클러스터 모두에 있어야 합니다.</block>
+  <block id="8519404a686011afd680e17e79a6ab6f" category="list-text">* 피어링 *:</block>
+  <block id="02b05cdd8f0a8c426f307085cc1004f7" category="list-text">* 클러스터 및 SVM *: ONTAP 스토리지 백엔드를 피어링해야 합니다. 을 참조하십시오<block ref="60333a598df416e49fbceb5a88dce370" category="inline-link-rx"></block> 를 참조하십시오.</block>
+  <block id="7a9bb8c391edea6ea22cd61c24a950c5" category="list-text">* Astra Trident 및 SVM *: 대상 클러스터의 Astra Trident에서 피어링된 원격 SVM을 사용할 수 있어야 합니다.</block>
+  <block id="6ce393c176536916c1d293473b922c14" category="list-text">* Astra Trident/ONTAP 구성 *: Astra Control Center를 사용하려면 소스 및 대상 클러스터 모두에 대한 복제를 지원하는 스토리지 백엔드를 하나 이상 구성해야 합니다. 소스 및 대상 클러스터가 동일한 경우 대상 애플리케이션은 최상의 복원력을 위해 소스 애플리케이션과 다른 스토리지 백엔드를 사용해야 합니다.</block>
+  <block id="45a50040e8d78cff10f199bb2d56942f" category="list-text">Astra Control에서 앱 스냅샷을 얼마나 자주 생성할지 선택(앱의 Kubernetes 리소스 및 각 앱의 볼륨에 대한 볼륨 스냅샷 포함)</block>
+  <block id="55960a396448d8f19fb182dfd2b04d90" category="list-text">스냅샷을 생성할 시간을 설정합니다</block>
+  <block id="cc31a7ffd475f8b3e88019fec903bac1" category="list-text">데이터 보호 * &gt; * 복제 * 탭을 선택합니다.</block>
+  <block id="871803e601b6ac7791029d17495abeed" category="list-text">Configure replication policy * 를 선택합니다. 또는 애플리케이션 보호 상자에서 작업 옵션을 선택하고 * 복제 정책 구성 * 을 선택합니다.</block>
+  <block id="8f02e1fb920220667d6e86aab35f16b5" category="list-text">* 대상 클러스터 *: 대상 클러스터를 입력합니다(소스 클러스터와 같을 수 있음).</block>
+  <block id="698bdd40f3d9edfd463a25e201c6d993" category="list-text">* 대상 스토리지 클래스 *: 대상 ONTAP 클러스터에서 피어링된 SVM을 사용하는 스토리지 클래스를 선택하거나 입력합니다. 모범 사례로서, 대상 스토리지 클래스는 소스 스토리지 클래스와 다른 스토리지 백엔드를 가리켜야 합니다.</block>
+  <block id="cb39892c7f8bca4955cfe04f0d494c7d" category="list-text">* 복제 유형 *:<block ref="288aae25bc408055f50c21c991903a44" prefix=" " category="inline-code"></block> 은 현재 사용 가능한 유일한 복제 유형입니다.</block>
+  <block id="650e40ec9317bb15557c198a669c8a4b" category="list-text">* 복제 빈도 *: Astra Control이 스냅샷을 촬영하여 대상에 복제할 빈도를 설정합니다.</block>
+  <block id="ba8d27589769eb059a3719527b322524" category="list-text">* Offset *: Astra Control에서 스냅샷을 생성할 시간(분)을 설정합니다. 다른 예약된 작업과 일치하지 않도록 오프셋을 사용할 수 있습니다.</block>
+  <block id="771c40559a08560235569fe650b1a061" category="paragraph">Astra Control은 복제에 사용되는 애플리케이션 스냅샷을 생성합니다.</block>
+  <block id="5f7a0e46748af2d99400cad7f7ed24da" category="list-text">응용 프로그램 스냅샷 상태를 보려면 * 응용 프로그램 * &gt; * 스냅샷 * 탭을 선택합니다.</block>
+  <block id="7d72c474d0d36d8cbe676a4aae10df64" category="paragraph">스냅샷 이름은 의 형식을 사용합니다<block ref="8a6fb5afc9ce51e5156f198062225a5e" prefix=" " category="inline-code"></block>. Astra Control은 복제에 사용된 마지막 스냅샷을 보존합니다. 복제를 성공적으로 완료한 후에는 이전의 모든 복제 스냅샷이 삭제됩니다.</block>
+  <block id="a62d7ba117505faa41ca0ffed7038174" category="list-text">애플리케이션 정합성이 보장되는 초기 스냅샷을 생성합니다.</block>
+  <block id="3bb5d3b6921b81e2c1e113936cf97da6" category="list-text">초기 스냅샷을 사용하여 영구 볼륨의 SnapMirror 관계를 설정합니다.</block>
+  <block id="53c672b213d4c6dbf62a1f590dc32cef" category="paragraph">데이터 보호 * 페이지에는 복제 관계 상태 및 상태가 표시됩니다.
+&lt;Health status&gt; | &lt;Relationship life cycle state&gt;</block>
+  <block id="6b984c59ccb04b8a142ec5cad27f131c" category="list-text">Actions 메뉴에서 * Fail Over * 를 선택합니다.</block>
+  <block id="e90a1145d3b2b8d63356e3b9b8955718" category="list-text">대상 앱은 최근 복제된 스냅샷을 기반으로 시작됩니다.</block>
+  <block id="28166883607a532f2191ff293be323d4" category="list-text">작업 메뉴에서 * 재동기화 * 를 선택합니다.</block>
+  <block id="9453ebf0da88e874304bfabc44e9cd1f" category="paragraph">원래 소스 스토리지 백엔드로 계속 복제하면서 애플리케이션을 대상 스토리지 백엔드로 이동하기 위한 계획된 작업입니다. Astra Control은 대상 앱으로 페일오버하기 전에 소스 애플리케이션을 중지하고 데이터를 대상에 복제합니다.</block>
+  <block id="4625c1e6ccf2351ad9a08dcee33270c8" category="paragraph">이 경우 소스와 대상을 스와핑합니다.</block>
+  <block id="e6a209f849cd05386827604f5d713d85" category="list-text">Actions 메뉴에서 * Reverse replication * 을 선택합니다.</block>
+  <block id="a23cf6af7e31f808d57bb74c992226c6" category="list-text">원본 소스 앱의 Kubernetes 리소스에 대한 스냅샷이 생성됩니다.</block>
+  <block id="0053c8b169583fc7b29e0dfbe82d59fd" category="list-text">포드가 종료된 후 앱 볼륨의 스냅샷이 촬영되고 복제됩니다.</block>
+  <block id="b6c3873d17157e3e4a0b1ef02b3cef69" category="list-text">앱의 Kubernetes 리소스는 원래 소스 애플리케이션이 종료된 후 복제된 볼륨 데이터를 사용하여 사전 종료 스냅샷에서 복구됩니다.</block>
+  <block id="fd78cda43bfbcea96d4edc39708ad3f4" category="paragraph">Astra Control을 사용하면 다음 작업 시퀀스를 사용하여 장애 조치 작업 후 "장애 복구"를 수행할 수 있습니다. 이 워크플로우에서 원래 복제 방향을 복구하기 위해 Astra Control은 복제 방향을 바꾸기 전에 애플리케이션 변경 사항을 원래 소스 애플리케이션으로 복제(재동기화)합니다.</block>
+  <block id="e7459b133f2c8fc6c57e8609a51d1a99" category="list-text">애플리케이션 보호 상자 또는 관계 다이어그램에서 * 복제 관계 삭제 * 를 선택합니다.</block>
+  <block id="4510e77e12193dade9dc3dbcd9da1403" category="list-text">* 정상 *: 관계가 설정되었거나 설정되었으며 최근 스냅샷이 성공적으로 전송되었습니다.</block>
+  <block id="fc97fc67e19d5ac75497028c05d87f2d" category="list-text">관계가 설정되지만(따라서 성공한 스냅샷이 복제되고 페일오버가 가능함) 가장 최근의 스냅샷이 실패했거나 복제하지 못했습니다.</block>
+  <block id="53945f479ad9c2c4650755355a3abf3e" category="list-text">* 설정됨 *: 복제 관계가 있습니다. Astra Control은 주기적으로 PVC가 사용 가능한지 확인하고, 복제 관계를 확인하고, 정기적으로 앱 스냅샷을 생성하고, 앱에서 새로운 PVC 소스를 식별합니다. 이 경우 Astra Control은 복제에 포함할 리소스를 생성합니다.</block>
+  <block id="b657cc6d7498839e4835e7eeec57e963" category="list-text">* 페일오버 *: Astra Control은 SnapMirror 관계를 중단시키고 마지막으로 성공적으로 복제된 앱 스냅샷에서 앱의 Kubernetes 리소스를 복원합니다.</block>
+  <block id="b40fd07670f5bb6c7614223821c41490" category="list-text">* 페일오버됨 *: Astra Control은 소스 클러스터에서 복제를 중지하고, 대상에서 최근(성공한) 복제 앱 스냅샷을 사용하여 Kubernetes 리소스를 복원합니다.</block>
+  <block id="d59db7846bd10b6d60d21543df9faa9e" category="paragraph-title">필요한 것</block>
+  <block id="0952ad82f36d650828c9197bb777ee05" category="list-text">장애 조치 후</block>
+  <block id="8da4ba39631273a0d6b8ebf64459ff76" category="paragraph">실행 후크를 응용 프로그램에 추가하거나 편집할 때 실행 후크에 필터를 추가하여 후크가 일치시킬 컨테이너를 관리할 수 있습니다. 필터는 모든 컨테이너에서 동일한 컨테이너 이미지를 사용하는 응용 프로그램에 유용하지만 각 이미지를 다른 용도(예: Elasticsearch)로 사용할 수 있습니다. 필터를 사용하면 실행 후크가 실행되는 시나리오를 만들 수 있습니다. 단, 모든 동일한 컨테이너를 실행하는 것은 아닙니다. 단일 실행 후크에 대해 여러 개의 필터를 만들면 논리적 필터 및 연산자와 결합됩니다. 실행 후크당 최대 10개의 활성 필터를 사용할 수 있습니다.</block>
+  <block id="1e189bdc0d4b77f239e6bd3badf5c416" category="paragraph">실행 후크에 추가하는 각 필터는 클러스터의 컨테이너와 일치시키기 위해 정규식을 사용합니다. 후크가 컨테이너와 일치하면 후크는 해당 컨테이너에서 연결된 스크립트를 실행합니다. 필터에 대한 정규식은 정규식 2(RE2) 구문을 사용합니다. 이 구문은 일치 목록에서 컨테이너를 제외하는 필터를 만드는 것을 지원하지 않습니다. Astra Control이 실행 후크 필터의 정규식에 대해 지원하는 구문에 대한 자세한 내용은 을 참조하십시오<block ref="d4d0dd655d04b2dc5b031206e1febd50" category="inline-link-rx"></block>.</block>
+  <block id="21ad9ddf80d9bf631c562dab081081c7" category="paragraph">실행 후크는 실행 중인 응용 프로그램의 기능을 줄이거나 완전히 비활성화하기 때문에 사용자 지정 실행 후크가 실행되는 시간을 최소화해야 합니다.
+연결된 실행 후크와 함께 백업 또는 스냅샷 작업을 시작한 다음 취소하면 백업 또는 스냅샷 작업이 이미 시작된 경우에도 후크를 실행할 수 있습니다. 즉, 백업 후 실행 후크에 사용되는 논리는 백업이 완료된 것으로 가정할 수 없습니다.</block>
+  <block id="b8052b5c9a3a8b710f1a07655f917766" category="list-text">임시 데이터 보호 작업의 경우 모든 후크 이벤트가 생성되고 * Activity * 페이지 이벤트 로그에 저장됩니다. 그러나 예약된 데이터 보호 작업의 경우 후크 장애 이벤트만 이벤트 로그에 기록됩니다(예약된 데이터 보호 작업 자체에서 생성되는 이벤트는 계속 기록됨).</block>
+  <block id="e91c767b5e58f00816a259ed3a83f9a5" category="list-text">Astra Control Center가 복제된 소스 앱을 대상 앱으로 페일오버하면 페일오버가 완료된 후 소스 앱에 대해 활성화된 장애 조치 후 실행 후크가 대상 앱에 대해 실행됩니다.</block>
+  <block id="8415a8fb500522e8089285cd84108f04" category="admonition">Astra Control Center 23.04와 함께 복원 후 후크를 실행하고 Astra Control Center를 23.07로 업그레이드한 경우 페일오버 복제 후 복원 후 실행 후크가 더 이상 실행되지 않습니다. 앱을 위한 새로운 장애 조치 후 실행 후크를 만들어야 합니다. 또는 "사후 복원"에서 "사후 페일오버"로 페일오버하기 위한 기존 복원 후 후크의 작업 유형을 변경할 수 있습니다.</block>
+  <block id="1b28e1558aa0cc9b7026342cb1f433a4" category="paragraph">같은 유형의 실행 후크를 여러 개 생성하는 경우(예: 사전 스냅샷) 해당 후크의 실행 순서는 보장되지 않습니다. 그러나 다른 유형의 후크를 실행하는 순서는 보장됩니다. 예를 들어, 서로 다른 모든 유형의 후크가 있는 구성의 실행 순서는 다음과 같습니다.</block>
+  <block id="fce53c0c4e6fff9cceca8c8621386843" category="cell">페일오버 후크가 실행됩니다</block>
+  <block id="c20ad4d76fe97759aa27a0c99bff6710" category="cell">12</block>
+  <block id="7388404ef116c3ff812bfd290b094d9e" category="cell">페일오버</block>
+  <block id="1194121e1b4f2253d034078d14c542c7" category="cell">복제에 의해 생성되었습니다</block>
+  <block id="c51ce410c124a10e0db5e4b97fc2af39" category="cell">13</block>
+  <block id="ce8cb34714cd21e0ff4b153046d1364c" category="paragraph">각 실행 후크는 스크립트를 사용하여 작업을 수행해야 합니다. 실행 후크가 참조할 수 있는 스크립트를 하나 이상 추가할 수 있습니다. 많은 실행 후크가 동일한 스크립트를 참조할 수 있으므로 하나의 스크립트만 변경하여 여러 실행 후크를 업데이트할 수 있습니다.</block>
+  <block id="a742ac44136e12f6363c7850f26d00dc" category="paragraph">앱에 대한 사용자 정의 실행 후크를 생성하여 Astra Control에 추가할 수 있습니다. 을 참조하십시오 <block ref="17e166b6ef6242446312ff693caa559b" category="inline-xref-macro-rx"></block> 후크 예 실행 후크를 만들려면 소유자, 관리자 또는 구성원 권한이 있어야 합니다.</block>
+  <block id="b763c88b73224bfdf80d4ffefcb390e3" category="paragraph">Astra Control Center 설치 사용자는 Astra Control UI를 사용하여 추가, 제거 및 편집할 수 있습니다. Astra Control UI 또는 를 사용할 수 있습니다<block ref="bd25eec94181cb8a1c6322299b11a4e5" category="inline-link-rx"></block> 를 눌러 사용자를 관리합니다.</block>
+  <block id="7f56a455fbc6cabf29012a0503b5fc0f" category="paragraph">네임스페이스 제약 조건을 추가하고 이러한 제약 조건에 대한 사용자 역할을 제한하여 역할을 관리할 수 있습니다. 이렇게 하면 조직 내의 리소스에 대한 액세스를 제어할 수 있습니다. Astra Control UI 또는 를 사용할 수 있습니다<block ref="bd25eec94181cb8a1c6322299b11a4e5" category="inline-link-rx"></block> 역할을 관리합니다.</block>
+  <block id="e6146a84040e1f32adf84355bb21f013" category="paragraph">자동화된 보호 정책을 사용하거나 필요에 따라 스냅샷 및 백업을 수행하여 모든 애플리케이션을 보호합니다. Astra Control Center UI 또는 를 사용할 수 있습니다<block ref="db98316ea9f523471a646b0e059edb29" category="inline-link-rx"></block> 앱을 보호합니다.</block>
+  <block id="234e926f5099021a3d0d00f247f62537" category="list-text">사용자 일치 * 섹션에서 다음을 수행합니다.</block>
+  <block id="208e8a6d50fac0257f854c156272ec46" category="list-text">LDAP 서버에서 사용자 정보를 검색할 때 사용할 기본 DN과 적절한 사용자 검색 필터를 입력합니다.</block>
+  <block id="8f1321335aed427de271403361f36859" category="list-text">(선택 사항) 디렉터리에서 사용자 로그인 속성을 사용하는 경우<block ref="06dea8cbd1462370a1c034720f3f0303" prefix=" " category="inline-code"></block> 대신<block ref="b83a886a5c437ccd9ac15473fd6f1788" prefix=" " category="inline-code"></block>를 입력합니다<block ref="06dea8cbd1462370a1c034720f3f0303" prefix=" " category="inline-code"></block> 사용자 로그인 속성 * 필드의 올바른 속성</block>
+  <block id="ab7e0c0484d64317ec1222ede458def1" category="admonition">LDAP 사용자인 경우 연결을 끊으면 세션이 즉시 종료됩니다 LDAP 서버에서 연결을 끊으면 해당 LDAP 서버에 대한 모든 구성 설정이 Astra Control에서 제거되고 해당 LDAP 서버에서 추가된 모든 원격 사용자 및 그룹이 제거됩니다.</block>
+  <block id="2ffc6b53f15aceecce36f022f67d25ee" category="paragraph">Astra Control은 스냅샷 또는 백업에서 애플리케이션을 복원할 수 있습니다. 애플리케이션을 동일한 클러스터로 복구할 경우 기존 스냅샷에서 복구하는 속도가 빨라집니다. Astra Control UI 또는 를 사용할 수 있습니다<block ref="bd25eec94181cb8a1c6322299b11a4e5" category="inline-link-rx"></block> 앱을 복원합니다.</block>
+  <block id="b247342e40e53d8f748cdd29a5695bd1" category="example-title">포함 및 제외 시나리오에 대한 자세한 내용은 를 확장합니다</block>
+  <block id="3355b77143abcc47ad763361c0a24b74" category="paragraph">평가판 라이센스를 전체 라이센스로 변환하거나 기존 평가판 또는 전체 라이센스를 새 라이센스로 업데이트할 수 있습니다. 전체 라이센스가 없는 경우 NetApp 세일즈 담당자와 협력하여 전체 라이센스 및 일련 번호를 받으십시오. Astra Control Center UI 또는 를 사용할 수 있습니다<block ref="bd25eec94181cb8a1c6322299b11a4e5" category="inline-link-rx"></block> 기존 라이센스를 업데이트합니다.</block>
+  <block id="e2345475f657a83bdb89f0d758173706" category="inline-link">Astra Control Center 23.04 문서</block>
+  <block id="331507753b11b0196d31031604e3a720" category="list-text"><block ref="331507753b11b0196d31031604e3a720" category="inline-link-rx"></block></block>
+  <block id="69edf7ecd607b9668e097c292ac91ca1" category="inline-link-macro">Astra Control Center 23.07.0에 대한 고지 사항</block>
+  <block id="abc4148febb1661b41a3e519a99998b1" category="list-text"><block ref="abc4148febb1661b41a3e519a99998b1" category="inline-link-macro-rx"></block></block>
+  <block id="9fb980f4590b677cdb520d20933d84f4" category="paragraph">Astra Control Center를 사용하면 Astra가 설치된 네임스페이스(NetApp-acc 또는 사용자 지정 네임스페이스)와 백업을 위해 생성된 네임스페이스에 다음 레이블을 추가하여 POD 보안 입원을 적용할 수 있습니다.</block>
+  <block id="3e2c006717cc8b00761751de7e11d362" category="summary">Astra Control Center는 다양한 스토리지 백엔드를 지원합니다.  또한, 스토리지 클래스와 영구 볼륨 크기가 성능 목표를 달성하는 데 어떤 도움이 되는지 이해해야 합니다.</block>
+  <block id="8cbd2767e7cb5131483f14b9f5693a7c" category="paragraph">Astra Control Center는 스토리지 백엔드의 NetApp ONTAP 및 Longhorn을 지원합니다.</block>
+  <block id="0e1a55abe469167871f67cf77d4a08a7" category="list-text">* ONTAP 스토리지에서 지원하는 Astra Trident 스토리지 클래스 *: ONTAP 백엔드를 사용하는 경우, Astra Control Center는 다양한 모니터링 정보를 보고하기 위해 ONTAP 백엔드를 가져올 수 있는 기능을 제공합니다.</block>
+  <block id="224dffd4d8497cf1710946879877f58c" category="list-text">Longhorn * 에서 지원하는 * CSI 기반 스토리지 클래스: Longhorn 컨테이너 스토리지 인터페이스(CSI) 드라이버와 함께 Longhorn을 사용할 수 있습니다.</block>
+  <block id="fdf768a2f995a09c462825c1fef2a4e7" category="section-title">스토리지 백엔드 간 복제입니다</block>
+  <block id="74b6a1b18d76af6b115367b39d35846e" category="paragraph">동일한 ONTAP 클러스터 또는 다른 ONTAP 클러스터에서 두 ONTAP SVM 간에 복제할 수 있습니다.</block>
+  <block id="5230bf8e4bccc944e40374a2580fd456" category="paragraph">Astra Control은 앱 스냅샷 복제본을 대상 클러스터에 비동기식으로 복제합니다. 복제 프로세스에는 SnapMirror에 의해 복제된 영구 볼륨의 데이터와 Astra Control에 의해 보호되는 애플리케이션 메타데이터가 포함됩니다.</block>
+  <block id="565b8f9d52d90a524a6cda202d02c727" category="list-text">* 앱 복제 *: Astra Control을 사용하려면 NetApp SnapMirror를 사용하도록 구성된 각각의 ONTAP 스토리지 백엔드를 통해 소스 및 대상 Kubernetes 클러스터(동일한 클러스터)를 사용하고 관리해야 합니다. Astra Control은 정책 기반 애플리케이션 스냅샷을 생성하여 대상 스토리지 백엔드에 복제합니다. NetApp SnapMirror 기술은 영구 볼륨 데이터를 복제하는 데 사용됩니다. Astra Control은 페일오버하기 위해 대상 Kubernetes 클러스터의 앱 객체를 대상 ONTAP 클러스터의 복제된 볼륨으로 재생성하여 복제된 앱을 온라인으로 전환할 수 있습니다. 대상 ONTAP 클러스터에 영구 볼륨 데이터가 이미 있으므로 Astra Control은 페일오버에 대한 빠른 복구 시간을 제공할 수 있습니다.</block>
+  <block id="2b0a9271f1e8f6918b63016f021f0d92" category="list-text">* 애플리케이션 백업 및 복원 *: 애플리케이션을 백업할 때 Astra Control은 애플리케이션 데이터의 스냅샷을 생성하여 객체 스토리지 버킷에 저장합니다. 복원이 필요한 경우 버킷 내의 데이터를 ONTAP 클러스터의 영구 볼륨에 복사해야 합니다. 백업/복원 작업에서는 보조 Kubernetes/ONTAP 클러스터를 사용하고 관리할 필요가 없지만, 추가 데이터 복사본을 사용할 경우 복원 시간이 길어질 수 있습니다.</block>
+  <block id="2b751178c5ccb62da62318c7ba67bcb7" category="list-text">Astra Control Center가 포함된 번들을 다운로드합니다 <block ref="f38ca01b4c2fe15aa06076beb2ee98ff" prefix="(" category="inline-code"></block>)를 선택합니다<block ref="ad7a4184e43a3f62f1a8252e7d3ef71f" category="inline-link-rx"></block>.</block>
+  <block id="56a360133c3f49b082fb3e559dc6c359" category="paragraph">Astra Control은 뒤에 '\' 또는 후행 공백이 있는 RDN이 포함된 LDAP 엔티티(사용자 또는 그룹)를 지원하지 않습니다.</block>
+  <block id="3b4c39fc71daebe02ce601e0e52cb002" category="paragraph">Astra Control Activity 페이지에는 최대 100,000개의 이벤트가 표시될 수 있습니다. 기록된 이벤트를 모두 보려면 를 사용하여 이벤트를 검색합니다 <block ref="cc52bf3aaccbc518b140a6ab7d8d53a9" category="inline-link-macro-rx"></block>.</block>
+  <block id="342146f49f3dbf04f3f41cdd047ee611" category="section-title">2023년 7월 26일(23.07.0)</block>
+  <block id="00f23e3f73f2ff6910e3c1c923caed3b" category="inline-link-macro">확장 구성에서 NetApp MetroCluster를 스토리지 백엔드로 사용할 수 있도록 지원합니다</block>
+  <block id="d8ff8e6d69947f9d7ee57077dfe0e3ee" category="list-text"><block ref="d8ff8e6d69947f9d7ee57077dfe0e3ee" category="inline-link-macro-rx"></block></block>
+  <block id="7857e72e296955e1be96bd0c04406cbe" category="inline-link-macro">Longhorn을 스토리지 백엔드로 사용할 수 있도록 지원합니다</block>
+  <block id="57dc315610b3bd1d73fa500d8acdf9d9" category="list-text"><block ref="57dc315610b3bd1d73fa500d8acdf9d9" category="inline-link-macro-rx"></block></block>
+  <block id="b7e435174818ddea6a8ee18872e9f445" category="inline-link-macro">이제 동일한 Kubernetes 클러스터에서 ONTAP 백엔드 간에 애플리케이션을 복제할 수 있습니다</block>
+  <block id="6a194bffb40493b620e345be5cd72629" category="list-text"><block ref="6a194bffb40493b620e345be5cd72629" category="inline-link-macro-rx"></block></block>
+  <block id="6e86bfe24200ef0a964ad98915599cd4" category="inline-link-macro">이제 Astra Control Center는 원격(LDAP) 사용자를 위한 대체 로그인 속성으로 'userPrincipalName'을 지원합니다</block>
+  <block id="b170fa10c26f21d8e8a9b232f84eae2e" category="list-text"><block ref="b170fa10c26f21d8e8a9b232f84eae2e" category="inline-link-macro-rx"></block></block>
+  <block id="b3408aa6295809266f9da13411369ac1" category="inline-link-macro">Astra Control Center를 사용하여 복제 페일오버 후에 새로운 실행 후크 유형 '사후 페일오버'를 실행할 수 있습니다</block>
+  <block id="90093317b5a0ae0882484a19da13ea67" category="list-text"><block ref="90093317b5a0ae0882484a19da13ea67" category="inline-link-macro-rx"></block></block>
+  <block id="515a2651f07e5f19f6a695c98dfe18c6" category="inline-link-macro">워크플로를 복원합니다</block>
+  <block id="4df9bb390abba8cee6bf71fc5b55c53b" category="list-text">이제 클론 워크플로우에서 라이브 클론만 지원합니다(관리되는 애플리케이션의 현재 상태). 스냅샷 또는 백업에서 복제하려면 를 사용합니다 <block ref="6e419dd072223a11d3ef343e3243f1de" category="inline-link-macro-rx"></block>.</block>
+  <block id="5268de5bc0978b6f79a58a5cee875c51" category="list-text"><block ref="5268de5bc0978b6f79a58a5cee875c51" category="inline-link-rx"></block></block>
+  <block id="e45c35037d202565e63525adf1ab29fa" category="list-text"><block ref="e45c35037d202565e63525adf1ab29fa" category="inline-link-rx"></block></block>
+  <block id="2d047c600ef76867b349ed3b61ce56df" category="list-text"><block ref="2d047c600ef76867b349ed3b61ce56df" category="inline-link-rx"></block></block>
+  <block id="4db0880b82051b01d87a3cb0ab16b402" category="list-text"><block ref="4db0880b82051b01d87a3cb0ab16b402" category="inline-link-rx"></block></block>
+  <block id="be8da783df0770baf10fe7e653b1af1e" category="list-text"><block ref="be8da783df0770baf10fe7e653b1af1e" category="inline-link-rx"></block></block>
+  <block id="3fb4d68e31d4f56fe8fdb8f0f0e564c6" category="list-text"><block ref="3fb4d68e31d4f56fe8fdb8f0f0e564c6" category="inline-link-rx"></block></block>
+  <block id="508a2dfd626a354b5f42b8e14462c3bf" category="list-text"><block ref="508a2dfd626a354b5f42b8e14462c3bf" category="inline-link-rx"></block></block>
+  <block id="c7ef79a8595c1563dfb5ef6474b40277" category="list-text"><block ref="c7ef79a8595c1563dfb5ef6474b40277" category="inline-link-rx"></block></block>
+  <block id="d5622d94893427382dbfe4d407fd6039" category="list-text"><block ref="df19e12cb868fc8ca2045fa34cf1fa09" category="inline-xref-macro-rx"></block></block>
+  <block id="5ab4c0fff96cc0ab9983768266ff9614" category="section-title">kubecononfig 파일에 컨텍스트가 두 개 이상 포함되어 있으면 Astra Control Center를 사용하여 클러스터를 관리할 수 없습니다</block>
+  <block id="1b8cdb3dd66550741cc58953092db750" category="list-text">Red Hat OpenShift Container Platform 4.11 ~ 4.13</block>
+  <block id="6c36015beb597cd7d023a8ded7e43be0" category="paragraph">Astra Trident 22.10 이상 설치 및 구성, NetApp ONTAP 버전 9.8 이상 스토리지 백엔드 [[AWS-registry]]</block>
+  <block id="93d10893896571e3ceb25c1c71f7a61f" category="paragraph">NetApp는 Astra Control Center 빌드 이미지를 얻는 데 사용할 수 있는 레지스트리를 제공합니다.<block ref="1fe1838e6f392da43a8140f01f1c7a76" prefix=" " category="inline-code"></block>
+Astra Control Center 설치 과정에서 이 이미지 레지스트리 사용에 대한 지침을 얻으려면 NetApp 지원 센터에 문의하십시오.</block>
+  <block id="c55e2b603929e87df93550760f06c1e6" category="paragraph">NetApp 이미지 레지스트리에 액세스할 수 없으면 AWS ECR(Elastic Container Registry)과 같은 기존 개인 레지스트리가 있어야 Astra Control Center 빌드 이미지를 푸시할 수 있습니다. 이미지를 업로드할 이미지 레지스트리의 URL을 제공해야 합니다.</block>
+  <block id="e1e2690290dc6c22380072d4fa348770" category="paragraph">설치 지침은 를 참조하십시오<block ref="3d0f4aa87432f6a6cf75247bdba3b786" category="inline-link-rx"></block>.</block>
+  <block id="7051d15d1a4892e824737e3057be4fe3" category="inline-xref">NetApp Astra Control Center 이미지 레지스트리입니다</block>
+  <block id="ff52baaff269ba1bc879a0eade845bb2" category="paragraph">그런 다음, AWS를 구성하여 가상 네트워크를 생성하고, EC2 컴퓨팅 인스턴스를 설정하고, AWS S3 버킷을 생성합니다. 에 액세스할 수 없는 경우 <block ref="cdefe965880b0cb6d799fab67582c0f9" category="inline-xref-macro-rx"></block>또한 Astra Control Center 이미지를 호스팅하기 위해 ECR(Elastic Container Registry)을 생성하고 이 레지스트리에 이미지를 푸시해야 합니다.</block>
+  <block id="648f6355963a9a77cf65bbdbadffc079" category="paragraph">AWS 설명서에 따라 다음 단계를 완료하십시오. 을 참조하십시오<block ref="1f8d60271a2ccd1ec7b021b84f8234de" category="inline-link-rx"></block>.</block>
+  <block id="150ecb6c220bd2418c98fc07f9491e86" category="inline-xref">NetApp 이미지 레지스트리</block>
+  <block id="e0f1458d1a5adc5657101ae1b8873c12" category="list-text">(선택 사항) 에 액세스할 수 없는 경우 <block ref="f313bf62bcc1e4d4a5dc543ea8037716" category="inline-xref-macro-rx"></block>다음을 수행합니다.</block>
+  <block id="6b08504cd5426f752bd7eaae83995d90" category="list-text">AWS ECR(Elastic Container Registry)을 생성하여 모든 Astra Control Center 이미지를 호스트합니다.</block>
+  <block id="16c607c45e3322cf6601b7787d1f246f" category="list-text">정의된 레지스트리에 Astra Control Center 이미지를 푸시합니다.</block>
+  <block id="d8b0322bc209bdfbc78d7797f99b579f" category="list-text">OCP를 사용하는 경우, Red Hat OpenShift Container Platform(OCP) 4.11 ~ 4.13</block>
+  <block id="b87c0141c3a89405e24be92492ea8e81" category="paragraph">Astra Trident 22.10 이상 설치 및 구성, NetApp ONTAP 버전 9.8 이상 스토리지 백엔드 [[GCP-registry]]</block>
+  <block id="1ffd69ed661180c59de544976343321a" category="paragraph">NetApp 이미지 레지스트리에 액세스할 수 없는 경우 Astra 컨트롤 센터 빌드 이미지를 푸시할 수 있는 Google 컨테이너 레지스트리와 같은 기존 개인 레지스트리가 있어야 합니다. 이미지를 업로드할 이미지 레지스트리의 URL을 제공해야 합니다.</block>
+  <block id="3d03421efd2f3d3214e202f7d8c4c27c" category="list-text"><block ref="3d03421efd2f3d3214e202f7d8c4c27c" category="inline-link-rx"></block></block>
+  <block id="8c6bad9258e6d810bdf6cf05091902d9" category="paragraph">다음으로, GCP를 구성하여 VPC를 생성하고, 컴퓨팅 인스턴스를 설정하고, Google Cloud Object Storage를 생성합니다. 에 액세스할 수 없는 경우 <block ref="812a14964817fc1b4a0adb5f4727ab7e" category="inline-xref-macro-rx"></block>또한 Astra Control Center 이미지를 호스팅하기 위해 Google Container 레지스트리를 만들고 이 레지스트리에 이미지를 푸시해야 합니다.</block>
+  <block id="fc0fa5ccc620d477af3b9d19a20d07b6" category="list-text">(선택 사항) 에 액세스할 수 없는 경우 <block ref="c6be8ffa8cb64337684e4afccb4f453b" category="inline-xref-macro-rx"></block>다음을 수행합니다.</block>
+  <block id="b387f4f6aa69c93f3afbddbe810f081f" category="list-text">Google Container Registry를 생성하여 Astra Control Center 이미지를 호스트합니다.</block>
+  <block id="9acd22968611ca33d2ba472c7feb326d" category="paragraph">예: Astra Control Center 이미지는 다음 스크립트를 입력하여 이 레지스트리로 푸시할 수 있습니다.</block>
+  <block id="26b17225b626fb9238849fd60eabdf60" category="paragraph">를 누릅니다</block>
+  <block id="ec5f1df76e59a8625d72f7d315edb7ba" category="paragraph">Astra Trident 22.10 이상 설치 및 구성, NetApp ONTAP 버전 9.8 이상이 스토리지 백엔드로 사용됨 [[Azure-registry]]</block>
+  <block id="6eb1d0d2464954e4fefff9c634ff92a2" category="paragraph">NetApp 이미지 레지스트리에 액세스할 수 없는 경우 Astra Control Center 빌드 이미지를 푸시할 수 있는 Azure 컨테이너 레지스트리(ACR)와 같은 기존 개인 레지스트리가 있어야 합니다. 이미지를 업로드할 이미지 레지스트리의 URL을 제공해야 합니다.</block>
+  <block id="2da3911683fd04e8a1a6e54efd92d4ed" category="list-text"><block ref="95d9d6081bcfe327760924f1dcd7ff53" category="inline-link-rx"></block>.</block>
+  <block id="570a8787b56fe4c9a336fbb3f5dbcd95" category="list-text"><block ref="55f1866f560d082ddeff4b476f9d4ba2" category="inline-link-rx"></block>.</block>
+  <block id="e699259ee2c79612898503c4015bd01e" category="paragraph">그런 다음 가상 네트워크를 만들고, 컴퓨팅 인스턴스를 설정하고, Azure Blob 컨테이너를 만들도록 Azure를 구성합니다. 에 액세스할 수 없는 경우 <block ref="e844190bac7bcc3a934c56abafa0642a" category="inline-xref-macro-rx"></block>또한 Astra Control Center 이미지를 호스팅하기 위해 Azure 컨테이너 레지스트리(ACR)를 생성하고 이 레지스트리에 이미지를 푸시해야 합니다.</block>
+  <block id="36a16beee332f94cea6bb7eff55ace75" category="paragraph">Azure 설명서에 따라 다음 단계를 완료합니다. 을 참조하십시오<block ref="fe0cfc4fad8042f26a42a204acd34ba7" category="inline-link-rx"></block>.</block>
+  <block id="d8b7f0b83d2ecbeb4318ed6e7ac355ed" category="list-text">(선택 사항) 에 액세스할 수 없는 경우 <block ref="e571779084ff67576c4d71a283bf1e39" category="inline-xref-macro-rx"></block>다음을 수행합니다.</block>
+  <block id="321472bfd5e40480cbbf9a109ad73a10" category="list-text">Azure 컨테이너 레지스트리(ACR)를 생성하여 Astra Control Center 이미지를 호스팅합니다.</block>
+  <block id="24c356496f4f777434b1554b8c1ce87e" category="list-text">모든 Astra Control Center 이미지에 대해 Docker 푸시/풀용 ACR 액세스를 설정합니다.</block>
+  <block id="80647e7e0bb86f8566d4cda7efd6ba2b" category="list-text">다음 스크립트를 사용하여 Astra Control Center 이미지를 이 레지스트리에 푸시합니다.</block>
+  <block id="e9e74ff4b7d306a6d494267203d879d8" category="admonition">이 연산자를 사용하여 현재 버전의 Astra Control Center에만 업그레이드할 수 있습니다.</block>
+  <block id="6f9a41c50e286a2a3eb1249e34e3b034" category="list-text">Astra Control Center 버전을 입력합니다(예: 23.07.0-24).</block>
+  <block id="ce75759d9f826b61ea1a10ccd4fec6c4" category="paragraph">Astra Control Center 설정을 마친 후 Astra Control UI 또는 를 사용합니다<block ref="bd25eec94181cb8a1c6322299b11a4e5" category="inline-link-rx"></block> 앱 관리 및 보호를 시작하려면</block>
+  <block id="ce0f35f37592c103c45f7f61252c9305" category="paragraph">Astra Control UI 또는 를 사용하여 새 라이센스를 추가할 수 있습니다<block ref="bd25eec94181cb8a1c6322299b11a4e5" category="inline-link-rx"></block>.</block>
+  <block id="1fc721e2d5dd058eff74433a513547f9" category="inline-link-macro">설치하는 동안 를 구성했습니다</block>
+  <block id="d2ddecd58bb50476319e9fa61b67c909" category="inline-link">기본 클러스터 kubecononfig</block>
+  <block id="25b4e64c7fe0fced22a9b812359ff576" category="list-text">* Kubecon무화과 액세스 가능 *: 에 액세스할 수 있습니다<block ref="c295fec0e97020ea7a7cd626637d3ab2" category="inline-link-rx"></block> 그것입니다 <block ref="c0022bdb7a365cb67080067c3dfa41a8" category="inline-link-macro-rx"></block>.</block>
+  <block id="733feb1c8436685ec2878cb432a20e1e" category="section-title">클러스터 역할 kubecononfig를 생성합니다</block>
+  <block id="684808f104afbc03022daab83496c97f" category="inline-link-macro">설치 프로세스</block>
+  <block id="76f63db50952ea13ed432d8c96b604ab" category="paragraph">Astra Control Center에 대한 제한된 사용 권한이나 확장된 사용 권한 관리자 역할을 만들 수도 있습니다. 이미 의 일부로 kubecononfig를 구성했으므로 Astra Control Center 설정에 필요한 절차는 아닙니다 <block ref="7417b620679bec1cb730e0c873963b2f" category="inline-link-macro-rx"></block>.</block>
+  <block id="68745652f0af53baa161bea4f62fb73c" category="paragraph">다음 시나리오 중 하나가 사용자 환경에 적용되는 경우 이 절차를 통해 별도의 kubecononfig를 생성할 수 있습니다.</block>
+  <block id="78c177d59986391da5ddcec775dfc373" category="list-text">관리하는 클러스터에 대한 Astra Control 권한을 제한하려고 합니다</block>
+  <block id="6d71102c1ab33d36986e4d5b5545a278" category="list-text">여러 개의 컨텍스트를 사용하며 설치 중에 구성된 기본 Astra Control kubecononfig를 사용할 수 없거나, 단일 컨텍스트의 제한된 역할은 사용자 환경에서 작동하지 않습니다</block>
+  <block id="5a20342984ee9d605acb505095dbcd0a" category="list-text">Astra Control에서 클러스터를 관리할 수 있는 충분한 권한을 가진 다음 클러스터 역할 중 하나를 생성합니다.</block>
+  <block id="0b696bdc9519b9e33f740fc665813fa2" category="list-text">* 제한된 클러스터 역할 *: 이 역할에는 Astra Control에서 클러스터를 관리하는 데 필요한 최소 권한이 포함되어 있습니다.</block>
+  <block id="00b512051a8fb53936e77b3e435be5d9" category="example-title">단계를 위해 확장합니다</block>
+  <block id="d2c5b496305d8a36011fc2b1e55dcde3" category="list-text">을 생성합니다<block ref="d7d354d0f9d0780e168c895c92a32c24" prefix=" " category="inline-code"></block> 호출되는 파일(예:<block ref="b7bb4a27d91c967fbba0bb19f36a3533" prefix=" " category="inline-code"></block>.</block>
+  <block id="27d0c41af3a1135b5aa66dad8883e300" category="list-text">(OpenShift 클러스터에만 해당) 의 끝에 다음을 추가합니다<block ref="b7bb4a27d91c967fbba0bb19f36a3533" prefix=" " category="inline-code"></block> 파일 또는 뒤에 있습니다<block ref="7da59f03b6be2daf1bf5fd19ecc78050" prefix=" " category="inline-code"></block> 섹션:</block>
+  <block id="558249c196c0445933dcab3f8c5ccf78" category="list-text">* 확장된 클러스터 역할 *: 이 역할에는 Astra Control에서 관리할 클러스터에 대한 확장된 권한이 포함됩니다. 여러 컨텍스트를 사용하고 설치 중에 구성된 기본 Astra Control kubecononfig를 사용할 수 없거나 단일 컨텍스트의 제한된 역할을 사용할 수 없는 경우 이 역할을 사용할 수 있습니다.</block>
+  <block id="5e2febea168e23172b29251a6258dec8" category="admonition">다음 사항을 참조하십시오<block ref="d7d354d0f9d0780e168c895c92a32c24" prefix=" " category="inline-code"></block> 일반 Kubernetes의 예는 단계입니다. 사용자 환경에 대한 지침은 Kubernetes 배포 문서를 참조하십시오.</block>
+  <block id="c1865e8db7245bcc1648e67fb250eba4" category="list-text">토큰 암호 생성 및 적용:</block>
+  <block id="11afc91177361b2eafbbec4287518195" category="list-text">라는 토큰 비밀 파일을 만듭니다<block ref="7cdd7450df0359169a360b93d3cb369f" prefix=" " category="inline-code"></block>.</block>
+  <block id="b73c5900cc67ec3996003ea18742f312" category="list-text">토큰 암호 적용:</block>
+  <block id="9c8324622cc9e060ba0702fa13261b48" category="list-text">토큰 암호를 에 추가하여 서비스 계정에 추가합니다<block ref="7de38f3c3d3baa7ca58a366f09577586" prefix=" " category="inline-code"></block> 배열(다음 예제의 마지막 줄):</block>
+  <block id="4dc4c64180b058c5c9c94b6a7886e5f1" category="paragraph">의 각 요소에 대한 인덱스입니다<block ref="7de38f3c3d3baa7ca58a366f09577586" prefix=" " category="inline-code"></block> 어레이는 0으로 시작합니다. 위의 예에서 의 인덱스입니다<block ref="b91e4862bb487ade8bbd4f9eefe0618e" prefix=" " category="inline-code"></block> 는 0이고 의 인덱스입니다<block ref="ce8dd462bb623b9902ba4f0151eb2f1b" prefix=" " category="inline-code"></block> 1입니다. 출력에서 서비스 계정의 인덱스 번호를 기록해 둡니다. 다음 단계에서는 이 인덱스 번호가 필요합니다.</block>
+  <block id="e3a73b166ca3765b14face825006d6f9" category="admonition">직접 만드는 경우<block ref="deabc6332aa53495b56c51d2e3eca54f" prefix=" " category="inline-code"></block> 파일에서 * 하나의 * 컨텍스트 요소만 정의해야 합니다. 을 참조하십시오<block ref="54676762f2eb4e7149fe4e9996a20b1c" category="inline-link-rx"></block> 을 참조하십시오<block ref="deabc6332aa53495b56c51d2e3eca54f" prefix=" " category="inline-code"></block> 파일. 을 사용하여 제한된 클러스터 역할에 대해 kubecon무화과를 생성한 경우 <block ref="8e73c9790580afcd36894b67e9ff4afc" category="inline-xref-macro-rx"></block>이 단계에서는 과베토화과를 업로드하거나 붙여 넣으십시오.</block>
+  <block id="c01c48898d69beb2d9194ebee0924a07" category="example-title">YAML의 샘플을 확장합니다</block>
+  <block id="a1a51e4a654bd9d96bbacb3fd0eab06a" category="paragraph">Astra Control UI 또는 를 사용하여 버킷을 추가할 수 있습니다<block ref="bd25eec94181cb8a1c6322299b11a4e5" category="inline-link-rx"></block>. 애플리케이션과 영구 스토리지를 백업하려는 경우나 클러스터 간에 애플리케이션을 클론 복제하려는 경우에는 오브젝트 저장소 버킷 공급자를 추가하는 것이 중요합니다. Astra Control은 이러한 백업 또는 클론을 정의한 오브젝트 저장소 버킷에 저장합니다.</block>
+  <block id="96e0534a032f957fed03525ccf5af5e8" category="paragraph">CRD:</block>
+  <block id="d471227530b356aec7c6fbcaee9e9319" category="list-text">TLS 편집 다음 명령 및 예제를 사용하여 새 인증서 암호 이름을 가리키도록 CRD를 저장합니다. 대괄호 &lt;&gt;의 개체 틀 값을 적절한 정보로 바꿉니다</block>
+  <block id="61790943e1aa3906439ccf28814ccf38" category="cell">AKS 1.24.x 및 1.25.x가 포함된 Azure Stack HCI 21H2 및 22H2</block>
+  <block id="d43ee07f53565900eba1d4111c5c234f" category="cell">1.14 ~ 1.16(참조 <block ref="ca85a59b7f183a96161fa125579f74e9" category="inline-xref-macro-rx"></block>)</block>
+  <block id="803aebd43d344b9cd6a5e553841a9f33" category="cell">1.25 ~ 1.27(Kubernetes 1.25 이상의 경우 Astra Trident 22.10 이상 필요)</block>
+  <block id="cfa4d81042850f7be0441ca191fcc976" category="cell">RKE 1.3 Rancher Manager 2.6
+RKE 1.4 및 Rancher Manager 2.7
+RKE 2 (v1.24.x), Rancher 2.6 포함
+RKE 2 (v1.25.x) 및 Rancher 2.7</block>
+  <block id="7a1e78fd1adb53e6f4397fb295df4f23" category="cell">4.11 ~ 4.13</block>
+  <block id="9f30783eb6103b5188f31bdcdd5838b9" category="list-text">* Astra Control Center *: Astra Trident 22.10 이상 설치 및 구성된 최소 버전.</block>
+  <block id="a6c1c7556c3eb46fdc1821b408c7dc73" category="list-text">SnapMirror 복제 *: SnapMirror 기반 애플리케이션 복제를 위해 설치된 Astra Trident 22.10 이상</block>
+  <block id="d7946d05be60978f2368ce8e5ce14e28" category="list-text">Longhorn 1.5.0 이상</block>
+  <block id="37cc34ea0413475a49903662efbf2810" category="inline-link">롱혼 설명서</block>
+  <block id="44d4c1083bf8b94adeda91dc8c74c6a4" category="list-text">VolumeSnapshotClass 객체를 수동으로 생성해야 합니다. 을 참조하십시오<block ref="51655f668612f34d87bb8550343c1042" category="inline-link-rx"></block> 를 참조하십시오.</block>
+  <block id="164fe74cfbca9ef543331e42b891cf2c" category="list-text">NetApp MetroCluster</block>
+  <block id="d8259781613ae1cce997d817ca71c571" category="list-text">관리 Kubernetes 클러스터는 확장 구성에 있어야 합니다.</block>
+  <block id="edabed24c0cfe7fc553196dc1b952f5f" category="paragraph">NetApp MetroCluster를 스토리지 백엔드로 사용할 경우 사용하는 Astra Trident 드라이버에서 SVM 관리 LIF를 백엔드 옵션으로 지정해야 합니다.</block>
+  <block id="a3956a4bb02bbbe625d7c0665f7980d1" category="paragraph">MetroCluster LIF를 구성하려면 Astra Trident 문서를 참조하여 각 드라이버에 대한 자세한 정보를 확인하십시오.</block>
+  <block id="62a0282d39568be094470486eaf70c4f" category="inline-link">산</block>
+  <block id="cd786c4b13b844b729ea4f82b35fb73e" category="list-text"><block ref="cd786c4b13b844b729ea4f82b35fb73e" category="inline-link-rx"></block></block>
+  <block id="c07ee5debf5f3a3fef16c1ee5e8e4942" category="inline-link">NAS</block>
+  <block id="a5c314c9c3a96fcd331ae9d454b5c305" category="list-text"><block ref="a5c314c9c3a96fcd331ae9d454b5c305" category="inline-link-rx"></block></block>
+  <block id="a0a52206040050c3a34065fd49730c39" category="inline-link">FSX</block>
+  <block id="2ba7db7ca1a2e1b174e10db2105a534d" category="list-text"><block ref="2ba7db7ca1a2e1b174e10db2105a534d" category="inline-link-rx"></block></block>
+  <block id="8cf3b51c0706caf62937352ed2233eb9" category="example-title">다른 설치 절차를 보려면 를 확장합니다</block>
+  <block id="da34d7b3ad82100be38c4bc4758b9a28" category="inline-link-macro">POD 보안 제한</block>
+  <block id="4e054390471dfb4ee3f141d1a5b6a77e" category="list-text">사용자 환경에서 POD 보안 정책을 구성했거나 구성하려는 경우 POD 보안 정책 및 해당 정책이 Astra Control Center 설치에 어떤 영향을 미치는지 숙지하십시오. 을 참조하십시오 <block ref="d77e6e5f0b1b5e8f15429de2d058f94b" category="inline-link-macro-rx"></block>.</block>
+  <block id="91c27887bf935546865c646ae339197c" category="list-text">사용 가능한 NetApp Astra kubeck 플러그인 바이너리를 나열합니다.</block>
+  <block id="0e4c628a5a8957cfc5bfe05ab3d4cade" category="list-text">운영 체제 및 CPU 아키텍처에 필요한 파일을 현재 경로로 이동하고 이름을 로 변경합니다<block ref="90432a9da14d46e4d20c4b841576b1ee" prefix=" " category="inline-code"></block>:</block>
+  <block id="509e9a9c4ddecec71646527fad155699" category="list-text">Astra Control Center 호스트 클러스터의 kubecononfig 내보내기:</block>
+  <block id="4757e8443e86513707f05c0d519574c8" category="admonition">설치를 완료하기 전에 Astra Control Center를 설치할 클러스터를 추천하십시오.</block>
+  <block id="eb4ae875392779932df9d5d2fbb9ccaf" category="admonition">자리 표시자입니다<block ref="facf912114e23f5e3f2192e508b5894a" prefix=" " category="inline-code"></block> 이전에 업로드한 이미지의 위치와 일치해야 합니다(예:<block ref="fb729bc0081792c3577384b3c4b3710a" prefix=" " category="inline-code"></block>)를 클릭합니다.</block>
+  <block id="6a81830068d10bff560d62bc97f3c053" category="list-text">변경<block ref="e7fbb61ffc587682a801796b46db408a" prefix=" " category="inline-code"></block> 의 경우<block ref="83f93b05da174976bd534cc67ad9f7b4" prefix=" " category="inline-code"></block> 이미지를 에서 푸시한 레지스트리 경로로 이미지 <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>.</block>
+  <block id="87b9501fe070f005832572ffd2aba4ae" category="example-title">샘플 Astra_control_center_operator_deploy.YAML을 확장합니다</block>
+  <block id="a8f13cd419087c3fb4f7d66dde9dadda" category="example-title">샘플 응답을 위해 확장:</block>
+  <block id="98908576b345537859881e0fbe16b44a" category="cell"><block ref="141b2e73605e12a2ae1bb4fb0b4221ca" prefix="" category="inline-code"></block></block>
+  <block id="3297ea664e090716a24f598d90bc398c" category="example-title">샘플 Astra_control_center.YAML을 확장합니다</block>
+  <block id="d3e309a143a3ce8e127ce3e32a113e5d" category="example-title">샘플 응답을 위해 확장합니다</block>
+  <block id="980370488ee5e5166f21d62e451f7039" category="list-text">(선택 사항) 을(를) 확인합니다<block ref="4b559e0a1b6f68f62c5edecea8c35c7e" prefix=" " category="inline-code"></block> 진행 상황을 모니터링하기 위한 로그:</block>
+  <block id="750f2ebc195cf07a175766bcf4ee1c37" category="paragraph">설치 단계는 사용하는 수신 컨트롤러의 유형에 따라 다릅니다. Astra Control Center는 다양한 수신 컨트롤러 유형을 지원합니다. 이러한 설정 절차는 일반적인 수신 컨트롤러 유형의 예를 제공합니다.</block>
+  <block id="c9d16052598dc5cdb9929332cfd140c3" category="sidebar">스토리지 백엔드 간에 앱을 복제합니다</block>
 </blocks>

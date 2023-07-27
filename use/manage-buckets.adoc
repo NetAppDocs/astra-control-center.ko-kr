@@ -151,5 +151,5 @@ NOTE: Astra Control은 먼저 버킷에 백업을 사용하는 스케줄 정책�
 
 == 자세한 내용을 확인하십시오
 
-* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 사용합니다"^]
+* https://docs.netapp.com/us-en/astra-automation["Astra Control API를 사용합니다"^]
 

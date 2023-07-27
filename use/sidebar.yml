@@ -12,7 +12,7 @@ entries:
     url: "/use/protect-apps.html"
   - title: 앱 복원
     url: "/use/restore-apps.html"
-  - title: 원격 시스템에 앱을 복제합니다
+  - title: 스토리지 백엔드 간에 앱을 복제합니다
     url: "/use/replicate_snapmirror.html"
   - title: 애플리케이션 클론 복제 및 마이그레이션
     url: "/use/clone-apps.html"

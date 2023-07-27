@@ -61,7 +61,7 @@ image:astra-architecture-diagram-v5.png["Astra Control 아키텍처 및 해당 �
 * https://docs.netapp.com/us-en/astra/index.html["Astra Control Service 문서"^]
 * https://docs.netapp.com/us-en/astra-control-center/index.html["Astra Control Center 문서"^]
 * https://docs.netapp.com/us-en/trident/index.html["Astra Trident 문서"^]
-* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 사용합니다"^]
+* https://docs.netapp.com/us-en/astra-automation["Astra Control API를 사용합니다"^]
 * https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights 설명서"^]
 * https://docs.netapp.com/us-en/ontap/index.html["ONTAP 설명서"^]
 

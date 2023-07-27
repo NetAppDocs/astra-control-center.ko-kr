@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: concepts/choose-class-and-size.html 
 keywords: service level, storage class, storage classes, pv size, persistent volume size, volume size, bandwidth, performance, persistent, volume, kubernetes, containers 
-summary: Astra Control Center는 ONTAP 스토리지가 지원하는 Trident 스토리지 클래스를 지원합니다. 또한, 스토리지 클래스와 영구 볼륨 크기가 성능 목표를 달성하는 데 어떤 도움이 되는지 이해해야 합니다. 
+summary: Astra Control Center는 다양한 스토리지 백엔드를 지원합니다.  또한, 스토리지 클래스와 영구 볼륨 크기가 성능 목표를 달성하는 데 어떤 도움이 되는지 이해해야 합니다. 
 ---
 = 스토리지 클래스 및 영구 볼륨 크기
 :hardbreaks:
@@ -12,7 +12,7 @@ summary: Astra Control Center는 ONTAP 스토리지가 지원하는 Trident 스�
 
 
 [role="lead"]
-Astra Control Center는 스토리지 백엔드로 ONTAP를 지원합니다.
+Astra Control Center는 스토리지 백엔드의 NetApp ONTAP 및 Longhorn을 지원합니다.
 
 
 
@@ -21,6 +21,7 @@ Astra Control Center는 스토리지 백엔드로 ONTAP를 지원합니다.
 Astra Control Center는 다음을 지원합니다.
 
 * * ONTAP 스토리지에서 지원하는 Astra Trident 스토리지 클래스 *: ONTAP 백엔드를 사용하는 경우, Astra Control Center는 다양한 모니터링 정보를 보고하기 위해 ONTAP 백엔드를 가져올 수 있는 기능을 제공합니다.
+* Longhorn * 에서 지원하는 * CSI 기반 스토리지 클래스: Longhorn 컨테이너 스토리지 인터페이스(CSI) 드라이버와 함께 Longhorn을 사용할 수 있습니다.
 
 
 

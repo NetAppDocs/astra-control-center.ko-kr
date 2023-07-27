@@ -14,7 +14,7 @@ summary: 몇 가지 환경 요구 사항을 설명한 후 Astra Control Center�
 [role="lead"]
 Astra Control Center를 설치하려면 NetApp Support 사이트에서 설치 번들을 다운로드하고 다음 단계를 수행하십시오. 이 절차를 사용하여 인터넷에 연결되었거나 공기가 연결된 환경에 Astra Control Center를 설치할 수 있습니다.
 
-.기타 설치 절차
+.다른 설치 절차를 보려면 를 확장합니다
 [%collapsible]
 ====
 * RedHat OpenShift OperatorHub * 로 설치: 이 옵션을 사용합니다 link:../get-started/acc_operatorhub_install.html["대체 절차"] OperatorHub를 사용하여 OpenShift에 Astra Control Center를 설치합니다.
@@ -26,7 +26,7 @@ Astra Control Center 설치 프로세스 데모는 를 참조하십시오 https:
 
 .시작하기 전에
 * link:requirements.html["설치를 시작하기 전에 Astra Control Center 구축을 위한 환경을 준비합니다"].
-* 사용자 환경에서 POD 보안 정책을 구성했거나 구성하려는 경우 POD 보안 정책 및 해당 정책이 Astra Control Center 설치에 어떤 영향을 미치는지 숙지하십시오. 을 참조하십시오 link:../concepts/understand-pod-security.html["POD 보안 정책 제한 사항 이해"^].
+* 사용자 환경에서 POD 보안 정책을 구성했거나 구성하려는 경우 POD 보안 정책 및 해당 정책이 Astra Control Center 설치에 어떤 영향을 미치는지 숙지하십시오. 을 참조하십시오 link:../concepts/understand-pod-security.html["POD 보안 제한"^].
 * 모든 API 서비스가 정상 상태이며 사용 가능한지 확인합니다.
 +
 [source, console]
@@ -39,19 +39,6 @@ kubectl get apiservices
 
 
 TIP: Astra Control Center를 세 번째 고장 도메인 또는 보조 사이트에 배포합니다. 앱 복제 및 원활한 재해 복구에 권장됩니다.
-
-.이 작업에 대해
-Astra Control Center 설치 프로세스를 통해 다음을 수행할 수 있습니다.
-
-* 에 Astra 구성 요소를 설치합니다 `netapp-acc` (또는 사용자 지정 이름) 네임스페이스입니다.
-* 기본 Astra Control Owner 관리자 계정을 생성합니다.
-* 관리자 이메일 주소와 기본 초기 설정 암호를 설정합니다. 이 사용자에게는 UI에 처음 로그인하는 데 필요한 소유자 역할이 할당됩니다.
-* 모든 Astra Control Center Pod가 실행되고 있는지 확인합니다.
-* Astra Control Center UI를 설치합니다.
-
-
-
-IMPORTANT: Astra Control Center 운영자를 삭제하지 마십시오(예: `kubectl delete -f astra_control_center_operator_deploy.yaml`) 포드가 삭제되지 않도록 Astra Control Center 설치 또는 작동 중에 언제든지.
 
 .단계
 Astra Control Center를 설치하려면 다음 단계를 수행하십시오.
@@ -69,25 +56,29 @@ Astra Control Center를 설치하려면 다음 단계를 수행하십시오.
 
 
 
+IMPORTANT: Astra Control Center 운영자를 삭제하지 마십시오(예: `kubectl delete -f astra_control_center_operator_deploy.yaml`) 포드가 삭제되지 않도록 Astra Control Center 설치 또는 작동 중에 언제든지.
+
+
 
 == Astra Control Center를 다운로드하고 압축을 풉니다
 
-. 로 이동합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Center 다운로드 페이지"^] 를 방문하십시오.
-. Astra Control Center가 포함된 번들을 다운로드합니다 (`astra-control-center-[version].tar.gz`)를 클릭합니다.
+. Astra Control Center가 포함된 번들을 다운로드합니다 (`astra-control-center-[version].tar.gz`)를 선택합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Center 다운로드 페이지"^].
 . (권장되지만 선택 사항) Astra Control Center용 인증서 및 서명 번들을 다운로드합니다 (`astra-control-center-certs-[version].tar.gz`)를 클릭하여 번들 서명을 확인합니다.
 +
+.자세한 내용을 보려면 를 확장합니다
+[%collapsible]
+====
 [source, console]
 ----
 tar -vxzf astra-control-center-certs-[version].tar.gz
 ----
-+
 [source, console]
 ----
 openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature certs/astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
 ----
-+
 출력이 표시됩니다 `Verified OK` 확인 성공 후.
 
+====
 . Astra Control Center 번들에서 이미지를 추출합니다.
 +
 [source, console]
@@ -108,7 +99,7 @@ NetApp은 다양한 CPU 아키텍처 및 운영 체제에 대한 플러그인 �
 이전 설치에서 이미 플러그인을 설치한 경우 link:../use/upgrade-acc.html#remove-the-netapp-astra-kubectl-plugin-and-install-it-again["최신 버전이 있는지 확인하십시오"^] 다음 단계를 수행하기 전에
 
 .단계
-. 사용 가능한 NetApp Astra kubectl 플러그인 바이너리를 나열하고 운영 체제 및 CPU 아키텍처에 필요한 파일 이름을 적어 주십시오.
+. 사용 가능한 NetApp Astra kubeck 플러그인 바이너리를 나열합니다.
 +
 
 NOTE: kubbeck 플러그인 라이브러리는 tar 번들의 일부이며 폴더에 압축이 풀립니다 `kubectl-astra`.
@@ -118,7 +109,7 @@ NOTE: kubbeck 플러그인 라이브러리는 tar 번들의 일부이며 폴더�
 ----
 ls kubectl-astra/
 ----
-. 올바른 바이너리를 현재 경로로 이동하고 이름을 로 변경합니다 `kubectl-astra`:
+. 운영 체제 및 CPU 아키텍처에 필요한 파일을 현재 경로로 이동하고 이름을 로 변경합니다 `kubectl-astra`:
 +
 [source, console]
 ----
@@ -182,7 +173,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.04.2-7
+export PACKAGEVERSION=23.07.0-24
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -201,7 +192,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.04.2-7
+export PACKAGEVERSION=23.07.0-24
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -217,7 +208,7 @@ NOTE: 레지스트리 구성에 따라 스크립트가 만드는 이미지 경�
 +
 [listing]
 ----
-https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.04.2-7/image:version
+https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.07.0-24/image:version
 ----
 
 
@@ -227,7 +218,7 @@ https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.0
 
 == 인증 요구 사항이 있는 레지스트리에 대한 네임스페이스 및 암호를 설정합니다
 
-. Astra Control Center 호스트 클러스터에 대한 KUBECONFIG를 내보냅니다.
+. Astra Control Center 호스트 클러스터의 kubecononfig 내보내기:
 +
 [source, console]
 ----
@@ -235,41 +226,28 @@ export KUBECONFIG=[file path]
 ----
 +
 
-NOTE: 설치를 완료하기 전에 KUBECONFIG가 Astra Control Center를 설치할 클러스터를 가리키고 있는지 확인하십시오. KUBECONFIG는 하나의 컨텍스트만 포함할 수 있습니다.
+IMPORTANT: 설치를 완료하기 전에 Astra Control Center를 설치할 클러스터를 추천하십시오.
 
 . 인증이 필요한 레지스트리를 사용하는 경우 다음을 수행해야 합니다.
 +
+.단계를 위해 확장합니다
+[%collapsible]
+====
 .. 'NetApp-acc-operator' 네임스페이스 생성:
 +
 [source, console]
 ----
 kubectl create ns netapp-acc-operator
 ----
-+
-응답:
-
-+
-[listing]
-----
-namespace/netapp-acc-operator created
-----
 .. NetApp-acc-operator 네임스페이스에 대한 암호를 생성합니다. Docker 정보를 추가하고 다음 명령을 실행합니다.
 +
 
-NOTE: 자리 표시자입니다 `your_registry_path` 이전에 업로드한 이미지의 위치와 일치해야 합니다(예: `[Registry_URL]/netapp/astra/astracc/23.04.2-7`)를 클릭합니다.
+NOTE: 자리 표시자입니다 `your_registry_path` 이전에 업로드한 이미지의 위치와 일치해야 합니다(예: `[Registry_URL]/netapp/astra/astracc/23.07.0-24`)를 클릭합니다.
 
 +
 [source, console]
 ----
 kubectl create secret docker-registry astra-registry-cred -n netapp-acc-operator --docker-server=[your_registry_path] --docker-username=[username] --docker-password=[token]
-----
-+
-샘플 반응:
-
-+
-[listing]
-----
-secret/astra-registry-cred created
 ----
 +
 
@@ -281,30 +259,15 @@ NOTE: 암호를 생성한 후 네임스페이스를 삭제하면 네임스페이
 ----
 kubectl create ns [netapp-acc or custom namespace]
 ----
-+
-샘플 반응:
-
-+
-[listing]
-----
-namespace/netapp-acc created
-----
 .. 에 대한 암호를 만듭니다 `netapp-acc` (또는 사용자 지정 이름) 네임스페이스입니다. Docker 정보를 추가하고 다음 명령을 실행합니다.
 +
 [source, console]
 ----
 kubectl create secret docker-registry astra-registry-cred -n [netapp-acc or custom namespace] --docker-server=[your_registry_path] --docker-username=[username] --docker-password=[token]
 ----
-+
-응답
-
-+
-[listing]
-----
-secret/astra-registry-cred created
-----
 
 
+====
 
 
 
@@ -334,14 +297,14 @@ NOTE: YAML 주석이 붙은 샘플은 다음 단계를 따릅니다.
 ----
 imagePullSecrets: [{name: astra-registry-cred}]
 ----
-.. 변경 `[your_registry_path]` 의 경우 `kube-rbac-proxy` 이미지를 에서 푸시한 레지스트리 경로로 이미지 <<이미지를 로컬 레지스트리에 추가합니다,이전 단계>>.
-.. 변경 `[your_registry_path]` 의 경우 `acc-operator-controller-manager` 이미지를 에서 푸시한 레지스트리 경로로 이미지 <<이미지를 로컬 레지스트리에 추가합니다,이전 단계>>.
+.. 변경 `ASTRA_IMAGE_REGISTRY` 의 경우 `kube-rbac-proxy` 이미지를 에서 푸시한 레지스트리 경로로 이미지 <<이미지를 로컬 레지스트리에 추가합니다,이전 단계>>.
+.. 변경 `ASTRA_IMAGE_REGISTRY` 의 경우 `acc-operator-controller-manager` 이미지를 에서 푸시한 레지스트리 경로로 이미지 <<이미지를 로컬 레지스트리에 추가합니다,이전 단계>>.
+
+
 +
-[source, subs="specialcharacters,quotes"]
-----
-*astra_control_center_operator_deploy.yaml*
-----
-+
+.샘플 Astra_control_center_operator_deploy.YAML을 확장합니다
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 apiVersion: apps/v1
@@ -369,7 +332,7 @@ spec:
         - --upstream=http://127.0.0.1:8080/
         - --logtostderr=true
         - --v=10
-        *image: [your_registry_path]/kube-rbac-proxy:v4.8.0*
+        *image: ASTRA_IMAGE_REGISTRY/kube-rbac-proxy:v4.8.0*
         name: kube-rbac-proxy
         ports:
         - containerPort: 8443
@@ -383,7 +346,7 @@ spec:
           value: "2"
         - name: ACCOP_HELM_INSTALLTIMEOUT
           value: 5m
-        *image: [your_registry_path]/acc-operator:23.04.36*
+        *image: ASTRA_IMAGE_REGISTRY/acc-operator:23.07.24*
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -412,8 +375,7 @@ spec:
         runAsUser: 65532
       terminationGracePeriodSeconds: 10
 ----
-
-
+====
 . Astra Control Center 운영자를 설치합니다.
 +
 [source, console]
@@ -421,9 +383,9 @@ spec:
 kubectl apply -f astra_control_center_operator_deploy.yaml
 ----
 +
-샘플 반응:
-
-+
+.샘플 응답을 위해 확장:
+[%collapsible]
+====
 [listing]
 ----
 namespace/netapp-acc-operator created
@@ -439,6 +401,7 @@ configmap/acc-operator-manager-config created
 service/acc-operator-controller-manager-metrics-service created
 deployment.apps/acc-operator-controller-manager created
 ----
+====
 . Pod가 실행 중인지 확인합니다.
 +
 [source, console]
@@ -481,7 +444,7 @@ NOTE: YAML 주석이 붙은 샘플은 다음 단계를 따릅니다.
 | 설정 | 지침 | 유형 | 예 
 
 
-| `astraVersion` | 배포할 Astra Control Center의 버전입니다. 값이 미리 채워질 수 있으므로 이 설정에 대한 작업은 필요하지 않습니다. | 문자열 | `23.04.2-7` 
+| `astraVersion` | 배포할 Astra Control Center의 버전입니다. 값이 미리 채워질 수 있으므로 이 설정에 대한 작업은 필요하지 않습니다. | 문자열 | `23.07.0-24` 
 |===
 ====
 +
@@ -685,10 +648,9 @@ Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. (
 
 IMPORTANT: 설치를 완료하기 전에 구성에 맞는 올바른 스토리지 클래스 및 수신 유형을 선택했는지 확인하십시오.
 
-[source, subs="specialcharacters,quotes"]
-----
-*astra_control_center.yaml*
-----
+.샘플 Astra_control_center.YAML을 확장합니다
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 apiVersion: astra.netapp.io/v1
@@ -717,6 +679,7 @@ spec:
     externalTraefik: false
     externalCertManager: false
 ----
+====
 
 
 == Astra 제어 센터 및 운전자 설치를 완료합니다
@@ -727,27 +690,11 @@ spec:
 ----
 kubectl create ns [netapp-acc or custom namespace]
 ----
-+
-샘플 반응:
-
-+
-[listing]
-----
-namespace/netapp-acc created
-----
 . "NetApp-acc"(또는 사용자 지정) 네임스페이스에 Astra Control Center를 설치합니다.
 +
 [source, console]
 ----
 kubectl apply -f astra_control_center.yaml -n [netapp-acc or custom namespace]
-----
-+
-샘플 반응:
-
-+
-[listing]
-----
-astracontrolcenter.astra.netapp.io/astra created
 ----
 
 
@@ -786,7 +733,7 @@ kubectl get pods -n [netapp-acc or custom namespace]
 각 포드는 'Running' 상태여야 합니다. 시스템 포드를 구축하는 데 몇 분 정도 걸릴 수 있습니다.
 
 +
-.샘플 응답
+.샘플 응답을 위해 확장합니다
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -883,7 +830,7 @@ vault-controller-88484b454-fc5cz              1/1     Running     0            9
 vault-controller-88484b454-jktld              1/1     Running     0            9h
 ----
 ====
-. (선택 사항) 설치가 완료되었는지 확인하려면 다음 명령을 사용하여 "acc-operator" 로그를 볼 수 있습니다.
+. (선택 사항) 을(를) 확인합니다 `acc-operator` 진행 상황을 모니터링하기 위한 로그:
 +
 [source, console]
 ----
@@ -906,7 +853,7 @@ kubectl get AstraControlCenter -n [netapp-acc or custom namespace]
 [listing]
 ----
 NAME    UUID                                  VERSION     ADDRESS         READY
-astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f  23.04.2-7   10.111.111.111  True
+astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f  23.07.0-24   10.111.111.111  True
 ----
 +
 
@@ -922,12 +869,7 @@ IMPORTANT: UUID 값을 복사합니다. 암호는 ACC-, UUID 값( ACC-[UUID]), �
 
 Astra Control Center를 배포한 후 URL을 사용하여 Astra Control Center를 노출하도록 수신 컨트롤러를 구성해야 합니다.
 
-설치 단계는 사용하는 수신 컨트롤러의 유형에 따라 다릅니다. Astra Control Center는 다양한 수신 컨트롤러 유형을 지원합니다. 이러한 설정 절차에서는 다음과 같은 수신 컨트롤러 유형에 대한 예제 단계를 제공합니다.
-
-* 이스티오 침투
-* Nginx 수신 컨트롤러
-* OpenShift 수신 컨트롤러
-
+설치 단계는 사용하는 수신 컨트롤러의 유형에 따라 다릅니다. Astra Control Center는 다양한 수신 컨트롤러 유형을 지원합니다. 이러한 설정 절차는 일반적인 수신 컨트롤러 유형의 예를 제공합니다.
 
 .시작하기 전에
 * 필수 요소입니다 https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/["수신 컨트롤러"] 이미 배포되어 있어야 합니다.
@@ -935,6 +877,8 @@ Astra Control Center를 배포한 후 URL을 사용하여 Astra Control Center�
 
 
 .Istio 침투에 대한 단계
+[%collapsible]
+====
 . Istio Ingress를 구성합니다.
 +
 
@@ -1023,7 +967,10 @@ ingress istio astra.example.com 172.16.103.248  80, 443 1h
 . <<Astra Control Center를 구성합니다,Astra Control Center 설치를 완료합니다>>.
 
 
+====
 .Nginx 수신 컨트롤러 단계
+[%collapsible]
+====
 . 형식의 암호를 만듭니다 `kubernetes.io/tls` 에서 TLS 개인 키 및 인증서의 경우 `netapp-acc` 에 설명된 대로 (또는 사용자 지정 이름) 네임스페이스를 사용합니다 https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets["TLS 비밀"].
 . 수신 리소스를 에 배포합니다 `netapp-acc` (또는 사용자 지정 이름) 스키마에 대해 v1 리소스 형식을 사용하는 네임스페이스입니다 (`nginx-Ingress.yaml` 이 예에서 사용됨):
 +
@@ -1063,7 +1010,10 @@ kubectl apply -f nginx-Ingress.yaml
 
 WARNING: Nginx 컨트롤러를 이 아닌 배포로 설치하는 것이 좋습니다 `daemonSet`.
 
+====
 .OpenShift Ingress 컨트롤러를 위한 단계
+[%collapsible]
+====
 . 인증서를 구입하고 OpenShift 라우트에서 사용할 수 있도록 준비된 키, 인증서 및 CA 파일을 가져옵니다.
 . OpenShift 경로를 생성합니다.
 +
@@ -1073,6 +1023,7 @@ oc create route edge --service=traefik --port=web -n [netapp-acc or custom names
 ----
 
 
+====
 
 
 == Astra Control Center UI에 로그인합니다

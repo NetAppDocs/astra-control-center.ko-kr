@@ -63,22 +63,23 @@ oc create namespace netapp-acc-operator
 
 == Astra Control Center를 다운로드하고 압축을 풉니다
 
-. 로 이동합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Center 다운로드 페이지"^] 를 방문하십시오.
-. Astra Control Center가 포함된 번들을 다운로드합니다 (`astra-control-center-[version].tar.gz`)를 클릭합니다.
+. Astra Control Center가 포함된 번들을 다운로드합니다 (`astra-control-center-[version].tar.gz`)를 선택합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Center 다운로드 페이지"^].
 . (권장되지만 선택 사항) Astra Control Center용 인증서 및 서명 번들을 다운로드합니다 (`astra-control-center-certs-[version].tar.gz`)를 클릭하여 번들 서명을 확인합니다.
 +
+.자세한 내용을 보려면 를 확장합니다
+[%collapsible]
+====
 [source, console]
 ----
 tar -vxzf astra-control-center-certs-[version].tar.gz
 ----
-+
 [source, console]
 ----
 openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature certs/astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
 ----
-+
 출력이 표시됩니다 `Verified OK` 확인 성공 후.
 
+====
 . Astra Control Center 번들에서 이미지를 추출합니다.
 +
 [source, console]
@@ -171,7 +172,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.04.2-7
+export PACKAGEVERSION=23.07.0-24
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -190,7 +191,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.04.2-7
+export PACKAGEVERSION=23.07.0-24
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -206,7 +207,7 @@ NOTE: 레지스트리 구성에 따라 스크립트가 만드는 이미지 경�
 +
 [listing]
 ----
-https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.04.2-7/image:version
+https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.07.0-24/image:version
 ----
 
 
@@ -222,6 +223,10 @@ https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.0
 +
 ... OpenShift Container Platform UI에 로그인합니다.
 ... 측면 메뉴에서 * Operators > OperatorHub * 를 선택합니다.
++
+
+NOTE: 이 연산자를 사용하여 현재 버전의 Astra Control Center에만 업그레이드할 수 있습니다.
+
 ... NetApp Astra Control Center 운영자를 검색하여 선택합니다.
 
 
@@ -278,7 +283,7 @@ NOTE: 수동 승인 전략을 선택한 경우 이 운영자에 대한 수동 �
 .. Astra Control Center에 대한 레이블을 추가합니다.
 .. 자동 지원을 활성화 또는 비활성화합니다. 자동 지원 기능을 유지하는 것이 좋습니다.
 .. Astra Control Center FQDN 또는 IP 주소를 입력합니다. 들어가지마 `http://` 또는 `https://` 를 입력합니다.
-.. Astra Control Center 버전을 입력합니다(예: 23.04.2-7).
+.. Astra Control Center 버전을 입력합니다(예: 23.07.0-24).
 .. 계정 이름, 이메일 주소 및 관리자 성을 입력합니다.
 .. 의 볼륨 재확보 정책을 선택합니다 `Retain`, `Recycle`, 또는 `Delete`. 기본값은 입니다 `Retain`.
 .. 설치 scaleSize를 선택합니다.
