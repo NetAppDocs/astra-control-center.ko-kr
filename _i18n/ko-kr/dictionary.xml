@@ -2954,4 +2954,7 @@ RKE 2 (v1.25.x) 및 Rancher 2.7</block>
   <block id="980370488ee5e5166f21d62e451f7039" category="list-text">(선택 사항) 을(를) 확인합니다<block ref="4b559e0a1b6f68f62c5edecea8c35c7e" prefix=" " category="inline-code"></block> 진행 상황을 모니터링하기 위한 로그:</block>
   <block id="750f2ebc195cf07a175766bcf4ee1c37" category="paragraph">설치 단계는 사용하는 수신 컨트롤러의 유형에 따라 다릅니다. Astra Control Center는 다양한 수신 컨트롤러 유형을 지원합니다. 이러한 설정 절차는 일반적인 수신 컨트롤러 유형의 예를 제공합니다.</block>
   <block id="c9d16052598dc5cdb9929332cfd140c3" category="sidebar">스토리지 백엔드 간에 앱을 복제합니다</block>
+  <block id="692bef51c3cefb709496e672979fafda" category="list-text"><block ref="c3444bf1f6ccff644809494fcfe68216" category="inline-xref-macro-rx"></block></block>
+  <block id="8164f139371aabdbe264f5f85a178858" category="section-title">네임스페이스 제약 조건이 있는 구성원은 관리자가 제약 조건에 네임스페이스를 추가할 때까지 복제되거나 복원된 앱에 액세스할 수 없습니다</block>
+  <block id="33e9a46dfde5bb0f5a8b8327623cb998" category="paragraph">모두<block ref="aa08769cdcb26674c6706093503ff0a3" prefix=" " category="inline-code"></block> 네임스페이스 이름/ID별 RBAC 제약 조건을 사용하는 사용자는 앱을 동일한 클러스터의 새 네임스페이스 또는 조직 계정의 다른 클러스터로 클론 복제 또는 복원할 수 있습니다. 그러나 동일한 사용자가 새 네임스페이스에서 복제되거나 복원된 앱에 액세스할 수 없습니다. 클론 또는 복원 작업을 통해 새 네임스페이스를 생성한 후 계정 관리자/소유자가 을 편집할 수 있습니다<block ref="aa08769cdcb26674c6706093503ff0a3" prefix=" " category="inline-code"></block> 영향을 받는 사용자가 새 네임스페이스에 대한 액세스 권한을 부여하도록 사용자 계정 및 역할 제약 조건을 업데이트합니다.</block>
 </blocks>
