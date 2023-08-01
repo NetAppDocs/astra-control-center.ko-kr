@@ -16,7 +16,7 @@ Astra Control Center의 최신 릴리스를 발표하게 되어 기쁘게 생각
 
 
 
-== 2023년 7월 26일(23.07.0)
+== 2023년 7월 31일(23.07.0)
 
 .새로운 기능 및 지원
 * link:../get-started/requirements.html#storage-backends["확장 구성에서 NetApp MetroCluster를 스토리지 백엔드로 사용할 수 있도록 지원합니다"^]

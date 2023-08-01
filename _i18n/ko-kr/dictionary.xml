@@ -2829,7 +2829,6 @@ Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. <
   <block id="2b751178c5ccb62da62318c7ba67bcb7" category="list-text">Astra Control Center가 포함된 번들을 다운로드합니다 <block ref="f38ca01b4c2fe15aa06076beb2ee98ff" prefix="(" category="inline-code"></block>)를 선택합니다<block ref="ad7a4184e43a3f62f1a8252e7d3ef71f" category="inline-link-rx"></block>.</block>
   <block id="56a360133c3f49b082fb3e559dc6c359" category="paragraph">Astra Control은 뒤에 '\' 또는 후행 공백이 있는 RDN이 포함된 LDAP 엔티티(사용자 또는 그룹)를 지원하지 않습니다.</block>
   <block id="3b4c39fc71daebe02ce601e0e52cb002" category="paragraph">Astra Control Activity 페이지에는 최대 100,000개의 이벤트가 표시될 수 있습니다. 기록된 이벤트를 모두 보려면 를 사용하여 이벤트를 검색합니다 <block ref="cc52bf3aaccbc518b140a6ab7d8d53a9" category="inline-link-macro-rx"></block>.</block>
-  <block id="342146f49f3dbf04f3f41cdd047ee611" category="section-title">2023년 7월 26일(23.07.0)</block>
   <block id="00f23e3f73f2ff6910e3c1c923caed3b" category="inline-link-macro">확장 구성에서 NetApp MetroCluster를 스토리지 백엔드로 사용할 수 있도록 지원합니다</block>
   <block id="d8ff8e6d69947f9d7ee57077dfe0e3ee" category="list-text"><block ref="d8ff8e6d69947f9d7ee57077dfe0e3ee" category="inline-link-macro-rx"></block></block>
   <block id="7857e72e296955e1be96bd0c04406cbe" category="inline-link-macro">Longhorn을 스토리지 백엔드로 사용할 수 있도록 지원합니다</block>
@@ -2885,7 +2884,6 @@ Astra Control Center 설치 과정에서 이 이미지 레지스트리 사용에
   <block id="24c356496f4f777434b1554b8c1ce87e" category="list-text">모든 Astra Control Center 이미지에 대해 Docker 푸시/풀용 ACR 액세스를 설정합니다.</block>
   <block id="80647e7e0bb86f8566d4cda7efd6ba2b" category="list-text">다음 스크립트를 사용하여 Astra Control Center 이미지를 이 레지스트리에 푸시합니다.</block>
   <block id="e9e74ff4b7d306a6d494267203d879d8" category="admonition">이 연산자를 사용하여 현재 버전의 Astra Control Center에만 업그레이드할 수 있습니다.</block>
-  <block id="6f9a41c50e286a2a3eb1249e34e3b034" category="list-text">Astra Control Center 버전을 입력합니다(예: 23.07.0-24).</block>
   <block id="ce75759d9f826b61ea1a10ccd4fec6c4" category="paragraph">Astra Control Center 설정을 마친 후 Astra Control UI 또는 를 사용합니다<block ref="bd25eec94181cb8a1c6322299b11a4e5" category="inline-link-rx"></block> 앱 관리 및 보호를 시작하려면</block>
   <block id="ce0f35f37592c103c45f7f61252c9305" category="paragraph">Astra Control UI 또는 를 사용하여 새 라이센스를 추가할 수 있습니다<block ref="bd25eec94181cb8a1c6322299b11a4e5" category="inline-link-rx"></block>.</block>
   <block id="1fc721e2d5dd058eff74433a513547f9" category="inline-link-macro">설치하는 동안 를 구성했습니다</block>
@@ -2944,11 +2942,9 @@ RKE 2 (v1.25.x) 및 Rancher 2.7</block>
   <block id="0e4c628a5a8957cfc5bfe05ab3d4cade" category="list-text">운영 체제 및 CPU 아키텍처에 필요한 파일을 현재 경로로 이동하고 이름을 로 변경합니다<block ref="90432a9da14d46e4d20c4b841576b1ee" prefix=" " category="inline-code"></block>:</block>
   <block id="509e9a9c4ddecec71646527fad155699" category="list-text">Astra Control Center 호스트 클러스터의 kubecononfig 내보내기:</block>
   <block id="4757e8443e86513707f05c0d519574c8" category="admonition">설치를 완료하기 전에 Astra Control Center를 설치할 클러스터를 추천하십시오.</block>
-  <block id="eb4ae875392779932df9d5d2fbb9ccaf" category="admonition">자리 표시자입니다<block ref="facf912114e23f5e3f2192e508b5894a" prefix=" " category="inline-code"></block> 이전에 업로드한 이미지의 위치와 일치해야 합니다(예:<block ref="fb729bc0081792c3577384b3c4b3710a" prefix=" " category="inline-code"></block>)를 클릭합니다.</block>
   <block id="6a81830068d10bff560d62bc97f3c053" category="list-text">변경<block ref="e7fbb61ffc587682a801796b46db408a" prefix=" " category="inline-code"></block> 의 경우<block ref="83f93b05da174976bd534cc67ad9f7b4" prefix=" " category="inline-code"></block> 이미지를 에서 푸시한 레지스트리 경로로 이미지 <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>.</block>
   <block id="87b9501fe070f005832572ffd2aba4ae" category="example-title">샘플 Astra_control_center_operator_deploy.YAML을 확장합니다</block>
   <block id="a8f13cd419087c3fb4f7d66dde9dadda" category="example-title">샘플 응답을 위해 확장:</block>
-  <block id="98908576b345537859881e0fbe16b44a" category="cell"><block ref="141b2e73605e12a2ae1bb4fb0b4221ca" prefix="" category="inline-code"></block></block>
   <block id="3297ea664e090716a24f598d90bc398c" category="example-title">샘플 Astra_control_center.YAML을 확장합니다</block>
   <block id="d3e309a143a3ce8e127ce3e32a113e5d" category="example-title">샘플 응답을 위해 확장합니다</block>
   <block id="980370488ee5e5166f21d62e451f7039" category="list-text">(선택 사항) 을(를) 확인합니다<block ref="4b559e0a1b6f68f62c5edecea8c35c7e" prefix=" " category="inline-code"></block> 진행 상황을 모니터링하기 위한 로그:</block>
@@ -2957,4 +2953,8 @@ RKE 2 (v1.25.x) 및 Rancher 2.7</block>
   <block id="692bef51c3cefb709496e672979fafda" category="list-text"><block ref="c3444bf1f6ccff644809494fcfe68216" category="inline-xref-macro-rx"></block></block>
   <block id="8164f139371aabdbe264f5f85a178858" category="section-title">네임스페이스 제약 조건이 있는 구성원은 관리자가 제약 조건에 네임스페이스를 추가할 때까지 복제되거나 복원된 앱에 액세스할 수 없습니다</block>
   <block id="33e9a46dfde5bb0f5a8b8327623cb998" category="paragraph">모두<block ref="aa08769cdcb26674c6706093503ff0a3" prefix=" " category="inline-code"></block> 네임스페이스 이름/ID별 RBAC 제약 조건을 사용하는 사용자는 앱을 동일한 클러스터의 새 네임스페이스 또는 조직 계정의 다른 클러스터로 클론 복제 또는 복원할 수 있습니다. 그러나 동일한 사용자가 새 네임스페이스에서 복제되거나 복원된 앱에 액세스할 수 없습니다. 클론 또는 복원 작업을 통해 새 네임스페이스를 생성한 후 계정 관리자/소유자가 을 편집할 수 있습니다<block ref="aa08769cdcb26674c6706093503ff0a3" prefix=" " category="inline-code"></block> 영향을 받는 사용자가 새 네임스페이스에 대한 액세스 권한을 부여하도록 사용자 계정 및 역할 제약 조건을 업데이트합니다.</block>
+  <block id="0cb712ec711a0ca7c7b006e073338a3f" category="section-title">2023년 7월 31일(23.07.0)</block>
+  <block id="fa7403eec50d35b5a484623b60ab5bdd" category="list-text">Astra Control Center 버전(예: 23.07.0-25)을 입력합니다.</block>
+  <block id="a35ec6e52d1ea46e15e5890b9f04b338" category="admonition">자리 표시자입니다<block ref="facf912114e23f5e3f2192e508b5894a" prefix=" " category="inline-code"></block> 이전에 업로드한 이미지의 위치와 일치해야 합니다(예:<block ref="ed714721ea39215dfe5e8dfa919a906a" prefix=" " category="inline-code"></block>)를 클릭합니다.</block>
+  <block id="fa202cf5d815f8dd19123dbdb19b51e6" category="cell"><block ref="c0004ca895ff57b100007a4b52125d05" prefix="" category="inline-code"></block></block>
 </blocks>

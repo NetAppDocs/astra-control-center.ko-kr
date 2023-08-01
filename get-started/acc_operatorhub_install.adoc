@@ -172,7 +172,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.07.0-24
+export PACKAGEVERSION=23.07.0-25
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -191,7 +191,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.07.0-24
+export PACKAGEVERSION=23.07.0-25
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -207,7 +207,7 @@ NOTE: 레지스트리 구성에 따라 스크립트가 만드는 이미지 경�
 +
 [listing]
 ----
-https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.07.0-24/image:version
+https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.07.0-25/image:version
 ----
 
 
@@ -283,7 +283,7 @@ NOTE: 수동 승인 전략을 선택한 경우 이 운영자에 대한 수동 �
 .. Astra Control Center에 대한 레이블을 추가합니다.
 .. 자동 지원을 활성화 또는 비활성화합니다. 자동 지원 기능을 유지하는 것이 좋습니다.
 .. Astra Control Center FQDN 또는 IP 주소를 입력합니다. 들어가지마 `http://` 또는 `https://` 를 입력합니다.
-.. Astra Control Center 버전을 입력합니다(예: 23.07.0-24).
+.. Astra Control Center 버전(예: 23.07.0-25)을 입력합니다.
 .. 계정 이름, 이메일 주소 및 관리자 성을 입력합니다.
 .. 의 볼륨 재확보 정책을 선택합니다 `Retain`, `Recycle`, 또는 `Delete`. 기본값은 입니다 `Retain`.
 .. 설치 scaleSize를 선택합니다.
