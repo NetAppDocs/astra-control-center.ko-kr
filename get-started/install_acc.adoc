@@ -610,6 +610,18 @@ Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. (
 .<code>additionalValues</code>
 [%collapsible]
 ====
+
+IMPORTANT: 다음 추가 값을 Astra Control Center CR에 추가하여 23.07 설치에서 알려진 문제를 방지합니다.
+
+[listing]
+----
+additionalValues:
+    polaris-keycloak:
+      livenessProbe:
+        initialDelaySeconds: 180
+      readinessProbe:
+        initialDelaySeconds: 180
+----
 ** Astral Control Center 및 Cloud Insights 통신의 경우 TLS 인증서 확인은 기본적으로 비활성화되어 있습니다. 에 다음 섹션을 추가하여 Cloud Insights와 Astra Control Center 호스트 클러스터 및 관리 클러스터 간의 통신에 대한 TLS 인증 검증을 활성화할 수 있습니다 `additionalValues`.
 
 
@@ -674,7 +686,12 @@ spec:
   ingressType: "Generic"
   scaleSize: "Medium"
   astraResourcesScaler: "Default"
-  additionalValues: {}
+  additionalValues:
+    polaris-keycloak:
+      livenessProbe:
+        initialDelaySeconds: 180
+      readinessProbe:
+        initialDelaySeconds: 180
   crds:
     externalTraefik: false
     externalCertManager: false
