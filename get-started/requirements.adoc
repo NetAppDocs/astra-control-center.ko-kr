@@ -143,7 +143,6 @@ MetroCluster LIF를 구성하려면 Astra Trident 문서를 참조하여 각 드
 
 * https://docs.netapp.com/us-en/trident/trident-use/ontap-san-examples.html["산"^]
 * https://docs.netapp.com/us-en/trident/trident-use/ontap-nas-examples.html["NAS"^]
-* https://docs.netapp.com/us-en/trident/trident-use/trident-fsx-examples.html["FSX"^]
 
 
 
