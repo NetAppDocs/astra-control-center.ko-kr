@@ -18,6 +18,8 @@ entries:
     url: "/use/clone-apps.html"
   - title: 앱 실행 후크 관리
     url: "/use/execution-hooks.html"
+  - title: Astra Control Center를 사용하여 Astra Control Center를 보호합니다
+    url: "/use/protect-acc-with-acc.html"
 - title: 앱 및 클러스터 상태를 모니터링합니다
   entries:
   - title: 대시보드 요약

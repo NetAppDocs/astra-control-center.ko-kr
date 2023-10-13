@@ -1443,7 +1443,6 @@
   <block id="ed78458df917d6da9f19cca23d8468cd" category="paragraph"><block ref="c229e392652cddf73148e5c65f706c6d" category="inline-link-macro-rx"></block> NetApp SnapMirror 기술을 사용하여 원격 클러스터로 Astra Control은 스냅샷을 원격 클러스터에 복제하여 비동기식 재해 복구 기능을 제공합니다.</block>
   <block id="ca5eff8f4c2396bf09558b428d91e9f3" category="section-title">2022년 9월 8일(22.08.1)</block>
   <block id="322f8233054cca6c9d6204f1aa1d1f7f" category="paragraph">Astra Control Center(22.08.0)용 패치 릴리스(22.08.1)는 NetApp SnapMirror를 사용하여 앱 복제에 사소한 버그를 수정합니다.</block>
-  <block id="f21f22dde0e0692333a7a28cce456b08" category="sidebar">모든 Astra 문서</block>
   <block id="cc76a05fe8cbb45b45b1139e841822bd" category="admonition">AWS(Amazon Web Services) 및 GCP(Google Cloud Platform)는 일반 S3 버킷 유형을 사용합니다.</block>
   <block id="49f02638b249b496152336fa67d7f9c5" category="paragraph">AWS(Amazon Web Services), GCP(Google Cloud Platform) 및 Microsoft Azure에 Cloud Volumes ONTAP 스토리지 백엔드를 사용하여 Astra Control Center를 설치하려면 클라우드 환경에 따라 다음 단계를 수행하십시오.</block>
   <block id="cf594d0bb41326e3db7d23f51499a433" category="list-text"><block ref="f25f9d6f8bbda4a323ee7521012b952a" category="inline-xref-macro-rx"></block></block>
@@ -2962,4 +2961,152 @@ RKE 2 (v1.25.x) 및 Rancher 2.7</block>
   <block id="dce58385777428b5d9a30460fe36730a" category="list-text">개인 CA(인증 기관)를 참조하는 kubeconfig 파일을 사용하여 클러스터를 추가하는 경우 에 다음 줄을 추가합니다<block ref="06b2d4b91b5c9eaa8c20a1c270f95b3c" prefix=" " category="inline-code"></block> kubeconfig 파일의 섹션. 이를 통해 Astra Control이 클러스터를 추가할 수 있습니다.</block>
   <block id="6a73c62ec3ca96f8f08220eeac3380d9" category="list-text"><block ref="6a73c62ec3ca96f8f08220eeac3380d9" category="inline-link-rx"></block></block>
   <block id="94ac6b3955eab183cb88ab17c91000eb" category="admonition">두 ONTAP 클러스터 간의 복제 관계에 사용되는 SVM 이름이 고유한지 확인합니다.</block>
+  <block id="51ec83fd81ce58f9ea70187b74727aff" category="doc">Astra Control Center 23.07 설명서</block>
+  <block id="5625dd52348931a3850857d7f3f08b69" category="summary">보조 Astra Control Center 인스턴스를 사용하거나 기본 스토리지에서 ONTAP를 사용하는 경우 Astra 복제를 통해 Astra Control Center를 백업 및 복원할 수 있습니다.</block>
+  <block id="969f7a76db712779eff5291ca8b43ac7" category="doc">Astra Control Center를 사용하여 Astra Control Center를 보호합니다</block>
+  <block id="c9a7b310785e9556ae984aa393db6588" category="paragraph">Astra Control Center가 실행 중인 Kubernetes 클러스터에서 심각한 오류로부터 복원력을 개선하려면 Astra Control Center 애플리케이션 자체를 보호합니다. 보조 Astra Control Center 인스턴스를 사용하여 Astra Control Center를 백업 및 복원하거나 기본 스토리지에서 ONTAP를 사용하는 경우 Astra 복제를 사용할 수 있습니다.</block>
+  <block id="6b755da339d1771f5f970f17eecb0565" category="paragraph">이 시나리오에서는 Astra Control Center의 두 번째 인스턴스가 다른 오류 도메인에 구축 및 구성되었으며 1차 Astra Control Center 인스턴스와 다른 두 번째 Kubernetes 클러스터에서 실행됩니다. 두 번째 Astra Control 인스턴스는 운영 Astra Control Center 인스턴스를 백업하고 복원하는 데 사용됩니다. 복원되거나 복제된 Astra Control Center 인스턴스는 애플리케이션 클러스터 애플리케이션에 대한 애플리케이션 데이터 관리를 계속 제공하며 이러한 애플리케이션의 백업 및 스냅샷에 대한 액세스 권한을 복원합니다.</block>
+  <block id="69114e1f39ba205e49c3f6602104d621" category="paragraph">Astra Control Center에 대한 보호 시나리오를 설정하기 전에 다음 사항이 있는지 확인하십시오.</block>
+  <block id="896f58b429f78d8109fc3e7c03093aba" category="list-text">* 1차 Astra Control Center 인스턴스를 실행하는 Kubernetes 클러스터 *: 이 클러스터는 애플리케이션 클러스터를 관리하는 1차 Astra Control Center 인스턴스를 호스팅합니다.</block>
+  <block id="8aa15a1fee5460adea916879ed7d7268" category="list-text">* 보조 Astra Control Center 인스턴스를 실행하는 기본 시스템과 동일한 Kubernetes 배포 유형의 두 번째 Kubernetes 클러스터 *: 이 클러스터는 기본 Astra Control Center 인스턴스를 관리하는 Astra Control Center 인스턴스를 호스팅합니다.</block>
+  <block id="32e73be9be858fa95196efd19be99032" category="list-text">* 기본 Kubernetes 배포 유형이 동일한 세 번째 Kubernetes 클러스터 *: 이 클러스터는 Astra Control Center의 복원되거나 복제된 인스턴스를 호스팅합니다. 현재 운영 사이트에 구축되어 있는 것과 동일한 Astra Control Center 네임스페이스를 사용할 수 있어야 합니다. 예를 들어, Astra Control Center가 네임스페이스에 구축된 경우<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> 소스 클러스터에서 네임스페이스입니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> 사용 가능하고 대상 Kubernetes 클러스터의 어떤 애플리케이션에서도 사용하지 않아야 합니다.</block>
+  <block id="49a26f277918e7ec7fcd2b6c725b22db" category="list-text">* S3 호환 버킷 *: 각 Astra Control Center 인스턴스에는 액세스 가능한 S3 호환 오브젝트 스토리지 버킷이 있습니다.</block>
+  <block id="b6a057580445c60da8ca68e040c35359" category="list-text">* 구성된 로드 밸런서 *: 로드 밸런서는 Astra에 대한 IP 주소를 제공하며 애플리케이션 클러스터와 두 S3 버킷 모두에 대한 네트워크 연결이 있어야 합니다.</block>
+  <block id="71be9d294d226c86caf4e6d0304e76bc" category="inline-link">일반 Astra Control Center 요구사항</block>
+  <block id="e5f96d86911475b63eda9de332d71989" category="list-text">* 클러스터가 Astra Control Center 요구 사항을 충족함 *: Astra Control Center 보호에 사용되는 각 클러스터가 충족함<block ref="b5b2197abd24b9a933084786e7341ea5" category="inline-link-rx"></block>.</block>
+  <block id="26ce8c3f9eb6f4198d7e290f318122b0" category="inline-xref">백업 및 복원</block>
+  <block id="f29fabe637a472bf5222b12a0bc5df77" category="inline-xref">복제</block>
+  <block id="179e155261916c90c5ba827f30f81009" category="paragraph">다음 절차에서는 다음 중 하나를 사용하여 Astra Control Center를 새 클러스터로 복원하는 데 필요한 단계를 설명합니다 <block ref="ee90a91fd29d312c3755f81256004469" category="inline-xref-macro-rx"></block> 또는 <block ref="7f9810b8c245a008d25b1cf6ca6e070c" category="inline-xref-macro-rx"></block>. 단계는 여기에 설명된 예제 구성을 기반으로 합니다.</block>
+  <block id="085e18a4e893a18eb4b3be644e0d0787" category="inline-image-macro">Astra Control Center 복제 또는 백업 예제 시나리오의 3개 중 2개에서 Kubernetes 클러스터와 Astra Control Center가 표시된 보호 워크플로우 이미지</block>
+  <block id="3fa6dfe19fa7d9c2568673cfed4aa973" category="paragraph"><block ref="3fa6dfe19fa7d9c2568673cfed4aa973" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d1a92d24a7adeca4e03c1e14f5dbd5ef" category="paragraph">이 예제 구성에서는 다음과 같이 표시됩니다.</block>
+  <block id="5af2adb89714b8e388459fa74d8e3176" category="list-text">* 1차 Astra Control Center 인스턴스를 실행하는 Kubernetes 클러스터 *:</block>
+  <block id="5ca66f0f84413c9635248af29099d016" category="list-text">OpenShift 클러스터:<block ref="c6de64d6df231e6979b9dcb292a4e09e" prefix=" " category="inline-code"></block></block>
+  <block id="5ae9096cdbfa2c5295c888167237bac6" category="list-text">Astra Control Center 1차 인스턴스:<block ref="1e551b4381f3d89f6626ceafdded33bd" prefix=" " category="inline-code"></block></block>
+  <block id="eb833f6af7ead6a0e9464d032755cc83" category="list-text">이 클러스터는 애플리케이션 클러스터를 관리합니다.</block>
+  <block id="8361de6458819a4215c0652c8868e68f" category="list-text">* 보조 Astra Control Center 인스턴스를 실행하는 기본 Kubernetes 배포 유형이 동일한 두 번째 Kubernetes 클러스터 *:</block>
+  <block id="53a83d56e989fcb9c14d3472f11cbb6f" category="list-text">OpenShift 클러스터:<block ref="2c798d6ccc4a7655866b43fbe94b95a5" prefix=" " category="inline-code"></block></block>
+  <block id="801590b559643f9a9f2f607350337edb" category="list-text">Astra Control Center 2차 인스턴스:<block ref="ae31bcfac9b2be0104f617c5807509e3" prefix=" " category="inline-code"></block></block>
+  <block id="6695b68a353bef262b413bd1c6f1e439" category="list-text">이 클러스터는 기본 Astra Control Center 인스턴스를 백업하거나 다른 클러스터(이 예에서는)에 대한 복제를 구성하는 데 사용됩니다<block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix=" " category="inline-code"></block> 클러스터).</block>
+  <block id="3da5486b34ef54de60c44461411039d0" category="list-text">* 복원 작업에 사용될 기본 Kubernetes 배포 유형이 동일한 세 번째 Kubernetes 클러스터 *:</block>
+  <block id="8d84a986a56f1897f286d501cd51ed79" category="list-text">OpenShift 클러스터:<block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix=" " category="inline-code"></block></block>
+  <block id="c422eacf56b56c6007299895e2d81d87" category="list-text">Astra Control Center 3번째 인스턴스:<block ref="3579b970b0a80f0707d02e4ef2973d55" prefix=" " category="inline-code"></block></block>
+  <block id="7e0372ad48e0b9816b54b95befcb684a" category="list-text">이 클러스터는 Astra Control Center 복원 또는 복제 페일오버에 사용됩니다.</block>
+  <block id="98f78468837601c6ce54ee67eca65c20" category="admonition">이상적으로는, 애플리케이션 클러스터는 위의 이미지에서 Kubernetes 및 Rancher 클러스터에 설명된 대로 Astra Control Center 클러스터 3개 외부에 위치해야 합니다.</block>
+  <block id="602ccad37ebee4ebe450f21cd85f3ec9" category="paragraph">다이어그램에 표시되지 않음:</block>
+  <block id="52e5800681694dd36c1678833c3ebed3" category="list-text">모든 클러스터에는 Trident가 설치된 ONTAP 백 엔드가 있습니다.</block>
+  <block id="41eb2137b66d4ca3d8eab49c3169aafa" category="list-text">이 구성에서 OpenShift 클러스터는 로드 밸런서로 MetalLB를 사용합니다.</block>
+  <block id="b5b8e67d6a37d24ad73c89e4c7ac8c9e" category="inline-link-macro">필수 구성 요소</block>
+  <block id="3a6d969276b16565b36a8c5c47ff26af" category="list-text">스냅샷 컨트롤러와 VolumeSnapshotClass도 에 설명된 대로 모든 클러스터에 설치됩니다 <block ref="c7ad65e2d260b81d69f72ee0061ea668" category="inline-link-macro-rx"></block>.</block>
+  <block id="8163401d74ada705f56b234c0334a732" category="section-title">1단계 옵션: Astra Control Center 백업 및 복원</block>
+  <block id="0651312a32a51b75f38b06ed41be90ec" category="paragraph">이 절차에서는 백업 및 복원을 사용하여 Astra Control Center를 새 클러스터로 복원하는 데 필요한 단계를 설명합니다.</block>
+  <block id="0744a2bfe53bd1f93727419955aac4fe" category="paragraph">이 예에서는 Astra Control Center가 항상 아래에 설치됩니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> 네임스페이스 및 연산자는 아래에 설치됩니다<block ref="cadbba5231afda9b003503d57805b87d" prefix=" " category="inline-code"></block> 네임스페이스.</block>
+  <block id="5933535c297d6907cd8bb37dc6807ae7" category="admonition">설명한 것은 아니지만 Astra Control Center 운영자는 Astra CR과 동일한 네임스페이스에 구축할 수도 있습니다.</block>
+  <block id="2a209b3640899f9ac53a34c7f2998fa9" category="list-text">클러스터에 운영 Astra Control Center를 설치했습니다.</block>
+  <block id="40167b34ba3c203ad4a89b1783dee4f8" category="list-text">보조 Astra Control Center를 다른 클러스터에 설치했습니다.</block>
+  <block id="ced5ebb83366f4dc6c484cd399df9fa4" category="list-text">에서 실행되는 2차 Astra Control Center 인스턴스에서 운영 Astra Control Center 애플리케이션 및 타겟 클러스터를 관리합니다<block ref="2c798d6ccc4a7655866b43fbe94b95a5" prefix=" " category="inline-code"></block> 클러스터):</block>
+  <block id="24157c04c090c658365a1a1381733bee" category="list-text">보조 Astra Control Center 인스턴스에 로그인합니다.</block>
+  <block id="905b6595a1144d79054d16d70f241e0c" category="inline-link-macro">1차 Astra Control Center 클러스터를 추가합니다</block>
+  <block id="64b9baaed07c5b60ec7fd1209d712850" category="list-text"><block ref="47faa60f4194d98e38c238d529e9f3ba" category="inline-link-macro-rx"></block> <block ref="c6de64d6df231e6979b9dcb292a4e09e" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
+  <block id="cce02a27fcc73636fb714a5b4bc12dbe" category="inline-link-macro">대상 세 번째 클러스터를 추가합니다</block>
+  <block id="2235e4f2af222fc49c32655c592f7a13" category="list-text"><block ref="e21ec3fc9b132c482f17f04af2363163" category="inline-link-macro-rx"></block> <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>)를 선택합니다.</block>
+  <block id="4eb02c6222945af8e35359c90993d745" category="list-text">보조 Astra Control Center에서 Astra Control Center 및 Astra Control Center 운영자:</block>
+  <block id="f51ffb9c77ca44fd28cb7d10f441ccff" category="list-text">Define application * (애플리케이션 정의 *) 창에서 새 애플리케이션 이름을 입력합니다 <block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
+  <block id="bd86b7d3bce29159ded59cde7d1db272" category="list-text">1차 Astra Control Center를 실행 중인 클러스터를 선택합니다 <block ref="c6de64d6df231e6979b9dcb292a4e09e" prefix="(" category="inline-code"></block>)를 선택합니다.</block>
+  <block id="5e0afc8490cb0f9aef8e7d6aa9c2a95b" category="list-text">를 선택합니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> Namespace * 드롭다운 목록에서 Astra Control Center의 네임스페이스입니다.</block>
+  <block id="13728b663815d8b9b7f3110a0f6ae3d3" category="list-text">클러스터 리소스 페이지에서 * 추가 클러스터 범위 리소스 포함 * 을 선택합니다.</block>
+  <block id="de4566456b44943a73dbc9f1d5f4cfb5" category="list-text">다음 항목을 선택하고 * 추가 * 를 선택합니다.</block>
+  <block id="25a653c17051ef3ca841d953bbc19608" category="list-text">라벨 선택기: acc-CRD</block>
+  <block id="ece2d00e491a614dbc2abe1f851d18eb" category="list-text">그룹: apiextensions.k8s.io</block>
+  <block id="7ad0a964a0623e55a6f1d8cd78457694" category="list-text">버전: v1</block>
+  <block id="5b8e73d5fcf09db630648e42903cd2b0" category="list-text">종류: CustomResourceDefinition</block>
+  <block id="70df6adc26f110b5012bc3980b97ec00" category="list-text">응용 프로그램 정보를 확인합니다.</block>
+  <block id="e69f748bec017b909dbea596f6f8dc81" category="paragraph">정의 * 를 선택한 후 연산자에 대해 애플리케이션 정의 프로세스를 반복합니다 <block ref="cadbba5231afda9b003503d57805b87d" prefix="(" category="inline-code"></block>)를 선택하고 를 선택합니다<block ref="cadbba5231afda9b003503d57805b87d" prefix=" " category="inline-code"></block> 응용 프로그램 정의 마법사의 네임스페이스입니다.</block>
+  <block id="d57219211eee2c9ac61353961ee18a5d" category="list-text">Astra Control Center 및 운영자 백업:</block>
+  <block id="7f4d957664298337c8d5157fa149a990" category="list-text">보조 Astra Control Center에서 애플리케이션 탭을 선택하여 애플리케이션 페이지로 이동합니다.</block>
+  <block id="278dad820960e96a9ce6541346dd4ba9" category="inline-link-macro">백업하다</block>
+  <block id="941c84a0653e644d5ab9ac150fb9c6b7" category="list-text"><block ref="ffec47dbb72ad940d976d493fbb373a6" category="inline-link-macro-rx"></block> Astra Control Center 애플리케이션 <block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
+  <block id="61519ed400e73a738969e7370bac17ee" category="list-text"><block ref="ffec47dbb72ad940d976d493fbb373a6" category="inline-link-macro-rx"></block> 오퍼레이터 <block ref="cadbba5231afda9b003503d57805b87d" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
+  <block id="3620c91a5ce84ffd285ec21372cfe15f" category="inline-link-macro">Astra Control Center 제거 중</block>
+  <block id="8372d448a6d84ac9d6457bd1d62e39cd" category="list-text">Astra Control Center와 운영자를 백업한 후 를 통해 DR(재해 복구) 시나리오를 시뮬레이션합니다 <block ref="c0a8da0102c6c1626f1a9bd5b3d39b7e" category="inline-link-macro-rx"></block> 운영 클러스터에서</block>
+  <block id="0a06b3d497cd0818ddc4081fd5085a94" category="admonition">Astra Control Center를 새 클러스터(이 절차에서 설명하는 세 번째 Kubernetes 클러스터)에 복원하고 새로 설치된 Astra Control Center의 운영 클러스터와 동일한 DNS를 사용합니다.</block>
+  <block id="614c81b0eeb6c12dd4aaa3bb219365e8" category="list-text">보조 Astra Control Center를 사용하여 <block ref="c187a3e1878878e5987ba2dae2e97e3b" category="inline-link-macro-rx"></block> Astra Control Center 애플리케이션의 1차 인스턴스:</block>
+  <block id="f94329559aeea58ade037e247a10a440" category="list-text">응용 프로그램 * 을 선택한 다음 Astra Control Center 응용 프로그램의 이름을 선택합니다.</block>
+  <block id="e329c9e9b3f1e5268c38c059d96714a5" category="list-text">복원 유형으로 * Restore to new namespaces * 를 선택합니다.</block>
+  <block id="db33cdfe838c8248e7475ea24002e1c5" category="list-text">복원 이름을 입력합니다 <block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
+  <block id="221cfbda20ceb580c1e53521cb9a8340" category="list-text">대상 세 번째 클러스터를 선택합니다 <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
+  <block id="d1285da7ee51ae8f019ffc93064f4ef1" category="list-text">원본 네임스페이스와 동일한 네임스페이스가 되도록 대상 네임스페이스를 업데이트합니다.</block>
+  <block id="a1c4429eb9da28aa020c08aef6590a55" category="list-text">Restore Source 페이지에서 복구 소스로 사용할 애플리케이션 백업을 선택합니다.</block>
+  <block id="e1929df758ae80ddec3d307d6f8b5c48" category="list-text">Restore using original storage classes * 를 선택합니다.</block>
+  <block id="7247b0618202329b2ab0af353626c9ab" category="list-text">Restore all resources * 를 선택합니다.</block>
+  <block id="c70836f462f4f6702b9a139649608439" category="list-text">복원 정보를 검토한 다음 * Restore * 를 선택하여 Astra Control Center를 대상 클러스터로 복원하는 복원 프로세스를 시작합니다 <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>)를 클릭합니다. 애플리케이션이 들어가면 복구가 완료됩니다<block ref="e4894ca167b08880bfc35862f18575eb" prefix=" " category="inline-code"></block> 상태.</block>
+  <block id="24c4abff05451e6058ec89e05fe3f560" category="list-text">대상 클러스터에서 Astra Control Center 구성:</block>
+  <block id="8c0181c3c54e924e6c8251f6434552d7" category="list-text">터미널을 열고 kubeconfig를 사용하여 대상 클러스터에 연결합니다 <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>) 복원된 Astra Control Center가 포함되어 있습니다.</block>
+  <block id="7ccba7a2e64f551441aea8a49495251d" category="list-text">를 확인합니다<block ref="2664f03ac6b8bb9eee4287720e407db3" prefix=" " category="inline-code"></block> Astra Control Center 구성의 열은 운영 시스템의 DNS 이름을 참조합니다.</block>
+  <block id="2040f7af66253ebbe0667af4c0828762" category="list-text">를 누릅니다<block ref="2664f03ac6b8bb9eee4287720e407db3" prefix=" " category="inline-code"></block> 위 응답의 필드에 기본 Astra Control Center 인스턴스의 FQDN이 없습니다. Astra Control Center DNS를 참조하도록 구성을 업데이트하십시오.</block>
+  <block id="6dfa48d4f2467071ce6e0f84fe3006bb" category="list-text">를 변경합니다<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> 에서<block ref="084d5d41838f6b2d8b0c1f1176d66d01" prefix=" " category="inline-code"></block> FQDN으로 이동합니다 <block ref="1e551b4381f3d89f6626ceafdded33bd" prefix="(" category="inline-code"></block> 이 예에서는 기본 Astra Control Center 인스턴스의</block>
+  <block id="25812ed1432cfe46632186b5957ebe26" category="list-text">구성을 저장합니다.</block>
+  <block id="3b02ce4030d877283176db26e25cca57" category="list-text">주소가 업데이트되었는지 확인합니다.</block>
+  <block id="58352934cc7c347e2fd6b8aac19ac694" category="inline-xref">Astra Control Center Operator를 복원합니다</block>
+  <block id="2617a6dc5f64d3041af70a4c660dcdb0" category="list-text">로 이동합니다 <block ref="c104a16b91349430118376c82eb8b32b" category="inline-xref-macro-rx"></block> 섹션을 참조하십시오.</block>
+  <block id="686531f5cdaf39d33f2480c055816558" category="section-title">1단계 옵션: 복제를 사용하여 Astra Control Center 보호</block>
+  <block id="9a1444b1c133e42ccb1d97ee2025cdac" category="inline-link-macro">Astra Control Center 복제</block>
+  <block id="9291c718d85e7bcfb0e1411d0b1c9a6e" category="paragraph">이 절차에서는 를 구성하는 데 필요한 단계를 설명합니다 <block ref="90fb6a19cf7930e9ab4b6d3e8bb24100" category="inline-link-macro-rx"></block> 1차 Astra Control Center 인스턴스를 보호하기 위해</block>
+  <block id="5635b44a250915076a5eb24fca6e9950" category="list-text">보조 Astra Control Center 인스턴스에서 운영 Astra Control Center 애플리케이션 및 타겟 클러스터 관리:</block>
+  <block id="9207ac3bd12b2fa43f3524815a74cfdd" category="list-text"><block ref="e21ec3fc9b132c482f17f04af2363163" category="inline-link-macro-rx"></block> <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>)를 사용하여 복제됩니다.</block>
+  <block id="73a01c3fff16c0348c04f681860fd9d1" category="list-text">클러스터 * 를 선택하고 기본 Astra Control Center가 포함된 클러스터를 선택합니다 <block ref="c6de64d6df231e6979b9dcb292a4e09e" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
+  <block id="b1583f3dc5a5e69c92e9c6428583cb45" category="list-text">를 선택합니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> 및<block ref="cadbba5231afda9b003503d57805b87d" prefix=" " category="inline-code"></block> 네임스페이스.</block>
+  <block id="98ef596f9a9a869b5014c601276e1db7" category="list-text">작업 메뉴를 선택하고 * 응용 프로그램으로 정의 * 를 선택합니다.</block>
+  <block id="ded592a2dd874d97359c95f2eaa29421" category="list-text">정의된 애플리케이션을 보려면 * 애플리케이션에서 보기 * 를 선택합니다.</block>
+  <block id="7f5732477ab7b56be355975c7d13c1df" category="list-text">복제를 위한 백엔드 구성:</block>
+  <block id="a5fdf01a9a15b06aa316075a3525120f" category="admonition">복제를 수행하려면 운영 Astra Control Center 클러스터와 대상 클러스터가 필요합니다 <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>) 다른 피어링된 ONTAP 스토리지 백엔드를 사용합니다.
+각 백엔드가 피어링되어 Astra Control에 추가되면 백엔드가 백엔드 페이지의 * 검색됨 * 탭에 표시됩니다.</block>
+  <block id="91a0f8c844251f5189f5504593539794" category="inline-link-macro">피어링된 백엔드를 추가합니다</block>
+  <block id="ab03d90a9fdb3fdf625d9aca81417e46" category="list-text"><block ref="978f815d0ef0db82fc827303a3ad02ca" category="inline-link-macro-rx"></block> 운영 클러스터의 Astra Control Center로 전환</block>
+  <block id="fd826e05ce5b455d7acefde843e26f20" category="list-text"><block ref="978f815d0ef0db82fc827303a3ad02ca" category="inline-link-macro-rx"></block> 대상 클러스터의 Astra Control Center로 전송</block>
+  <block id="9356fa122297edcda026cd57fdc3d5e3" category="list-text">복제 구성:</block>
+  <block id="8beda0998dc29d932cf830815de72ad4" category="list-text">Applications(응용 프로그램) 화면에서 을 선택합니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> 응용 프로그램.</block>
+  <block id="95eee5643c6ea92bf408bfecd9a7b10b" category="list-text">Configure replication policy * 를 선택합니다.</block>
+  <block id="6378adb28198926b11ac65eb9cea850d" category="list-text">를 선택합니다<block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix=" " category="inline-code"></block> 대상 클러스터 역할을 합니다.</block>
+  <block id="c803f3bcb9b9fd80a88ad7b1a6db021e" category="list-text">스토리지 클래스를 선택합니다.</block>
+  <block id="541bb632fcb2088d2023df5041ddcc6e" category="list-text">를 입력합니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> 대상 네임스페이스로 사용됩니다.</block>
+  <block id="9cbdfe3d15f7fd64c6fd610312533b95" category="list-text">원하는 경우 복제 빈도를 변경합니다.</block>
+  <block id="eb23f2145c46a18f7c55bc5bb9994af8" category="list-text">구성이 올바른지 확인하고 * 저장 * 을 선택합니다.</block>
+  <block id="f684373abd46b45391eb415a770205be" category="paragraph">에서 복제 관계가 전환됩니다<block ref="6f5e6e098505ac366a921fdd2e9dfbe8" prefix=" " category="inline-code"></block> 를 선택합니다<block ref="072f9734fceb02f516b50d4174ac0f18" prefix=" " category="inline-code"></block>. 활성 상태인 경우 이 복제는 복제 구성이 삭제될 때까지 5분마다 수행됩니다.</block>
+  <block id="f8ac0bf20f4e83443becf25c67c8dd23" category="list-text">운영 시스템이 손상되었거나 더 이상 액세스할 수 없는 경우 다른 클러스터로 복제를 페일오버합니다.</block>
+  <block id="2a5c691cfbc0e53ab9e3c59a54c85440" category="admonition">성공적인 페일오버를 보장하기 위해 대상 클러스터에 Astra Control Center가 설치되어 있지 않은지 확인합니다.</block>
+  <block id="071a074466d02cd4e0aaa0b4de4bd015" category="list-text">수직 타원 아이콘을 선택하고 * Fail Over * 를 선택합니다.</block>
+  <block id="eb6498814838443cb837fec23bd9588c" category="inline-image-macro">복제 관계에서 '페일오버' 옵션을 보여 주는 이미지입니다</block>
+  <block id="52613449476ac17405b8af6309067c8d" category="paragraph"><block ref="52613449476ac17405b8af6309067c8d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fd0509d535a6917607fc96bea6fb5b05" category="list-text">세부 정보를 확인하고 * Fail Over * 를 선택하여 페일오버 프로세스를 시작합니다.</block>
+  <block id="8ace1a586dc143db5ddfbd93ea99332d" category="paragraph">복제 관계 상태가 로 변경됩니다<block ref="2c8f732ca2bd1b62efb460fa5c2d6e4d" prefix=" " category="inline-code"></block> 그리고 나서<block ref="8b9489927c1c03581481cfefcf835120" prefix=" " category="inline-code"></block> 완료 시.</block>
+  <block id="82685812b31cfcecb8abcb724f425fa8" category="list-text">페일오버 구성을 완료합니다.</block>
+  <block id="c08a43dadfceec3eb757735076d86287" category="list-text">터미널을 열고 세 번째 클러스터의 kubeconfig를 사용하여 연결합니다 <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>)를 클릭합니다. 이제 이 클러스터에 Astra Control Center가 설치되었습니다.</block>
+  <block id="63272416ff671e2cd071cc6fbf47d1ca" category="list-text">세 번째 클러스터에서 Astra Control Center FQDN을 확인합니다 <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
+  <block id="982e9218f2e08e1fd0f4d400ef3d0e75" category="list-text">Astra Control Center DNS를 참조하도록 구성을 업데이트합니다.</block>
+  <block id="c07ad5d483cf962f73b521090b7ff568" category="list-text">를 변경합니다<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> 에서<block ref="084d5d41838f6b2d8b0c1f1176d66d01" prefix=" " category="inline-code"></block> FQDN을 사용합니다 <block ref="3579b970b0a80f0707d02e4ef2973d55" prefix="(" category="inline-code"></block>대상 세 번째 클러스터의).</block>
+  <block id="121944d9253d29f9f083abff9613ddc7" category="list-text">[[missing-traefik-CRD]] 필요한 모든 traefik CRD가 있는지 확인합니다.</block>
+  <block id="2d02cb2ce67247a18945ee0b7d49bebe" category="paragraph">필수 traefik CRD:</block>
+  <block id="fcc7cca69eff70efc25ddd0fc3a4acf7" category="list-text">위의 CRD 중 일부가 누락된 경우:</block>
+  <block id="bb88971c352167a3a42c197b16ef4465" category="inline-link">Traefik 설명서</block>
+  <block id="2be174f6f759928d5ba86348e9b1e266" category="list-text">로 이동합니다<block ref="d290875ab1e38c2569ff86f76b73296b" category="inline-link-rx"></block>.</block>
+  <block id="b5837c59520923ed6dd4fd8ba1cc7e49" category="list-text">"정의" 영역을 파일로 복사합니다.</block>
+  <block id="ea7463422c1ab87e16568f20144a8f56" category="list-text">변경 내용 적용:</block>
+  <block id="30eef5ffc659f1b49b40f3bdac6a81da" category="list-text">Traefik 다시 시작:</block>
+  <block id="250729ff35e6ada8a47a36ef1a6ac694" category="section-title">2단계: Astra Control Center Operator를 복원합니다</block>
+  <block id="baa33bb55433337969dadc7d383cff14" category="paragraph">보조 Astra Control Center를 사용하여 백업에서 기본 Astra Control Center 운영자를 복원합니다. 대상 네임스페이스는 소스 네임스페이스와 같아야 합니다. Astra Control Center가 운영 소스 클러스터에서 삭제된 경우에도 동일한 복원 단계를 수행하기 위한 백업은 계속 존재합니다.</block>
+  <block id="4c7254ab16d8ef09a273f3d96e69bf1c" category="list-text">응용 프로그램 * 을 선택한 다음 운영자 앱의 이름을 선택합니다 <block ref="cadbba5231afda9b003503d57805b87d" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
+  <block id="ea2832681a21bc1855e50cfe212e73bd" category="list-text">작업 열의 옵션 메뉴에서 * 복원 * 을 선택합니다</block>
+  <block id="76d6679f0128260426340811fccf4a8f" category="list-text">네임스페이스를 운영 소스 클러스터에 연결된 네임스페이스와 동일하게 변경합니다 <block ref="cadbba5231afda9b003503d57805b87d" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
+  <block id="7644d571cdb353d1a0235344eb44d2bf" category="list-text">이전에 수행한 백업을 복구 소스로 선택합니다.</block>
+  <block id="9d606654f9638f2043447b697898f09c" category="list-text">세부 정보를 검토한 후 * Restore * 를 클릭하여 복원 프로세스를 시작합니다.</block>
+  <block id="ac478eb1284026f74c3f5ac74484f605" category="paragraph">Applications 페이지에는 대상 세 번째 클러스터로 복구 중인 Astra Control Center 운영자가 표시됩니다 <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>)를 클릭합니다. 프로세스가 완료되면 상태가 로 표시됩니다<block ref="78945de8de090e90045d299651a68a9b" prefix=" " category="inline-code"></block>. 10분 이내에 DNS 주소가 페이지에서 확인되어야 합니다.</block>
+  <block id="b601247b675f590aa27dcdc8134318f2" category="paragraph">Astra Control Center, 등록된 클러스터, 스냅샷과 백업이 포함된 관리형 애플리케이션을 이제 타겟 세 번째 클러스터에서 사용할 수 있습니다 <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>)를 클릭합니다. 원본에서 사용했던 보호 정책도 새 인스턴스에도 그대로 유지됩니다. 예약된 백업 또는 필요 시 백업 및 스냅샷을 계속 생성할 수 있습니다.</block>
+  <block id="76ca73343a876eeb3c91722eb0a00de9" category="paragraph">시스템 상태 및 보호 프로세스가 성공적인지 확인합니다.</block>
+  <block id="e30b18c15d0e16dfa86486a6e44c0dcf" category="list-text">* Pod가 실행되지 않음 *: 모든 Pod가 실행 중인지 확인합니다.</block>
+  <block id="e714a0eaa24af6b5857a0f2ca298c9f4" category="paragraph">에 일부 Pod가 있는 경우<block ref="9b9a6b49b6ab8fd31c78a10bb618f32b" prefix=" " category="inline-code"></block> 다음과 같이 말하고 다시 시작하면 로 전환됩니다<block ref="5bda814c4aedb126839228f1a3d92f09" prefix=" " category="inline-code"></block> 상태.</block>
+  <block id="d07a1b5feb65868482c68e0ceb9c3c00" category="list-text">* 시스템 상태 확인 *: Astra Control Center 시스템이 입력되었는지 확인합니다<block ref="b2fdab230a2c39f3595a947861863cb7" prefix=" " category="inline-code"></block> 상태:</block>
+  <block id="04f941910085f8a8e8c42f056eff9594" category="list-text">* 배포 상태 확인 * : Astra Control Center 배포 정보를 표시하여 이를 확인합니다<block ref="5e157d538e3ec1b01bf3ba3bd8b358f5" prefix=" " category="inline-code"></block> 있습니다<block ref="ea9823706636090045090bd57654debb" prefix=" " category="inline-code"></block>.</block>
+  <block id="42f792b9c26a4fc874c76169d7b73cf2" category="inline-xref">Traefik CRD를 참조하십시오</block>
+  <block id="24af7920af161c9a7731c3eb37db9d88" category="list-text">*복원된 Astra Control Center UI가 404 오류를 반환합니다. * : 선택한 경우 이 오류가 발생합니다<block ref="0a3e1793e4eaf6bd67bdf43d1bca1c74" prefix=" " category="inline-code"></block> 수신 옵션으로 을(를) 점검하십시오 <block ref="192695547ed338030dabb8777268a730" category="inline-xref-macro-rx"></block> 모두 설치되었는지 확인합니다.</block>
 </blocks>

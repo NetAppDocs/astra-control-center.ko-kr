@@ -4,7 +4,7 @@ sidebar: sidebar
 permalink: index.html 
 summary: Astra Control Center 소프트웨어는 사내 환경에서 Kubernetes 클러스터의 애플리케이션 인식 데이터 관리를 제공합니다. Kubernetes 앱을 손쉽게 백업하고, 데이터를 다른 클러스터로 마이그레이션하고, 작동하는 애플리케이션 클론을 즉시 생성할 수 있습니다. 퍼블릭 클라우드에서 실행 중인 Kubernetes 애플리케이션을 관리해야 하는 경우에는 Astra Control Service용 문서 를 참조하십시오. 
 ---
-= Astra Control Center 문서
+= Astra Control Center 23.07 설명서
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

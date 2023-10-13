@@ -1,0 +1,391 @@
+---
+sidebar: sidebar 
+permalink: use/protect-acc-with-acc.html 
+keywords: backup astra control center, restore astra control center 
+summary: 보조 Astra Control Center 인스턴스를 사용하거나 기본 스토리지에서 ONTAP를 사용하는 경우 Astra 복제를 통해 Astra Control Center를 백업 및 복원할 수 있습니다. 
+---
+= Astra Control Center를 사용하여 Astra Control Center를 보호합니다
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Astra Control Center가 실행 중인 Kubernetes 클러스터에서 심각한 오류로부터 복원력을 개선하려면 Astra Control Center 애플리케이션 자체를 보호합니다. 보조 Astra Control Center 인스턴스를 사용하여 Astra Control Center를 백업 및 복원하거나 기본 스토리지에서 ONTAP를 사용하는 경우 Astra 복제를 사용할 수 있습니다.
+
+이 시나리오에서는 Astra Control Center의 두 번째 인스턴스가 다른 오류 도메인에 구축 및 구성되었으며 1차 Astra Control Center 인스턴스와 다른 두 번째 Kubernetes 클러스터에서 실행됩니다. 두 번째 Astra Control 인스턴스는 운영 Astra Control Center 인스턴스를 백업하고 복원하는 데 사용됩니다. 복원되거나 복제된 Astra Control Center 인스턴스는 애플리케이션 클러스터 애플리케이션에 대한 애플리케이션 데이터 관리를 계속 제공하며 이러한 애플리케이션의 백업 및 스냅샷에 대한 액세스 권한을 복원합니다.
+
+.시작하기 전에
+Astra Control Center에 대한 보호 시나리오를 설정하기 전에 다음 사항이 있는지 확인하십시오.
+
+* * 1차 Astra Control Center 인스턴스를 실행하는 Kubernetes 클러스터 *: 이 클러스터는 애플리케이션 클러스터를 관리하는 1차 Astra Control Center 인스턴스를 호스팅합니다.
+* * 보조 Astra Control Center 인스턴스를 실행하는 기본 시스템과 동일한 Kubernetes 배포 유형의 두 번째 Kubernetes 클러스터 *: 이 클러스터는 기본 Astra Control Center 인스턴스를 관리하는 Astra Control Center 인스턴스를 호스팅합니다.
+* * 기본 Kubernetes 배포 유형이 동일한 세 번째 Kubernetes 클러스터 *: 이 클러스터는 Astra Control Center의 복원되거나 복제된 인스턴스를 호스팅합니다. 현재 운영 사이트에 구축되어 있는 것과 동일한 Astra Control Center 네임스페이스를 사용할 수 있어야 합니다. 예를 들어, Astra Control Center가 네임스페이스에 구축된 경우 `netapp-acc` 소스 클러스터에서 네임스페이스입니다 `netapp-acc` 사용 가능하고 대상 Kubernetes 클러스터의 어떤 애플리케이션에서도 사용하지 않아야 합니다.
+* * S3 호환 버킷 *: 각 Astra Control Center 인스턴스에는 액세스 가능한 S3 호환 오브젝트 스토리지 버킷이 있습니다.
+* * 구성된 로드 밸런서 *: 로드 밸런서는 Astra에 대한 IP 주소를 제공하며 애플리케이션 클러스터와 두 S3 버킷 모두에 대한 네트워크 연결이 있어야 합니다.
+* * 클러스터가 Astra Control Center 요구 사항을 충족함 *: Astra Control Center 보호에 사용되는 각 클러스터가 충족함 https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html#kubernetes-cluster-general-requirement["일반 Astra Control Center 요구사항"^].
+
+
+.이 작업에 대해
+다음 절차에서는 다음 중 하나를 사용하여 Astra Control Center를 새 클러스터로 복원하는 데 필요한 단계를 설명합니다 <<1단계 옵션: Astra Control Center 백업 및 복원,백업 및 복원>> 또는 <<1단계 옵션: 복제를 사용하여 Astra Control Center 보호,복제>>. 단계는 여기에 설명된 예제 구성을 기반으로 합니다.
+
+image:backup-or-replicate-acc-w-acc-example-flow.png["Astra Control Center 복제 또는 백업 예제 시나리오의 3개 중 2개에서 Kubernetes 클러스터와 Astra Control Center가 표시된 보호 워크플로우 이미지"]
+
+이 예제 구성에서는 다음과 같이 표시됩니다.
+
+* * 1차 Astra Control Center 인스턴스를 실행하는 Kubernetes 클러스터 *:
++
+** OpenShift 클러스터: `ocp-cluster-1`
+** Astra Control Center 1차 인스턴스: `ocp-cluster-1.company.com`
+** 이 클러스터는 애플리케이션 클러스터를 관리합니다.
+
+
+* * 보조 Astra Control Center 인스턴스를 실행하는 기본 Kubernetes 배포 유형이 동일한 두 번째 Kubernetes 클러스터 *:
++
+** OpenShift 클러스터: `ocp-cluster-2`
+** Astra Control Center 2차 인스턴스: `ocp-cluster-2.company.com`
+** 이 클러스터는 기본 Astra Control Center 인스턴스를 백업하거나 다른 클러스터(이 예에서는)에 대한 복제를 구성하는 데 사용됩니다 `ocp-cluster-3` 클러스터).
+
+
+* * 복원 작업에 사용될 기본 Kubernetes 배포 유형이 동일한 세 번째 Kubernetes 클러스터 *:
++
+** OpenShift 클러스터: `ocp-cluster-3`
+** Astra Control Center 3번째 인스턴스: `ocp-cluster-3.company.com`
+** 이 클러스터는 Astra Control Center 복원 또는 복제 페일오버에 사용됩니다.
+
+
+
+
+
+NOTE: 이상적으로는, 애플리케이션 클러스터는 위의 이미지에서 Kubernetes 및 Rancher 클러스터에 설명된 대로 Astra Control Center 클러스터 3개 외부에 위치해야 합니다.
+
+다이어그램에 표시되지 않음:
+
+* 모든 클러스터에는 Trident가 설치된 ONTAP 백 엔드가 있습니다.
+* 이 구성에서 OpenShift 클러스터는 로드 밸런서로 MetalLB를 사용합니다.
+* 스냅샷 컨트롤러와 VolumeSnapshotClass도 에 설명된 대로 모든 클러스터에 설치됩니다 link:../get-started/setup_overview.html#prepare-your-environment-for-cluster-management-using-astra-control["필수 구성 요소"^].
+
+
+
+
+== 1단계 옵션: Astra Control Center 백업 및 복원
+
+이 절차에서는 백업 및 복원을 사용하여 Astra Control Center를 새 클러스터로 복원하는 데 필요한 단계를 설명합니다.
+
+이 예에서는 Astra Control Center가 항상 아래에 설치됩니다 `netapp-acc` 네임스페이스 및 연산자는 아래에 설치됩니다 `netapp-acc-operator` 네임스페이스.
+
+
+NOTE: 설명한 것은 아니지만 Astra Control Center 운영자는 Astra CR과 동일한 네임스페이스에 구축할 수도 있습니다.
+
+.시작하기 전에
+* 클러스터에 운영 Astra Control Center를 설치했습니다.
+* 보조 Astra Control Center를 다른 클러스터에 설치했습니다.
+
+
+.단계
+. 에서 실행되는 2차 Astra Control Center 인스턴스에서 운영 Astra Control Center 애플리케이션 및 타겟 클러스터를 관리합니다 `ocp-cluster-2` 클러스터):
++
+.. 보조 Astra Control Center 인스턴스에 로그인합니다.
+.. link:../get-started/setup_overview.html#add-cluster["1차 Astra Control Center 클러스터를 추가합니다"] (`ocp-cluster-1`)를 클릭합니다.
+.. link:../get-started/setup_overview.html#add-cluster["대상 세 번째 클러스터를 추가합니다"] (`ocp-cluster-3`)를 선택합니다.
+
+
+. 보조 Astra Control Center에서 Astra Control Center 및 Astra Control Center 운영자:
++
+.. 응용 프로그램 페이지에서 * 정의 * 를 선택합니다.
+.. Define application * (애플리케이션 정의 *) 창에서 새 애플리케이션 이름을 입력합니다 (`netapp-acc`)를 클릭합니다.
+.. 1차 Astra Control Center를 실행 중인 클러스터를 선택합니다 (`ocp-cluster-1`)를 선택합니다.
+.. 를 선택합니다 `netapp-acc` Namespace * 드롭다운 목록에서 Astra Control Center의 네임스페이스입니다.
+.. 클러스터 리소스 페이지에서 * 추가 클러스터 범위 리소스 포함 * 을 선택합니다.
+.. 포함 규칙 추가 * 를 선택합니다.
+.. 다음 항목을 선택하고 * 추가 * 를 선택합니다.
++
+*** 라벨 선택기: acc-CRD
+*** 그룹: apiextensions.k8s.io
+*** 버전: v1
+*** 종류: CustomResourceDefinition
+
+
+.. 응용 프로그램 정보를 확인합니다.
+.. 정의 * 를 선택합니다.
++
+정의 * 를 선택한 후 연산자에 대해 애플리케이션 정의 프로세스를 반복합니다  `netapp-acc-operator`)를 선택하고 를 선택합니다 `netapp-acc-operator` 응용 프로그램 정의 마법사의 네임스페이스입니다.
+
+
+
+. Astra Control Center 및 운영자 백업:
++
+.. 보조 Astra Control Center에서 애플리케이션 탭을 선택하여 애플리케이션 페이지로 이동합니다.
+.. link:../use/protect-apps.html#create-a-backup["백업하다"^] Astra Control Center 애플리케이션 (`netapp-acc`)를 클릭합니다.
+.. link:../use/protect-apps.html#create-a-backup["백업하다"^] 오퍼레이터 (`netapp-acc-operator`)를 클릭합니다.
+
+
+. Astra Control Center와 운영자를 백업한 후 를 통해 DR(재해 복구) 시나리오를 시뮬레이션합니다 link:../use/uninstall_acc.html["Astra Control Center 제거 중"^] 운영 클러스터에서
++
+
+NOTE: Astra Control Center를 새 클러스터(이 절차에서 설명하는 세 번째 Kubernetes 클러스터)에 복원하고 새로 설치된 Astra Control Center의 운영 클러스터와 동일한 DNS를 사용합니다.
+
+. 보조 Astra Control Center를 사용하여 link:../use/restore-apps.html["복원"^] Astra Control Center 애플리케이션의 1차 인스턴스:
++
+.. 응용 프로그램 * 을 선택한 다음 Astra Control Center 응용 프로그램의 이름을 선택합니다.
+.. 작업 열의 옵션 메뉴에서 * 복원 * 을 선택합니다.
+.. 복원 유형으로 * Restore to new namespaces * 를 선택합니다.
+.. 복원 이름을 입력합니다 (`netapp-acc`)를 클릭합니다.
+.. 대상 세 번째 클러스터를 선택합니다 (`ocp-cluster-3`)를 클릭합니다.
+.. 원본 네임스페이스와 동일한 네임스페이스가 되도록 대상 네임스페이스를 업데이트합니다.
+.. Restore Source 페이지에서 복구 소스로 사용할 애플리케이션 백업을 선택합니다.
+.. Restore using original storage classes * 를 선택합니다.
+.. Restore all resources * 를 선택합니다.
+.. 복원 정보를 검토한 다음 * Restore * 를 선택하여 Astra Control Center를 대상 클러스터로 복원하는 복원 프로세스를 시작합니다 (`ocp-cluster-3`)를 클릭합니다. 애플리케이션이 들어가면 복구가 완료됩니다 `available` 상태.
+
+
+. 대상 클러스터에서 Astra Control Center 구성:
++
+.. 터미널을 열고 kubeconfig를 사용하여 대상 클러스터에 연결합니다 (`ocp-cluster-3`) 복원된 Astra Control Center가 포함되어 있습니다.
+.. 를 확인합니다 `ADDRESS` Astra Control Center 구성의 열은 운영 시스템의 DNS 이름을 참조합니다.
++
+[listing]
+----
+kubectl get acc -n netapp-acc
+----
++
+응답:
+
++
+[listing]
+----
+NAME  UUID                                 VERSION    ADDRESS                             READY
+astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 23.07.0-24 ocp-cluster-1.company.com           True
+----
+.. 를 누릅니다 `ADDRESS` 위 응답의 필드에 기본 Astra Control Center 인스턴스의 FQDN이 없습니다. Astra Control Center DNS를 참조하도록 구성을 업데이트하십시오.
++
+[listing]
+----
+kubectl edit acc -n netapp-acc
+----
++
+... 를 변경합니다 `astraAddress` 에서 `spec:` FQDN으로 이동합니다 (`ocp-cluster-1.company.com` 이 예에서는 기본 Astra Control Center 인스턴스의
+... 구성을 저장합니다.
+... 주소가 업데이트되었는지 확인합니다.
++
+[listing]
+----
+kubectl get acc -n netapp-acc
+----
+
+
+.. 로 이동합니다 <<2단계: Astra Control Center Operator를 복원합니다,Astra Control Center Operator를 복원합니다>> 섹션을 참조하십시오.
+
+
+
+
+
+
+== 1단계 옵션: 복제를 사용하여 Astra Control Center 보호
+
+이 절차에서는 를 구성하는 데 필요한 단계를 설명합니다 link:../use/replicate_snapmirror.html["Astra Control Center 복제"^] 1차 Astra Control Center 인스턴스를 보호하기 위해
+
+이 예에서는 Astra Control Center가 항상 아래에 설치됩니다 `netapp-acc` 네임스페이스 및 연산자는 아래에 설치됩니다 `netapp-acc-operator` 네임스페이스.
+
+.시작하기 전에
+* 클러스터에 운영 Astra Control Center를 설치했습니다.
+* 보조 Astra Control Center를 다른 클러스터에 설치했습니다.
+
+
+.단계
+. 보조 Astra Control Center 인스턴스에서 운영 Astra Control Center 애플리케이션 및 타겟 클러스터 관리:
++
+.. 보조 Astra Control Center 인스턴스에 로그인합니다.
+.. link:../get-started/setup_overview.html#add-cluster["1차 Astra Control Center 클러스터를 추가합니다"] (`ocp-cluster-1`)를 클릭합니다.
+.. link:../get-started/setup_overview.html#add-cluster["대상 세 번째 클러스터를 추가합니다"] (`ocp-cluster-3`)를 사용하여 복제됩니다.
+
+
+. 보조 Astra Control Center에서 Astra Control Center 및 Astra Control Center 운영자:
++
+.. 클러스터 * 를 선택하고 기본 Astra Control Center가 포함된 클러스터를 선택합니다 (`ocp-cluster-1`)를 클릭합니다.
+.. Namespaces* 탭을 선택합니다.
+.. 를 선택합니다 `netapp-acc` 및 `netapp-acc-operator` 네임스페이스.
+.. 작업 메뉴를 선택하고 * 응용 프로그램으로 정의 * 를 선택합니다.
+.. 정의된 애플리케이션을 보려면 * 애플리케이션에서 보기 * 를 선택합니다.
+
+
+. 복제를 위한 백엔드 구성:
++
+
+NOTE: 복제를 수행하려면 운영 Astra Control Center 클러스터와 대상 클러스터가 필요합니다 (`ocp-cluster-3`) 다른 피어링된 ONTAP 스토리지 백엔드를 사용합니다.
+각 백엔드가 피어링되어 Astra Control에 추가되면 백엔드가 백엔드 페이지의 * 검색됨 * 탭에 표시됩니다.
+
++
+.. link:../get-started/setup_overview.html#add-a-storage-backend["피어링된 백엔드를 추가합니다"^] 운영 클러스터의 Astra Control Center로 전환
+.. link:../get-started/setup_overview.html#add-a-storage-backend["피어링된 백엔드를 추가합니다"^] 대상 클러스터의 Astra Control Center로 전송
+
+
+. 복제 구성:
++
+.. Applications(응용 프로그램) 화면에서 을 선택합니다 `netapp-acc` 응용 프로그램.
+.. Configure replication policy * 를 선택합니다.
+.. 를 선택합니다 `ocp-cluster-3` 대상 클러스터 역할을 합니다.
+.. 스토리지 클래스를 선택합니다.
+.. 를 입력합니다 `netapp-acc` 대상 네임스페이스로 사용됩니다.
+.. 원하는 경우 복제 빈도를 변경합니다.
+.. 다음 * 을 선택합니다.
+.. 구성이 올바른지 확인하고 * 저장 * 을 선택합니다.
++
+에서 복제 관계가 전환됩니다 `Establishing` 를 선택합니다 `Established`. 활성 상태인 경우 이 복제는 복제 구성이 삭제될 때까지 5분마다 수행됩니다.
+
+
+
+. 운영 시스템이 손상되었거나 더 이상 액세스할 수 없는 경우 다른 클러스터로 복제를 페일오버합니다.
++
+
+NOTE: 성공적인 페일오버를 보장하기 위해 대상 클러스터에 Astra Control Center가 설치되어 있지 않은지 확인합니다.
+
++
+.. 수직 타원 아이콘을 선택하고 * Fail Over * 를 선택합니다.
++
+image:acc-to-acc-replication-example.png["복제 관계에서 '페일오버' 옵션을 보여 주는 이미지입니다"]
+
+.. 세부 정보를 확인하고 * Fail Over * 를 선택하여 페일오버 프로세스를 시작합니다.
++
+복제 관계 상태가 로 변경됩니다 `Failing over` 그리고 나서 `Failed over` 완료 시.
+
+
+
+. 페일오버 구성을 완료합니다.
++
+.. 터미널을 열고 세 번째 클러스터의 kubeconfig를 사용하여 연결합니다 (`ocp-cluster-3`)를 클릭합니다. 이제 이 클러스터에 Astra Control Center가 설치되었습니다.
+.. 세 번째 클러스터에서 Astra Control Center FQDN을 확인합니다 (`ocp-cluster-3`)를 클릭합니다.
+.. Astra Control Center DNS를 참조하도록 구성을 업데이트합니다.
++
+[listing]
+----
+kubectl edit acc -n netapp-acc
+----
++
+... 를 변경합니다 `astraAddress` 에서 `spec:` FQDN을 사용합니다 (`ocp-cluster-3.company.com`대상 세 번째 클러스터의).
+... 구성을 저장합니다.
+... 주소가 업데이트되었는지 확인합니다.
++
+[listing]
+----
+kubectl get acc -n netapp-acc
+----
+
+
+.. [[missing-traefik-CRD]] 필요한 모든 traefik CRD가 있는지 확인합니다.
++
+[listing]
+----
+kubectl get crds | grep traefik
+----
++
+필수 traefik CRD:
+
++
+[listing]
+----
+ingressroutes.traefik.containo.us
+ingressroutes.traefik.io
+ingressroutetcps.traefik.containo.us
+ingressroutetcps.traefik.io
+ingressrouteudps.traefik.containo.us
+ingressrouteudps.traefik.io
+middlewares.traefik.containo.us
+middlewares.traefik.io
+middlewaretcps.traefik.containo.us
+middlewaretcps.traefik.io
+serverstransports.traefik.containo.us
+serverstransports.traefik.io
+tlsoptions.traefik.containo.us
+tlsoptions.traefik.io
+tIsstores.traefik.containo.us
+tIsstores.traefik.io
+traefikservices.traefik.containo.us
+traefikservices.traefik.io
+----
+.. 위의 CRD 중 일부가 누락된 경우:
++
+... 로 이동합니다 https://doc.traefik.io/traefik/reference/dynamic-configuration/kubernetes-crd/["Traefik 설명서"^].
+... "정의" 영역을 파일로 복사합니다.
+... 변경 내용 적용:
++
+[listing]
+----
+kubectl apply -f <file name>
+----
+... Traefik 다시 시작:
++
+[listing]
+----
+kubectl get pods -n netapp-acc | grep -e "traefik" | awk '{print $1}' | xargs kubectl delete pod -n netapp-acc"
+----
+
+
+.. 로 이동합니다 <<2단계: Astra Control Center Operator를 복원합니다,Astra Control Center Operator를 복원합니다>> 섹션을 참조하십시오.
+
+
+
+
+
+
+== 2단계: Astra Control Center Operator를 복원합니다
+
+보조 Astra Control Center를 사용하여 백업에서 기본 Astra Control Center 운영자를 복원합니다. 대상 네임스페이스는 소스 네임스페이스와 같아야 합니다. Astra Control Center가 운영 소스 클러스터에서 삭제된 경우에도 동일한 복원 단계를 수행하기 위한 백업은 계속 존재합니다.
+
+.단계
+. 응용 프로그램 * 을 선택한 다음 운영자 앱의 이름을 선택합니다 (`netapp-acc-operator`)를 클릭합니다.
+. 작업 열의 옵션 메뉴에서 * 복원 * 을 선택합니다
+. 복원 유형으로 * Restore to new namespaces * 를 선택합니다.
+. 대상 세 번째 클러스터를 선택합니다 (`ocp-cluster-3`)를 클릭합니다.
+. 네임스페이스를 운영 소스 클러스터에 연결된 네임스페이스와 동일하게 변경합니다 (`netapp-acc-operator`)를 클릭합니다.
+. 이전에 수행한 백업을 복구 소스로 선택합니다.
+. Restore using original storage classes * 를 선택합니다.
+. Restore all resources * 를 선택합니다.
+. 세부 정보를 검토한 후 * Restore * 를 클릭하여 복원 프로세스를 시작합니다.
++
+Applications 페이지에는 대상 세 번째 클러스터로 복구 중인 Astra Control Center 운영자가 표시됩니다 (`ocp-cluster-3`)를 클릭합니다. 프로세스가 완료되면 상태가 로 표시됩니다 `Available`. 10분 이내에 DNS 주소가 페이지에서 확인되어야 합니다.
+
+
+
+.결과
+Astra Control Center, 등록된 클러스터, 스냅샷과 백업이 포함된 관리형 애플리케이션을 이제 타겟 세 번째 클러스터에서 사용할 수 있습니다 (`ocp-cluster-3`)를 클릭합니다. 원본에서 사용했던 보호 정책도 새 인스턴스에도 그대로 유지됩니다. 예약된 백업 또는 필요 시 백업 및 스냅샷을 계속 생성할 수 있습니다.
+
+
+
+== 문제 해결
+
+시스템 상태 및 보호 프로세스가 성공적인지 확인합니다.
+
+* * Pod가 실행되지 않음 *: 모든 Pod가 실행 중인지 확인합니다.
++
+[listing]
+----
+kubectl get pods -n netapp-acc
+----
++
+에 일부 Pod가 있는 경우 `CrashLookBackOff` 다음과 같이 말하고 다시 시작하면 로 전환됩니다 `Running` 상태.
+
+* * 시스템 상태 확인 *: Astra Control Center 시스템이 입력되었는지 확인합니다 `ready` 상태:
++
+[listing]
+----
+kubectl get acc -n netapp-acc
+----
++
+응답:
+
++
+[listing]
+----
+NAME  UUID                                 VERSION    ADDRESS                             READY
+astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 23.07.0-24 ocp-cluster-1.company.com           True
+----
+* * 배포 상태 확인 * : Astra Control Center 배포 정보를 표시하여 이를 확인합니다 `Deployment State` 있습니다 `Deployed`.
++
+[listing]
+----
+kubectl describe acc astra -n netapp-acc
+----
+* *복원된 Astra Control Center UI가 404 오류를 반환합니다. * : 선택한 경우 이 오류가 발생합니다 `AccTraefik` 수신 옵션으로 을(를) 점검하십시오 <<missing-traefik-crd,Traefik CRD를 참조하십시오>> 모두 설치되었는지 확인합니다.
+
