@@ -14,11 +14,14 @@ summary: Astra Control Center를 업그레이드하려면 설명된 단계에 �
 [role="lead"]
 Astra Control Center를 업그레이드하려면 NetApp Support 사이트에서 설치 번들을 다운로드하고 다음 지침을 완료하십시오. 이 절차를 사용하여 인터넷에 연결되거나 공기가 연결된 환경에서 Astra Control Center를 업그레이드할 수 있습니다.
 
+다음 지침에서는 Astra Control Center의 두 번째 최신 릴리즈에서 이 최신 릴리즈로 업그레이드하는 프로세스를 설명합니다. 현재 릴리스 뒤에 있는 두 개 이상의 릴리스에서는 직접 업그레이드할 수 없습니다. 설치된 Astra Control Center 버전이 최신 릴리즈의 지원 대상인 경우, 설치된 Astra Control Center가 최신 릴리즈에 이어 한 버전일 때까지 최신 버전으로 체인 업그레이드를 수행해야 할 수 있습니다. 릴리스 버전의 전체 목록은 를 참조하십시오 link:../release-notes/whats-new.html["릴리즈 노트를 참조하십시오"^].
+
 .시작하기 전에
 업그레이드하기 전에 환경이 에 맞는지 확인하십시오 link:../get-started/requirements.html["Astra Control Center 구축을 위한 최소 요구 사항"^]. 환경에 다음이 있어야 합니다.
 
-* 지원되는 Astra Trident 버전
+* * A입니다 link:../get-started/requirements.html#astra-trident-requirements["지원"] Astra Trident 버전 *
 +
+.단계를 위해 확장합니다
 [%collapsible]
 ====
 실행 중인 Trident 버전 확인:
@@ -27,14 +30,18 @@ Astra Control Center를 업그레이드하려면 NetApp Support 사이트에서 
 ----
 kubectl get tridentversion -n trident
 ----
-을 참조하십시오 https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html#determine-the-version-to-upgrade-to["Astra Trident 문서"] 이전 버전에서 업그레이드하는 경우.
 
-
-WARNING: Kubernetes 1.25로 업그레이드하기 전에 * Astra Trident 22.10 * 으로 업그레이드해야 합니다.
+NOTE: 필요한 경우 다음 명령을 사용하여 Astra Trident를 업그레이드합니다 https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html["지침"^].
 
 ====
-* 지원되는 Kubernetes 배포
+
+
+
+IMPORTANT: 23.10 릴리즈는 Astra Trident를 지원하는 Astra Control Center의 마지막 릴리즈입니다. 반드시 추천해 드립니다 link:../use/enable-acp.html["Astra Control Provisioner를 활성화합니다"] Astra Trident가 제공하는 기능을 넘어서는 고급 관리 및 스토리지 프로비저닝 기능에 액세스할 수 있습니다. Astra Control Center 23.10으로 업그레이드하고 이 확장 기능을 사용하려면 Astra Control Provisioner를 활성화해야 합니다. Astra Control Provisioner는 Astra Control Center의 이전 릴리즈에서는 작동하지 않습니다.
+
+* * 지원되는 Kubernetes 배포 *
 +
+.단계를 위해 확장합니다
 [%collapsible]
 ====
 실행 중인 Kubernetes 버전 확인:
@@ -44,8 +51,9 @@ WARNING: Kubernetes 1.25로 업그레이드하기 전에 * Astra Trident 22.10 *
 kubectl get nodes -o wide
 ----
 ====
-* 충분한 클러스터 리소스
+* * 충분한 클러스터 리소스 *
 +
+.단계를 위해 확장합니다
 [%collapsible]
 ====
 사용 가능한 클러스터 리소스 결정:
@@ -55,9 +63,10 @@ kubectl get nodes -o wide
 kubectl describe node <node name>
 ----
 ====
-* Astra Control Center 이미지를 푸시 및 업로드하는 데 사용할 수 있는 레지스트리입니다
-* 기본 스토리지 클래스입니다
+* * Astra Control Center 이미지를 푸시 및 업로드하는 데 사용할 수 있는 레지스트리 *
+* * 기본 스토리지 클래스 *
 +
+.단계를 위해 확장합니다
 [%collapsible]
 ====
 기본 스토리지 클래스 확인:
@@ -67,8 +76,9 @@ kubectl describe node <node name>
 kubectl get storageclass
 ----
 ====
-* 사용 가능한 정상 API 서비스
+* * 정상 및 사용 가능한 API 서비스 *
 +
+.단계를 위해 확장합니다
 [%collapsible]
 ====
 모든 API 서비스가 정상 상태이며 사용 가능한지 확인합니다.
@@ -78,8 +88,9 @@ kubectl get storageclass
 kubectl get apiservices
 ----
 ====
-* (OpenShift에만 해당) 사용 가능한 정상 클러스터 운영자
+* * (OpenShift만 해당) 정상 및 사용 가능한 클러스터 운영자 *
 +
+.단계를 위해 확장합니다
 [%collapsible]
 ====
 모든 클러스터 운영자가 양호한 상태이며 사용 가능한지 확인합니다.
@@ -89,10 +100,27 @@ kubectl get apiservices
 kubectl get clusteroperators
 ----
 ====
+* * NetApp Astra 컨트롤 이미지 레지스트리에 액세스 *:
+NetApp 이미지 레지스트리에서 Astra Control Provisioner와 같은 Astra Control의 설치 이미지 및 기능 개선 사항을 가져올 수 있습니다.
++
+.단계를 위해 확장합니다
+[%collapsible]
+====
+.. 레지스트리에 로그인해야 하는 Astra Control 계정 ID를 기록합니다.
++
+계정 ID는 Astra Control Service 웹 UI에서 확인할 수 있습니다. 페이지 오른쪽 상단의 그림 아이콘을 선택하고 * API 액세스 * 를 선택한 후 계정 ID를 기록합니다.
+
+.. 같은 페이지에서 * API 토큰 생성 * 을 선택하고 API 토큰 문자열을 클립보드에 복사하여 편집기에 저장합니다.
+.. Astra Control 레지스트리에 로그인합니다.
++
+[source, console]
+----
+docker login cr.astra.netapp.io -u <account-id> -p <api-token>
+----
 
 
+====
 
-IMPORTANT: 이 절차의 일부로 해야 합니다  Astra Control Center를 업그레이드하는 경우 이 업데이트된 연산자를 사용하여 이전 버전의 Astra Control Center로 업그레이드할 수 없습니다.
 
 .이 작업에 대해
 Astra Control Center 업그레이드 프로세스는 다음과 같은 고급 단계를 안내합니다.
@@ -118,12 +146,18 @@ TIP: 스케줄, 백업 및 스냅샷이 실행되고 있지 않은 경우 유지
 
 == Astra Control Center를 다운로드하고 압축을 풉니다
 
-. 로 이동합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Center 제품 다운로드 페이지"^] 를 방문하십시오. 드롭다운 메뉴에서 최신 버전 또는 원하는 다른 버전을 선택할 수 있습니다.
+NetApp Support 사이트에서 Astra Control Center 번들을 다운로드하거나 Docker를 사용하여 Astra Control Service 이미지 레지스트리에서 번들을 가져올 수 있습니다.
+
+[role="tabbed-block"]
+====
+.NetApp Support 사이트
+--
+. Astra Control Center가 포함된 번들을 다운로드합니다 (`astra-control-center-[version].tar.gz`)를 선택합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Center 다운로드 페이지"^].
 . (권장되지만 선택 사항) Astra Control Center용 인증서 및 서명 번들을 다운로드합니다 (`astra-control-center-certs-[version].tar.gz`)를 클릭하여 번들 서명을 확인합니다.
 +
 .자세한 내용을 보려면 를 확장합니다
 [%collapsible]
-====
+=====
 [source, console]
 ----
 tar -vxzf astra-control-center-certs-[version].tar.gz
@@ -134,7 +168,7 @@ openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature cert
 ----
 출력이 표시됩니다 `Verified OK` 확인 성공 후.
 
-====
+=====
 . Astra Control Center 번들에서 이미지를 추출합니다.
 +
 [source, console]
@@ -143,6 +177,16 @@ tar -vxzf astra-control-center-[version].tar.gz
 ----
 
 
+--
+.Astra Control 이미지 레지스트리
+--
+. Astra Control Service에 로그인합니다.
+. 대시보드에서 * Astra Control의 자가 관리형 인스턴스 배포 * 를 선택합니다.
+. 지침에 따라 Astra Control 이미지 레지스트리에 로그인하고 Astra Control Center 설치 이미지를 가져온 다음 이미지를 추출합니다.
+
+
+--
+====
 
 
 == NetApp Astra kubtl 플러그인을 제거하고 다시 설치합니다
@@ -220,8 +264,9 @@ kubectl astra packages push-images -m <BUNDLE_FILE> -r <MY_FULL_REGISTRY_PATH> -
 --
 . 타볼의 루트 디렉토리로 변경합니다. 이 파일과 디렉토리가 표시됩니다.
 +
-`acc.manifest.bundle.yaml`
 `acc/`
+`kubectl-astra/`
+`acc.manifest.bundle.yaml`
 
 . 레지스트리에 로그인합니다.
 +
@@ -240,7 +285,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.07.0-25
+export PACKAGEVERSION=23.10.0-68
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -259,7 +304,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.07.0-25
+export PACKAGEVERSION=23.10.0-68
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -275,7 +320,7 @@ NOTE: 레지스트리 구성에 따라 스크립트가 만드는 이미지 경�
 +
 [listing]
 ----
-https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.07.0-25/image:version
+https://downloads.example.io/docker-astra-control-prod/netapp/astra/acc/23.10.0-68/image:version
 ----
 
 
@@ -360,7 +405,7 @@ spec:
           value: "2"
         *- name: ACCOP_HELM_UPGRADETIMEOUT*
           *value: 300m*
-        *image: ASTRA_IMAGE_REGISTRY/acc-operator:23.07.25*
+        *image: ASTRA_IMAGE_REGISTRY/acc-operator:23.10.72*
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -491,7 +536,7 @@ kubectl get AstraControlCenter -n [netapp-acc or custom namespace]
 [listing]
 ----
 NAME    UUID                                      VERSION     ADDRESS         READY
-astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f      23.07.0-25   10.111.111.111  True
+astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f      23.10.0-68   10.111.111.111  True
 ----
 +
 

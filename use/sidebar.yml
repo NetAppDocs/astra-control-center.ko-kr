@@ -56,5 +56,7 @@ entries:
   url: "/use/unmanage.html"
 - title: Astra Control Center를 업그레이드합니다
   url: "/use/upgrade-acc.html"
+- title: Astra Control Provisioner를 활성화합니다
+  url: "/use/enable-acp.html"
 - title: Astra Control Center를 제거합니다
   url: "/use/uninstall_acc.html"

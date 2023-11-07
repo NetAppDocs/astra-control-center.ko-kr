@@ -17,8 +17,8 @@ Red Hat OpenShift를 사용하는 경우 Red Hat 공인 운영자를 사용하�
 이 절차를 완료한 후에는 설치 절차로 돌아가 를 완료해야 합니다 link:../get-started/install_acc.html#verify-system-status["나머지 단계"^] 설치 성공 여부를 확인하고 로그온합니다.
 
 .시작하기 전에
-* * 환경 전제 조건 충족 *: link:requirements.html["설치를 시작하기 전에 Astra Control Center 구축을 위한 환경을 준비합니다"^].
-* * 정상적인 클러스터 운영자 및 API 서비스 *:
+* * 환경 필수 조건 충족 *: link:requirements.html["설치를 시작하기 전에 Astra Control Center 구축을 위한 환경을 준비합니다"^].
+* * 건강한 클러스터 운영자 및 API 서비스 보장 *:
 +
 ** OpenShift 클러스터에서 모든 클러스터 운영자가 정상 상태인지 확인합니다.
 +
@@ -34,11 +34,50 @@ oc get apiservices
 ----
 
 
-* * FQDN 주소 *: 데이터 센터의 Astra Control Center에 대한 FQDN 주소를 얻습니다.
-* * OpenShift Permissions *: Red Hat OpenShift Container Platform에 대한 필수 권한과 액세스를 얻어 설명된 설치 단계를 수행합니다.
-* 인증서 관리자 구성됨 *: 인증서 관리자가 클러스터에 이미 있는 경우 일부를 수행해야 합니다 link:../get-started/cert-manager-prereqs.html["필수 단계"^] 따라서 Astra Control Center는 자체 인증 관리자를 설치하지 않습니다. 기본적으로 Astra Control Center는 설치 중에 자체 인증서 관리자를 설치합니다.
+* * 라우팅 가능한 FQDN *: 사용하려는 Astra FQDN을 클러스터로 라우팅할 수 있습니다. 즉, 내부 DNS 서버에 DNS 항목이 있거나 이미 등록된 코어 URL 경로를 사용하고 있는 것입니다.
+* * OpenShift 권한 얻기 *: Red Hat OpenShift Container Platform에 대한 모든 필수 권한과 액세스 권한이 있어야 설명된 설치 단계를 수행할 수 있습니다.
+* * 인증서 관리자 구성 *: 클러스터에 이미 인증서 관리자가 있는 경우 일부 작업을 수행해야 합니다 link:../get-started/cert-manager-prereqs.html["필수 단계"^] 따라서 Astra Control Center는 자체 인증 관리자를 설치하지 않습니다. 기본적으로 Astra Control Center는 설치 중에 자체 인증서 관리자를 설치합니다.
+* * 서비스 메시를 고려하십시오 * : Astra Control 호스트 클러스터 통신 채널은 을 사용하여 보안을 유지하는 것이 좋습니다 link:requirements.html#service-mesh-requirements["지원되는 서비스 메시입니다"^].
++
+.Istio 서비스 메쉬 디테일
+[%collapsible]
+====
+Istio 서비스 메시를 사용하려면 다음을 수행해야 합니다.
+
+** 를 추가합니다 `istio-injection:enabled` Astra Control Center를 구축하기 전에 Astra 네임스페이스에 레이블을 지정합니다.
+** 를 사용합니다 `Generic` <<generic-ingress,수신 설정>> 에 대한 대체 침입을 제공합니다 link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["외부 부하 균형"^].
+** Red Hat OpenShift 클러스터의 경우 을 정의해야 합니다 `NetworkAttachmentDefinition` 연결된 모든 Astra Control Center 네임스페이스에서 (`netapp-acc-operator`, `netapp-acc`, `netapp-monitoring` 응용 프로그램 클러스터 또는 대체된 사용자 지정 네임스페이스의 경우).
++
+[listing]
+----
+cat <<EOF | oc -n netapp-acc-operator create -f -
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: istio-cni
+EOF
+
+cat <<EOF | oc -n netapp-acc create -f -
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: istio-cni
+EOF
+
+cat <<EOF | oc -n netapp-monitoring create -f -
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: istio-cni
+EOF
+----
+
+
+====
 * * Kubernetes 수신 컨트롤러 *: 클러스터의 로드 밸런싱과 같은 서비스에 대한 외부 액세스를 관리하는 Kubernetes 수신 컨트롤러가 있는 경우 Astra Control Center와 함께 사용하도록 설정해야 합니다.
 +
+[%collapsible]
+====
 .. 연산자 네임스페이스 만들기:
 +
 [listing]
@@ -48,6 +87,8 @@ oc create namespace netapp-acc-operator
 .. link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["설정을 완료합니다"^] 수신 컨트롤러 유형에 적합합니다.
 
 
+====
+* * ONTAP SAN 드라이버만 해당 *: ONTAP SAN 드라이버를 사용하는 경우 모든 Kubernetes 클러스터에서 다중 경로가 활성화되어 있는지 확인하십시오.
 
 
 .단계
@@ -63,12 +104,18 @@ oc create namespace netapp-acc-operator
 
 == Astra Control Center를 다운로드하고 압축을 풉니다
 
+NetApp Support 사이트에서 Astra Control Center 번들을 다운로드하거나 Docker를 사용하여 Astra Control Service 이미지 레지스트리에서 번들을 가져올 수 있습니다.
+
+[role="tabbed-block"]
+====
+.NetApp Support 사이트
+--
 . Astra Control Center가 포함된 번들을 다운로드합니다 (`astra-control-center-[version].tar.gz`)를 선택합니다 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Center 다운로드 페이지"^].
 . (권장되지만 선택 사항) Astra Control Center용 인증서 및 서명 번들을 다운로드합니다 (`astra-control-center-certs-[version].tar.gz`)를 클릭하여 번들 서명을 확인합니다.
 +
 .자세한 내용을 보려면 를 확장합니다
 [%collapsible]
-====
+=====
 [source, console]
 ----
 tar -vxzf astra-control-center-certs-[version].tar.gz
@@ -79,7 +126,7 @@ openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature cert
 ----
 출력이 표시됩니다 `Verified OK` 확인 성공 후.
 
-====
+=====
 . Astra Control Center 번들에서 이미지를 추출합니다.
 +
 [source, console]
@@ -88,6 +135,16 @@ tar -vxzf astra-control-center-[version].tar.gz
 ----
 
 
+--
+.Astra Control 이미지 레지스트리
+--
+. Astra Control Service에 로그인합니다.
+. 대시보드에서 * Astra Control의 자가 관리형 인스턴스 배포 * 를 선택합니다.
+. 지침에 따라 Astra Control 이미지 레지스트리에 로그인하고 Astra Control Center 설치 이미지를 가져온 다음 이미지를 추출합니다.
+
+
+--
+====
 
 
 == NetApp Astra kubtl 플러그인을 설치합니다
@@ -153,8 +210,9 @@ kubectl astra packages push-images -m <BUNDLE_FILE> -r <MY_FULL_REGISTRY_PATH> -
 --
 . 타볼의 루트 디렉토리로 변경합니다. 이 파일과 디렉토리가 표시됩니다.
 +
-`acc.manifest.bundle.yaml`
 `acc/`
+`kubectl-astra/`
+`acc.manifest.bundle.yaml`
 
 . 레지스트리에 로그인합니다.
 +
@@ -173,7 +231,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.07.0-25
+export PACKAGEVERSION=23.10.0-68
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -192,7 +250,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.07.0-25
+export PACKAGEVERSION=23.10.0-68
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -208,7 +266,7 @@ NOTE: 레지스트리 구성에 따라 스크립트가 만드는 이미지 경�
 +
 [listing]
 ----
-https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.07.0-25/image:version
+https://downloads.example.io/docker-astra-control-prod/netapp/astra/acc/23.10.0-68/image:version
 ----
 
 
@@ -220,7 +278,7 @@ https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.0
 
 . 운영자 설치 페이지에 액세스하려면 다음 절차 중 하나를 완료하십시오.
 +
-** Red Hat OpenShift 웹 콘솔:
+** Red Hat OpenShift 웹 콘솔에서:
 +
 ... OpenShift Container Platform UI에 로그인합니다.
 ... 측면 메뉴에서 * Operators > OperatorHub * 를 선택합니다.
@@ -284,7 +342,7 @@ NOTE: 수동 승인 전략을 선택한 경우 이 운영자에 대한 수동 �
 .. Astra Control Center에 대한 레이블을 추가합니다.
 .. 자동 지원을 활성화 또는 비활성화합니다. 자동 지원 기능을 유지하는 것이 좋습니다.
 .. Astra Control Center FQDN 또는 IP 주소를 입력합니다. 들어가지마 `http://` 또는 `https://` 를 입력합니다.
-.. Astra Control Center 버전(예: 23.07.0-25)을 입력합니다.
+.. Astra Control Center 버전(예: 23.10.0-68)을 입력합니다.
 .. 계정 이름, 이메일 주소 및 관리자 성을 입력합니다.
 .. 의 볼륨 재확보 정책을 선택합니다 `Retain`, `Recycle`, 또는 `Delete`. 기본값은 입니다 `Retain`.
 .. 설치 scaleSize를 선택합니다.
@@ -292,7 +350,7 @@ NOTE: 수동 승인 전략을 선택한 경우 이 운영자에 대한 수동 �
 
 NOTE: 기본적으로 Astra는 HA(High Availability)를 사용합니다. `scaleSize` 의 `Medium`즉, HA에서 대부분의 서비스를 구축하고 이중화를 위해 여러 복제본을 배포합니다. 와 함께 `scaleSize` 현재 `Small`Astra는 소비를 줄이기 위한 필수 서비스를 제외한 모든 서비스의 복제본 수를 줄일 것입니다.
 
-.. 수신 유형을 선택합니다.
+.. [[generic-ingress]] 수신 유형을 선택합니다.
 +
 *** *`Generic`* (`ingressType: "Generic"`) (기본값)
 +
@@ -335,7 +393,7 @@ NOTE: 기본 스토리지 클래스가 구성된 경우 기본 주석이 있는 
 
 == 레지스트리 암호를 만듭니다
 
-인증이 필요한 레지스트리를 사용하는 경우 OpenShift 클러스터에서 암호를 만들고 에 암호 이름을 입력합니다 `Create AstraControlCenter` 양식 필드.
+인증이 필요한 레지스트리를 사용하는 경우 OpenShift 클러스터에 암호를 생성하고 에 암호 이름을 입력합니다 `Create AstraControlCenter` 양식 필드.
 
 . Astra Control Center 운영자용 네임스페이스를 생성합니다.
 +

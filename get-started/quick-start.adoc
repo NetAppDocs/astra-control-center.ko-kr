@@ -25,7 +25,8 @@ Astra Control Center를 시작하는 데 필요한 단계를 간략하게 소개
 
 * 스토리지 통합 *
 
-* link:../get-started/requirements.html#astra-trident-requirements["Astra Trident 지원 버전이 환경에 포함되어 있는지 확인합니다"^]
+* link:../get-started/requirements.html#astra-trident-requirements["환경에 Astra Trident 지원 버전이 포함되어 있는지 확인합니다"^]
+* link:../use/enable-acp.html["Astra Control Provisioner 고급 관리 및 스토리지 프로비저닝 기능을 지원합니다"^]
 * https://docs.netapp.com/us-en/trident/trident-use/worker-node-prep.html["작업자 노드를 준비합니다"^]
 * https://docs.netapp.com/us-en/trident/trident-use/backends.html["Astra Trident 스토리지 백엔드를 구성합니다"^]
 * https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["Astra Trident 스토리지 클래스를 구성합니다"^]

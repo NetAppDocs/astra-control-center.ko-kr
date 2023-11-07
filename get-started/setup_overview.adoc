@@ -65,26 +65,28 @@ NOTE: 평가판 라이센스가 있고 데이터를 AutoSupport로 전송하지 
 클러스터를 추가하기 전에 다음 전제 조건이 충족되어야 합니다. 또한 자격 검사를 실행하여 클러스터를 Astra Control Center에 추가할 준비가 되었는지 확인하고 클러스터 관리를 위한 역할을 생성해야 합니다.
 
 .시작하기 전에
-* Pod가 백엔드 스토리지와 상호 작용할 수 있도록 클러스터의 작업자 노드에 적절한 스토리지 드라이버가 구성되어 있는지 확인합니다.
-* 귀사의 환경은 을(를) 충족합니다 link:../get-started/requirements.html["구현할 수 있습니다"^] Astra Trident 및 Astra Control Center용.
-* 개인 CA(인증 기관)를 참조하는 kubeconfig 파일을 사용하여 클러스터를 추가하는 경우 에 다음 줄을 추가합니다 `cluster` kubeconfig 파일의 섹션. 이를 통해 Astra Control이 클러스터를 추가할 수 있습니다.
+* * 환경 필수 조건 충족 *: 사용자 환경이 을(를) 충족합니다 link:../get-started/requirements.html["구현할 수 있습니다"^] Astra Trident 및 Astra Control Center용.
+* * 작업자 노드 구성 *: 포드가 백엔드 스토리지와 상호 작용할 수 있도록 클러스터의 작업자 노드를 적절한 스토리지 드라이버로 구성해야 합니다.
+* * kubeconfig 액세스 할 수 있습니다 * : 당신은 액세스 할 수 있습니다 https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["기본 클러스터 kubecononfig"^] 그것입니다 link:../get-started/install_acc.html#set-up-namespace-and-secret-for-registries-with-auth-requirements["설치하는 동안 를 구성했습니다"^].
+* * 인증 기관 고려 사항 *: 개인 CA(인증 기관)를 참조하는 kubeconfig 파일을 사용하여 클러스터를 추가하는 경우 에 다음 줄을 추가하십시오 `cluster` kubeconfig 파일의 섹션. 이를 통해 Astra Control이 클러스터를 추가할 수 있습니다.
 +
 [listing]
 ----
 insecure-skip-tls-verify: true
 ----
-* Astra Trident의 한 버전입니다 link:../get-started/requirements.html#astra-trident-requirements["Astra Control Center에서 지원합니다"^] 설치됨:
+* * Astra Trident 요구사항 *:
++
+** * 지원되는 버전 설치 *: Astra Trident의 버전입니다 link:../get-started/requirements.html#astra-trident-requirements["Astra Control Center에서 지원합니다"^] 설치됨:
 +
 
 NOTE: 가능합니다 https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#choose-the-deployment-method["Astra Trident 구축"^] Astra Trident 연산자(수동 또는 제어 차트 사용) 또는 를 사용합니다 `tridentctl`. Astra Trident를 설치 또는 업그레이드하기 전에 을 검토하십시오 https://docs.netapp.com/us-en/trident/trident-get-started/requirements.html["지원되는 프런트엔드, 백엔드 및 호스트 구성"^].
 
-+
-** * Astra Trident 스토리지 백엔드가 구성됨 *: Astra Trident 스토리지 백엔드가 하나 이상 있어야 합니다 https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-postdeployment.html#step-1-create-a-backend["구성됨"^] 클러스터에서.
-** * Astra Trident 스토리지 클래스가 구성됨 *: Astra Trident 스토리지 클래스가 하나 이상 있어야 합니다 https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["구성됨"^] 클러스터에서. 기본 스토리지 클래스가 구성된 경우 기본 주석이 있는 유일한 스토리지 클래스인지 확인합니다.
-** * Astra Trident 볼륨 스냅샷 컨트롤러 및 볼륨 스냅샷 클래스 설치 및 구성 *: 볼륨 스냅샷 컨트롤러가 되어야 합니다 https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["설치되어 있습니다"^] 따라서 Astra Control에서 스냅샷을 생성할 수 있습니다. Astra Trident가 하나 이상 있어야 합니다 `VolumeSnapshotClass` 있습니다 https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-set-up-a-volumesnapshotclass["설정"^] 관리자의 경우.
+** * Astra Trident 스토리지 백엔드 구성 *: 하나 이상의 Astra Trident 스토리지 백엔드가 있어야 합니다 https://docs.netapp.com/us-en/trident/trident-use/backends.html["구성됨"^] 클러스터에서.
+** * Astra Trident 스토리지 클래스 구성 *: 하나 이상의 Astra Trident 스토리지 클래스가 있어야 합니다 https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["구성됨"^] 클러스터에서. 기본 스토리지 클래스가 구성된 경우 기본 주석이 있는 유일한 스토리지 클래스인지 확인합니다.
+** * Astra Trident 볼륨 스냅샷 컨트롤러를 구성하고 볼륨 스냅샷 클래스를 설치합니다. *: 볼륨 스냅샷 컨트롤러는 이어야 합니다 https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["설치되어 있습니다"^] 따라서 Astra Control에서 스냅샷을 생성할 수 있습니다. Astra Trident가 하나 이상 있어야 합니다 `VolumeSnapshotClass` 있습니다 https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-set-up-a-volumesnapshotclass["설정"^] 관리자의 경우.
 
 
-* * Kubecon무화과 액세스 가능 *: 에 액세스할 수 있습니다 https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["기본 클러스터 kubecononfig"^] 그것입니다 link:../get-started/install_acc.html#set-up-namespace-and-secret-for-registries-with-auth-requirements["설치하는 동안 를 구성했습니다"^].
+* * Astra Control Provisioner *: Astra Control 사용자만 액세스할 수 있는 Astra Control Provisioner 고급 관리 및 스토리지 프로비저닝 기능을 사용하려면 Astra Trident 23.10 이상을 설치하고 활성화해야 합니다 link:../use/enable-acp.html["Astra Control Provisioner 기능"].
 * * ONTAP credentials *: Astra Control Center를 사용하여 앱을 백업 및 복원하려면 ONTAP 시스템에 ONTAP 자격 증명과 고급 사용자 및 사용자 ID가 설정되어 있어야 합니다.
 +
 ONTAP 명령줄에서 다음 명령을 실행합니다.
@@ -607,6 +609,7 @@ TIP: 관리를 위해 Astra Control Center에 다른 클러스터를 추가하�
 
 .시작하기 전에
 * 클러스터를 추가하기 전에 필요한 를 검토 및 수행합니다 <<Astra Control을 사용하여 클러스터 관리를 위한 환경을 준비합니다,선행 작업>>.
+* ONTAP SAN 드라이버를 사용하는 경우 모든 Kubernetes 클러스터에서 다중 경로가 활성화되어 있는지 확인하십시오.
 
 
 .단계
@@ -861,11 +864,11 @@ Please enter Certificate: Press <Enter> when done
 -----END CERTIFICATE-----
 
 You should keep a copy of the CA-signed digital certificate for future reference.
-The installed certificate’s CA and serial number for reference:
+The installed certificate's CA and serial number for reference:
 
 CA:
 serial:
-The certificate’s generated name for reference:
+The certificate's generated name for reference:
 
 
 ==
@@ -968,9 +971,9 @@ Astra Control UI 또는 를 사용하여 버킷을 추가할 수 있습니다 ht
 애플리케이션 구성과 영구 스토리지를 동일한 클러스터에 클론 복제하려는 경우 Astra Control에 버킷이 필요하지 않습니다. 애플리케이션 스냅샷 기능에는 버킷이 필요하지 않습니다.
 
 .시작하기 전에
-* Astra Control Center에서 관리하는 클러스터에서 연결할 수 있는 버킷입니다.
-* 버킷에 대한 자격 증명.
-* 다음 유형의 버킷:
+* Astra Control Center에서 관리하는 클러스터에서 연결할 수 있는 버킷이 있어야 합니다.
+* 버킷에 대한 자격 증명이 있는지 확인하십시오.
+* 버킷이 다음 유형 중 하나인지 확인합니다.
 +
 ** NetApp ONTAP S3
 ** NetApp StorageGRID S3

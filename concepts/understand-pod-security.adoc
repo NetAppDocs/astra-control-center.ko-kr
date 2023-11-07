@@ -32,7 +32,7 @@ pod-security.kubernetes.io/enforce: privileged
 
 == Astra Control Center에서 설치한 PSP
 
-Kubernetes 1.23 또는 1.24에 Astra Control Center를 설치할 경우 설치 중에 몇 가지 POD 보안 정책이 생성됩니다. 이 중 일부는 영구적이며 일부 작업은 특정 작업 중에 생성되며 작업이 완료되면 제거됩니다. Astra Control Center는 호스트 클러스터에서 Kubernetes 1.25 이상을 실행 중인 경우 이러한 버전에서 지원되지 않으므로 PSP 설치를 시도하지 않습니다.
+Kubernetes 1.24에 Astra Control Center를 설치하면 설치 중에 여러 Pod 보안 정책이 생성됩니다. 이 중 일부는 영구적이며 일부 작업은 특정 작업 중에 생성되며 작업이 완료되면 제거됩니다. Astra Control Center는 호스트 클러스터에서 Kubernetes 1.25 이상을 실행 중인 경우 이러한 버전에서 지원되지 않으므로 PSP 설치를 시도하지 않습니다.
 
 
 

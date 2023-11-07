@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: use/replicate_snapmirror.html 
 keywords: replicate, replication, disaster, recovery 
-summary: Astra는 스냅샷 또는 백업에서 애플리케이션 구성과 영구 스토리지를 복원할 수 있습니다. 영구 스토리지 백업은 오브젝트 저장소에서 전송되므로 기존 백업에서 복원하면 가장 빠르게 완료됩니다. 
+summary: Astra는 스냅샷 또는 백업에서 애플리케이션 구성과 영구 스토리지를 복원할 수 있습니다. 영구 저장소 백업은 오브젝트 저장소에서 전송되므로 기존 백업에서 복원하는 것이 가장 빠릅니다. 
 ---
 = SnapMirror 기술을 사용하여 스토리지 백엔드 간에 앱을 복제합니다
 :hardbreaks:
@@ -46,40 +46,46 @@ Astra Control을 사용하면 애플리케이션 복제와 관련된 다음 작�
 
 Astra Control 애플리케이션 복제를 시작하려면 먼저 다음과 같은 사전 요구 사항을 충족해야 합니다.
 
-* * ONTAP 클러스터 *:
-+
-** * Astra Trident *: Astra Trident 버전 22.10 이상이 ONTAP를 백엔드로 사용하는 소스 및 대상 Kubernetes 클러스터 모두에 있어야 합니다.
-** * 라이센스 *: 소스 및 대상 ONTAP 클러스터 모두에서 데이터 보호 번들을 사용하는 ONTAP SnapMirror 비동기 라이센스를 활성화해야 합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["ONTAP의 SnapMirror 라이센스 개요"^] 를 참조하십시오.
+.ONTAP 클러스터
+* * Astra Trident *: Astra Trident 버전 22.10 이상이 ONTAP를 백엔드로 사용하는 소스 및 대상 Kubernetes 클러스터 모두에 있어야 합니다.
+* * 라이센스 *: 소스 및 대상 ONTAP 클러스터 모두에서 데이터 보호 번들을 사용하는 ONTAP SnapMirror 비동기 라이센스를 활성화해야 합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["ONTAP의 SnapMirror 라이센스 개요"^] 를 참조하십시오.
 
 
-* * 피어링 *:
-+
-** * 클러스터 및 SVM *: ONTAP 스토리지 백엔드를 피어링해야 합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링 개요"^] 를 참조하십시오.
+.피어링
+* * 클러스터 및 SVM *: ONTAP 스토리지 백엔드를 피어링해야 합니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링 개요"^] 를 참조하십시오.
 +
 
 IMPORTANT: 두 ONTAP 클러스터 간의 복제 관계에 사용되는 SVM 이름이 고유한지 확인합니다.
 
-** * Astra Trident 및 SVM *: 대상 클러스터의 Astra Trident에서 피어링된 원격 SVM을 사용할 수 있어야 합니다.
+* * Astra Trident 및 SVM *: 대상 클러스터의 Astra Trident에서 피어링된 원격 SVM을 사용할 수 있어야 합니다.
 
 
-* * Astra Control Center *:
+.Astra 제어 센터
+* * 관리되는 백엔드 *: Astra Control Center에서 ONTAP 스토리지 백엔드를 추가 및 관리하여 복제 관계를 생성해야 합니다.
 +
+*_Astra Control Provisioner만 해당_ *: Astra Control Center 23.10 이상에 Astra Control Provisioner를 사용하도록 설정한 경우 Astra Control Center에서 ONTAP 스토리지 백엔드를 추가 및 관리하는 것은 선택 사항입니다.
+
+* * 관리되는 클러스터 *: Astra Control을 사용하여 다음 클러스터를 추가하고 관리하는데, 이상적으로는 다른 장애 도메인 또는 사이트에서 사용할 수 있습니다.
++
+** 소스 Kubernetes 클러스터
+** 대상 Kubernetes 클러스터
+** 연결된 ONTAP 클러스터
+
+
+* * 사용자 계정 *: ONTAP 스토리지 백엔드를 Astra 제어 센터에 추가할 때 "admin" 역할을 사용하여 사용자 자격 증명을 적용합니다. 이 역할에는 액세스 방법이 있습니다 `http` 및 `ontapi` ONTAP 소스 클러스터와 대상 클러스터 모두에서 사용하도록 설정되었습니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ONTAP 설명서에서 사용자 계정을 관리합니다"^] 를 참조하십시오.
++
+*_Astra Control Provisioner 전용_ *: Astra Control Provisioner 기능을 활성화한 경우 Astra Control Center에서 클러스터를 관리하기 위한 "admin" 역할을 더 이상 구체적으로 정의할 필요가 없습니다. 이러한 자격 증명이 Astra Control Center 내에서 더 이상 필요하지 않습니다.
+
+
+
 
 TIP: link:../get-started/install_acc.html["Astra Control Center를 구축합니다"^] 원활한 재해 복구를 위한 세 번째 장애 도메인 또는 보조 사이트.
 
-+
-** * 관리형 클러스터 *: Astra Control에 다음 클러스터를 추가하고 관리해야 하며, 이상적으로는 서로 다른 장애 도메인 또는 사이트에서 관리되어야 합니다.
-+
-*** 소스 Kubernetes 클러스터
-*** 대상 Kubernetes 클러스터
-*** 연결된 ONTAP 클러스터
 
+NOTE: Astra Control Center는 TCP 프로토콜을 통해 NVMe를 사용하는 스토리지 백엔드에 대해 NetApp SnapMirror 복제를 지원하지 않습니다.
 
-** * 사용자 계정 *: ONTAP 스토리지 백엔드를 Astra 제어 센터에 추가할 때 "admin" 역할을 사용하여 사용자 자격 증명을 적용합니다. 이 역할에는 액세스 방법이 있습니다 `http` 및 `ontapi` ONTAP 소스 클러스터와 대상 클러스터 모두에서 사용하도록 설정되었습니다. 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ONTAP 설명서에서 사용자 계정을 관리합니다"^] 를 참조하십시오.
-
-
-* * Astra Trident/ONTAP 구성 *: Astra Control Center를 사용하려면 소스 및 대상 클러스터 모두에 대한 복제를 지원하는 스토리지 백엔드를 하나 이상 구성해야 합니다. 소스 및 대상 클러스터가 동일한 경우 대상 애플리케이션은 최상의 복원력을 위해 소스 애플리케이션과 다른 스토리지 백엔드를 사용해야 합니다.
-
+.Astra Trident/ONTAP 구성
+Astra Control Center를 사용하려면 소스 및 타겟 클러스터 모두에 대한 복제를 지원하는 스토리지 백엔드를 하나 이상 구성해야 합니다. 소스 및 대상 클러스터가 동일한 경우 대상 애플리케이션은 최상의 복원력을 위해 소스 애플리케이션과 다른 스토리지 백엔드를 사용해야 합니다.
 
 
 IMPORTANT: Astra Control 복제는 단일 스토리지 클래스를 사용하는 애플리케이션을 지원합니다. 네임스페이스에 앱을 추가하는 경우 네임스페이스에서 다른 앱과 동일한 저장소 클래스가 앱에 있는지 확인합니다. 복제된 앱에 PVC를 추가할 때 새로운 PVC의 저장 클래스가 네임스페이스의 다른 PVC와 동일한지 확인하십시오.

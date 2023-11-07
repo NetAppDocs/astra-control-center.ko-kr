@@ -19,4 +19,4 @@ Astra Control Center의 최신 릴리스를 발표하게 되어 기쁘게 생각
 * link:../release-notes/known-limitations.html["알려진 제한 사항"]
 
 
-Twitter @NetAppDoc을 팔로우하십시오. 가 되어 문서에 대한 피드백을 보냅니다 link:https://docs.netapp.com/us-en/contribute/["GitHub 기고자입니다"^] 또는 doccomments@netapp.com 으로 이메일을 보내주십시오.
+가 되어 문서에 대한 피드백을 보냅니다 link:https://docs.netapp.com/us-en/contribute/["GitHub 기고자입니다"^] 또는 doccomments@netapp.com 으로 이메일을 보내주십시오.
