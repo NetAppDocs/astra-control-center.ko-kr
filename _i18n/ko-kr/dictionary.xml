@@ -3426,4 +3426,6 @@ Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. <
   <block id="9e586fb8e7af6f105f029bce05abcad4" category="section-title">백업 데이터는 보존 정책이 만료된 버킷에 대해 삭제 후에도 버킷에 남아 있습니다</block>
   <block id="03281739854e4951c0f98529e54a24f2" category="sidebar">Astra Control Provisioner를 사용합니다</block>
   <block id="3c4db63c6115c69942c67f6b04d8e645" category="paragraph">버킷의 보존 정책이 만료된 후 앱의 변경 불가능한 백업을 삭제하면 Astra Control에서 백업이 삭제되지만 버킷에서는 삭제되지 않습니다. 이 문제는 다음 릴리스에서 해결될 예정입니다.</block>
+  <block id="ac4da6c6894a7c36281036138b93deac" category="list-text">* NVMe/TCP 스토리지를 사용하는 응용 프로그램 관리 지원 *
+Astra Control은 이제 NVMe/TCP를 통해 연결된 영구 볼륨의 지원을 받는 애플리케이션을 관리할 수 있다.</block>
 </blocks>
