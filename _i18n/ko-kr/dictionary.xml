@@ -3358,7 +3358,6 @@ Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. <
   <block id="77786aa5158c2dd5c43d9bc74844fffd" category="admonition">Helm을 사용하여 Astra Control Provisioner를 활성화하지 마십시오. 원래 설치에 Helm을 사용했고 23.10으로 업그레이드하려면 Trident 운영자 또는 tridentctl을 사용하여 Astra Control Provisioner 지원을 수행해야 합니다.</block>
   <block id="531dc1bead45003a393e1e227a07b0fa" category="list-text">TridentOrchestrator CR을 편집하고 다음과 같이 편집합니다.</block>
   <block id="1dc3b7297d43967b1df8cc5f4718d2b7" category="list-text">Astra Control Provisioner를 활성화합니다 <block ref="b146a884950a14beaf7f7c32ccceea96" prefix="(" category="inline-code"></block>)</block>
-  <block id="0d93f0d7110c6fcd946df3239a7be503" category="list-text">Astra Control Provisioner 이미지의 레지스트리 위치를 설정합니다 <block ref="334c0a9162c18d888fae4c3071edcbf0" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
   <block id="9f28a023f26c22c040e88a7f3791d0ed" category="inline-xref">이미지 풀 암호</block>
   <block id="32c8b1c79820bf7dfd85518c9c748641" category="admonition">를 설정했는지 확인합니다 <block ref="565c9dfc4921fbeccbde323bc8a44cad" category="inline-xref-macro-rx"></block> 이 절차의 앞부분에서 이 방법을 사용할 수 있습니다 <block ref="ce73ad6af69d89f0704d72b9000c5650" prefix="(" category="inline-code"></block>)</block>
   <block id="aef1a8f8ac300bc418eb75e7e1e3c426" category="list-text">Astra Trident 구성을 업데이트하여 새로운 기능을 포함하십시오<block ref="49c9f6c98d04c8c76aee7448fd9136ed" prefix=" " category="inline-code"></block> 컨테이너 배포:</block>
@@ -3428,4 +3427,5 @@ Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. <
   <block id="3c4db63c6115c69942c67f6b04d8e645" category="paragraph">버킷의 보존 정책이 만료된 후 앱의 변경 불가능한 백업을 삭제하면 Astra Control에서 백업이 삭제되지만 버킷에서는 삭제되지 않습니다. 이 문제는 다음 릴리스에서 해결될 예정입니다.</block>
   <block id="ac4da6c6894a7c36281036138b93deac" category="list-text">* NVMe/TCP 스토리지를 사용하는 응용 프로그램 관리 지원 *
 Astra Control은 이제 NVMe/TCP를 통해 연결된 영구 볼륨의 지원을 받는 애플리케이션을 관리할 수 있다.</block>
+  <block id="e19d9fd02be50073f892bf959070ea25" category="list-text">Astra Control Provisioner 이미지의 레지스트리 위치를 설정합니다 <block ref="20edfaac0850c3e3743b65fa227b6f0b" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
 </blocks>

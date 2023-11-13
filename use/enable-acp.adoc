@@ -229,7 +229,7 @@ WARNING: Helm을 사용하여 Astra Control Provisioner를 활성화하지 마�
 . TridentOrchestrator CR을 편집하고 다음과 같이 편집합니다.
 +
 ** Astra Control Provisioner를 활성화합니다 (`enableACP: true`)
-** Astra Control Provisioner 이미지의 레지스트리 위치를 설정합니다 (`acpImage: <my_custom_registry>/trident-acp:v23.10.0`)를 클릭합니다.
+** Astra Control Provisioner 이미지의 레지스트리 위치를 설정합니다 (`acpImage: <my_custom_registry>/trident-acp:23.10.0`)를 클릭합니다.
 +
 
 NOTE: 를 설정했는지 확인합니다 <<pull-secrets,이미지 풀 암호>> 이 절차의 앞부분에서 이 방법을 사용할 수 있습니다 (`cr.astra.netapp.io/astra/trident-acp:23.10.0 imagePullSecrets: - <secret name>`)
@@ -247,7 +247,7 @@ spec:
   debug: true
   namespace: trident
   *enableACP: true*
-  *acpImage: <my_custom_registry>/trident-acp:v23.10.0*
+  *acpImage: <my_custom_registry>/trident-acp:23.10.0*
 ----
 . 변경 사항 적용:
 +
@@ -291,7 +291,7 @@ status:
   acpVersion: 23.10.0
   currentInstallationParams:
     ...
-    acpImage: <my_custom_registry>/trident-acp:v23.10.0
+    acpImage: <my_custom_registry>/trident-acp:23.10.0
     enableACP: "true"
     ...
   ...
@@ -307,7 +307,7 @@ status:
 +
 [listing]
 ----
-./tridentctl -n trident install --enable-acp=true --acp-image=mycustomregistry/trident-acp:v23.10
+./tridentctl -n trident install --enable-acp=true --acp-image=mycustomregistry/trident-acp:23.10
 ----
 . Astra Control Provisioner가 활성화되었는지 확인합니다.
 +
