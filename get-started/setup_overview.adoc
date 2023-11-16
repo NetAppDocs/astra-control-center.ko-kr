@@ -932,11 +932,11 @@ curl --cacert ontap_signed_cert.crt  --key ontap_test_client.key --cert ontap_te
 
 == 스토리지 백엔드를 추가합니다
 
-기존 ONTAP 스토리지 백엔드를 Astra Control Center에 추가하여 리소스를 관리할 수 있습니다.
+자격 증명 또는 인증서 인증 정보를 설정한 후 기존 ONTAP 스토리지 백엔드를 Astra Control Center에 추가하여 리소스를 관리할 수 있습니다.
 
 Astra Control에서 스토리지 클러스터를 스토리지 백엔드로 관리하면 PVS(영구적 볼륨)와 스토리지 백엔드 간의 연결 및 추가 스토리지 메트릭을 얻을 수 있습니다.
 
-자격 증명 또는 인증서 인증 정보를 설정한 후 기존 ONTAP 스토리지 백엔드를 Astra Control Center에 추가하여 리소스를 관리할 수 있습니다.
+*_Astra Control Provisioner 전용_ *: Astra Control Center 23.10 이상을 사용하여 Astra Control Provisioner를 활성화한 경우 NetApp SnapMirror 기술을 사용할 때 Astra Control Center에서 ONTAP 스토리지 백엔드를 추가 및 관리하는 것은 선택 사항입니다.
 
 .단계
 . 왼쪽 탐색 영역의 대시보드에서 * backends * 를 선택합니다.
