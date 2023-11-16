@@ -696,7 +696,7 @@ IMPORTANT: 설치 시 알려진 문제를 방지하려면 Astra Control Center C
 [listing]
 ----
 additionalValues:
-    polaris-keycloak:
+    keycloak-operator:
       livenessProbe:
         initialDelaySeconds: 180
       readinessProbe:
@@ -767,7 +767,7 @@ spec:
   scaleSize: "Medium"
   astraResourcesScaler: "Default"
   additionalValues:
-    polaris-keycloak:
+    keycloak-operator:
       livenessProbe:
         initialDelaySeconds: 180
       readinessProbe:

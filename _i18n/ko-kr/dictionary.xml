@@ -2879,7 +2879,6 @@ Astra Control Center 설치 과정에서 이 이미지 레지스트리 사용에
   <block id="5e0afc8490cb0f9aef8e7d6aa9c2a95b" category="list-text">를 선택합니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> Namespace * 드롭다운 목록에서 Astra Control Center의 네임스페이스입니다.</block>
   <block id="13728b663815d8b9b7f3110a0f6ae3d3" category="list-text">클러스터 리소스 페이지에서 * 추가 클러스터 범위 리소스 포함 * 을 선택합니다.</block>
   <block id="de4566456b44943a73dbc9f1d5f4cfb5" category="list-text">다음 항목을 선택하고 * 추가 * 를 선택합니다.</block>
-  <block id="25a653c17051ef3ca841d953bbc19608" category="list-text">라벨 선택기: acc-CRD</block>
   <block id="ece2d00e491a614dbc2abe1f851d18eb" category="list-text">그룹: apiextensions.k8s.io</block>
   <block id="7ad0a964a0623e55a6f1d8cd78457694" category="list-text">버전: v1</block>
   <block id="5b8e73d5fcf09db630648e42903cd2b0" category="list-text">종류: CustomResourceDefinition</block>
@@ -3428,4 +3427,5 @@ Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. <
   <block id="ac4da6c6894a7c36281036138b93deac" category="list-text">* NVMe/TCP 스토리지를 사용하는 응용 프로그램 관리 지원 *
 Astra Control은 이제 NVMe/TCP를 통해 연결된 영구 볼륨의 지원을 받는 애플리케이션을 관리할 수 있다.</block>
   <block id="e19d9fd02be50073f892bf959070ea25" category="list-text">Astra Control Provisioner 이미지의 레지스트리 위치를 설정합니다 <block ref="20edfaac0850c3e3743b65fa227b6f0b" prefix="(" category="inline-code"></block>)를 클릭합니다.</block>
+  <block id="2e307acdc1434ce81b546c869ac5d37c" category="list-text">라벨 선택기: &lt;label name&gt;</block>
 </blocks>

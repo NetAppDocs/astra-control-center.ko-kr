@@ -101,7 +101,7 @@ NOTE: 설명한 것은 아니지만 Astra Control Center 운영자는 Astra CR�
 .. 포함 규칙 추가 * 를 선택합니다.
 .. 다음 항목을 선택하고 * 추가 * 를 선택합니다.
 +
-*** 라벨 선택기: acc-CRD
+*** 라벨 선택기: <label name>
 *** 그룹: apiextensions.k8s.io
 *** 버전: v1
 *** 종류: CustomResourceDefinition
