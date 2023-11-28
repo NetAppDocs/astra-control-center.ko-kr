@@ -14,7 +14,7 @@ summary: Astra Control Provisioner를 통해 고급 스토리지 프로비저닝
 [role="lead"]
 Astra Trident 버전 23.10 이상에는 라이센스를 보유한 Astra Control 사용자가 고급 스토리지 프로비저닝 기능에 액세스할 수 있도록 Astra Control Provisioner를 사용하는 옵션이 포함되어 있습니다. Astra Control Provisioner는 표준 Astra Trident CSI 기반 기능과 더불어 이 확장 기능을 제공합니다.
 
-향후 Astra Control 업데이트에서 Astra Control Provisioner는 Astra Control 아키텍처의 스토리지 프로비저닝 및 오케스트레이터로 Astra Trident를 대체할 것입니다. 따라서 Astra Control 사용자는 Astra Control Provisioner를 활성화하는 것이 좋습니다. Astra Trident는 오픈 소스를 계속 유지하며, NetApp의 새로운 CSI 및 기타 기능으로 릴리즈, 유지, 지원 및 업데이트될 것입니다.
+향후 Astra Control 업데이트에서 Astra Control Provisioner는 Astra Control 아키텍처의 스토리지 프로비저닝 및 오케스트레이터로 Astra Trident를 대체할 것입니다. 따라서 Astra Control 사용자가 Astra Control Provisioner를 활성화하는 것이 좋습니다. Astra Trident는 오픈 소스를 계속 유지하며, NetApp의 새로운 CSI 및 기타 기능으로 릴리즈, 유지, 지원 및 업데이트될 것입니다.
 
 .이 작업에 대해
 Astra Control Center 사용이 허가된 사용자이고 Astra Control Provisioner 기능을 사용하려는 경우에는 이 절차를 따라야 합니다. Astra Trident 사용자가 Astra Control을 사용하지 않고 Astra Control Provisioner가 제공하는 추가 기능을 사용하려면 이 절차를 따라야 합니다.
@@ -26,7 +26,7 @@ Astra Control Provisioner를 사용하도록 설정하려면 먼저 다음을 �
 
 [role="tabbed-block"]
 ====
-.Astra Control Center를 통해 사용자에게 Astra Control Provisioner 제공
+.Astra Control Center를 사용하는 Astra Control Provisioner 사용자
 * * Astra Control Center 라이센스 받기 *: 가 필요합니다 link:../concepts/licensing.html["Astra Control Center 라이센스"] Astra Control Provisioner를 활성화하고 이 기능이 제공하는 기능에 액세스합니다.
 * * Astra Control Center 23.10으로 설치 또는 업그레이드 * : Astra Control과 함께 Astra Control Provisioner를 사용하려면 이 버전이 필요합니다.
 * * 클러스터에 AMD64 시스템 아키텍처가 있는지 확인 *: Astra Control Provisioner 이미지는 AMD64 및 ARM64 CPU 아키텍처 모두에서 제공되지만 Astra Control Center에서는 AMD64만 지원됩니다.
