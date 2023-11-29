@@ -73,14 +73,26 @@ Astra Control은 두 가지 배포 모델로 제공됩니다.
 * 자가 관리 클러스터:
 +
 ** Amazon EBS
-** Google 영구 디스크
 ** Azure 관리 디스크
+** Google 영구 디스크
 ** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
+** NetApp MetroCluster
+** https://longhorn.io/["롱혼"^]
+
+
+* 온프레미스 클러스터:
++
+** NetApp MetroCluster
+** NetApp ONTAP AFF 및 FAS 시스템
+** NetApp ONTAP Select를 참조하십시오
+** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
+** https://longhorn.io/["롱혼"^]
 
 
 
  a| 
 * NetApp ONTAP AFF 및 FAS 시스템
+* NetApp ONTAP Select를 참조하십시오
 * https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
 
 
