@@ -27,8 +27,8 @@ IMPORTANT: Astra Control Center에 대한 평가판 라이센스가 있는 경�
 
 이러한 옵션은 24x7 무료로 제공됩니다.
 
-* https://kb.netapp.com/Cloud/Astra/Control["* 기술 자료 * (로그인 필요)"^]Astra Control과 관련된 문서, FAQ 또는 고장 수리 정보를 검색합니다.
-* * 문서 센터 *: 현재 보고 있는 문서 사이트입니다.
+* https://kb.netapp.com/Cloud/Astra/Control["* 기술 문서 사용 * (로그인 필요)"^]Astra Control과 관련된 문서, FAQ 또는 고장 수리 정보를 검색합니다.
+* * 제품 설명서를 참조하십시오 * : 현재 보고 있는 문서 사이트입니다.
 * https://discord.gg/NetApp["* 불화를 통한 도움 받기*"^]: Pub 카테고리의 Astra로 이동하여 동료 및 전문가와 교류하십시오.
 * * 지원 케이스 생성 *: 문제 해결을 위해 NetApp 지원에 제공할 지원 번들을 생성합니다.
 * * Astra Control에 대한 피드백 제공 *: astra.feedback@netapp.com 으로 이메일을 보내 귀하의 생각, 아이디어 또는 우려 사항을 알려 주십시오.
