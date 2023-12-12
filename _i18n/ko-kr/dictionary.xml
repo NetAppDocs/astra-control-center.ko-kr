@@ -3318,7 +3318,6 @@ Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. <
   <block id="ad3dcfab7172a482308ac0917ba2ac42" category="list-text">* 클러스터에 AMD64 시스템 아키텍처가 있는지 확인 *: Astra Control Provisioner 이미지는 AMD64 및 ARM64 CPU 아키텍처 모두에서 제공되지만 Astra Control Center에서는 AMD64만 지원됩니다.</block>
   <block id="31ce0f414eb8b0690f188e7aa0716c96" category="inline-link">Astra Control Service 계정</block>
   <block id="e0694043c7f6e5063494306ca40b3df8" category="list-text">* 레지스트리 액세스를 위한 Astra Control Service 계정 얻기 * : NetApp Support 사이트 대신 Astra Control 레지스트리를 사용하여 Astra Control Provisioner 이미지를 다운로드하려면 에 대한 등록을 완료하십시오<block ref="cf864c072d1048cae524e38c5ef5abf2" category="inline-link-rx"></block>. 양식을 작성하여 제출하고 BlueXP 계정을 생성하면 Astra Control Service 환영 이메일이 전송됩니다.</block>
-  <block id="96970ad8b13f688668233173a243a6d7" category="list-text">* Astra Trident 버전이 4개의 릴리즈 윈도우 내에 있는지 확인 *: Astra Trident가 버전 23.10의 4개의 릴리즈 윈도우 내에 있는 경우 Astra Control Provisioner를 사용하여 Astra Trident 23.10으로 직접 업그레이드할 수 있습니다. 예를 들어, Astra Trident 22.10에서 23.10으로 직접 업그레이드할 수 있습니다.</block>
   <block id="e1dd38c578cdf03c7c481360f647f70a" category="open-title">Astra Control Provisioner 전용 사용자</block>
   <block id="c9632f0f2e11340862991a16d1732db4" category="list-text">* 레지스트리 액세스를 위한 Astra Control Service 계정 얻기 * : Astra Control Provisioner 이미지를 다운로드하려면 레지스트리에 액세스해야 합니다. 시작하려면 에 대한 등록을 완료하십시오<block ref="cf864c072d1048cae524e38c5ef5abf2" category="inline-link-rx"></block>. 양식을 작성하여 제출하고 BlueXP 계정을 생성하면 Astra Control Service 환영 이메일이 전송됩니다.</block>
   <block id="3b27c0fc29df608254712f333092caa6" category="section-title">(1단계) Astra Control Provisioner를 다운로드하고 압축을 풉니다</block>
@@ -3348,9 +3347,6 @@ Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. <
   <block id="531dc1bead45003a393e1e227a07b0fa" category="list-text">TridentOrchestrator CR을 편집하고 다음과 같이 편집합니다.</block>
   <block id="9f28a023f26c22c040e88a7f3791d0ed" category="inline-xref">이미지 풀 암호</block>
   <block id="84b3a17dd4da0cadee9516d2c742e8e1" category="admonition">Kubernetes 1.24 이하 버전을 실행하는 클러스터의 경우, 를 사용합니다<block ref="bd2cc8575fe69c7f775292759380c838" prefix=" " category="inline-code"></block>. Kubernetes 1.25 이상을 실행하는 클러스터의 경우 를 사용합니다<block ref="5a02ebff4889c2de0379a0fb10bed282" prefix=" " category="inline-code"></block>.</block>
-  <block id="1257262228f3dbf25c74f93d6a909b66" category="inline-link">Astra Trident를 호스팅하는 클러스터에서 제거합니다</block>
-  <block id="950c9e864a976ae66bddc56b29094b99" category="list-text"><block ref="996278c098e8e1003fc70dc3df897bb1" category="inline-link-rx"></block>.</block>
-  <block id="5dcdd9d11fd62dd1ee60a5366592f2c7" category="list-text">Astra Control Provisioner를 활성화하여 Astra Trident를 다시 설치합니다 <block ref="87d6b9737ff6f9e44e3dd25c182cf495" prefix="(" category="inline-code"></block>):</block>
   <block id="e1e016d44c99ff12155d4c6ec97b954b" category="paragraph">Astra Control Provisioner 기능이 활성화되어 있으며 실행 중인 버전에 제공되는 모든 기능을 사용할 수 있습니다.</block>
   <block id="f2ab5216beef52c8c1b01cede67e2704" category="paragraph">(Astra Control Center 사용자만 해당) Astra Control Provisioner를 설치하면 Astra Control Center UI에서 Provisioner를 호스팅하는 클러스터에 가 표시됩니다<block ref="47f79829be244bd727d1881108343390" prefix=" " category="inline-code"></block> 을 사용하지 마십시오<block ref="f1112223b41fddc71fd6a626582dfb78" prefix=" " category="inline-code"></block> 필드 및 현재 설치된 버전 번호</block>
   <block id="298c14088e0ed4580971821ac46240ba" category="paragraph"><block ref="298c14088e0ed4580971821ac46240ba" category="inline-image-macro-rx" type="image"></block></block>
@@ -3427,11 +3423,6 @@ Astra Control은 이제 NVMe/TCP를 통해 연결된 영구 볼륨의 지원을 
   <block id="7ad80befa0338511c04f74508bd4ae90" category="list-text">* 제품 설명서를 참조하십시오 * : 현재 보고 있는 문서 사이트입니다.</block>
   <block id="977fd3ce7eb29010ea4e3dc0d7208e35" category="list-text">사용자 지정 레지스트리가 있는 경우 이미지를 사용자 지정 레지스트리로 이동하는 기본 방법에 대해 다음 단계를 따릅니다. 레지스트리를 사용하지 않는 경우 의 Trident 운영자 단계를 따르십시오 <block ref="01fbfb5dd1fa78257a7d2545aa849232" category="inline-link-macro-rx"></block>.</block>
   <block id="81eeab9506186e2dca8faefa78d54067" category="paragraph">예:</block>
-  <block id="05a850d8b9bbf8f985d56783d24b4ef8" category="list-text">원래 구축에서 운영자를 제거한 경우 Astra Trident Orchestrator CRD를 다시 생성합니다.</block>
-  <block id="c5ef2e8ef77f84391fa266f923ba567f" category="inline-link">설치 프로그램을 다운로드하여 압축을 풉니다</block>
-  <block id="bfae990a3fa05e9fc309d9270c1b0bdf" category="list-text"><block ref="1762ff5119022dd6aa9e3a3693ff4c9a" category="inline-link-rx"></block>.</block>
-  <block id="6dfb05d57e00d495a2626742c5794d45" category="list-text">CRD를 다시 생성합니다.</block>
-  <block id="74e1b3ec60a1e85ea67710e2dc1cd343" category="list-text">를 생성합니다<block ref="47cb44be55a0dffa15dfc900a4c687be" prefix=" " category="inline-code"></block> 필요한 경우 네임스페이스 다시 지정:</block>
   <block id="f2b891f09ee711b58bdd7005fd757210" category="list-text">Astra Trident를 23.10.0으로 업데이트:</block>
   <block id="4cf0920f58032b65295d4d0255354879" category="list-text">Astra Trident가 실행 중인지 확인합니다.</block>
   <block id="70da7fdb746f99191502821d5d3b6d53" category="list-text">[[pull-secrets]]] 비밀을 사용하는 레지스트리가 있는 경우 Astra Control Provisioner 이미지를 가져오는 데 사용할 비밀을 만듭니다.</block>
@@ -3442,4 +3433,14 @@ Astra Control은 이제 NVMe/TCP를 통해 연결된 영구 볼륨의 지원을 
   <block id="aa3ae8b6c1e4a29f9314a8bbc401330f" category="list-text">파일을 저장하고 종료합니다. 배포 프로세스가 자동으로 시작됩니다.</block>
   <block id="4f27e6f7f8f95f32f55540801c5f6db0" category="list-text">운영자, 배포 및 복제 세트가 생성되었는지 확인합니다.</block>
   <block id="6849b59104c35075b063cf35570fde13" category="admonition">Kubernetes 클러스터에는 운영자의 인스턴스 * 하나가 있어야 합니다. Astra Trident 연산자를 여러 번 구축해서는 안 됩니다.</block>
+  <block id="bae6bc3f0a28e1dbcf10ba23c43f14bc" category="list-text">* Astra Trident를 설치한 경우 해당 버전이 4개의 릴리즈 창 내에 있는지 확인 *: Astra Trident가 버전 23.10의 4개의 릴리즈 창 내에 있는 경우 Astra Control Provisioner를 사용하여 Astra Trident 23.10으로 직접 업그레이드할 수 있습니다. 예를 들어, Astra Trident 22.10에서 23.10으로 직접 업그레이드할 수 있습니다.</block>
+  <block id="b88c081e2a4b249f94292c6f7bf16bdc" category="inline-link">Astra Trident 설치 프로그램을 다운로드하여 압축을 풉니다</block>
+  <block id="f1f44f407a364d092b4a3b446d6593b5" category="list-text"><block ref="5512264baa78f7d10bb082092407833c" category="inline-link-rx"></block>.</block>
+  <block id="b53ea1f6729ee2c1c5dc303c5e9bb360" category="list-text">Astra Trident를 아직 설치하지 않았거나 원본 Astra Trident 구축에서 연산자를 제거한 경우 다음 단계를 완료하십시오.</block>
+  <block id="1802fc07d2de18110ae52621540f337e" category="list-text">CRD 생성:</block>
+  <block id="b19df824e7baecb971d0fdd39542c6d6" category="list-text">트라이덴트 네임스페이스를 만듭니다 <block ref="a40796e67d7096bdb1a461d9369987ae" prefix="(" category="inline-code"></block>) 또는 트리덴트 네임스페이스가 여전히 존재하는지 확인합니다 <block ref="929ac53a7aaa18d0ab7bfd29e3b89c45" prefix="(" category="inline-code"></block>)를 클릭합니다. 네임스페이스가 제거된 경우 다시 만듭니다.</block>
+  <block id="6942401e8cfb1a0fc7b82ec1dcda7d32" category="list-text"><block ref="b0e92e3807bd982cc8fd58230062a04f" category="inline-link-rx"></block>.</block>
+  <block id="a65211330b142f51904ccfb3741cc124" category="inline-link">기존 Astra Trident가 있는 경우 이를 호스팅하는 클러스터에서 제거합니다</block>
+  <block id="00c4331aab8ed2101088511f96b6af8e" category="list-text"><block ref="f21e19b64d79b0da0ff48729d1b28669" category="inline-link-rx"></block>.</block>
+  <block id="005a56f182fe268e9f6977b39114eab8" category="list-text">Astra Control Provisioner를 사용하도록 설정된 Astra Trident를 설치합니다 <block ref="87d6b9737ff6f9e44e3dd25c182cf495" prefix="(" category="inline-code"></block>):</block>
 </blocks>
