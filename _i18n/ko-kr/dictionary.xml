@@ -2699,7 +2699,6 @@
   <block id="3355b77143abcc47ad763361c0a24b74" category="paragraph">평가판 라이센스를 전체 라이센스로 변환하거나 기존 평가판 또는 전체 라이센스를 새 라이센스로 업데이트할 수 있습니다. 전체 라이센스가 없는 경우 NetApp 세일즈 담당자와 협력하여 전체 라이센스 및 일련 번호를 받으십시오. Astra Control Center UI 또는 를 사용할 수 있습니다<block ref="bd25eec94181cb8a1c6322299b11a4e5" category="inline-link-rx"></block> 기존 라이센스를 업데이트합니다.</block>
   <block id="e2345475f657a83bdb89f0d758173706" category="inline-link">Astra Control Center 23.04 문서</block>
   <block id="331507753b11b0196d31031604e3a720" category="list-text"><block ref="331507753b11b0196d31031604e3a720" category="inline-link-rx"></block></block>
-  <block id="9fb980f4590b677cdb520d20933d84f4" category="paragraph">Astra Control Center를 사용하면 Astra가 설치된 네임스페이스(NetApp-acc 또는 사용자 지정 네임스페이스)와 백업을 위해 생성된 네임스페이스에 다음 레이블을 추가하여 POD 보안 입원을 적용할 수 있습니다.</block>
   <block id="3e2c006717cc8b00761751de7e11d362" category="summary">Astra Control Center는 다양한 스토리지 백엔드를 지원합니다.  또한, 스토리지 클래스와 영구 볼륨 크기가 성능 목표를 달성하는 데 어떤 도움이 되는지 이해해야 합니다.</block>
   <block id="8cbd2767e7cb5131483f14b9f5693a7c" category="paragraph">Astra Control Center는 스토리지 백엔드의 NetApp ONTAP 및 Longhorn을 지원합니다.</block>
   <block id="0e1a55abe469167871f67cf77d4a08a7" category="list-text">* ONTAP 스토리지에서 지원하는 Astra Trident 스토리지 클래스 *: ONTAP 백엔드를 사용하는 경우, Astra Control Center는 다양한 모니터링 정보를 보고하기 위해 ONTAP 백엔드를 가져올 수 있는 기능을 제공합니다.</block>
@@ -3443,4 +3442,9 @@ Astra Control은 이제 NVMe/TCP를 통해 연결된 영구 볼륨의 지원을 
   <block id="a65211330b142f51904ccfb3741cc124" category="inline-link">기존 Astra Trident가 있는 경우 이를 호스팅하는 클러스터에서 제거합니다</block>
   <block id="00c4331aab8ed2101088511f96b6af8e" category="list-text"><block ref="f21e19b64d79b0da0ff48729d1b28669" category="inline-link-rx"></block>.</block>
   <block id="005a56f182fe268e9f6977b39114eab8" category="list-text">Astra Control Provisioner를 사용하도록 설정된 Astra Trident를 설치합니다 <block ref="87d6b9737ff6f9e44e3dd25c182cf495" prefix="(" category="inline-code"></block>):</block>
+  <block id="591fd31287d2fc729bd2ed59d856b1e2" category="inline-link-macro">적용을 활성화합니다</block>
+  <block id="07d347dcf19fe0ea209afdba6b2c1488" category="paragraph">Astra Control Center를 사용하면 다음을 실현할 수 있습니다 <block ref="5957daf8ac28c5997f77f7cbb0504148" category="inline-link-macro-rx"></block> 에 다음 라벨을 추가하여 POD 보안 입장의 경우<block ref="cadbba5231afda9b003503d57805b87d" prefix=" " category="inline-code"></block> 및<block ref="aadb900c6eaeed8ade58660fe972acec" prefix=" " category="inline-code"></block> Astra의 네임스페이스:</block>
+  <block id="76356ba85ed09ac1c7a6d1fbf72a3bfe" category="list-text">[[enable-psa]] * PSA 제한 활성화 *: 클러스터에 Kubernetes 1.25 이상 클러스터의 표준인 Pod 보안 허용 적용이 활성화되어 있으면 이 네임스페이스에 PSA 제한을 활성화해야 합니다.</block>
+  <block id="6ec7da0a465c6f281367f7b3cc204a04" category="list-text"><block ref="cadbba5231afda9b003503d57805b87d" prefix="" category="inline-code"></block> 네임스페이스:</block>
+  <block id="6e9af694d79083d4bda3f226db24b704" category="list-text"><block ref="ab22b85c122f9a24c4ad6781f066be29" prefix="" category="inline-code"></block> 네임스페이스:</block>
 </blocks>

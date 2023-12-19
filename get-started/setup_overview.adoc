@@ -74,6 +74,24 @@ NOTE: 평가판 라이센스가 있고 데이터를 AutoSupport로 전송하지 
 ----
 insecure-skip-tls-verify: true
 ----
+
+
+* [[enable-psa]] * PSA 제한 활성화 *: 클러스터에 Kubernetes 1.25 이상 클러스터의 표준인 Pod 보안 허용 적용이 활성화되어 있으면 이 네임스페이스에 PSA 제한을 활성화해야 합니다.
++
+** `netapp-acc-operator` 네임스페이스:
++
+[listing]
+----
+kubectl label --overwrite ns netapp-acc-operator pod-security.kubernetes.io/enforce=privileged
+----
+** `netapp monitoring` 네임스페이스:
++
+[listing]
+----
+kubectl label --overwrite ns netapp-monitoring pod-security.kubernetes.io/enforce=privileged
+----
+
+
 * * Astra Trident 요구사항 *:
 +
 ** * 지원되는 버전 설치 *: Astra Trident의 버전입니다 link:../get-started/requirements.html#astra-trident-requirements["Astra Control Center에서 지원합니다"^] 설치됨:
