@@ -801,7 +801,6 @@
   <block id="f31bbdd1b3e85bccd652680e16935819" category="cell">출처</block>
   <block id="12007e1d59f4d09c87dbe2c438256244" category="cell">목적지</block>
   <block id="8304923f61b35eb89581fa0086ed14f5" category="cell">클라이언트 PC</block>
-  <block id="2d9fec261b12bd71da19f847d4e58d8d" category="cell">UI/API 액세스 - Astra Control Center를 호스팅하는 클러스터와 관리되는 각 클러스터 간에 이 포트가 열려 있는지 확인합니다</block>
   <block id="24efa4ba853cd9af293a840b0bf27678" category="cell">소비자 평가 기준</block>
   <block id="c2b9f54ff75ba870e024a0704429b5a7" category="cell">Astra Control Center 작업자 노드</block>
   <block id="8c5a91ebed7886a0bcc83fc5b014b1db" category="cell">메트릭 데이터 통신 - 각 관리 클러스터가 Astra Control Center를 호스팅하는 클러스터의 이 포트에 액세스할 수 있는지 확인합니다 (양방향 통신 필요)</block>
@@ -3447,4 +3446,9 @@ Astra Control은 이제 NVMe/TCP를 통해 연결된 영구 볼륨의 지원을 
   <block id="76356ba85ed09ac1c7a6d1fbf72a3bfe" category="list-text">[[enable-psa]] * PSA 제한 활성화 *: 클러스터에 Kubernetes 1.25 이상 클러스터의 표준인 Pod 보안 허용 적용이 활성화되어 있으면 이 네임스페이스에 PSA 제한을 활성화해야 합니다.</block>
   <block id="6ec7da0a465c6f281367f7b3cc204a04" category="list-text"><block ref="cadbba5231afda9b003503d57805b87d" prefix="" category="inline-code"></block> 네임스페이스:</block>
   <block id="6e9af694d79083d4bda3f226db24b704" category="list-text"><block ref="ab22b85c122f9a24c4ad6781f066be29" prefix="" category="inline-code"></block> 네임스페이스:</block>
+  <block id="6d26bffa3f2c51cba98a836beaa92f94" category="cell">UI/API 액세스 - Astra Control Center와 Astra Control Center에 액세스하는 데 사용되는 시스템 간에 이 포트가 양방향으로 열려 있는지 확인합니다</block>
+  <block id="95a19d64e8d86d082c85e6f6ffc78968" category="cell">관리형 Kubernetes 클러스터</block>
+  <block id="1351c5abff1fb0f0f349af5e26b94ac5" category="cell">443/6443 을 참조하십시오
+* 참고 *: 관리되는 클러스터에서 사용하는 포트는 클러스터에 따라 다를 수 있습니다. 클러스터 소프트웨어 공급업체의 설명서를 참조하십시오.</block>
+  <block id="3f55106e32511a9a3d0948154923bc88" category="cell">관리형 클러스터와의 통신 - Astra Control Center를 호스팅하는 클러스터와 관리되는 각 클러스터 간에 이 포트가 두 방식으로 열려 있는지 확인합니다</block>
 </blocks>
