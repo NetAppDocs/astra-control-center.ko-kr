@@ -2782,7 +2782,6 @@ Astra Control Center 설치 과정에서 이 이미지 레지스트리 사용에
   <block id="96e0534a032f957fed03525ccf5af5e8" category="paragraph">CRD:</block>
   <block id="d471227530b356aec7c6fbcaee9e9319" category="list-text">TLS 편집 다음 명령 및 예제를 사용하여 새 인증서 암호 이름을 가리키도록 CRD를 저장합니다. 대괄호 &lt;&gt;의 개체 틀 값을 적절한 정보로 바꿉니다</block>
   <block id="61790943e1aa3906439ccf28814ccf38" category="cell">AKS 1.24.x 및 1.25.x가 포함된 Azure Stack HCI 21H2 및 22H2</block>
-  <block id="7a1e78fd1adb53e6f4397fb295df4f23" category="cell">4.11 ~ 4.13</block>
   <block id="d7946d05be60978f2368ce8e5ce14e28" category="list-text">Longhorn 1.5.0 이상</block>
   <block id="37cc34ea0413475a49903662efbf2810" category="inline-link">롱혼 설명서</block>
   <block id="44d4c1083bf8b94adeda91dc8c74c6a4" category="list-text">VolumeSnapshotClass 객체를 수동으로 생성해야 합니다. 을 참조하십시오<block ref="51655f668612f34d87bb8550343c1042" category="inline-link-rx"></block> 를 참조하십시오.</block>
@@ -3451,4 +3450,5 @@ Astra Control은 이제 NVMe/TCP를 통해 연결된 영구 볼륨의 지원을 
   <block id="1351c5abff1fb0f0f349af5e26b94ac5" category="cell">443/6443 을 참조하십시오
 * 참고 *: 관리되는 클러스터에서 사용하는 포트는 클러스터에 따라 다를 수 있습니다. 클러스터 소프트웨어 공급업체의 설명서를 참조하십시오.</block>
   <block id="3f55106e32511a9a3d0948154923bc88" category="cell">관리형 클러스터와의 통신 - Astra Control Center를 호스팅하는 클러스터와 관리되는 각 클러스터 간에 이 포트가 두 방식으로 열려 있는지 확인합니다</block>
+  <block id="89de75d28b7402eb7cc9790aa9e4f669" category="cell">4.11 ~ 4.14</block>
 </blocks>
