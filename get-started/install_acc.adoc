@@ -30,7 +30,8 @@ Astra Control Center 설치 프로세스 데모는 를 참조하십시오 https:
 
 TIP: Astra Control Center를 세 번째 고장 도메인 또는 보조 사이트에 배포합니다. 앱 복제 및 원활한 재해 복구에 권장됩니다.
 
-* * POD 보안 정책 고려 *: 사용자 환경에서 POD 보안 정책을 구성했거나 구성하려는 경우, POD 보안 정책과 이것이 Astra Control Center 설치에 미치는 영향을 숙지하십시오. 을 참조하십시오 link:../concepts/understand-pod-security.html["POD 보안 제한"^].
+
+
 * * 건강한 서비스 보장 * : 모든 API 서비스가 정상 상태이고 사용 가능한지 확인하십시오.
 +
 [source, console]
