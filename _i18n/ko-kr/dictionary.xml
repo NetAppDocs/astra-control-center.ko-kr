@@ -3353,11 +3353,9 @@ Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. <
   <block id="58a03d8d21572c27eb60cf9bd5c8d43e" category="inline-link">Astra Control에 대한 NetApp 기술 자료</block>
   <block id="f20acb61cfb1565991cf5d6bd4b2db45" category="paragraph"><block ref="f20acb61cfb1565991cf5d6bd4b2db45" category="inline-link-rx"></block></block>
   <block id="615193f2c37d9fd054a61bf78b73ad01" category="section-title">변경 불가능한 백업</block>
-  <block id="f0e127be77c9992dc0642704c5c451f5" category="paragraph">Astra Control Center는 다음 플랫폼 및 버킷 유형을 통해 변경 불가능한 백업 생성을 지원합니다.</block>
   <block id="10c409f776da63661445303239e693a2" category="list-text">S3 오브젝트 잠금이 구성된 Amazon S3 버킷을 사용하는 Amazon Web Services</block>
   <block id="2068f70db106b56bd996eac3699fdfcf" category="list-text">S3 오브젝트 잠금이 구성된 S3 버킷을 사용하는 NetApp StorageGRID</block>
   <block id="81a25fa8f10fc7cec301084797002d71" category="paragraph">변경 불가능한 백업 작업 시 다음 사항에 유의하십시오.</block>
-  <block id="582c23d1f9cff824030194a7519dc569" category="list-text">지원되지 않는 플랫폼에서 WORM(Write Once Read Many) 버킷에 백업하거나 지원되지 않는 버킷 유형에 백업하는 경우 보존 시간이 경과해도 백업 삭제 실패와 같은 예기치 않은 결과가 발생할 수 있습니다.</block>
   <block id="046b0dc975ab97773b3ec3307b750bf6" category="list-text">Astra Control은 데이터 라이프사이클 관리 정책 또는 변경 불가능한 백업으로 사용하는 버킷의 오브젝트 수동 삭제를 지원하지 않습니다. 스토리지 백엔드가 Astra Control 스냅샷 또는 백업 데이터의 라이프사이클을 관리하도록 구성되지 않았는지 확인하십시오.</block>
   <block id="7568249152714205d217e48a3ef0bb10" category="paragraph">Kubernetes 1.24에 Astra Control Center를 설치하면 설치 중에 여러 Pod 보안 정책이 생성됩니다. 이 중 일부는 영구적이며 일부 작업은 특정 작업 중에 생성되며 작업이 완료되면 제거됩니다. Astra Control Center는 호스트 클러스터에서 Kubernetes 1.25 이상을 실행 중인 경우 이러한 버전에서 지원되지 않으므로 PSP 설치를 시도하지 않습니다.</block>
   <block id="99d812e9a37f17344dd9e9d894e9cb39" category="paragraph">가 되어 문서에 대한 피드백을 보냅니다 <block ref="78cabac26f0b6e0ce9a3e24d1b749910" category="inline-link-macro-rx"></block> 또는 doccomments@netapp.com 으로 이메일을 보내주십시오.</block>
@@ -3451,4 +3449,7 @@ Astra Control은 이제 NVMe/TCP를 통해 연결된 영구 볼륨의 지원을 
 * 참고 *: 관리되는 클러스터에서 사용하는 포트는 클러스터에 따라 다를 수 있습니다. 클러스터 소프트웨어 공급업체의 설명서를 참조하십시오.</block>
   <block id="3f55106e32511a9a3d0948154923bc88" category="cell">관리형 클러스터와의 통신 - Astra Control Center를 호스팅하는 클러스터와 관리되는 각 클러스터 간에 이 포트가 두 방식으로 열려 있는지 확인합니다</block>
   <block id="89de75d28b7402eb7cc9790aa9e4f669" category="cell">4.11 ~ 4.14</block>
+  <block id="e04a358cba8d50694f1716ff3cdb4c21" category="paragraph">변경 불가능한 백업은 지정된 기간 동안 변경하거나 삭제할 수 없는 백업입니다. 변경 불가능한 백업을 생성할 때 Astra Control은 사용 중인 버킷이 WORM(Write Once, Read Many) 버킷인지 확인하고, 그럴 경우 Astra Control에서 백업을 변경 가능한지 확인합니다.
+Astra Control Center는 다음 플랫폼 및 버킷 유형을 통해 변경 불가능한 백업 생성을 지원합니다.</block>
+  <block id="2d0336a0c7896d90ad095dbc30578198" category="list-text">지원되지 않는 플랫폼에서 WORM 버킷에 백업하거나 지원되지 않는 버킷 유형에 백업하는 경우 보존 시간이 경과해도 백업 삭제 실패와 같은 예상치 못한 결과가 발생할 수 있습니다.</block>
 </blocks>
