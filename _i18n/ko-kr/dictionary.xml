@@ -2288,7 +2288,6 @@
   <block id="00055dac2ba112b87a95a368075b9561" category="list-text"><block ref="8321592ce24c8a122ecf26a63cfca407" prefix="" category="inline-code"></block></block>
   <block id="cd17e7ed84c40a0ff5ecb8b625b1f186" category="list-text"><block ref="73a3350a1b91aeb6e2836fdf5975672c" prefix="" category="inline-code"></block></block>
   <block id="3b7cc10179d4a03a32a20e501dfd5870" category="list-text"><block ref="3016c12c1db45f14c80c9c1731b9c26a" prefix="" category="inline-code"></block> (이 스토리지 클래스 유형에서는 앱 복제를 사용할 수 없습니다.)</block>
-  <block id="64e73248ee4f8bc7259ec69c97e5b190" category="list-text"><block ref="caafdf62a2c609bfa5316118231a1007" prefix="" category="inline-code"></block> (이 스토리지 클래스 유형에는 스냅샷, 복제 정책 및 보호 정책을 사용할 수 없습니다.)</block>
   <block id="bd605fff7af6a2da2d78ab96c4c19217" category="section-title">스토리지 백엔드</block>
   <block id="e1da14d4a8ef5675e8dac5e30712eaa1" category="paragraph">지원되는 백엔드에 충분한 용량이 있는지 확인합니다.</block>
   <block id="acc45c3104df8c76c1bca22e53694a49" category="list-text">* 지원되는 백엔드 *: Astra Control Center는 다음과 같은 스토리지 백엔드를 지원합니다.</block>
@@ -3508,4 +3507,5 @@ Astra Control Center는 다음 플랫폼 및 버킷 유형을 통해 변경 불�
   <block id="4eecab048a7c90cfb92e0f04884686e8" category="section-title">ONTAP이 오프라인일 때 미러 관계를 업데이트합니다</block>
   <block id="e3b68b1c19a14af5fcb94e147290aec6" category="paragraph">Astra Control이 ONTAP 클러스터에 직접 연결되지 않은 상태에서 CRD를 사용하여 SnapMirror 업데이트를 수행할 수 있습니다. 다음 TridentActionMirrorUpdate 예제 형식을 참조하십시오.</block>
   <block id="bc08468157c4a9e3a30eed7ba64cc309" category="paragraph"><block ref="1f9dfae8a369525bce4996df40963532" prefix="" category="inline-code"></block> TridentActionMirrorUpdate CRD의 상태를 반영합니다. 이 값은 _SUCCEEDED_,_In Progress_ 또는_Failed_에서 가져올 수 있습니다.</block>
+  <block id="458f5933715ee2e27d64e6d1f508b6ee" category="list-text"><block ref="caafdf62a2c609bfa5316118231a1007" prefix="" category="inline-code"></block> (이 스토리지 클래스 유형에서는 스냅샷 및 복제 정책을 사용할 수 없습니다.)</block>
 </blocks>
