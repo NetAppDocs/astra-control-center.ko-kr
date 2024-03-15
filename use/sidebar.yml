@@ -50,13 +50,13 @@ entries:
   url: "/use/manage-backend.html"
 - title: 실행 중인 작업을 모니터링합니다
   url: "/use/monitor-running-tasks.html"
-- title: Cloud Insights 및 Fluentd로 인프라 모니터링
+- title: CRS를 사용하여 Astra Control 애플리케이션을 관리합니다
+  url: "/use/cr-manage-options.html"
+- title: Prometheus 및 Fluentd를 사용하여 인프라를 모니터링합니다
   url: "/use/monitor-protect.html"
 - title: 앱 및 클러스터 관리를 취소합니다
   url: "/use/unmanage.html"
 - title: Astra Control Center를 업그레이드합니다
   url: "/use/upgrade-acc.html"
-- title: Astra Control Provisioner를 활성화합니다
-  url: "/use/enable-acp.html"
 - title: Astra Control Center를 제거합니다
   url: "/use/uninstall_acc.html"

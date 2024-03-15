@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: get-started/add-storage-backend.html 
+keywords: set up astra control, astra control license, add cluster, add storage backend, import storage, add bucket 
+summary: 스토리지 백엔드 인증을 설정한 후에는 관리할 스토리지 백엔드를 선택해야 합니다. 
+---
+= 스토리지 백엔드를 추가합니다
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+자격 증명 또는 인증서 인증 정보를 설정한 후 기존 ONTAP 스토리지 백엔드를 Astra Control Center에 추가하여 리소스를 관리할 수 있습니다.
+
+Astra Control에서 스토리지 클러스터를 스토리지 백엔드로 관리하면 PVS(영구적 볼륨)와 스토리지 백엔드 간의 연결 및 추가 스토리지 메트릭을 얻을 수 있습니다.
+
+Astra Control Provisioner를 사용하도록 설정한 경우 NetApp SnapMirror 기술을 사용할 때 Astra Control Center에서 ONTAP 스토리지 백엔드를 추가 및 관리하는 것은 선택 사항입니다.
+
+.단계
+. 왼쪽 탐색 영역의 대시보드에서 * backends * 를 선택합니다.
+. 추가 * 를 선택합니다.
+. 스토리지 백엔드 추가 페이지의 기존 사용 섹션에서 * ONTAP * 를 선택합니다.
+. 다음 중 하나를 선택합니다.
++
+** * 관리자 자격 증명 사용 *: ONTAP 클러스터 관리 IP 주소와 관리 자격 증명을 입력합니다. 자격 증명은 클러스터 전체의 자격 증명이어야 합니다.
++
+
+NOTE: 여기에 자격 증명을 입력한 사용자에게는 가 있어야 합니다 `ontapi` ONTAP 클러스터의 ONTAP System Manager에서 활성화된 사용자 로그인 액세스 방법입니다. SnapMirror 복제를 사용하려는 경우 액세스 방법이 있는 "admin" 역할의 사용자 자격 증명을 적용하십시오 `ontapi` 및 `http`, 소스 및 대상 ONTAP 클러스터 모두에서. 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ONTAP 설명서에서 사용자 계정을 관리합니다"^] 를 참조하십시오.
+
+** * 인증서 사용 *: 인증서를 업로드합니다 `.pem` 파일, 인증서 키입니다 `.key` 파일 및 인증 기관 파일(옵션)을 선택합니다.
+
+
+. 다음 * 을 선택합니다.
+. 백엔드 세부 정보를 확인하고 * 관리 * 를 선택합니다.
+
+
+.결과
+백엔드가 에 나타납니다 `online` 목록의 상태로 요약 정보를 표시합니다.
+
+
+NOTE: 백엔드가 표시되도록 페이지를 새로 고쳐야 할 수 있습니다.

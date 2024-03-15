@@ -39,6 +39,14 @@ OC new-project WordPress OC adm policy add-SCC-to-group anyuid system:serviceacc
 다른 앱과 리소스를 공유하는 앱에서 데이터 이동 없이 복원 작업을 수행하면 의도하지 않은 결과가 발생할 수 있습니다. 앱 간에 공유되는 모든 리소스는 앱 중 하나에서 데이터 이동 없이 복원이 수행될 때 교체됩니다. 자세한 내용은 을 참조하십시오 <<다른 앱과 리소스를 공유하는 앱의 데이터 이동 없이 복원 복잡성,이 예는 다음과 같습니다>>.
 
 ====
+복원하려는 아카이브 유형에 따라 다음 단계를 수행합니다.
+
+
+
+== 웹 UI를 사용하여 백업 또는 스냅샷에서 데이터를 복원합니다
+
+Astra Control 웹 UI를 사용하여 데이터를 복원할 수 있다.
+
 .단계
 . 응용 프로그램 * 을 선택한 다음 앱 이름을 선택합니다.
 . 작업 열의 옵션 메뉴에서 * 복원 * 을 선택합니다.
@@ -100,6 +108,303 @@ NOTE: 포함 및 제외 규칙 구성에 대한 자세한 내용은 을 참조�
 . 복원 작업에 대한 세부 정보를 주의 깊게 검토하고 "restore"를 입력하고(메시지가 나타나면) * Restore * 를 선택합니다.
 
 
+
+
+== [기술 미리보기] 사용자 지정 리소스(CR)를 사용하여 백업에서 복원
+
+사용자 지정 리소스(CR) 파일을 사용하여 백업에서 데이터를 다른 네임스페이스 또는 원래 소스 네임스페이스로 복원할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.CR을 사용하여 백업에서 복원합니다
+--
+.단계
+. CR(사용자 정의 리소스) 파일을 만들고 이름을 지정합니다 `astra-control-backup-restore-cr.yaml`. 괄호 <> 의 값을 Astra Control 환경 및 클러스터 구성과 일치하도록 업데이트합니다.
++
+** <CR_NAME>: 이 CR 작업의 이름입니다. 환경에 적합한 이름을 선택하십시오.
+** <ASTRA_CONNECTOR_NAMESPACE>: Astra Connector가 설치되는 네임스페이스입니다.
+** <APPVAULT_NAME>: 백업 컨텐츠가 저장되는 AppVault의 이름입니다.
+** <BACKUP_PATH>: 백업 컨텐츠가 저장되는 AppVault 내부의 경로입니다. 예를 들면 다음과 같습니다.
++
+[listing]
+----
+minio_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
+----
+** <SOURCE_NAMESPACE>: 복구 작업의 소스 네임스페이스입니다.
+** <DESTINATION_NAMESPACE>: 복구 작업의 대상 네임스페이스입니다.
++
+[source, yaml]
+----
+apiVersion: astra.netapp.io/v1
+kind: BackupRestore
+metadata:
+  labels:
+  name: <CR_NAME>
+  namespace: <ASTRA_CONNECTOR_NAMESPACE>
+spec:
+  appVaultRef: <APPVAULT_NAME>
+  appArchivePath: <BACKUP_PATH>
+  namespaceMapping: [{"source": "<SOURCE_NAMESPACE>", "target": "<DESTINATION_NAMESPACE>"}]
+----
+
+
+. (선택 사항) 복원할 응용 프로그램의 특정 리소스만 선택해야 하는 경우 특정 레이블로 표시된 리소스를 포함하거나 제외하는 필터링을 추가합니다.
++
+** "<INCLUDE-EXCLUDE>": _ (필터링에 필요) _ 사용 `include` 또는 `exclude` resourceMatchers에 정의된 리소스를 포함하거나 제외하려면 다음 resourceMatchers 매개 변수를 추가하여 포함하거나 제외할 리소스를 정의합니다.
++
+*** <GROUP>: _ (선택 사항) _ 필터링할 리소스의 그룹입니다.
+*** <KIND>: _ (선택 사항) _ 필터링할 리소스의 종류입니다.
+*** <VERSION>: _ (선택 사항) _ 필터링할 리소스의 버전입니다.
+*** <NAMES>: _ (선택 사항)_name 을(를) 필터링할 리소스의 Kubernetes metadata.name 필드에 입력합니다.
+*** <NAMESPACES>: _ (선택 사항) _ 필터링할 리소스의 Kubernetes metadata.name 필드에 있는 네임스페이스입니다.
+*** <SELECTORS>: _ (선택 사항) _ 에 정의된 대로 리소스의 Kubernetes metadata.name 필드에 있는 레이블 선택기 문자열입니다 https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors["Kubernetes 문서"^]. 예: `"trident.netapp.io/os=linux"`.
++
+예:
+
++
+[source, yaml]
+----
+spec:
+    resourceFilter:
+        resourceSelectionCriteria: "<INCLUDE-EXCLUDE>"
+        resourceMatchers:
+           group: <GROUP>
+           kind: <KIND>
+           version: <VERSION>
+           names: <NAMES>
+           namespaces: <NAMESPACES>
+           labelSelectors: <SELECTORS>
+----
+
+
+
+
+. 를 채운 후 `astra-control-backup-restore-cr.yaml` 올바른 값이 있는 파일에 CR을 적용합니다.
++
+[source, console]
+----
+kubectl apply -f astra-control-backup-restore-cr.yaml
+----
+
+
+--
+.CR을 사용하여 백업에서 원래 네임스페이스로 복원합니다
+--
+.단계
+. CR(사용자 정의 리소스) 파일을 만들고 이름을 지정합니다 `astra-control-backup-ipr-cr.yaml`. 괄호 <> 의 값을 Astra Control 환경 및 클러스터 구성과 일치하도록 업데이트합니다.
++
+** <CR_NAME>: 이 CR 작업의 이름입니다. 환경에 적합한 이름을 선택하십시오.
+** <ASTRA_CONNECTOR_NAMESPACE>: Astra Connector가 설치되는 네임스페이스입니다. 백업이 생성된 네임스페이스입니다.
+** <APPVAULT_NAME>: 백업 컨텐츠가 저장되는 AppVault의 이름입니다.
+** <BACKUP_PATH>: 백업 컨텐츠가 저장되는 AppVault 내부의 경로입니다. 예를 들면 다음과 같습니다.
++
+[listing]
+----
+minio_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
+----
++
+[source, yaml]
+----
+apiVersion: astra.netapp.io/v1
+kind: BackupInplaceRestore
+metadata:
+  name: <CR_NAME>
+  namespace: <ASTRA_CONNECTOR_NAMESPACE>
+spec:
+  appVaultRef: <APPVAULT_NAME>
+  appArchivePath: <BACKUP_PATH>
+----
+
+
+. (선택 사항) 복원할 응용 프로그램의 특정 리소스만 선택해야 하는 경우 특정 레이블로 표시된 리소스를 포함하거나 제외하는 필터링을 추가합니다.
++
+** "<INCLUDE-EXCLUDE>": _ (필터링에 필요) _ 사용 `include` 또는 `exclude` resourceMatchers에 정의된 리소스를 포함하거나 제외하려면 다음 resourceMatchers 매개 변수를 추가하여 포함하거나 제외할 리소스를 정의합니다.
++
+*** <GROUP>: _ (선택 사항) _ 필터링할 리소스의 그룹입니다.
+*** <KIND>: _ (선택 사항) _ 필터링할 리소스의 종류입니다.
+*** <VERSION>: _ (선택 사항) _ 필터링할 리소스의 버전입니다.
+*** <NAMES>: _ (선택 사항)_name 을(를) 필터링할 리소스의 Kubernetes metadata.name 필드에 입력합니다.
+*** <NAMESPACES>: _ (선택 사항) _ 필터링할 리소스의 Kubernetes metadata.name 필드에 있는 네임스페이스입니다.
+*** <SELECTORS>: _ (선택 사항) _ 에 정의된 대로 리소스의 Kubernetes metadata.name 필드에 있는 레이블 선택기 문자열입니다 https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors["Kubernetes 문서"^]. 예: `"trident.netapp.io/os=linux"`.
++
+예:
+
++
+[source, yaml]
+----
+spec:
+    resourceFilter:
+        resourceSelectionCriteria: "<INCLUDE-EXCLUDE>"
+        resourceMatchers:
+           group: <GROUP>
+           kind: <KIND>
+           version: <VERSION>
+           names: <NAMES>
+           namespaces: <NAMESPACES>
+           labelSelectors: <SELECTORS>
+----
+
+
+
+
+. 를 채운 후 `astra-control-backup-ipr-cr.yaml` 올바른 값이 있는 파일에 CR을 적용합니다.
++
+[source, console]
+----
+kubectl apply -f astra-control-backup-ipr-cr.yaml
+----
+
+
+--
+====
+
+
+== [기술 미리보기] 사용자 정의 리소스(CR)를 사용하여 스냅샷에서 복원
+
+사용자 지정 리소스(CR) 파일을 사용하여 스냅샷에서 데이터를 다른 네임스페이스 또는 원래 소스 네임스페이스로 복원할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.CR을 사용하여 스냅샷에서 복원합니다
+--
+.단계
+. CR(사용자 정의 리소스) 파일을 만들고 이름을 지정합니다 `astra-control-snapshot-restore-cr.yaml`. 괄호 <> 의 값을 Astra Control 환경 및 클러스터 구성과 일치하도록 업데이트합니다.
++
+** <CR_NAME>: 이 CR 작업의 이름입니다. 환경에 적합한 이름을 선택하십시오.
+** <ASTRA_CONNECTOR_NAMESPACE>: Astra Connector가 설치되는 네임스페이스입니다.
+** <APPVAULT_NAME>: 백업 컨텐츠가 저장되는 AppVault의 이름입니다.
+** <BACKUP_PATH>: 백업 컨텐츠가 저장되는 AppVault 내부의 경로입니다. 예를 들면 다음과 같습니다.
++
+[listing]
+----
+minio_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
+----
+** <SOURCE_NAMESPACE>: 복구 작업의 소스 네임스페이스입니다.
+** <DESTINATION_NAMESPACE>: 복구 작업의 대상 네임스페이스입니다.
++
+[source, yaml]
+----
+apiVersion: astra.netapp.io/v1
+kind: SnapshotRestore
+metadata:
+  name: <CR_NAME>
+  namespace: <ASTRA_CONNECTOR_NAMESPACE>
+spec:
+  appArchivePath: <BACKUP_PATH>
+  appVaultRef: <APPVAULT_NAME>
+  namespaceMapping: [{"source": "<SOURCE_NAMESPACE>", "destination": "<DESTINATION_NAMESPACE>"}]
+----
+
+
+. (선택 사항) 복원할 응용 프로그램의 특정 리소스만 선택해야 하는 경우 특정 레이블로 표시된 리소스를 포함하거나 제외하는 필터링을 추가합니다.
++
+** "<INCLUDE-EXCLUDE>": _ (필터링에 필요) _ 사용 `include` 또는 `exclude` resourceMatchers에 정의된 리소스를 포함하거나 제외하려면 다음 resourceMatchers 매개 변수를 추가하여 포함하거나 제외할 리소스를 정의합니다.
++
+*** <GROUP>: _ (선택 사항) _ 필터링할 리소스의 그룹입니다.
+*** <KIND>: _ (선택 사항) _ 필터링할 리소스의 종류입니다.
+*** <VERSION>: _ (선택 사항) _ 필터링할 리소스의 버전입니다.
+*** <NAMES>: _ (선택 사항)_name 을(를) 필터링할 리소스의 Kubernetes metadata.name 필드에 입력합니다.
+*** <NAMESPACES>: _ (선택 사항) _ 필터링할 리소스의 Kubernetes metadata.name 필드에 있는 네임스페이스입니다.
+*** <SELECTORS>: _ (선택 사항) _ 에 정의된 대로 리소스의 Kubernetes metadata.name 필드에 있는 레이블 선택기 문자열입니다 https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors["Kubernetes 문서"^]. 예: `"trident.netapp.io/os=linux"`.
++
+예:
+
++
+[source, yaml]
+----
+spec:
+    resourceFilter:
+        resourceSelectionCriteria: "<INCLUDE-EXCLUDE>"
+        resourceMatchers:
+           group: <GROUP>
+           kind: <KIND>
+           version: <VERSION>
+           names: <NAMES>
+           namespaces: <NAMESPACES>
+           labelSelectors: <SELECTORS>
+----
+
+
+
+
+. 를 채운 후 `astra-control-snapshot-restore-cr.yaml` 올바른 값이 있는 파일에 CR을 적용합니다.
++
+[source, console]
+----
+kubectl apply -f astra-control-snapshot-restore-cr.yaml
+----
+
+
+--
+.CR을 사용하여 스냅샷에서 원래 네임스페이스로 복원합니다
+--
+.단계
+. CR(사용자 정의 리소스) 파일을 만들고 이름을 지정합니다 `astra-control-snapshot-ipr-cr.yaml`. 괄호 <> 의 값을 Astra Control 환경 및 클러스터 구성과 일치하도록 업데이트합니다.
++
+** <CR_NAME>: 이 CR 작업의 이름입니다. 환경에 적합한 이름을 선택하십시오.
+** <ASTRA_CONNECTOR_NAMESPACE>: Astra Connector가 설치되는 네임스페이스입니다. 스냅샷이 생성된 네임스페이스입니다.
+** <APPVAULT_NAME>: 백업 컨텐츠가 저장되는 AppVault의 이름입니다.
+** <BACKUP_PATH>: 백업 컨텐츠가 저장되는 AppVault 내부의 경로입니다. 예를 들면 다음과 같습니다.
++
+[listing]
+----
+minio_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
+----
++
+[source, yaml]
+----
+apiVersion: astra.netapp.io/v1
+kind: SnapshotInplaceRestore
+metadata:
+  name: <CR_NAME>
+  namespace: <ASTRA_CONNECTOR_NAMESPACE>
+spec:
+  appArchivePath: <BACKUP_PATH>
+  appVaultRef: <APPVAULT_NAME>
+----
+
+
+. (선택 사항) 복원할 응용 프로그램의 특정 리소스만 선택해야 하는 경우 특정 레이블로 표시된 리소스를 포함하거나 제외하는 필터링을 추가합니다.
++
+** "<INCLUDE-EXCLUDE>": _ (필터링에 필요) _ 사용 `include` 또는 `exclude` resourceMatchers에 정의된 리소스를 포함하거나 제외하려면 다음 resourceMatchers 매개 변수를 추가하여 포함하거나 제외할 리소스를 정의합니다.
++
+*** <GROUP>: _ (선택 사항) _ 필터링할 리소스의 그룹입니다.
+*** <KIND>: _ (선택 사항) _ 필터링할 리소스의 종류입니다.
+*** <VERSION>: _ (선택 사항) _ 필터링할 리소스의 버전입니다.
+*** <NAMES>: _ (선택 사항)_name 을(를) 필터링할 리소스의 Kubernetes metadata.name 필드에 입력합니다.
+*** <NAMESPACES>: _ (선택 사항) _ 필터링할 리소스의 Kubernetes metadata.name 필드에 있는 네임스페이스입니다.
+*** <SELECTORS>: _ (선택 사항) _ 에 정의된 대로 리소스의 Kubernetes metadata.name 필드에 있는 레이블 선택기 문자열입니다 https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors["Kubernetes 문서"^]. 예: `"trident.netapp.io/os=linux"`.
++
+예:
+
++
+[source, yaml]
+----
+spec:
+    resourceFilter:
+        resourceSelectionCriteria: "<INCLUDE-EXCLUDE>"
+        resourceMatchers:
+           group: <GROUP>
+           kind: <KIND>
+           version: <VERSION>
+           names: <NAMES>
+           namespaces: <NAMESPACES>
+           labelSelectors: <SELECTORS>
+----
+
+
+
+
+. 를 채운 후 `astra-control-snapshot-ipr-cr.yaml` 올바른 값이 있는 파일에 CR을 적용합니다.
++
+[source, console]
+----
+kubectl apply -f astra-control-snapshot-ipr-cr.yaml
+----
+
+
+--
+====
 .결과
 Astra Control은 사용자가 제공한 정보를 기반으로 앱을 복원합니다. 앱을 제자리에 복원한 경우 기존 영구 볼륨의 콘텐츠가 복원된 앱의 영구 볼륨 콘텐츠로 바뀝니다.
 

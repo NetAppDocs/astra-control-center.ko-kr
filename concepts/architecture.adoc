@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concepts/architecture.html 
-keywords: what is astra, astra control, astra control architecture, astra control center, astra control service, kubernetes, netapp, clusters, astra trident 
+keywords: what is astra, astra control, astra control architecture, astra control center, astra control service, kubernetes, netapp, clusters, astra trident, astra control provisioner 
 summary: 이 슬라이드에는 Astra Control 환경의 다양한 구성 요소에 대한 개요가 나와 있습니다. 
 ---
 = 아키텍처 및 구성 요소
@@ -14,14 +14,14 @@ summary: 이 슬라이드에는 Astra Control 환경의 다양한 구성 요소�
 [role="lead"]
 이 슬라이드에는 Astra Control 환경의 다양한 구성 요소에 대한 개요가 나와 있습니다.
 
-image:astra-architecture-diagram-v5.png["Astra Control 아키텍처 및 해당 구성 요소를 설명하는 개념적 이미지입니다"]
+image:astra-architecture-diagram-v6.png["Astra Control 아키텍처 및 해당 구성 요소를 설명하는 개념적 이미지입니다"]
 
 
 
 == Astra Control 구성 요소
 
 * * Kubernetes 클러스터 *: Kubernetes는 컨테이너식 워크로드 및 서비스를 관리할 수 있는 확장 가능한 휴대용 오픈 소스 플랫폼으로, 선언적 구성과 자동화를 모두 지원합니다. Astra는 Kubernetes 클러스터에서 호스팅되는 애플리케이션에 관리 서비스를 제공합니다.
-* * Astra Trident *: NetApp에서 관리하는 완전 지원되는 오픈 소스 스토리지 공급자 및 오케스트레이터로서, Astra Trident를 사용하면 Docker 및 Kubernetes에서 관리하는 컨테이너 형태의 애플리케이션용 스토리지 볼륨을 생성할 수 있습니다. Astra Control Center와 함께 구축한 경우, Astra Trident에는 구성된 ONTAP 스토리지 백엔드가 포함됩니다.
+* * Astra Control Provisioner *: Astra Trident CSI 기능과 확장된 스토리지 관리 기능을 포함하는 NetApp에서 유지 관리하는 완전 지원되는 스토리지 프로비저닝 및 오케스트레이터로서 Astra Control Provisioner를 사용하면 Docker 및 Kubernetes로 관리되는 컨테이너식 애플리케이션용 스토리지 볼륨을 생성할 수 있습니다. Astra Control Center를 사용하여 구축할 경우 Astra Control Provisioner에는 구성된 ONTAP 스토리지 백엔드가 포함됩니다.
 * * 스토리지 백엔드 *:
 +
 ** Astra Control Service는 다음과 같은 스토리지 백엔드를 사용합니다.
@@ -39,7 +39,6 @@ image:astra-architecture-diagram-v5.png["Astra Control 아키텍처 및 해당 �
 
 
 
-* * Cloud Insights *: NetApp 클라우드 인프라 모니터링 툴인 Cloud Insights를 사용하면 Astra Control Center에서 관리하는 Kubernetes 클러스터의 성능과 활용률을 모니터링할 수 있습니다. Cloud Insights는 스토리지 사용량과 워크로드를 상호 연관시킵니다. Astra Control Center에서 Cloud Insights 연결을 활성화하면 Astra Control Center UI 페이지에 원격 측정 정보가 표시됩니다.
 
 
 
@@ -60,8 +59,6 @@ image:astra-architecture-diagram-v5.png["Astra Control 아키텍처 및 해당 �
 
 * https://docs.netapp.com/us-en/astra/index.html["Astra Control Service 문서"^]
 * https://docs.netapp.com/us-en/astra-control-center/index.html["Astra Control Center 문서"^]
-* https://docs.netapp.com/us-en/trident/index.html["Astra Trident 문서"^]
 * https://docs.netapp.com/us-en/astra-automation["Astra Control API를 사용합니다"^]
-* https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights 설명서"^]
 * https://docs.netapp.com/us-en/ontap/index.html["ONTAP 설명서"^]
 

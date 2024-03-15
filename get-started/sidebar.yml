@@ -23,6 +23,22 @@ entries:
   - title: 설치 후 Astra Control Center를 구성합니다
     url: "/get-started/configure-after-install.html"
 - title: Astra Control Center를 설정합니다
-  url: "/get-started/setup_overview.html"
+  entries:
+  - title: 라이센스를 추가합니다
+    url: "/get-started/add-license.html"
+  - title: Astra Control Provisioner를 활성화합니다
+    url: "/get-started/enable-acp.html"
+  - title: Astra Control을 사용하여 클러스터 관리를 준비합니다
+    url: "/get-started/prep-for-cluster-management.html"
+  - title: 관리형 클러스터를 위해 Astra Connector를 설치합니다
+    url: "/get-started/install-astra-connector.html"
+  - title: 클러스터를 추가합니다
+    url: "/get-started/add-cluster.html"
+  - title: 스토리지 백엔드 인증을 설정합니다
+    url: "/get-started/enable-auth-ontap-backend.html"
+  - title: 스토리지 백엔드를 추가합니다
+    url: "/get-started/add-storage-backend.html"
+  - title: 버킷을 추가합니다
+    url: "/get-started/add-bucket.html"
 - title: FAQ 를 참조하십시오
   url: "/get-started/faq.html"

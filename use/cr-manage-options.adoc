@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: use/cr-manage-options.html 
+keywords: custom resource, cr, manage app, astra 
+summary: 'Kubernetes 사용자 지정 리소스(CR)를 사용하여 Astra Control 애플리케이션을 관리합니다.' 
+---
+= [기술 미리보기] CRS를 사용하여 Astra Control 애플리케이션을 관리합니다
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+[role="lead"]
+Kubernetes 사용자 지정 리소스(CR)를 사용하여 Astra Control 애플리케이션을 관리합니다. 다음 옵션을 사용할 수 있습니다.
+
+* link:../use/manage-apps.html#define-an-application-using-a-kubernetes-custom-resource["Kubernetes 사용자 지정 리소스를 사용하여 애플리케이션을 정의합니다"]
+* link:../use/manage-buckets.html#manage-a-bucket-using-a-custom-resource["사용자 지정 리소스를 사용하여 버킷을 관리합니다"]
+

@@ -83,7 +83,7 @@ kubectl delete limitrange cpu-limit-range -n [netapp-acc or custom namespace]
 
 == 사용자 지정 TLS 인증서를 추가합니다
 
-Astra Control Center는 자체 서명된 TLS 인증서를 수신 컨트롤러 트래픽(특정 구성에만 해당)과 웹 브라우저를 통한 웹 UI 인증에 사용합니다. 기존의 자체 서명된 TLS 인증서를 제거하고 CA(인증 기관)에서 서명한 TLS 인증서로 바꿀 수 있습니다.
+Astra Control Center는 자체 서명된 TLS 인증서를 수신 컨트롤러 트래픽(특정 구성에만 해당)과 웹 브라우저를 통한 웹 UI 인증에 사용합니다. 프로덕션 사용을 위해 기존의 자체 서명된 TLS 인증서를 제거하고 인증 기관(CA)에서 서명한 TLS 인증서로 교체해야 합니다.
 
 [NOTE]
 ====
@@ -181,6 +181,10 @@ Status:
 Events:                    <none>
 ----
 . 다음 예를 사용하여 대괄호 <>의 자리 표시자 값을 적절한 정보로 대체하여 "certificate.yAML" 파일을 작성합니다.
++
+
+NOTE: 이 예에서는 를 사용합니다 `dnsNames` Astra Control Center DNS 주소를 지정하는 속성입니다. Astra Control Center는 DNS 주소를 지정하는 CN(Common Name) 속성을 사용할 수 없습니다.
+
 +
 [source, yaml, subs="+quotes"]
 ----

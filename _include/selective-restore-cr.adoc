@@ -1,0 +1,36 @@
+= 
+:allow-uri-read: 
+
+
+. (선택 사항) 복원할 응용 프로그램의 특정 리소스만 선택해야 하는 경우 특정 레이블로 표시된 리소스를 포함하거나 제외하는 필터링을 추가합니다.
++
+** "<INCLUDE-EXCLUDE>": _ (필터링에 필요) _ 사용 `include` 또는 `exclude` resourceMatchers에 정의된 리소스를 포함하거나 제외하려면 다음 resourceMatchers 매개 변수를 추가하여 포함하거나 제외할 리소스를 정의합니다.
++
+*** <GROUP>: _ (선택 사항) _ 필터링할 리소스의 그룹입니다.
+*** <KIND>: _ (선택 사항) _ 필터링할 리소스의 종류입니다.
+*** <VERSION>: _ (선택 사항) _ 필터링할 리소스의 버전입니다.
+*** <NAMES>: _ (선택 사항)_name 을(를) 필터링할 리소스의 Kubernetes metadata.name 필드에 입력합니다.
+*** <NAMESPACES>: _ (선택 사항) _ 필터링할 리소스의 Kubernetes metadata.name 필드에 있는 네임스페이스입니다.
+*** <SELECTORS>: _ (선택 사항) _ 에 정의된 대로 리소스의 Kubernetes metadata.name 필드에 있는 레이블 선택기 문자열입니다 https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors["Kubernetes 문서"^]. 예: `"trident.netapp.io/os=linux"`.
++
+예:
+
++
+[source, yaml]
+----
+spec:
+    resourceFilter:
+        resourceSelectionCriteria: "<INCLUDE-EXCLUDE>"
+        resourceMatchers:
+           group: <GROUP>
+           kind: <KIND>
+           version: <VERSION>
+           names: <NAMES>
+           namespaces: <NAMESPACES>
+           labelSelectors: <SELECTORS>
+----
+
+
+
+
+

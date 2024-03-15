@@ -17,8 +17,8 @@ summary: Astra Control Center 및 Astra Control Center 운영자를 제거하는
 설치 제거에 문제가 있는 경우 를 참조하십시오 <<제거 문제 해결>>.
 
 .시작하기 전에
-. link:../use/unmanage.html#unmanage-an-app["모든 앱 관리를 취소합니다"^] 클러스터에서.
-. link:../use/unmanage.html#unmanage-a-cluster["모든 클러스터의 관리를 취소합니다"^].
+. link:../use/unmanage.html#unmanage-an-app["모든 앱 관리를 취소합니다"] 클러스터에서.
+. link:../use/unmanage.html#unmanage-a-cluster["모든 클러스터의 관리를 취소합니다"].
 
 
 .단계

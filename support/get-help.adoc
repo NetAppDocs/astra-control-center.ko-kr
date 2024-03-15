@@ -17,7 +17,7 @@ NetApp은 다양한 방법으로 Astra Control을 지원합니다. 기술 자료
 
 IMPORTANT: Astra Control Center에 대한 평가판 라이센스가 있는 경우 기술 지원을 받을 수 있습니다. 그러나 NSS(NetApp Support Site)를 통한 케이스 생성은 사용할 수 없습니다. 피드백 옵션을 통해 지원을 받거나 불협화음을 셀프 서비스로 사용할 수 있습니다.
 
-먼저 해야 합니다 link:../get-started/setup_overview.html["NetApp 일련 번호에 대한 지원을 활성화합니다"] 이러한 비 셀프 서비스 지원 옵션을 사용하려면 NetApp NSS(Support Site) SSO 계정은 케이스 관리와 함께 채팅 및 웹 티켓팅에 필요합니다.
+먼저 해야 합니다 link:../get-started/add-license.html["NetApp 일련 번호에 대한 지원을 활성화합니다"] 이러한 비 셀프 서비스 지원 옵션을 사용하려면 NetApp NSS(Support Site) SSO 계정은 케이스 관리와 함께 채팅 및 웹 티켓팅에 필요합니다.
 
 
 

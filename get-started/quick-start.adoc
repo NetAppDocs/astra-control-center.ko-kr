@@ -19,24 +19,24 @@ Astra Control Center를 시작하는 데 필요한 단계를 간략하게 소개
 
 * Kubernetes 클러스터 *
 
-* link:../get-started/requirements.html#host-cluster-resource-requirements["호스트 클러스터가 운영 환경 요구 사항을 충족하는지 확인합니다"^]
-* link:../get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["온프레미스 Kubernetes 클러스터의 로드 밸런싱을 위해 수신 구성"^]
+* link:../get-started/requirements.html#host-cluster-resource-requirements["호스트 클러스터가 운영 환경 요구 사항을 충족하는지 확인합니다"]
+* link:../get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["온프레미스 Kubernetes 클러스터의 로드 밸런싱을 위해 수신 구성"]
 
 
 * 스토리지 통합 *
 
-* link:../get-started/requirements.html#astra-trident-requirements["환경에 Astra Trident 지원 버전이 포함되어 있는지 확인합니다"^]
-* link:../use/enable-acp.html["Astra Control Provisioner 고급 관리 및 스토리지 프로비저닝 기능을 지원합니다"^]
-* https://docs.netapp.com/us-en/trident/trident-use/worker-node-prep.html["작업자 노드를 준비합니다"^]
-* https://docs.netapp.com/us-en/trident/trident-use/backends.html["Astra Trident 스토리지 백엔드를 구성합니다"^]
-* https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["Astra Trident 스토리지 클래스를 구성합니다"^]
-* https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Astra Trident 볼륨 스냅샷 컨트롤러를 설치합니다"^]
-* https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["볼륨 스냅샷 클래스를 생성합니다"^]
+* link:../get-started/requirements.html#astra-control-provisioner["환경에 Astra Control Provisioner가 포함되어 있는지 확인합니다"]
+* link:../get-started/enable-acp.html["Astra Control Provisioner 고급 관리 및 스토리지 프로비저닝 기능을 지원합니다"]
+* https://docs.netapp.com/us-en/trident/trident-use/worker-node-prep.html["클러스터 작업자 노드를 준비합니다"^]
+* https://docs.netapp.com/us-en/trident/trident-use/backends.html["스토리지 백엔드를 구성합니다"^]
+* https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["스토리지 클래스를 구성합니다"^]
+* https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploy-a-volume-snapshot-controller["볼륨 스냅샷 컨트롤러를 설치합니다"^]
+* https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#create-a-volume-snapshot["볼륨 스냅샷 클래스를 생성합니다"^]
 
 
 * ONTAP 자격 증명 *
 
-* link:../get-started/setup_overview.html#prepare-your-environment-for-cluster-management-using-astra-control["ONTAP 자격 증명을 구성합니다"^]
+* link:../get-started/prep-for-cluster-management.html["ONTAP 자격 증명을 구성합니다"]
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"] Astra Control Center를 다운로드하여 설치합니다
@@ -46,30 +46,30 @@ Astra Control Center를 시작하는 데 필요한 단계를 간략하게 소개
 * NetApp 라이센스 파일을 얻습니다.
 +
 ** Astra Control Center를 평가하는 경우 이미 포함된 평가 라이센스가 포함되어 있습니다
-** link:../concepts/licensing.html["이미 Astra Control Center를 구입한 경우 라이센스 파일을 생성합니다"^]
+** link:../concepts/licensing.html["이미 Astra Control Center를 구입한 경우 라이센스 파일을 생성합니다"]
 
 
-* link:../get-started/install_overview.html["Astra Control Center를 설치합니다"^]
-* link:../get-started/configure-after-install.html["추가 옵션 구성 단계를 수행합니다"^]
+* link:../get-started/install_overview.html["Astra Control Center를 설치합니다"]
+* link:../get-started/configure-after-install.html["추가 옵션 구성 단계를 수행합니다"]
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"] 몇 가지 초기 설정 작업을 완료합니다
 시작하려면 몇 가지 기본 작업을 완료하십시오.
 
-* link:../get-started/setup_overview.html#add-a-license-for-astra-control-center["라이센스를 추가합니다"^]
-* link:../get-started/setup_overview.html#prepare-your-environment-for-cluster-management-using-astra-control["클러스터 관리를 위한 환경을 준비합니다"^]
-* link:../get-started/setup_overview.html#add-cluster["클러스터를 추가합니다"^]
-* link:../get-started/setup_overview.html#add-a-storage-backend["스토리지 백엔드를 추가합니다"^]
-* link:../get-started/setup_overview.html#add-a-bucket["버킷을 추가합니다"^]
+* link:../get-started/add-license.html["라이센스를 추가합니다"]
+* link:../get-started/prep-for-cluster-management.html["클러스터 관리를 위한 환경을 준비합니다"]
+* link:../get-started/add-cluster.html["클러스터를 추가합니다"]
+* link:../get-started/add-storage-backend.html["스토리지 백엔드를 추가합니다"]
+* link:../get-started/add-bucket.html["버킷을 추가합니다"]
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"] Astra Control Center를 사용합니다
 Astra Control Center 설정을 마친 후 Astra Control UI 또는 를 사용합니다 https://docs.netapp.com/us-en/astra-automation["Astra Control API를 참조하십시오"^] 앱 관리 및 보호를 시작하려면
 
-* link:../use/manage-apps.html["앱 관리"^]: 관리할 리소스를 정의합니다.
-* link:../use/protection-overview.html["앱 보호"^]보호 정책을 구성하고 앱을 복제, 클론 복제 및 마이그레이션합니다.
-* link:../use/manage-local-users-and-roles.html["계정 관리"^]사용자, 역할, LDAP, 자격 증명 등
-* link:../use/monitor-protect.html#connect-to-cloud-insights["필요에 따라 Cloud Insights에 연결합니다"^]: 시스템 상태에 대한 메트릭을 봅니다.
+* link:../use/manage-local-users-and-roles.html["계정 관리"]사용자, 역할, LDAP, 자격 증명 등
+* link:../use/manage-notifications.html["알림을 관리합니다"]
+* link:../use/manage-apps.html["앱 관리"]: 관리할 리소스를 정의합니다.
+* link:../use/protection-overview.html["앱 보호"]보호 정책을 구성하고 앱을 복제, 클론 복제 및 마이그레이션합니다.
 
 
 
@@ -77,6 +77,6 @@ Astra Control Center 설정을 마친 후 Astra Control UI 또는 를 사용합�
 == 를 참조하십시오
 
 * https://docs.netapp.com/us-en/astra-automation["Astra Control API를 사용합니다"^]
-* link:../use/upgrade-acc.html["Astra Control Center를 업그레이드합니다"^]
-* link:../support/get-help.html["Astra Control에 대한 도움을 받으십시오"^]
+* link:../use/upgrade-acc.html["Astra Control Center를 업그레이드합니다"]
+* link:../support/get-help.html["Astra Control에 대한 도움을 받으십시오"]
 

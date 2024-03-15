@@ -20,22 +20,15 @@ Astra Control Center는 스토리지 백엔드의 NetApp ONTAP 및 Longhorn을 �
 
 Astra Control Center는 다음을 지원합니다.
 
-* * ONTAP 스토리지에서 지원하는 Astra Trident 스토리지 클래스 *: ONTAP 백엔드를 사용하는 경우, Astra Control Center는 다양한 모니터링 정보를 보고하기 위해 ONTAP 백엔드를 가져올 수 있는 기능을 제공합니다.
+* * ONTAP 스토리지에서 지원하는 스토리지 클래스 *: ONTAP 백엔드를 사용하는 경우 Astra Control Center는 ONTAP 백엔드를 가져와 모니터링 정보를 보고하는 기능을 제공합니다.
 * Longhorn * 에서 지원하는 * CSI 기반 스토리지 클래스: Longhorn 컨테이너 스토리지 인터페이스(CSI) 드라이버와 함께 Longhorn을 사용할 수 있습니다.
 
 
 
-NOTE: Astra Trident 스토리지 클래스는 Astra Control Center 외부에서 사전 구성되어야 합니다.
+NOTE: 스토리지 클래스는 이어야 합니다 https://docs.netapp.com/us-en/trident/trident-use/create-stor-class.html["구성됨"^] Astra Control Provisioner 사용:
 
 
 
 == 스토리지 클래스
 
 Astra Control Center에 클러스터를 추가하면 해당 클러스터에서 이전에 구성된 스토리지 클래스 중 하나를 기본 스토리지 클래스로 선택하라는 메시지가 표시됩니다. 이 스토리지 클래스는 영구 볼륨 클레임(PVC)에 지정된 저장소 클래스가 없을 때 사용됩니다. 기본 스토리지 클래스는 Astra Control Center 내에서 언제든지 변경할 수 있으며, PVC 또는 H제어 차트 내에서 스토리지 클래스의 이름을 지정하여 언제든지 모든 스토리지 클래스를 사용할 수 있습니다. Kubernetes 클러스터에 대해 단일 기본 스토리지 클래스만 정의되어 있는지 확인하십시오.
-
-
-
-== 를 참조하십시오
-
-* https://docs.netapp.com/us-en/trident/index.html["Astra Trident 문서"^]
-
