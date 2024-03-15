@@ -156,7 +156,7 @@ kubectl get acc -n netapp-acc
 [listing]
 ----
 NAME  UUID                                 VERSION    ADDRESS                             READY
-astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 24.02.0-65 ocp-cluster-1.company.com           True
+astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 24.02.0-69 ocp-cluster-1.company.com           True
 ----
 .. 를 누릅니다 `ADDRESS` 위 응답의 필드에 기본 Astra Control Center 인스턴스의 FQDN이 없습니다. Astra Control Center DNS를 참조하도록 구성을 업데이트하십시오.
 +
@@ -379,7 +379,7 @@ kubectl get acc -n netapp-acc
 [listing]
 ----
 NAME  UUID                                 VERSION    ADDRESS                             READY
-astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 24.02.0-65 ocp-cluster-1.company.com           True
+astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 24.02.0-69 ocp-cluster-1.company.com           True
 ----
 * * 배포 상태 확인 * : Astra Control Center 배포 정보를 표시하여 이를 확인합니다 `Deployment State` 있습니다 `Deployed`.
 +

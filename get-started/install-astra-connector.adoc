@@ -38,7 +38,7 @@ NOTE: Kubernetes 1.25 이상 클러스터의 기본값인 Pod 보안 승인 적�
 +
 [source, console]
 ----
-kubectl apply -f https://github.com/NetApp/astra-connector-operator/releases/download/24.02.0-202403141622/astraconnector_operator.yaml
+kubectl apply -f https://github.com/NetApp/astra-connector-operator/releases/download/24.02.0-202403151353/astraconnector_operator.yaml
 ----
 . 작업자가 설치되어 있고 준비가 되었는지 확인합니다.
 +

@@ -651,10 +651,8 @@
   <block id="dd8d7d6254d36a3ee23cd2f2b306ba57" category="list-text">Astra Control Center 운영자 로그를 검사하려면 다음을 입력하십시오.</block>
   <block id="df17fddf226fe3399a8cb420856f3565" category="section-title">자격 검사를 실행합니다</block>
   <block id="40152bf47b47316f99abeacf61572ddd" category="paragraph">다음 자격 검사를 실행하여 클러스터를 Astra Control Center에 추가할 준비가 되었는지 확인합니다.</block>
-  <block id="210c5331ab46caa141e6ac9d5aeb1bee" category="paragraph">필요에 따라 이름 및 네임스페이스를 조정합니다. 여기에서 변경한 경우 다음 단계에서 동일한 변경 사항을 적용해야 합니다.</block>
   <block id="605443509a67749999ab3b0d3ba43e8b" category="list-text">서비스 계정 적용:</block>
   <block id="b29afe741178d8d4966c07c97f9892db" category="list-text">astracontrol-clusterrobinding.YAML이라는 ClusterRoleBinding 파일을 만듭니다.</block>
-  <block id="51980eaff0de60f578593fb8ae77f9b3" category="paragraph">필요에 따라 서비스 계정을 생성할 때 수정된 모든 이름과 네임스페이스를 조정합니다.</block>
   <block id="c6c2bc2133c73ae2516508de9a2b5869" category="list-text">클러스터 역할 바인딩을 적용합니다.</block>
   <block id="b6e00a7dda090ccd5afd1c904d80548c" category="list-text">'&lt;context&gt;'을(를) 설치에 적합한 컨텍스트로 대체하여 서비스 계정 암호를 나열합니다.</block>
   <block id="f087976277d273660b942918b43af841" category="paragraph">출력의 끝은 다음과 유사합니다.</block>
@@ -3315,7 +3313,6 @@ Astra Control Center 설치 중에 Istio 서비스 메시를 설치한 경우 As
   <block id="cafefc5f50506723aef36efe08228ac6" category="list-text"><block ref="cafefc5f50506723aef36efe08228ac6" category="inline-link-macro-rx"></block></block>
   <block id="ebbf8ab2cc98d2a82b96a1a2f7b5ae63" category="list-text">* ONTAP 스토리지에서 지원하는 스토리지 클래스 *: ONTAP 백엔드를 사용하는 경우 Astra Control Center는 ONTAP 백엔드를 가져와 모니터링 정보를 보고하는 기능을 제공합니다.</block>
   <block id="8253c8b1a609f9ce1a02c4e2a504c939" category="admonition">스토리지 클래스는 이어야 합니다<block ref="77905d0564a40ee81ff9591499f11020" category="inline-link-rx"></block> Astra Control Provisioner 사용:</block>
-  <block id="14fe383b66664af3f619add4f5177375" category="section-title">2023년 3월 14일(24.02.0)</block>
   <block id="d63699561e9e89b24f74267a42a43fcb" category="list-text">* 개인 레지스트리 없이 Astra Control Center 배포 *: Astra Control Center 이미지를 개인 레지스트리에 푸시하거나 Astra Control 환경의 일부로 사용할 필요가 없습니다.</block>
   <block id="2d34fffcd239d9123b41c19f296a8e34" category="list-text">* 사소한 버그 수정 *</block>
   <block id="52431bbd389e0fa547d3457c7623dfdb" category="paragraph-title">(기술 미리 보기) 선언적 Kubernetes 워크플로</block>
@@ -3360,12 +3357,10 @@ Astra Control Center 설치 중에 Istio 서비스 메시를 설치한 경우 As
   <block id="12547cb718bd5cdda0698d3425c2efd9" category="admonition">Astra Control Center를 서비스 메시와 통합하는 작업은 Astra Control Center 중에만 수행할 수 있습니다 <block ref="62b215247cb296dff8f12da472ca9c46" category="inline-link-macro-rx"></block> 그리고 이 과정에 독립적이지 않습니다. 메시에서 메시되지 않은 환경으로 다시 변경하는 것은 지원되지 않습니다.</block>
   <block id="8eae7b52d2951fd68c2e610fc6a8003d" category="paragraph">최신 NetApp Astra kubectl 명령줄 플러그인을 설치하려면 다음 단계를 완료하십시오.</block>
   <block id="fa221b4f0b04edab66e833af2ce3f2ef" category="paragraph">이전 설치에서 이미 플러그인을 설치한 경우 <block ref="2a7472047c8e1a767aa63b6d837cb04d" category="inline-link-macro-rx"></block> 다음 단계를 수행하기 전에</block>
-  <block id="93cd09cf13a63fbf73e885567e601af2" category="admonition">자리 표시자입니다<block ref="facf912114e23f5e3f2192e508b5894a" prefix=" " category="inline-code"></block> 이전에 업로드한 이미지의 위치와 일치해야 합니다(예:<block ref="4bb7b95e87f41970aa8eeb1f4893161d" prefix=" " category="inline-code"></block>)를 클릭합니다.</block>
   <block id="5168e33647c31de13dabe5499c7ce89a" category="list-text">에 대한 암호를 만듭니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> (또는 사용자 지정 이름) 네임스페이스입니다. Docker 정보를 추가하고 레지스트리 기본 설정에 따라 적절한 명령 중 하나를 실행합니다.</block>
   <block id="1464e6df18144d722e7dceece5a6e602" category="list-text">변경<block ref="e7fbb61ffc587682a801796b46db408a" prefix=" " category="inline-code"></block> 의 경우<block ref="83f93b05da174976bd534cc67ad9f7b4" prefix=" " category="inline-code"></block> 이미지를 에서 푸시한 레지스트리 경로로 이미지 <block ref="354650eb3180bfec1ebeac2793978bb8" category="inline-xref-macro-rx"></block>.</block>
   <block id="cd7a180ee2029176203abb971a5e5ed9" category="example-title">계정 이름</block>
   <block id="bbdbf70444e48a34a4a7e7d708d85eec" category="example-title">astraVersion을 참조하십시오</block>
-  <block id="79f6e92153762d586d165283a990b5d3" category="cell"><block ref="5649416aab23d5e9c0991adb30326363" prefix="" category="inline-code"></block></block>
   <block id="d27903c79b643b2f565c31e894abb568" category="example-title">astraAddress를 선택합니다</block>
   <block id="3b34fa10a1849149ef360d65f3b2584b" category="cell">를 변경합니다<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> 브라우저에서 Astra Control Center에 액세스하기 위해 사용할 FQDN(권장) 또는 IP 주소에 대한 문자열입니다. 이 주소는 Astra Control Center가 데이터 센터에서 어떻게 검색되는지 정의하며, 이 주소를 완료하면 로드 밸런서에서 제공한 것과 동일한 FQDN 또는 IP 주소입니다 <block ref="474766b82367a3ec4c760e75a04081da" category="inline-link-macro-rx"></block>.
 
@@ -3426,7 +3421,6 @@ Astra Control Center는 "loadbalancer" 유형의 서비스를 사용합니다. <
   <block id="ff8f3c1816620cf8943535a74e369c1e" category="list-text">를 사용합니다<block ref="8045a0a6c688b0635e3caccc408a1446" prefix=" " category="inline-code"></block> <block ref="8787af0c37edaa1239d34c7f166a1210" category="inline-xref-macro-rx"></block> 에 대한 대체 침입을 제공합니다 <block ref="e5cc4e9a9ac2da26f1059b40c2f5790a" category="inline-link-macro-rx"></block>.</block>
   <block id="783fbd40d340f1c6d7af1fab635a9cf5" category="open-title">Red Hat OpenShift 웹 콘솔</block>
   <block id="de70fb086d01bb5437ce1b74c04a3604" category="admonition">수동 승인 전략을 선택한 경우 이 작업자에 대한 수동 설치 계획을 승인하라는 메시지가 표시됩니다.</block>
-  <block id="4012f625d5dc882e710f5fd5f479e236" category="list-text">Astra Control Center 버전(예: 24.02.0-65)을 입력합니다.</block>
   <block id="15105b1c130e1cdf07a5bcc7b4c2e25a" category="list-text">설치의 배율 크기를 선택합니다.</block>
   <block id="a56226948269f21e33c8cedc94f81f6e" category="list-text">* 일반 * <block ref="70110d526a7afb77cc9b5240e79845c0" prefix="(" category="inline-code"></block>) (기본값)</block>
   <block id="bc56063dd5f901e8aacc233e02694865" category="paragraph">다른 수신 컨트롤러를 사용 중이거나 자체 수신 컨트롤러를 사용하려는 경우 이 옵션을 사용하십시오. Astra Control Center를 구축한 후 를 구성해야 합니다 <block ref="d5e402858a9f759437c0ead0501ac799" category="inline-link-macro-rx"></block> URL을 사용하여 Astra Control Center를 표시합니다.</block>
@@ -3556,7 +3550,6 @@ RKE 2: Rancher Manager 2.7.9 포함 버전 1.24.17, 1.25.14, 1.26.9</block>
   <block id="8af6183c9bdfc7399cee2ffcfafecbd2" category="paragraph">의 각 요소에 대한 인덱스입니다<block ref="7de38f3c3d3baa7ca58a366f09577586" prefix=" " category="inline-code"></block> 어레이는 0으로 시작합니다. 위의 예에서 의 인덱스입니다<block ref="b91e4862bb487ade8bbd4f9eefe0618e" prefix=" " category="inline-code"></block> 는 0이고 의 인덱스입니다<block ref="ce8dd462bb623b9902ba4f0151eb2f1b" prefix=" " category="inline-code"></block> 1입니다. 출력에서 서비스 계정의 인덱스 번호를 기록해 둡니다. 다음 단계에서는 이 인덱스 번호가 필요합니다.</block>
   <block id="a40c084314b74a686572312dc71c4738" category="list-text">을 생성합니다<block ref="3d3f9b7a5974a7898593a3d2f5549f15" prefix=" " category="inline-code"></block> 파일.</block>
   <block id="23ed633c6130c18f08608b6efce84dc4" category="list-text">대치<block ref="089d02fba2ffcdb49a91320ff506dfa3" prefix=" " category="inline-code"></block> 다음 스크립트의 시작 부분에 올바른 값이 있습니다.</block>
-  <block id="8ef78cb986fb315aafc3d106d5e46291" category="list-text">대치<block ref="7347fe5a0f184f79ef064e92e3beb297" prefix=" " category="inline-code"></block> Astra Control Center 네임스페이스를 사용합니다.</block>
   <block id="c103c1b613b979158e5cb38bf6ed5f16" category="inline-link">다음 단계에 따라 Astra Control Provisioner 서비스가 포함된 Astra Trident 인스턴스를 제거하십시오</block>
   <block id="2c5e000851530d456765d6ad7069ee9a" category="paragraph">* Astra Control Provisioner(또는 Astra Trident)는 관리를 취소할 때 클러스터에서 자동으로 제거됩니까? *
 Astra Control Center에서 클러스터를 관리 취소하면 Astra Control Provisioner 또는 Astra Trident가 클러스터에서 자동으로 제거되지 않습니다. Astra Control Provisioner 및 해당 구성 요소 또는 Astra Trident를 제거하려면 다음을 수행해야 합니다<block ref="20ce5e359d2a1fb9fe63ec6fbc3432ca" category="inline-link-rx"></block>.</block>
@@ -3616,4 +3609,8 @@ Astra Control Provisioner는 가져오기 및 검색 프로세스의 일부로 �
   <block id="7742ba7740cead9fe565013f4bdb49ae" category="sidebar">Astra Control을 사용하여 클러스터 관리를 준비합니다</block>
   <block id="3b99b0d7fdee4b22f7669dcf30bd5137" category="sidebar">관리형 클러스터를 위해 Astra Connector를 설치합니다</block>
   <block id="bb46bb8b123b387689649bcd6e67f690" category="sidebar">스토리지 백엔드 인증을 설정합니다</block>
+  <block id="e9876a34f200453c5276db1bcd936066" category="section-title">2023년 3월 15일(24.02.0)</block>
+  <block id="8eb0443b63cbd12e3161aa0214feb89c" category="admonition">자리 표시자입니다<block ref="facf912114e23f5e3f2192e508b5894a" prefix=" " category="inline-code"></block> 이전에 업로드한 이미지의 위치와 일치해야 합니다(예:<block ref="69d1ad4e27c121d5699f0cde5eb5c93c" prefix=" " category="inline-code"></block>)를 클릭합니다.</block>
+  <block id="f768e6dcac13eb19534cf966f45963b6" category="cell"><block ref="f88ff30441dac38b9948d4f74cec7a17" prefix="" category="inline-code"></block></block>
+  <block id="a4d0aec7cffdaed0bf8e97e7c30b486b" category="list-text">Astra Control Center 버전(예: 24.02.0-69)을 입력합니다.</block>
 </blocks>
