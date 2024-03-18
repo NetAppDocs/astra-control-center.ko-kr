@@ -242,7 +242,6 @@ rules:
   - poddisruptionbudgets
   - pods
   - podtemplates
-  - podsecuritypolicies
   - replicasets
   - replicationcontrollers
   - replicationcontrollers/scale
@@ -284,17 +283,8 @@ rules:
   - imagetags
   verbs:
   - update
-
-# Use PodSecurityPolicies
-- apiGroups:
-  - extensions
-  - policy
-  resources:
-  - podsecuritypolicies
-  verbs:
-  - use
 ----
-.. (OpenShift 클러스터에만 해당) 의 끝에 다음을 추가합니다 `astra-admin-account.yaml` 파일 또는 뒤에 있습니다 `# Use PodSecurityPolicies` 섹션:
+.. (OpenShift 클러스터에만 해당) 의 끝에 다음을 추가합니다 `astra-admin-account.yaml` 파일:
 +
 [source, console]
 ----

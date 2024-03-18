@@ -2440,7 +2440,6 @@
   <block id="6d71102c1ab33d36986e4d5b5545a278" category="list-text">여러 개의 컨텍스트를 사용하며 설치 중에 구성된 기본 Astra Control kubecononfig를 사용할 수 없거나, 단일 컨텍스트의 제한된 역할은 사용자 환경에서 작동하지 않습니다</block>
   <block id="5a20342984ee9d605acb505095dbcd0a" category="list-text">Astra Control에서 클러스터를 관리할 수 있는 충분한 권한을 가진 다음 클러스터 역할 중 하나를 생성합니다.</block>
   <block id="d2c5b496305d8a36011fc2b1e55dcde3" category="list-text">을 생성합니다<block ref="d7d354d0f9d0780e168c895c92a32c24" prefix=" " category="inline-code"></block> 호출되는 파일(예:<block ref="b7bb4a27d91c967fbba0bb19f36a3533" prefix=" " category="inline-code"></block>.</block>
-  <block id="27d0c41af3a1135b5aa66dad8883e300" category="list-text">(OpenShift 클러스터에만 해당) 의 끝에 다음을 추가합니다<block ref="b7bb4a27d91c967fbba0bb19f36a3533" prefix=" " category="inline-code"></block> 파일 또는 뒤에 있습니다<block ref="7da59f03b6be2daf1bf5fd19ecc78050" prefix=" " category="inline-code"></block> 섹션:</block>
   <block id="5e2febea168e23172b29251a6258dec8" category="admonition">다음 사항을 참조하십시오<block ref="d7d354d0f9d0780e168c895c92a32c24" prefix=" " category="inline-code"></block> 일반 Kubernetes의 예는 단계입니다. 사용자 환경에 대한 지침은 Kubernetes 배포 문서를 참조하십시오.</block>
   <block id="c1865e8db7245bcc1648e67fb250eba4" category="list-text">토큰 암호 생성 및 적용:</block>
   <block id="11afc91177361b2eafbbec4287518195" category="list-text">라는 토큰 비밀 파일을 만듭니다<block ref="7cdd7450df0359169a360b93d3cb369f" prefix=" " category="inline-code"></block>.</block>
@@ -3101,8 +3100,6 @@ Astra Control Center는 다음 플랫폼 및 버킷 유형을 통해 변경 불�
   <block id="29e638c426512b56521aa694976562ea" category="list-text">(선택 사항) 로컬 레지스트리 경로입니다. 로컬 레지스트리를 사용하는 경우, 을(를) 참조하십시오<block ref="97e5914991475a979ee93ba0d709c399" category="inline-link-rx"></block> 하나의 레지스트리 또는 다른 레지스트리에 있을 수 있지만 모든 CSI 이미지는 동일한 레지스트리에 있어야 합니다.</block>
   <block id="4795c928314a82e5be360b646a3a3aac" category="list-text">Trident 네임스페이스</block>
   <block id="804c8c9903e49e8cab0717f41b883f9a" category="list-text">레지스트리가 없는 이미지</block>
-  <block id="c4ffea098f78924a9b9331b8f5e9c8b4" category="list-text">하나의 레지스트리에 있는 이미지</block>
-  <block id="4847c552b2ff9251806e41c8fa907e19" category="list-text">다른 레지스트리의 이미지</block>
   <block id="d75fdc8e85ddcd7e9dc9f367168dec11" category="paragraph">을 사용할 수 있습니다<block ref="cd4140d3de30b520500459331d08d2bf" prefix=" " category="inline-code"></block> 이름, 네임스페이스, 차트, 상태, 앱 버전과 같은 설치 세부 정보를 검토하려면 수정본 번호.</block>
   <block id="d09a3f23170df63b9065e78b7eb80224" category="paragraph">Helm을 사용하여 Trident를 구축하는 데 문제가 있는 경우 다음 명령을 실행하여 Astra Trident를 완전히 제거합니다.</block>
   <block id="3897d04922674a762953f58e38463cb0" category="inline-link">Astra Trident CRD를 완전히 제거합니다</block>
@@ -3282,7 +3279,6 @@ Astra Control Center 설치 중에 Istio 서비스 메시를 설치한 경우 As
   <block id="45ff81bf0afcefe9451aab9b611c1934" category="open-title">CR을 사용하여 백업에서 복원합니다</block>
   <block id="0291eb75f7d9f722c1c83050970a021f" category="list-text">CR(사용자 정의 리소스) 파일을 만들고 이름을 지정합니다<block ref="5cdae9ef2c57d39bfd2be879e506f5ce" prefix=" " category="inline-code"></block>. 괄호 &lt;&gt; 의 값을 Astra Control 환경 및 클러스터 구성과 일치하도록 업데이트합니다.</block>
   <block id="607cb816902b97513f9f07eaf1cf9526" category="list-text">&lt;CR_NAME&gt;: 이 CR 작업의 이름입니다. 환경에 적합한 이름을 선택하십시오.</block>
-  <block id="5e66a070c1e61232e4b5e2974f682cab" category="list-text">&lt;ASTRA_CONNECTOR_NAMESPACE&gt;: Astra Connector가 설치되는 네임스페이스입니다.</block>
   <block id="32c38c61b072ed7be99e03554fcc5dc7" category="list-text">&lt;APPVAULT_NAME&gt;: 백업 컨텐츠가 저장되는 AppVault의 이름입니다.</block>
   <block id="b6f7c06130923ff859915637bdd832de" category="list-text">&lt;BACKUP_PATH&gt;: 백업 컨텐츠가 저장되는 AppVault 내부의 경로입니다. 예를 들면 다음과 같습니다.</block>
   <block id="98766ce59cde6328ee287141ac6463fc" category="list-text">&lt;SOURCE_NAMESPACE&gt;: 복구 작업의 소스 네임스페이스입니다.</block>
@@ -3290,7 +3286,6 @@ Astra Control Center 설치 중에 Istio 서비스 메시를 설치한 경우 As
   <block id="fb72d03a8b8ac14ae1e7d9aa1f047e05" category="list-text">를 채운 후<block ref="5cdae9ef2c57d39bfd2be879e506f5ce" prefix=" " category="inline-code"></block> 올바른 값이 있는 파일에 CR을 적용합니다.</block>
   <block id="4f6d84376015daa09c05aaa62c5169b3" category="open-title">CR을 사용하여 백업에서 원래 네임스페이스로 복원합니다</block>
   <block id="d21e7e879c0776ee09e7586ce29d2898" category="list-text">CR(사용자 정의 리소스) 파일을 만들고 이름을 지정합니다<block ref="eb9b00b26a03b44f5f2897edcd77fbc2" prefix=" " category="inline-code"></block>. 괄호 &lt;&gt; 의 값을 Astra Control 환경 및 클러스터 구성과 일치하도록 업데이트합니다.</block>
-  <block id="975fe7cbef6128bcc4889aaf1ca76c41" category="list-text">&lt;ASTRA_CONNECTOR_NAMESPACE&gt;: Astra Connector가 설치되는 네임스페이스입니다. 백업이 생성된 네임스페이스입니다.</block>
   <block id="5348fdd12f57331552ca99bd9874fb9e" category="list-text">를 채운 후<block ref="eb9b00b26a03b44f5f2897edcd77fbc2" prefix=" " category="inline-code"></block> 올바른 값이 있는 파일에 CR을 적용합니다.</block>
   <block id="59996d3ba6c2c9c9164c73f5f9dbaaef" category="section-title">[기술 미리보기] 사용자 정의 리소스(CR)를 사용하여 스냅샷에서 복원</block>
   <block id="7708c3b204f347f9a3f6641e7484ab47" category="paragraph">사용자 지정 리소스(CR) 파일을 사용하여 스냅샷에서 데이터를 다른 네임스페이스 또는 원래 소스 네임스페이스로 복원할 수 있습니다.</block>
@@ -3299,7 +3294,6 @@ Astra Control Center 설치 중에 Istio 서비스 메시를 설치한 경우 As
   <block id="9698c53c78d261962a4a1c26b913eee1" category="list-text">를 채운 후<block ref="47c8c017693706f1deca4469c915fc62" prefix=" " category="inline-code"></block> 올바른 값이 있는 파일에 CR을 적용합니다.</block>
   <block id="b78248634602cda93bac3dff3aaa9393" category="open-title">CR을 사용하여 스냅샷에서 원래 네임스페이스로 복원합니다</block>
   <block id="c32ab7b52b53095f9f5158cc1e448576" category="list-text">CR(사용자 정의 리소스) 파일을 만들고 이름을 지정합니다<block ref="7789d21ba00a1b12ae9d85f219dabda2" prefix=" " category="inline-code"></block>. 괄호 &lt;&gt; 의 값을 Astra Control 환경 및 클러스터 구성과 일치하도록 업데이트합니다.</block>
-  <block id="ff573d7c36acef9cfb20b75cc375adb3" category="list-text">&lt;ASTRA_CONNECTOR_NAMESPACE&gt;: Astra Connector가 설치되는 네임스페이스입니다. 스냅샷이 생성된 네임스페이스입니다.</block>
   <block id="375b1db65557163f2d0e23f660a3d7f9" category="list-text">를 채운 후<block ref="7789d21ba00a1b12ae9d85f219dabda2" prefix=" " category="inline-code"></block> 올바른 값이 있는 파일에 CR을 적용합니다.</block>
   <block id="d6335a5aece4d08f612f786e74fdb995" category="summary">Kubernetes 사용자 지정 리소스(CR)를 사용하여 Astra Control 애플리케이션을 관리합니다.</block>
   <block id="7247d7030b66ad4ed4eaa523ed6676b0" category="doc">[기술 미리보기] CRS를 사용하여 Astra Control 애플리케이션을 관리합니다</block>
@@ -3613,4 +3607,6 @@ Astra Control Provisioner는 가져오기 및 검색 프로세스의 일부로 �
   <block id="f768e6dcac13eb19534cf966f45963b6" category="cell"><block ref="f88ff30441dac38b9948d4f74cec7a17" prefix="" category="inline-code"></block></block>
   <block id="a4d0aec7cffdaed0bf8e97e7c30b486b" category="list-text">Astra Control Center 버전(예: 24.02.0-69)을 입력합니다.</block>
   <block id="da65a49714e715e3103c6d4e4765ad79" category="section-title">2024년 3월 15일(24.02.0)</block>
+  <block id="3e10c4dd91af2dc1835b50343bc5fbd0" category="list-text">하나 이상의 레지스트리에 있는 이미지</block>
+  <block id="03af53c262f33cd7a040764e24c068eb" category="list-text">(OpenShift 클러스터에만 해당) 의 끝에 다음을 추가합니다<block ref="b7bb4a27d91c967fbba0bb19f36a3533" prefix=" " category="inline-code"></block> 파일:</block>
 </blocks>
