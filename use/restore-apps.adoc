@@ -128,7 +128,7 @@ NOTE: 포함 및 제외 규칙 구성에 대한 자세한 내용은 을 참조�
 +
 [listing]
 ----
-minio_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
+ONTAP-S3_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
 ----
 ** <SOURCE_NAMESPACE>: 복구 작업의 소스 네임스페이스입니다.
 ** <DESTINATION_NAMESPACE>: 복구 작업의 대상 네임스페이스입니다.
@@ -199,7 +199,7 @@ kubectl apply -f astra-control-backup-restore-cr.yaml
 +
 [listing]
 ----
-minio_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
+ONTAP-S3_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
 ----
 +
 [source, yaml]
@@ -276,7 +276,7 @@ kubectl apply -f astra-control-backup-ipr-cr.yaml
 +
 [listing]
 ----
-minio_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
+ONTAP-S3_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
 ----
 ** <SOURCE_NAMESPACE>: 복구 작업의 소스 네임스페이스입니다.
 ** <DESTINATION_NAMESPACE>: 복구 작업의 대상 네임스페이스입니다.
@@ -347,7 +347,7 @@ kubectl apply -f astra-control-snapshot-restore-cr.yaml
 +
 [listing]
 ----
-minio_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
+ONTAP-S3_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
 ----
 +
 [source, yaml]
