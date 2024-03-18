@@ -122,7 +122,6 @@ NOTE: 포함 및 제외 규칙 구성에 대한 자세한 내용은 을 참조�
 . CR(사용자 정의 리소스) 파일을 만들고 이름을 지정합니다 `astra-control-backup-restore-cr.yaml`. 괄호 <> 의 값을 Astra Control 환경 및 클러스터 구성과 일치하도록 업데이트합니다.
 +
 ** <CR_NAME>: 이 CR 작업의 이름입니다. 환경에 적합한 이름을 선택하십시오.
-** <ASTRA_CONNECTOR_NAMESPACE>: Astra Connector가 설치되는 네임스페이스입니다.
 ** <APPVAULT_NAME>: 백업 컨텐츠가 저장되는 AppVault의 이름입니다.
 ** <BACKUP_PATH>: 백업 컨텐츠가 저장되는 AppVault 내부의 경로입니다. 예를 들면 다음과 같습니다.
 +
@@ -139,7 +138,7 @@ apiVersion: astra.netapp.io/v1
 kind: BackupRestore
 metadata:
   name: <CR_NAME>
-  namespace: <ASTRA_CONNECTOR_NAMESPACE>
+  namespace: astra-connector
 spec:
   appVaultRef: <APPVAULT_NAME>
   appArchivePath: <BACKUP_PATH>
@@ -193,7 +192,6 @@ kubectl apply -f astra-control-backup-restore-cr.yaml
 . CR(사용자 정의 리소스) 파일을 만들고 이름을 지정합니다 `astra-control-backup-ipr-cr.yaml`. 괄호 <> 의 값을 Astra Control 환경 및 클러스터 구성과 일치하도록 업데이트합니다.
 +
 ** <CR_NAME>: 이 CR 작업의 이름입니다. 환경에 적합한 이름을 선택하십시오.
-** <ASTRA_CONNECTOR_NAMESPACE>: Astra Connector가 설치되는 네임스페이스입니다. 백업이 생성된 네임스페이스입니다.
 ** <APPVAULT_NAME>: 백업 컨텐츠가 저장되는 AppVault의 이름입니다.
 ** <BACKUP_PATH>: 백업 컨텐츠가 저장되는 AppVault 내부의 경로입니다. 예를 들면 다음과 같습니다.
 +
@@ -208,7 +206,7 @@ apiVersion: astra.netapp.io/v1
 kind: BackupInplaceRestore
 metadata:
   name: <CR_NAME>
-  namespace: <ASTRA_CONNECTOR_NAMESPACE>
+  namespace: astra-connector
 spec:
   appVaultRef: <APPVAULT_NAME>
   appArchivePath: <BACKUP_PATH>
@@ -270,7 +268,6 @@ kubectl apply -f astra-control-backup-ipr-cr.yaml
 . CR(사용자 정의 리소스) 파일을 만들고 이름을 지정합니다 `astra-control-snapshot-restore-cr.yaml`. 괄호 <> 의 값을 Astra Control 환경 및 클러스터 구성과 일치하도록 업데이트합니다.
 +
 ** <CR_NAME>: 이 CR 작업의 이름입니다. 환경에 적합한 이름을 선택하십시오.
-** <ASTRA_CONNECTOR_NAMESPACE>: Astra Connector가 설치되는 네임스페이스입니다.
 ** <APPVAULT_NAME>: 백업 컨텐츠가 저장되는 AppVault의 이름입니다.
 ** <BACKUP_PATH>: 백업 컨텐츠가 저장되는 AppVault 내부의 경로입니다. 예를 들면 다음과 같습니다.
 +
@@ -287,7 +284,7 @@ apiVersion: astra.netapp.io/v1
 kind: SnapshotRestore
 metadata:
   name: <CR_NAME>
-  namespace: <ASTRA_CONNECTOR_NAMESPACE>
+  namespace: astra-connector
 spec:
   appArchivePath: <BACKUP_PATH>
   appVaultRef: <APPVAULT_NAME>
@@ -341,7 +338,6 @@ kubectl apply -f astra-control-snapshot-restore-cr.yaml
 . CR(사용자 정의 리소스) 파일을 만들고 이름을 지정합니다 `astra-control-snapshot-ipr-cr.yaml`. 괄호 <> 의 값을 Astra Control 환경 및 클러스터 구성과 일치하도록 업데이트합니다.
 +
 ** <CR_NAME>: 이 CR 작업의 이름입니다. 환경에 적합한 이름을 선택하십시오.
-** <ASTRA_CONNECTOR_NAMESPACE>: Astra Connector가 설치되는 네임스페이스입니다. 스냅샷이 생성된 네임스페이스입니다.
 ** <APPVAULT_NAME>: 백업 컨텐츠가 저장되는 AppVault의 이름입니다.
 ** <BACKUP_PATH>: 백업 컨텐츠가 저장되는 AppVault 내부의 경로입니다. 예를 들면 다음과 같습니다.
 +
@@ -356,7 +352,7 @@ apiVersion: astra.netapp.io/v1
 kind: SnapshotInplaceRestore
 metadata:
   name: <CR_NAME>
-  namespace: <ASTRA_CONNECTOR_NAMESPACE>
+  namespace: astra-connector
 spec:
   appArchivePath: <BACKUP_PATH>
   appVaultRef: <APPVAULT_NAME>
