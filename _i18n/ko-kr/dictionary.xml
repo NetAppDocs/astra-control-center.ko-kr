@@ -3609,8 +3609,8 @@ Astra Control Provisioner는 가져오기 및 검색 프로세스의 일부로 �
   <block id="7742ba7740cead9fe565013f4bdb49ae" category="sidebar">Astra Control을 사용하여 클러스터 관리를 준비합니다</block>
   <block id="3b99b0d7fdee4b22f7669dcf30bd5137" category="sidebar">관리형 클러스터를 위해 Astra Connector를 설치합니다</block>
   <block id="bb46bb8b123b387689649bcd6e67f690" category="sidebar">스토리지 백엔드 인증을 설정합니다</block>
-  <block id="e9876a34f200453c5276db1bcd936066" category="section-title">2023년 3월 15일(24.02.0)</block>
   <block id="8eb0443b63cbd12e3161aa0214feb89c" category="admonition">자리 표시자입니다<block ref="facf912114e23f5e3f2192e508b5894a" prefix=" " category="inline-code"></block> 이전에 업로드한 이미지의 위치와 일치해야 합니다(예:<block ref="69d1ad4e27c121d5699f0cde5eb5c93c" prefix=" " category="inline-code"></block>)를 클릭합니다.</block>
   <block id="f768e6dcac13eb19534cf966f45963b6" category="cell"><block ref="f88ff30441dac38b9948d4f74cec7a17" prefix="" category="inline-code"></block></block>
   <block id="a4d0aec7cffdaed0bf8e97e7c30b486b" category="list-text">Astra Control Center 버전(예: 24.02.0-69)을 입력합니다.</block>
+  <block id="da65a49714e715e3103c6d4e4765ad79" category="section-title">2024년 3월 15일(24.02.0)</block>
 </blocks>

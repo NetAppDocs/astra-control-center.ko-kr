@@ -16,7 +16,7 @@ Astra Control Center의 최신 릴리스를 발표하게 되어 기쁘게 생각
 
 
 
-== 2023년 3월 15일(24.02.0)
+== 2024년 3월 15일(24.02.0)
 
 .새로운 기능 및 지원
 * * 개인 레지스트리 없이 Astra Control Center 배포 *: Astra Control Center 이미지를 개인 레지스트리에 푸시하거나 Astra Control 환경의 일부로 사용할 필요가 없습니다.
