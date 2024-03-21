@@ -544,7 +544,6 @@
   <block id="d23202f3a841766e7b5d6b37777fc6c3" category="list-text">측면 메뉴에서 * Operators &gt; OperatorHub * 를 선택합니다.</block>
   <block id="6d20ba1f906a03b7657514dee48eb121" category="list-text">설치 * 를 선택합니다.</block>
   <block id="4b583376b2767b923c3e1da60d10de59" category="inline-link">운영자</block>
-  <block id="13191ff715c85f59fd2da330d31c4e9f" category="list-text">배포 및 사용 * 을 선택합니다.</block>
   <block id="a961f7d3b56fe3f9b072af70813d6f82" category="section-title">운전자를 설치합니다</block>
   <block id="80c07a74abae733a8881dd926a32ef70" category="list-text">Install Operator * 페이지를 완료하고 운영자를 설치합니다.</block>
   <block id="1d0cc3a3781d64cc680980dd96e982ab" category="admonition">운영자는 모든 클러스터 네임스페이스에서 사용할 수 있습니다.</block>
@@ -1750,7 +1749,6 @@
   <block id="e4f3253ab12e0c60faa03ce6ef1c9784" category="section-title">Azure에 필요한 기능</block>
   <block id="060534066f9a22cabf451772f0daf58b" category="list-text">연산자 네임스페이스 만들기:</block>
   <block id="8f70adb2eebdea2e00d5d57216cd59b5" category="inline-link-macro">설정을 완료합니다</block>
-  <block id="eb5ffd4ef5a8aa98e9c36b2c79cea4ed" category="list-text">NetApp Astra Control Center 운영자를 검색하여 선택합니다.</block>
   <block id="91ec9a89e3a33fa6bc118cf53ef60c2e" category="list-text">NetApp Astra Control Center를 선택합니다<block ref="e9d5520af4877fc40e9611f3ebf55be3" category="inline-link-rx"></block>.</block>
   <block id="20133d30eea258b6c1550d612eb75dfc" category="list-text">Astra Control Center에 대한 레이블을 추가합니다.</block>
   <block id="a90dd656b7a6b8d695097aab7d876d0e" category="list-text">자동 지원을 활성화 또는 비활성화합니다. 자동 지원 기능을 유지하는 것이 좋습니다.</block>
@@ -2679,7 +2677,6 @@
   <block id="0f31c8d4b3ae834c0062c8056c4cb5b7" category="inline-link">엄격한 MTL을 활성화합니다</block>
   <block id="4c6c19221d15e9ceaf813bb76e0266f7" category="list-text">(권장)<block ref="bf40c5ba89ffee197f368678037a1b36" category="inline-link-rx"></block> Istio 서비스 메시의 경우:</block>
   <block id="842bb2b25b0ccc10b1fb3de7084fc991" category="list-text">* 건강한 클러스터 운영자 및 API 서비스 보장 *:</block>
-  <block id="c2f6a0ef27a00211c21a249f0a3b79d5" category="list-text">* OpenShift 권한 얻기 *: Red Hat OpenShift Container Platform에 대한 모든 필수 권한과 액세스 권한이 있어야 설명된 설치 단계를 수행할 수 있습니다.</block>
   <block id="1e49b9057d379a0d559e616836652580" category="list-text">를 추가합니다<block ref="c0261c4509dcb52c25794852cf3367a6" prefix=" " category="inline-code"></block> Astra Control Center를 구축하기 전에 Astra 네임스페이스에 레이블을 지정합니다.</block>
   <block id="4cc3351439de416fee936093cb5a065a" category="list-text">Red Hat OpenShift 클러스터의 경우 을 정의해야 합니다<block ref="d4ee387f8cc8e4354b61e452ecbf6a15" prefix=" " category="inline-code"></block> 연결된 모든 Astra Control Center 네임스페이스에서 <block ref="cadbba5231afda9b003503d57805b87d" prefix="(" category="inline-code"></block>,<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block>,<block ref="aadb900c6eaeed8ade58660fe972acec" prefix=" " category="inline-code"></block> 응용 프로그램 클러스터 또는 대체된 사용자 지정 네임스페이스의 경우).</block>
   <block id="22851966368f7a8e3c0bf121d7203ca1" category="list-text">[[generic-ingress]] 수신 유형을 선택합니다.</block>
@@ -3609,4 +3606,43 @@ Astra Control Provisioner는 가져오기 및 검색 프로세스의 일부로 �
   <block id="da65a49714e715e3103c6d4e4765ad79" category="section-title">2024년 3월 15일(24.02.0)</block>
   <block id="3e10c4dd91af2dc1835b50343bc5fbd0" category="list-text">하나 이상의 레지스트리에 있는 이미지</block>
   <block id="03af53c262f33cd7a040764e24c068eb" category="list-text">(OpenShift 클러스터에만 해당) 의 끝에 다음을 추가합니다<block ref="b7bb4a27d91c967fbba0bb19f36a3533" prefix=" " category="inline-code"></block> 파일:</block>
+  <block id="652aa122a3c8a61f53fecfe7a2e38472" category="summary">Red Hat OpenShift를 사용하는 경우 OperatorHub를 사용하여 Astra Control Center를 업그레이드할 수 있습니다.</block>
+  <block id="d1810a7b7ece844661c0ebd3f6d6b734" category="doc">OpenShift OperatorHub를 사용하여 Astra Control Center를 업그레이드합니다</block>
+  <block id="d65f6afdd601abb375246f62e4d974af" category="paragraph">Red Hat 인증 연산자를 사용하여 Astra Control Center를 설치한 경우 OperatorHub에서 업데이트된 연산자를 사용하여 Astra Control Center를 업그레이드할 수 있습니다. 다음 절차를 사용하여 에서 Astra Control Center를 업그레이드할 수 있습니다<block ref="a0bebb9db4c42678b95afc86229a893d" category="inline-link-rx"></block> 또는 Red Hat OpenShift Container Platform 사용.</block>
+  <block id="dba0214a5ff4087709345c59f18d5ecc" category="list-text">* 환경 필수 조건 충족 *: 업그레이드하기 전에 환경이 을 충족하는지 확인하십시오 <block ref="a5e730f4eb1e05ab5d051c5fbaad1711" category="inline-link-macro-rx"></block>.</block>
+  <block id="ee69e430ad6ce53b164d990d32171363" category="list-text">* 를 활성화했는지 확인하십시오 <block ref="253c06b63fbdc34e8258634f6035573c" category="inline-link-macro-rx"></block> Astra Trident가 실행되는 * 의 사용</block>
+  <block id="9e7dceeac2c1b47a8a65fc5301cfbc97" category="list-text">* OpenShift 권한 *: Red Hat OpenShift Container Platform에 대한 모든 필수 권한과 액세스 권한이 있습니다.</block>
+  <block id="14d39dcccbea7ad3c78e42b59aea8467" category="list-text"><block ref="ddb3eae04adcef55bc274001e6992ab5" category="inline-xref-macro-rx"></block></block>
+  <block id="7eb5c0427d3e2c95f7a7d55cb263dcad" category="list-text"><block ref="132acb99c1ed8179266ddab65ea75c5b" category="inline-xref-macro-rx"></block></block>
+  <block id="bcbf9322019433e2070bc9f950cdfaf9" category="list-text"><block ref="0ef2d18cbf3f0253133fb82832963633" category="inline-xref-macro-rx"></block></block>
+  <block id="1b36ea2dbec733bbc7b1bcf18df08b61" category="section-title">작업자 설치 페이지에 액세스합니다</block>
+  <block id="c3c26a3600766eef19453ba36cab80bd" category="list-text">OpenShift Container Platform 또는 Ecosystem Catalog에 해당하는 절차를 완료합니다.</block>
+  <block id="274eca9a1fdbeaf2cd7a241794769214" category="list-text">을(를) 검색합니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> NetApp Astra Control Center 운영자를 선택합니다.</block>
+  <block id="b2a595165e0c0ce7d437b83d5749b051" category="inline-image-macro">이 이미지는 운영자 페이지의 제거 옵션을 보여줍니다</block>
+  <block id="49ae0d594dc9a41982d54abc03e36805" category="paragraph"><block ref="49ae0d594dc9a41982d54abc03e36805" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="76fe74a55acaaea036adbcecca799a9c" category="list-text">배포 및 사용 * 을 선택합니다.</block>
+  <block id="0c15ff02cb7be3c55794dcb6ef61a65e" category="section-title">기존 운영자를 제거합니다</block>
+  <block id="99fdc785f49075cddc07fa753a02366c" category="list-text">netapp-acc-operator * 페이지에서 * 제거 * 를 선택하여 기존 연산자를 제거합니다.</block>
+  <block id="0d1008fb06b7595c8715c6fbdbf7f070" category="list-text">작업을 확인합니다.</block>
+  <block id="5ba5f5a565d608a4c86672b4c55d2884" category="admonition">이 작업을 실행하면 NetApp-acc 연산자가 삭제되지만 암호와 같은 원래 연결된 네임스페이스 및 리소스는 보존됩니다.</block>
+  <block id="e6143c3bb511918ab7bc7ab6a4c6313f" category="section-title">최신 운영자를 설치합니다</block>
+  <block id="49a6422574d0d2c657fdd914194af4bc" category="list-text">로 이동합니다<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> 오퍼레이터 페이지를 다시 표시합니다.</block>
+  <block id="41091ca348ff3c35ab2e0a3ca76978cb" category="list-text">Install Operator * 페이지를 완료하고 최신 연산자를 설치합니다.</block>
+  <block id="550520c6515847a3b49e4f21211149bf" category="paragraph"><block ref="550520c6515847a3b49e4f21211149bf" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c15c094418b557ddfd8a322d12f0deda" category="list-text">연산자를 선택합니다<block ref="cadbba5231afda9b003503d57805b87d" prefix=" " category="inline-code"></block> 삭제된 연산자의 이전 설치에 남아 있는 네임스페이스(또는 사용자 지정 네임스페이스)입니다.</block>
+  <block id="48512efbd6cbb72ba05990b4a58edec2" category="inline-image-macro">이 이미지는 원래 Astra Control Center의 편집 옵션을 보여줍니다</block>
+  <block id="2c6460dd8a4dbbe1efa73f9ebeefd4ec" category="list-text">Astra Control Center 운영자 탭에서 이전 설치의 Astra Control Center를 선택하고 * Edit AstraControlCenter * 를 선택합니다.
+<block ref="9897d0c5e439746e21018ef6131a3268" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fe17b9a46bce70651034916e5ecbcf12" category="list-text">를 업데이트합니다<block ref="1980c0ae033e18fad473fcada20addbd" prefix=" " category="inline-code"></block> YAML:</block>
+  <block id="aa3489d5761937b25dc8cd9ecbf228a7" category="list-text">최신 Astra Control Center 버전(예: 24.02.0-69)을 입력합니다.</block>
+  <block id="7246877ec7577a15a569ab8756a799b5" category="list-text">인치<block ref="f141c732c6aae0fddd2afdfac3f75f3f" prefix=" " category="inline-code"></block>필요에 따라 이미지 레지스트리 경로를 업데이트합니다.</block>
+  <block id="c89beb8febcc73c18bcf859e8544a034" category="list-text">Astra Control 레지스트리 옵션을 사용하는 경우 경로를 로 변경합니다<block ref="e943374c8f90757f171b7cd56af795fd" prefix=" " category="inline-code"></block>.</block>
+  <block id="c260a95d05bc62ad161afe8692c68c61" category="list-text">로컬 레지스트리를 구성한 경우 이전 단계에서 이미지를 푸시한 로컬 이미지 레지스트리 경로를 변경하거나 유지합니다.</block>
+  <block id="8c7b7976b37ce7ebd902a92d017eecc8" category="admonition">들어가지마<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> 또는<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> 를 입력합니다.</block>
+  <block id="790b293d8648860acef001057e8a9691" category="list-text">를 업데이트합니다<block ref="c6fe3b36a104e3ea913f9a6b82389050" prefix=" " category="inline-code"></block> 필요 시.</block>
+  <block id="e74609fc41a466140744e1cd3b6029c9" category="admonition">운영자 제거 프로세스에서는 기존 암호를 제거하지 않습니다. 기존 암호와 다른 이름을 가진 새 암호를 만드는 경우에만 이 필드를 업데이트해야 합니다.</block>
+  <block id="3523d7bdfad5124dba6032cbc37814c8" category="list-text">에 다음을 추가합니다<block ref="c16ae51f09d668b952e5ab23072ad64e" prefix=" " category="inline-code"></block> 구성:</block>
+  <block id="345e93a96b6e66cb9274dbad975c0db2" category="list-text">변경 사항을 저장합니다.</block>
+  <block id="622f51a75f238bac126a4e3b58d91991" category="list-text">UI에서 업그레이드가 성공했음을 확인합니다.</block>
+  <block id="ecba1fa6966e7dffc085b7fc45ca2133" category="list-text">* OpenShift 권한 얻기 *: Red Hat OpenShift Container Platform에 대한 모든 필수 권한과 액세스 권한이 있어야 설명된 설치 단계를 수행할 수 있습니다.</block>
 </blocks>
