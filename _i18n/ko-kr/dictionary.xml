@@ -3078,7 +3078,6 @@ Astra Control Center는 다음 플랫폼 및 버킷 유형을 통해 변경 불�
   <block id="8bdcf20b5d7c7cba89c4e9cdaba07ad2" category="list-text">* Astra Control Provisioner *: Astra Trident CSI 기능과 확장된 스토리지 관리 기능을 포함하는 NetApp에서 유지 관리하는 완전 지원되는 스토리지 프로비저닝 및 오케스트레이터로서 Astra Control Provisioner를 사용하면 Docker 및 Kubernetes로 관리되는 컨테이너식 애플리케이션용 스토리지 볼륨을 생성할 수 있습니다. Astra Control Center를 사용하여 구축할 경우 Astra Control Provisioner에는 구성된 ONTAP 스토리지 백엔드가 포함됩니다.</block>
   <block id="f8eb25c26ac0064b456c26bd4bb1642b" category="list-text">Astra Trident를 24.02.0으로 업데이트:</block>
   <block id="c88d85553b81a72e9b28005772f27281" category="list-text">Astra Trident 이미지에 대한 사용자 지정 레지스트리 위치를 설정하거나 Astra Control 레지스트리에서 가져옵니다 <block ref="c063da0c4010a4b533407346a02dd83c" prefix="(" category="inline-code"></block> 또는<block ref="cad26ce67501baab70dd72ffd03b01e6" prefix=" " category="inline-code"></block>)를 클릭합니다.</block>
-  <block id="1a94316615bc7bfa28020fb176113eb9" category="list-text">Astra Control Provisioner 이미지의 사용자 지정 레지스트리 위치를 설정하거나 Astra Control 레지스트리에서 가져옵니다 <block ref="6fd47d0a38cf5afec555b659aaed6104" prefix="(" category="inline-code"></block> 또는<block ref="3a419c3a7ea2390874c7e355a5180c2e" prefix=" " category="inline-code"></block>)를 클릭합니다.</block>
   <block id="faba39ec34eed502aea6d805d792a9ea" category="list-text">를 확인합니다<block ref="49c9f6c98d04c8c76aee7448fd9136ed" prefix=" " category="inline-code"></block> 컨테이너가 실행 중이며<block ref="507c6bbca2ad57c69e89a97ee8714536" prefix=" " category="inline-code"></block> 있습니다<block ref="50ce33a86e6915635518e9752cf0a12f" prefix=" " category="inline-code"></block> 의 상태입니다<block ref="98dd43dfae05b11befe1f140e0ec787a" prefix=" " category="inline-code"></block>:</block>
   <block id="152090ff5e9a05ea7e1cf0c248449638" category="open-title">헬름</block>
   <block id="fe98497efedbe156ecc4b953aea77e07" category="inline-link">설치 제거</block>
@@ -3588,7 +3587,6 @@ Astra Control Provisioner는 가져오기 및 검색 프로세스의 일부로 �
   <block id="b958ffb6ec0df501d8af8958e6e6886e" category="section-title">(1단계) Astra Control Provisioner 이미지를 가져옵니다</block>
   <block id="72e3bbaf3c42bb9392b29dab7f3c1fcd" category="paragraph">Astra Control Center 사용자는 Astra Control 레지스트리 또는 NetApp Support 사이트 방법을 사용하여 Astra Control Provisioner 이미지를 가져올 수 있습니다. Astra Control 없이 Astra Control Provisioner를 사용하려는 Astra Trident 사용자는 레지스트리 방법을 사용해야 합니다.</block>
   <block id="bb26b4631543d5a0abc8825972e08f98" category="list-text">(사용자 지정 레지스트리에만 해당) 이미지를 사용자 지정 레지스트리로 이동하려면 다음 단계를 수행하십시오. 레지스트리를 사용하지 않는 경우 의 Trident 운영자 단계를 따르십시오 <block ref="2d2b9c949531b9f99c6a28a29b1f0f0f" category="inline-link-macro-rx"></block>.</block>
-  <block id="b15422fe6a04c1756d962ad1805ba054" category="admonition">다음 Docker 명령을 실행하는 대신 크레인 복사본을 사용할 수 있습니다.<block ref="eaad9c7eff5248ae539d1d15dc40f8dd" prefix=" " category="inline-code"></block></block>
   <block id="d1dfc89a8ef8bd6c9cec36534bb87719" category="inline-link">연산자(수동 또는 Helm 사용) 또는 tridentctl</block>
   <block id="283c6d5556e7b2c19a19454a5d839d84" category="paragraph">원래 설치 방법으로 를 사용했는지 확인합니다<block ref="239d7749678a5515d5ba8991e8dc37eb" category="inline-link-rx"></block> 그리고 원래 방법에 따라 적절한 단계를 완료합니다.</block>
   <block id="02a9d2702f20af4981fc27f25359bc43" category="paragraph"><block ref="02a9d2702f20af4981fc27f25359bc43" category="inline-image-macro-rx" type="image"></block></block>
@@ -3645,4 +3643,6 @@ Astra Control Provisioner는 가져오기 및 검색 프로세스의 일부로 �
   <block id="345e93a96b6e66cb9274dbad975c0db2" category="list-text">변경 사항을 저장합니다.</block>
   <block id="622f51a75f238bac126a4e3b58d91991" category="list-text">UI에서 업그레이드가 성공했음을 확인합니다.</block>
   <block id="ecba1fa6966e7dffc085b7fc45ca2133" category="list-text">* OpenShift 권한 얻기 *: Red Hat OpenShift Container Platform에 대한 모든 필수 권한과 액세스 권한이 있어야 설명된 설치 단계를 수행할 수 있습니다.</block>
+  <block id="4fb568c8c39da9ff518771b8039f3dac" category="admonition">다음 Docker 명령을 실행하는 대신 크레인 복사본을 사용할 수 있습니다.<block ref="db464ced3bc25798a8a58f345be6100d" prefix=" " category="inline-code"></block></block>
+  <block id="1e402f84b3c57afa8aaf19779147556d" category="list-text">Astra Control Provisioner 이미지의 사용자 지정 레지스트리 위치를 설정하거나 Astra Control 레지스트리에서 가져옵니다 <block ref="6fd47d0a38cf5afec555b659aaed6104" prefix="(" category="inline-code"></block> 또는<block ref="e419be77a3ebdbec678982ec1d2d40b2" prefix=" " category="inline-code"></block>)를 클릭합니다.</block>
 </blocks>
