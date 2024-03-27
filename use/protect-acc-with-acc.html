@@ -1,0 +1,2782 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head class="at-element-marker">
+  <title>Astra Control Center를 사용하여 Astra Control Center를 보호합니다</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Astra Control Center를 사용하여 Astra Control Center를 보호합니다" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/ko-kr/astra-control-center/use/protect-acc-with-acc.html" />
+	<meta property="og:description" content="보조 Astra Control Center 인스턴스를 사용하거나 기본 스토리지에서 ONTAP를 사용하는 경우 Astra 복제를 통해 Astra Control Center를 백업 및 복원할 수 있습니다." />
+  <meta property="og:image" content="https://docs.netapp.com/ko-kr/astra-control-center/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="보조 Astra Control Center 인스턴스를 사용하거나 기본 스토리지에서 ONTAP를 사용하는 경우 Astra 복제를 통해 Astra Control Center를 백업 및 복원할 수 있습니다.">
+  <meta name="keywords" content=" backup astra control center, restore astra control center"><!-- Icons -->
+  <link rel="icon" href="/ko-kr/astra-control-center/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/ko-kr/astra-control-center/css/ie-netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/ko-kr/astra-control-center/css/ie-landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/ko-kr/astra-control-center/css/ie-tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel="canonical" href="https://docs.netapp.com/ko-kr/astra-control-center/use/protect-acc-with-acc.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/astra-control-center/use/protect-acc-with-acc.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/astra-control-center/use/protect-acc-with-acc.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/astra-control-center/use/protect-acc-with-acc.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/astra-control-center/use/protect-acc-with-acc.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/astra-control-center/use/protect-acc-with-acc.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/astra-control-center/use/protect-acc-with-acc.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/astra-control-center/use/protect-acc-with-acc.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/astra-control-center/use/protect-acc-with-acc.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/astra-control-center/use/protect-acc-with-acc.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/astra-control-center/use/protect-acc-with-acc.html" />
+  <!-- Top level site integrations -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js"></script>
+    <script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-document-language="true" data-domain-script="72570c5c-fe30-465f-b0e0-b77f7fb4ae34"></script>
+    <script type="text/javascript">function OptanonWrapper() { }</script>
+    <script type="text/plain" class="optanon-category-C0002" src="https://assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js"></script>
+    <script class="optanon-category-C0001">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.setAttributeNode(d.createAttribute('data-ot-ignore'));j.setAttribute('class','optanon-category-C0001');j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MD73T9M');</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      const MASTHEAD_OFFSET = 65;
+      const SECTIONS = $("main h2, main h3");
+      // PAGE NAV - Init
+      if (SECTIONS.length == 0) {
+        // remove if there is no elements
+        /*
+        $("#ie-right-navbar").remove();
+        $("#ie-right-navbar-collapse").remove();
+        */
+      } else {
+        $(".page-nav-title").css('display', 'block');
+        for (var i = 0; i < SECTIONS.length; i++) {
+          var sectionId = $(SECTIONS[i]).attr('id');
+          var sectionName = $(SECTIONS[i]).text();
+          var subClass = $(SECTIONS[i]).is("h3") ? ' page-nav__sublink' : '';
+          $("#page-menu").append('<li class="page-nav-item"><a href="#' + sectionId + '" class="page-nav__link' + subClass + '">' + sectionName + '</a></li>');
+        }
+      }
+    });
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/ko-kr/astra-control-center/js/na-search.js'></script><script src='/ko-kr/astra-control-center/js/ie-clouddocs.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script>
+    /*
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+      */
+  </script>
+  <script src='/ko-kr/astra-control-center/js/custom-dropdown.js'></script>
+  <script src='/ko-kr/astra-control-center/js/FileSaver.min.js'></script>
+  <script src='/ko-kr/astra-control-center/js/jszip-utils.min.js'></script>
+  <script src='/ko-kr/astra-control-center/js/jszip.min.js'></script><script src='/ko-kr/astra-control-center/js/ie-pdf-ux.js'></script></head>
+
+
+  <body class role="document" data-flavor="">
+    <div class="skip-to-main">
+      <a href="#main" >Skip to main content</a>
+    </div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD73T9M"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="page" class="">
+      <div id="ie-phone-menu" class=""></div>
+      <div id="ie-content-wrap" class="">
+        <nav id="ie-new-header">
+    <ul>
+        <li id="ie-phone-menu-button">
+            <a href="#">
+                <image id="" src="/ko-kr/astra-control-center/images/hamburger.svg" alt="menu" />
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.netapp.com/kr">
+                <image id="ie-header-logo" src="/ko-kr/astra-control-center/images/netapp_logo.svg" alt="netapp" />
+            </a>
+        </li>
+        <li id="ie-header-docs">
+            <a href="https://www.netapp.com/support-and-training/documentation/">문서</a>
+        </li>
+
+        <!-- Empty container to push header left with or without lang selector -->
+        <li id="empty-container" style="margin-left: auto">
+        </li>
+        <!-- Start Language Selector --><li id="ie-language-dropdown">
+            <div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+                <div class="custom-dropdown-select custom-dropdown-select-lang">
+                    <img src="/ko-kr/astra-control-center/images/language_white_24dp.svg" class="n-globe__icon" />
+                    <span class="lang-name">한국어</span>
+                    <img src="/ko-kr/astra-control-center/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/ko-kr/astra-control-center/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu"><li>
+                        <a href="https://docs.netapp.com/ko-kr/astra-control-center/use/protect-acc-with-acc.html"
+                            target="_self"><span translate="no" class="notranslate">한국어</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/us-en/astra-control-center/use/protect-acc-with-acc.html"
+                            target="_self"><span translate="no" class="notranslate">English</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/ja-jp/astra-control-center/use/protect-acc-with-acc.html"
+                            target="_self"><span translate="no" class="notranslate">日本語</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-cn/astra-control-center/use/protect-acc-with-acc.html"
+                            target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-tw/astra-control-center/use/protect-acc-with-acc.html"
+                            target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/de-de/astra-control-center/use/protect-acc-with-acc.html"
+                            target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/es-es/astra-control-center/use/protect-acc-with-acc.html"
+                            target="_self"><span translate="no" class="notranslate">Español</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/fr-fr/astra-control-center/use/protect-acc-with-acc.html"
+                            target="_self"><span translate="no" class="notranslate">Français</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/it-it/astra-control-center/use/protect-acc-with-acc.html"
+                            target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+                    </li></ul>
+            </div>
+            </li>
+        <!-- End Language Selector -->
+
+
+        <li id="ie-allnetapp">
+            <div id="allnetapp-dropdown" class="custom-dropdown custom-dropdown-allnetapp">
+                <div class="custom-dropdown-select custom-dropdown-select-allnetapp">
+                    <img src="/ko-kr/astra-control-center/images/apps_white_24dp.svg" alt="" class="allnetapp-icon" />
+                    <span class="allnetapp-name">모든 NetApp</span>
+                    <img src="/ko-kr/astra-control-center/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/ko-kr/astra-control-center/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu allnetapp-dropdown">
+                    <li>
+                        <a href="https://bluexp.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">BlueXP</span></a>
+                    </li>
+                    <li>
+                        <a href="https://mysupport.netapp.com/site/"
+                            target="_self"><span translate="no" class="notranslate">지원</span></a>
+                    </li>
+                    <li>
+                        <a href="https://kb.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">기술 자료</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.netapp.com/ko/support-and-training/netapp-learning-services/"
+                            target="_self"><span translate="no" class="notranslate">교육</span></a>
+                    </li>
+                </ul>
+            </div>
+
+        </li>
+
+    </ul>
+</nav>
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+
+<div id="ie-new-sidebar-collapse" style="display: none">
+    <img id="sidebar-expand" class="ie-searchbox-icon" src="/ko-kr/astra-control-center/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-new-sidebar">
+    <div id="ie-product-identity-lockup">
+        <div id="sidebar-collapse" class="">
+            <img src="/ko-kr/astra-control-center/images/double_arrow.svg" alt="" />
+        </div>
+        <div id="ie-breadcrumb" class="">
+  <ul class="ie-breadcrumb">
+    <li class="">
+      <a href="https://docs.netapp.com">모든 문서</a>
+    </li>
+    
+    
+
+    
+    <li class="">
+      <a href="https://docs.netapp.com/ko-kr/astra-family/">
+        Astra
+      </a>
+    </li>
+    
+  </ul>
+  
+  <div class="ie-product-name" >
+    <!--<a href="/ko-kr/astra-control-center/">-->
+      Astra Control Center
+    <!--</a>-->
+  </div>
+</div>
+
+            
+<div id="ie-selectors"><div id="version-dropdown-new" class="custom-dropdown" >
+  <div class="custom-dropdown-select unselected" title=" 24.02">
+    <label>버전</label>
+    <span translate="no" class="notranslate">24.02</span>
+    <img src="/ko-kr/astra-control-center/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown version invisible" />
+    <img src="/ko-kr/astra-control-center/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup version" />
+  </div>
+
+  <ul class="custom-dropdown-menu"><li>
+      
+      <a href="https://docs.netapp.com/ko-kr/astra-control-center/use/protect-acc-with-acc.html" target="_self">
+        <span translate="no" class="notranslate"><span class="version"> 24.02</span></span>
+      </a>
+                     
+    </li>
+    <li>
+      
+      <a href="https://docs.netapp.com/ko-kr/astra-control-center-2310/use/protect-acc-with-acc.html" target="_self">
+        <span translate="no" class="notranslate"><span class="version"> 23.10</span></span>
+      </a>
+                     
+    </li>
+    <li>
+      
+      <a href="https://docs.netapp.com/ko-kr/astra-control-center-2307/use/protect-acc-with-acc.html" target="_self">
+        <span translate="no" class="notranslate"><span class="version"> 23.07</span></span>
+      </a>
+                     
+    </li>
+    <li>
+      
+      <a href="https://docs.netapp.com/ko-kr/astra-control-center-2304/use/protect-acc-with-acc.html" target="_self">
+        <span translate="no" class="notranslate"><span class="version"> 23.04</span></span>
+      </a>
+                     
+    </li>
+    <li>
+      
+      <a href="https://docs.netapp.com/ko-kr/astra-control-center-2211/use/protect-acc-with-acc.html" target="_self">
+        <span translate="no" class="notranslate"><span class="version"> 22.11</span></span>
+      </a>
+                     
+    </li>
+    <li>
+      
+      <a href="https://docs.netapp.com/ko-kr/astra-control-center-2208/use/protect-acc-with-acc.html" target="_self">
+        <span translate="no" class="notranslate"><span class="version"> 22.08</span></span>
+      </a>
+                     
+    </li>
+    <li>
+      
+      <a href="https://docs.netapp.com/ko-kr/astra-control-center-2204/use/protect-acc-with-acc.html" target="_self">
+        <span translate="no" class="notranslate"><span class="version"> 22.04</span></span>
+      </a>
+                     
+    </li>
+    <li>
+      
+      <a href="https://docs.netapp.com/ko-kr/astra-control-center-2112/use/protect-acc-with-acc.html" target="_self">
+        <span translate="no" class="notranslate"><span class="version"> 21.12</span></span>
+      </a>
+                     
+    </li>
+    <li>
+      
+      <a href="https://docs.netapp.com/ko-kr/astra-control-center-2108/use/protect-acc-with-acc.html" target="_self">
+        <span translate="no" class="notranslate"><span class="version"> 21.08</span></span>
+      </a>
+                     
+    </li>
+    
+  </ul>
+</div></div>
+        
+        
+
+<div id="ie-searchbox" class="ie-searchbox-sidebar ">
+    <img class="ie-searchbox-icon" src="/ko-kr/astra-control-center/images/loupe.svg" alt=""/>
+    <div id="react-search" 
+        data-search-html="/ko-kr/astra-control-center/search.html" 
+        data-type="widget"
+        data-placeholder="설명서 검색"
+        data-no-results-found="{query}에 대한 결과를 찾을 수 없습니다"
+        data-did-you-mean="{suggestion}을(를) 검색하십시오."
+        data-no-results-found-did-you-mean="{query}에 대한 결과가 없습니다. {suggestion}을(를) 찾고 계시는 건가요?"
+        data-results-found="{hitCount}개의 결과를 찾았습니다"
+        data-error-message="오류가 발생했습니다. 다시 시도해 주십시오."
+        data-error-reset="검색 재설정"
+        data-sk-es-pf-indexes="" 
+        data-flavor="">
+    </div>
+</div>
+        
+    </div>
+    <div id="ie-new-toc"><script>
+  let sidebarAccordion = true;
+
+  /* specific css rules for Mac */
+  if(navigator.platform.match('Mac') !== null) {
+    document.body.setAttribute('class', 'OSX');
+  }
+
+</script>
+
+<div id="ie-sidebar-container">
+  <ul id="ie-sidebar-list" ><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control Center 문서"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/index.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/ko-kr/astra-control-center/index.html">
+        Astra Control Center 문서
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="릴리스 정보"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/release-notes/rn_overview.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/ko-kr/astra-control-center/release-notes/rn_overview.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ko-kr/astra-control-center/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ko-kr/astra-control-center/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 릴리스 정보</div>-->
+         릴리스 정보
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control Center의 이번 릴리스의 새로운 기능"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/release-notes/whats-new.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/release-notes/whats-new.html">
+        Astra Control Center의 이번 릴리스의 새로운 기능
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="알려진 문제"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/release-notes/known-issues.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/release-notes/known-issues.html">
+        알려진 문제
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="알려진 제한 사항"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/release-notes/known-limitations.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/release-notes/known-limitations.html">
+        알려진 제한 사항
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="시작하십시오"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ko-kr/astra-control-center/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ko-kr/astra-control-center/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 시작하십시오</div>-->
+         시작하십시오
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control Center에 대해 자세히 알아보십시오"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/intro.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/get-started/intro.html">
+        Astra Control Center에 대해 자세히 알아보십시오
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control Center 요구 사항"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/requirements.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/get-started/requirements.html">
+        Astra Control Center 요구 사항
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control Center를 빠르게 시작합니다"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/quick-start.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/get-started/quick-start.html">
+        Astra Control Center를 빠르게 시작합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="설치 개요"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/install_overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/get-started/install_overview.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ko-kr/astra-control-center/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ko-kr/astra-control-center/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 설치 개요</div>-->
+         설치 개요
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control Center를 설치합니다"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/install_acc.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/get-started/install_acc.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ko-kr/astra-control-center/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ko-kr/astra-control-center/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Astra Control Center를 설치합니다</div>-->
+         Astra Control Center를 설치합니다
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="외부 인증서 관리자를 구성합니다"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/cert-manager-prereqs.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ko-kr/astra-control-center/get-started/cert-manager-prereqs.html">
+        외부 인증서 관리자를 구성합니다
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="OpenShift OperatorHub를 사용하여 Astra Control Center를 설치합니다"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/acc_operatorhub_install.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/get-started/acc_operatorhub_install.html">
+        OpenShift OperatorHub를 사용하여 Astra Control Center를 설치합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Volumes ONTAP 스토리지 백엔드를 사용하여 Astra Control Center를 설치합니다"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/install_acc-cvo.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/get-started/install_acc-cvo.html">
+        Cloud Volumes ONTAP 스토리지 백엔드를 사용하여 Astra Control Center를 설치합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="설치 후 Astra Control Center를 구성합니다"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/configure-after-install.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/get-started/configure-after-install.html">
+        설치 후 Astra Control Center를 구성합니다
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control Center를 설정합니다"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ko-kr/astra-control-center/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ko-kr/astra-control-center/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Astra Control Center를 설정합니다</div>-->
+         Astra Control Center를 설정합니다
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="라이센스를 추가합니다"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/add-license.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/get-started/add-license.html">
+        라이센스를 추가합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control Provisioner를 활성화합니다"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/enable-acp.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/get-started/enable-acp.html">
+        Astra Control Provisioner를 활성화합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control을 사용하여 클러스터 관리를 준비합니다"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/prep-for-cluster-management.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/get-started/prep-for-cluster-management.html">
+        Astra Control을 사용하여 클러스터 관리를 준비합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="관리형 클러스터를 위해 Astra Connector를 설치합니다"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/install-astra-connector.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/get-started/install-astra-connector.html">
+        관리형 클러스터를 위해 Astra Connector를 설치합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="클러스터를 추가합니다"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/add-cluster.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/get-started/add-cluster.html">
+        클러스터를 추가합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="스토리지 백엔드 인증을 설정합니다"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/enable-auth-ontap-backend.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/get-started/enable-auth-ontap-backend.html">
+        스토리지 백엔드 인증을 설정합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="스토리지 백엔드를 추가합니다"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/add-storage-backend.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/get-started/add-storage-backend.html">
+        스토리지 백엔드를 추가합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="버킷을 추가합니다"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/add-bucket.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/get-started/add-bucket.html">
+        버킷을 추가합니다
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="FAQ 를 참조하십시오"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/get-started/faq.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/get-started/faq.html">
+        FAQ 를 참조하십시오
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="개념"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ko-kr/astra-control-center/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ko-kr/astra-control-center/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 개념</div>-->
+         개념
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="아키텍처 및 구성 요소"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/concepts/architecture.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/concepts/architecture.html">
+        아키텍처 및 구성 요소
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="데이터 보호"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/concepts/data-protection.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/concepts/data-protection.html">
+        데이터 보호
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="라이센싱"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/concepts/licensing.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/concepts/licensing.html">
+        라이센싱
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="애플리케이션 관리"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/concepts/app-management.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/concepts/app-management.html">
+        애플리케이션 관리
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="스토리지 클래스 및 PV 크기"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/concepts/choose-class-and-size.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/concepts/choose-class-and-size.html">
+        스토리지 클래스 및 PV 크기
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="사용자 역할 및 네임스페이스"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/concepts/user-roles-namespaces.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/concepts/user-roles-namespaces.html">
+        사용자 역할 및 네임스페이스
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control Center를 사용합니다"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ko-kr/astra-control-center/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ko-kr/astra-control-center/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Astra Control Center를 사용합니다</div>-->
+         Astra Control Center를 사용합니다
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="앱 관리를 시작합니다"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/manage-apps.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/use/manage-apps.html">
+        앱 관리를 시작합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="앱 보호"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ko-kr/astra-control-center/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ko-kr/astra-control-center/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 앱 보호</div>-->
+         앱 보호
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="보호 개요"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/protection-overview.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/protection-overview.html">
+        보호 개요
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="앱 보호"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/protect-apps.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/protect-apps.html">
+        앱 보호
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="앱 복원"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/restore-apps.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/restore-apps.html">
+        앱 복원
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="스토리지 백엔드 간에 앱을 복제합니다"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/replicate_snapmirror.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/replicate_snapmirror.html">
+        스토리지 백엔드 간에 앱을 복제합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="애플리케이션 클론 복제 및 마이그레이션"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/clone-apps.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/clone-apps.html">
+        애플리케이션 클론 복제 및 마이그레이션
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="앱 실행 후크 관리"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/execution-hooks.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/execution-hooks.html">
+        앱 실행 후크 관리
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control Center를 사용하여 Astra Control Center를 보호합니다"
+      data-li-level="3#" 
+      class="  ie-sidebar-selected    "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/protect-acc-with-acc.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/protect-acc-with-acc.html">
+        Astra Control Center를 사용하여 Astra Control Center를 보호합니다
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="앱 및 클러스터 상태를 모니터링합니다"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ko-kr/astra-control-center/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ko-kr/astra-control-center/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 앱 및 클러스터 상태를 모니터링합니다</div>-->
+         앱 및 클러스터 상태를 모니터링합니다
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="대시보드 요약"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/view-dashboard.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/view-dashboard.html">
+        대시보드 요약
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="클러스터 상태 및 세부 정보"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/view-clusters.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/view-clusters.html">
+        클러스터 상태 및 세부 정보
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="앱 상태 및 세부 정보"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/view-apps.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/view-apps.html">
+        앱 상태 및 세부 정보
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="계정을 관리합니다"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ko-kr/astra-control-center/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ko-kr/astra-control-center/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 계정을 관리합니다</div>-->
+         계정을 관리합니다
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="로컬 사용자 및 역할 관리"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/manage-local-users-and-roles.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/manage-local-users-and-roles.html">
+        로컬 사용자 및 역할 관리
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="원격 인증을 관리합니다"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/manage-remote-authentication.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/manage-remote-authentication.html">
+        원격 인증을 관리합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="원격 사용자 및 그룹 관리"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/manage-remote-users-groups.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/manage-remote-users-groups.html">
+        원격 사용자 및 그룹 관리
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="알림을 관리합니다"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/manage-notifications.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/manage-notifications.html">
+        알림을 관리합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="자격 증명 관리"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/manage-credentials.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/manage-credentials.html">
+        자격 증명 관리
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="계정 활동을 모니터링합니다"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/view-account-activity.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/view-account-activity.html">
+        계정 활동을 모니터링합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="기존 라이센스를 업데이트합니다"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/update-licenses.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ko-kr/astra-control-center/use/update-licenses.html">
+        기존 라이센스를 업데이트합니다
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="버킷을 관리합니다"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/manage-buckets.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/use/manage-buckets.html">
+        버킷을 관리합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="스토리지 백엔드를 관리합니다"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/manage-backend.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/use/manage-backend.html">
+        스토리지 백엔드를 관리합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="실행 중인 작업을 모니터링합니다"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/monitor-running-tasks.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/use/monitor-running-tasks.html">
+        실행 중인 작업을 모니터링합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="CRS를 사용하여 Astra Control 애플리케이션을 관리합니다"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/cr-manage-options.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/use/cr-manage-options.html">
+        CRS를 사용하여 Astra Control 애플리케이션을 관리합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Prometheus 및 Fluentd를 사용하여 인프라를 모니터링합니다"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/monitor-protect.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/use/monitor-protect.html">
+        Prometheus 및 Fluentd를 사용하여 인프라를 모니터링합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="앱 및 클러스터 관리를 취소합니다"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/unmanage.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/use/unmanage.html">
+        앱 및 클러스터 관리를 취소합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control Center를 업그레이드합니다"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/upgrade-acc.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/use/upgrade-acc.html">
+        Astra Control Center를 업그레이드합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="OpenShift OperatorHub를 사용하여 Astra Control Center를 업그레이드합니다"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/upgrade-acc-operatorhub.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/use/upgrade-acc-operatorhub.html">
+        OpenShift OperatorHub를 사용하여 Astra Control Center를 업그레이드합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control Center를 제거합니다"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use/uninstall_acc.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/use/uninstall_acc.html">
+        Astra Control Center를 제거합니다
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control Provisioner를 사용합니다"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ko-kr/astra-control-center/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ko-kr/astra-control-center/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Astra Control Provisioner를 사용합니다</div>-->
+         Astra Control Provisioner를 사용합니다
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="스토리지 백엔드 암호화를 구성합니다"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use-acp/configure-storage-backend-encryption.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/use-acp/configure-storage-backend-encryption.html">
+        스토리지 백엔드 암호화를 구성합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="스냅샷을 사용하여 볼륨 데이터를 복구합니다"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use-acp/acp-snap-restore.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/use-acp/acp-snap-restore.html">
+        스냅샷을 사용하여 볼륨 데이터를 복구합니다
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SnapMirror를 사용하여 볼륨을 복제합니다"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/use-acp/acp-volume-replicate.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/use-acp/acp-volume-replicate.html">
+        SnapMirror를 사용하여 볼륨을 복제합니다
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control REST API로 자동화"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ko-kr/astra-control-center/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ko-kr/astra-control-center/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Astra Control REST API로 자동화</div>-->
+         Astra Control REST API로 자동화
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="소개"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/rest-api/api-intro.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/rest-api/api-intro.html">
+        소개
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="지식 및 지원"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ko-kr/astra-control-center/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ko-kr/astra-control-center/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 지식 및 지원</div>-->
+         지식 및 지원
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="문제 해결"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/support/troubleshooting-acc.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/support/troubleshooting-acc.html">
+        문제 해결
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="도움을 받으십시오"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/support/get-help.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ko-kr/astra-control-center/support/get-help.html">
+        도움을 받으십시오
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="이전 버전"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/acc-earlier-versions.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/ko-kr/astra-control-center/acc-earlier-versions.html">
+        이전 버전
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="법적 고지"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/use/protect-acc-with-acc.html" 
+      dale-entry-url="/legal-notices.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/ko-kr/astra-control-center/legal-notices.html">
+        법적 고지
+      </a></li></ul>
+</div>
+<script>
+
+  $(".ie-sidebar-button").click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    expandedLI = $('li.ie-sidebar-expand')
+
+    const li = $(this).closest("li");
+
+    const parentsLI = $(li).parents('li');
+
+    expandedLI.map(element => {
+      if (sidebarAccordion && !li.hasClass('ie-sidebar-expand') && jQuery.inArray(expandedLI[element], parentsLI) == -1) {
+        $(expandedLI[element]).toggleClass('ie-sidebar-expand');
+        $(expandedLI[element]).children("ul").animate({ height: 'toggle' }, 400, function () {
+          $(li).children("ul").toggleClass('ie-sidebar-open');
+
+        })
+      }
+
+    })
+
+    $(li).toggleClass('ie-sidebar-expand');
+    $(li).children("ul").animate({ height: 'toggle' }, 400, function () {
+      $(li).children("ul").toggleClass('ie-sidebar-open');
+    })
+  });
+
+
+  
+    $("li.ie-sidebar-selected").parents('ul').toggleClass("ie-sidebar-open");
+    $("li.ie-sidebar-selected").toggleClass("ie-sidebar-expand")
+    $("ul.ie-sidebar-open").parent().toggleClass("ie-sidebar-expand");
+    $("li.ie-sidebar-selected").children('ul').toggleClass("ie-sidebar-open")
+  
+  
+</script>
+    </div>
+</div>
+<script>
+
+    
+    let sidebarScrollTopPosition = 0;
+    $("#ie-new-toc").on("scroll", function () {
+        if (sidebarScrollTopPosition == 0) {
+            $.cookie("sidebarScroll", $("#ie-new-toc").scrollTop(), {
+                path: "/ko-kr/astra-control-center"
+            });
+        }
+
+        if ($("#ie-new-toc").scrollTop() > 0) {
+            $('#ie-product-identity-lockup').addClass('ie-addShadow');
+        } else {
+            $('#ie-product-identity-lockup').removeClass('ie-addShadow');
+        }
+    });
+
+    $(function () {
+        if ($.cookie("sidebarScroll")) {
+            $("#ie-new-toc").scrollTop($.cookie("sidebarScroll"));
+        }
+    });
+
+    function setSidebarBottom() {
+        const footerGap = PXinViewport($(".n-footer"));
+        document.getElementById("ie-new-sidebar").style.bottom = Math.max(0, footerGap) + "px";
+    }
+
+    window.onscroll = () => {
+        setSidebarBottom();
+    };
+
+    $("#sidebar-collapse").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        if ($.cookie("sidebarScroll")) {
+            sidebarScrollTopPosition = $.cookie("sidebarScroll");
+        }
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 350, function () {
+            $("#ie-new-sidebar-collapse").show();
+            $("#ie-new-sidebar").removeClass("open")
+            $("#ie-new-sidebar").addClass("close")
+            $("#ie-new-sidebar").removeAttr("style")
+        });
+        $(".ie-content-pane").animate({ width: (width + sidebarWidth), marginLeft: (marginLeft - sidebarWidth) }, 350, function () {
+            resizeContent()
+        })
+
+    });
+    $("#sidebar-expand").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 250, function () {
+            $('#ie-new-sidebar').css('display', 'flex');
+            $("#ie-new-sidebar-collapse").hide();
+            $("#ie-new-sidebar").removeClass("close")
+            $("#ie-new-sidebar").addClass("open")
+            setSidebarBottom();
+
+            if (sidebarScrollTopPosition != 0) {
+                $.cookie("sidebarScroll", sidebarScrollTopPosition, {
+                    path: "/ko-kr/astra-control-center"
+                })
+                $("#ie-new-toc").scrollTop(sidebarScrollTopPosition);
+                sidebarScrollTopPosition = 0;
+            }
+        });
+        $(".ie-content-pane").animate({ width: (width - sidebarWidth), 'marginLeft': (marginLeft + sidebarWidth) }, 250, function () {
+            resizeContent()
+        })
+    });
+    function resizeContent() {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        const rightNavbarVisible =  $("#ie-right-navbar").css('display') && $("#ie-right-navbar").css('display') != 'none';
+        const sidebarVisible = $("#ie-new-sidebar").css('display') != 'none';
+        const rightNavbarWidth = $("#ie-right-navbar").width();
+        const rightNavbarCollapseWidth = $("#ie-right-navbar-collapse").width();
+        const rightNavbarCollapseVisible = $("#ie-right-navbar-collapse").css('display') && $("#ie-right-navbar-collapse").css('display') != 'none';
+        
+        if (rightNavbarVisible && sidebarVisible) {
+            $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarWidth}px)`)
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+        } else if (sidebarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarCollapseWidth}px)`)
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar").width()}px)`)
+            }
+
+        } else if (rightNavbarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            $(".ie-content-pane").width(`calc(100% - ${rightNavbarWidth}px)`)
+        } else {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${rightNavbarCollapseWidth}px)`);
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar-collapse").width()}px) `);
+            }
+            
+        }
+    }
+    $(window).on("resize load", function () {
+        setSidebarBottom();
+        resizeContent()
+    });
+
+
+</script>
+
+<div class="ie-content-pane ie-component-detail-content ie-component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <!-- include utility.html -->
+      <div class="ie-info-disclaimer">
+    <span>
+      <div class="ie-info-disclaimer-container">
+        <div class="ie-info-disclaimer-icon">
+          <img src="/ko-kr/astra-control-center/images/notification-icons.svg" class="luci-icon" alt="" />
+        </div>
+        <div class="ie-info-disclaimer-content">
+          <span> 본 한국어 번역은 사용자 편의를 위해 제공되는 기계 번역입니다. 영어 버전과 한국어 버전이 서로 어긋나는 경우에는 언제나 영어 버전이 우선합니다. </span>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </span>
+  </div><div class="ie-component-detail-heading-wrap">
+  <h1 class="ie-component-detail-heading">Astra Control Center를 사용하여 Astra Control Center를 보호합니다</h1>
+</div>
+
+<div id="ie-byline">
+  
+<div class="page-details">
+    
+        
+            <time datetime="2024-03-15 22:06:00 +0000">03/15/2024</time>
+        
+    
+    
+        <span>기여자
+        </span>
+    
+    
+</div>
+<div class="page-controls">
+    <div id="contribute-dropdown" class="custom-dropdown custom-dropdown-contrib" >
+        <div class="custom-dropdown-select custom-dropdown-select-contrib">
+        <span class="contrib-name"><img src="/ko-kr/astra-control-center/images/discuss-sm.svg" alt="" class="github-icon" />변경 제안</span>
+        <img src="/ko-kr/astra-control-center/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown invisible" />
+        <img src="/ko-kr/astra-control-center/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup" />
+        </div>
+        <ul class="custom-dropdown-menu suggested-changes-dropdown"><li>
+                <a target="_blank" href="https://github.com/NetAppDocs/astra-control-center.ko-kr/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/ko-kr/astra-control-center/use/protect-acc-with-acc.html&page-title=Astra Control Center를 사용하여 Astra Control Center를 보호합니다" class="page-nav-contribute-link" role="button">문서 변경사항 요청</a>
+            </li><li> 
+                <a target="_blank" href="https://github.com/NetAppDocs/astra-control-center/blob/main/use/protect-acc-with-acc.adoc" class="page-nav-contribute-link" role="button">이 페이지 편집</a>
+            </li><li><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  >기여하는 방법 알아보기</a></li>
+        </ul>
+    </div>
+    <div id="pdf-control-container">
+        <div class="n-pdf-header">
+            <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+                <img class="adobe-icon" src="/ko-kr/astra-control-center/images/pdf-icon.png" alt="" width="16" height="16"/>PDF<img src="/ko-kr/astra-control-center/images/dropdown-arrow.svg" class="custom-icon" alt="" />
+            </a>
+        </div>
+        <div class="n-pdf-body-container">
+            <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+                    
+                    
+                    
+                    <a target="_blank" class="pdf-download-link" href="/ko-kr/astra-control-center/pdfs/fullsite-sidebar/Astra_Control_Center_24_02_설명서.pdf" >
+                    <img src="/ko-kr/astra-control-center/images/pdf-icon.png" alt="" width="16" height="16"/>이 문서 사이트의 PDF</a>
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ko-kr/astra-control-center/pdfs/sidebar/릴리스_정보.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-control-center/images/pdf-icon.png" alt="" width="16" height="16"/>
+            릴리스 정보
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ko-kr/astra-control-center/pdfs/sidebar/시작하십시오.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-control-center/images/pdf-icon.png" alt="" width="16" height="16"/>
+            시작하십시오
+          </a>
+          
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ko-kr/astra-control-center/pdfs/sidebar/설치_개요.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-control-center/images/pdf-icon.png" alt="" width="16" height="16"/>
+            설치 개요
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ko-kr/astra-control-center/pdfs/sidebar/Astra_Control_Center를_설치합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-control-center/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Astra Control Center를 설치합니다
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ko-kr/astra-control-center/pdfs/sidebar/Astra_Control_Center를_설정합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-control-center/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Astra Control Center를 설정합니다
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ko-kr/astra-control-center/pdfs/sidebar/개념.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-control-center/images/pdf-icon.png" alt="" width="16" height="16"/>
+            개념
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ko-kr/astra-control-center/pdfs/sidebar/Astra_Control_Center를_사용합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-control-center/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Astra Control Center를 사용합니다
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ko-kr/astra-control-center/pdfs/sidebar/앱_보호.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-control-center/images/pdf-icon.png" alt="" width="16" height="16"/>
+            앱 보호
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ko-kr/astra-control-center/pdfs/sidebar/앱_및_클러스터_상태를_모니터링합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-control-center/images/pdf-icon.png" alt="" width="16" height="16"/>
+            앱 및 클러스터 상태를 모니터링합니다
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ko-kr/astra-control-center/pdfs/sidebar/계정을_관리합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-control-center/images/pdf-icon.png" alt="" width="16" height="16"/>
+            계정을 관리합니다
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ko-kr/astra-control-center/pdfs/sidebar/Astra_Control_Provisioner를_사용합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-control-center/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Astra Control Provisioner를 사용합니다
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ko-kr/astra-control-center/pdfs/sidebar/Astra_Control_REST_API로_자동화.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-control-center/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Astra Control REST API로 자동화
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ko-kr/astra-control-center/pdfs/sidebar/지식_및_지원.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-control-center/images/pdf-icon.png" alt="" width="16" height="16"/>
+            지식 및 지원
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+</li></ul>
+            <div class="zip-pdf-link-container" style="display: none;">   
+                <a href="#" id="zipPdf">
+                <img src="/ko-kr/astra-control-center/images/pdf-zip.png" alt="" width="16" height="16"/>
+                <pre>별도의 PDF 문서 모음<span class="zip-size"></span></pre>
+                </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+        </div>
+    </div>        
+<script>
+$("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+$("#toggleButtonPdf").on('click', function(e){ 
+    e.stopPropagation();
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+});
+
+//hide is by clicking outside pdfcontainer
+$(document).on('click', function (e) {
+    if ($('#toggleContainerPdf').is(':visible') && !$('.n-pdf-body-container').is(e.target) && !$('.n-pdf-body-container').has(e.target).length)  {
+        
+        $("#toggleContainerPdf").toggle('display');
+        $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+        $("#toggleButtonPdf").removeClass("active");
+    }
+});
+</script>
+<script>
+    function getPdfLocation() {
+        const pdfLocation = window.scrollX + document.querySelector('#pdf-control-container').getBoundingClientRect().left
+        if (pdfLocation < 450) {
+            $(".n-pdf-body-container").addClass("block")
+        } else {
+            $(".n-pdf-body-container").removeClass("block")
+        }
+    
+    }
+    $( window ).on( "resize", function() {
+        getPdfLocation()
+} );
+</script>
+<script>
+    const pdfButtonWidth =  $(".n-pdf-header").width();
+    const pdfMenuWidth = $(".n-pdf-body-container").width();
+    $(".n-pdf-body-container").css('margin-left', `calc(${pdfButtonWidth - pdfMenuWidth}px)`);
+</script>
+</div>
+
+    
+
+</div>
+
+
+
+
+<div class="content-to-index">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Astra Control Center가 실행 중인 Kubernetes 클러스터에서 심각한 오류로부터 복원력을 개선하려면 Astra Control Center 애플리케이션 자체를 보호합니다. 보조 Astra Control Center 인스턴스를 사용하여 Astra Control Center를 백업 및 복원하거나 기본 스토리지에서 ONTAP를 사용하는 경우 Astra 복제를 사용할 수 있습니다.</p>
+</div>
+<div class="paragraph">
+<p>이 시나리오에서는 Astra Control Center의 두 번째 인스턴스가 다른 오류 도메인에 구축 및 구성되었으며 1차 Astra Control Center 인스턴스와 다른 두 번째 Kubernetes 클러스터에서 실행됩니다. 두 번째 Astra Control 인스턴스는 운영 Astra Control Center 인스턴스를 백업하고 복원하는 데 사용됩니다. 복원되거나 복제된 Astra Control Center 인스턴스는 애플리케이션 클러스터 애플리케이션에 대한 애플리케이션 데이터 관리를 계속 제공하며 이러한 애플리케이션의 백업 및 스냅샷에 대한 액세스 권한을 복원합니다.</p>
+</div>
+<div class="paragraph">
+<div class="title">시작하기 전에</div>
+<p>Astra Control Center에 대한 보호 시나리오를 설정하기 전에 다음 사항이 있는지 확인하십시오.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>* 1차 Astra Control Center 인스턴스를 실행하는 Kubernetes 클러스터 *: 이 클러스터는 애플리케이션 클러스터를 관리하는 1차 Astra Control Center 인스턴스를 호스팅합니다.</p>
+</li>
+<li>
+<p>* 보조 Astra Control Center 인스턴스를 실행하는 기본 시스템과 동일한 Kubernetes 배포 유형의 두 번째 Kubernetes 클러스터 *: 이 클러스터는 기본 Astra Control Center 인스턴스를 관리하는 Astra Control Center 인스턴스를 호스팅합니다.</p>
+</li>
+<li>
+<p>* 기본 Kubernetes 배포 유형이 동일한 세 번째 Kubernetes 클러스터 *: 이 클러스터는 Astra Control Center의 복원되거나 복제된 인스턴스를 호스팅합니다. 현재 운영 사이트에 구축되어 있는 것과 동일한 Astra Control Center 네임스페이스를 사용할 수 있어야 합니다. 예를 들어, Astra Control Center가 네임스페이스에 구축된 경우 <code>netapp-acc</code> 소스 클러스터에서 네임스페이스입니다 <code>netapp-acc</code> 사용 가능하고 대상 Kubernetes 클러스터의 어떤 애플리케이션에서도 사용하지 않아야 합니다.</p>
+</li>
+<li>
+<p>* S3 호환 버킷 *: 각 Astra Control Center 인스턴스에는 액세스 가능한 S3 호환 오브젝트 스토리지 버킷이 있습니다.</p>
+</li>
+<li>
+<p>* 구성된 로드 밸런서 *: 로드 밸런서는 Astra에 대한 IP 주소를 제공하며 애플리케이션 클러스터와 두 S3 버킷 모두에 대한 네트워크 연결이 있어야 합니다.</p>
+</li>
+<li>
+<p>* 클러스터가 Astra Control Center 요구 사항을 충족함 *: Astra Control Center 보호에 사용되는 각 클러스터가 충족함 <a href="https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html#kubernetes-cluster-general-requirement" target="_blank" rel="noopener">"일반 Astra Control Center 요구사항"</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">이 작업에 대해</div>
+<p>다음 절차에서는 다음 중 하나를 사용하여 Astra Control Center를 새 클러스터로 복원하는 데 필요한 단계를 설명합니다 <a href="#1단계-옵션-astra-control-center-백업-및-복원">백업 및 복원</a> 또는 <a href="#1단계-옵션-복제를-사용하여-astra-control-center-보호">복제</a>. 단계는 여기에 설명된 예제 구성을 기반으로 합니다.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../media/use/backup-or-replicate-acc-w-acc-example-flow.png" alt="Astra Control Center 복제 또는 백업 예제 시나리오의 3개 중 2개에서 Kubernetes 클러스터와 Astra Control Center가 표시된 보호 워크플로우 이미지"></span></p>
+</div>
+<div class="paragraph">
+<p>이 예제 구성에서는 다음과 같이 표시됩니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>* 1차 Astra Control Center 인스턴스를 실행하는 Kubernetes 클러스터 *:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenShift 클러스터: <code>ocp-cluster-1</code></p>
+</li>
+<li>
+<p>Astra Control Center 1차 인스턴스: <code>ocp-cluster-1.company.com</code></p>
+</li>
+<li>
+<p>이 클러스터는 애플리케이션 클러스터를 관리합니다.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>* 보조 Astra Control Center 인스턴스를 실행하는 기본 Kubernetes 배포 유형이 동일한 두 번째 Kubernetes 클러스터 *:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenShift 클러스터: <code>ocp-cluster-2</code></p>
+</li>
+<li>
+<p>Astra Control Center 2차 인스턴스: <code>ocp-cluster-2.company.com</code></p>
+</li>
+<li>
+<p>이 클러스터는 기본 Astra Control Center 인스턴스를 백업하거나 다른 클러스터(이 예에서는)에 대한 복제를 구성하는 데 사용됩니다 <code>ocp-cluster-3</code> 클러스터).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>* 복원 작업에 사용될 기본 Kubernetes 배포 유형이 동일한 세 번째 Kubernetes 클러스터 *:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenShift 클러스터: <code>ocp-cluster-3</code></p>
+</li>
+<li>
+<p>Astra Control Center 3번째 인스턴스: <code>ocp-cluster-3.company.com</code></p>
+</li>
+<li>
+<p>이 클러스터는 Astra Control Center 복원 또는 복제 페일오버에 사용됩니다.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-control-center/images/note.svg" alt="참고">
+</td>
+<td class="content">
+이상적으로는, 애플리케이션 클러스터는 위의 이미지에서 Kubernetes 및 Rancher 클러스터에 설명된 대로 Astra Control Center 클러스터 3개 외부에 위치해야 합니다.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>다이어그램에 표시되지 않음:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>모든 클러스터에는 Astra Trident 또는 Astra Control Provisioner가 설치된 ONTAP 백엔드가 있습니다.</p>
+</li>
+<li>
+<p>이 구성에서 OpenShift 클러스터는 로드 밸런서로 MetalLB를 사용합니다.</p>
+</li>
+<li>
+<p>스냅샷 컨트롤러와 VolumeSnapshotClass도 에 설명된 대로 모든 클러스터에 설치됩니다 <a href="../get-started/prep-for-cluster-management.html">"필수 구성 요소"</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="1단계-옵션-astra-control-center-백업-및-복원">1단계 옵션: Astra Control Center 백업 및 복원</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>이 절차에서는 백업 및 복원을 사용하여 Astra Control Center를 새 클러스터로 복원하는 데 필요한 단계를 설명합니다.</p>
+</div>
+<div class="paragraph">
+<p>이 예에서는 Astra Control Center가 항상 아래에 설치됩니다 <code>netapp-acc</code> 네임스페이스 및 연산자는 아래에 설치됩니다 <code>netapp-acc-operator</code> 네임스페이스.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-control-center/images/note.svg" alt="참고">
+</td>
+<td class="content">
+설명한 것은 아니지만 Astra Control Center 운영자는 Astra CR과 동일한 네임스페이스에 구축할 수도 있습니다.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">시작하기 전에</div>
+<ul>
+<li>
+<p>클러스터에 운영 Astra Control Center를 설치했습니다.</p>
+</li>
+<li>
+<p>보조 Astra Control Center를 다른 클러스터에 설치했습니다.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
+<li>
+<p>에서 실행되는 2차 Astra Control Center 인스턴스에서 운영 Astra Control Center 애플리케이션 및 타겟 클러스터를 관리합니다 <code>ocp-cluster-2</code> 클러스터):</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>보조 Astra Control Center 인스턴스에 로그인합니다.</p>
+</li>
+<li>
+<p><a href="../get-started/add-cluster.html">"1차 Astra Control Center 클러스터를 추가합니다"</a> (<code>ocp-cluster-1</code>)를 클릭합니다.</p>
+</li>
+<li>
+<p><a href="../get-started/add-cluster.html">"대상 세 번째 클러스터를 추가합니다"</a> (<code>ocp-cluster-3</code>)를 선택합니다.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>보조 Astra Control Center에서 Astra Control Center 및 Astra Control Center 운영자:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>응용 프로그램 페이지에서 * 정의 * 를 선택합니다.</p>
+</li>
+<li>
+<p>Define application * (애플리케이션 정의 *) 창에서 새 애플리케이션 이름을 입력합니다 (<code>netapp-acc</code>)를 클릭합니다.</p>
+</li>
+<li>
+<p>1차 Astra Control Center를 실행 중인 클러스터를 선택합니다 (<code>ocp-cluster-1</code>)를 선택합니다.</p>
+</li>
+<li>
+<p>를 선택합니다 <code>netapp-acc</code> Namespace * 드롭다운 목록에서 Astra Control Center의 네임스페이스입니다.</p>
+</li>
+<li>
+<p>클러스터 리소스 페이지에서 * 추가 클러스터 범위 리소스 포함 * 을 선택합니다.</p>
+</li>
+<li>
+<p>포함 규칙 추가 * 를 선택합니다.</p>
+</li>
+<li>
+<p>다음 항목을 선택하고 * 추가 * 를 선택합니다.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>라벨 선택기: &lt;label name&gt;</p>
+</li>
+<li>
+<p>그룹: apiextensions.k8s.io</p>
+</li>
+<li>
+<p>버전: v1</p>
+</li>
+<li>
+<p>종류: CustomResourceDefinition</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>응용 프로그램 정보를 확인합니다.</p>
+</li>
+<li>
+<p>정의 * 를 선택합니다.</p>
+<div class="paragraph">
+<p>정의 * 를 선택한 후 연산자에 대해 애플리케이션 정의 프로세스를 반복합니다  <code>netapp-acc-operator</code>)를 선택하고 를 선택합니다 <code>netapp-acc-operator</code> 응용 프로그램 정의 마법사의 네임스페이스입니다.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Astra Control Center 및 운영자 백업:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>보조 Astra Control Center에서 애플리케이션 탭을 선택하여 애플리케이션 페이지로 이동합니다.</p>
+</li>
+<li>
+<p><a href="../use/protect-apps.html#create-a-backup">"백업하다"</a> Astra Control Center 애플리케이션 (<code>netapp-acc</code>)를 클릭합니다.</p>
+</li>
+<li>
+<p><a href="../use/protect-apps.html#create-a-backup">"백업하다"</a> 오퍼레이터 (<code>netapp-acc-operator</code>)를 클릭합니다.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Astra Control Center와 운영자를 백업한 후 를 통해 DR(재해 복구) 시나리오를 시뮬레이션합니다 <a href="../use/uninstall_acc.html">"Astra Control Center 제거 중"</a> 운영 클러스터에서</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-control-center/images/note.svg" alt="참고">
+</td>
+<td class="content">
+Astra Control Center를 새 클러스터(이 절차에서 설명하는 세 번째 Kubernetes 클러스터)에 복원하고 새로 설치된 Astra Control Center의 운영 클러스터와 동일한 DNS를 사용합니다.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>보조 Astra Control Center를 사용하여 <a href="../use/restore-apps.html">"복원"</a> Astra Control Center 애플리케이션의 1차 인스턴스:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>응용 프로그램 * 을 선택한 다음 Astra Control Center 응용 프로그램의 이름을 선택합니다.</p>
+</li>
+<li>
+<p>작업 열의 옵션 메뉴에서 * 복원 * 을 선택합니다.</p>
+</li>
+<li>
+<p>복원 유형으로 * Restore to new namespaces * 를 선택합니다.</p>
+</li>
+<li>
+<p>복원 이름을 입력합니다 (<code>netapp-acc</code>)를 클릭합니다.</p>
+</li>
+<li>
+<p>대상 세 번째 클러스터를 선택합니다 (<code>ocp-cluster-3</code>)를 클릭합니다.</p>
+</li>
+<li>
+<p>원본 네임스페이스와 동일한 네임스페이스가 되도록 대상 네임스페이스를 업데이트합니다.</p>
+</li>
+<li>
+<p>Restore Source 페이지에서 복구 소스로 사용할 애플리케이션 백업을 선택합니다.</p>
+</li>
+<li>
+<p>Restore using original storage classes * 를 선택합니다.</p>
+</li>
+<li>
+<p>Restore all resources * 를 선택합니다.</p>
+</li>
+<li>
+<p>복원 정보를 검토한 다음 * Restore * 를 선택하여 Astra Control Center를 대상 클러스터로 복원하는 복원 프로세스를 시작합니다 (<code>ocp-cluster-3</code>)를 클릭합니다. 애플리케이션이 들어가면 복구가 완료됩니다 <code>available</code> 상태.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>대상 클러스터에서 Astra Control Center 구성:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>터미널을 열고 kubeconfig를 사용하여 대상 클러스터에 연결합니다 (<code>ocp-cluster-3</code>) 복원된 Astra Control Center가 포함되어 있습니다.</p>
+</li>
+<li>
+<p>를 확인합니다 <code>ADDRESS</code> Astra Control Center 구성의 열은 운영 시스템의 DNS 이름을 참조합니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl get acc -n netapp-acc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>응답:</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME  UUID                                 VERSION    ADDRESS                             READY
+astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 24.02.0-69 ocp-cluster-1.company.com           True</pre>
+</div>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>를 누릅니다 <code>ADDRESS</code> 위 응답의 필드에 기본 Astra Control Center 인스턴스의 FQDN이 없습니다. Astra Control Center DNS를 참조하도록 구성을 업데이트하십시오.</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl edit acc -n netapp-acc</pre>
+</div>
+</div>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>를 변경합니다 <code>astraAddress</code> 에서 <code>spec:</code> FQDN으로 이동합니다 (<code>ocp-cluster-1.company.com</code> 이 예에서는 기본 Astra Control Center 인스턴스의</p>
+</li>
+<li>
+<p>구성을 저장합니다.</p>
+</li>
+<li>
+<p>주소가 업데이트되었는지 확인합니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl get acc -n netapp-acc</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>로 이동합니다 <a href="#2단계-astra-control-center-operator를-복원합니다">Astra Control Center Operator를 복원합니다</a> 섹션을 참조하십시오.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="1단계-옵션-복제를-사용하여-astra-control-center-보호">1단계 옵션: 복제를 사용하여 Astra Control Center 보호</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>이 절차에서는 를 구성하는 데 필요한 단계를 설명합니다 <a href="../use/replicate_snapmirror.html">"Astra Control Center 복제"</a> 1차 Astra Control Center 인스턴스를 보호하기 위해</p>
+</div>
+<div class="paragraph">
+<p>이 예에서는 Astra Control Center가 항상 아래에 설치됩니다 <code>netapp-acc</code> 네임스페이스 및 연산자는 아래에 설치됩니다 <code>netapp-acc-operator</code> 네임스페이스.</p>
+</div>
+<div class="ulist">
+<div class="title">시작하기 전에</div>
+<ul>
+<li>
+<p>클러스터에 운영 Astra Control Center를 설치했습니다.</p>
+</li>
+<li>
+<p>보조 Astra Control Center를 다른 클러스터에 설치했습니다.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
+<li>
+<p>보조 Astra Control Center 인스턴스에서 운영 Astra Control Center 애플리케이션 및 타겟 클러스터 관리:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>보조 Astra Control Center 인스턴스에 로그인합니다.</p>
+</li>
+<li>
+<p><a href="../get-started/add-cluster.html">"1차 Astra Control Center 클러스터를 추가합니다"</a> (<code>ocp-cluster-1</code>)를 클릭합니다.</p>
+</li>
+<li>
+<p><a href="../get-started/add-cluster.html">"대상 세 번째 클러스터를 추가합니다"</a> (<code>ocp-cluster-3</code>)를 사용하여 복제됩니다.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>보조 Astra Control Center에서 Astra Control Center 및 Astra Control Center 운영자:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>클러스터 * 를 선택하고 기본 Astra Control Center가 포함된 클러스터를 선택합니다 (<code>ocp-cluster-1</code>)를 클릭합니다.</p>
+</li>
+<li>
+<p>Namespaces* 탭을 선택합니다.</p>
+</li>
+<li>
+<p>를 선택합니다 <code>netapp-acc</code> 및 <code>netapp-acc-operator</code> 네임스페이스.</p>
+</li>
+<li>
+<p>작업 메뉴를 선택하고 * 응용 프로그램으로 정의 * 를 선택합니다.</p>
+</li>
+<li>
+<p>정의된 애플리케이션을 보려면 * 애플리케이션에서 보기 * 를 선택합니다.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>복제를 위한 백엔드 구성:</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-control-center/images/note.svg" alt="참고">
+</td>
+<td class="content">
+복제를 수행하려면 운영 Astra Control Center 클러스터와 대상 클러스터가 필요합니다 (<code>ocp-cluster-3</code>) 다른 피어링된 ONTAP 스토리지 백엔드를 사용합니다.<br>
+각 백엔드가 피어링되어 Astra Control에 추가되면 백엔드가 백엔드 페이지의 * 검색됨 * 탭에 표시됩니다.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><a href="../get-started/add-storage-backend.html">"피어링된 백엔드를 추가합니다"</a> 운영 클러스터의 Astra Control Center로 전환</p>
+</li>
+<li>
+<p><a href="../get-started/add-storage-backend.html">"피어링된 백엔드를 추가합니다"</a> 대상 클러스터의 Astra Control Center로 전송</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>복제 구성:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Applications(응용 프로그램) 화면에서 을 선택합니다 <code>netapp-acc</code> 응용 프로그램.</p>
+</li>
+<li>
+<p>Configure replication policy * 를 선택합니다.</p>
+</li>
+<li>
+<p>를 선택합니다 <code>ocp-cluster-3</code> 대상 클러스터 역할을 합니다.</p>
+</li>
+<li>
+<p>스토리지 클래스를 선택합니다.</p>
+</li>
+<li>
+<p>를 입력합니다 <code>netapp-acc</code> 대상 네임스페이스로 사용됩니다.</p>
+</li>
+<li>
+<p>원하는 경우 복제 빈도를 변경합니다.</p>
+</li>
+<li>
+<p>다음 * 을 선택합니다.</p>
+</li>
+<li>
+<p>구성이 올바른지 확인하고 * 저장 * 을 선택합니다.</p>
+<div class="paragraph">
+<p>에서 복제 관계가 전환됩니다 <code>Establishing</code> 를 선택합니다 <code>Established</code>. 활성 상태인 경우 이 복제는 복제 구성이 삭제될 때까지 5분마다 수행됩니다.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>운영 시스템이 손상되었거나 더 이상 액세스할 수 없는 경우 다른 클러스터로 복제를 페일오버합니다.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-control-center/images/note.svg" alt="참고">
+</td>
+<td class="content">
+성공적인 페일오버를 보장하기 위해 대상 클러스터에 Astra Control Center가 설치되어 있지 않은지 확인합니다.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>수직 타원 아이콘을 선택하고 * Fail Over * 를 선택합니다.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../media/use/acc-to-acc-replication-example.png" alt="복제 관계에서 '페일오버' 옵션을 보여 주는 이미지입니다"></span></p>
+</div>
+</li>
+<li>
+<p>세부 정보를 확인하고 * Fail Over * 를 선택하여 페일오버 프로세스를 시작합니다.</p>
+<div class="paragraph">
+<p>복제 관계 상태가 로 변경됩니다 <code>Failing over</code> 그리고 나서 <code>Failed over</code> 완료 시.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>페일오버 구성을 완료합니다.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>터미널을 열고 세 번째 클러스터의 kubeconfig를 사용하여 연결합니다 (<code>ocp-cluster-3</code>)를 클릭합니다. 이제 이 클러스터에 Astra Control Center가 설치되었습니다.</p>
+</li>
+<li>
+<p>세 번째 클러스터에서 Astra Control Center FQDN을 확인합니다 (<code>ocp-cluster-3</code>)를 클릭합니다.</p>
+</li>
+<li>
+<p>Astra Control Center DNS를 참조하도록 구성을 업데이트합니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl edit acc -n netapp-acc</pre>
+</div>
+</div>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>를 변경합니다 <code>astraAddress</code> 에서 <code>spec:</code> FQDN을 사용합니다 (`ocp-cluster-3.company.com`대상 세 번째 클러스터의).</p>
+</li>
+<li>
+<p>구성을 저장합니다.</p>
+</li>
+<li>
+<p>주소가 업데이트되었는지 확인합니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl get acc -n netapp-acc</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><a id="missing-traefik-CRD"></a> 필요한 모든 traefik CRD가 있는지 확인합니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl get crds | grep traefik</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>필수 traefik CRD:</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>ingressroutes.traefik.containo.us
+ingressroutes.traefik.io
+ingressroutetcps.traefik.containo.us
+ingressroutetcps.traefik.io
+ingressrouteudps.traefik.containo.us
+ingressrouteudps.traefik.io
+middlewares.traefik.containo.us
+middlewares.traefik.io
+middlewaretcps.traefik.containo.us
+middlewaretcps.traefik.io
+serverstransports.traefik.containo.us
+serverstransports.traefik.io
+tlsoptions.traefik.containo.us
+tlsoptions.traefik.io
+tIsstores.traefik.containo.us
+tIsstores.traefik.io
+traefikservices.traefik.containo.us
+traefikservices.traefik.io</pre>
+</div>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>위의 CRD 중 일부가 누락된 경우:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>로 이동합니다 <a href="https://doc.traefik.io/traefik/reference/dynamic-configuration/kubernetes-crd/" target="_blank" rel="noopener">"Traefik 설명서"</a>.</p>
+</li>
+<li>
+<p>"정의" 영역을 파일로 복사합니다.</p>
+</li>
+<li>
+<p>변경 내용 적용:</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl apply -f &lt;file name&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Traefik 다시 시작:</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl get pods -n netapp-acc | grep -e "traefik" | awk '{print $1}' | xargs kubectl delete pod -n netapp-acc</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>로 이동합니다 <a href="#2단계-astra-control-center-operator를-복원합니다">Astra Control Center Operator를 복원합니다</a> 섹션을 참조하십시오.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2단계-astra-control-center-operator를-복원합니다">2단계: Astra Control Center Operator를 복원합니다</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>보조 Astra Control Center를 사용하여 백업에서 기본 Astra Control Center 운영자를 복원합니다. 대상 네임스페이스는 소스 네임스페이스와 같아야 합니다. Astra Control Center가 운영 소스 클러스터에서 삭제된 경우에도 동일한 복원 단계를 수행하기 위한 백업은 계속 존재합니다.</p>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
+<li>
+<p>응용 프로그램 * 을 선택한 다음 운영자 앱의 이름을 선택합니다 (<code>netapp-acc-operator</code>)를 클릭합니다.</p>
+</li>
+<li>
+<p>작업 열의 옵션 메뉴에서 * 복원 * 을 선택합니다</p>
+</li>
+<li>
+<p>복원 유형으로 * Restore to new namespaces * 를 선택합니다.</p>
+</li>
+<li>
+<p>대상 세 번째 클러스터를 선택합니다 (<code>ocp-cluster-3</code>)를 클릭합니다.</p>
+</li>
+<li>
+<p>네임스페이스를 운영 소스 클러스터에 연결된 네임스페이스와 동일하게 변경합니다 (<code>netapp-acc-operator</code>)를 클릭합니다.</p>
+</li>
+<li>
+<p>이전에 수행한 백업을 복구 소스로 선택합니다.</p>
+</li>
+<li>
+<p>Restore using original storage classes * 를 선택합니다.</p>
+</li>
+<li>
+<p>Restore all resources * 를 선택합니다.</p>
+</li>
+<li>
+<p>세부 정보를 검토한 후 * Restore * 를 클릭하여 복원 프로세스를 시작합니다.</p>
+<div class="paragraph">
+<p>Applications 페이지에는 대상 세 번째 클러스터로 복구 중인 Astra Control Center 운영자가 표시됩니다 (<code>ocp-cluster-3</code>)를 클릭합니다. 프로세스가 완료되면 상태가 로 표시됩니다 <code>Available</code>. 10분 이내에 DNS 주소가 페이지에서 확인되어야 합니다.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">결과</div>
+<p>Astra Control Center, 등록된 클러스터, 스냅샷과 백업이 포함된 관리형 애플리케이션을 이제 타겟 세 번째 클러스터에서 사용할 수 있습니다 (<code>ocp-cluster-3</code>)를 클릭합니다. 원본에서 사용했던 보호 정책도 새 인스턴스에도 그대로 유지됩니다. 예약된 백업 또는 필요 시 백업 및 스냅샷을 계속 생성할 수 있습니다.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="문제-해결">문제 해결</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>시스템 상태 및 보호 프로세스가 성공적인지 확인합니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>* Pod가 실행되지 않음 *: 모든 Pod가 실행 중인지 확인합니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl get pods -n netapp-acc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>에 일부 Pod가 있는 경우 <code>CrashLookBackOff</code> 다음과 같이 말하고 다시 시작하면 로 전환됩니다 <code>Running</code> 상태.</p>
+</div>
+</li>
+<li>
+<p>* 시스템 상태 확인 *: Astra Control Center 시스템이 입력되었는지 확인합니다 <code>ready</code> 상태:</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl get acc -n netapp-acc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>응답:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME  UUID                                 VERSION    ADDRESS                             READY
+astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 24.02.0-69 ocp-cluster-1.company.com           True</pre>
+</div>
+</div>
+</li>
+<li>
+<p>* 배포 상태 확인 * : Astra Control Center 배포 정보를 표시하여 이를 확인합니다 <code>Deployment State</code> 있습니다 <code>Deployed</code>.</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl describe acc astra -n netapp-acc</pre>
+</div>
+</div>
+</li>
+<li>
+<p>*복원된 Astra Control Center UI가 404 오류를 반환합니다. * : 선택한 경우 이 오류가 발생합니다 <code>AccTraefik</code> 수신 옵션으로 을(를) 점검하십시오 <a href="#missing-traefik-crd">Traefik CRD를 참조하십시오</a> 모두 설치되었는지 확인합니다.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+<div id="ie-right-navbar-collapse" class="close">
+  <img id="navbar-expand" class="ie-searchbox-icon" src="/ko-kr/astra-control-center/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-right-navbar" class="open">
+  <div id="right-navbar-collapse">
+    <img src="/ko-kr/astra-control-center/images/double_arrow.svg" alt="" />
+  </div>
+  <div class="page-nav-container">
+    <nav class="page-nav-fixed">
+      <div class="page-nav-title">이 페이지에서</div>
+      <div class="page-nav-links">
+        <ul class="page-nav-inner" id="page-menu"></ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+
+<script>
+  resizeContent();
+  function setRightBarHeight() {
+    var h = 0;
+
+    // header 1
+    h += PXinViewport($('.n-footer'));
+    h += PXinViewport($('#ie-new-header'));
+
+    if ($('#ie-right-navbar').length) {
+      $('#ie-right-navbar').css({ height: `calc(100vh - ${h}px)` });
+    }
+    if ($('.page-nav-links').length) {
+      h += 98;
+      $('.page-nav-links').css({ height: `calc(100vh - ${h}px)` });
+    }
+  }
+
+  $(document).ready(function () {
+    // PAGE NAV - Click
+    const MASTHEAD_OFFSET = 65;
+    const SECTIONS = $("main h2, main h3");
+    let calculateActiveSection = false;
+    setTimeout(() => {
+      calculateActiveSection = true;
+    }, 100)
+
+    $(".page-nav__link").click(function (event) {
+      calculateActiveSection = false;
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      var target = $(event.target);
+      target.addClass('page-nav__link--active');
+      location.hash = event.target.hash;
+      setTimeout(() => {
+        calculateActiveSection = true;
+      }, 100)
+
+    });
+
+    // PAGE NAV - Scroll
+    $(window).on('resize scroll', function () {
+      if (calculateActiveSection) {
+        var activeSection = getActiveSection(SECTIONS, MASTHEAD_OFFSET);
+        if (activeSection) {
+          var activeHref = $(activeSection).attr('id');
+          $(".page-nav__link").removeClass('page-nav__link--active');
+          $("#page-menu a[href=#" + activeHref + "]").addClass('page-nav__link--active');
+          if (location.hash != "#" + activeHref) {
+            if (history.replaceState) {
+              history.replaceState(null, null, "#" + activeHref);
+            }
+          }
+        }
+      }
+    });
+
+    $(".n-pdf-button").click(function () {
+      $(this).toggleClass("active");
+    });
+
+    $.fn.isVisibleAndInViewport = function () {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+
+      return elementBottom > viewportTop && elementTop < viewportBottom && $(this).is(":visible");
+    };
+
+
+    $(window).on('resize scroll', function () {
+      setRightBarHeight();
+    });
+
+    $(window).trigger('resize');
+
+
+  });
+
+  $("#right-navbar-collapse").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 350, function () {
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+    });
+    $(".ie-content-pane").animate({ width: (width + rightNavbarWidth) }, 350, function () {
+      resizeContent()
+      setSidebarBottom();
+    })
+
+  });
+  $("#navbar-expand").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 250, function () {
+      $("#ie-right-navbar-collapse").removeClass("open")
+      $("#ie-right-navbar-collapse").addClass("close")
+      $("#ie-right-navbar").removeClass("close")
+      $("#ie-right-navbar").addClass("open")
+      setRightBarHeight();
+      setSidebarBottom();
+    });
+    $(".ie-content-pane").animate({ width: (width - rightNavbarWidth) }, 250, function () {
+      resizeContent()
+    })
+  });
+
+  function navbarResize() {
+    const rightNavbarResized = $("#ie-right-navbar-collapse").hasClass('resized');
+    if (window.innerWidth < 1024) {
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+      $("#ie-right-navbar").removeAttr("style")
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar-collapse").addClass("resized")
+    } else {
+      if (rightNavbarResized) {
+        $('#ie-right-navbar').removeClass('close');
+        $('#ie-right-navbar').addClass('open');
+        $("#ie-right-navbar-collapse").removeClass("resized")
+        $("#ie-right-navbar-collapse").removeClass("open")
+        $("#ie-right-navbar-collapse").addClass("close")
+      }
+    }
+    resizeContent()
+  }
+  navbarResize();
+  $(window).on('resize load', function () {
+    navbarResize()
+  });
+
+  function getActiveSection(sections, offset) {
+    var scrollPosition = $(window).scrollTop() + offset + 5;
+    var activeSection;
+    for (var i = 0; i < sections.length; i++) {
+      var el = $(sections[i]);
+      var activePosition = el.offset().top;
+      if (activePosition > scrollPosition) {
+        break;
+      }
+
+      activeSection = sections[i];
+    }
+
+    return activeSection;
+  }
+
+  $("a[href*=#]:not([href=#])").click(function () {
+    setTimeout(() => {
+      $(window).trigger('scroll');
+    }, 105)
+  })
+
+  const hashOnLoad = location.href.split("#")[1];
+  setTimeout(function () {
+    if (hashOnLoad) {
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      $("#page-menu a[href=#" + hashOnLoad + "]").addClass('page-nav__link--active');
+    }
+  }, 100)
+
+</script>
+
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+        <div class="n-footer__left">
+          <li class="n-footer__copyright-link">
+                    <a href="https://www.netapp.com/company/legal/copyright/">© 2024 NetApp, Inc.</a>
+          </li>
+        </div>
+        <div class="n-footer__center">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">이용 약관</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">개인 정보 보호 정책</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">쿠키 정책</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">쿠키 설정</a>
+            </li>
+          </ul>
+       </div>
+        <div class="n-footer__right">
+              <li class="n-footer__copyright-link">
+                <a target="_self" href="javascript:netapp_mailto()">이 페이지에 대한 피드백 보내기</a>
+              </li>
+        </div>
+     </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/ko-kr/astra-control-center/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/ko-kr/astra-control-center/js/prism.js'></script>
+      <script type="text/javascript" src='/ko-kr/astra-control-center/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/ko-kr/astra-control-center/js/ie-tabbed-blocks.js'></script>
+    <script src='/ko-kr/astra-control-center/js/ie-sidebar.js'></script>
+  </body>
+
+</html>
