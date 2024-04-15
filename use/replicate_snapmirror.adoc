@@ -18,10 +18,10 @@ Astra Control을 사용하면 NetApp SnapMirror 기술의 비동기식 복제 �
 
 다음과 같은 사내 전용, 하이브리드 및 멀티 클라우드 시나리오와 같은 다양한 시나리오에서 앱을 복제할 수 있습니다.
 
-* 사내 사이트 A에서 사내 사이트 A로
-* 사내 사이트 A에서 사내 사이트 B로
-* Cloud Volumes ONTAP를 사용하여 사내에서 클라우드로 전환
-* Cloud Volumes ONTAP를 사용하는 클라우드를 사내에서 운영
+* 온프레미스 사이트 A에서 온프레미스 사이트 A로
+* 온프레미스 사이트 A에서 온프레미스 사이트 B로
+* 온프레미스에서 클라우드로 확장, Cloud Volumes ONTAP 활용
+* Cloud Volumes ONTAP과 함께 온프레미스에서 사용
 * Cloud Volumes ONTAP를 사용하는 클라우드(동일한 클라우드 공급자 내의 서로 다른 지역 또는 다른 클라우드 공급자 간)
 
 
