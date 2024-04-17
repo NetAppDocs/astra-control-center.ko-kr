@@ -10,6 +10,8 @@ entries:
     url: "/use/protection-overview.html"
   - title: 앱 보호
     url: "/use/protect-apps.html"
+  - title: 전체 클러스터를 보호합니다
+    url: "/use/back-up-full-cluster.html"
   - title: 앱 복원
     url: "/use/restore-apps.html"
   - title: 스토리지 백엔드 간에 앱을 복제합니다
