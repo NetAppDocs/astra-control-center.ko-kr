@@ -3104,25 +3104,19 @@ Astra Control Center는 다음 플랫폼 및 버킷 유형을 통해 변경 불�
   <block id="abb7c3ebf06b3571c54effe000eacb4f" category="paragraph">Astra Control Center에서 제한된(7일간 메트릭) 모니터링 및 원격 측정 기능을 사용할 수 있으며, 개방형 메트릭 엔드 포인트를 통해 Kubernetes 기본 모니터링 툴(예: Prometheus 및 Grafana)로 내보낼 수도 있습니다.</block>
   <block id="bbe71981163eb88f46656ae206520076" category="paragraph">에 대해 자세히 알아보십시오<block ref="31b8a7a4945fd5ae7cbcb56f7853f12a" category="inline-link-rx"></block>.</block>
   <block id="e3c8bf2347de157b4abad5f780210813" category="list-text"><block ref="e3c8bf2347de157b4abad5f780210813" category="inline-link-macro-rx"></block></block>
-  <block id="079a04c4738a8e0fe552cfb1c79bfcab" category="inline-link-macro">(기술 미리보기) 맞춤형 리소스를 사용하여 버킷을 관리합니다</block>
-  <block id="9f64819f608bb6d24fce86291cd75b4e" category="list-text"><block ref="9f64819f608bb6d24fce86291cd75b4e" category="inline-link-macro-rx"></block></block>
   <block id="a5ca26c1ce60561cc151f1d680e539d2" category="paragraph">있는 경우 계속할 수 없습니다.</block>
   <block id="c9d43c9d4ce1936591207cd7ff5311cb" category="section-title">[기술 미리보기] 사용자 지정 리소스를 사용하여 버킷을 관리합니다</block>
   <block id="e2af1d5e5fa116233e71ad721f3e307b" category="paragraph">애플리케이션 클러스터에서 Astra Control CR(사용자 지정 리소스)을 사용하여 버킷을 추가할 수 있습니다. 애플리케이션과 영구 스토리지를 백업하려는 경우나 클러스터 간에 애플리케이션을 클론 복제하려는 경우에는 오브젝트 저장소 버킷 공급자를 추가하는 것이 중요합니다. Astra Control은 이러한 백업 또는 클론을 정의한 오브젝트 저장소 버킷에 저장합니다. 사용자 지정 리소스 방법을 사용하는 경우 애플리케이션 스냅샷 기능을 사용하려면 버킷이 필요합니다.</block>
   <block id="e397375a1991bd3b78d0436ce29592b7" category="paragraph">애플리케이션 구성과 영구 스토리지를 동일한 클러스터에 클론 복제하려는 경우 Astra Control에 버킷이 필요하지 않습니다.</block>
   <block id="d8b0a07b7fa1af1e74af87346ff33870" category="paragraph">Astra Control의 버킷 맞춤형 리소스를 AppVault라고 합니다. 이 CR에는 보호 작업에 사용되는 버킷에 필요한 구성이 포함되어 있습니다.</block>
-  <block id="6689ac5f8250bfb3251ebafd061d6e83" category="list-text">사용자 정의 리소스(CR) 파일을 만들고 이름을 지정합니다(예:<block ref="9ac2f7756ee6a07f372b889fd11538e1" prefix=" " category="inline-code"></block>)를 클릭합니다.</block>
   <block id="18924d9e76d2dc9a88bddb772904461d" category="list-text">다음 특성을 구성합니다.</block>
   <block id="1224dce1461236a797d84749d37c9491" category="list-text">*metadata.name*: _ (필수) _ AppVault 사용자 정의 리소스의 이름입니다.</block>
   <block id="69b5be000688679a9ee2fef5a4c0c6e5" category="list-text">* spec.prefix *: _ (선택 사항) _ AppVault에 저장된 모든 요소의 이름 앞에 붙는 경로입니다.</block>
   <block id="fcbc6a61a9db33b3fae0293b3f248d8b" category="list-text">*spec.providerConfig*: _ (필수) _ 지정된 공급자를 사용하여 AppVault에 액세스하는 데 필요한 구성을 저장합니다.</block>
-  <block id="a18bb623149b1b0cdb92de70c655b829" category="list-text">*spec.providerCredentials*: _ (선택 사항) _ 지정된 공급자를 사용하여 AppVault에 액세스하는 데 필요한 자격 증명에 대한 참조를 저장합니다.</block>
   <block id="343fc86e1ff54e13706200b99b851d91" category="list-text">*spec.providerCredentials.valueFromSecret*: _ (선택 사항) _ 자격 증명 값이 비밀에서 와야 함을 나타냅니다.</block>
   <block id="2d32c7aa536ab1e00f078fb24a7eb990" category="list-text">* KEY *: _ (valueFromSecret을 사용하는 경우 필수) _ 선택할 암호의 유효한 키입니다.</block>
   <block id="d1b4714eb6d54919b20d4d6f82d1acb4" category="list-text">* name *: _ (valueFromSecret을 사용하는 경우 필수) _ 이 필드의 값을 포함하는 암호의 이름입니다. 같은 네임스페이스에 있어야 합니다.</block>
-  <block id="627ea743649e303af861c29448fa1e18" category="list-text">*spec.providerType*: _ (필수) _ 백업을 제공하는 항목(예: S3 또는 FileSystem)을 결정합니다.</block>
   <block id="139f344cca23a89c521bc7cc6c7100b8" category="paragraph">YAML 예:</block>
-  <block id="230df5decc6ffa08ae4102ee7abc0787" category="list-text">를 채운 후<block ref="9ac2f7756ee6a07f372b889fd11538e1" prefix=" " category="inline-code"></block> 올바른 값이 있는 파일에 CR을 적용합니다.</block>
   <block id="899ffe13f2bb16a187ce9807836e3d5f" category="paragraph">보호 정책은 정의된 일정에 따라 스냅샷, 백업 또는 둘 다를 생성하여 앱을 보호합니다. 시간별, 일별, 주별 및 월별 스냅샷과 백업을 생성하도록 선택할 수 있으며, 보존할 복제본 수를 지정할 수 있습니다. Astra Control 웹 UI 또는 맞춤형 리소스(CR) 파일을 사용하여 보호 정책을 정의할 수 있습니다.</block>
   <block id="d306a8d55f523487d15819734d6cfba4" category="open-title">웹 UI를 사용하여 보호 정책을 구성합니다</block>
   <block id="9f33a2042fc3e70dae9f8c5507596e07" category="list-text">[* Tech preview *] 스토리지 버킷 목록에서 백업 또는 스냅샷의 대상 버킷을 선택합니다.</block>
@@ -3677,4 +3671,10 @@ Astra Control Provisioner는 가져오기 및 검색 프로세스의 일부로 �
   <block id="823f5a690316e8d8db6de2fd88676b37" category="paragraph">예를 들어, 전체 클러스터 백업 워크플로우를 구성하고 설치하면 네임스페이스의 모든 앱이 관리자의 추가 작업 없이 주기적으로 관리 및 보호됩니다. 워크플로를 설치할 때 네임스페이스가 존재할 필요가 없습니다. 나중에 네임스페이스가 추가되면 네임스페이스가 보호됩니다.</block>
   <block id="20220274e3d349d98f94f4af6c1d54cf" category="paragraph-title">예: 레이블 기반 보호</block>
   <block id="6a96f7d929fa0abae3976fe12471f4f9" category="sidebar">전체 클러스터를 보호합니다</block>
+  <block id="55d08039eefc426d5a6685a3feb092fb" category="list-text"><block ref="55d08039eefc426d5a6685a3feb092fb" category="inline-link-macro-rx"></block></block>
+  <block id="01b6447cd56032ea0ac37c19fdaa4224" category="admonition">AWS(Amazon Web Services)는 일반 S3 버킷 유형을 사용합니다.</block>
+  <block id="45a79ca58f818fe6f7e34d3ad01781ce" category="list-text">사용자 정의 리소스(CR) 파일을 만들고 이름을 지정합니다(예:<block ref="056c513f9078872b92d07c3cc704b909" prefix=" " category="inline-code"></block>)를 클릭합니다.</block>
+  <block id="2bda4ec158506a5cc3faac161d6d620d" category="list-text">*spec.providerCredentials*: _ (필수) _ 지정된 공급자를 사용하여 AppVault에 액세스하는 데 필요한 자격 증명에 대한 참조를 저장합니다.</block>
+  <block id="9c20f9a97f5024f7f0cbeebb01127512" category="list-text">*spec.providerType*: _ (필수) _ 백업을 제공하는 항목을 결정합니다(예: NetApp ONTAP S3 또는 Microsoft Azure).</block>
+  <block id="a7f829a367be9439add4237b61a50388" category="list-text">를 채운 후<block ref="056c513f9078872b92d07c3cc704b909" prefix=" " category="inline-code"></block> 올바른 값이 있는 파일에 CR을 적용합니다.</block>
 </blocks>

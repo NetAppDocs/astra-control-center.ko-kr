@@ -48,7 +48,7 @@ Astra Control API를 사용하여 버킷을 관리하는 방법에 대한 지침
 * <<기본 버킷을 설정합니다>>
 * <<버킷 자격 증명을 회전하거나 제거합니다>>
 * <<버킷을 탈거하십시오>>
-* link:../use/manage-buckets.html#manage-a-bucket-using-a-custom-resource["(기술 미리보기) 맞춤형 리소스를 사용하여 버킷을 관리합니다"]
+* link:["[기술 미리보기] 사용자 지정 리소스를 사용하여 버킷을 관리합니다"]
 
 
 
@@ -179,19 +179,19 @@ Astra Control의 버킷 맞춤형 리소스를 AppVault라고 합니다. 이 CR�
 
 
 
-NOTE: AWS(Amazon Web Services) 및 GCP(Google Cloud Platform)는 일반 S3 버킷 유형을 사용합니다.
+NOTE: AWS(Amazon Web Services)는 일반 S3 버킷 유형을 사용합니다.
 
 
 NOTE: Astra Control Center는 Amazon S3를 일반 S3 버킷 공급자로 지원하지만, Astra Control Center는 Amazon의 S3 지원을 주장하는 모든 오브젝트 저장소 공급업체를 지원하지 않을 수 있습니다.
 
 .단계
-. 사용자 정의 리소스(CR) 파일을 만들고 이름을 지정합니다(예: `astra_appvault.yaml`)를 클릭합니다.
+. 사용자 정의 리소스(CR) 파일을 만들고 이름을 지정합니다(예: `astra-appvault.yaml`)를 클릭합니다.
 . 다음 특성을 구성합니다.
 +
 ** *metadata.name*: _ (필수) _ AppVault 사용자 정의 리소스의 이름입니다.
 ** * spec.prefix *: _ (선택 사항) _ AppVault에 저장된 모든 요소의 이름 앞에 붙는 경로입니다.
 ** *spec.providerConfig*: _ (필수) _ 지정된 공급자를 사용하여 AppVault에 액세스하는 데 필요한 구성을 저장합니다.
-** *spec.providerCredentials*: _ (선택 사항) _ 지정된 공급자를 사용하여 AppVault에 액세스하는 데 필요한 자격 증명에 대한 참조를 저장합니다.
+** *spec.providerCredentials*: _ (필수) _ 지정된 공급자를 사용하여 AppVault에 액세스하는 데 필요한 자격 증명에 대한 참조를 저장합니다.
 +
 *** *spec.providerCredentials.valueFromSecret*: _ (선택 사항) _ 자격 증명 값이 비밀에서 와야 함을 나타냅니다.
 +
@@ -201,7 +201,7 @@ NOTE: Astra Control Center는 Amazon S3를 일반 S3 버킷 공급자로 지원�
 
 
 
-** *spec.providerType*: _ (필수) _ 백업을 제공하는 항목(예: S3 또는 FileSystem)을 결정합니다.
+** *spec.providerType*: _ (필수) _ 백업을 제공하는 항목을 결정합니다(예: NetApp ONTAP S3 또는 Microsoft Azure).
 +
 YAML 예:
 
@@ -211,7 +211,7 @@ YAML 예:
 apiVersion: astra.netapp.io/v1
 kind: AppVault
 metadata:
-  name: astra_appvault
+  name: astra-appvault
 spec:
   providerType: generic-s3
   providerConfig:
@@ -231,11 +231,11 @@ spec:
 ----
 
 
-. 를 채운 후 `astra_appvault.yaml` 올바른 값이 있는 파일에 CR을 적용합니다.
+. 를 채운 후 `astra-appvault.yaml` 올바른 값이 있는 파일에 CR을 적용합니다.
 +
 [source, console]
 ----
-kubectl apply -f astra_appvault.yaml -n astra-connector
+kubectl apply -f astra-appvault.yaml -n astra-connector
 ----
 +
 
