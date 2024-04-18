@@ -40,6 +40,8 @@ sidebar:
   - section: support
   - title: 이전 버전
     url: "/acc-earlier-versions.html"
+  - title: FAQ 를 참조하십시오
+    url: "/get-started/faq.html"
   - title: 법적 고지
     url: "/legal-notices.html"
 product-family:

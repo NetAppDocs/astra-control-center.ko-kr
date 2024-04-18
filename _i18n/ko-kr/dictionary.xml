@@ -560,32 +560,23 @@
   <block id="752136dc4b557a30d80aab0135d2d8d0" category="list-text">Create를 선택합니다.</block>
   <block id="510a796972d54f6936dbae0081373fc0" category="inline-link-macro">설정 작업</block>
   <block id="b1151aae9531d2f5e85d085e8878cea6" category="summary">이 FAQ는 질문에 대한 간단한 답변을 찾는 경우에 도움이 될 수 있습니다.</block>
-  <block id="cc8bd3e450e22f6551d9874a45cea432" category="doc">Astra Control Center에 대한 질문과 대답</block>
   <block id="8a3564ec32ac0854b7c7c6d8e81aece8" category="paragraph">다음 섹션에서는 Astra Control Center를 사용할 때 나타날 수 있는 몇 가지 추가 질문에 대한 답변을 제공합니다. 자세한 내용은 astra.feedback@netapp.com 으로 문의하십시오</block>
   <block id="beead3f133c7957f259792b82df7e44c" category="section-title">Astra Control Center에 액세스할 수 있습니다</block>
-  <block id="d3999564a67aafe8d2dd2b3396394bf8" category="paragraph">* Astra Control URL은 무엇입니까? *</block>
   <block id="c7ce6cb4e4cd6690abeecb2f6c288964" category="paragraph">Astra Control Center는 로컬 인증과 각 환경에 고유한 URL을 사용합니다.</block>
   <block id="4839d2f25cc35b249d5db15efa1afd75" category="paragraph">* 단계 *</block>
   <block id="d113457c08b54c3464e7b9c49945bebd" category="list-text">다운로드한 라이센스 파일을 찾아 * 추가 * 를 선택합니다.</block>
   <block id="b892fe302a6a7df4519761ccd72b7c2f" category="section-title">Kubernetes 클러스터를 등록하는 중입니다</block>
-  <block id="92c3c3332b432034927e22150f418205" category="paragraph">* Astra Control에 추가한 후 Kubernetes 클러스터에 작업자 노드를 추가해야 합니다. 어떻게 해야 합니까? *</block>
   <block id="03ec374fbd6989f16559d4f96d74547e" category="paragraph">새 작업자 노드를 기존 풀에 추가할 수 있습니다. 이러한 정보는 Astra Control에서 자동으로 발견됩니다. Astra Control에서 새 노드가 보이지 않으면 새 작업자 노드가 지원되는 이미지 유형을 실행하고 있는지 확인합니다. kubeck get nodes 명령을 사용하여 새 작업자 노드의 상태를 확인할 수도 있습니다.</block>
-  <block id="e35a675dc7fa715089327ba86baa9433" category="paragraph">* 클러스터를 올바르게 관리하려면 어떻게 해야 합니까? *</block>
   <block id="cdb2726825d8ca6b1fbc495e1769be38" category="inline-link-macro">Astra Control에서 애플리케이션을 관리합니다</block>
   <block id="bfde4228559e1dc730ccb3f1710371f6" category="list-text"><block ref="819731d94d9a0720df36a3fc1b85d024" category="inline-link-macro-rx"></block>.</block>
   <block id="e63154c624567c5cf9bd389230c703ee" category="inline-link-macro">Astra Control에서 클러스터 관리를 해제합니다</block>
   <block id="532f06fc1e312d6659de4b8386cc2689" category="list-text"><block ref="fee7c2b0377fd57e3be010ddfbcf91f6" category="inline-link-macro-rx"></block>.</block>
-  <block id="bd9e39df2a4783068ac79eb1cbc3602b" category="paragraph">* Astra Control에서 Kubernetes 클러스터를 제거한 후 애플리케이션과 데이터는 어떻게 됩니까? *</block>
   <block id="8ce424856922443bb79c34a944daacaf" category="paragraph">Astra Control에서 클러스터를 제거해도 클러스터의 구성(애플리케이션 및 영구 스토리지)은 변경되지 않습니다. Astra Control 스냅샷 또는 해당 클러스터의 애플리케이션 백업을 복구할 수 없습니다. Astra Control에서 생성한 영구 스토리지 백업은 Astra Control 내에 남아 있지만 복구할 수 없습니다.</block>
   <block id="03d32d7daecae8d532e26e0c040b4ff0" category="admonition">다른 방법을 통해 클러스터를 삭제하기 전에 항상 Astra Control에서 클러스터를 제거하십시오. Astra Control에서 관리하는 다른 도구를 사용하여 클러스터를 삭제하면 Astra Control 계정에 문제가 발생할 수 있습니다.</block>
   <block id="f75d983d4bc87e1a244c894a4357e93a" category="section-title">응용 프로그램 관리</block>
-  <block id="eaeb56aabe324b7270ae7355bb58edcb" category="paragraph">* Astra Control이 응용 프로그램을 배포할 수 있습니까? *</block>
   <block id="48df7f09a242df239385ebae869133b8" category="paragraph">Astra Control은 애플리케이션을 배포하지 않습니다. 응용 프로그램은 Astra Control 외부에서 배포해야 합니다.</block>
-  <block id="44379fcc25f304b4401a09a7641dd567" category="paragraph">* Astra Control에서 관리를 중지한 후 응용 프로그램은 어떻게 됩니까? *</block>
   <block id="61cd231bb056b77c37c6a7acab17451a" category="paragraph">기존 백업 또는 스냅샷이 삭제됩니다. 애플리케이션과 데이터는 사용 가능한 상태로 유지됩니다. 관리되지 않는 응용 프로그램 또는 해당 응용 프로그램에 속한 백업 또는 스냅숏에는 데이터 관리 작업을 사용할 수 없습니다.</block>
-  <block id="b3d3212b84b66c52decacb83fca1191d" category="paragraph">* Astra Control이 NetApp이 아닌 스토리지에 있는 애플리케이션을 관리할 수 있습니까? *</block>
   <block id="6b1a3a19f3f025ff9c844910c80c100e" category="section-title">데이터 관리 작업</block>
-  <block id="58042c65f3c67283f15325ab2febd22a" category="paragraph">* Astra Control에서 생성한 스냅샷을 다른 인터페이스 또는 객체 스토리지를 통해 직접 관리할 수 있습니까? *</block>
   <block id="c1da0c460c22d6fba67aca5373a43cb1" category="doc">사용자 지정 TLS 인증서를 추가합니다</block>
   <block id="70f4c838af25e53e799ffca0c2ea44f5" category="list-text">Astra Control Center가 설치된 Kubernetes 클러스터</block>
   <block id="0cb21c23cf46c4ea4707d50d3d396f43" category="list-text">클러스터의 명령 셸에 대한 관리 액세스로 "kubbtl" 명령을 실행합니다</block>
@@ -1369,7 +1360,6 @@
   <block id="af0e614701190854322a2cbf66479b6f" category="inline-link">ONTAP 라이센스 관리</block>
   <block id="6db4db93a9c2608b2abfc46bb675e283" category="paragraph">Kubernetes 앱을 설정 및 관리하려면 Astra Control Center UI 또는 Astra Control API를 사용할 수 있습니다.</block>
   <block id="996ae349b503c8bd355d8986597a6d49" category="paragraph">URL의 경우 브라우저에서 Astra_control_center.YAML 사용자 지정 리소스(CR) 파일을 설치할 때 spec.astraAddress 필드에 설정한 FQDN(정규화된 도메인 이름)을 입력합니다. 이메일은 Astra_control_center.YAML CR의 spec.email 필드에 설정한 값입니다.</block>
-  <block id="bda0a7ba5f9ad395d8fbd5eadadb95db" category="paragraph">* My Application은 여러 PVS를 사용합니다. Astra Control은 이러한 PVS의 스냅샷과 백업을 수행합니까? *</block>
   <block id="f8f1ef03f08e7d1c3e62dd87dde91f57" category="paragraph">예. Astra Control의 애플리케이션에 대한 스냅샷 작업에는 애플리케이션의 PVC에 바인딩된 모든 PVS의 스냅샷이 포함됩니다.</block>
   <block id="4ea6bce9d2ccc400d97dbda9dbdd1e62" category="paragraph">ONTAP 시스템에 필요한 라이센스가 있는지 확인하려면 을 참조하십시오<block ref="8ad9b3553a563c3930ce9a2b06714e72" category="inline-link-rx"></block>.</block>
   <block id="fbd7f511b2e75e5ab019b2450e398c1d" category="inline-link-macro">90일 평가판 라이센스를 사용합니다</block>
@@ -2112,14 +2102,10 @@
   <block id="b80989470cc425228535bc99be74562e" category="list-text">* 관리자 자격 증명 사용 *: ONTAP 클러스터 관리 IP 주소와 관리 자격 증명을 입력합니다. 자격 증명은 클러스터 전체의 자격 증명이어야 합니다.</block>
   <block id="9a64e7c308b15e4a664bdb4c23870806" category="list-text">* 인증서 사용 *: 인증서를 업로드합니다<block ref="bdf46f9562b038d0163af0feba0b1dfa" prefix=" " category="inline-code"></block> 파일, 인증서 키입니다<block ref="ed920f773cac3db0499e1ae2cf4df449" prefix=" " category="inline-code"></block> 파일 및 인증 기관 파일(옵션)을 선택합니다.</block>
   <block id="a487ff8cfcbd6271ea37126b1f9a7d45" category="paragraph">백엔드가 에 나타납니다<block ref="7f46165474d11ee5836777d85df2cdab" prefix=" " category="inline-code"></block> 목록의 상태로 요약 정보를 표시합니다.</block>
-  <block id="b95f25e52dab12822cd50293b72cd299" category="paragraph">* 평가판 라이센스를 사용하고 있습니다. 전체 라이센스로 변경하려면 어떻게 해야 합니까? *</block>
   <block id="f12591a32788d5d1257e2ed5eb6294c2" category="paragraph">NetApp에서 NLF(NetApp 라이센스 파일)를 받아 전체 라이센스로 쉽게 변경할 수 있습니다.</block>
   <block id="b630af6f03c85ad51ef7307e7d57ee06" category="list-text">라이센스 개요 에서 라이센스 정보 오른쪽에 있는 옵션 메뉴를 선택합니다.</block>
   <block id="cb108e519d1f31ecbd41ae4d12645d6d" category="list-text">바꾸기 * 를 선택합니다.</block>
-  <block id="358cdb2a62658ca41dde3545b61102db" category="paragraph">* 평가판 라이센스를 사용하고 있습니다. 앱을 관리할 수 있습니까? *</block>
   <block id="448e6c24da61f19f223333099def4861" category="paragraph">예. 평가판 라이센스를 사용하여 관리 앱 기능을 테스트할 수 있습니다(기본적으로 설치되는 포함된 평가판 라이센스 포함). 평가판 라이센스와 전체 라이센스 간의 기능 또는 기능은 차이가 없으며 평가판 라이센스의 수명도 짧아집니다. 을 참조하십시오 <block ref="33517e0e170e068dfb6f5617810a0372" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
-  <block id="74014f44bc5ee9e79cd2adb1167b2d8a" category="paragraph">"Astra Control을 자체적으로 관리해야 합니까?" *</block>
-  <block id="9a37b9eea91cad57070a6757b200a6fa" category="paragraph">* 비정상적인 포드가 앱 관리에 영향을 미칩니까? *</block>
   <block id="122340512db23eef4128af6d9fd5a597" category="paragraph">아니요. Pod의 상태는 앱 관리에 영향을 주지 않습니다.</block>
   <block id="5f19a159b98db30779660d8624ef7fc4" category="section-title">2023년 4월 25일(23.04.0)</block>
   <block id="b176bb567ff7d20bac0cf1796c175044" category="inline-link-macro">새 Astra Control Center 설치에 대해 기본적으로 90일 평가판 라이센스가 활성화됩니다</block>
@@ -2609,11 +2595,8 @@
   <block id="bc15f748aeda125acfe188da636ed3d7" category="paragraph">Astra Control Center는 기본적으로 관리할 수 있는 애플리케이션으로 표시되지 않지만, 할 수 있습니다 <block ref="f5ccadb0ade3a2532769193c6758d5b1" category="inline-link-macro-rx"></block> 다른 Astra Control Center 인스턴스를 사용하는 Astra Control Center 인스턴스</block>
   <block id="da3896d1bd14d90f23119c4f4e1c15a3" category="paragraph">아니요 Astra Control에서 생성된 스냅샷 및 백업은 Astra Control을 통해서만 관리할 수 있다.</block>
   <block id="4c58fde327564dd131d9bda17203e9c0" category="section-title">Astra Control Provisioner</block>
-  <block id="9a0966df6fce07aa3deb33fa2cd5da9f" category="paragraph">* Astra Control Provisioner의 스토리지 프로비저닝 기능은 Astra Trident의 스토리지 프로비저닝 기능과 어떻게 다릅니까? *</block>
   <block id="dc918830fd0bda72f7a7d0f6e208b17e" category="paragraph">Astra Control Provisioner는 Astra Control의 일부로 오픈 소스 Astra Trident에서 사용할 수 없는 상위 스토리지 프로비저닝 기능을 지원합니다. 이러한 기능은 오픈 소스 Trident에서 사용할 수 있는 모든 기능에 추가됩니다.</block>
   <block id="ad1ed8a22f0b210e932f280697114063" category="inline-link-macro">Astra Control Provisioner를 활성화합니다</block>
-  <block id="d4a584de43e0998448679fdc7be156af" category="paragraph">* Astra Trident에 대한 비용을 지불해야 합니까? *</block>
-  <block id="b8481a0cbd8ab968ce47b6bacfc1ad58" category="paragraph">* Astra Control을 모두 설치 및 사용하지 않고 Astra Control의 스토리지 관리 및 프로비저닝 기능을 사용할 수 있습니까? *</block>
   <block id="293b9c34fcb89e2353c2b6e75d222693" category="inline-link-macro">Astra Control Provisioner 기능을 활성화합니다</block>
   <block id="6f04a726f4038aea2cb90f4951cba4a2" category="paragraph">Astra Control Provisioner를 설치하면 Astra Control UI의 호스트 클러스터에 가 표시됩니다<block ref="47f79829be244bd727d1881108343390" prefix=" " category="inline-code"></block> 을 사용하지 마십시오<block ref="f1112223b41fddc71fd6a626582dfb78" prefix=" " category="inline-code"></block> 필드 및 현재 설치된 버전 번호</block>
   <block id="77543cbe4b207b1c621cbf48a45b600b" category="paragraph">UI에 액세스할 수 없는 경우 다음 방법을 사용하여 설치를 확인할 수 있습니다.</block>
@@ -3521,15 +3504,9 @@ RKE 2: Rancher Manager 2.7.9 포함 버전 1.24.17, 1.25.14, 1.26.9</block>
   <block id="a40c084314b74a686572312dc71c4738" category="list-text">을 생성합니다<block ref="3d3f9b7a5974a7898593a3d2f5549f15" prefix=" " category="inline-code"></block> 파일.</block>
   <block id="23ed633c6130c18f08608b6efce84dc4" category="list-text">대치<block ref="089d02fba2ffcdb49a91320ff506dfa3" prefix=" " category="inline-code"></block> 다음 스크립트의 시작 부분에 올바른 값이 있습니다.</block>
   <block id="c103c1b613b979158e5cb38bf6ed5f16" category="inline-link">다음 단계에 따라 Astra Control Provisioner 서비스가 포함된 Astra Trident 인스턴스를 제거하십시오</block>
-  <block id="2c5e000851530d456765d6ad7069ee9a" category="paragraph">* Astra Control Provisioner(또는 Astra Trident)는 관리를 취소할 때 클러스터에서 자동으로 제거됩니까? *
-Astra Control Center에서 클러스터를 관리 취소하면 Astra Control Provisioner 또는 Astra Trident가 클러스터에서 자동으로 제거되지 않습니다. Astra Control Provisioner 및 해당 구성 요소 또는 Astra Trident를 제거하려면 다음을 수행해야 합니다<block ref="20ce5e359d2a1fb9fe63ec6fbc3432ca" category="inline-link-rx"></block>.</block>
-  <block id="2f5784fa29426b31f780f208859b21ff" category="paragraph">* Astra Control Provisioner가 Astra Trident를 대체합니까? *
-Astra Control Provisioner는 Astra Control 아키텍처에서 스토리지 프로비저닝 및 오케스트레이터로 대체되었습니다. Astra Control 사용자가 수행해야 합니다 <block ref="5dad9d2c063a3c9294af610763bbd8ba" category="inline-link-macro-rx"></block> Astra Control을 사용하려면 Astra Trident는 이 릴리즈에서 계속 지원되지만 향후 릴리즈에서 지원되지는 않습니다. Astra Trident는 오픈 소스를 그대로 유지하며 NetApp의 새로운 CSI 및 기타 기능으로 릴리즈, 유지, 지원 및 업데이트됩니다. 하지만 Astra Control Provisioner에는 Astra Trident CSI 기능과 함께 확장 스토리지 관리 기능이 포함되어 있는 Astra Control Provisioner만 사용할 수 있습니다.</block>
   <block id="b2e63d361f13f7c7a6953e6d716921b8" category="paragraph">아니요 Astra Trident는 계속해서 오픈 소스이며 무료로 다운로드할 수 있습니다. Astra Control Provisioner 기능을 사용하려면 이제 Astra Control 라이센스가 필요합니다.</block>
   <block id="f7674e11004b268d07981c0956e67fe1" category="paragraph">예, Astra Control 데이터 관리 기능의 전체 기능을 사용하지 않으려는 경우에도 Astra Control Provisioner로 업그레이드하고 기능을 사용할 수 있습니다.</block>
-  <block id="0fce11b06ff8393942de14dffe7cfb30" category="paragraph">* 고급 스토리지 관리 및 프로비저닝 기능을 사용하기 위해 기존 Astra Trident 사용자가 된 상태에서 Astra Control으로 전환하려면 어떻게 해야 합니까? *</block>
   <block id="4819732dc0b6137f78875603196f15aa" category="paragraph">기존 Astra Trident 사용자(퍼블릭 클라우드의 Astra Trident 사용자 포함)인 경우 먼저 Astra Control 라이센스를 취득해야 합니다. 그런 다음 Astra Control Provisioner 번들, Astra Trident 업그레이드 및 를 다운로드할 수 있습니다 <block ref="f398c28e822214b2c18876471cc0ff4c" category="inline-link-macro-rx"></block>.</block>
-  <block id="d8272a56355a60a1ca520a3d6649207f" category="paragraph">[[running-ACP-check]] * Astra Control Provisioner가 내 클러스터에서 Astra Trident를 대체했는지 어떻게 알 수 있습니까? *</block>
   <block id="5c06389afe2ac88223b5ed747dc58668" category="inline-image-macro">UI에서 Astra Control Provisioner 버전 위치를 보여 주는 스크린샷</block>
   <block id="22e6ee07e818a86ee011191709d10c67" category="paragraph"><block ref="22e6ee07e818a86ee011191709d10c67" category="inline-image-macro-rx" type="image"></block></block>
   <block id="bad9405dfa9ccda5f267eb3d116cc74e" category="paragraph">를 확인합니다<block ref="49c9f6c98d04c8c76aee7448fd9136ed" prefix=" " category="inline-code"></block> 컨테이너가 실행 중이며<block ref="507c6bbca2ad57c69e89a97ee8714536" prefix=" " category="inline-code"></block> 있습니다<block ref="84976609aebb6439476255d5ef8280bb" prefix=" " category="inline-code"></block> 또는 이후 버전(23.10은 최소 버전)의 상태가 입니다<block ref="98dd43dfae05b11befe1f140e0ec787a" prefix=" " category="inline-code"></block>:</block>
@@ -3677,4 +3654,27 @@ Astra Control Provisioner는 가져오기 및 검색 프로세스의 일부로 �
   <block id="2bda4ec158506a5cc3faac161d6d620d" category="list-text">*spec.providerCredentials*: _ (필수) _ 지정된 공급자를 사용하여 AppVault에 액세스하는 데 필요한 자격 증명에 대한 참조를 저장합니다.</block>
   <block id="9c20f9a97f5024f7f0cbeebb01127512" category="list-text">*spec.providerType*: _ (필수) _ 백업을 제공하는 항목을 결정합니다(예: NetApp ONTAP S3 또는 Microsoft Azure).</block>
   <block id="a7f829a367be9439add4237b61a50388" category="list-text">를 채운 후<block ref="056c513f9078872b92d07c3cc704b909" prefix=" " category="inline-code"></block> 올바른 값이 있는 파일에 CR을 적용합니다.</block>
+  <block id="af2a4d2810d86aa0169c117f82682f9a" category="doc">자주 묻는 질문</block>
+  <block id="67c6d74ef64f9532efda9283d05a0e68" category="paragraph-title">Astra Control URL이란?</block>
+  <block id="277ea85dfda64f824780af7270d81481" category="paragraph-title">평가판 라이센스를 사용하고 있습니다. 정식 라이선스로 변경하려면 어떻게 해야 합니까?</block>
+  <block id="865330b45a1c9c871718afa905811d8a" category="paragraph-title">평가판 라이센스를 사용하고 있습니다. 앱을 계속 관리할 수 있습니까?</block>
+  <block id="41d21018ca5e24a29b1d862dfb21ce5d" category="paragraph-title">Astra Control에 추가한 후 Kubernetes 클러스터에 작업자 노드를 추가해야 합니다. 어떻게 해야 합니까?</block>
+  <block id="9d349fb570fda3488ed2c21f247861fd" category="list-title">클러스터 관리를 올바르게 취소하려면 어떻게 해야 합니까?</block>
+  <block id="b2367a0a07b25f3a049fbc1ea89a3636" category="paragraph-title">Astra Control에서 Kubernetes 클러스터를 제거한 후 애플리케이션 및 데이터는 어떻게 됩니까?</block>
+  <block id="c230e505256a08e1a2b2d1a6164970f4" category="paragraph-title">Astra Control Provisioner(또는 Astra Trident)는 관리를 취소할 때 클러스터에서 자동으로 제거됩니까?</block>
+  <block id="6e97758e2a7f18315bc2dd21ba2fb822" category="paragraph">Astra Control Center에서 클러스터를 관리 취소하면 Astra Control Provisioner 또는 Astra Trident가 클러스터에서 자동으로 제거되지 않습니다. Astra Control Provisioner 및 해당 구성 요소 또는 Astra Trident를 제거하려면 다음을 수행해야 합니다<block ref="20ce5e359d2a1fb9fe63ec6fbc3432ca" category="inline-link-rx"></block>.</block>
+  <block id="9c571c6fb937319efe65b3c9d020edc8" category="paragraph-title">Astra Control에서 애플리케이션을 구축할 수 있습니까?</block>
+  <block id="a7fec8f073e339fb7794287e8e5663a0" category="paragraph-title">Astra Control에서 애플리케이션 관리를 중지하면 애플리케이션은 어떻게 됩니까?</block>
+  <block id="75b31138dc7d08e2d4b0a691f1c387f5" category="paragraph-title">Astra Control은 NetApp이 아닌 스토리지에 있는 애플리케이션을 관리할 수 있습니까?</block>
+  <block id="7ddaae6742fd05e4ca66e09897bbee6d" category="paragraph-title">Astra Control 자체를 관리해야 합니까?</block>
+  <block id="df3897d7402bb4d935f0cad6b8e0b952" category="paragraph-title">상태가 좋지 않은 Pod는 앱 관리에 영향을 미칩니까?</block>
+  <block id="c901ec125a01599d47b36152b81787eb" category="paragraph-title">애플리케이션에서 여러 PVS를 사용합니다. Astra Control은 이러한 PVS의 스냅샷과 백업을 생성합니까?</block>
+  <block id="ca664f9963c561ce6cdc123049835653" category="paragraph-title">Astra Control에서 생성한 스냅샷을 다른 인터페이스 또는 오브젝트 스토리지를 통해 직접 관리할 수 있습니까?</block>
+  <block id="ee8d37ab9ce413b000f7a6f1c6831e25" category="paragraph-title">Astra Control Provisioner의 스토리지 프로비저닝 기능은 Astra Trident의 스토리지 프로비저닝 기능과 어떻게 다릅니까?</block>
+  <block id="36057914e1173ce157bef770560c4d14" category="paragraph-title">Astra Control Provisioner가 Astra Trident를 대체합니까?</block>
+  <block id="30d28fd95c3008723df823d63536e917" category="paragraph">Astra Control Provisioner는 Astra Control 아키텍처에서 스토리지 프로비저닝 및 오케스트레이터로 대체되었습니다. Astra Control 사용자가 수행해야 합니다 <block ref="5dad9d2c063a3c9294af610763bbd8ba" category="inline-link-macro-rx"></block> Astra Control을 사용하려면 Astra Trident는 이 릴리즈에서 계속 지원되지만 향후 릴리즈에서 지원되지는 않습니다. Astra Trident는 오픈 소스를 그대로 유지하며 NetApp의 새로운 CSI 및 기타 기능으로 릴리즈, 유지, 지원 및 업데이트됩니다. 하지만 Astra Control Provisioner에는 Astra Trident CSI 기능과 함께 확장 스토리지 관리 기능이 포함되어 있는 Astra Control Provisioner만 사용할 수 있습니다.</block>
+  <block id="6080a9c8227972613444a9ebc88e3b3c" category="paragraph-title">Astra Trident에 대한 비용을 지불해야 합니까?</block>
+  <block id="369842d22c436a81bf21800576abee8b" category="paragraph-title">모든 Astra Control을 설치 및 사용하지 않고 Astra Control의 스토리지 관리 및 프로비저닝 기능을 사용할 수 있습니까?</block>
+  <block id="daab2094276c52a4b52a45f95303d09e" category="paragraph-title">기존 Astra Trident 사용자가 된 상태에서 Astra Control으로 전환하여 고급 스토리지 관리 및 프로비저닝 기능을 사용하려면 어떻게 해야 합니까?</block>
+  <block id="63bdba47639989b6e534ecb34c5f142e" category="paragraph-title">Astra Control Provisioner가 클러스터에서 Astra Trident를 대체했는지 어떻게 알 수 있습니까?</block>
 </blocks>

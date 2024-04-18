@@ -40,5 +40,3 @@ entries:
     url: "/get-started/add-storage-backend.html"
   - title: 버킷을 추가합니다
     url: "/get-started/add-bucket.html"
-- title: FAQ 를 참조하십시오
-  url: "/get-started/faq.html"
