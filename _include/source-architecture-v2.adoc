@@ -1,17 +1,7 @@
----
-sidebar: sidebar 
-permalink: concepts/architecture.html 
-keywords: what is astra, astra control, astra control architecture, astra control center, astra control service, kubernetes, netapp, clusters, astra trident, astra control provisioner 
-summary: 이 슬라이드에는 Astra Control 환경의 다양한 구성 요소에 대한 개요가 나와 있습니다. 
----
-= 아키텍처 및 구성 요소
-:hardbreaks:
+= 제공합니다
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/concepts/
 
 
-[role="lead"]
 Astra Control은 상태 저장 애플리케이션의 작업을 간소화하고 하이브리드 및 멀티 클라우드 환경에서 Kubernetes 워크로드를 저장, 보호, 이동하는 데 도움이 되는 Kubernetes 애플리케이션 데이터 라이프사이클 관리 솔루션입니다.
 
 
