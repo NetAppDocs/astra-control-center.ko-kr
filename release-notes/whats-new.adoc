@@ -35,6 +35,7 @@ Astra Control Center의 최신 릴리스를 발표하게 되어 기쁘게 생각
 
 * link:../use/manage-apps.html#tech-preview-define-an-application-using-a-kubernetes-custom-resource["사용자 지정 리소스를 사용하여 응용 프로그램을 정의합니다"]
 * link:../use/manage-buckets.html#tech-preview-manage-a-bucket-using-a-custom-resource["버킷을 정의합니다"]
+* link:../use/back-up-full-cluster.html["전체 클러스터를 보호합니다"]
 * link:../use/protect-apps.html#create-a-backup["응용 프로그램을 백업합니다"]
 * link:../use/protect-apps.html#create-a-snapshot["스냅샷을 생성합니다"]
 * link:../use/protect-apps.html#configure-a-protection-policy["스냅샷 또는 백업에 대한 스케줄을 생성합니다"]
