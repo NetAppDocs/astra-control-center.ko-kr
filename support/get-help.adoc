@@ -100,7 +100,7 @@ TIP: UI 오른쪽 위에 있는 알림 아이콘은 지원 번들과 관련된 �
 +
 ** 사용 https://upload.netapp.com/sg["NetApp 인증된 파일 업로드(로그인 필요)"^].
 ** NSS에서 케이스에 번들을 직접 부착합니다.
-** NetApp Active IQ 사용
+** Digital Advisor 사용
 
 
 
