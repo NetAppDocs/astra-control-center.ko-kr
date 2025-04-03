@@ -1979,7 +1979,6 @@
   <block id="494f00c4b150eebe7f9548365d575840" category="list-text"><block ref="494f00c4b150eebe7f9548365d575840" category="inline-link-rx"></block></block>
   <block id="11c38116a632436215a6716507c1a287" category="list-text"><block ref="11c38116a632436215a6716507c1a287" category="inline-link-rx"></block></block>
   <block id="201e09e85ad81db8a19ef9f20c05d1a5" category="inline-link">이 비디오</block>
-  <block id="259f3be9b6c8eefb44e844c2b70333dc" category="paragraph">Astra Control Center 설치 프로세스 데모는 를 참조하십시오<block ref="cbbdec23221803dc148346abe5a297c0" category="inline-link-rx"></block>.</block>
   <block id="f7173fff9a92f2bab2648f86282ab07c" category="list-text">NetApp SnapMirror 기술(Astra Control Center)을 사용하여 원격 시스템에 애플리케이션 복제</block>
   <block id="631928ccc601c8e49976a8d73af28304" category="list-text">스테이징 환경에서 운영 환경으로 애플리케이션 클론 생성</block>
   <block id="6ae1ccb3dd6df141f3444a3da56ae986" category="list-text">브라우저에서 FQDN(을 포함)을 입력합니다<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> 접두사)를 입력합니다<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> 에 있습니다<block ref="70b058e54d2bda749060070a7f9c4e5c" prefix=" " category="inline-code"></block> CR <block ref="356be5820e2645bace29d82a8018f43d" category="inline-xref-macro-rx"></block>.</block>
@@ -3717,4 +3716,5 @@ Astra Control Provisioner는 가져오기 및 검색 프로세스의 일부로 �
   <block id="a9cf730f8ab04a5b52f1d19c74c1483c" category="paragraph">Astra Control Center는 AutoSupport 및 Active IQ Digital Advisor(Digital Advisor라고도 함) 에코시스템에 완벽하게 통합되어 사용자 및 NetApp 지원에 문제 해결 및 사용 정보를 제공합니다.</block>
   <block id="10c74eb5a029f34a100ad38aab60e5a3" category="paragraph">이 섹션에서 선택한 항목에 따라 NetApp의 사전 지원 응용 프로그램인 디지털 어드바이저에 참여할지 여부와 데이터 전송 위치가 결정됩니다. 인터넷 연결이 필요하며(포트 442) 모든 지원 데이터가 익명화됩니다.</block>
   <block id="3cf9bc07c0ae31018d3336b8f32de6c8" category="list-text">Digital Advisor 사용</block>
+  <block id="285c7fb54a928cf8e9ca78a83740ce60" category="paragraph">Astra Control Center 설치 프로세스의 데모는 를 참조하십시오<block ref="d97427b76746d487a682c110ed41c817" category="inline-link-rx"></block>.</block>
 </blocks>
