@@ -2,7 +2,7 @@
 :allow-uri-read: 
 
 
-Astra Control은 상태 저장 애플리케이션의 작업을 간소화하고 하이브리드 및 멀티 클라우드 환경에서 Kubernetes 워크로드를 저장, 보호, 이동하는 데 도움이 되는 Kubernetes 애플리케이션 데이터 라이프사이클 관리 솔루션입니다.
+Astra Control은 상태 저장 애플리케이션의 운영을 간소화하고 하이브리드 환경에서 Kubernetes 워크로드를 저장, 보호 및 이동하는 데 도움이 되는 Kubernetes 애플리케이션 데이터 수명 주기 관리 솔루션입니다.
 
 
 
@@ -39,13 +39,11 @@ Astra Control의 아키텍처는 IT 부서가 Kubernetes 애플리케이션의 �
 
 Astra Control은 Kubernetes 네이티브로, 사용자 지정 리소스를 활용하는 데이터 보호 워크플로우를 지원하면서 기존 API 및 SDK와 역호환성을 유지할 수 있습니다. Kubernetes 네이티브 데이터 보호는 중요한 이점을 제공합니다. Kubernetes API 및 리소스와 원활하게 통합되어 조직의 기존 CI/CD 및/또는 GitOps 툴을 통해 데이터 보호를 애플리케이션 라이프사이클의 고유한 부분으로 활용할 수 있습니다.
 
-image:astra-family-architecture-v1_IEOPS-1558.png["Astra Control 아키텍처"]
-
 Astra Control은 다음과 같은 4가지 보완 구성 요소를 기반으로 구축되었습니다.
 
-* * Astra Control *: Astra Control은 모든 관리형 클러스터를 위한 중앙 집중식 관리 서비스로, 클라우드 및 온프레미스에서의 애플리케이션 보호 및 이동성을 위해 오케스트레이션된 워크로드와 다음과 같은 기능을 제공합니다.
+* *Astra Control*: Astra Control은 모든 관리형 클러스터를 위한 중앙 관리 서비스로, 온프레미스의 애플리케이션 보호 및 이동성을 위한 조정된 워크로드를 제공하며 다음과 같은 기능도 제공합니다.
 +
-** 여러 클러스터와 클라우드의 통합 보기
+** 여러 클러스터의 결합된 보기
 ** 오케스트레이션된 워크플로 보호
 ** 세분화된 리소스 시각화 및 선택
 
@@ -80,74 +78,27 @@ Astra Control은 다음과 같은 4가지 보완 구성 요소를 기반으로 �
 
 == 구축 모델
 
-Astra Control은 2가지 구축 모델로 제공됩니다.
+Astra Control은 단일 배포 모델로 제공됩니다.
 
-image:astra-architecture-diagram-v7.png["Astra 구축 모델"]
+* Astra Control Center *: 사내 환경에서 실행되는 Kubernetes 클러스터의 애플리케이션 인식 데이터 관리를 제공하는 자체 관리 소프트웨어입니다. 또한 NetApp Cloud Volumes ONTAP 스토리지 백엔드를 통해 여러 클라우드 공급자 환경에 Astra Control Center를 설치할 수 있습니다.
 
-* * Astra Control Service *: NetApp 관리 서비스로, 여러 클라우드 공급자 환경 및 셀프 관리 Kubernetes 클러스터에서 Kubernetes 클러스터의 애플리케이션 인식 데이터 관리를 제공합니다.
-+
-https://docs.netapp.com/us-en/astra/index.html["Astra Control Service 문서"^]
-
-* * Astra Control Center *: 사내 환경에서 실행되는 Kubernetes 클러스터의 애플리케이션 인식 데이터 관리를 제공하는 자체 관리 소프트웨어입니다. 또한 NetApp Cloud Volumes ONTAP 스토리지 백엔드를 통해 여러 클라우드 공급자 환경에 Astra Control Center를 설치할 수 있습니다.
-+
 https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center 문서"^]
 
-
-
-[cols="1h,2d,2a"]
+[cols="1h,2d"]
 |===
-|  | Astra 제어 서비스 | Astra 제어 센터 
+|  | Astra 제어 센터 
 
 
-| 어떻게 제공됩니까? | NetApp에서 제공하는 완전 관리형 클라우드 서비스  a| 
-소프트웨어를 다운로드, 설치 및 관리할 수 있습니다
+| 어떻게 제공됩니까? | 소프트웨어를 다운로드, 설치 및 관리할 수 있습니다 
 
 
-
-| 어디에 호스팅됩니까? | NetApp에서 제공하는 다양한 퍼블릭 클라우드 지원  a| 
-고유한 Kubernetes 클러스터
+| 어디에 호스팅됩니까? | 고유한 Kubernetes 클러스터 
 
 
-
-| 어떻게 업데이트됩니까? | NetApp에서 관리합니다  a| 
-모든 업데이트를 관리합니다
-
+| 어떻게 업데이트됩니까? | 모든 업데이트를 관리합니다 
 
 
 | 지원되는 Kubernetes 배포는 무엇입니까?  a| 
-* * 클라우드 공급자 *
-+
-** Amazon Web Services에서 직접 지원합니다
-+
-*** Amazon Elastic Kubernetes Service(EKS)
-
-
-** Google 클라우드
-+
-*** Google Kubernetes Engine(GKE)
-
-
-** Microsoft Azure를 참조하십시오
-+
-*** Azure Kubernetes 서비스(AKS)
-
-
-
-
-* * 자가 관리형 클러스터 *
-+
-** Kubernetes(업스트림)
-** RKE(Rancher Kubernetes Engine)
-** Red Hat OpenShift Container Platform
-
-
-* * 온프레미스 클러스터 *
-+
-** Red Hat OpenShift Container Platform 온프레미스
-
-
-
- a| 
 * Azure Stack HCI 기반 Azure Kubernetes Service
 * Google Anthos
 * Kubernetes(업스트림)
@@ -158,52 +109,6 @@ https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center 문서
 
 
 | 지원되는 스토리지 백엔드는 무엇입니까?  a| 
-* * 클라우드 공급자 *
-+
-** Amazon Web Services에서 직접 지원합니다
-+
-*** Amazon EBS
-*** NetApp ONTAP용 Amazon FSx
-*** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["Cloud Volumes ONTAP"^]
-
-
-** Google 클라우드
-+
-*** Google 영구 디스크
-*** NetApp Cloud Volumes Service를 참조하십시오
-*** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["Cloud Volumes ONTAP"^]
-
-
-** Microsoft Azure를 참조하십시오
-+
-*** Azure 관리 디스크
-*** Azure NetApp Files
-*** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-azure.html["Cloud Volumes ONTAP"^]
-
-
-
-
-* * 자가 관리형 클러스터 *
-+
-** Amazon EBS
-** Azure 관리 디스크
-** Google 영구 디스크
-** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
-** NetApp MetroCluster
-** https://longhorn.io/["롱혼"^]
-
-
-* * 온프레미스 클러스터 *
-+
-** NetApp MetroCluster
-** NetApp ONTAP AFF 및 FAS 시스템
-** NetApp ONTAP Select를 참조하십시오
-** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
-** https://longhorn.io/["롱혼"^]
-
-
-
- a| 
 * NetApp ONTAP AFF 및 FAS 시스템
 * NetApp ONTAP Select를 참조하십시오
 * https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
@@ -215,7 +120,6 @@ https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center 문서
 
 == 를 참조하십시오
 
-* https://docs.netapp.com/us-en/astra/index.html["Astra Control Service 문서"^]
 * https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center 문서"^]
 * https://docs.netapp.com/us-en/trident/index.html["Astra Trident 문서"^]
 * https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 참조하십시오"^]
