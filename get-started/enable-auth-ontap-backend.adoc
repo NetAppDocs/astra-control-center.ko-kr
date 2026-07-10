@@ -22,6 +22,7 @@ Astra Control Center는 ONTAP 백엔드를 인증하는 두 가지 모드를 제
 
 
 
+[[enable-credential-based-authentication]]
 === 자격 증명 기반 인증을 사용합니다
 
 Astra Control Center에는 클러스터 범위에 대한 자격 증명이 필요합니다 `admin` ONTAP 백엔드와 통신합니다. 과 같이 미리 정의된 표준 역할을 사용해야 합니다 `admin`. 이를 통해 향후 Astra Control Center 릴리스에서 사용할 기능 API를 노출할 수 있는 향후 ONTAP 릴리스와 향후 호환될 수 있습니다.
@@ -48,6 +49,7 @@ NOTE: 사용자 지정 보안 로그인 역할은 Astra Control Center에서 생
 
 
 
+[[enable-certificate-based-authentication]]
 === 인증서 기반 인증을 사용합니다
 
 Astra Control Center는 인증서를 사용하여 신규 및 기존 ONTAP 백엔드와 통신할 수 있습니다. 백엔드 정의에 다음 정보를 입력해야 합니다.

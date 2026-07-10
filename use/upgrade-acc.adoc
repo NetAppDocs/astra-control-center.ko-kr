@@ -127,6 +127,7 @@ IMPORTANT: Astra Control Center 운영자를 삭제하지 마십시오(예: `kub
 
 
 
+[[download-and-extract-astra-control-center]]
 == Astra Control Center를 다운로드하고 압축을 풉니다
 
 다음 위치 중 하나에서 Astra Control Center 이미지를 다운로드하십시오.
@@ -174,12 +175,14 @@ tar -vxzf astra-control-center-[version].tar.gz
 ====
 
 
+[[complete-additional-steps-if-you-use-a-local-registry]]
 == 로컬 레지스트리를 사용하는 경우 추가 단계를 완료합니다
 
 Astra Control Center 번들을 로컬 레지스트리에 푸시하려는 경우 NetApp Astra kubectl 명령줄 플러그인을 사용해야 합니다.
 
 
 
+[[remove-the-netapp-astra-kubectl-plugin-and-install-it-again]]
 === NetApp Astra kubtl 플러그인을 제거하고 다시 설치합니다
 
 이미지를 로컬 Docker 저장소로 푸시하려면 최신 버전의 NetApp Astra kubectl 명령줄 플러그인을 사용해야 합니다.
@@ -220,6 +223,7 @@ cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 
 
 
+[[add-the-images-to-your-registry]]
 === 레지스트리에 이미지를 추가합니다
 
 . Astra Control Center 번들을 로컬 레지스트리로 푸시하려는 경우 컨테이너 엔진에 적합한 단계 시퀀스를 완료합니다.
@@ -326,6 +330,7 @@ cd manifests
 
 
 
+[[install-the-updated-astra-control-center-operator]]
 == 업데이트된 Astra Control Center 운영자를 설치합니다
 
 . (로컬 레지스트리만 해당) 로컬 레지스트리를 사용하는 경우 다음 단계를 수행하십시오.
@@ -464,6 +469,7 @@ kubectl get pods -n netapp-acc-operator
 
 
 
+[[upgrade-astra-control-center]]
 == Astra Control Center를 업그레이드합니다
 
 . Astra Control Center 사용자 지정 리소스(CR) 편집:
@@ -557,6 +563,7 @@ NOTE: Astra Control Center 운영자 로그를 검사하려면 다음 명령을 
 
 
 
+[[verify-system-status]]
 == 시스템 상태를 확인합니다
 
 . Astra Control Center에 로그인합니다.

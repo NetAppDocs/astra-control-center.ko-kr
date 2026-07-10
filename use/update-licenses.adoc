@@ -28,6 +28,7 @@ Account * > * Licenses * 페이지에는 라이센스 정보, 만료 날짜, 라
 
 
 
+[[for-more-information]]
 == 를 참조하십시오
 
 * link:../concepts/licensing.html["Astra Control Center 라이센스"]

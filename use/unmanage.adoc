@@ -16,6 +16,7 @@ Astra Control Center에서 더 이상 관리하지 않으려는 응용 프로그
 
 
 
+[[unmanage-an-app]]
 == 앱 관리를 취소합니다
 
 Astra Control Center에서 더 이상 백업, 스냅샷 또는 클론 복제하지 않을 애플리케이션 관리를 중지합니다.
@@ -40,6 +41,7 @@ Astra Control Center가 앱 관리를 중지합니다.
 
 
 
+[[unmanage-a-cluster]]
 == 클러스터 관리를 취소합니다
 
 Astra Control Center에서 더 이상 관리하지 않으려는 클러스터 관리를 중지합니다.

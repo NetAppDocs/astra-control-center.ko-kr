@@ -49,20 +49,20 @@ indexpage:
   - title: 솔루션 개요
     links:
     - title: Astra Control을 사용한 PostgreSQL DBaaS
-      url: https://cloud.netapp.com/hubfs/SB-4122-0221-PostgresSQL-DBaaS-with-Astra%20(2).pdf
+      url: https://www.netapp.com/pdf.html?item=/media/86656-sb-4122-postgres-sql-dbaa-s-with-astra.pdf
     - title: Astra Control이 포함된 MySQL DBaaS
-      url: https://cloud.netapp.com/hubfs/SB-4110-0221-MySQL-Astra%20(2).pdf
+      url: https://www.netapp.com/pdf.html?item=/media/86420-sb-4110-my-sql-astra.pdf
     - title: Jenkins 라이프사이클 관리 단순화
-      url: https://cloud.netapp.com/hubfs/SB-4100-Jenkins%20(2).pdf
+      url: https://www.netapp.com/pdf.html?item=/media/86393-sb-4124-simplify-jenkins.pdf
   - title: 블로그 커뮤니티
     links:
     - title: 불화 채널
       url: https://discord.gg/NetApp
     - title: Astra Control 블로그
-      url: https://cloud.netapp.com/blog/topic/astra
+      url: https://www.netapp.com/blog/astra-control-selective-restore/
     - title: NetApp 커뮤니티
       url: https://community.netapp.com/
     - title: 쿠버네티스 허브
-      url: https://cloud.netapp.com/kubernetes-hub
+      url: https://www.netapp.com/kubernetes/
     - title: 도움을 받을 수 있는 곳
       url: "/support/get-help.html"

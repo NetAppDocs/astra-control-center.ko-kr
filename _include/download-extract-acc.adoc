@@ -4,6 +4,7 @@
 
 
 
+[[download-and-extract-astra-control-center]]
 == Astra Control Center를 다운로드하고 압축을 풉니다
 
 다음 위치 중 하나에서 Astra Control Center 이미지를 다운로드하십시오.
